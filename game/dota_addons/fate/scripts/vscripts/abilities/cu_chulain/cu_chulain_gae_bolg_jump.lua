@@ -178,6 +178,7 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 			ParticleManager:ReleaseParticleIndex( explodeFx1 )
 			ParticleManager:ReleaseParticleIndex( fire )
 			ParticleManager:ReleaseParticleIndex( crack )
+			projectile:RemoveSelf()
 		end)
 	end)
 

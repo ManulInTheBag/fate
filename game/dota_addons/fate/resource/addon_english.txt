@@ -3484,9 +3484,10 @@
 		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_damage_per_int"			"Damage per int:"
 
 		"DOTA_Tooltip_Ability_emiya_double_slash"				"Double slash"
-		"DOTA_Tooltip_Ability_emiya_double_slash_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he start slashing enemies <font color='#FFFAFA'>in front of him</font> <font color='#FFFAFA'>4</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
+		"DOTA_Tooltip_Ability_emiya_double_slash_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nEmiya <font color='#FFFAFA'>blinks</font> in target direction.\nAfter dash, he start slashing enemies <font color='#FFFAFA'>in front of him</font> <font color='#FFFAFA'>4</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
 		"DOTA_Tooltip_Ability_emiya_double_slash_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_double_slash_damage"			"Damage per slash:"
+		"DOTA_Tooltip_Ability_emiya_double_slash_max_range"			"Max blink range:"
  
 
 		"DOTA_Tooltip_Ability_emiya_crane_wings"				"Crane Wings"
@@ -3516,7 +3517,7 @@
 		"DOTA_Tooltip_Ability_emiya_weapon_swap_ubw_range"				"UBW attack range:"
 
 		"DOTA_Tooltip_Ability_emiya_arrows"				"Archery"
-		"DOTA_Tooltip_Ability_emiya_arrows_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya <font color='#FFFAFA'>shoots</font> an arrow in target direction.\nIf arrow hits an enemy, this ability <font color='#FFFAFA'>cooldown</font> will be reduced to 1 second and half of its <font color='#58ACFA'>mana cost</font> will be refunded.\n<font color='#F1C40F'>Upgradable by attribute Eagle Eyes.</font>"
+		"DOTA_Tooltip_Ability_emiya_arrows_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya jumps back %jump_range% units and <font color='#FFFAFA'>shoots</font> an arrow in target direction.\nIf arrow hits an enemy, this ability <font color='#FFFAFA'>cooldown</font> will be halved second and half of its <font color='#58ACFA'>mana cost</font> will be refunded.\n<font color='#F1C40F'>Upgradable by attribute Eagle Eyes.</font>"
 		"DOTA_Tooltip_Ability_emiya_arrows_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_arrows_damage"			"Damage:"
 		"DOTA_Tooltip_Ability_emiya_arrows_damage_per_int"			"Damage per int:"
@@ -3525,7 +3526,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_change"				"Change of plan"
-		"DOTA_Tooltip_Ability_emiya_change_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nEmiya quickly <font color='#FFFAFA'>jumps back</font>, shooting a lot of arrows into the sky.\nArrows start raining into the target point, dealing <font color='#58ACFA'>damage</font> and <font color='#9400D3'>slowing</font> enemies hit.\nIf set on autocast, after finishing his jump, Emiya <font color='#FFFAFA'>swaps</font> his abilities to <font color='#FFFAFA'>blades</font> stance."
+		"DOTA_Tooltip_Ability_emiya_change_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nEmiya, shoots a lot of arrows into the sky.\nArrows start raining into the target point, dealing <font color='#58ACFA'>damage</font> and <font color='#9400D3'>slowing</font> enemies hit.\nIf set on autocast, after finishing his jump, Emiya <font color='#FFFAFA'>swaps</font> his abilities to <font color='#FFFAFA'>blades</font> stance."
 		"DOTA_Tooltip_Ability_emiya_change_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_change_damage"			"Damage per second:"
 		"DOTA_Tooltip_Ability_emiya_change_distance"		"Max arrows range:"
@@ -3644,7 +3645,7 @@
 		//"DOTA_Tooltip_ability_emiya_attribute_overedge_Note1"			"The blades can be disjointed."
 
 		"DOTA_Tooltip_Ability_emiya_attribute_projection"				"Attribute: Improve Projection"
-		"DOTA_Tooltip_ability_emiya_attribute_projection_Description"	"Upgrades <font color='#58ACFA'>Unlimited blade works</font> .\n<font color='#58ACFA'>Unlimited Blade Works:</font> Swords passively fly and attacks enemies, dealing  <font color='#A72E28'>55 damage</font> each.\n<font color='#58ACFA'>Sword Barrage - Retreat:</font> <font color='#9400D3'>roots</font> target hit for 1.5 seconds and gains bonus damage equal to 100%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Projection: Big swords:</font> Apply a <font color='#9400D3'>dimensional lock</font> for 2 seconds on hit.\n<font color='#58ACFA'>Gae Bolg:</font> Damage increased by 500%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Sword Barrage - Bombard: </font>Mana cost decreased to 100, cooldown reduced to 3 seconds.\n<font color='#58ACFA'>Nine Lives:</font> Now <font color='#FF3399'>stuns</font> on each hit, <font color='#58ACFA'>damage</font> on every hit increased by 50%% of Emiya's <font color='#FF0000'>strength</font> and last hit damage is increased by 150%% of Emiya's <font color='#FF0000'>strength</font>."	
+		"DOTA_Tooltip_ability_emiya_attribute_projection_Description"	"Upgrades <font color='#58ACFA'>Unlimited blade works</font> .\n<font color='#58ACFA'>Unlimited Blade Works:</font> Swords passively fly and attacks enemies, dealing  <font color='#58ACFA'>30 + 0.3 INT damage</font> each.\n<font color='#58ACFA'>Sword Barrage - Retreat:</font> <font color='#9400D3'>roots</font> target hit for 1.5 seconds and gains bonus damage equal to 100%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Projection: Big swords:</font> Apply a <font color='#9400D3'>dimensional lock</font> for 2 seconds on hit.\n<font color='#58ACFA'>Gae Bolg:</font> Damage increased by 500%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Sword Barrage - Bombard: </font>Mana cost decreased to 100, cooldown reduced to 3 seconds.\n<font color='#58ACFA'>Nine Lives:</font> Now <font color='#FF3399'>stuns</font> on each hit, <font color='#58ACFA'>damage</font> on every hit increased by 50%% of Emiya's <font color='#FF0000'>strength</font> and last hit damage is increased by 150%% of Emiya's <font color='#FF0000'>strength</font>."	
 		"DOTA_Tooltip_Ability_emiya_attribute_projection_Lore"			"Emiya's projection copies not only the object, but its experience and history as well."
 		//"DOTA_Tooltip_Ability_emiya_attribute_projection_sword_base_damage"	"SWORD BASE DAMAGE:"
 		//"DOTA_Tooltip_Ability_emiya_attribute_projection_sword_int_ratio"	"SWORD INT RATIO:"
@@ -3707,7 +3708,7 @@
 		//"DOTA_Tooltip_ability_heracles_courage_Note0"				"Courage buff cannot be dispelled."
 
 		"DOTA_Tooltip_Ability_heracles_berserk"					"Berserk"
-		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage, gaining 40%% damage reduction. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities. \n While berserk is active Heracles gain bonus damage, attack and movement speed depending on how low his health percentage was on cast. The following bonuses are capped at 20%.\nWhen casted, Heracles deals 100 + 15% of his maximum health as <font color='#58ACFA'>magical</font> damage in 300 radius around him.\nCan be casted while stunned and silenced.\nHard cleanes heracles upon finishing cast."
+		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage, gaining 20%% damage reduction. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities. \n While berserk is active Heracles gain bonus damage, attack and movement speed depending on how low his health percentage was on cast. The following bonuses are capped at 20%.\nWhen casted, Heracles deals 100 + 15% of his maximum health as <font color='#58ACFA'>magical</font> damage in 300 radius around him.\nCan be casted while stunned and silenced.\nHard cleanes heracles upon finishing cast."
 		"DOTA_Tooltip_ability_heracles_berserk_Lore"				"Pain is trivial matter to the raging juggernaut in the heat of battle."
 		"DOTA_Tooltip_ability_heracles_berserk_bns_att_spd"			"Bonus Attack Speed: "
 		"DOTA_Tooltip_ability_heracles_berserk_health_constant"		"%MINIMUM HEALTH LOCK:"
@@ -5157,7 +5158,7 @@
         "DOTA_Tooltip_ability_gilles_torment_Lore"  				"To run from the outer gods is to fall pray to its insanity."
 
         "DOTA_Tooltip_Ability_gilles_smother"     					"Smother"
-        "DOTA_Tooltip_ability_gilles_smother_Description" 			"Curse all enemies within %radius% area of target location for %duration% seconds. Enemies cursed this way takes damage over time. If an enemy cursed this way cast a spell, the curse would explode, stunning the target for %stun_duration% seconds and dealing damage to all of its nearby allies, based on caster's <font color='#1E90FF'>intellect</font>."
+        "DOTA_Tooltip_ability_gilles_smother_Description" 			"Curse all enemies within %radius% area of target location for %duration% seconds. Enemies cursed this way takes damage over time. If an enemy cursed this way cast a spell, the curse would explode, stunning the target for %stun_duration% seconds, applying <font color='#7F00FF'>healing reduction tier 3</font> for %healres_duration% and  dealing damage to all of its nearby allies, based on caster's <font color='#1E90FF'>intellect</font>."
         "DOTA_Tooltip_ability_gilles_smother_damage"  				"Damage:"
         "DOTA_Tooltip_ability_gilles_smother_int_damage"				"INT to damage:"
         "DOTA_Tooltip_ability_gilles_smother_explosion_damage"  	"Damage on Abilty Use:"
@@ -6835,7 +6836,7 @@
 		"DOTA_Tooltip_Ability_altera_whip_Description"       "Altera utilizes whip-like properties of Photon Ray to perform a swing with %range% range in front of her. This ability can be used up to 2 times in a row before going on cooldown.\n<font color='#FF0000'>Strength</font> stance: deals %str_damage% damage and <font color='#FFFAFA'>heals</font> Altera for %str_heal% per each enemy hero hit.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage% damage and <font color='#FF3399'>silences</font> enemies for %agi_silence_duration% seconds.\n<font color='#1E90FF'>Intellect</font> stance: deals %int_damage% damage and <font color='#9400D3'>locks</font> enemies hit for %int_lock_duration% seconds.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: reduces cooldown to %attribute_cooldown% seconds.\nUpgrades with <font color='#58ACFA'>Energy Discharge</font> attribute: gains %stat_per_stack% main attribute per enemy hero hit for %attribute_stat_duration% and <font color='#9400D3'>slows</font> targets by %attribute_slow%%  for %attribute_slow_duration% seconds."
 
 		"DOTA_Tooltip_Ability_altera_dash"       "Photon Rush"
-		"DOTA_Tooltip_Ability_altera_dash_Description"       "Altera prepares for %channel_time% seconds and dashes forward for %distance% range, dealing %damage% magical damage to all enemies on her way.\n<font color='#FF0000'>Strength</font> stance: launches enemies in the air for %str_airborne_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: dashes instantly.\n<font color='#1E90FF'>Intellect</font> stance: gains %int_bonus_distance% bonus range.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: deals bonus %atr_damage_mult% damage per current stance primary attribute point and prolongs dash for additional %distance% units per enemy hero hit."
+		"DOTA_Tooltip_Ability_altera_dash_Description"       "Altera prepares for %channel_time% seconds and dashes forward for %distance% range, dealing %damage% magical damage to all enemies on her way.\n<font color='#FF0000'>Strength</font> stance: launches enemies in the air for %str_airborne_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: dashes instantly.\n<font color='#1E90FF'>Intellect</font> stance: gains %int_bonus_distance% bonus range.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: deals bonus %atr_damage_mult% damage per current stance primary attribute point."
 
 		"DOTA_Tooltip_Ability_altera_rift"       "Local Space Distortion"
 		"DOTA_Tooltip_Ability_altera_rift_Description"       "Altera slams her sword on the ground in front of her and creates a local space-time curvature, pulling enemies in %damage_radius% range, dealing %damage% magical damage and leaving a %radius% radius area for %duration% seconds, which deals %damage_per_second% damage per second and provides one of the following stance effects.\n<font color='#FF0000'>Strength</font> stance: initial pull impact also stuns for the duration of the pull. Enemies are slowed by %str_slow%% . Altera gains %str_magres_bonus%%  magical resistance, %str_armor_bonus% armor and %str_regen_bonus% health regen in the area.\n<font color='#00FF00'>Agility</font> stance: in this area Altera gains phased effect (can walk through other units), constant %agi_ms% movement speed, %agi_as_bonus% additional attack speed and deals %agi_onhit_damage% additional magical damage with her attacks.\n<font color='#1E90FF'>Intellect</font> stance: in this area Altera and her teammates gain %int_ms_bonus%%  additional movement speed and %int_magres_bonus%%  additional magical resistance.\nUpgrades with <font color='#58ACFA'>Dimensional Refraction Variant</font> attribute: deals bonus %atr_damage_mult% damage per each attribute point. Whenever the field collapses, whether it was caused by casting new instance of this ability or by duration expire, it will also pull enemies and deal half of the initial damage."
@@ -6874,7 +6875,7 @@
 		"DOTA_Tooltip_Ability_altera_teardrop_release_Description"       "Do it."
 
 		"DOTA_Tooltip_Ability_altera_crest_attribute"       "Attribute - Crest of the Star"
-		"DOTA_Tooltip_Ability_altera_crest_attribute_Description"       "Reduces <font color='#58ACFA'>Energy Whip</font> cooldown.\n<font color='#58ACFA'>Photon Rush</font> gains additional damage and can be prolonged by damaging enemy heroes."
+		"DOTA_Tooltip_Ability_altera_crest_attribute_Description"       "Reduces <font color='#58ACFA'>Energy Whip</font> cooldown to 0.3 second.\n<font color='#58ACFA'>Photon Rush</font> gains additional damage."
 
 		"DOTA_Tooltip_Ability_altera_refraction_attribute"       "Attribute - Dimensional Refraction Variant"
 		"DOTA_Tooltip_Ability_altera_refraction_attribute_Description"       "<font color='#58ACFA'>Local Space Distortion</font> deals additional damage based on total attribute amount. Whenever it ends, replays the initial effect of <font color='#58ACFA'>Local Space Distortion</font>."
@@ -9984,7 +9985,7 @@
         "DOTA_Tooltip_ability_hijikata_duel_Lore"										"Hijikata's madness drives him to break Shinsengumi codex if it is required, which often only increases his chances on winning the duel."
 
         "DOTA_Tooltip_ability_hijikata_madness"							"Madness"
-        "DOTA_Tooltip_ability_hijikata_madness_Description"			"Cast delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Hijikata goes insane for a short moment, gaining <font color='#ff9900'>immune to crowd control effects</font> buff for a short time.\nIf Hijikata's health percentage is less then <font color='#FFFAFA'>25%%</font>, this ability becomes <font color='#FFFAFA'>instant cast</font> and stun-castable."
+        "DOTA_Tooltip_ability_hijikata_madness_Description"			"Cast delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Hijikata goes insane for a short moment, gaining <font color='#ff9900'>immune to crowd control effects</font> buff for a short time.\nIf Hijikata's health percentage is less then <font color='#FFFAFA'>25%%</font>, this ability becomes <font color='#FFFAFA'>instant cast</font> and stun-castable.\nPassive: Swiftness<br/>Hijikata's movespeed limit is increased to %max_ms%.\nWhen moving, Hijikata gains swiftness stacks for each %distance_for_stack% distance, which increase movement speed by %ms_per_stack% per stack.\nWhen attacking, Hijikata will lose all stacks and deal additional <font color='#58ACFA'>magical</font> damage to target based on his attack damage, for up to %max_attack_damage%%%."
         "DOTA_Tooltip_ability_hijikata_madness_duration"								"Duration:"
         "DOTA_Tooltip_ability_hijikata_madness_Lore"							"Hijikata is driven by intense self-confidence that spurs his insanity. He believes that as long as he remains, the Shinsengumi shall never die."
 
@@ -10137,6 +10138,9 @@
 
 		"DOTA_Tooltip_modifier_hijikata_bc_cooldown"                                                    "Fierce journey cooldown"
 		"DOTA_Tooltip_modifier_hijikata_bc_cooldown_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_hijikata_swift"						"Swiftness"
+		"DOTA_Tooltip_modifier_hijikata_swift_Description"			"Ms increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%"
 
 			//=================================================================================================================
 		//	Lancer (Grand Order, Extella Link)

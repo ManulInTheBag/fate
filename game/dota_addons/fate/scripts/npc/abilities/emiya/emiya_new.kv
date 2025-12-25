@@ -256,7 +256,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES|DOTA_ABILITY_BEHAVIOR_AOE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -272,7 +272,8 @@
 		
 		"AbilityValues"
         {
-            "damage" "150 175 200 225 250"
+            "damage" "100 125 150 175 200"
+            "max_range" "450"
         }
 	}
 
@@ -298,7 +299,7 @@
 		
 
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"350"
 		
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"400"
@@ -367,19 +368,20 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/emiya_q_bow"
-		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
-		"AnimationPlaybackRate" 		"4"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ICE_WALL"
+		"AnimationPlaybackRate" 		"1"
 		"AbilityCastRange"				"99999"
-		"AbilityCooldown"				"4"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"100"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.2"
 		
 		"AbilityValues"
         {
             "damage" "200 250 300 350 400"
-            "range" "1200"
+            "range" "1500"
             "speed" "3000"
             "damage_per_int" "0.8 1 1.2 1.4 1.6"
+            "jump_range" "500"
         }
 	}
 

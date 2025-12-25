@@ -2,11 +2,11 @@ emiya_crane_wings  = emiya_crane_wings or class({})
 LinkLuaModifier("emiya_overedge_modifier", "abilities/emiya/emiya_crane_wings", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_emiya_dash_crane", "abilities/emiya/emiya_crane_wings", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_emiya_self_control","abilities/emiya/emiya_double_slash", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_emiya_self_control_crane","abilities/emiya/emiya_crane_wings", LUA_MODIFIER_MOTION_NONE)
 
 function emiya_crane_wings:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_CAST_LIFE_BREAK_START, rate=1})
+	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_LIFE_BREAK_START, rate=1.15})
 end
 
 function emiya_crane_wings:OnAbilityPhaseInterrupted()
@@ -45,7 +45,7 @@ function emiya_crane_wings:OnSpellStart()
 	self.htarget = self:GetCursorTarget() 
     
     local distance = (caster:GetAbsOrigin() - self.htarget:GetAbsOrigin()):Length2D()
-    if(distance > 400 ) then
+    if(distance > 500 ) then
          self:RefundManaCost()
          self:EndCooldown()
          return
@@ -64,7 +64,7 @@ function emiya_crane_wings:OnSpellStart()
         end
 	end})
     Timers:CreateTimer("emiya_crane_wings_sword_reappear_overedge", {
-		endTime = 0.4,
+		endTime = 0.3,
 		callback = function()
         if caster.IsOveredgeAcquired then    
             caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 10})  
@@ -72,14 +72,17 @@ function emiya_crane_wings:OnSpellStart()
             caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 1}) 
         end
 	end})
-
+    local shouldEndDash = false
     local enemypos = self.htarget:GetAbsOrigin()
     enemypos = enemypos + caster:GetForwardVector()*100
-    local push_distance = self:GetSpecialValueFor("distance") - distance
+    local push_distance = self:GetSpecialValueFor("distance") - math.min(250, distance)
     local pull_center = caster:GetForwardVector() * push_distance + self.htarget:GetAbsOrigin()
     local kb_ability = caster:FindAbilityByName("emiya_kanshou_byakuya")
     local vLeft = -caster:GetRightVector()
     local damage = self:GetSpecialValueFor("damage")
+    if (enemypos - caster:GetAbsOrigin()):Length2D() > 300 then
+        FindClearSpaceForUnit(caster, enemypos + (enemypos - caster:GetAbsOrigin()):Normalized() * -250 , false)
+    end
     giveUnitDataDrivenModifier(caster,  self.htarget, "stunned", self:GetSpecialValueFor("stun_duration"))
     if not IsKnockbackImmune(self.htarget) then
         self.htarget:EmitSound("muramasa_throw_impact")
@@ -108,6 +111,9 @@ function emiya_crane_wings:OnSpellStart()
             unit:PreventDI(false)
             unit:SetPhysicsVelocity(Vector(0,0,0))
             giveUnitDataDrivenModifier(caster,  self.htarget, "stunned", self:GetSpecialValueFor("stun_duration"))
+            caster:RemoveModifierByName("modifier_emiya_dash_crane")
+            shouldEndDash = true
+            FindClearSpaceForUnit(caster, unit:GetAbsOrigin() + (unit:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized() * -200, true)
             self.htarget:EmitSound("Hero_EarthShaker.Fissure")
         end)
     end
@@ -142,7 +148,7 @@ function emiya_crane_wings:OnSpellStart()
             kb_ability:ThrowDagger(caster,self,1,400,enemypos.x,enemypos.y,enemypos.z,caster:GetAbsOrigin() +vLeft*-120 ,0.6)
         end
     end)
-    Timers:CreateTimer(0.4, function() 
+    Timers:CreateTimer(0.3, function() 
         if caster:HasModifier("modifier_hero_selection_skin") then
             caster:EmitSound("emiya_skin_e_melee")
         else
@@ -151,23 +157,32 @@ function emiya_crane_wings:OnSpellStart()
             caster:EmitSound("Emiya_Crane" .. soundQueue)
         end
 
-        caster:SetAbsOrigin(caster:GetAbsOrigin() + caster:GetForwardVector()*70)
-        caster:AddNewModifier(caster, self, "modifier_emiya_dash_crane", {duration = 0.3})
-        
-        if caster.IsOveredgeAcquired then    
-            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_RAZE_3, rate= 1.5})
+        --caster:SetAbsOrigin(caster:GetAbsOrigin() + caster:GetForwardVector()*70)
+        if not shouldEndDash then
+                caster:AddNewModifier(caster, self, "modifier_emiya_dash_crane", {duration = 0.3})
+            
+            
+            if caster.IsOveredgeAcquired then    
+                StartAnimation(caster, {duration= 0.2 , activity=ACT_DOTA_RAZE_3, rate= 1.5})
+            else
+                StartAnimation(caster, {duration= 0.2 , activity=ACT_DOTA_LIFESTEALER_RAGE, rate= 1.5})
+            end
+            Timers:CreateTimer(0.25, function() 
+                EndAnimation(caster)
+                StartAnimation(caster, {duration= 0.6 , activity=ACT_DOTA_RAZE_2, rate= 1})
+                caster:AddNewModifier(caster, self, "modifier_emiya_self_control_crane", {duration = 0.6, damage = damage, radius = 450,interval = 0.03})
+            
+            end)
+            
         else
-            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_LIFESTEALER_RAGE, rate= 1.5})
+               EndAnimation(caster)
+                StartAnimation(caster, {duration= 0.6 , activity=ACT_DOTA_RAZE_2, rate= 1})
+                caster:AddNewModifier(caster, self, "modifier_emiya_self_control_crane", {duration = 0.6, damage = damage, radius = 450,interval = 0.03})
         end
-    
+
     end)
    
-    Timers:CreateTimer(0.7, function() 
-    
-        StartAnimation(caster, {duration= 0.6 , activity=ACT_DOTA_RAZE_2, rate= 1.8})
-        caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.6, damage = damage, radius = 450,interval = 0.03})
-    
-    end)
+
     
 
 end
@@ -301,3 +316,88 @@ function modifier_emiya_dash_crane:OnDestroy()
 end
 
  
+
+modifier_emiya_self_control_crane = modifier_emiya_self_control_crane or class({})
+
+function modifier_emiya_self_control_crane:IsHidden() return true end
+function modifier_emiya_self_control_crane:IsDebuff() return false end
+function modifier_emiya_self_control_crane:IsPurgable() return false end
+function modifier_emiya_self_control_crane:RemoveOnDeath() return true end
+
+function modifier_emiya_self_control_crane:CheckState()
+    local state =   { 
+		[MODIFIER_STATE_SILENCED] = true,
+		--[MODIFIER_STATE_ROOTED] = true,
+		--[MODIFIER_STATE_MUTED] = true,
+		[MODIFIER_STATE_DISARMED] = true,
+                    }
+    return state
+end
+ 
+function modifier_emiya_self_control_crane:DeclareFunctions()
+    local hFunc =   {
+                        MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
+                        MODIFIER_EVENT_ON_ATTACK_LANDED,
+						MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE 
+						   
+                    }
+    return hFunc
+end
+function modifier_emiya_self_control_crane:GetModifierMoveSpeed_Absolute() return 300 end
+
+function modifier_emiya_self_control_crane:OnCreated(table)
+    self.caster = self:GetCaster()
+    self.ability = self:GetAbility()
+    self.counter = 0
+    self.radius = table.radius
+    self.slash_damage = table.damage
+    self.interval = table.interval
+    if( self.interval == nil ) then
+        self.interval = 0.03
+    end
+    print(self.interval)
+    self:StartIntervalThink(self.interval)
+end
+
+function modifier_emiya_self_control_crane:OnRefresh()
+    return
+end
+
+function modifier_emiya_self_control_crane:OnIntervalThink() --- this is insanily stupid but i somehow wrote it not going insane and it works ok for me  
+    self.counter = self.counter + 1
+    if(self.counter == 8) then
+        self:PerformSlash()
+    end
+    if(self.counter == 9) then
+        self:PerformSlash()
+    end
+
+    if(self.counter == 16) then
+        self:PerformSlash()
+        self:PerformSlash()
+    end
+end
+
+function modifier_emiya_self_control_crane:PerformSlash()
+if not IsServer() then return end    
+local enemies = FindUnitsInRadius(  self.caster:GetTeamNumber(),
+                        self.caster:GetAbsOrigin() + self.caster:GetForwardVector() * -50,
+                        nil,
+                        self.radius + 50,
+                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                        DOTA_UNIT_TARGET_ALL,
+                        DOTA_UNIT_TARGET_FLAG_NONE,
+                        FIND_ANY_ORDER,
+                        false)
+    
+     for _,enemy in pairs(enemies) do
+       local origin_diff = enemy:GetAbsOrigin() - (self.caster:GetAbsOrigin()+ self.caster:GetForwardVector() * -50)
+       local origin_diff_norm = origin_diff:Normalized()
+         if self.caster:GetForwardVector():Dot(origin_diff_norm) > -0.6 then
+         DoDamage(self.caster, enemy, self.slash_damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+         enemy:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
+       end
+     end
+
+
+end

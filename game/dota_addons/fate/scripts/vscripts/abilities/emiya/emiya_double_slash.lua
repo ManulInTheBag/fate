@@ -11,6 +11,34 @@ function emiya_double_slash:OnUpgrade()
     end
 
 end
+function emiya_double_slash:GetAOERadius()
+	return self:GetSpecialValueFor("max_range")
+end
+
+function emiya_double_slash:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not (IsServer() and IsLocked(hCaster)) and not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function emiya_double_slash:GetCustomCastErrorLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if IsServer() and IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) then
+            return "#Is_Locked"
+        end
+    end
+    return "#Wrong_Target_Location"
+end
+
  
 
 function emiya_double_slash:OnSpellStart()
@@ -18,29 +46,39 @@ function emiya_double_slash:OnSpellStart()
     local vPoint = self:GetCursorPosition()
 	local vCasterPos = caster:GetAbsOrigin()
 	local vCastDirection =    (vPoint -vCasterPos):Normalized()
-    caster:SetForwardVector(vCastDirection)
+        vCastDirection.z = 0
+    if (vPoint - caster:GetAbsOrigin()):Length2D() < 30 then
+         vPoint = caster:GetAbsOrigin() + vCastDirection * 30
+    else
+           caster:SetForwardVector(vCastDirection)
+    end
+
+    local vDistance = (vPoint -vCasterPos):Length2D()
+    if vDistance > 450 then
+        vDistance = 450
+    end
+
     if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_w_melee")
     end
-    Timers:CreateTimer(FrameTime(), function() 
-        caster:SetForwardVector(vCastDirection)
-    end)
-	caster:AddNewModifier(caster, self, "modifier_emiya_dash", {duration = 0.33})
+
+    FindClearSpaceForUnit(caster, vCasterPos + vCastDirection * vDistance, true)
+	--caster:AddNewModifier(caster, self, "modifier_emiya_dash", {duration = 0.33})
     local radius = 300
     if(caster:HasModifier("emiya_overedge_modifier")) then
         radius = 450
     end
     local damage = self:GetSpecialValueFor("damage")
 	--StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate= 1})
-    caster:StartGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
+    --caster:StartGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
     if(caster:HasModifier("emiya_overedge_modifier")) then
-        StartAnimation(caster, {duration=0.74, activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1.4})
+        StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1.4})
     else
-        StartAnimation(caster, {duration=0.74, activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1.4})
+        StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1.4})
     end
-	Timers:CreateTimer(0.25, function()     
+	Timers:CreateTimer(0.1, function()     
 
-	    caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.45, damage = damage, radius = radius, interval = 0.03})
+	    caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.3, damage = damage, radius = radius, interval = 0.03})
 		--caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 8})
         
 	end)
@@ -98,14 +136,14 @@ end
 
 function modifier_emiya_self_control:OnIntervalThink() --- this is insanily stupid but i somehow wrote it not going insane and it works ok for me  
     self.counter = self.counter + 1
-    if(self.counter == 5) then
+    if(self.counter == 1) then
         self:PerformSlash()
     end
-    if(self.counter == 6) then
+    if(self.counter == 2) then
         self:PerformSlash()
     end
 
-    if(self.counter == 10) then
+    if(self.counter == 7) then
         self:PerformSlash()
         self:PerformSlash()
     end
@@ -114,9 +152,9 @@ end
 function modifier_emiya_self_control:PerformSlash()
 if not IsServer() then return end    
 local enemies = FindUnitsInRadius(  self.caster:GetTeamNumber(),
-                        self.caster:GetAbsOrigin(),
+                        self.caster:GetAbsOrigin() + self.caster:GetForwardVector() * -50,
                         nil,
-                        self.radius,
+                        self.radius + 50,
                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                         DOTA_UNIT_TARGET_ALL,
                         DOTA_UNIT_TARGET_FLAG_NONE,
@@ -124,9 +162,9 @@ local enemies = FindUnitsInRadius(  self.caster:GetTeamNumber(),
                         false)
     
      for _,enemy in pairs(enemies) do
-       local origin_diff = enemy:GetAbsOrigin() - self.caster:GetAbsOrigin()
+       local origin_diff = enemy:GetAbsOrigin() - (self.caster:GetAbsOrigin()+ self.caster:GetForwardVector() * -50)
        local origin_diff_norm = origin_diff:Normalized()
-         if self.caster:GetForwardVector():Dot(origin_diff_norm) > -0.35 then
+         if self.caster:GetForwardVector():Dot(origin_diff_norm) > -0.6 then
          DoDamage(self.caster, enemy, self.slash_damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
          enemy:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
        end

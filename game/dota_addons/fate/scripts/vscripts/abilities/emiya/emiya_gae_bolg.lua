@@ -14,7 +14,7 @@ end
 function emiya_gae_bolg:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
 	ParticleManager:DestroyParticle( self.GBCastFx, false )
-
+	EndAnimation(caster)
 	return true
 end
 
@@ -26,6 +26,7 @@ function emiya_gae_bolg:OnAbilityPhaseStart()
 	Timers:CreateTimer( 3.0, function()
 		ParticleManager:DestroyParticle( self.GBCastFx, false )
 	end)
+	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ALACRITY, rate=1})
 	
 	if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_ubw_e")
@@ -55,8 +56,8 @@ function emiya_gae_bolg:OnSpellStart()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
-	EndAnimation(caster)
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_DEAFENING_BLAST, rate=1})
+	--EndAnimation(caster)
+	--StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ALACRITY, rate=1})
 	--EmitGlobalSound("archer_attack_03")
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.8)
 	Timers:CreateTimer(0.8, function()
@@ -76,7 +77,7 @@ function emiya_gae_bolg:OnSpellStart()
 		projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		projectile:SetAbsOrigin(projectileOrigin)
 
-		local particle_name = "particles/custom/lancer/lancer_gae_bolg_projectile.vpcf"
+		local particle_name = "particles/cu_chulain/gae_bolg_proj.vpcf"
 		local throw_particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, projectile)
 		ParticleManager:SetParticleControl(throw_particle, 1, (targetPoint - projectileOrigin):Normalized() * projectileSpeed)
 
@@ -157,6 +158,7 @@ function emiya_gae_bolg:OnGaeBolgHit(position, projectile)
 			ParticleManager:DestroyParticle( crack, false )
 			ParticleManager:DestroyParticle( fire, false )
 			ParticleManager:DestroyParticle( explodeFx1, false )
+			projectile:RemoveSelf()
 		end)
 	end)
 end

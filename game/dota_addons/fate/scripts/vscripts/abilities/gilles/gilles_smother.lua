@@ -3,7 +3,7 @@ modifier_gilles_smother = class({})
 
 LinkLuaModifier("modifier_gilles_smother", "abilities/gilles/gilles_smother", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_gilles_fear", "abilities/gilles/modifiers/modifier_gilles_fear", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_3", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 function gilles_smother:GetManaCost(iLevel)
 	return (self:GetCaster():GetMaxMana() * self:GetSpecialValueFor("mana_cost") / 100)
 end
@@ -105,7 +105,7 @@ if IsServer() then
 		end
 
 		self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", { Duration = hAbility:GetSpecialValueFor("stun_duration") })
-
+		self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_heal_reduction_tier_3", {duration = hAbility:GetSpecialValueFor("healres_duration")})
 		local particle = ParticleManager:CreateParticle("particles/custom/gilles/smother_explode.vpcf", PATTACH_ABSORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin()) 
 		ParticleManager:SetParticleControl(particle, 1, self:GetParent():GetAbsOrigin()) 

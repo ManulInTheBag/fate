@@ -29,11 +29,11 @@ function emiya_arrows:OnSpellStart()
 	local tProjectile = {
 		EffectName = "particles/emiya/emiya_q_arrow.vpcf",
 		Ability = self,
-		vSpawnOrigin = caster:GetAbsOrigin(),
+		vSpawnOrigin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1")) + caster:GetForwardVector()*25 ,
 		vVelocity = target * 3000 ,
 		fDistance = range,
-		fStartRadius = 100,
-		fEndRadius = 100,
+		fStartRadius = 150,
+		fEndRadius = 150,
 		Source = caster,
 		bHasFrontalCone = false,
 		bReplaceExisting = false,
@@ -48,6 +48,18 @@ function emiya_arrows:OnSpellStart()
 		ExtraData = {fDamage = self:GetSpecialValueFor("damage") + caster:GetIntellect()*self:GetSpecialValueFor("damage_per_int")}
 	}  
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
+
+	pull_center = caster:GetForwardVector() * -500 +caster:GetAbsOrigin()
+	local endPos = caster:GetForwardVector()*700 +caster:GetAbsOrigin()
+	    self.knockback = { should_stun = false,
+                                    knockback_duration = 0.2,
+                                    duration = 0.2,
+                                    knockback_distance = -500,
+                                    knockback_height =  0,
+                                    center_x = pull_center.x,
+                                    center_y = pull_center.y,
+                                    center_z = pull_center.z }
+    caster:AddNewModifier( caster, self, "modifier_knockback", self.knockback) 
 end
 
 
@@ -58,7 +70,7 @@ function emiya_arrows:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	 DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	 if(self:GetCooldownTimeRemaining() > 1) then
 		self:EndCooldown()	
-		self:StartCooldown(1)  
+		self:StartCooldown((self:GetCooldown(-1)* hCaster:GetCooldownReduction())/2)
 
 	 end
 	 hCaster:GiveMana(50)

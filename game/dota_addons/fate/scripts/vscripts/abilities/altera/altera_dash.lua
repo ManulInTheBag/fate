@@ -189,9 +189,9 @@ function modifier_altera_dash:PlayEffects()
 				if self.form == "str" then
 					ApplyAirborne(self.parent, enemy, self.ability:GetSpecialValueFor("str_airborne_duration"))
 				end
-                if self.parent.CrestAcquired and enemy:IsConsideredHero() then
-                    self.distance = self.distance + self.ability:GetSpecialValueFor("distance")
-                end
+                -- if self.parent.CrestAcquired and enemy:IsConsideredHero() then
+                --     self.distance = self.distance + self.ability:GetSpecialValueFor("distance")
+                -- end
 			end
         end
     end
