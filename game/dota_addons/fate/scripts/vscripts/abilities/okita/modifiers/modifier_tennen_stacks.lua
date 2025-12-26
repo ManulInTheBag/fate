@@ -40,15 +40,29 @@ function modifier_tennen_stacks:OnAttackLanded(args)
 	self.max_stacks = self:GetAbility():GetSpecialValueFor("max_stacks") + (self:GetParent().IsTennenAcquired and 5 or 0)
 	if self:GetStackCount() and self:GetStackCount() < self.max_stacks then
 		self:SetStackCount(self:GetStackCount() + 1)
-		Timers:CreateTimer(10, function()
-			self:SetStackCount(self:GetStackCount()-1)
-		end)
+		Timers:RemoveTimer("okita_stacks_jopa")
+		Timers:CreateTimer("okita_stacks_jopa", {
+				endTime = 10,
+				callback = function()
+					self:SetStackCount(0)
+				return end
+		})
+		-- Timers:CreateTimer(10, function()
+		-- 	self:SetStackCount(self:GetStackCount()-1)
+		-- end)
 	else
 		if not self:GetStackCount() then
 			self:SetStackCount(1)
-			Timers:CreateTimer(10, function()
-				self:SetStackCount(self:GetStackCount()-1)
-			end)
+			Timers:RemoveTimer("okita_stacks_jopa")
+			Timers:CreateTimer("okita_stacks_jopa", {
+				endTime = 10,
+				callback = function()
+					self:SetStackCount(0)
+				return end
+			})
+			-- Timers:CreateTimer(10, function()
+			-- 	self:SetStackCount(self:GetStackCount()-1)
+			-- end)
 		end
 	end
 end

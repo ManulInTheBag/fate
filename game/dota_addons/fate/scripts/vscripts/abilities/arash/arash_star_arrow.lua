@@ -147,7 +147,7 @@ function arash_star_arrow:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
      	for _,enemy in pairs(enemies) do
 			DoDamage(hCaster, enemy, tData.fDamage * (1 + (hCaster.ArashClairvoyance and hCaster.MasterUnit2:FindAbilityByName("arash_clairvoyance"):GetSpecialValueFor("star_arrow_bonus_damage")/100 or 0)), DAMAGE_TYPE_MAGICAL, 0, self, false)
 			DoDamage(hCaster, enemy, enemy:GetMaxHealth()*tData.fDamagePct/100 * (1 + (hCaster.ArashClairvoyance and hCaster.MasterUnit2:FindAbilityByName("arash_clairvoyance"):GetSpecialValueFor("star_arrow_bonus_damage")/100 or 0)), DAMAGE_TYPE_MAGICAL, 0, self, false)
-			hCaster:AddNewModifier(enemy, self, "modifier_arash_slow", {duration  = self:GetSpecialValueFor("ms_slow_duration")})
+			enemy:AddNewModifier(hCaster, self, "modifier_arash_slow", {duration  = self:GetSpecialValueFor("ms_slow_duration")})
 			print(tData.fDamage * (1 + (hCaster.ArashClairvoyance and hCaster.MasterUnit2:FindAbilityByName("arash_clairvoyance"):GetSpecialValueFor("star_arrow_bonus_damage")/100 or 0)))
 			print(enemy:GetMaxHealth()*tData.fDamagePct/100 * (1 + (hCaster.ArashClairvoyance and hCaster.MasterUnit2:FindAbilityByName("arash_clairvoyance"):GetSpecialValueFor("star_arrow_bonus_damage")/100 or 0)))
 		end
