@@ -117,6 +117,12 @@ function modifier_nanaya_instinct:OnOrder(args)
 	end
 end
 
+function modifier_nanaya_instinct:Order3Inject(pos_x, pos_y, pos_z)
+	if self.sex ~= true or self:GetParent():IsCommandRestricted() or self:GetParent():IsStunned() then return end
+
+	self:NanayaBlink(Vector(pos_x, pos_y, pos_z))
+end
+
 function modifier_nanaya_instinct:NanayaBlink(location)
 	if (IsServer() and IsLocked(self:GetParent())) then return end
 	if self.sex ~= true then return end

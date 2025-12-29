@@ -4096,6 +4096,13 @@ function FateGameMode:ExecuteOrderFilterPepeg(filterTable)
     --[[if orderType == 11 then
     end]]
 
+    if orderType == 3 then --гейб я ебал твою мамашу за удаление new_pos из ордеров кстати
+        local hero = PlayerResource:GetPlayer(filterTable.issuer_player_id_const):GetAssignedHero()
+        if hero:HasModifier("modifier_nanaya_instinct") then
+            hero:FindModifierByName("modifier_nanaya_instinct"):Order3Inject(xPos, yPos, zPos)
+        end
+    end
+
     if orderType == DOTA_UNIT_ORDER_RADAR then
         return false
     end
