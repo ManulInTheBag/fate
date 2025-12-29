@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_nanaya_chobi", "abilities/nanaya/nanaya_new/nanaya_chobi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nanaya_dash_invis", "abilities/nanaya/nanaya_new/nanaya_dash", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nanaya_chobi_echo", "abilities/nanaya/nanaya_new/nanaya_chobi", LUA_MODIFIER_MOTION_NONE)
 
 
 nanaya_chobi = class({})
@@ -147,19 +148,21 @@ end
 function modifier_nanaya_chobi:PlayEffects()
 	if not IsServer() then return end
 	local dmg = self.ability:GetSpecialValueFor("dmg") + ((self.caster.ScaleAcquired and self.caster:HasModifier("modifier_nanaya_instinct")) and self.caster:GetAgility()*self.ability:GetSpecialValueFor("attribute_agility_multiplier") or 0)
-	local damage_type = DAMAGE_TYPE_MAGICAL
+	--local damage_type = DAMAGE_TYPE_MAGICAL
+	local damage_increase = 0
 
 	if self.caster.ChobiAcquired then
 		if self.target:GetHealth()/self.target:GetMaxHealth() < self.ability:GetSpecialValueFor("attribute_threshold")/100 then
 			dmg = dmg*self.ability:GetSpecialValueFor("attribute_multiplier")/100
+			damage_increase = 1
 
-		self.caster:AddNewModifier(self.caster, self, "modifier_nanaya_dash_invis", {duration = 3})
+			self.caster:AddNewModifier(self.caster, self, "modifier_nanaya_dash_invis", {duration = 3})
 		end
 	end
 
-	if self.caster.InstinctAcquired and (self.caster:FindModifierByName("modifier_nanaya_instinct_passive"):GetStackCount() >= 20) then
+	--[[if self.caster.InstinctAcquired and (self.caster:FindModifierByName("modifier_nanaya_instinct_passive"):GetStackCount() >= 10) then
 		damage_type = DAMAGE_TYPE_PURE
-	end
+	end]]
 
 	local particle = ParticleManager:CreateParticle("particles/test_part_small1.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
 	ParticleManager:SetParticleControl(particle, 3, self.caster:GetAbsOrigin() - self.caster:GetForwardVector()*250 + Vector (0, 0, 400))
@@ -167,8 +170,9 @@ function modifier_nanaya_chobi:PlayEffects()
 	EmitSoundOn("nanaya.trigger", self.caster)
 	EmitSoundOn("nanaya.finalhit", self.target)
 
-	DoDamage(self.caster, self.target, dmg/2, damage_type, 0, self.ability, false)
-	DoDamage(self.caster, self.target, dmg/2, DAMAGE_TYPE_PURE, 0, self.ability, false)
+	self.target:AddNewModifier(self.caster, self.ability, "modifier_nanaya_chobi_echo", {duration = self.ability:GetSpecialValueFor("delay")})
+	--DoDamage(self.caster, self.target, dmg/2, damage_type, 0, self.ability, false)
+	DoDamage(self.caster, self.target, dmg, DAMAGE_TYPE_PURE, 0, self.ability, false)
 
 	self.caster:FadeGesture(ACT_DOTA_CAST_ABILITY_6)
 	self.caster:StartGestureWithPlaybackRate(ACT_SCRIPT_CUSTOM_10, 1.4)
@@ -179,6 +183,61 @@ function modifier_nanaya_chobi:PlayEffects()
 	ParticleManager:SetParticleControl(particle, 5, self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*250 + Vector (0, 0, -100))
 	local part2 = ParticleManager:CreateParticle("particles/hit21.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
 	ParticleManager:SetParticleControl(part2, 0, self.caster:GetAbsOrigin() + Vector(0, 0, 0))
+
+	if not self.target:IsAlive() then
+		if self.caster.InstinctAcquired then
+			local instinct_modifier = self.caster:FindModifierByName("modifier_nanaya_instinct_passive")
+
+			if instinct_modifier:GetStackCount() < 10 then
+				instinct_modifier:SetStackCount(10)
+			end
+			instinct_modifier:EnterInstinct()
+		end
+	end
+end
+
+modifier_nanaya_chobi_echo = class({})
+
+function modifier_nanaya_chobi_echo:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_nanaya_chobi_echo:OnCreated(args)
+	self.caster = self:GetCaster()
+	self.target = self:GetParent()
+	self.ability = self:GetAbility()
+end
+
+function modifier_nanaya_chobi_echo:OnDestroy()
+	if not IsServer() then return end
+	EmitSoundOn("nanaya.finalhit", self.target)
+
+	self.damage_type = DAMAGE_TYPE_MAGICAL
+	self.damage = self.ability:GetSpecialValueFor("dmg") + ((self.caster.ScaleAcquired and self.caster:HasModifier("modifier_nanaya_instinct")) and self.caster:GetAgility()*self.ability:GetSpecialValueFor("attribute_agility_multiplier") or 0)
+
+	if self.caster.InstinctAcquired and (self.caster:FindModifierByName("modifier_nanaya_instinct_passive"):GetStackCount() >= 20) then
+		self.damage_type = DAMAGE_TYPE_PURE
+	end
+
+	if self.caster.ChobiAcquired then
+		if self.target:GetHealth()/self.target:GetMaxHealth() < self.ability:GetSpecialValueFor("attribute_threshold")/100 then
+			self.damage = self.damage*self.ability:GetSpecialValueFor("attribute_multiplier")/100
+
+			self.caster:AddNewModifier(self.caster, self, "modifier_nanaya_dash_invis", {duration = 3})
+		end
+	end
+
+	DoDamage(self.caster, self.target, self.damage, self.damage_type, 0, self.ability, false)
+
+	local hit2 = ParticleManager:CreateParticle("particles/screen_spla22.vpcf", PATTACH_EYES_FOLLOW, self.target)
+	local culling_kill_particle = ParticleManager:CreateParticle("particles/nanaya_work_2.vpcf", PATTACH_ABSORIGIN, self.target)
+
+	local part2 = ParticleManager:CreateParticle("particles/hit21.vpcf", PATTACH_CUSTOMORIGIN, self.target)
+	ParticleManager:SetParticleControl(part2, 0, self.target:GetAbsOrigin() + Vector(0, 0, 0))
+
+	local particle = ParticleManager:CreateParticle("particles/test_part_small1.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
+	ParticleManager:SetParticleControl(particle, 3, self.target:GetAbsOrigin() - self.target:GetForwardVector()*550 + Vector (0, 0, 400))
+	ParticleManager:SetParticleControl(particle, 5, self.target:GetAbsOrigin() + self.target:GetForwardVector()*550 + Vector (0, 0, -100))
 
 	if not self.target:IsAlive() then
 		if self.caster.InstinctAcquired then

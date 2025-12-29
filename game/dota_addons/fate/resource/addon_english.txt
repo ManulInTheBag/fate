@@ -9713,7 +9713,7 @@
 
 
         "DOTA_Tooltip_ability_nanaya_chobi"                              "Sensa・Meigokushamon"
-        "DOTA_Tooltip_ability_nanaya_chobi_Description"  	"Nanaya jumps through the first target on the line, teleporting behind it and dealing a huge amount of damage (half magical, half pure)."
+        "DOTA_Tooltip_ability_nanaya_chobi_Description"  	"Nanaya jumps through the first target on the line, teleporting behind it and dealing pure damage.\nAfter %delay% seconds, target receives the same damage as magical damage."
         "DOTA_Tooltip_ability_nanaya_chobi_dmg"  							"Damage:"
         "DOTA_Tooltip_ability_nanaya_chobi_range"  							"Range:"
         "DOTA_Tooltip_ability_nanaya_chobi_attribute_threshold"  			"%Calculated Assault HP threshold:"
