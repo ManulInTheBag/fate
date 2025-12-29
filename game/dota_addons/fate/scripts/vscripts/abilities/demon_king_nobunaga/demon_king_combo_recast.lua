@@ -85,7 +85,7 @@ function demon_king_combo_recast:OnSpellStart()
 	local delay = self:GetSpecialValueFor("delay")
 	local half_damage = full_damage * 0.5
 	local comboAbil = caster:FindAbilityByName("demon_king_combo")
-
+	
 	self:RemoveKostyaParticles()
 
 	
@@ -147,16 +147,24 @@ function demon_king_combo_recast:OnSpellStart()
 		if caster.demon_king_attribute_1 then 
 			caster:FindAbilityByName("demon_king_materialization"):CreateFireGroundSa(target_point)
 		end
-        for i = 1, #full_damage_targets do
-            DoDamage(caster, full_damage_targets[i], full_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-            full_damage_targets[i]:AddNewModifier(caster, self, "modifier_maou_combo_hit", { Duration = 0.1 })
-        end 
+		if modifier_counter ~= 1 then
+			for i = 1, #full_damage_targets do
+				DoDamage(caster, full_damage_targets[i], full_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				full_damage_targets[i]:AddNewModifier(caster, self, "modifier_maou_combo_hit", { Duration = 0.1 })
+			end 
 
-        for i = 1, #half_damage_targets do
-        	if not half_damage_targets[i]:HasModifier("modifier_maou_combo_hit") then
-            	DoDamage(caster, half_damage_targets[i], half_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-            end
-        end 
+			for i = 1, #half_damage_targets do
+				if not half_damage_targets[i]:HasModifier("modifier_maou_combo_hit") then
+					DoDamage(caster, half_damage_targets[i], half_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				end
+			end 
+		else
+			for i = 1, #full_damage_targets do
+				DoDamage(caster, full_damage_targets[i], full_damage * 0.5 + full_damage * 0.5 * (1- (full_damage_targets[i]:GetAbsOrigin() - target_point):Length2D() /large_radius) , DAMAGE_TYPE_MAGICAL, 0, self, false)
+				full_damage_targets[i]:AddNewModifier(caster, self, "modifier_maou_combo_hit", { Duration = 0.1 })
+			end 
+
+		end
 
 
 

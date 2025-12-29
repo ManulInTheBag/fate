@@ -16,6 +16,8 @@ function ryougi_knife_recast:GetCastRange(location, target)
 end
 
 function ryougi_knife_recast:OnSpellStart()
+	local combo_enemy = self:GetCursorTarget()
+	if IsSpellBlocked(combo_enemy) then return end
 	local caster = self:GetCaster()
 	local origin = caster:GetAbsOrigin()
 	local damage_first = self:GetSpecialValueFor("damage_first")
@@ -23,14 +25,14 @@ function ryougi_knife_recast:OnSpellStart()
 	local damage_per_line = self:GetSpecialValueFor("damage_per_line")
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
 	local target = Vector(0, 0, 0)
-
+	
 	EmitGlobalSound("ryougi_nibio")
 
 	if caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_recast" then	    		
 		caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", false, true)	
 	end
 
-	local combo_enemy = self:GetCursorTarget()
+
 	local origin = caster:GetAbsOrigin()
 	local point = combo_enemy:GetAbsOrigin()
 	local direction = (point-origin)

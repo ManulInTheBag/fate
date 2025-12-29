@@ -73,7 +73,7 @@ function diarmuid_new_combo:OnSpellStart()
         bDeleteOnHit = true,
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO,
         flExpireTime = GameRules:GetGameTime() + 0.1,
         --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
     }
