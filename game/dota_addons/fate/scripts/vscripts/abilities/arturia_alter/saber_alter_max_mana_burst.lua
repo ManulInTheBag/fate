@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_max_mana_burst_cooldown", "abilities/arturia_alter/saber_alter_max_mana_burst", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_max_mana_burst_mana_increase", "abilities/arturia_alter/saber_alter_max_mana_burst", LUA_MODIFIER_MOTION_NONE)
 saber_alter_max_mana_burst = class({})
 
 
@@ -18,8 +19,10 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 	masterCombo:EndCooldown()
 	masterCombo:StartCooldown(self:GetCooldown(1))
 	caster:AddNewModifier(caster, self, "modifier_max_mana_burst_cooldown", {duration = self:GetCooldown(1)})
-	caster:FindAbilityByName("saber_alter_mana_burst"):StartCooldown(15.0)
+	local mb_abil = caster:FindAbilityByName("saber_alter_mana_burst")
+	mb_abil:StartCooldown(mb_abil:GetCooldown(-1))
     giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.31)
+    caster:AddNewModifier(caster, self, "modifier_max_mana_burst_mana_increase", {duration = self:GetSpecialValueFor("mana_duration")})
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5})
 	EmitGlobalSound("salter_combo_voiceline")
 	local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -37,6 +40,13 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 	ParticleManager:SetParticleControl(fxIndexjopa3, 1, Vector(0.2,0.01,0.7))
 	ParticleManager:SetParticleControl(fxIndexjopa3, 2, Vector(1300,1.3,0))
 	ParticleManager:ReleaseParticleIndex(fxIndexjopa3)
+
+	local vacuum_fx = ParticleManager:CreateParticle("particles/saber_alter/max_mana_burst/altoria_mmb_vacuum.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(vacuum_fx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(vacuum_fx, 1, Vector(radius,radius,radius))
+	ParticleManager:SetParticleControl(vacuum_fx, 2, Vector(radius,0,0))
+	ParticleManager:ReleaseParticleIndex(vacuum_fx)
+
 	Timers:CreateTimer( 1.3, function()
 		if caster:IsAlive() then 
 			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -102,6 +112,55 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 		end
     end)
 	
+end
+
+modifier_max_mana_burst_mana_increase = class({})
+
+function modifier_max_mana_burst_mana_increase:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MANA_BONUS }
+end
+
+function modifier_max_mana_burst_mana_increase:IsHidden() return false end
+
+function modifier_max_mana_burst_mana_increase:OnCreated()
+	if not IsServer() then return end
+
+	self.caster = self:GetCaster()
+	self.ability = self:GetAbility()
+
+	self.mana_per_second = self.ability:GetSpecialValueFor("mana_per_second")
+	self.radius = self.ability:GetSpecialValueFor("radius")
+	self:SetStackCount(1)
+
+	self.time = 1.3
+
+	self:StartIntervalThink(0.1)
+	self:OnIntervalThink()
+end
+
+function modifier_max_mana_burst_mana_increase:OnRefresh()
+	self:OnCreated()
+end
+
+function modifier_max_mana_burst_mana_increase:OnIntervalThink()
+	self.time = self.time - 0.1
+	
+	if self.time <= 0 then
+		self:StartIntervalThink(-1)
+	end
+
+	local targets = FindUnitsInRadius(self.caster:GetTeam(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+
+	for k,v in pairs(targets) do
+		v:Script_ReduceMana(self.mana_per_second/10, self.ability)
+		DoDamage(self.caster, v, self.mana_per_second/10, DAMAGE_TYPE_MAGICAL, 0, self, false)
+
+		self:SetStackCount(self:GetStackCount() + self.mana_per_second/10)
+	end
+end
+
+function modifier_max_mana_burst_mana_increase:GetModifierManaBonus()
+	return self:GetStackCount()
 end
 
 modifier_max_mana_burst_cooldown = class({})

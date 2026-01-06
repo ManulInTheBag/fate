@@ -2869,8 +2869,10 @@
 		"DOTA_Tooltip_ability_saber_alter_excalibur_Note0"	"Saber is stunned and revoked from Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_saber_alter_max_mana_burst"		"Combo: Max Mana Burst"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F-W in 5 seconds</font>\nSaber Alter's bottomless pool of mana explodes outward to create a gigantic sphere of destruction around her, dealing damage based on her maximum mana to enemies in large area. Damage of this ability decreases the furhter the target is."
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F-W in 5 seconds</font>\nArtoria forcibly drains mana from surrounding enemy heroes, dealing damage and increasing her own mana pool in process.\nAfter 1.3 seconds, she explodes her bottomless pool of mana explodes outward to create a gigantic sphere of destruction around her, dealing damage based on her maximum mana to enemies in large area. Damage of this ability decreases the further the target is."
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Lore" 	"The meltdown is near."
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_mana_per_second" 		"MANA DRAIN PER SECOND:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_mana_duration" 		"BONUS MANA BUFF DURATION:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_damage" 				"DAMAGE:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_first_dmg_radius" 		"FULL DAMAGE RADIUS:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_second_dmg_radius" 	"60 % DAMAGE RADIUS:"
@@ -6698,10 +6700,8 @@
 		"DOTA_Tooltip_modifier_jeanne_crimson_saint_Description"	"Can't heal. Slowly loses health. Deals additional magical damage with attacks and passively deals damage to enemies around her."
 
         "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex"	"Magic Resistance: EX"
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne gains %barrier_per_cast% <font color='#58ACFA'>magical barrier</font>.\nCan be stacked up to %barrier_cap%."
+        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne gains %barrier_per_cast% + %barrier_per_cast_per_level% x Jeanne's level <font color='#58ACFA'>magical barrier</font>.\nCan be stacked up to %barrier_cap% + %barrier_cap_per_level% x Jeanne's level."
         "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_Lore"		"The determined spirit is impenetrable shield on its own."
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_bonus_mr_per_stack"	"BARRIER PER CAST:"
-        "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_max_stack"				"CAP:"
         //"DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_regen_duration"		"RECOVERY PERIOD:"
 
 		"DOTA_Tooltip_Ability_jeanne_saint"		"Saint"
