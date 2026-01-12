@@ -8988,7 +8988,7 @@
 
 		//Freely Drawn Sword
 		"DOTA_Tooltip_ability_saito_fds"															"Freely Drawn Sword"
-		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#00AB9E'>PASSIVE</font>: <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#00AB9E'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less damage, stacking additively and instantly restoring mana for each enemy hero hit.\nUpon cast, Saito gains 0.75 seconds of immune to stun and silence.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Freestyle</font>."
+		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#00AB9E'>PASSIVE</font>: <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#00AB9E'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he instantly restores mana for each enemy hero hit.\nUpon cast, Saito gains 0.75 seconds of immune to stun and silence.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Freestyle</font>."
 		"DOTA_Tooltip_ability_saito_fds_Lore"														"A sword drawing technique that can freely change forms when the user unsheathes his blade in each hand."
 		"DOTA_Tooltip_ability_saito_fds_AbilityCastPoint"											"CAST POINT:"
 		//"DOTA_Tooltip_ability_saito_fds_max_casts"												""
@@ -9001,8 +9001,8 @@
 		"DOTA_Tooltip_ability_saito_fds_active_mp_gain"												"MANA GAIN PER HIT:"
 		//"DOTA_Tooltip_ability_saito_fds_active_hp_gain"											""
 		"DOTA_Tooltip_ability_saito_fds_active_debuff_duration"										"DAMAGE LOSS DURATION:"
-		"DOTA_Tooltip_ability_saito_fds_active_debuff_max_stacks"									"MAX STACKS:"
-		"DOTA_Tooltip_ability_saito_fds_active_debuff_reduction_stack"								"%DAMAGE LOSS PER STACK:"
+		//"DOTA_Tooltip_ability_saito_fds_active_debuff_max_stacks"									"MAX STACKS:"
+		//"DOTA_Tooltip_ability_saito_fds_active_debuff_reduction_stack"								"%DAMAGE LOSS PER STACK:"
 
 		"DOTA_Tooltip_modifier_saito_fds_cast_controller"											"Cast Controller"
 		"DOTA_Tooltip_modifier_saito_fds_cast_controller_Description"								"Displays the number of QWE currently being casted."
@@ -9018,7 +9018,7 @@
 
 		//Formless
 		"DOTA_Tooltip_ability_saito_formless_invis"													"Formless"
-		"DOTA_Tooltip_ability_saito_formless_invis_Description"										"Turns Saitō invisible and grants bonus movement speed. If Saitō is revealed, invisibility will restore after the fade delay as long as <font color='#0075B5'>Formless</font>’s duration has not expired.\nUpon cast, this ability is replaced by <font color='#0075B5'>Formlessness</font>, while under the effects of <font color='#0075B5'>Formless</font>.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Kijinmaru Kunishige</font>."
+		"DOTA_Tooltip_ability_saito_formless_invis_Description"										"Turns Saitō invisible and grants bonus movement speed. If Saitō is revealed, invisibility will restore after the fade delay as long as <font color='#0075B5'>Formless</font>’s duration has not expired.\nUpon cast, this ability is replaced by <font color='#0075B5'>Formlessness</font>, while under the effects of <font color='#0075B5'>Formless</font>.\nEach Saito basic ability will apply a stacking debuff on enemy after dealing damage with a maximum of 10.\nUsing <font color='#0075B5'>Formlessness</font> will remove those stacks, dealing <font color='#58ACFA'>damage</font>\n<font color='#87C9AC'>Upgradeable with Attribute: Kijinmaru Kunishige</font>."
 		"DOTA_Tooltip_ability_saito_formless_invis_Lore"											"Saitō approaches the target in a unique way, different than rushing in with pure speed, and his moves distort the target’s perception of time and distance."
 		"DOTA_Tooltip_ability_saito_formless_invis_AbilityCastPoint"								"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_formless_invis_duration"										"DURATION:"
@@ -9040,6 +9040,24 @@
 		"DOTA_Tooltip_ability_saito_formless_slash_slash_damage"									"DAMAGE PER SLASH:"
 		"DOTA_Tooltip_ability_saito_formless_slash_last_damage"										"LAST SLASH DAMAGE:"
 		"DOTA_Tooltip_ability_saito_formless_slash_abilitycastrange"								"CAST RANGE:"
+
+		"DOTA_Tooltip_modifier_saito_formless_slash_counter"										"Formlessness Counter"
+		"DOTA_Tooltip_modifier_saito_formless_slash_counter_Description"							"Number of completed slashes from Formlessness."
+
+
+		//Formlessness
+		"DOTA_Tooltip_ability_saito_formlessness_new"													"Formlessness"
+		"DOTA_Tooltip_ability_saito_formlessness_new_Description"										"Saitō unleashes a special move cutting inverse and diagonally. Saito slashes target multiple times based on stacks. The first slashes are a double slash, dealing <font color='#58ACFA'>damage</font> and dimensionally locking the target for %lock_duration% seconds. Last slash deals more <font color='#58ACFA'>damage</font> and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of <font color='#0075B5'>Formless</font> early.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige</font>."
+		"DOTA_Tooltip_ability_saito_formless_slash_Lore"											"No matter what kind of melee weapon the target uses, be it spear, sword, or anything else, Saitō always makes the first move from any distance, ignoring the target’s reach."
+		"DOTA_Tooltip_ability_saito_formless_slash_AbilityCastPoint"								"CAST POINT:"
+		"DOTA_Tooltip_ability_saito_formlessness_new_max_slashes"									"MAX STACKS:"
+		//"DOTA_Tooltip_ability_saito_formless_slash_slash_instances"								""
+		//"DOTA_Tooltip_ability_saito_formless_slash_lock_duration"									""
+		"DOTA_Tooltip_ability_saito_formlessness_new_last_lock_duration"								"LOCK DURATION:"
+		"DOTA_Tooltip_ability_saito_formlessness_new_slash_damage"									"DAMAGE PER SLASH:"
+		"DOTA_Tooltip_ability_saito_formlessness_new_last_damage"										"LAST SLASH DAMAGE:"
+		"DOTA_Tooltip_ability_saito_formlessness_new_stacks_duration"									"STACKS DURATION:"
+		//"DOTA_Tooltip_ability_saito_formlessness_new_abilitycastrange"								"CAST RANGE:"
 
 		"DOTA_Tooltip_modifier_saito_formless_slash_counter"										"Formlessness Counter"
 		"DOTA_Tooltip_modifier_saito_formless_slash_counter_Description"							"Number of completed slashes from Formlessness."
@@ -9145,6 +9163,10 @@
 		"DOTA_Tooltip_modifier_saito_blast_turn_and_slow"											"One By One Debuff"
 		"DOTA_Tooltip_modifier_saito_blast_turn_and_slow_Description"								"Slowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
+
+		"DOTA_Tooltip_saito_formlessness_new_stacks"											"One By One Debuff"
+		"DOTA_Tooltip_saito_formlessness_new_stacks_Description"								"Will get additional damage from Formlessness"
+
 		///ATTRIBUTES///
 
 		"DOTA_Tooltip_modifier_saito_attributes"													"Special Attribute"
@@ -9184,15 +9206,15 @@
 
 		//Freestyle
 		"DOTA_Tooltip_ability_saito_attribute_freestyle"											"Attribute: Freestyle"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_Description"								"<font color='#0075B5'>Freely Drawn Sword</font>: grants an aura that reduces the enemies magical damage when active, reduction is stronger at close range. Increases active duration by %fds_active_duration% seconds and passive time interval by %fds_check_interval% seconds, dealing spell damage to enemies with abilities also instantly restores health for each enemy hit."
+		"DOTA_Tooltip_ability_saito_attribute_freestyle_Description"								"<font color='#0075B5'>Freely Drawn Sword</font>: Increases active duration by %fds_active_duration% seconds and passive time interval by %fds_check_interval% seconds, dealing spell damage to enemies with abilities also instantly restores health for each enemy hit."
 		"DOTA_Tooltip_ability_saito_attribute_freestyle_Lore"										"Freestyle swordsmanship with no pattern, a unique fighting technique that is extremely difficult to predict."
 		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_duration"						""
 		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_check_interval"						""
 		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_hp_gain"							"HEALTH GAIN PER HIT:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction_range"		"AURA MIN RADIUS:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction_range"		"AURA MAX RADIUS:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction"				"%MIN DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction"				"%MAX DAMAGE REDUCTION:"
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction_range"		"AURA MIN RADIUS:"
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction_range"		"AURA MAX RADIUS:"
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_min_reduction"				"%MIN DAMAGE REDUCTION:"
+		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction"				"%MAX DAMAGE REDUCTION:"
 
 		//Kijinmaru Kunishige
 		"DOTA_Tooltip_ability_saito_attribute_kunishige"											"Attribute: Kijinmaru Kunishige"
