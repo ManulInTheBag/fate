@@ -264,4 +264,16 @@
 		soundlevel = "100.000000"
 		vsnd_duration = 2.972154
 	}
+	statach_combo_execute = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/statach_combo_execute.vsnd",
+		]
+		volume = "3.500000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 2.972154
+	}
 }

@@ -227,7 +227,7 @@ end
 
 function modifier_scathach_gate_of_skye_execute:TriggerDeath()
 	if not IsServer() then return end
-
+	EmitSoundOn("statach_combo_execute", self.parent)
 	self.parent:Execute(self, self.caster, { bExecution = true })
 end
 

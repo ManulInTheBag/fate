@@ -173,7 +173,9 @@ function OnNamelessStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	if IsSpellBlocked(target) or target:IsMagicImmune() then return end -- Linken effect checker
+	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+		if IsSpellBlocked(target) or target:IsMagicImmune() then return end -- Linken effect checker
+	end
 	caster.NamelessTarget = target
 	ApplyPurge(target)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_nameless_forest", {})
