@@ -12,6 +12,13 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 	local caster = self:GetCaster()
 	local ability = self
 	local radius = self:GetSpecialValueFor("radius")
+	
+	local first_radius = self:GetSpecialValueFor("first_dmg_radius")
+	local second_radius = self:GetSpecialValueFor("second_dmg_radius")
+	local third_radius = self:GetSpecialValueFor("third_dmg_radius")
+
+	local mana_ratio = self:GetSpecialValueFor("mana_ratio")
+
 	local roflParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:ReleaseParticleIndex(roflParticle)
 	-- Set master's combo cooldown
@@ -33,12 +40,12 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 	local fxIndexjopa2 = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fxIndexjopa2, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(fxIndexjopa2, 1, Vector(0.4,0.01,0.7))
-	ParticleManager:SetParticleControl(fxIndexjopa2, 2, Vector(700,1.3,0))
+	ParticleManager:SetParticleControl(fxIndexjopa2, 2, Vector(first_radius,1.3,0))
 	ParticleManager:ReleaseParticleIndex(fxIndexjopa2)
 	local fxIndexjopa3 = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fxIndexjopa3, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(fxIndexjopa3, 1, Vector(0.2,0.01,0.7))
-	ParticleManager:SetParticleControl(fxIndexjopa3, 2, Vector(1300,1.3,0))
+	ParticleManager:SetParticleControl(fxIndexjopa3, 2, Vector(second_radius,1.3,0))
 	ParticleManager:ReleaseParticleIndex(fxIndexjopa3)
 
 	local vacuum_fx = ParticleManager:CreateParticle("particles/saber_alter/max_mana_burst/altoria_mmb_vacuum.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -70,19 +77,21 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 				ParticleManager:ReleaseParticleIndex(BlueSplashFx)
 			end)
 
-			local dmg = caster:GetMaxMana()*1.3
 			if caster.IsManaBlastAcquired then
-				dmg = caster:GetMaxMana()*1.6
+				mana_ratio = mana_ratio
 			end
+
+			local dmg = caster:GetMaxMana()*mana_ratio
+
 			local finaldmg = dmg
 
 			for k,v in pairs(targets) do
 				local dist = (v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() 
-				if dist <= 700 then
+				if dist <= first_radius then
 					finaldmg = dmg
-				elseif dist > 700 and dist <= 1300 then
+				elseif dist > first_radius and dist <= second_radius then
 					finaldmg = dmg*0.8
-				elseif dist > 1300 and dist <= 2000 then
+				elseif dist > second_radius and dist <= third_radius then
 					finaldmg = dmg*0.6
 				end
 
@@ -132,6 +141,8 @@ function modifier_max_mana_burst_mana_increase:OnCreated()
 	self.radius = self.ability:GetSpecialValueFor("radius")
 	self:SetStackCount(1)
 
+	self.govno = false
+
 	self.time = 1.3
 
 	self:StartIntervalThink(0.1)
@@ -147,6 +158,9 @@ function modifier_max_mana_burst_mana_increase:OnIntervalThink()
 	
 	if self.time <= 0 then
 		self:StartIntervalThink(-1)
+		self.govno = true
+		self.caster:ApplyHeal(self:GetStackCount(), self.ability)
+        self.caster:GiveMana(self:GetStackCount())
 	end
 
 	local targets = FindUnitsInRadius(self.caster:GetTeam(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
@@ -160,7 +174,7 @@ function modifier_max_mana_burst_mana_increase:OnIntervalThink()
 end
 
 function modifier_max_mana_burst_mana_increase:GetModifierManaBonus()
-	return self:GetStackCount()
+	return (self.govno and self:GetStackCount() or 0)
 end
 
 modifier_max_mana_burst_cooldown = class({})

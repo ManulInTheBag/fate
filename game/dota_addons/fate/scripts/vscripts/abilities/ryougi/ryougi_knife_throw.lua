@@ -27,8 +27,6 @@ function ryougi_knife_throw:OnSpellStart()
 	--EmitSoundOn("ryougi_knife_"..math.random(1,2), caster)
 	EmitGlobalSound("ryougi_mieta")
 
-	caster:AddNewModifier(caster, self, "modifier_ryougi_knife_swap", {duration = self:GetSpecialValueFor("swap_duration")})
-
 	local tProjectile = {
 		caster = caster,
 		source = caster,
@@ -63,6 +61,11 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 
   	print("ryougi knife hit target "..hTarget:GetName())
   	
+  	if (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Length2D() <= self:GetSpecialValueFor("bfm_range") then
+  		hCaster:FindAbilityByName("ryougi_knife_recast"):StartCombo(hTarget)
+  	else
+  		hCaster:AddNewModifier(hCaster, self, "modifier_ryougi_knife_swap", {duration = self:GetSpecialValueFor("swap_duration")})
+	end
   	hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_target", {duration = self:GetSpecialValueFor("mark_duration")})
   	print("ryougi knife after modifier applied target "..hTarget:GetName())
   	if hCaster.BlackMoonAcquired then
