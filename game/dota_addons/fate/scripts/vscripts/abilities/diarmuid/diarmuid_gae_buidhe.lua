@@ -20,9 +20,9 @@ function diarmuid_gae_buidhe:GetManaCost(iLevel)
 	if caster:HasModifier("modifier_rampant_warrior") then
 		return 200
 	elseif caster:HasModifier("modifier_doublespear_attribute") then
-		return 400
+		return 300
 	else
-		return 500
+		return 400
 	end
 end
 

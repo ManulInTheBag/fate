@@ -17,8 +17,13 @@ end
 
 function ryougi_knife_recast:OnSpellStart()
 	local combo_enemy = self:GetCursorTarget()
-	if IsSpellBlocked(combo_enemy) then return end
+	self:StartCombo(combo_enemy)
+end
+
+function ryougi_knife_recast:StartCombo(combo_enemy)
 	local caster = self:GetCaster()
+	caster:RemoveModifierByName("modifier_ryougi_knife_swap")
+	if IsSpellBlocked(combo_enemy) then return end
 	local origin = caster:GetAbsOrigin()
 	local damage_first = self:GetSpecialValueFor("damage_first")
 	local damage_second = self:GetSpecialValueFor("damage_second")
@@ -44,7 +49,6 @@ function ryougi_knife_recast:OnSpellStart()
 	damage_second = damage_second + damage_per_line*stacks
 	local execute = self:GetSpecialValueFor("attr_execute")
 
-	caster:RemoveModifierByName("modifier_ryougi_knife_swap")
 	combo_enemy:RemoveModifierByName("modifier_ryougi_knife_target")
 	combo_enemy:RemoveModifierByName("modifier_ryougi_lines")
 

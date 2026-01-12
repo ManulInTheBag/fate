@@ -241,7 +241,14 @@ end
 
 function demon_king_beam:CheckCombo()
 	local caster = self:GetCaster()
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+    local num = 29.1
+    local stacks = 0
+    local modifier = caster:FindModifierByName("modifier_demon_king_materialization")
+    if modifier then
+        stacks = (caster.demon_king_attribute_4 and modifier:GetStackCount() or 0)
+    end
+    num = num + stacks
+	if caster:GetStrength() >= num and caster:GetAgility() >= num and caster:GetIntellect() >= num then
 		if caster:FindAbilityByName("demon_king_combo"):IsCooldownReady()  then
 			return true
 		end

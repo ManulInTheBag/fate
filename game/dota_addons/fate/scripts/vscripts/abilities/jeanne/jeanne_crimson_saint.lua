@@ -6,6 +6,10 @@ LinkLuaModifier("modifier_jeanne_crimson_saint_delay", "abilities/jeanne/modifie
 LinkLuaModifier("modifier_jeanne_crimson_saint_stun", "abilities/jeanne/modifiers/modifier_jeanne_crimson_saint_stun", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 
+function jeanne_crimson_saint:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 function jeanne_crimson_saint:OnSpellStart()
 	local caster = self:GetCaster()
 	local radius = self:GetSpecialValueFor("radius")

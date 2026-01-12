@@ -3,6 +3,10 @@ jeanne_crimson_saint_la_pucelle = class({})
 LinkLuaModifier("modifier_jeanne_crimson_saint_delay", "abilities/jeanne/modifiers/modifier_jeanne_crimson_saint_delay", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_crimson_saint_stun", "abilities/jeanne/modifiers/modifier_jeanne_crimson_saint_stun", LUA_MODIFIER_MOTION_NONE)
 
+function jeanne_crimson_saint_la_pucelle:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 	local caster = self:GetCaster()
 	local radius = self:GetSpecialValueFor("radius")

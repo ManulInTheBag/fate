@@ -2792,6 +2792,9 @@
 
 		"npc_dota_hero_spectre_hype"	""
 		"npc_dota_hero_spectre_bio"	""
+
+		"DOTA_Tooltip_modifier_max_mana_burst_mana_increase"				"MAX Mana Burst"
+		"DOTA_Tooltip_modifier_max_mana_burst_mana_increase_Description"	"Mana increased by %dMODIFIER_PROPERTY_MANA_BONUS%"
 		
 		"DOTA_Tooltip_Ability_arturia_alter_mana_shroud"			"Mana Shroud"
 		"DOTA_Tooltip_ability_arturia_alter_mana_shroud_Description"	"Endless fountain of mana overflows saber, granting her extra mana regeneration.\n\nUpgradable by Improve Mana Shroud ability"
@@ -2869,14 +2872,14 @@
 		"DOTA_Tooltip_ability_saber_alter_excalibur_Note0"	"Saber is stunned and revoked from Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_saber_alter_max_mana_burst"		"Combo: Max Mana Burst"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F-W in 5 seconds</font>\nArtoria forcibly drains mana from surrounding enemy heroes, dealing damage and increasing her own mana pool in process.\nAfter 1.3 seconds, she explodes her bottomless pool of mana explodes outward to create a gigantic sphere of destruction around her, dealing damage based on her maximum mana to enemies in large area. Damage of this ability decreases the further the target is."
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F-W in 5 seconds</font>\nArtoria forcibly drains mana from surrounding enemy heroes, dealing damage.\nAfter 1.3 seconds, she explodes her bottomless pool of mana explodes outward to create a gigantic sphere of destruction around her, dealing damage based on her maximum mana to enemies in large area.\nAfter the explosion, she gains additional mana pool equal to the amount of drained mana for %mana_duration% seconds and heals health and mana equal to mana drained.\nDamage of this ability decreases the further the target is."
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Lore" 	"The meltdown is near."
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_mana_per_second" 		"MANA DRAIN PER SECOND:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_mana_duration" 		"BONUS MANA BUFF DURATION:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_damage" 				"DAMAGE:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_first_dmg_radius" 		"FULL DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_second_dmg_radius" 	"60 % DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_third_dmg_radius" 		"40 % DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_second_dmg_radius" 	"80 % DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_third_dmg_radius" 		"60 % DAMAGE RADIUS:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_mana_ratio" 			"MAX MANA RATIO:"
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Note0" 				"Type -music_true in chat to hear a song after casting this ability."
 
@@ -3218,10 +3221,11 @@
 		"DOTA_Tooltip_ability_demon_king_attribute_3_Description"		"<font color='#C41E3A'>Extermination</font> will now shoot <font color='#880808'>Demon king guns</font>: 2 if strike landed or 1 when canceled into <font color='#C41E3A'>Demon king dash</font>.\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>Stable manifestation: After death, Demon King will summon 3 different Nobbus with unique abilities.<br/>Nobbus will last for %life_time% seconds.<br/>Materialization may also be used to summon 1 random Nobbus."
 		"DOTA_Tooltip_Ability_demon_king_attribute_3_guns_dmg_mod"					"%Guns damage:"
 
-		"DOTA_Tooltip_Ability_demon_king_attribute_4"					"Materialization: Nobunaga THE Rock 'n' Roll "
+		"DOTA_Tooltip_Ability_demon_king_attribute_4"					"Materialization: Nobunaga THE Rock 'n' Roll"
 		"DOTA_Tooltip_ability_demon_king_attribute_4_Description"		"After using <font color='#C41E3A'>It Can't Be Helped</font>, Demon King will gain <font color='#FFFAFA'>all-damage barrier</font>, equal to damage dealt, capped at her max health.\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>Madness enchancement: <font color='#ff2635'>materialization</font> stacks now provide additional stats."
 		"DOTA_Tooltip_Ability_demon_king_attribute_4_sa_4_stat_bonus"					"Stats per stack:"
-		"DOTA_Tooltip_Ability_demon_king_attribute_sa_barrier_duration"					"Barrier duration:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_4_sa_barrier_duration"					"Barrier duration:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_4_Note0"					"Additional stats from Materialization do not count towards combo activation."
 
 		"DOTA_Tooltip_Ability_demon_king_attribute_5"					"Materialization: Genuine Nobunaga"
 		"DOTA_Tooltip_ability_demon_king_attribute_5_Description"		"\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>Accumulation of power: all of Demon King abilities gain additional damage based on her stats:<br/><font color='#AA4A44'>Demon king slam</font> and <font color='#AA4A44'>Like a Fleeting Dream</font> from <font color='#FF0000'>STR</font><br/> <font color='#C41E3A'>Extermination</font>, <font color='#C41E3A'>Demon king dash</font> and <font color='#880808'>Demon king guns</font> from <font color='#00FF00'>AGI</font><br/><font color='#C41E3A'>Demon king beam</font> and <font color='#ba0289'>Singularity</font> from <font color='#1E90FF'>INT</font>."
@@ -7997,7 +8001,7 @@
 		"DOTA_Tooltip_modifier_ryougi_knife_target_Description"			"Is valid target for Bamboo Fence Melody"
 
 		"DOTA_Tooltip_ability_ryougi_knife_throw"					"Hidden Dagger (yang)"
-		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward and enables casting <font color='#ff9900'>Bamboo Fence Melody</font> for %swap_duration% seconds.\nDagger deals <font color='#58ACFA'>%damage%</font> magical damage to the target enemy and <font color='#FFFAFA'>marks</font> it for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> with increased range.\n<font color='#ff9900'>Bamboo Fence Melody</font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\nDashes to the target enemy, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage + <font color='#D1A951'>%damage_per_line%</font> pure damage per line."
+		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward and enables casting <font color='#ff9900'>Bamboo Fence Melody</font> for %swap_duration% seconds.\nDagger deals <font color='#58ACFA'>%damage%</font> magical damage to the target enemy and <font color='#FFFAFA'>marks</font> it for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> with increased range.\nIf Ryougi was in %bfm_range% range from the enemy when the dagger hits, Bamboo Fence Melody is used automatically.\n<font color='#ff9900'>Bamboo Fence Melody</font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\nDashes to the target enemy, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage + <font color='#D1A951'>%damage_per_line%</font> pure damage per line."
 		"DOTA_Tooltip_ability_ryougi_knife_throw_range"				"Range:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_speed"				"Speed:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_bfm_range"			"<font color='#ff9900'>Bamboo Fence Melody</font> range:"
@@ -9726,6 +9730,7 @@
         "DOTA_Tooltip_ability_nanaya_instinct"                      "Instinct"
         "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>agility</font> and %mana_regen_constant% <font color='#58ACFA'>mana regen</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction. After casting any ability, Nanaya can instantly blink up to %blink_distance% range with attack-move, attack-target orders or using this ability."
         "DOTA_Tooltip_ability_nanaya_instinct_Note0"                 "Instinct blinks do not break Sensou・Suigetsu invisibility."
+        "DOTA_Tooltip_ability_nanaya_instinct_Note1"                 "Sensa・Yotsutsuji casts 2, 3 and 4 do not reset instant blinks."
 
 
         "DOTA_Tooltip_ability_nanaya_dashf_return"                              "Shadow return"
