@@ -285,19 +285,22 @@ end
 function saito_formlessness_new_stacks:IsDebuff() return true end
 function saito_formlessness_new_stacks:RemoveOnDeath() return true end
 function saito_formlessness_new_stacks:OnCreated(args)
-	self:SetStackCount(1)
+    if not IsServer() then return end
+ 	self:SetStackCount(1)
 	self.parent = self:GetParent()
 	self.counterfx =   ParticleManager:CreateParticle( "particles/saito/qwe_counter_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
+    print("creat4ed")
 	ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
 	ParticleManager:SetParticleControl( self.counterfx , 2, Vector(1,0,0) )
  
 end
 function saito_formlessness_new_stacks:OnRefresh(args)
+    if not IsServer() then return end
 	self.parent = self:GetParent()
-	ParticleManager:DestroyParticle(self.counterfx , true)
+	--[[ParticleManager:DestroyParticle(self.counterfx , true)
 	ParticleManager:ReleaseParticleIndex(self.counterfx )
 	self.counterfx =   ParticleManager:CreateParticle( "particles/saito/qwe_counter_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
-	ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
+	ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )]]
 	ParticleManager:SetParticleControl( self.counterfx , 2, Vector(self:GetStackCount() + 1,0,0) )
 	if self:GetStackCount() > 9 then
 		self:SetStackCount(10)

@@ -4965,9 +4965,13 @@
  		"DOTA_Tooltip_ability_angra_puddle_radius"			"Radius:"
  		"DOTA_Tooltip_ability_angra_puddle_lock_duration"	"Lock duration:"
  		"DOTA_Tooltip_ability_angra_puddle_revoke_duration"	"Revoke duration:"
+ 		"DOTA_Tooltip_ability_angra_puddle_Note0"			"Units that reached 100 stacks can't gain any more stacks for %puddle_cooldown% second."
 
- 		"DOTA_Tooltip_modifier_puddle_debuff"										"Pool of corruption"
+ 		"DOTA_Tooltip_modifier_puddle_debuff"										"Pool of Corruption"
 		"DOTA_Tooltip_modifier_puddle_debuff_Description"							"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, will be locked at 100 stacks"
+
+		"DOTA_Tooltip_modifier_puddle_check"										"Pool of Corruption"
+		"DOTA_Tooltip_modifier_puddle_check_Description"							"Can't gain Pool of Corruption stacks"
 
 		"DOTA_Tooltip_Ability_avenger_endless_loop"				"Combo: Endless Loop"
 		"DOTA_Tooltip_ability_avenger_endless_loop_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E(set to autocast)-R in 4 seconds</font>\nAvenger brings upon him the miracle of tainted Holy Grail, reverting health back to health at cast and resetting the cooldowns of all abilities and items every 3 seconds."
@@ -9004,7 +9008,7 @@
 		"DOTA_Tooltip_ability_saito_fds_active_duration"											"DURATION:"
 		"DOTA_Tooltip_ability_saito_fds_active_mp_gain"												"MANA GAIN PER HIT:"
 		//"DOTA_Tooltip_ability_saito_fds_active_hp_gain"											""
-		"DOTA_Tooltip_ability_saito_fds_active_debuff_duration"										"DAMAGE LOSS DURATION:"
+		//"DOTA_Tooltip_ability_saito_fds_active_debuff_duration"										"DAMAGE LOSS DURATION:"
 		//"DOTA_Tooltip_ability_saito_fds_active_debuff_max_stacks"									"MAX STACKS:"
 		//"DOTA_Tooltip_ability_saito_fds_active_debuff_reduction_stack"								"%DAMAGE LOSS PER STACK:"
 
