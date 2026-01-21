@@ -285,7 +285,7 @@ end
 
 function OnSoulstreamStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local frontward = caster:GetForwardVector()
 	local ability = keys.ability
 
@@ -689,11 +689,11 @@ function OnMantraTakeDamage(keys)
 		modifierName = "modifier_mantra_ally"
 		local pepega = target:FindModifierByName(modifierName)
 		target.IsMantraProcOnCooldown = true
-		Timers:CreateTimer(0.099, function()
+		Timers:CreateTimer(0.5, function()
 			target.IsMantraProcOnCooldown = false
 		end)
 		charm_type = pepega.ability
-		orbBlockAmt = keys.BlockAmt 
+		orbBlockAmt = keys.BlockAmt + caster:GetIntellect() * 0.5
 		if currentHealth == 0 then
 			--print("lethal")
 		else
@@ -780,9 +780,9 @@ function OnMantraTakeDamage(keys)
 		else
 			--print(attacker:GetName() .. " attacked " .. target:GetName())
 			target.IsMantraProcOnCooldown = true
-			orbDamageEnemy = keys.Damage
+			orbDamageEnemy = keys.Damage + caster:GetIntellect() * 0.5
 			DoDamage(caster, target, orbDamageEnemy, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-			Timers:CreateTimer(0.099, function()
+			Timers:CreateTimer(0.5, function()
 				target.IsMantraProcOnCooldown = false
 			end)
 		end 
@@ -1256,7 +1256,7 @@ end
 
 function OnFatesCallStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local dist = (caster.TetheredTarget:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
 	local delay = dist*0.002
 	caster.IsStunnedDuringFatesCall = false

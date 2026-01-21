@@ -1,7 +1,6 @@
 diarmuid_love_spot = class({})
 
 LinkLuaModifier("modifier_love_spot", "abilities/diarmuid/modifiers/modifier_love_spot", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_rampant_warrior_window", "abilities/diarmuid/modifiers/modifier_rampant_warrior_window", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_love_spot_charmed", "abilities/diarmuid/modifiers/modifier_love_spot_charmed", LUA_MODIFIER_MOTION_NONE)
 

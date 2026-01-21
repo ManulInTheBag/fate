@@ -13,6 +13,63 @@
 	
 "DOTAAbilities"
 {
+	//=================================================================================================================
+	// Lancer : Wesen Gae Bolg
+	//=================================================================================================================
+	"cu_new_combo"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_new_combo"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/lancer_5th_wesen_gae_bolg"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ALACRITY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AnimationPlaybackRate" 		"0.5"
+		
+		"precache"
+		{
+			"particle"		"particles/cu_chulain/combo_gb_targetted.vpcf"
+			"particle"		"particles/cu_chulain/combo_gb_targetted_explosion.vpcf"
+			"particle"		"particles/cu_chulain/combo_gb_targetted_jumo.vpcf"
+			"particle"		"particles/healres/hpbar_healres_t3_uncleansable.vpcf"
+			"particle"		"particles/cu_chulain/cu_combo_status.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"2500"
+		"AbilityCastRangeBuffer"		"99999"
+		"AbilityCastPoint"				"0.5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "cast_delay" "2"
+            "stun_duration" "0.3"
+            "damage" "750"
+            "radius" "550"
+            "damage_aoe" "1000"
+            "target_debuffs_duration_strong" "6"
+            "target_debuffs_duration_weak" "10"
+            "slow_powerful" "40"
+            "slow_powerful_desc" "70" // 40+ 30
+            "slow_weak" "30"
+        }
+	}	
 	"cu_chulain_rune_of_frost"
 	{
 		"BaseClass"						"ability_lua"
@@ -156,7 +213,7 @@
         {
             "heartbreak_threshold" "10 13 16 19 22"
             "combo_heartbreak" "40"
-            "damage_per_level" "12"
+            "damage_per_level" "10"
         }
 	}
 

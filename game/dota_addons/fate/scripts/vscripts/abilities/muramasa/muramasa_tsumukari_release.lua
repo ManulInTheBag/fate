@@ -105,7 +105,9 @@ Timers:CreateTimer(1.5, function()
 										0
     								)
     for k,v in pairs(targets) do       
-     
+    if v:GetName() == "npc_dota_hero_nevermore" then
+        v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+    end
      if caster:HasModifier("modifier_muramasa_forge") then 
         DoDamage(caster, v, damage_impact*0.7 , DAMAGE_TYPE_MAGICAL, 0, self, false)
         DoDamage(caster, v, damage_impact*0.3 , DAMAGE_TYPE_PURE, 0, self, false)

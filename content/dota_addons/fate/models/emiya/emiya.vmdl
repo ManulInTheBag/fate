@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -164,12 +164,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 70
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -195,12 +197,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 90
 						end_frame = 114
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -226,12 +230,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 134
 						end_frame = 164
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -262,12 +268,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 184
 						end_frame = 219
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -298,12 +306,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 239
 						end_frame = 274
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -328,6 +338,7 @@
 									attachment_type = "point"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point"
+									aggregate = false
 								}
 							},
 							{
@@ -348,6 +359,7 @@
 									attachment_type = "point"
 									attachment_point_cp1 = "sword_right_end"
 									attachment_type_cp1 = "point"
+									aggregate = false
 								}
 							},
 							{
@@ -369,12 +381,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 647
 						end_frame = 665
 						framerate = 48.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -400,12 +414,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 294
 						end_frame = 324
 						framerate = 75.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -435,6 +451,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -455,6 +472,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -471,12 +489,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 358
 						end_frame = 399
 						framerate = 62.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -486,7 +506,7 @@
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 7
+								event_frame = 3
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -501,12 +521,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 9
+								event_frame = 5
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -521,12 +542,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 18
+								event_frame = 11
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -541,6 +563,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -562,6 +585,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -578,19 +602,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
-						start_frame = 324
+						start_frame = 328
 						end_frame = 344
 						framerate = 25.0
 						reverse = false
-						anim_hold_list = 
-						[
-							{
-								frame = 324
-								frame_count = 6
-							},
-						]
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -600,7 +619,7 @@
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 7
+								event_frame = 3
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -615,12 +634,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 9
+								event_frame = 5
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -635,12 +655,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 18
+								event_frame = 11
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -655,6 +676,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -676,6 +698,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -692,19 +715,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
-						start_frame = 324
+						start_frame = 328
 						end_frame = 344
 						framerate = 25.0
 						reverse = false
-						anim_hold_list = 
-						[
-							{
-								frame = 324
-								frame_count = 6
-							},
-						]
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -730,12 +748,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 419
 						end_frame = 449
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -773,12 +793,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 469
 						end_frame = 485
 						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -788,7 +810,7 @@
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
-						fade_out_time = 0.0
+						fade_out_time = 0.2
 						looping = true
 						delta = false
 						worldSpace = false
@@ -796,12 +818,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 539
 						end_frame = 547
-						framerate = 7.0
+						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -826,6 +850,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -846,6 +871,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -866,6 +892,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -882,12 +909,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 567
 						end_frame = 607
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -897,7 +926,7 @@
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.0
-						fade_out_time = 0.0
+						fade_out_time = 0.1
 						looping = false
 						delta = false
 						worldSpace = false
@@ -905,12 +934,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
-						start_frame = 617
+						start_frame = 620
 						end_frame = 627
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -935,6 +966,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -955,12 +987,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 22
+								event_frame = 21
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -975,12 +1008,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 22
+								event_frame = 21
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -995,6 +1029,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -1002,7 +1037,7 @@
 						activity_name = "ACT_DOTA_RAZE_2"
 						activity_weight = 1
 						weight_list_name = ""
-						fade_in_time = 0.0
+						fade_in_time = 0.1
 						fade_out_time = 0.2
 						looping = false
 						delta = false
@@ -1011,12 +1046,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 647
-						end_frame = 687
-						framerate = -1.0
+						end_frame = 678
+						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1041,6 +1078,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1061,6 +1099,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1081,6 +1120,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "bow_spawn_2"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -1097,12 +1137,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 707
 						end_frame = 737
 						framerate = 90.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1120,12 +1162,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 976
 						end_frame = 1011
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1151,12 +1195,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1087
 						end_frame = 1107
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1182,12 +1228,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1262
 						end_frame = 1302
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1225,12 +1273,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1322
 						end_frame = 1352
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1256,12 +1306,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1372
 						end_frame = 1402
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1287,12 +1339,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1422
 						end_frame = 1446
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1330,12 +1384,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1546
 						end_frame = 1576
 						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1361,12 +1417,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 757
 						end_frame = 817
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1392,12 +1450,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 837
 						end_frame = 861
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1440,6 +1500,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "attach_attack_particle2"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1468,12 +1529,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 931
 						end_frame = 956
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1499,12 +1562,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 881
 						end_frame = 910
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1529,6 +1594,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1549,6 +1615,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1569,6 +1636,7 @@
 									attachment_type = "point"
 									attachment_point_cp1 = "bow_spawn_2"
 									attachment_type_cp1 = "point"
+									aggregate = false
 								}
 							},
 						]
@@ -1585,12 +1653,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1137
 						end_frame = 1162
 						framerate = 85.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1628,12 +1698,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1631
 						end_frame = 1656
 						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1659,12 +1731,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1596
 						end_frame = 1611
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1697,12 +1771,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1596
 						end_frame = 1611
 						framerate = 5.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1720,12 +1796,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 294
 						end_frame = 324
 						framerate = 120.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -1770,12 +1848,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 469
 						end_frame = 519
 						framerate = 55.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1801,12 +1881,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 70
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1844,12 +1926,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1322
 						end_frame = 1352
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1867,12 +1951,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
-						start_frame = 419
-						end_frame = 430
-						framerate = 22.0
-						reverse = false
+						start_frame = 1031
+						end_frame = 1058
+						framerate = 25.0
+						reverse = true
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1890,12 +1976,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 358
 						end_frame = 399
 						framerate = 62.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1913,12 +2001,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 757
 						end_frame = 757
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -1943,12 +2033,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1262
 						end_frame = 1302
 						framerate = 20.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1966,12 +2058,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 134
 						end_frame = 164
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2014,6 +2108,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "attach_attack_particle2"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2042,12 +2137,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 931
 						end_frame = 956
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2073,6 +2170,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2094,6 +2192,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2115,6 +2214,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -2131,12 +2231,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 574
 						end_frame = 590
 						framerate = 75.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2161,6 +2263,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2181,6 +2284,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -2198,12 +2302,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 647
 						end_frame = 687
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2234,12 +2340,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 184
 						end_frame = 219
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2270,12 +2378,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 239
 						end_frame = 274
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2285,7 +2395,7 @@
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
-						fade_out_time = 0.0
+						fade_out_time = 0.1
 						looping = true
 						delta = false
 						worldSpace = false
@@ -2293,12 +2403,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 539
 						end_frame = 547
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2316,12 +2428,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 986
 						end_frame = 1011
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2347,12 +2461,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 757
 						end_frame = 757
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -2385,12 +2501,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 757
 						end_frame = 757
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -2423,12 +2541,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 757
 						end_frame = 757
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -2468,12 +2588,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 1322
 						end_frame = 1352
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2498,6 +2620,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2518,6 +2641,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -2534,12 +2658,72 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/archer5.fbx"
 						import_bone_scales = false
 						start_frame = 358
 						end_frame = 399
 						framerate = 62.0
 						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "Bow_jumpback"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ICE_WALL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/emiya/archer5.fbx"
+						import_bone_scales = false
+						start_frame = 1031
+						end_frame = 1071
+						framerate = 80.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "Bow_jumpback1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ICE_WALL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/emiya/archer5.fbx"
+						import_bone_scales = false
+						start_frame = 1031
+						end_frame = 1071
+						framerate = 80.0
+						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
@@ -2585,6 +2769,7 @@
 						]
 						hidden_in_tools = false
 						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 					{
 						_class = "BodyGroup"
@@ -2593,6 +2778,7 @@
 						[
 							{
 								_class = "BodyGroupChoice"
+								name = "c12c"
 								meshes = 
 								[
 									"archer_no_swords",
@@ -2601,6 +2787,7 @@
 						]
 						hidden_in_tools = false
 						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 				]
 			},

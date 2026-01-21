@@ -93,8 +93,8 @@ function modifier_altera_beam:OnCreated()
         self.damage = ( self.damage / self.duration ) * 0.1--FrameTime()
         self.heal = self.damage/2
 
-        self.cdr = self.ability:GetSpecialValueFor("int_cdr")
-        self.cdr = (self.cdr/self.duration) * 0.1--FrameTime()
+        -- self.cdr = self.ability:GetSpecialValueFor("int_cdr")
+        -- self.cdr = (self.cdr/self.duration) * 0.1--FrameTime()
 
         self.particle =    ParticleManager:CreateParticle(self.particlename, PATTACH_WORLDORIGIN, self.caster)
                             ParticleManager:SetParticleShouldCheckFoW(self.particle, false)
@@ -149,16 +149,16 @@ function modifier_altera_beam:Impact(target, mult)
         and target ~= self.caster then
         if target:GetTeamNumber() == self.caster_team then
             target:Heal(self.heal*mult, self.ability)
-            if self.form == "int" and self.parent.ErosionAcquired then
-        	   	for j=0, 5 do 
-					local pepe_ability = target:GetAbilityByIndex(j)
-					if pepe_ability ~= nil then
-						rCooldown = pepe_ability:GetCooldownTimeRemaining()
-						pepe_ability:EndCooldown()
-						pepe_ability:StartCooldown(rCooldown - self.cdr)
-					end
-				end
-			end
+            -- if self.form == "int" and self.parent.ErosionAcquired then
+        	--    	for j=0, 5 do 
+			-- 		local pepe_ability = target:GetAbilityByIndex(j)
+			-- 		if pepe_ability ~= nil then
+			-- 			rCooldown = pepe_ability:GetCooldownTimeRemaining()
+			-- 			pepe_ability:EndCooldown()
+			-- 			pepe_ability:StartCooldown(rCooldown - self.cdr)
+			-- 		end
+			-- 	end
+			-- end
         else
         	local damage = self.damage
             if self.form == "agi" then

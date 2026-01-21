@@ -214,7 +214,7 @@
 
 		"AbilityCastPoint"							"0.15"
 		"AbilityCooldown"							"30 27 24 21 18"
-		"AbilityManaCost"							"400"
+		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
 		"MaxLevel"									"5"
@@ -237,11 +237,11 @@
 			//"locker_time"							"0.1"		//Core number values.
 			//"locker_increaser"					"0.05"		//Core number values.
 			"active_duration"						"6"
-			"active_mp_gain"						"100 110 120 130 140"
+			"active_mp_gain"						"60 75 90 105 120"
 			"active_hp_gain"						"0"
 			"active_debuff_duration"				"6"
 			"active_debuff_max_stacks"				"3 4 5 6 7"
-			"active_debuff_reduction_stack"			"-8"
+			"active_debuff_reduction_stack"			"-0"
 		}
 	}
 	//=======================================================================================================
@@ -265,7 +265,7 @@
 
 		"AbilityCastPoint"							"0.4"
 		"AbilityCooldown"							"42 40 38 36 34"
-		"AbilityManaCost"							"600"
+		"AbilityManaCost"							"400"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
 		"MaxLevel"									"5"
@@ -274,7 +274,12 @@
 
 		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_1"
 
-		"LinkedAbilities"							"saito_formless_slash"		//Only for Fatepedia.
+		"precache"
+		{
+			"particle"				"particles/saito/qwe_counter_enemy.vpcf"
+		}
+
+		"LinkedAbilities"							"saito_formlessness_new"		//Only for Fatepedia.
 
 		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
 		//{
@@ -283,15 +288,15 @@
 
 		"AbilityValues"
 		{
-			"duration"								"6"
+			"duration"								"8"
 			"bonus_ms"								"20"
 			"fade_delay"							"2.5 2.25 2 1.75 1.5"
 		}
 	}
 	//=======================================================================================================
-	//	Saitō Hajime : Formlessness [R]
+	//	Saitō Hajime : Formlessness [R] UNUSED
 	//=======================================================================================================
-	"saito_formless_slash"
+	"saito_formless_slash" //UNUSED
 	{
 		"BaseClass"									"ability_lua"
 
@@ -731,7 +736,7 @@
 		{
 			"fds_active_duration"					"4"
 			"fds_check_interval"					"0.5"
-			"fds_active_hp_gain"					"100 110 120 130 140"
+			"fds_active_hp_gain"					"60 75 90 105 120"
 			"fds_active_aura_min_reduction_range"	"900"
 			"fds_active_aura_max_reduction_range"	"300"
 			"fds_active_aura_min_reduction"			"-5"
@@ -772,8 +777,8 @@
 			"fli_evasion"							"35"
 			"fls_cast_range"						"150"
 			"fls_revoked_scale"						"1.5"
-			"fls_dmg_per_atk"						"25"
-			"fls_last_dmg_per_atk"					"200"
+			"fls_dmg_per_atk"						"15"
+			"fls_last_dmg_per_atk"					"100"
 		}
 	}
 	//	Updating the tooltips after acquiring the Special Attribute (SA) cannot be used on Saitō Hajime,
@@ -828,9 +833,59 @@
 		{
 			"channel_duration"						"1.0"
 			"duration"								"1.5"
-			"radius"								"1500"
-			"damage"								"2250"
+			"radius"								"1300"
+			"damage"								"1500"
 			"decreased_cooldown"					"60"
+		}
+	}
+
+	//=======================================================================================================
+	//	Saitō Hajime : Formlessness [R]
+	//=======================================================================================================
+	"saito_formlessness_new"
+	{
+		"BaseClass"									"ability_lua"
+
+		"ScriptFile"								"abilities/saito/vergil_saito/saito_formlessness_new"
+		"AbilityTextureName"						"custom/saito/saito_formless_slash_4"
+
+		"AbilityType"								"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
+
+		"AbilityCastPoint"							"0.2"
+		"AbilityCooldown"							"0"
+		"AbilityManaCost"							"400"
+		"AbilityCastRange"							"700"
+
+		"MaxLevel"									"5"
+		"RequiredLevel"								"1"
+		"LevelsBetweenUpgrades"						"2"
+
+		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_7"
+
+		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
+		//{
+
+		//}
+
+		"AbilityValues"
+		{
+			"max_slashes"							"10"
+			"slash_instances"						"2"
+			"lock_duration"							"0.5"
+			"last_lock_duration"					"1.5"
+			"stacks_duration"						"7"
+			"slash_damage"							"50 62.5 75 87.5 100"
+			"last_damage"							"300 375 450 525 600"
 		}
 	}
 }

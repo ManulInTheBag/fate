@@ -1,3 +1,4 @@
+LinkLuaModifier("saito_formlessness_new_stacks", "abilities/saito/vergil_saito/saito_formlessness_new", LUA_MODIFIER_MOTION_NONE)
 --!!----------------------------------------------------------------------------------------------------------------------------------------------------------
 --NOTE: Using AKA IsNotNull(false) will return "true", because it's a boolean, be careful.
 IsNotNull = function(hScript)
@@ -203,12 +204,12 @@ end
 --NOTE: Function created to emit zlodemon_true voices.
 local EmitZlodemonTrueSound = function(sSoundName)
     --ALO PIDORASI VI SVOIM EBANIM ZLODEMON_TRUE SLOMALI EBANOGO SAITO
-    return nil
-    --[[LoopOverPlayers(function(player, playerID, playerHero)
-        if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+    --return nil
+    LoopOverPlayers(function(player, playerID, playerHero)
+        if playerHero.zlodemon == true and playerHero:GetName() == "npc_dota_hero_terrorblade" then
             CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound=sSoundName})
         end
-    end)]]
+    end)
 end
 --========================================--
 
@@ -768,7 +769,7 @@ local tSaito_QWE_2 =
 local tSaito_RR =
 {
     "saito_formless_invis",
-    "saito_formless_slash",
+    "saito_formlessness_new",
 }
 --========================================--
 local UpgradeShared = function(hAbility, tSharedAbilities)
@@ -1063,6 +1064,9 @@ function modifier_saito_flashblade_motion:DoEffect(hUnit, vPosition)
             --giveUnitDataDrivenModifier(self.hCaster, hEntity, "locked", self.nImageRootDuration)
             --=================================--
             DoDamage(self.hCaster, hEntity, self.nImageDamage, self.nDamageType, DOTA_DAMAGE_FLAG_NONE, self.hAbility, false)
+            if self.hCaster:HasModifier("modifier_saito_formless_invis") then
+                hEntity:AddNewModifier(self.hCaster, self, "saito_formlessness_new_stacks", {duration = self.hCaster:FindAbilityByName("saito_formlessness_new"):GetSpecialValueFor("stacks_duration")})
+            end
 
             EmitSoundOn("Hero_Saito.Attack", hEntity)
         end
@@ -1216,7 +1220,7 @@ function saito_steelwing:OnSpellStart()
     for _, hEntity in pairs(hEntities) do
         if IsNotNull(hEntity) then
             --=================================--
-            fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
+            --fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
             --=================================--
             giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
             --=================================--
@@ -1225,6 +1229,10 @@ function saito_steelwing:OnSpellStart()
             end
             --=================================--
             DoDamage(hCaster, hEntity, nDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+             if hCaster:HasModifier("modifier_saito_formless_invis") then
+                hEntity:AddNewModifier(hCaster, self, "saito_formlessness_new_stacks", {duration = hCaster:FindAbilityByName("saito_formlessness_new"):GetSpecialValueFor("stacks_duration")})
+            end
+
         end
     end
 
@@ -1381,7 +1389,7 @@ function saito_shadowslash:OnSpellStart()
             local vEntLoc = hEntity:GetAbsOrigin()
             --=================================--
             if not IsKnockbackImmune(hEntity) then
-             FindClearSpaceForUnit(hEntity, vPullPoint, true) --Set and clear space with interrupting motion and etc.
+             --FindClearSpaceForUnit(hEntity, vPullPoint, true) --Set and clear space with interrupting motion and etc.
             end
             --=================================--
             if nAttr_MRR_Duraiton > 0 then
@@ -1389,6 +1397,9 @@ function saito_shadowslash:OnSpellStart()
             end
             --=================================--
             DoDamage(hCaster, hEntity, nDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, hAbility, false)
+             if hCaster:HasModifier("modifier_saito_formless_invis") then
+                hEntity:AddNewModifier(hCaster, self, "saito_formlessness_new_stacks", {duration = hCaster:FindAbilityByName("saito_formlessness_new"):GetSpecialValueFor("stacks_duration")})
+            end
             --=================================--
             self:PullTargetEffect(hEntity, vEntLoc)
         end
@@ -2068,7 +2079,7 @@ function modifier_saito_fds_cast_controller:OnTakeDamage(keys)
                     self.hParent:Heal(nHPGain, self.hAbility)
                 end
 
-                keys.unit:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_fds_active_sdr", {duration = self.nReductionDuration})
+               -- keys.unit:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_fds_active_sdr", {duration = self.nReductionDuration})
             end
         end
     end
@@ -2300,7 +2311,7 @@ function modifier_saito_fds_aura_sdr:IsPurgeException()                         
 function modifier_saito_fds_aura_sdr:RemoveOnDeath()                                                                return true end
 function modifier_saito_fds_aura_sdr:DeclareFunctions()
     local tFunc =   {
-                        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
+                        --MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
                     }
     return tFunc
 end
@@ -2312,7 +2323,7 @@ function modifier_saito_fds_aura_sdr:GetModifierTotalDamageOutgoing_Percentage(k
         --Autolerper and autoclamper values bases on how close your hero is to the enemy hero... with this modifier from aura.
 
         if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_MAGICAL) ~= 0 then
-            return nReductionCalc
+            return 0-- nReductionCalc
         end
     end
 end
@@ -2353,13 +2364,13 @@ function modifier_saito_fds_active_sdr:IsPurgeException()                       
 function modifier_saito_fds_active_sdr:RemoveOnDeath()                                                              return true end
 function modifier_saito_fds_active_sdr:DeclareFunctions()
     local tFunc =   {
-                        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
+                        --MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
                     }
     return tFunc
 end
 function modifier_saito_fds_active_sdr:GetModifierTotalDamageOutgoing_Percentage(keys)
     --if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_MAGICAL) ~= 0 then
-        return self:GetStackCount() * self.nReductionStack
+        return 0--self:GetStackCount() * self.nReductionStack
     --end
 end
 function modifier_saito_fds_active_sdr:OnCreated(tTable)
@@ -2512,7 +2523,7 @@ function modifier_saito_formless_invis:OnCreated(tTable)
 
         self:StartInvis()
 
-        self.hCaster:SetModifierStackCount("modifier_saito_formless_slash_counter", self.hCaster, 0) --Post fix if you don't use the max number of slashes.
+        --self.hCaster:SetModifierStackCount("modifier_saito_formless_slash_counter", self.hCaster, 0) --Post fix if you don't use the max number of slashes.
     end
 end
 function modifier_saito_formless_invis:OnRefresh(tTable)
@@ -2751,7 +2762,7 @@ end
 function saito_step:OnSpellStart()
     local hCaster = self:GetCaster()
     local vPoint  = self:GetCursorPosition() + hCaster:GetForwardVector()
-
+    EmitSoundOn("saito_q2", hCaster)
     local nMaxDistance = self:GetAOERadius()
     local nMinDistance = self:GetSpecialValueFor("min_distance")
 
@@ -2791,6 +2802,9 @@ function saito_step:OnSpellStart()
             giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
 
             DoDamage(hCaster, hEntity, nDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+            if hCaster:HasModifier("modifier_saito_formless_invis") then
+                hEntity:AddNewModifier(hCaster, self, "saito_formlessness_new_stacks", {duration = hCaster:FindAbilityByName("saito_formlessness_new"):GetSpecialValueFor("stacks_duration")})
+            end
         end
     end
 
@@ -2835,7 +2849,7 @@ saito_storm = saito_storm or class({})
 function saito_storm:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
-
+    EmitSoundOn("saito_w2", hCaster)
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_storm_motion", {duration = self:GetSpecialValueFor("duration")})
 end
 ---------------------------------------------------------------------------------------------------------------------
@@ -3005,6 +3019,9 @@ function modifier_saito_storm_motion:PokeEnemy()
         for _, hEntity in pairs(tEntities) do
             if IsNotNull(hEntity) then
                 DoDamage(self.hCaster, hEntity, self.nDamage, self.nDamageType, DOTA_DAMAGE_FLAG_NONE, self.hAbility, false)
+                if self.hCaster:HasModifier("modifier_saito_formless_invis") then
+                    hEntity:AddNewModifier(self.hCaster, self, "saito_formlessness_new_stacks", {duration = self.hCaster:FindAbilityByName("saito_formlessness_new"):GetSpecialValueFor("stacks_duration")})
+                end
             end
         end
     end
@@ -3059,7 +3076,7 @@ function saito_vortex:GetAOERadius()
 end
 function saito_vortex:OnSpellStart()
     local hCaster = self:GetCaster()
-
+    EmitSoundOn("saito_e2", hCaster)
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_vortex_slashing", {duration = 3}) --3 seconds just to prevent any mistakes.
 
     EmitZlodemonTrueSound("moskes_saito_eup")
@@ -3179,6 +3196,9 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
                     giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nKnockDuration)
                     fApplyKnockbackSpecial(hEntity, self.nKnockDistance, self.nKnockDuration, GetDirection(hEntity, vParentLoc))
                     EmitSoundOn("Saito.Vortex.Impact", hEntity)
+                    if self.hCaster:HasModifier("modifier_saito_formless_invis") then
+                        hEntity:AddNewModifier(self.hCaster, self, "saito_formlessness_new_stacks", {duration = self.hCaster:FindAbilityByName("saito_formlessness_new"):GetSpecialValueFor("stacks_duration")})
+                    end
                 else
                     giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nSlashStunDuration)
 

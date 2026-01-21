@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -15,7 +15,7 @@
 						[
 							{
 								from = ""
-								to = "models/maounobu/nobujopa.vmat"
+								to = "maps/backgrounds/models/fairy_showcase_hero_shield/fairy_showcase_hero_shield.vmat"
 							},
 						]
 						use_global_default = false
@@ -30,7 +30,7 @@
 					{
 						_class = "RenderMeshFile"
 						name = "maounobu"
-						filename = "models/maounobu/jopa123.fbx"
+						filename = "models/maounobu/nobus/herc/herc.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
@@ -46,7 +46,7 @@
 				[
 					{
 						_class = "AnimFile"
-						name = "fist_attack_series"
+						name = "1"
 						children = 
 						[
 							{
@@ -67,9 +67,11 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "jopa23"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -82,30 +84,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/maounobu/maounobu.fbx"
-						import_bone_scales = false
-						start_frame = 359
+						delete_from_compiled_model = false
+						source_filename = "models/maounobu/nobus/herc/herc.fbx"
+						import_bone_scales = true
+						start_frame = 0
 						end_frame = 360
-						framerate = 1.0
+						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
-			},
-			{
-				_class = "AttachmentList"
-				children = 
-				[
-					{
-						_class = "Attachment"
-						name = "jopa23"
-						parent_bone = "Bip001_L_Hand"
-						relative_origin = [ 0.0, 0.0, 0.0 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-				]
 			},
 		]
 		model_archetype = ""

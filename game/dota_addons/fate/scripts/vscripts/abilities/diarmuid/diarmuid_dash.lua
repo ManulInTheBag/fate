@@ -2,6 +2,7 @@ LinkLuaModifier("modifier_diar_dash_w", "abilities/diarmuid/diarmuid_dash", LUA_
 LinkLuaModifier("modifier_rampant_warrior", "abilities/diarmuid/modifiers/modifier_rampant_warrior", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rampant_warrior_cooldown", "abilities/diarmuid/modifiers/modifier_rampant_warrior_cooldown", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_double_spearmanship_passive", "abilities/diarmuid/modifiers/modifier_double_spearmanship_passive", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rampant_warrior_window", "abilities/diarmuid/modifiers/modifier_rampant_warrior_window", LUA_MODIFIER_MOTION_NONE)
 diarmuid_dash = class({})
 
 function diarmuid_dash:OnUpgrade()

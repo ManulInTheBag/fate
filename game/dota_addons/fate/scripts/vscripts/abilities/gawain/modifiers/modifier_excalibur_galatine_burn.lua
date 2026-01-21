@@ -16,4 +16,7 @@ function modifier_excalibur_galatine_burn:OnIntervalThink()
 	local damage = self:GetAbility():GetSpecialValueFor("dot_damage")/2
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	if target:GetName() == "npc_dota_hero_nevermore" then
+		target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
 end

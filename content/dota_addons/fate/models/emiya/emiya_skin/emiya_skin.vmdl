@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -197,12 +197,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 70
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -228,12 +230,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 71
 						end_frame = 95
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -259,12 +263,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 96
 						end_frame = 127
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -295,12 +301,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 128
 						end_frame = 163
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -331,12 +339,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 163
 						end_frame = 198
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -361,6 +371,7 @@
 									attachment_type = "point"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point"
+									aggregate = false
 								}
 							},
 							{
@@ -381,6 +392,7 @@
 									attachment_type = "point"
 									attachment_point_cp1 = "sword_right_end"
 									attachment_type_cp1 = "point"
+									aggregate = false
 								}
 							},
 							{
@@ -402,12 +414,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 420
 						end_frame = 438
 						framerate = 48.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -433,12 +447,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 199
 						end_frame = 214
 						framerate = 37.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -468,6 +484,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -488,6 +505,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -504,12 +522,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 244
 						end_frame = 285
 						framerate = 62.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -519,7 +539,7 @@
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 7
+								event_frame = 3
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -534,12 +554,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 9
+								event_frame = 5
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -554,12 +575,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 18
+								event_frame = 11
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -574,6 +596,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -595,6 +618,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -611,19 +635,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
-						start_frame = 210
+						start_frame = 214
 						end_frame = 230
 						framerate = 25.0
 						reverse = false
-						anim_hold_list = 
-						[
-							{
-								frame = 210
-								frame_count = 6
-							},
-						]
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -633,7 +652,7 @@
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 7
+								event_frame = 3
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -648,12 +667,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 9
+								event_frame = 5
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -668,12 +688,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 18
+								event_frame = 11
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -688,6 +709,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -709,6 +731,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -725,19 +748,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
-						start_frame = 210
+						start_frame = 214
 						end_frame = 230
 						framerate = 25.0
 						reverse = false
-						anim_hold_list = 
-						[
-							{
-								frame = 210
-								frame_count = 6
-							},
-						]
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -763,12 +781,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 287
 						end_frame = 316
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -806,12 +826,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 317
 						end_frame = 333
 						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -829,12 +851,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 368
 						end_frame = 376
 						framerate = 7.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -859,6 +883,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -879,6 +904,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -899,6 +925,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -915,12 +942,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 377
 						end_frame = 407
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -930,7 +959,7 @@
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.0
-						fade_out_time = 0.0
+						fade_out_time = 0.1
 						looping = false
 						delta = false
 						worldSpace = false
@@ -938,12 +967,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 408
 						end_frame = 418
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -968,6 +999,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -988,12 +1020,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 22
+								event_frame = 21
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -1008,12 +1041,13 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 22
+								event_frame = 21
 								event_end_frame = -1
 								event_keys = 
 								{
@@ -1028,6 +1062,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -1035,7 +1070,7 @@
 						activity_name = "ACT_DOTA_RAZE_2"
 						activity_weight = 1
 						weight_list_name = ""
-						fade_in_time = 0.0
+						fade_in_time = 0.1
 						fade_out_time = 0.2
 						looping = false
 						delta = false
@@ -1044,12 +1079,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 419
-						end_frame = 459
-						framerate = -1.0
+						end_frame = 450
+						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1074,6 +1111,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1094,6 +1132,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1114,6 +1153,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "bow_spawn_2"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -1130,12 +1170,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 460
 						end_frame = 490
 						framerate = 90.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1153,12 +1195,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 634
 						end_frame = 669
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1184,12 +1228,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 897
 						end_frame = 917
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1215,12 +1261,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 825
 						end_frame = 865
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1258,12 +1306,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 866
 						end_frame = 896
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1289,12 +1339,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 287
 						end_frame = 316
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1320,12 +1372,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 71
 						end_frame = 95
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1363,12 +1417,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 1002
 						end_frame = 1032
 						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1394,12 +1450,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 491
 						end_frame = 551
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1425,12 +1483,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 552
 						end_frame = 576
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1473,6 +1533,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "attach_attack_particle2"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1501,12 +1562,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 609
 						end_frame = 633
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1532,12 +1595,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 577
 						end_frame = 607
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1562,6 +1627,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1582,6 +1648,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -1602,6 +1669,7 @@
 									attachment_type = "point"
 									attachment_point_cp1 = "bow_spawn_2"
 									attachment_type_cp1 = "point"
+									aggregate = false
 								}
 							},
 						]
@@ -1618,12 +1686,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 738
 						end_frame = 763
 						framerate = 85.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1661,12 +1731,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 1061
 						end_frame = 1081
 						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1692,12 +1764,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 1046
 						end_frame = 1061
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1730,12 +1804,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 1046
 						end_frame = 1061
 						framerate = 5.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1753,12 +1829,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 199
 						end_frame = 214
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -1803,12 +1881,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 317
 						end_frame = 367
 						framerate = 55.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1834,12 +1914,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 70
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1877,12 +1959,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 866
 						end_frame = 896
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1900,12 +1984,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
-						start_frame = 287
-						end_frame = 298
+						start_frame = 670
+						end_frame = 697
 						framerate = 22.0
-						reverse = false
+						reverse = true
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1923,12 +2009,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 244
 						end_frame = 285
 						framerate = 62.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1946,12 +2034,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 491
 						end_frame = 491
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -1976,12 +2066,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 825
 						end_frame = 865
 						framerate = 20.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1999,12 +2091,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 96
 						end_frame = 127
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2047,6 +2141,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "attach_attack_particle2"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2075,12 +2170,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 609
 						end_frame = 633
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2106,6 +2203,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2127,6 +2225,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2148,6 +2247,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -2164,12 +2264,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 384
 						end_frame = 400
 						framerate = 75.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2200,12 +2302,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 128
 						end_frame = 163
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2236,12 +2340,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 163
 						end_frame = 198
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2259,12 +2365,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 368
 						end_frame = 376
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2282,12 +2390,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 644
 						end_frame = 669
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2313,12 +2423,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 491
 						end_frame = 491
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -2351,12 +2463,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 491
 						end_frame = 491
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -2389,12 +2503,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 491
 						end_frame = 491
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -2434,12 +2550,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 866
 						end_frame = 896
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -2464,6 +2582,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_right_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -2484,6 +2603,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_left_end_overedge_dash"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -2500,12 +2620,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
 						import_bone_scales = false
 						start_frame = 244
 						end_frame = 285
 						framerate = 62.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
@@ -2551,6 +2673,7 @@
 						]
 						hidden_in_tools = false
 						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 					{
 						_class = "BodyGroup"
@@ -2559,6 +2682,7 @@
 						[
 							{
 								_class = "BodyGroupChoice"
+								name = "431413"
 								meshes = 
 								[
 									"archer_no_swords",
@@ -2567,6 +2691,7 @@
 						]
 						hidden_in_tools = false
 						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 				]
 			},

@@ -1,6 +1,6 @@
 
 LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 scathach_gae_bolg = class({})
 
 function scathach_gae_bolg:CastFilterResultTarget(hTarget)
@@ -169,7 +169,7 @@ if IsServer() then
 end
 
 function modifier_stachach_gae_bolg_curse:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetStackCount() * -3
+	return self:GetStackCount() * -2
 end
 
 function modifier_stachach_gae_bolg_curse:GetEffectName()

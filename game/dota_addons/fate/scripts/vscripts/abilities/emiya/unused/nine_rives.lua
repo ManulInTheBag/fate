@@ -13,7 +13,7 @@ end
 function OnNineStart(keys)
 	local caster = keys.caster
 	local casterName = caster:GetName()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local ability = keys.ability
 	local berserker = Physics:Unit(caster)
 	local origin = caster:GetAbsOrigin()

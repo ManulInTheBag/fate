@@ -43,8 +43,7 @@ end
 modifier_khsn_grab_target = class({})
 
 function modifier_khsn_grab_target:CheckState()
-	return { [MODIFIER_STATE_STUNNED] = true,
-			 [MODIFIER_STATE_COMMAND_RESTRICTED] = true }
+	return { [MODIFIER_STATE_STUNNED] = true }
 end
 
 function modifier_khsn_grab_target:DeclareFunctions()

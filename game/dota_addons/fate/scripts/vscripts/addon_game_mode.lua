@@ -325,6 +325,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/hero_robin.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/hero_lu_bu.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_aoko.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_maou.vsndevts", context)
 	PrecacheResource("model", "models/lu_bu/lu_bu.vmdl", context)
     PrecacheResource("model", "models/zlodemon/medea_new.vmdl", context)
     PrecacheResource("model", "models/emiya/emiya_skin/emiya_skin.vmdl", context)
@@ -348,6 +349,7 @@ function Precache( context )
     PrecacheResource("model", "models/astolfo/extella/astolfo_swimsuit.vmdl", context)
     PrecacheResource("model", "models/gilles/gilles_pope.vmdl", context)
     PrecacheResource("model", "models/scathach/scathach_swimsuit.vmdl", context)    
+    PrecacheResource("model", "models/zlodemon/sasaki_skin/sasaki_skin_patrick.vmdl", context)  
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts", context)
@@ -452,6 +454,8 @@ function Precache( context )
     PrecacheResource( "particle", "particles/custom/system/damage_popup_physical.vpcf", context)
     PrecacheResource( "particle", "particles/custom/system/damage_popup_pure.vpcf", context)
     PrecacheResource( "particle", "particles/custom/system/gold_popup.vpcf", context)
+
+     PrecacheResource("particle", "particles/revoked_test.vpcf", context)
 
     PrecacheResource("particle", "particles/custom/gilles/gilles_summon_jellyfish.vpcf", context)
     PrecacheResource("particle", "particles/custom/tamamo/frigid_heaven.vpcf", context)
@@ -4091,6 +4095,18 @@ function FateGameMode:ExecuteOrderFilterPepeg(filterTable)
     -- What do we do when handling the move between inventory and stash?
     --[[if orderType == 11 then
     end]]
+
+    if orderType == 3 then --гейб я ебал твою мамашу за удаление new_pos из ордеров кстати
+        if filterTable.issuer_player_id_const then
+            local ply = PlayerResource:GetPlayer(filterTable.issuer_player_id_const)
+            if ply then
+                local hero = ply:GetAssignedHero()
+                if hero:HasModifier("modifier_nanaya_instinct") then
+                    hero:FindModifierByName("modifier_nanaya_instinct"):Order3Inject(xPos, yPos, zPos)
+                end
+            end
+        end
+    end
 
     if orderType == DOTA_UNIT_ORDER_RADAR then
         return false

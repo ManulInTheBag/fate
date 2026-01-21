@@ -110,11 +110,17 @@ function modifier_nanaya_instinct:OnOrder(args)
 	if args.unit ~= self:GetParent() or self.sex ~= true or args.unit:IsCommandRestricted() or args.unit:IsStunned() then return end
 
 	if (args.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE) then--or (args.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION) then
-	  	self:NanayaBlink(args.new_pos)
+	  	--self:NanayaBlink(args.new_pos)
 	end
 	if (args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET) then
 	  	self:NanayaBlink(args.target:GetAbsOrigin() + (self.parent:GetAbsOrigin() - args.target:GetAbsOrigin()):Normalized()*100)
 	end
+end
+
+function modifier_nanaya_instinct:Order3Inject(pos_x, pos_y, pos_z)
+	if self.sex ~= true or self:GetParent():IsCommandRestricted() or self:GetParent():IsStunned() then return end
+
+	self:NanayaBlink(Vector(pos_x, pos_y, pos_z))
 end
 
 function modifier_nanaya_instinct:NanayaBlink(location)

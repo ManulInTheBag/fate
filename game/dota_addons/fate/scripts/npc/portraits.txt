@@ -33,6 +33,100 @@
 			}
 		}
 	}
+
+	"models/maounobu/nobus/nobutank.vmdl"
+	{
+		"PortraitLightPosition"		"202.70 -23.15 308.17"
+		"PortraitLightAngles"		"54.79 171.70 0.00"
+		"PortraitLightFOV"		"69"
+		"PortraitLightDistance"		"377"
+		"PortraitLightColor"		"254 248 242"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"79 108 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+				"PortraitBackgroundColor1"		"1 0.2 0.2"
+		"PortraitBackgroundColor2"		"1 0.2 0.2"
+		"PortraitBackgroundColor3"		"1 0.2 0.2"
+		"PortraitBackgroundColor4"		"1 0.2 0.2"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"446.17 -88.29 -100.69"
+				"PortraitAngles"		"334.89 166.83 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
+	"models/maounobu/nobus/hercnobus.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+				"PortraitBackgroundColor1"		"1 0.2 0.2"
+		"PortraitBackgroundColor2"		"1 0.2 0.2"
+		"PortraitBackgroundColor3"		"1 0.2 0.2"
+		"PortraitBackgroundColor4"		"1 0.2 0.2"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"446.17 -88.29 -100.69"
+				"PortraitAngles"		"334.89 166.83 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
+	"models/maounobu/nobus/shinsengumi_nobus.vmdl"
+	{
+		"PortraitLightPosition"		"202.70 -23.15 308.17"
+		"PortraitLightAngles"		"54.79 171.70 0.00"
+		"PortraitLightFOV"		"69"
+		"PortraitLightDistance"		"377"
+		"PortraitLightColor"		"254 248 242"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"79 108 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/hijikata_fon.vmat"
+		"PortraitBackgroundColor1"		"1 1 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"350.17 -80.29 -100.69"
+				"PortraitAngles"		"334.89 166.83 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
 	"models/scathach/scathach.vmdl"
 	{
 		"PortraitLightPosition"		"112.73 -41.13 174.53"
@@ -58,6 +152,34 @@
 				"PortraitPosition"		"235.90 -55.63 90.55"
 				"PortraitAngles"		"352.41 167.17 0.00"
 				"PortraitFOV"		"13"
+			}
+		}
+	}
+
+	"models/maounobu/maounobu.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"255 30 30"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"1.000000"
+		"PortraitAmbientColor"		"255 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 30 30"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/maou_fon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"700.07 40 140"
+				"PortraitAngles"		"1.85 183.19 0.00"
+				"PortraitFOV"		"4"
 			}
 		}
 	}
@@ -2714,6 +2836,34 @@
 				"PortraitPosition"		"225.39 95.81 165.97"
 				"PortraitAngles"		"5.02 204.11 8.00"
 				"PortraitFOV"		"18"
+			}
+		}
+	}
+
+	"models/zlodemon/sasaki_skin/sasaki_skin_patrick.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 0.53"
+		"PortraitLightAngles"		"180.54 149.30 0.00"
+		"PortraitLightFOV"		"1"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"1.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/patrick_fon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"300.17 -60.29 120.69"
+				"PortraitAngles"		"355.89 166.83 0.00"
+				"PortraitFOV"		"16"
 			}
 		}
 	}

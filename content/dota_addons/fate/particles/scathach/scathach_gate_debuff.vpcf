@@ -1,0 +1,74 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf63:version{a6e6a69e-52d3-4527-8b9c-ff3bb91aca3e} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 4
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 50.0, 255.0, 50.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 61
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 6
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 280.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 62
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 6
+			m_vecCP1Pos = [ 0.0, 0.0, 280.0 ]
+			m_transformInput = 
+			{
+				m_nControlPoint = 1
+			}
+		},
+		{
+			_class = "C_OP_SetCPOrientationToPointAtCP"
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/scathach/scathach_gate_debuff_impact.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/scathach/scathach_gate_debuff_streaks01.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/scathach/scathach_gate_debuff_streaks01_head.vpcf"
+		},
+	]
+}

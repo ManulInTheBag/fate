@@ -1,6 +1,7 @@
+LinkLuaModifier("modifier_scathach_combo_window", "abilities/scathach/scathach_red_wind", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 scathach_red_wind = class({})
-LinkLuaModifier("modifier_scathach_combo_2_window", "abilities/scathach/modifiers/modifier_scathach_combo_2_window", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+
 function scathach_red_wind:GetCastRange(vLocation, hTarget)
     local range = 1100
 
@@ -12,8 +13,14 @@ end
 
 function scathach_red_wind:OnSpellStart()
 	local caster = self:GetCaster()
+
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+	    if self:GetAutoCastState() and caster:FindAbilityByName("scathach_gate_of_skye"):IsCooldownReady() and caster:IsAlive() then 		
+	    	caster:AddNewModifier(caster, self, "modifier_scathach_combo_window", {duration = 3})
+		end
+	end
 	
-	 local randomVec = RandomInt(-400,400)
+	local randomVec = RandomInt(-400,400)
 
 	StartAnimation(caster, {duration=1.00, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
 	local point = self:GetCursorPosition()
@@ -43,11 +50,11 @@ function scathach_red_wind:OnSpellStart()
 	{
 		Ability = self,
         EffectName = nil,
-        iMoveSpeed = 1500,
+        iMoveSpeed =  charge_distance*2.5,
         vSpawnOrigin = caster:GetOrigin(),
-        fDistance = distance,
-        fStartRadius = 150,
-        fEndRadius = 150,
+        fDistance = distance*1.2,
+        fStartRadius = 200,
+        fEndRadius = 200,
         Source = caster,
         bHasFrontalCone = true,
         bReplaceExisting = true,
@@ -65,7 +72,7 @@ function scathach_red_wind:OnSpellStart()
 	caster:EmitSound("caster_PhantomLancer.Doppelwalk") 
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
-	caster:SetPhysicsVelocity(caster:GetForwardVector() * charge_distance*2)
+	caster:SetPhysicsVelocity(caster:GetForwardVector() * charge_distance*2.5)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	
 	
@@ -115,7 +122,7 @@ function scathach_red_wind:OnSpellStart()
 		FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
 	end)
 	
-	self:CheckCombo()
+	--self:CheckCombo()
 end
 
 function scathach_red_wind:OnProjectileHit_ExtraData(hTarget, vLocation, table)
@@ -142,6 +149,28 @@ function scathach_red_wind:CheckCombo()
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect(false) >= 29.1 then
 		if caster:FindAbilityByName("scathach_red_creed_combo"):IsCooldownReady() and caster:FindAbilityByName("scathach_combo_gate_of_sky"):IsCooldownReady() then
 			caster:AddNewModifier(caster, self, "modifier_scathach_combo_2_window", { Duration = 4 })
+		end
+	end
+end
+
+modifier_scathach_combo_window = class({})
+
+function modifier_scathach_combo_window:IsHidden() return true end
+function modifier_scathach_combo_window:IsDebuff() return false end
+function modifier_scathach_combo_window:OnCreated()
+	if IsServer() then
+		local caster = self:GetParent()
+			print("3")
+		if caster:GetAbilityByIndex(3):GetName() == "scathach_pinning_thorn" then	    		
+			caster:SwapAbilities("scathach_gate_of_skye", "scathach_pinning_thorn", true, false)	
+		end
+	end
+end
+function modifier_scathach_combo_window:OnDestroy()
+	if IsServer() then
+		local caster = self:GetParent()
+		if caster:GetAbilityByIndex(3):GetName() == "scathach_gate_of_skye" then
+			caster:SwapAbilities("scathach_gate_of_skye", "scathach_pinning_thorn", false, true)
 		end
 	end
 end

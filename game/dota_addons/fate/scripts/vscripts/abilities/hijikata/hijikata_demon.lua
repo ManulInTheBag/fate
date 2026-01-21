@@ -190,8 +190,8 @@ function modifier_demon_buff_hijikata:OnAttackLanded(args)
 	 end
 	 local cd = self:GetAbility():GetCooldownTimeRemaining()
 	 self:GetAbility():EndCooldown()
-	 if cd > 0.5 then 
-		self:GetAbility():StartCooldown(cd - 0.5)
+	 if cd > 1 then 
+		self:GetAbility():StartCooldown(cd - 1)
 	 end
     DoDamage(self.caster, args.target, damage + health_damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 end

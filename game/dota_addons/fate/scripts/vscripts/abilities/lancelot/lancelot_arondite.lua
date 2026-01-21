@@ -30,6 +30,10 @@ function lancelot_arondite:OnAbilityPhaseStart()
 end
 
 function lancelot_arondite:OnSpellStart()
+	self:ActivateArondite(self:GetSpecialValueFor("duration"))
+end
+
+function lancelot_arondite:ActivateArondite(duration)
 	local caster = self:GetCaster()
     local ability = self
    
@@ -46,6 +50,8 @@ function lancelot_arondite:OnSpellStart()
         FxDestroyer(warp,false)
     end)
 
+    caster:FindAbilityByName("lancelot_arondight_overload"):EndCooldown()
+
 
     local bonus_stats = self:GetSpecialValueFor("bonus_allstat")
 
@@ -54,7 +60,7 @@ function lancelot_arondite:OnSpellStart()
     	bonus_stats = bonus_stats * 2
     end
 
-    caster:AddNewModifier(caster, self, "modifier_arondite", {	Duration = self:GetSpecialValueFor("duration"),
+    caster:AddNewModifier(caster, self, "modifier_arondite", {	Duration = duration,
     															StrengthBonus = bonus_stats,
     															AgilityBonus = bonus_stats,
     															IntelligenceBonus = bonus_stats,
@@ -62,13 +68,6 @@ function lancelot_arondite:OnSpellStart()
     															KotlAttribute = caster.KotlSaAcquired })
 
     caster:Heal(self:GetSpecialValueFor("activate_heal"), caster)
-
-    -- Timers:CreateTimer(0, function()
-    -- 	if caster:HasModifier("modifier_arondite") then
-    -- 	print(caster:IsMagicImmune())
-    -- 	return 0.1
-    -- end
-    -- end)
 end
 
 function lancelot_arondite:CreateFireProjectile()
@@ -115,6 +114,10 @@ function lancelot_arondite:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 
 	if not hTarget:IsMagicImmune() then
 		DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+
+		if hTarget:GetName() == "npc_dota_hero_nevermore" then
+			hTarget:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+		end
 
 		--if hCaster:HasModifier("modifier_eternal_flame_attribute") then
 		--	hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = self:GetSpecialValueFor("ef_dur") })

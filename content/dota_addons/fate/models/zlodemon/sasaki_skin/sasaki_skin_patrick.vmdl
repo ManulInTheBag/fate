@@ -1,0 +1,1038 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "models/zlodemon/sasaki_skin/shio_uchiha_patrick_star.vmat"
+							},
+							{
+								from = "imported material 02.vmat"
+								to = "models/zlodemon/sasaki_skin/shio_uchiha_patrick_star.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "Bip001"
+						relative_origin = [ 0.0, 0.0, -30.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Bip001_Spine1"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "Bip001_L_Hand"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_sword"
+						parent_bone = "Bone022"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Bip001_Pelvis"
+								parent_bone = "Bip001_Pelvis"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -49.91848, -51.152679, -19.141003 ]
+								hitbox_maxs = [ 49.91848, 49.053177, 22.938992 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_Spine"
+								parent_bone = "Bip001_Spine"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -47.734772, -41.258316, -6.788185 ]
+								hitbox_maxs = [ 47.734749, 50.714203, 32.894283 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_Spine1"
+								parent_bone = "Bip001_Spine1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -104.294876, -80.106331, -84.247185 ]
+								hitbox_maxs = [ 100.311066, 79.191193, 128.295288 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_UpperArm"
+								parent_bone = "Bip001_L_UpperArm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -18.924318, -15.446167 ]
+								hitbox_maxs = [ 28.589031, 18.191259, 17.446938 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Forearm"
+								parent_bone = "Bip001_L_Forearm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -10.535987, -10.148445 ]
+								hitbox_maxs = [ 16.985016, 12.16962, 10.616318 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Hand"
+								parent_bone = "Bip001_L_Hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.789818, -6.347637, -7.987915 ]
+								hitbox_maxs = [ 11.473305, 9.476307, 8.053162 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Finger0"
+								parent_bone = "Bip001_L_Finger0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.933228, -5.703618, -3.50499 ]
+								hitbox_maxs = [ 3.903183, 2.743472, 5.41188 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Finger2"
+								parent_bone = "Bip001_L_Finger2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.526253, -4.638778, -6.509735 ]
+								hitbox_maxs = [ 4.889549, 8.604387, 5.53643 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_Neck"
+								parent_bone = "Bip001_Neck"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -35.500988, -36.103249, -9.136841 ]
+								hitbox_maxs = [ 35.50098, 32.997421, 20.081055 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_Head"
+								parent_bone = "Bip001_Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.806063, -28.32692, -5.946846 ]
+								hitbox_maxs = [ 23.806047, 18.887192, 39.283875 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone054"
+								parent_bone = "Bone054"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.230007, -17.4062, -0.859436 ]
+								hitbox_maxs = [ 17.230007, 16.189022, 14.580383 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone055"
+								parent_bone = "Bone055"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.8624, -15.36314, -0.5 ]
+								hitbox_maxs = [ 14.862398, 15.652241, 17.045334 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone056"
+								parent_bone = "Bone056"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.214861, -11.045645, -1.013885 ]
+								hitbox_maxs = [ 12.214853, 12.647886, 16.277466 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_UpperArm"
+								parent_bone = "Bip001_R_UpperArm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -28.589031, -18.924221, -15.446167 ]
+								hitbox_maxs = [ 0.5, 18.191357, 17.446938 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Forearm"
+								parent_bone = "Bip001_R_Forearm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.985008, -10.53582, -10.148445 ]
+								hitbox_maxs = [ 0.5, 12.169788, 10.616318 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Hand"
+								parent_bone = "Bip001_R_Hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.473297, -6.347424, -7.987915 ]
+								hitbox_maxs = [ 1.789833, 9.476519, 8.053162 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Finger0"
+								parent_bone = "Bip001_R_Finger0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.903275, -5.703392, -3.50499 ]
+								hitbox_maxs = [ 6.933228, 2.743695, 5.41188 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Finger2"
+								parent_bone = "Bip001_R_Finger2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.889519, -4.638554, -6.509735 ]
+								hitbox_maxs = [ 0.526268, 8.60462, 5.53643 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone009"
+								parent_bone = "Bone009"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.462596, -7.251713, -14.305897 ]
+								hitbox_maxs = [ 14.256984, 5.796974, 5.347984 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone010"
+								parent_bone = "Bone010"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.199982, -4.394409, -14.932386 ]
+								hitbox_maxs = [ 14.256973, 7.442669, 2.652485 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Thigh"
+								parent_bone = "Bip001_L_Thigh"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.504429, -31.843004, -23.902685 ]
+								hitbox_maxs = [ 19.370098, 35.808548, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Thigh"
+								parent_bone = "Bip001_R_Thigh"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.3701, -31.842943, -23.902582 ]
+								hitbox_maxs = [ 17.504431, 35.808609, 0.5 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "asn"
+						filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object003",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "asn"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "asn_idle"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 1
+								end_frame = 284
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_move"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 579
+								end_frame = 596
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_attack"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 390
+								end_frame = 428
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_attack_two"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 430
+								end_frame = 470
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_attack_three"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK_EVENT"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 472
+								end_frame = 509
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_windblade"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 641
+								end_frame = 679
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_death"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 985
+								end_frame = 1087
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_tg_cast"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 359
+								end_frame = 385
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_tg_slash"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 828
+								end_frame = 890
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "asn_tg"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/assassin/asn1.FBX"
+								import_bone_scales = false
+								start_frame = 797
+								end_frame = 890
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+						]
+						disabled = true
+					},
+					{
+						_class = "Folder"
+						name = "patrick"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "patrick_idle"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 9
+								end_frame = 49
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_move"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 50
+								end_frame = 66
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_die"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 67
+								end_frame = 137
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_attack"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 138
+								end_frame = 174
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_windblade"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 330
+								end_frame = 351
+								framerate = 20.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_attack2"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 229
+								end_frame = 260
+								framerate = 40.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_tg_cast"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 777
+								end_frame = 809
+								framerate = 55.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 809
+										frame_count = 20
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_tg_slash"
+								children = 
+								[
+									{
+										_class = "AnimCombine"
+										anim_name = "patrick_tg_slash_part1"
+										start_frame = 35
+										end_frame = 65
+									},
+									{
+										_class = "AnimCombine"
+										anim_name = "patrick_tg_slash_part"
+										start_frame = 66
+										end_frame = 125
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 820
+								end_frame = 855
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 855
+										frame_count = 90
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_tg_slash_part"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 277
+								end_frame = 312
+								framerate = 55.0
+								reverse = true
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_tg_slash_part1"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 640
+								end_frame = 662
+								framerate = 20.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 650
+										frame_count = 10
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_tg_cast_tg"
+								children = 
+								[
+									{
+										_class = "AnimCombine"
+										anim_name = "patrick_tg_slash"
+										start_frame = 52
+										end_frame = 177
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 777
+								end_frame = 809
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 809
+										frame_count = 145
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_laugh_portrait"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAPTURE_RARE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 522
+								end_frame = 614
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_idle_rare"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE_RARE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 375
+								end_frame = 410
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_portrait"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAPTURE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 9
+								end_frame = 49
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "patrick_spawn"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_SPAWN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/zlodemon/sasaki_skin/patrick_uchiha.fbx"
+								import_bone_scales = false
+								start_frame = 285
+								end_frame = 309
+								framerate = 25.0
+								reverse = true
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 285
+										frame_count = 10
+									},
+								]
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

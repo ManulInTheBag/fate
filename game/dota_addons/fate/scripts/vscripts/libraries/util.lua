@@ -100,6 +100,7 @@ strongdispellable = {
     "modifier_jeanne_luminosite_eternelle_barrier",
     "modifier_li_shuwen_barrier",
     "modifier_nero_spectaculi_shield",
+    "modifier_barrier_new",
     "modifier_jeanne_mrex",
     "modifier_jeanne_mrex_allies",
     "modifier_jeanne_regen_allies",
@@ -198,6 +199,7 @@ deargdispellable = {
     "modifier_arash_toughness",
     "modifier_karna_buff_melee",
     "modifier_saito_mind_eye_active",
+    "modifier_demon_king_release",
 }
 
 revokes = {
@@ -246,6 +248,7 @@ locks = {
     "modifier_altera_dash",
     "modifier_robin_yew_bow_combo_lock",
     "modifier_robin_tools_its_a_trap",
+    "modifier_cu_chulain_combo",
 }
 
 goesthruB = {
@@ -384,6 +387,7 @@ cleansable = {
     "modifier_robin_yew_bow_silence",
     "modifier_robin_yew_bow_combo_lock",
     "modifier_khsn_grab_target",
+    "modifier_demon_king_extermination_burn"
 }
 
 
@@ -693,6 +697,13 @@ CannotReset = {
     "scathach_gae_bolg_shoot",
     "scathach_wisdom_of_dun_scaith",
     "scathach_pinning_thorn",
+    "scathach_gate_of_skye",
+    "cu_new_combo",
+
+    "demon_king_combo",
+    "demon_king_combo_recast",
+    "demon_king_release",
+    "demon_king_materialization",
 }
 
 
@@ -718,6 +729,7 @@ femaleservant = {
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_monkey_king",
+    "npc_dota_hero_nevermore",
 }
 
 tCannotDetect = {
@@ -781,6 +793,7 @@ tRemoveTheseModifiers = {
     "modifier_ryougi_lines",
     "modifier_ubw_chant_count",
     "modifier_lancelot_minigun",
+    "modifier_demon_king_materialization",
 }
 
 tDivineHeroes = {
@@ -1487,7 +1500,7 @@ function IsSpellBlocked(target)
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         --target:FindAbilityByName("modifier_scathach_wisdom_of_dun_scaith"):OnRuneProck()
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        --target:RemoveModifierByName("modifier_rune_of_protection")
+        target:RemoveModifierByName("modifier_scathach_wisdom_of_dun_scaith")
         return true
     elseif target:HasModifier("modifier_jtr_mental_pollution_shield") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
@@ -2503,6 +2516,7 @@ local heroNames = {
     ["npc_dota_hero_spirit_breaker"] = "Hijikata Toshizo",
     ["npc_dota_hero_ogre_magi"] = "Aozaki Aoko",
     ["npc_dota_hero_monkey_king"] = "Scathach",
+    ["npc_dota_hero_nevermore"] = "Demon king Nobunaga",
 }
 
  
@@ -2569,6 +2583,8 @@ local heroCombos = {
     ["npc_dota_hero_centaur"] = "lu_bu_sky_piercer",
     ["npc_dota_hero_robin"] = "robin_yew_tree_combo",
     ["npc_dota_hero_aoko"] = "aoko_blue",
+    ["npc_dota_hero_scathach"] = "scathach_gate_of_skye",
+    ["npc_dota_hero_demon_king_nobunaga"] = "demon_king_combo",
 }
 
 function GetHeroCombo(hero)
@@ -2776,10 +2792,16 @@ function UpdateAbilityLayout(hHero, tAbilities)
     local tAbilities = tAbilities or hHero.AbilityLayout
     for i = 1, hHero:GetAbilityCount() do
         if hHero:GetAbilityByIndex(i - 1) == nil then
-        elseif i > #tAbilities then
-            hHero:GetAbilityByIndex(i - 1):SetHidden(true)
         elseif hHero:GetAbilityByIndex(i - 1):GetAbilityName() ~= tAbilities[i] then
             hHero:SwapAbilities(hHero:GetAbilityByIndex(i - 1):GetAbilityName(), tAbilities[i], true, true)
+        end
+    end
+    for i = 1, hHero:GetAbilityCount() do
+        if hHero:GetAbilityByIndex(i - 1) == nil then
+        elseif i > #tAbilities then
+            hHero:GetAbilityByIndex(i - 1):SetHidden(true)
+        else
+            hHero:GetAbilityByIndex(i - 1):SetHidden(false)
         end
     end
 end

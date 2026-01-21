@@ -4,7 +4,7 @@ scathach_gait_one = class({})
 
 LinkLuaModifier( "modifier_scathach_gait_one_knockback", "abilities/scathach/modifiers/modifier_scathach_gait_one_knockback", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_scathach_gait_two_window", "abilities/scathach/modifiers/modifier_scathach_gait_two_window", LUA_MODIFIER_MOTION_BOTH )
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
 -- Ability Start
 function scathach_gait_one:OnSpellStart()
@@ -105,7 +105,7 @@ function scathach_gait_one:OnSpellStart()
 				local angle_diff = math.abs( AngleDiff( cast_angle, enemy_angle ) )
 				if angle_diff<=angle then
 				-- attack
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				enemy:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
 				enemy:AddNewModifier(caster, self, "modifier_rooted", {duration = self:GetSpecialValueFor("root_duration")})
 				-- if enemy:GetMaxMana() > 0 then

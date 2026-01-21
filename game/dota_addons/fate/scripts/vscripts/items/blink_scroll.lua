@@ -26,6 +26,7 @@ local locks = {
     "modifier_jeanne_gods_resolution_active_buff",
     "modifier_robin_yew_bow_combo_lock",
     "modifier_robin_tools_its_a_trap",
+    "modifier_cu_chulain_combo",
 }
 function item_blink_scroll:GetBehavior()
     if self:GetCaster():HasModifier("modifier_nobu_turnlock") then

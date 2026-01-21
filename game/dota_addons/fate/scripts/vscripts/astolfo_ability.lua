@@ -125,7 +125,7 @@ end
 
 function OnDownStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local ability = keys.ability
 	local damage = keys.Damage
 	local range = keys.Range
@@ -249,7 +249,7 @@ function OnHornStart(keys)
 	end
 	caster.AstolfoSimpleFix = false
 	caster.rape_count = 1
-	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration =  4.1})
+	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration =  1})
 	AstolfoCheckCombo(caster, ability)
 	caster.currentHornManaCost = ability:GetManaCost(ability:GetLevel())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_black_luna", {})
@@ -321,7 +321,6 @@ function OnHornThink(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local slowRadius = keys.Radius
-	if caster.bIsSanityAcquired then slowRadius = 3500 end
 	local damageRadius = keys.DamageRadius
 	local silenceRadius = keys.SilenceRadius
 	local damage = keys.Damage

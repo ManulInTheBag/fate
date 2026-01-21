@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf63:version{a6e6a69e-52d3-4527-8b9c-ff3bb91aca3e} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -56,10 +56,6 @@
 		},
 		{
 			_class = "C_INIT_CreateWithinSphereTransform"
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_INIT_RandomNamedModelSequence"
@@ -76,10 +72,6 @@
 			m_bLocalCoords = true
 			m_OffsetMax = [ 2.0, 0.0, 0.0 ]
 			m_OffsetMin = [ 2.0, 0.0, 0.0 ]
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -143,8 +135,7 @@
 	[
 		{
 			_class = "C_OP_RenderModels"
-			m_hOverrideMaterial = resource:"materials/models/heroes/storm_spirit/storm_v2_staticremnant_1.vmat"
-			m_nModelCP = 1
+			m_hOverrideMaterial = resource:"materials/models/heroes/storm_spirit/storm_spirit_head_staticremnant.vmat"
 			m_nSkin = 1
 			m_bOrientZ = true
 			m_bManualAnimFrame = true
@@ -164,6 +155,11 @@
 			m_bForceLoopingAnimation = true
 			m_bEnableClothSimulation = true
 			m_bOriginalModel = true
+			m_modelInput = 
+			{
+				m_nType = "PM_TYPE_CONTROL_POINT"
+				m_nControlPoint = 1
+			}
 		},
 	]
 	m_Children = 

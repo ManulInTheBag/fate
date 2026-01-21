@@ -63,6 +63,9 @@ function modifier_meltdown:OnIntervalThink()
 	for k,v in pairs(targets) do
         if( not v:HasModifier("modifier_meltdown_mark")) then
 		    DoDamage(self.caster, v, v:GetHealth()  * ( 0.03+ self.counter/660), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+			if v:GetName() == "npc_dota_hero_nevermore" then
+				v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+			end
             v:AddNewModifier(self.caster, self.ability,"modifier_meltdown_mark", {duration = 0.2})
         end
 	end

@@ -32,6 +32,9 @@ function karna_buff_melee:ApplyBurnStacks(target)
 	if target:HasModifier("modifier_karna_melee_buff_burn") then
 		stacks = target:FindModifierByName("modifier_karna_melee_buff_burn"):GetStackCount()
 	end
+	if target:GetName() == "npc_dota_hero_nevermore" then
+		target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
 
 	target:AddNewModifier(caster, self, "modifier_karna_melee_buff_burn", {duration = self:GetSpecialValueFor("burn_duration")})
 	target:FindModifierByName("modifier_karna_melee_buff_burn"):SetStackCount(stacks + 1)
@@ -165,5 +168,9 @@ function modifier_karna_melee_buff_burn:OnIntervalThink()
     if(not IsServer() ) then return end
 
     DoDamage(self.caster, self.target, self.damage_per_stack * self:GetStackCount(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	if self.target:GetName() == "npc_dota_hero_nevermore" then
+		self.target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
+
 
 end

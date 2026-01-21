@@ -84,7 +84,12 @@ function modifier_jeanne_mrex:OnCreated(hTable)
 		self.fBarrierBlock = 0
 	end
 
-	self.fBarrierBlock = math.min(self.fBarrierBlock + self.hAbility:GetSpecialValueFor("barrier_per_cast"), self.hAbility:GetSpecialValueFor("barrier_cap"))
+	local level = self.hCaster:GetLevel()
+
+	local barrier_per_cast = self.hAbility:GetSpecialValueFor("barrier_per_cast") + self.hAbility:GetSpecialValueFor("barrier_per_cast_per_level")*level
+	local barrier_cap = self.hAbility:GetSpecialValueFor("barrier_cap") + self.hAbility:GetSpecialValueFor("barrier_cap_per_level")*level
+
+	self.fBarrierBlock = math.min(self.fBarrierBlock + barrier_per_cast, barrier_cap)
     
     if not self.iShieldPFX then
 	    self.iShieldPFX = ParticleManager:CreateParticle( "particles/jeanne/jeanne_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent ) 

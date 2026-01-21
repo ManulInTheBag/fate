@@ -14,7 +14,7 @@ function modifier_heal_reduction_tier_1:DeclareFunctions()
 end
 
 function modifier_heal_reduction_tier_1:GetModifierHealAmplify_PercentageTarget()
-    if self:GetParent():HasModifier("modifier_heal_reduction_tier_2") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+    if self:GetParent():HasModifier("modifier_heal_reduction_tier_2") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3_uncleansable")  then
         return 0
     else
 	    return -20
@@ -22,7 +22,7 @@ function modifier_heal_reduction_tier_1:GetModifierHealAmplify_PercentageTarget(
 end
 
 function modifier_heal_reduction_tier_1:GetModifierHPRegenAmplify_Percentage()
-	if self:GetParent():HasModifier("modifier_heal_reduction_tier_2") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+	if self:GetParent():HasModifier("modifier_heal_reduction_tier_2") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3_uncleansable")  then
         return 0
     else
 	    return -20
@@ -57,7 +57,7 @@ function modifier_heal_reduction_tier_2:DeclareFunctions()
 end
 
 function modifier_heal_reduction_tier_2:GetModifierHealAmplify_PercentageTarget()
-	 if  self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+	 if  self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3_uncleansable")  then
         return 0
     else
 	    return -40
@@ -65,7 +65,7 @@ function modifier_heal_reduction_tier_2:GetModifierHealAmplify_PercentageTarget(
 end
 
 function modifier_heal_reduction_tier_2:GetModifierHPRegenAmplify_Percentage()
-	if  self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+	if  self:GetParent():HasModifier("modifier_heal_reduction_tier_3") or self:GetParent():HasModifier("modifier_heal_reduction_tier_4") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3_uncleansable")  then
         return 0
     else
 	    return -40
@@ -99,7 +99,7 @@ function modifier_heal_reduction_tier_3:DeclareFunctions()
 end
 
 function modifier_heal_reduction_tier_3:GetModifierHealAmplify_PercentageTarget()
-	if   self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+	if   self:GetParent():HasModifier("modifier_heal_reduction_tier_4") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3_uncleansable")  then
         return 0
     else
 	    return -60
@@ -107,7 +107,7 @@ function modifier_heal_reduction_tier_3:GetModifierHealAmplify_PercentageTarget(
 end
 
 function modifier_heal_reduction_tier_3:GetModifierHPRegenAmplify_Percentage()
-	if   self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+	if   self:GetParent():HasModifier("modifier_heal_reduction_tier_4") or self:GetParent():HasModifier("modifier_heal_reduction_tier_3_uncleansable")  then
         return 0
     else
 	    return -60
@@ -124,6 +124,46 @@ function modifier_heal_reduction_tier_3:GetEffectAttachType()
 	return PATTACH_HEALTHBAR 
 end
 
+modifier_heal_reduction_tier_3_uncleansable = class({})
+
+
+function modifier_heal_reduction_tier_3_uncleansable:IsDebuff() return true end
+function modifier_heal_reduction_tier_3_uncleansable:IsHidden() return false end
+
+function modifier_heal_reduction_tier_3_uncleansable:RemoveOnDeath()
+	return true
+end
+
+function modifier_heal_reduction_tier_3_uncleansable:DeclareFunctions()
+	return {MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+end
+
+function modifier_heal_reduction_tier_3_uncleansable:GetModifierHealAmplify_PercentageTarget()
+	if   self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+        return 0
+    else
+	    return -60
+    end
+end
+
+function modifier_heal_reduction_tier_3_uncleansable:GetModifierHPRegenAmplify_Percentage()
+	if   self:GetParent():HasModifier("modifier_heal_reduction_tier_4") then
+        return 0
+    else
+	    return -60
+    end
+end
+function modifier_heal_reduction_tier_3_uncleansable:HeroEffectPriority()
+	return MODIFIER_PRIORITY_ULTRA  
+end
+function modifier_heal_reduction_tier_3_uncleansable:GetEffectName()
+	return "particles/healres/hpbar_healres_t3_uncleansable.vpcf"
+end
+
+function modifier_heal_reduction_tier_3_uncleansable:GetEffectAttachType()
+	return PATTACH_HEALTHBAR 
+end
 
 modifier_heal_reduction_tier_4 = class({})
 

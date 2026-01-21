@@ -1,7 +1,7 @@
 nobu_dash = class({})
 LinkLuaModifier("modifier_nobu_turnrate", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_dash_dmg", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_barrier_new", "modifiers/modifier_barrier_new", LUA_MODIFIER_MOTION_NONE)
 function nobu_dash:OnSpellStart()
 	local caster = self:GetCaster()
 	Timers:RemoveTimer("nobu_dash")
@@ -63,6 +63,9 @@ function nobu_dash:OnSpellStart()
 		if(caster.is3000Acquired) then
 			self:AttributeGuns()
 		end
+		if (caster.isCharisma) then
+			self:GiveCharismaBarrier()
+		end
 	return end
 	})
 
@@ -80,6 +83,32 @@ function nobu_dash:OnSpellStart()
 	end)
 end
 
+function nobu_dash:GiveCharismaBarrier()
+
+	local allies = FindUnitsInRadius(
+		self:GetCaster():GetTeamNumber(),	
+		self:GetCaster():GetAbsOrigin() ,	
+		nil,	
+		self:GetSpecialValueFor("charisma_barrier_radius"),	-- float, radius. or use FIND_UNITS_EVERYWHERE
+		DOTA_UNIT_TARGET_TEAM_FRIENDLY,	
+		DOTA_UNIT_TARGET_HERO,	
+		0,	
+		0,	
+		false	
+	)
+	if allies == nil then
+	end
+	for _,ally in pairs(allies) do
+		-- Add modifier
+               ally:AddNewModifier(self:GetCaster(), self,"modifier_barrier_new", {duration = self:GetSpecialValueFor("charisma_barrier_duration"), beforeBScroll = false, 
+			   																		ShouldEndChannel = false,  decreaseDamageOnProck = 0,
+                                                                           			shield_amount = self:GetSpecialValueFor("charisma_barrier_base") + self:GetCaster():GetLevel() *
+																					self:GetSpecialValueFor("charisma_barrier_per_hero_level") , HasCounter = false} )
+	end
+	
+
+
+end
 
 function nobu_dash:AttributeGuns()
 	local hCaster = self:GetCaster()

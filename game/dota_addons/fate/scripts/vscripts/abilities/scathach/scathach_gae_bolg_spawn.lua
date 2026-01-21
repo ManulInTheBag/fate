@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_scathach_sa_stacks", "abilities/scathach/scathach_gae_
 LinkLuaModifier("modifier_scathach_sa_cd", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scat_gae_bolg_replicas", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scat_gae_bolg_replicas_movement_controller", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_BOTH)
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 function scathach_gae_bolg_spawn:OnUpgrade()
 	local caster = self:GetCaster()
     
@@ -40,7 +40,7 @@ function scathach_gae_bolg_spawn:PerformSaAttack(unit)
 
 		local delay = 0.0
 		local scale_vector_1 = 0.35
-		local spawn_delay = 0.1
+		local spawn_delay = 0.05
 		local count = 4
 		local damage = self:GetSpecialValueFor("sa_dmg")
 		self.counter = 0
@@ -67,7 +67,7 @@ function scathach_gae_bolg_spawn:PerformSaAttack(unit)
 							ParticleManager:DestroyParticle( self.spears[self.counter2], false )
 							ParticleManager:ReleaseParticleIndex( self.spears[self.counter2] )
 							local vector_point = Vector(self.vectors_point[self.counter2][1],self.vectors_point[self.counter2][2],self.vectors_point[self.counter2][3]) * scale_vector_1
-							local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+							local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 							for k,v in pairs(targets) do
 								if not v:HasModifier("modifier_protection_from_arrows_active") then 
 									DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
@@ -228,7 +228,7 @@ function modifier_scat_gae_bolg_replicas:OnStackCountChanged(stackCount)
 end
 function modifier_scat_gae_bolg_replicas:ShootGaeBolg(targetpos)
 
-	print(self:GetStackCount())
+	self:GetCaster():EmitSound("scathach_sumon_7")
 	if IsServer() then 
 		local random = self:GetStackCount()
 		self.gb_list[random]:FindModifierByName("modifier_scat_gae_bolg_replicas_movement_controller"):ShootIntoDirection(targetpos)
@@ -236,7 +236,7 @@ function modifier_scat_gae_bolg_replicas:ShootGaeBolg(targetpos)
 		local particle_gb_fx = ParticleManager:CreateParticle("particles/custom/scathach/gae_bolg_alt_outline.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self.gb_list[random])
 		ParticleManager:SetParticleControlEnt(particle_gb_fx, 2, self.gb_list[random], PATTACH_POINT_FOLLOW, "1", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(particle_gb_fx, 0, self.gb_list[random],  PATTACH_POINT_FOLLOW ,"2", self:GetParent():GetAbsOrigin(), true)
-		Timers:CreateTimer(0.75, function()
+		Timers:CreateTimer(0.6, function()
 			self:RemoveSpecificGb(self.gb_list[random], self.gb_particle_indexes_list[random], random)
 				ParticleManager:DestroyParticle(trail_fx, false)
 				ParticleManager:ReleaseParticleIndex(trail_fx)
@@ -258,7 +258,7 @@ function modifier_scat_gae_bolg_replicas_movement_controller:OnCreated(hui)
 	self.height = hui.height1
 	self.dtTotal = 0
 	self.parent.state = 0
-	self.speed = 3000
+	self.speed = 4000
 	self.ability = self:GetAbility()
 	self.particleIndex = hui.particleIndex
 	self.parentOldPos = Vector(0,0,0)
@@ -266,7 +266,7 @@ function modifier_scat_gae_bolg_replicas_movement_controller:OnCreated(hui)
 	if self.casterToFollow:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
 		self.damage = self.damage + self.casterToFollow:GetAgility() * self.ability:GetSpecialValueFor("agi_scaling")
 	end
-	self.hit_radius = 100
+	self.hit_radius = 150
 	self.height_addi = RandomInt(-50, 50)
 	self.HittedTargets = {}
 	self.target_vector_jopa = Vector(0,0,0)
@@ -338,10 +338,10 @@ function modifier_scat_gae_bolg_replicas_movement_controller:UpdateHorizontalMot
 		local pos = self.parent:GetAbsOrigin()
 		local targetpos = self.parentOldPos
 
-		local distance =  (pos - targetpos):Length()
-		local speed =distance*10 + 10
+		local distance =  (pos - targetpos):Length2D()
+		local speed =distance*10 + 50
 
-		if distance <= 10 then
+		if distance <= 30 then
 			self.parent.state = 1
 		end
 		
@@ -420,7 +420,7 @@ end
 
 function modifier_scathach_sa_stacks:OnCreated(args)
 	if IsServer() then
-	   self:SetStackCount(math.min(args.Stacks or 1, 4))
+	   self:SetStackCount(math.min(args.Stacks or 1, 3))
 
 		-- local hero_armor = self:GetParent():GetPhysicalArmorValue(false) + ((self.Reduction or 0) * -1)
 		-- self.Reduction = (1 * self:GetStackCount()) * -1
@@ -433,7 +433,7 @@ function modifier_scathach_sa_stacks:OnRefresh(args)
 	if IsServer() then
 		args.Stacks = self:GetStackCount() + 1
 		self:OnCreated(args)
-		if (self:GetStackCount()) >= 4 then
+		if (self:GetStackCount()) >= 3 then
 			self:Destroy()
 			self:GetAbility():PerformSaAttack(self:GetParent())
 		end

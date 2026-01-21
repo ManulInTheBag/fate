@@ -2,6 +2,11 @@ hijikata_madness = class({})
 
 LinkLuaModifier("modifier_hijikata_madness_active", "abilities/hijikata/hijikata_madness", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_hijikata_swift","abilities/hijikata/hijikata_madness", LUA_MODIFIER_MOTION_NONE)
+function hijikata_madness:GetIntrinsicModifierName()
+    return "modifier_hijikata_swift"
+end
+
 --[[
 function hijikata_madness:GetBehavior()
     if self:GetCaster():GetHealthPercent() < 25 then
@@ -111,6 +116,92 @@ function modifier_hijikata_madness_active:CheckState()
         [MODIFIER_STATE_SILENCED] = false}
 end
 
-function modifier_hijikata_madness_active:DeclareFunctions()
-   	return {	MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE }
+
+
+
+modifier_hijikata_swift = class({})
+
+function modifier_hijikata_swift:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MOVESPEED_MAX_OVERRIDE ,
+            MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+            MODIFIER_PROPERTY_MOVESPEED_LIMIT    }
+end
+
+function modifier_hijikata_swift:GetModifierMoveSpeedBonus_Constant()
+    return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("ms_per_stack")
+end
+function modifier_hijikata_swift:GetModifierMoveSpeed_Limit()
+    if self:GetCaster():HasModifier("modifier_hijikata_combo_ticker") then
+        return 1800
+    else
+        return 650
+    end
+end
+
+function modifier_hijikata_swift:GetModifierMoveSpeed_MaxOverride()
+    if self:GetCaster():HasModifier("modifier_hijikata_combo_ticker") then
+        return 1800
+    else
+        return 650
+    end
+end
+function modifier_hijikata_swift:OnAttackLanded(args)
+    if args.attacker ~= self:GetParent() then return end
+	local caster = self:GetParent()
+    if IsNotNull(args.target) then
+		if args.target:IsAlive() then
+			DoDamage(caster, args.target, caster:GetAttackDamage() * self:GetAbility():GetSpecialValueFor("max_attack_damage") * self:GetStackCount()/10000, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+            self:SetStackCount(0)
+		end
+	end
+
+end
+
+if IsServer() then 
+	function modifier_hijikata_swift:OnCreated(args)
+		self.vLocation = self:GetParent():GetAbsOrigin()
+		self.MsFromStacks = self:GetAbility():GetSpecialValueFor("ms_per_stack")
+        self.DistanceToStacks = self:GetAbility():GetSpecialValueFor("distance_for_stack")
+		self:StartIntervalThink(0.2)
+
+
+	end
+
+	function modifier_hijikata_swift:OnRefresh(args)
+		self:OnCreated()
+
+	end
+
+
+	function modifier_hijikata_swift:OnIntervalThink()
+		local hCaster = self:GetCaster()
+		local hAbility = self:GetAbility()
+		local fDistance = (self:GetParent():GetAbsOrigin() - self.vLocation):Length2D()
+        local stackcount = self:GetStackCount()
+        if fDistance > 2000 then
+            self:SetStackCount(stackcount + 20)
+            if self:GetStackCount() > 100 then
+                self:SetStackCount(100)
+            end
+        else
+            self:SetStackCount(stackcount + fDistance/self.DistanceToStacks)
+            if self:GetStackCount() > 100 then
+                self:SetStackCount(100)
+            end
+        end
+
+		self.vLocation = self:GetParent():GetAbsOrigin()
+	end
+end
+
+function modifier_hijikata_swift:IsDebuff()
+	return false
+end
+
+function modifier_hijikata_swift:IsHidden() 
+	return false 
+end
+
+function modifier_hijikata_swift:RemoveOnDeath() 
+	return false 
 end

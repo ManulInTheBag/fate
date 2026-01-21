@@ -302,7 +302,10 @@ function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss)
 	hTarget:EmitSound("Ability.LightStrikeArray")
 	local explosion_fx = ParticleManager:CreateParticle("particles/custom/tamamo/combo/fire_explosion.vpcf", PATTACH_ABSORIGIN, hTarget)
 	ParticleManager:SetParticleControl(explosion_fx, 0, hTarget:GetAbsOrigin())
-		
+	if hTarget:GetName() == "npc_dota_hero_nevermore" then
+		hTarget:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
+
 	Timers:CreateTimer( 3.0, function()
 		ParticleManager:DestroyParticle( explosion_fx, false )
 		ParticleManager:ReleaseParticleIndex(explosion_fx)
@@ -535,6 +538,9 @@ if IsServer() then
 
 		if not self.target:IsMagicImmune() then
 			DoDamage(self.caster, self.target, self.damage * 0.5 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+			if self.target:GetName() == "npc_dota_hero_nevermore" then
+				self.target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+			end
 		end
 
 		self:StartIntervalThink(0.5)

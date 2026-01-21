@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -15,6 +15,7 @@
 						parent_bone = ""
 						surface_prop = "default"
 						collision_prop = "default"
+						tool_material = ""
 						recenter_on_parent_bone = false
 						offset_origin = [ 0.0, 0.0, 0.0 ]
 						offset_angles = [ 0.0, 0.0, 0.0 ]
@@ -756,6 +757,8 @@
 								to = "materials/lu_bu/lu_bu_hair.vmat"
 							},
 						]
+						use_single_material = false
+						single_override_material = ""
 					},
 				]
 			},
@@ -776,10 +779,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -792,16 +797,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/fast_attack_3.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 215
 						framerate = 80.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "stunned_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -814,12 +822,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/stunned_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 25.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -834,10 +844,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -850,12 +862,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/attack_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 107
 						framerate = 85.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -870,10 +884,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -886,12 +902,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/attack_2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 99
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -906,10 +924,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -922,12 +942,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/death_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 159
 						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -942,10 +964,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -958,12 +982,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/fast_attack_1.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = 40
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -978,10 +1004,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -994,12 +1022,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/fast_attack_1.fbx"
 						import_bone_scales = false
 						start_frame = 40
 						end_frame = 80
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1014,10 +1044,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1030,16 +1062,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/spin_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 263
 						framerate = 53.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "god_force_1_UNUSED"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1052,16 +1087,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/god_force_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 381
 						framerate = 25.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "ground_pound_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1074,16 +1112,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/ground_pound_2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 163
 						framerate = 100.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "idle_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1096,16 +1137,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/idle_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 480
 						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "leap_slam_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1118,16 +1162,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/leap_slam_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 190
-						framerate = 55.0
+						framerate = 90.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "power_up_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1140,16 +1187,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/power_up_2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 176
 						framerate = 500.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "power_up_3"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_7"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1162,12 +1212,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/power_up_3.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 79
 						framerate = 95.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1182,10 +1234,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1198,16 +1252,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/running_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 39
 						framerate = 6.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "sky_piercer_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1220,16 +1277,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/sky_piercer_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 99
 						framerate = 99.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "spear_throw_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1242,16 +1302,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/spear_throw_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 88
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "attack_3"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1264,12 +1327,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/ground_pound_2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 163
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1284,10 +1349,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1300,16 +1367,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/fast_attack_2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 119
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "power_up_4"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1322,12 +1392,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/power_up_2.fbx"
 						import_bone_scales = false
 						start_frame = 199
 						end_frame = 200
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1342,10 +1414,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1358,12 +1432,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lu_bu/fast_attack_1.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = 119
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
@@ -1373,5 +1449,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'root 3' to 'root_3'\nChanged incompatible hitbox parent bone name 'God Force 2' to 'God_Force_2'\nChanged incompatible bone name 'God Force 1' to 'God_Force_1'\nChanged incompatible bone name 'God Force 1' to 'God_Force_1'\n"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

@@ -29,8 +29,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"40 36 32 28 24"
-		"AbilityCastRange"				"1400"
-		"AbilityManaCost"				"800"
+		"AbilityCastRange"				"1600"
+		"AbilityManaCost"				"400"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		"AnimationPlaybackRate" 		"1.0"
 		
@@ -49,15 +49,58 @@
         {
             "duration" "10"
             "gb_spawn_amount" "4"
-            "damage"		   "200 250 300 350 400"
-            "range"		   "1400"
-            "shoot_cd"		   "1"
+            "damage"		   "300 375 450 525 600"
+            "range"		   "1600"
+            "shoot_cd"		   "0.75"
             "hit_radius"		   "100"
-            "speed"		   "3000"
+            "speed"		   "4000"
             "agi_scaling"		   "1.5"
             "sa_cd"		   "30"
             "sa_dmg"		   "100"
             "sa_stun_duration"		   "1"
+        }
+	}
+
+	//=================================================================================================================
+	// Combo - Gate of Skye
+	//=================================================================================================================
+	"scathach_gate_of_skye"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_gate_of_skye"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/scathach/scathach_combo_gate_of_sky"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"800"
+ 		"AbilityCooldown"				"180"
+		"AbilityManaCost"				"800"
+		"precache"
+		{
+				"particle"		"particles/custom/scathach/scathach_gate.vpcf"
+				"particle"		"particles/scathach/scathach_gate_debuff.vpcf"
+				"particle"		"particles/scathach/scathach_gate_aoe_ring.vpcf"
+				"particle"		"particles/custom/scathach/gate_of_skye_field.vpcf"
+				"soundfile"		"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
+				"soundfile"		"soundevents/game_sounds_heroes/game_sounds_crystal_maiden.vsndevts"
+		}
+		"AbilityValues"
+        {
+        	"anim_duration"				"3"
+        	"active_duration"			"9" //better not touch both durations or else sounds will fuck up
+        	"radius"					"2200"
+        	"damage_per_second"			"130"
+        	"healing_reduction"			"40"
+        	"slow"						"20"
+        	"execute_threshold"			"40"
+        	"execute_duration"			"2"
         }
 	}
 
@@ -79,9 +122,9 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"1400"
- 		"AbilityCooldown"				"1"
-		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"1600"
+ 		"AbilityCooldown"				"0.75"
+		"AbilityManaCost"				"100"
 		"AbilityValues"
         {
 
@@ -125,7 +168,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"14"
+		"AbilityManaCost"				"13"
 
 		"precache"
 		{
@@ -138,7 +181,7 @@
             "red_wind_stun" "0.2"
             "gait_one_damage" "1"
             "gait_two_damage" "1"
-            "gait_three_damage" "3"
+            "gait_three_damage" "1.5"
         }
 	}
 
@@ -157,7 +200,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"17"
 
 		"precache"
 		{
@@ -190,7 +233,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"10"
 
 		"precache"
 		{
@@ -199,8 +242,8 @@
 		"AbilityValues"
         {
             "base_damage" "600"
-            "explosion_damage" "400"
-            "agility_ratio" "3.5"
+            "explosion_damage" "600"
+            "agility_ratio" "3"
             "gae_bolg_agi" "3"
         }
 	}
@@ -220,7 +263,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
+		"AbilityManaCost"				"7"
 
 		"precache"
 		{

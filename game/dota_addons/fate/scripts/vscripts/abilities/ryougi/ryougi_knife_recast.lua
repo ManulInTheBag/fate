@@ -8,39 +8,36 @@ function ryougi_knife_recast:OnUpgrade()
     end
 end
 
-function ryougi_knife_recast:CastFilterResult()
-	local caster = self:GetCaster()
-	if IsServer() then
-		local target = caster.CurrentKnifeTarget
-		local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-
-		if dist > self:GetSpecialValueFor("range") then 
-			return UF_FAIL_CUSTOM 
-		end
+function ryougi_knife_recast:GetCastRange(location, target)
+	if target and target:HasModifier("modifier_ryougi_knife_target") then
+		return self:GetSpecialValueFor("marked_range")
 	end
-	return UF_SUCCESS
-end
-
-function ryougi_knife_recast:GetCustomCastError()
-    return "#Target_out_of_range"
+	return self:GetSpecialValueFor("range")
 end
 
 function ryougi_knife_recast:OnSpellStart()
+	local combo_enemy = self:GetCursorTarget()
+	self:StartCombo(combo_enemy)
+end
+
+function ryougi_knife_recast:StartCombo(combo_enemy)
 	local caster = self:GetCaster()
+	caster:RemoveModifierByName("modifier_ryougi_knife_swap")
+	if IsSpellBlocked(combo_enemy) then return end
 	local origin = caster:GetAbsOrigin()
 	local damage_first = self:GetSpecialValueFor("damage_first")
 	local damage_second = self:GetSpecialValueFor("damage_second")
 	local damage_per_line = self:GetSpecialValueFor("damage_per_line")
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
 	local target = Vector(0, 0, 0)
-
+	
 	EmitGlobalSound("ryougi_nibio")
 
 	if caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_recast" then	    		
 		caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", false, true)	
 	end
 
-	local combo_enemy = caster.CurrentKnifeTarget
+
 	local origin = caster:GetAbsOrigin()
 	local point = combo_enemy:GetAbsOrigin()
 	local direction = (point-origin)

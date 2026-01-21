@@ -35,7 +35,7 @@ function emiya_change:OnSpellStart()
 		self:ShootArrow(self.vCasterPos + self.hCaster:GetForwardVector() * - 50, vPoint, 3500)
 		self.hCaster:EmitSound("Ability.Powershot.Alt")
 	end)
-	Timers:CreateTimer(0.6,function()
+	Timers:CreateTimer(0.3,function()
 		if self:GetAutoCastState()  == true then
 			self:DoSwap()
 		end
@@ -52,17 +52,7 @@ function emiya_change:DoSwap()
 end
 
 function emiya_change:ShootArrow(vSpawnLoc, vPoint, nSpeed)
-	pull_center = self.hCaster:GetForwardVector() * -300 +self.vCasterPos
-	local endPos = self.hCaster:GetForwardVector()*700 + self.vCasterPos
-	    self.knockback = { should_stun = false,
-                                    knockback_duration = 0.2,
-                                    duration = 0.2,
-                                    knockback_distance = -300,
-                                    knockback_height =  0,
-                                    center_x = pull_center.x,
-                                    center_y = pull_center.y,
-                                    center_z = pull_center.z }
-    self.hCaster:AddNewModifier( self.hCaster, self, "modifier_knockback", self.knockback) 
+
 	local damage = self:GetSpecialValueFor("damage")
 	CreateModifierThinker(self.hCaster, self, "modifier_archer_change_rain", {vx = self.vCastDirection.x,vy = self.vCastDirection.y,vz = self.vCastDirection.z,
 																		damage = damage, initxend = self.arrowsPoint.x, inityend = self.arrowsPoint.y,

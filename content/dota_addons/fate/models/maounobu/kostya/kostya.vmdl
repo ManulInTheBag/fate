@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -55,6 +55,8 @@
 					{
 						_class = "AnimFile"
 						name = "particle"
+						disabled = true
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_SPAWN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -67,12 +69,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/maounobu/kostya/kostya.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = 121
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -84,8 +88,8 @@
 					{
 						_class = "AnimFile"
 						name = "spawn"
-						disabled = true
-						activity_name = ""
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_REFRACTION"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -97,18 +101,20 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/maounobu/kostya/kostya.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = 90
-						framerate = -1.0
+						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "np_cast"
-						disabled = true
-						activity_name = ""
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_SUN_STRIKE"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -120,22 +126,148 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/maounobu/kostya/kostya.fbx"
 						import_bone_scales = false
-						start_frame = 90
+						start_frame = 108
 						end_frame = 121
-						framerate = -1.0
+						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
 								frame = 121
-								frame_count = 500
+								frame_count = 20
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "spawn1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/maounobu/kostya/kostya.fbx"
+						import_bone_scales = false
+						start_frame = 89
+						end_frame = 90
+						framerate = 50.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "despawn"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_FORGE_SPIRIT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/maounobu/kostya/kostya.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = 90
+						framerate = 90.0
+						reverse = true
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "np_cast1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_COLD_SNAP"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/maounobu/kostya/kostya.fbx"
+						import_bone_scales = false
+						start_frame = 108
+						end_frame = 121
+						framerate = 50.0
+						reverse = false
+						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 121
+								frame_count = 60
 							},
 						]
 					},
 				]
 				default_root_bone_name = ""
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "1"
+						parent_bone = "Wheel_bone"
+						relative_origin = [ -338.065063, 364.136719, 117.062836 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "2"
+						parent_bone = "Wheel_bone"
+						relative_origin = [ -126.746712, 490.428894, 117.515045 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "3"
+						parent_bone = "Wheel_bone"
+						relative_origin = [ 124.931503, 491.228882, 117.441086 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "4"
+						parent_bone = "Wheel_bone"
+						relative_origin = [ 341.479828, 367.629395, 115.575302 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
 			},
 		]
 		model_archetype = ""

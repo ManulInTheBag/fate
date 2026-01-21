@@ -135,6 +135,9 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
                     finaldmg = damage*((radius-dist)/radius) + 1500 + bonus_damage
                     fireTrailDurationK = (fireTrailDuration*1/2)*(radius-dist)/radius+fireTrailDuration/2
                     DoDamage(caster, v, finaldmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+                    if v:GetName() == "npc_dota_hero_nevermore" then
+						v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+					end
                     v:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.3})
                     v:AddNewModifier(caster, self, "modifier_excalibur_galatine_burn", {duration = fireTrailDurationK})
                     v:AddNewModifier(caster, self, "modifier_excalibur_galatine_pizdets", {duration = 6, armor_debuff = 30*((radius-dist)/radius)+20, magic_debuff = 10*((radius-dist)/radius)+5})

@@ -160,6 +160,10 @@ function modifier_muramasa_rush_burn:OnIntervalThink()
 
     DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 
+     if target:GetName() == "npc_dota_hero_nevermore" then
+        target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+    end
+
 end
 function modifier_muramasa_rush_burn:GetModifierProvidesFOWVision()
     return  self:GetCaster().EyeOfKarmaAcquired and 1 or 0 

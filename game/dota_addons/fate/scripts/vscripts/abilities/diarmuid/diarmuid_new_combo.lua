@@ -72,8 +72,8 @@ function diarmuid_new_combo:OnSpellStart()
         bReplaceExisting = false,
         bDeleteOnHit = true,
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = 0,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO,
         flExpireTime = GameRules:GetGameTime() + 0.1,
         --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
     }
@@ -156,7 +156,7 @@ function diarmuid_new_combo:OnProjectileHit(target, location, tData )
     Timers:CreateTimer(0.033,function()
         ProjectileManager:DestroyLinearProjectile(caster.diar_combo_projectile )
     end)
-
+	self:ActivateCombo(target)
     return true
 end
 
@@ -278,7 +278,7 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 		nStacks = math.ceil(healthDiff/10)
 		if self.target:GetHealth() > 0 and self.target:IsAlive() and self.hCaster:IsAlive() and nStacks > 1 then
 			--target:RemoveModifierByName("modifier_gae_buidhe") 
-			self.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 70})
+			self.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 25})
 		end
 
 		self.target:EmitSound("diar_new_combo_attack_3")
@@ -299,7 +299,7 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 		local petals = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/petals.vpcf", PATTACH_POINT_FOLLOW, self.target)
 		ParticleManager:SetParticleControl(petals, 0, self.target:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(petals)
-		local targets = FindUnitsInRadius(self.hCaster:GetTeamNumber(), self.hCaster:GetOrigin(), nil, self.radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local targets = FindUnitsInRadius(self.hCaster:GetTeamNumber(), self.hCaster:GetOrigin(), nil, self.radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
         for k,v in pairs(targets) do
 			local currentStack = v:GetModifierStackCount("modifier_gae_buidhe", self.hAbility)
 			local healthDiff = v:GetHealth()
@@ -308,7 +308,7 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 			nStacks = math.ceil(healthDiff/10)
 			if v:GetHealth() > 0 and v:IsAlive() and self.hCaster:IsAlive() and nStacks > 1 then
 				--target:RemoveModifierByName("modifier_gae_buidhe") 
-				v:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 70})
+				v:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 25})
 			end
         end
 		local knockback = { should_stun = false,

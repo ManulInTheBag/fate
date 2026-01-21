@@ -487,5 +487,213 @@
 		"VisionDaytimeRange"		"500"		// Range of vision during day light.
 		"VisionNighttimeRange"		"500"		// Range of vision at night time.
 	}
+		"kostyan"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/maounobu/kostya/kostya.vmdl"
+		"ModelScale"				"1"
+		"Level"						"1"
+		"HealthBarOffset"			"500"
+		"ConsideredHero"			"1"
+		"HasInventory"				"0"
 
+
+		
+		"AbilityLayout"				"1"
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"dummy_unit_passive" 
+		
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"500"
+		"MagicalResistance"			"500"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"50"								// Damage range min.
+		"AttackDamageMax"			"50"								// Damage range max.
+		"AttackRate"				"2.0"								// Speed of attack.
+		"AttackAnimationPoint"		"0.5"								// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"1000"								// Range within a target can be acquired.
+		"AttackRange"				"700"								// Range within a target can be attacked.
+		"ProjectileModel"			""				// Particle system model for projectile.
+		"ProjectileSpeed"			"9999"	
+
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"			// Experience earn.
+		"BountyGoldMin"				"0"			// Gold earned min.
+		"BountyGoldMax"				"0"			// Gold earned max.
+		
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"
+		"RingRadius"				"250"
+		"CollisionSize"				"500"
+		
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.7"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"6666"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"200"
+		"VisionNighttimeRange"		"200"
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	}
+
+	"maou_nobus_heracles"
+	{
+		"Model"				"models/maounobu/nobus/hercnobus.vmdl"
+		"ModelScale"		"0.9"
+		"BaseClass"			"npc_dota_base_additive"
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
+
+		"Ability1"					"maou_nobbus_herc_slam"			// Ability 1
+		"Ability2"					""				// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		"ArmorPhysical"				"15"			
+		"MagicalResistance"			"10"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
+		"MovementSpeed"				"475"		// Speed.
+		"MovementTurnRate"			"1"		// Turning rate.
+		"HealthBarOffset"			"400"
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"					"150"
+		"AttackDamageMin"				"50"
+		"AttackDamageMax"				"150"
+		"AttackRate"					"2"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1300"		// Base health.
+		"StatusHealthRegen"			"5"		// Health regeneration rate.
+		"StatusMana"				"100"			// Base mana.
+		"StatusManaRegen"			"20"			// Mana regeneration rate.	
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"			// Experience earn.
+		"BountyGoldMin"				"333"			// Gold earned min.
+		"BountyGoldMax"				"333"			// Gold earned max.
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"		// Range of vision during day light.
+		"VisionNighttimeRange"		"500"		// Range of vision at night time.
+	}
+
+	"maou_nobus_shinsengumi"
+	{
+		"Model"				"models/maounobu/nobus/shinsengumi_nobus.vmdl"
+		"ModelScale"		"1"
+		"BaseClass"			"npc_dota_base_additive"
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
+
+		"Ability1"					"maou_nobbus_gumi_dash"			// Ability 1
+		"Ability2"					""				// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		"ArmorPhysical"				"10"			
+		"MagicalResistance"			"5"		// Physical protection.
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
+		"MovementSpeed"				"550"		// Speed.
+		"MovementTurnRate"			"1"		// Turning rate.
+		"HealthBarOffset"			"300"
+		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"					"150"
+		"AttackDamageMin"				"25"
+		"AttackDamageMax"				"75"
+		"AttackRate"					"0.7"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"700"		// Base health.
+		"StatusHealthRegen"			"5"		// Health regeneration rate.
+		"StatusMana"				"200"			// Base mana.
+		"StatusManaRegen"			"20"			// Mana regeneration rate.	
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"			// Experience earn.
+		"BountyGoldMin"				"333"			// Gold earned min.
+		"BountyGoldMax"				"333"			// Gold earned max.
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"700"		// Range of vision during day light.
+		"VisionNighttimeRange"		"700"		// Range of vision at night time.
+	}
+	"maou_nobus_tank"
+	{
+		"Model"				"models/maounobu/nobus/nobutank.vmdl"
+		"ModelScale"		"1"
+		"BaseClass"			"npc_dota_base_additive"
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
+
+		"Ability1"					"maou_nobbus_tank_rockets"			// Ability 1
+		"Ability2"					"maou_nobbus_tank_ram"				// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		"ArmorPhysical"				"25"			
+		"MagicalResistance"			"25"		// Physical protection.
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
+		"MovementSpeed"				"150"		// Speed.
+		"MovementTurnRate"			"1"		// Turning rate.
+		"HealthBarOffset"			"400"
+		"AttackCapabilities"			"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"					"0"
+		"AttackDamageMin"				"0"
+		"AttackDamageMax"				"0"
+		"AttackRate"					"2.0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"		// Base health.
+		"StatusHealthRegen"			"5"		// Health regeneration rate.
+		"StatusMana"				"500"			// Base mana.
+		"StatusManaRegen"			"20"			// Mana regeneration rate.	
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"			// Experience earn.
+		"BountyGoldMin"				"333"			// Gold earned min.
+		"BountyGoldMax"				"333"			// Gold earned max.
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"		// Range of vision during day light.
+		"VisionNighttimeRange"		"500"		// Range of vision at night time.
+	}
 }

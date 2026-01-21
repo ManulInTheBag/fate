@@ -169,14 +169,6 @@ function karna_combo_vasavi:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 		local damage_difference = self:GetSpecialValueFor("full_damage") - self:GetSpecialValueFor("beam_damage")		
 
 		for i = 1, #end_targets do
-			if IsDivineServant(end_targets[i]) and hCaster.IndraAttribute then
-				full_damage = full_damage * 1.3
-				damage_difference = damage_difference * 1.3
-			elseif hCaster.IndraAttribute then
-				full_damage = full_damage * 1.2
-				damage_difference = damage_difference * 1.2
-			end
-
 			if not end_targets[i]:HasModifier("modifier_vasavi_hit") then
 				DoDamage(hCaster, end_targets[i], full_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			else
@@ -208,11 +200,6 @@ function karna_combo_vasavi:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	else
 		local damage = self:GetSpecialValueFor("beam_damage")
 
-		if IsDivineServant(hTarget) and hCaster.IndraAttribute then
-			damage = damage * 1.5
-		elseif hCaster.IndraAttribute then
-			damage = damage * 1.25
-		end
 
 		hTarget:AddNewModifier(hCaster, self, "modifier_vasavi_hit", { Duration = 2 })
 		DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)

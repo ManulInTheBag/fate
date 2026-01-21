@@ -70,11 +70,12 @@ function medusa_bellerophon:OnSpellStart()
 
 	local or_check = caster:GetAbsOrigin()
 
-	Timers:CreateTimer(0.5, function()
+	Timers:CreateTimer(0.3, function()
 		if not caster:IsAlive() then
 			return
 		end
-		EmitSoundOn("medusa_belle_new", caster)--EmitGlobalSound("medusa_bellerophon")
+		--EmitSoundOn("medusa_belle_new", caster)--
+		EmitGlobalSound("medusa_bellerophon")
 	end)
 
 	--[[Timers:CreateTimer(1.0, function()

@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf62:version{c135a90d-ef52-47fa-a9b8-83a382a77471} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf63:version{a6e6a69e-52d3-4527-8b9c-ff3bb91aca3e} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -241,32 +241,32 @@
 						{
 							x = 0.0
 							y = 0.0
-							m_flSlopeIncoming = 7.09091
-							m_flSlopeOutgoing = 7.09091
+							m_flSlopeIncoming = 10.636366
+							m_flSlopeOutgoing = 10.636366
 						},
 						{
 							x = 4.740266
-							y = 33.612801
-							m_flSlopeIncoming = 5.90625
-							m_flSlopeOutgoing = 5.90625
+							y = 50.419201
+							m_flSlopeIncoming = 8.859375
+							m_flSlopeOutgoing = 8.859375
 						},
 						{
 							x = 19.10471
-							y = 40.0
-							m_flSlopeIncoming = -0.067918
-							m_flSlopeOutgoing = -0.067918
+							y = 60.0
+							m_flSlopeIncoming = -0.101877
+							m_flSlopeOutgoing = -0.101877
 						},
 						{
 							x = 25.999643
-							y = 40.0
-							m_flSlopeIncoming = -3.101908
-							m_flSlopeOutgoing = -3.101908
+							y = 60.0
+							m_flSlopeIncoming = -4.652862
+							m_flSlopeOutgoing = -4.652862
 						},
 						{
 							x = 32.0
 							y = 0.0
-							m_flSlopeIncoming = -6.66627
-							m_flSlopeOutgoing = -6.66627
+							m_flSlopeIncoming = -9.999406
+							m_flSlopeOutgoing = -9.999406
 						},
 					]
 					m_tangents = 
@@ -293,7 +293,7 @@
 						},
 					]
 					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 32.0, 40.0 ]
+					m_vDomainMaxs = [ 32.0, 60.0 ]
 				}
 			}
 		},

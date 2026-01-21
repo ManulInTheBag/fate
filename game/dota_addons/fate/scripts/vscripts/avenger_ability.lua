@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_tawrich_crit", "abilities/angra_mainyu/modifiers/modif
 function OnDPStart(keys)
 	local caster = keys.caster
 	local casterPos = caster:GetAbsOrigin()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local currentHealthCost = 0
     local ply = caster:GetPlayerOwner()
     if caster.IsDPImproved then
@@ -205,7 +205,7 @@ function OnRemainStart(keys)
 		Timers:CreateTimer(3.0, function() 
 			if not remain:IsAlive() then return end
 			attackmove.UnitIndex = remain:entindex()
-			attackmove.Position = remain:GetAbsOrigin() + RandomVector(1000) 
+			attackmove.Position = remain:GetOrigin() + RandomVector(1000) 
 			ExecuteOrderFromTable(attackmove)
 			return 3.0
 		end)

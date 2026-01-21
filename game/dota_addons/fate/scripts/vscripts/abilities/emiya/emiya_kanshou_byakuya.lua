@@ -172,7 +172,7 @@ function modifier_archer_kab:OnCreated(hTable)
     self.hit_radius = 150
 
    
-    print(hTable.firstcast)
+    --print(hTable.firstcast)
     self.HittedTargets = {}
 
     if IsServer() then
@@ -214,7 +214,7 @@ function modifier_archer_kab:OnCreated(hTable)
         self.motionTick[1] = 0
         self.motionTick[2] = 0
 
-        self.fly_duration  = hTable.duration or  0.4
+        self.fly_duration  = hTable.duration or  0.3
          
         self.fly_hVelocity = self.fly_distance / self.fly_duration--self.speed
         self.fly_gravity   = -self.spread_peak / ( self.fly_duration * self.fly_duration * 0.125 )
@@ -342,7 +342,7 @@ end
 function modifier_archer_kab:OnDestroy()
     if self.firstcast == 1 then
         local origin = self.caster:GetAbsOrigin()
-        self.ability:ThrowDagger(self.caster, self.ability,self.vector_side,self.spreadbase,origin.x,origin.y,origin.z,self.parent:GetAbsOrigin(),0.7, 0)
+        self.ability:ThrowDagger(self.caster, self.ability,self.vector_side,self.spreadbase,origin.x,origin.y,origin.z,self.parent:GetAbsOrigin(),0.5, 0)
     end
 end
  

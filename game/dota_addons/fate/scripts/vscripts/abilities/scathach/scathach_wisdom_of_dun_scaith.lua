@@ -1,19 +1,19 @@
 scathach_wisdom_of_dun_scaith = class({})
 
 LinkLuaModifier("modifier_scathach_wisdom_of_dun_scaith", "abilities/scathach/modifiers/modifier_scathach_wisdom_of_dun_scaith", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_scathach_combo_window", "abilities/scathach/modifiers/modifier_scathach_combo_window", LUA_MODIFIER_MOTION_NONE)
+
 
 function scathach_wisdom_of_dun_scaith:OnSpellStart()
 	local caster = self:GetCaster()
 
 	caster:AddNewModifier(caster, self, "modifier_scathach_wisdom_of_dun_scaith", { Duration = self:GetSpecialValueFor("duration")})
-	local targets = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
+	local targets = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
 	for k,v in pairs(targets) do
 		if  v:HasModifier("modifier_scathach_pupil") and v:IsAlive() then
 			v:AddNewModifier(caster, self, "modifier_scathach_wisdom_of_dun_scaith", { Duration = self:GetSpecialValueFor("duration")})
 		end
 	end
-	self:CheckCombo()
+	--self:CheckCombo()
 end
 
 function scathach_wisdom_of_dun_scaith:CheckCombo()

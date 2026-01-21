@@ -1,7 +1,9 @@
 --LinkLuaModifier("modifier_arash_stella_stacks", "abilities/arash/arash_stella", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arash_toughness", "abilities/arash/arash_toughness", LUA_MODIFIER_MOTION_NONE)
 arash_toughness = class({})
-
+function arash_toughness:GetIntrinsicModifierName()
+	return  "modifier_arash_stella_stacks"
+end
 function arash_toughness:OnSpellStart()
 	local caster = self:GetCaster()
 	local stacks = 0

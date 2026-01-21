@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -543,6 +543,7 @@
 							{
 								_class = "AnimFile"
 								name = "asn_idle"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_IDLE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -555,16 +556,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 1
 								end_frame = 284
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_move"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_RUN"
 								activity_weight = 1
 								weight_list_name = ""
@@ -577,16 +581,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 579
 								end_frame = 596
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_attack"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK"
 								activity_weight = 1
 								weight_list_name = ""
@@ -599,16 +606,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 390
 								end_frame = 428
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_attack_two"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK2"
 								activity_weight = 1
 								weight_list_name = ""
@@ -621,16 +631,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 430
 								end_frame = 470
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_attack_three"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK_EVENT"
 								activity_weight = 1
 								weight_list_name = ""
@@ -643,16 +656,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 472
 								end_frame = 509
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_windblade"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_3"
 								activity_weight = 1
 								weight_list_name = ""
@@ -665,16 +681,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 641
 								end_frame = 679
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_death"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_DIE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -687,16 +706,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 985
 								end_frame = 1087
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_tg_cast"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_1"
 								activity_weight = 1
 								weight_list_name = ""
@@ -709,16 +731,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 359
 								end_frame = 385
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_tg_slash"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_4"
 								activity_weight = 1
 								weight_list_name = ""
@@ -731,16 +756,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 828
 								end_frame = 890
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "asn_tg"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_6"
 								activity_weight = 1
 								weight_list_name = ""
@@ -753,12 +781,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/assassin/asn1.FBX"
 								import_bone_scales = false
 								start_frame = 797
 								end_frame = 890
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 						]
 					},
@@ -770,5 +800,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

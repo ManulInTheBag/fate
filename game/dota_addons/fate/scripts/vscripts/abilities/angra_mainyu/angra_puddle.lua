@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_angra_puddle", "abilities/angra_mainyu/angra_puddle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_puddle_debuff", "abilities/angra_mainyu/angra_puddle", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_puddle_check", "abilities/angra_mainyu/angra_puddle", LUA_MODIFIER_MOTION_NONE)
 
 angra_puddle = class({})
 
@@ -127,7 +128,7 @@ function modifier_angra_puddle:OnIntervalThink()
             Timers:CreateTimer(3.0, function() 
                 if not remain:IsAlive() then return end
                 attackmove.UnitIndex = remain:entindex()
-                attackmove.Position = remain:GetAbsOrigin() + RandomVector(1000) 
+                attackmove.Position = remain:GetOrigin() + RandomVector(1000) 
                 ExecuteOrderFromTable(attackmove)
                 return 3.0
             end)
@@ -149,7 +150,7 @@ function modifier_angra_puddle:OnIntervalThink()
         end
         for _, enemy in pairs(enemies2) do
             local stackcount = 0
-            if enemy.PuddleChecker then -- Лужи стакаются частично Злодемон ебись сам
+            if enemy.PuddleChecker or enemy:HasModifier("modifier_puddle_check") then -- Лужи стакаются частично Злодемон ебись сам
                 return
             end
             local damage = self:GetAbility():GetSpecialValueFor("damage")
@@ -166,9 +167,15 @@ function modifier_angra_puddle:OnIntervalThink()
                 enemy:FindModifierByName("modifier_puddle_debuff"):SetStackCount(stackcount + 10)
             else
                 giveUnitDataDrivenModifier(self.caster, enemy, "locked", self:GetAbility():GetSpecialValueFor("lock_duration"))
+                enemy:AddNewModifier(self.caster, self:GetAbility(), "modifier_puddle_check", {duration = self.ability:GetSpecialValueFor("puddle_cooldown")})
                 
                 if self.caster.PuddleArmy then
                     giveUnitDataDrivenModifier(self.caster, enemy , "revoked", self:GetAbility():GetSpecialValueFor("revoke_duration"))
+                    LoopOverPlayers(function(player, playerID, playerHero)
+					if playerHero == enemy then
+						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="angra_revoke"})
+						end
+				   end)
                 end
                 enemy:RemoveModifierByName("modifier_puddle_debuff")
             end
@@ -213,3 +220,9 @@ end
 function modifier_puddle_debuff:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
+
+
+modifier_puddle_check = class({})
+
+function modifier_puddle_check:IsHidden() return false end
+function modifier_puddle_check:IsDebuff() return true end

@@ -210,7 +210,7 @@ end
 function OnExcaliburStart(keys)
 	EmitGlobalSound("Saber.Excalibur_Ready")
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local ability = keys.ability
 	keys.Range = keys.Range - keys.EndRadius -- We need this to take end radius of projectile into account
 	local range = keys.Range
@@ -384,7 +384,7 @@ end
 function OnExcaliburStart(keys)
 	EmitGlobalSound("Saber.Excalibur_Ready")
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local ability = keys.ability
 	keys.Range = keys.Range - keys.EndRadius -- We need this to take end radius of projectile into account
 	
@@ -487,7 +487,7 @@ end
 function OnMaxStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	keys.Range = keys.Range - keys.Width -- We need this to take end radius of projectile into account
 	if caster.IsExcaliburAcquired == true then
 		caster:SetMana(1)

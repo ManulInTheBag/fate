@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_ryougi_knife_target", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ryougi_knife_swap", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_knife_throw_slow", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 
@@ -60,6 +61,11 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 
   	print("ryougi knife hit target "..hTarget:GetName())
   	
+  	if (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Length2D() <= self:GetSpecialValueFor("bfm_range") then
+  		hCaster:FindAbilityByName("ryougi_knife_recast"):StartCombo(hTarget)
+  	else
+  		hCaster:AddNewModifier(hCaster, self, "modifier_ryougi_knife_swap", {duration = self:GetSpecialValueFor("swap_duration")})
+	end
   	hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_target", {duration = self:GetSpecialValueFor("mark_duration")})
   	print("ryougi knife after modifier applied target "..hTarget:GetName())
   	if hCaster.BlackMoonAcquired then
@@ -88,17 +94,23 @@ end
 
 modifier_ryougi_knife_target = class({})
 
-function modifier_ryougi_knife_target:OnCreated()
+function modifier_ryougi_knife_target:DeclareFunctions()
+	return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION}
+end
+
+function modifier_ryougi_knife_target:GetModifierProvidesFOWVision()
+	if self:GetParent():HasModifier("modifier_murderer_mist_in") then
+        return 0
+    end
+	return 1
+end
+
+
+--[[function modifier_ryougi_knife_target:OnCreated()
 	if not IsServer() then return end
 
 	self.caster = self:GetCaster()
 	self.parent = self:GetParent()
-
-	print("ryougi knife modifier created target "..self.parent:GetName())
-
-	if not self.caster.CurrentKnifeTarget then
-		self.caster.CurrentKnifeTarget = self.parent
-	end
 
 	if self.caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_throw" then	    		
 		self.caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", true, false)	
@@ -107,15 +119,35 @@ end
 
 function modifier_ryougi_knife_target:OnRemoved()
 	if not IsServer() then return end
-
-	print("ryougi knife modifier run onRemoved target "..self.parent:GetName())
 end
 
 function modifier_ryougi_knife_target:OnDestroy()
 	if not IsServer() then return end
-	self.caster.CurrentKnifeTarget = nil
 
-	print("ryougi knife modifier run onDestroy target "..self.parent:GetName())
+	if self.caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_recast" then	    		
+		self.caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", false, true)	
+	end
+end]]
+
+modifier_ryougi_knife_swap = class({})
+
+function modifier_ryougi_knife_swap:OnCreated()
+	if not IsServer() then return end
+
+	self.caster = self:GetCaster()
+	self.parent = self:GetParent()
+
+	if self.caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_throw" then	    		
+		self.caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", true, false)	
+	end
+end
+
+function modifier_ryougi_knife_swap:OnRemoved()
+	if not IsServer() then return end
+end
+
+function modifier_ryougi_knife_swap:OnDestroy()
+	if not IsServer() then return end
 
 	if self.caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_recast" then	    		
 		self.caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", false, true)	

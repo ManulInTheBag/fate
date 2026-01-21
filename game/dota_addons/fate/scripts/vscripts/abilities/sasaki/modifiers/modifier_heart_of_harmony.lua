@@ -95,7 +95,12 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
             FindClearSpaceForUnit(caster, position, true)             
 
             --if caster:GetMana() > self.ManaThreshold then
-                target:EmitSound("Sasaki_Counter_Success_" .. math.random(1,2))
+               
+                if caster:HasModifier("modifier_hero_selection_skin") then
+                     target:EmitSound("patrick_counter_success_1")
+                else
+                    target:EmitSound("Sasaki_Counter_Success_" .. math.random(1,2))
+                end
                 LoopOverPlayers(function(player, playerID, playerHero)
                     --print("looping through " .. playerHero:GetName())
                     if playerHero.zlodemon == true then

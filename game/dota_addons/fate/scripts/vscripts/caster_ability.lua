@@ -14,7 +14,7 @@ function OnTerritoryCreated(keys)
 	local ply = caster:GetPlayerOwner()
 	local ability = keys.ability
 	local hero = ply:GetAssignedHero()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	territoryAbilHandle = keys.ability
 	
 
@@ -504,7 +504,7 @@ function CasterFarSight(keys)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#another_clair_used")
 		return
 	end
-	local truesightdummy = SpawnVisionDummy(caster, keys.target_points[1], radius, 9, true)
+	local truesightdummy = SpawnVisionDummy(caster, keys.ability:GetCursorPosition(), radius, 9, true)
 	truesightdummy:SetDayTimeVisionRange(radius)
 	truesightdummy:SetNightTimeVisionRange(radius)
 	truesightdummy:EmitSound("Hero_KeeperOfTheLight.BlindingLight") 
@@ -596,7 +596,7 @@ end
 function OnTerritoryOrbStart(keys)
 	local caster = keys.caster
 
-	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, nil, nil, keys.caster:GetTeamNumber())
+	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.ability:GetCursorPosition(), false, nil, nil, keys.caster:GetTeamNumber())
 	truesightdummy:SetDayTimeVisionRange(900)
 	truesightdummy:SetNightTimeVisionRange(900)
 	local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
@@ -640,7 +640,7 @@ end
 ]]
 function OnFrostbiteStart(keys)
 	local caster = keys.caster
-	local targetPos = keys.target_points[1] 
+	local targetPos = keys.ability:GetCursorPosition() 
 	local direction = targetPos - caster:GetAbsOrigin()
 	direction = direction/direction:Length2D()
 
@@ -724,9 +724,9 @@ end
 ]]
 function OnArcaneWrathStart(keys)
 	local caster = keys.caster
-	local targetPos = keys.target_points[1]
+	local targetPos = keys.ability:GetCursorPosition()
 	--provide vision
-	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, nil, nil, keys.caster:GetTeamNumber())
+	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.ability:GetCursorPosition(), false, nil, nil, keys.caster:GetTeamNumber())
 	truesightdummy:SetDayTimeVisionRange(keys.Radius)
 	truesightdummy:SetNightTimeVisionRange(keys.Radius)
 	local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
@@ -1034,7 +1034,7 @@ end
 
 function OnSilenceStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, keys.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
     for k,v in pairs(targets) do
 		v:AddNewModifier(caster, nil, "modifier_silence", {duration=keys.Duration})
@@ -1055,7 +1055,7 @@ end
 
 function OnDWStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local rainCount = 0
 	local damage = keys.Damage
 	if caster.IsHGImproved then damage = damage + caster:GetIntellect() * ATTRIBUTE_HG_INT_MULTIPLIER end
@@ -1273,7 +1273,7 @@ end
 function OnHGStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.Radius
 	local boltradius = keys.RadiusBolt
 	local boltvector = nil
@@ -1396,7 +1396,7 @@ end
 function OnHGPStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.Radius
 	local boltradius = keys.RadiusBolt
 	local boltvector = nil

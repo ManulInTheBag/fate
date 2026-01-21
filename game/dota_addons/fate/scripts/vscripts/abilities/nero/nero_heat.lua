@@ -60,6 +60,9 @@ function nero_heat:IncreaseHeat(caster)
 		local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 		for _,enemy in pairs(enemies) do
 			DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			if enemy:GetName() == "npc_dota_hero_nevermore" then
+                enemy:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+            end
 		end
 	end
 

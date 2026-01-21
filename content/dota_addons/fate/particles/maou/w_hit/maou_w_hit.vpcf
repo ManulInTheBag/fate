@@ -1,0 +1,54 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf63:version{a6e6a69e-52d3-4527-8b9c-ff3bb91aca3e} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 4
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 5
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/maou/w_hit/maou_w_hit_a.vpcf"
+			m_flDelay = 0.1
+		},
+		{
+			m_ChildRef = resource:"particles/maou/w_hit/maou_w_hit_b.vpcf"
+			m_flDelay = 0.1
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/maou/w_hit/maou_w_hit_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/maou/w_hit/maou_w_hit_c.vpcf"
+			m_flDelay = 0.1
+		},
+	]
+}

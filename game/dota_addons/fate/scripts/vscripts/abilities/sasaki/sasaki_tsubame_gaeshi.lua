@@ -50,7 +50,12 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
-			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_hiken"})
+			else
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
+			end
+			
 		end
 
 	end)
@@ -97,7 +102,12 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 	end
 
 	--caster:SetMana(0)
-	EmitGlobalSound("FA.TG")
+	
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		EmitGlobalSound("patrick_tg")
+	else
+		EmitGlobalSound("FA.TG")
+	end
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
 		if playerHero.zlodemon == true then
@@ -105,7 +115,12 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_hiken_tg"})
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
-			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TG"})
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_tg"})
+			else
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TG"})
+			end
+			
 		end
 
 	end)

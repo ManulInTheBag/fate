@@ -114,7 +114,7 @@ function nanaya_blood_modifier_animemode:OnOrder(args)
 	  	FindClearSpaceForUnit(self:GetParent(), args.new_pos, true) 
 	  	self.parent:EmitSound("nanaya.jumpforward")
 	  	ParticleManager:SetParticleControl(nanaya_knife10, 4, args.new_pos)
-	  	print ("sex")
+	  	--print ("sex")
 	end
 
 end

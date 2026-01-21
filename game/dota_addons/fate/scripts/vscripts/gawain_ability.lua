@@ -83,7 +83,7 @@ function OnGalatineStart(keys)
 	local ability = keys.ability
 	--local ply = caster:GetPlayerOwner()
 	local casterLoc = caster:GetAbsOrigin()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local dist = keys.Max_range    --(targetPoint - casterLoc):Length2D()
 	local orbLoc = caster:GetAbsOrigin()
 	local diff = caster:GetForwardVector()
@@ -247,6 +247,9 @@ function OnBurnDamageTick(keys)
 	local damage = keys.Damage/4
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	if target:GetName() == "npc_dota_hero_nevermore" then
+		target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
 end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------

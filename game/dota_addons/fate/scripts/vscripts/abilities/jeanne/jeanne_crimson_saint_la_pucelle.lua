@@ -3,6 +3,10 @@ jeanne_crimson_saint_la_pucelle = class({})
 LinkLuaModifier("modifier_jeanne_crimson_saint_delay", "abilities/jeanne/modifiers/modifier_jeanne_crimson_saint_delay", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_crimson_saint_stun", "abilities/jeanne/modifiers/modifier_jeanne_crimson_saint_stun", LUA_MODIFIER_MOTION_NONE)
 
+function jeanne_crimson_saint_la_pucelle:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 	local caster = self:GetCaster()
 	local radius = self:GetSpecialValueFor("radius")
@@ -79,6 +83,9 @@ function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 
 				local enemy_damage = (1 - 0.5*(caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()/radius)*damage
 				DoDamage(caster, enemy, enemy_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if enemy:GetName() == "npc_dota_hero_nevermore" then
+					enemy:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+				end
 				enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = stun_duration })
 
 				local rope_fx = ParticleManager:CreateParticle("particles/jeanne/jeanne_la_pucelle_rope.vpcf", PATTACH_POINT_FOLLOW, caster)

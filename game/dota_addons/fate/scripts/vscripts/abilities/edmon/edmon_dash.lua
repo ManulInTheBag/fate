@@ -44,7 +44,9 @@ end
 function edmon_dash:OnSpellStart()
 	local caster = self:GetCaster()
     local target = self:GetCursorTarget()
-    if IsSpellBlocked(target) then caster:RemoveModifierByName("modifier_edmon_dash_particle") return end
+    if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+        if IsSpellBlocked(target) then caster:RemoveModifierByName("modifier_edmon_dash_particle") return end
+    end
 	caster:AddNewModifier(caster, self, "modifier_edmon_dash", {})
 end
 

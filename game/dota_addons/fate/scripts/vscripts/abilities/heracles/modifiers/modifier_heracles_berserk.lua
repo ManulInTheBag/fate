@@ -78,7 +78,7 @@ function modifier_heracles_berserk:DeclareFunctions()
 end
 
 function modifier_heracles_berserk:GetModifierIncomingDamage_Percentage() 
-	return -40
+	return -20
 end
 
 

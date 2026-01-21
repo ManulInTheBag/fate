@@ -151,6 +151,9 @@ function modifier_jeanne_curse_weak:OnIntervalThink()
 	if IsServer() then
 		--self.caster:Heal(self.damage/8, self.ability)
 		DoDamage(self.caster, self.parent, self.damage/8, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+		if self.parent:GetName() == "npc_dota_hero_nevermore" then
+			self.parent:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+		end
 	end
 end
 

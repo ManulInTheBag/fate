@@ -223,11 +223,16 @@ function modifier_ryougi_lines:IsHidden() return false end
 function modifier_ryougi_lines:IsDebuff() return true end
 
 function modifier_ryougi_lines:DeclareFunctions()
-	return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION}
+	return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+	MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
 end
 
 function modifier_ryougi_lines:GetModifierProvidesFOWVision()
 	return self:CanBeDetected()
+end
+
+function modifier_ryougi_lines:GetModifierMoveSpeedBonus_Percentage()
+	return -1*self:GetAbility():GetSpecialValueFor("slow_per_line")*self:GetStackCount()
 end
 
 function modifier_ryougi_lines:CanBeDetected(hHero)

@@ -85,6 +85,9 @@ function cmd_seal_2:OnSpellStart()
 	if(hero:GetName() == "npc_dota_hero_night_stalker") then
 		hero:FindAbilityByName("nanaya_kick").isRefreshed = 1
 	end
+	if(hero:GetName() == "npc_dota_hero_sven") then
+		hero:FindAbilityByName("lancelot_minigun").isRefreshed = 1
+	end
 	if(hero:GetName() == "npc_dota_hero_phantom_lancer") then
 		hero:FindAbilityByName("cu_chulain_relentless_spear").isRefreshed = 1
 	end

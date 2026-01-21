@@ -23,7 +23,7 @@ function OnFissureStart(keys)
 		vVelocity = frontward * keys.Speed
 	}
 	caster.FissureOrigin  = caster:GetAbsOrigin()
-	caster.FissureTarget = keys.target_points[1]
+	caster.FissureTarget = keys.ability:GetCursorPosition()
 	if caster:HasModifier("modifier_heracles_berserk") and (keys.ability:GetLevel()>69) then
 		StartAnimation(caster, {duration=1.8, activity=ACT_DOTA_OVERRIDE_ABILITY_1, rate=1.7})
 		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.4)
@@ -115,7 +115,7 @@ function OnFissureStart(keys)
 				vVelocity = frontward * keys.Speed
 			}
 			caster.FissureOrigin  = caster:GetAbsOrigin()
-			caster.FissureTarget = keys.target_points[1]
+			caster.FissureTarget = keys.ability:GetCursorPosition()
 
 			projectile = ProjectileManager:CreateLinearProjectile(fiss2)
 
@@ -563,7 +563,7 @@ function OnNineStart(keys)
 	ArsenalReturnMana(keys.caster)
 	local caster = keys.caster
 	local casterName = caster:GetName()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local ability = keys.ability
 	local berserker = Physics:Unit(caster)
 	local origin = caster:GetAbsOrigin()

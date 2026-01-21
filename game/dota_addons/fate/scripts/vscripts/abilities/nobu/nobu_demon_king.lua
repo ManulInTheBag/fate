@@ -98,10 +98,10 @@ function nobu_demon_king_open:OnSpellStart()
     hCaster:SwapAbilities(tStandardAbilities[2], tDemonKingAbilities[2], false, true)
     if( hCaster:GetAbilityByIndex(2):GetName() ~= "nobu_double_shots" ) then
         hCaster:SwapAbilities("nobu_double_shots_stop", tDemonKingAbilities[3], false, true)
-        print("1")
+        --print("1")
     else
         hCaster:SwapAbilities(tStandardAbilities[3], tDemonKingAbilities[3], false, true)
-        print("11")
+       -- print("11")
     end
     
     hCaster:SwapAbilities(tStandardAbilities[4], tDemonKingAbilities[4], false, true)

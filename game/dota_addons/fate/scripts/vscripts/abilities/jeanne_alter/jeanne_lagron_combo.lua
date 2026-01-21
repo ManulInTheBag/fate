@@ -246,6 +246,9 @@ if IsServer() then
 
 			DoDamage(caster, targets[i], damage/15, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			targets[i]:AddNewModifier(caster, ability, "modifier_lagron_combo_slow", { Duration = 0.3 })
+			if targets[i]:GetName() == "npc_dota_hero_nevermore" then
+				targets[i]:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+			end
 		end
 
 		for i = 1, 5 do
