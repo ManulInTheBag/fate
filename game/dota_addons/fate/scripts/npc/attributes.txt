@@ -1,21 +1,21 @@
 "AttributeBonus"
 {
     // Custom Stat Values
-    "HP_PER_STR"            "11"
+    "HP_PER_STR"            "11"    //probably does nothing
     "HP_REGEN_PER_STR"      "0.25"
     "MANA_PER_INT"          "15"
     "MANA_REGEN_PER_INT"    "0.15"
-    "ARMOR_PER_AGI"         "0.2"
+    "ARMOR_PER_AGI"         "0"     //does nothing
     "ATKSPD_PER_AGI"        "2"
     "MS_PER_AGI"			"1"
     "MAX_MS"                "522"
 
     //Fate values
-    "DMG_PER_STAT"			"3"
-    "ARMOR_PER_STAT"		"0.75"
-    "HPREG_PER_STAT"		"2.5"
-    "MPREG_PER_STAT"		"1.5"
+    "DMG_PER_STAT"			"3"    //does nothing
+    "ARMOR_PER_STAT"		"20"  //does nothing
+    "HPREG_PER_STAT"		"2.5" //does nothing
+    "MPREG_PER_STAT"		"1.5" //does nothing
     "MS_PER_STAT"			"3"
-    "CDR_PER_STAT"          "1"
+    "CDR_PER_STAT"          "0.7"
     "MR_PER_STAT"           "0.1"
 }
