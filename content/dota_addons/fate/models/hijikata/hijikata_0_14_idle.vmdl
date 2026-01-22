@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -111,6 +111,8 @@
 								use_uv2_for_charts = false
 								render_mode = "default"
 								blend_weights_per_vertex = "4"
+								suppress_joint_weight_count_warnings = false
+								close_outline_at_hard_edges = false
 							},
 						]
 						filename = "models/hijikata/hijikata.fbx"
@@ -164,12 +166,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 19
 						end_frame = 80
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -187,12 +191,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 100
 						end_frame = 390
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -222,6 +228,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -255,12 +262,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 400
 						end_frame = 423
 						framerate = 44.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -278,12 +287,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 465
 						end_frame = 483
 						framerate = 24.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -301,12 +312,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 430
 						end_frame = 461
 						framerate = 80.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -331,6 +344,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -351,6 +365,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -367,12 +382,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 490
 						end_frame = 514
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -390,12 +407,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 530
 						end_frame = 590
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -413,12 +432,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 600
 						end_frame = 610
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -436,12 +457,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 650
 						end_frame = 730
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -459,12 +482,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 740
 						end_frame = 805
 						framerate = 48.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -482,12 +507,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 810
 						end_frame = 870
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -526,12 +553,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 960
 						end_frame = 1000
 						framerate = 48.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -556,6 +585,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -572,12 +602,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 490
 						end_frame = 504
 						framerate = 23.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -602,6 +634,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -618,12 +651,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 506
 						end_frame = 524
 						framerate = 10.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -641,12 +676,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 614
 						end_frame = 638
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -664,12 +701,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 614
 						end_frame = 614
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -706,6 +745,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "gun_attach_end"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -734,12 +774,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 318
 						end_frame = 390
 						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -764,12 +806,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 100
 						end_frame = 130
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -787,12 +831,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 231
 						end_frame = 265
 						framerate = 48.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -810,12 +856,63 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 265
 						end_frame = 290
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_3"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_COLD_SNAP_ORB"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/hijikata.fbx"
+						import_bone_scales = false
+						start_frame = 506
+						end_frame = 518
+						framerate = 10.0
+						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""

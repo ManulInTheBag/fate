@@ -6,6 +6,17 @@ LinkLuaModifier("modifier_hijikata_duel_leash", "abilities/hijikata/hijikata_due
 LinkLuaModifier("modifier_hijikata_shinsengumi_aura", "abilities/hijikata/hijikata_duel", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_shinsengumi_flag_buff", "abilities/hijikata/hijikata_duel", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_disengage", "abilities/hijikata/hijikata_duel", LUA_MODIFIER_MOTION_NONE)
+
+function hijikata_duel:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("hijikata_duel_recast"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("hijikata_duel_recast"):SetLevel(self:GetLevel())
+    end
+
+end
+
+
 function hijikata_duel:OnSpellStart()
 	self.caster = self:GetCaster()
 	local ability = self
@@ -27,7 +38,17 @@ function hijikata_duel:OnSpellStart()
     self.target:AddNewModifier(self.caster, self, "modifier_hijikata_duel_leash", { duration = duration, radius = radius, center_x = targetpos.x, center_y = targetpos.y})
     self.caster:AddNewModifier(self.caster, self, "modifier_hijikata_duel_leash", { duration = duration, radius = radius, center_x = targetpos.x, center_y = targetpos.y})
     self.caster:AddNewModifier(self.caster, self, "modifier_hijikata_duel", { duration = duration,auraRadius = radius})
-
+	if self.caster:GetAbilityByIndex(2):GetName() == "hijikata_duel"  then
+		self.caster:SwapAbilities("hijikata_duel", "hijikata_duel_recast", false, true)
+		Timers:CreateTimer("hijik_recast_e_window", {
+			endTime = duration,
+			callback = function()
+			if self.caster:GetAbilityByIndex(2):GetName() == "hijikata_duel_recast"  then
+				self.caster:SwapAbilities("hijikata_duel", "hijikata_duel_recast", true, false)
+			end
+			return end
+		})
+	end
 
 	self.part1 = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_duel.vpcf", PATTACH_OVERHEAD_FOLLOW, self.caster )
     ParticleManager:SetParticleControl( self.part1, 0,self.caster:GetAbsOrigin())
@@ -421,6 +442,9 @@ function modifier_hijikata_duel_leash:OnDestroy()
 	if not IsServer() then return end
 	if self.endCallback then
 		self.endCallback()
+	end
+	if self:GetCaster():GetAbilityByIndex(2):GetName() == "hijikata_duel_recast"  then
+		self:GetCaster():SwapAbilities("hijikata_duel", "hijikata_duel_recast", true, false)
 	end
 end
 

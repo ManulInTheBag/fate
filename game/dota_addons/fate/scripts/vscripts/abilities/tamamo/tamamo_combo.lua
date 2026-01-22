@@ -129,7 +129,7 @@ function tamamo_combo:ProjectileHit(isFire, position, projectile)
 	local caster = self:GetCaster()
 	local targetPoint = position
 	local radius = self:GetSpecialValueFor("small_radius")
-	local damage = self:GetSpecialValueFor("small_damage")+(caster:GetIntellect())*1
+	local damage = self:GetSpecialValueFor("small_damage")+(caster:GetIntellect())*0.25
 
 	local particle_name = ""
 	local sound_name = ""
@@ -184,7 +184,7 @@ function tamamo_combo:FinalProjectileHit(position, projectile)
 	local caster = self:GetCaster()
 	local targetPoint = position
 	local radius = self:GetSpecialValueFor("radius")
-	local damage = self:GetSpecialValueFor("final_damage")+(caster:GetIntellect())*4
+	local damage = self:GetSpecialValueFor("final_damage")+(caster:GetIntellect())*3
 
 	local particle_name = "particles/custom/tamamo/combo/final_orb_explosion.vpcf"
 

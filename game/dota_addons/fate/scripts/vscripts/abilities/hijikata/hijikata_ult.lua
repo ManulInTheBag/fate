@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_hijikata_ult_slow", "abilities/hijikata/hijikata_ult",
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_ult_stacks", "abilities/hijikata/hijikata_ult", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_hijikata_dovodka", "abilities/hijikata/hijikata_ult", LUA_MODIFIER_MOTION_NONE)
 function hijikata_ult:GetIntrinsicModifierName()
 	return "modifier_hijikata_ult_stacks"
 end
@@ -288,3 +289,18 @@ end
 function modifier_hijikata_ult_stacks:DestroyOnExpire()
 	return false
 end
+modifier_hijikata_dovodka = modifier_hijikata_dovodka or class({})
+
+function modifier_hijikata_dovodka:IsHidden() return false end
+function modifier_hijikata_dovodka:IsDebuff() return false end
+function modifier_hijikata_dovodka:IsPurgable() return false end
+function modifier_hijikata_dovodka:RemoveOnDeath() return true end
+function modifier_hijikata_dovodka:CheckState()
+    local state = { [MODIFIER_STATE_ROOTED] = true,
+					[MODIFIER_STATE_SILENCED] = true,
+					[MODIFIER_STATE_DISARMED] = true,
+					[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true, }
+    return state
+end
+
+ 

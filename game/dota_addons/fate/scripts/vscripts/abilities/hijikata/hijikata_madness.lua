@@ -4,7 +4,9 @@ LinkLuaModifier("modifier_hijikata_madness_active", "abilities/hijikata/hijikata
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_swift","abilities/hijikata/hijikata_madness", LUA_MODIFIER_MOTION_NONE)
 function hijikata_madness:GetIntrinsicModifierName()
-    return "modifier_hijikata_swift"
+    if self:GetCaster().IsHijikataTacticsAcquired then
+        return "modifier_hijikata_swift"
+    end
 end
 
 --[[

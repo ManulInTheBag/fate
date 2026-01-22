@@ -5,7 +5,7 @@ LinkLuaModifier( "modifier_lu_bu_sky_piercer_window", "abilities/lu_bu/modifiers
 
 function lu_bu_restless_soul:OnSpellStart()
 	local caster = self:GetCaster()
-	local hp_heal = self:GetSpecialValueFor("active_heal") + 0.05 * caster:GetMaxHealth()
+	local hp_heal = self:GetSpecialValueFor("active_heal") + self:GetSpecialValueFor("max_health_heal") /100 * caster:GetMaxHealth()
 	
 	caster:Heal(hp_heal, caster)
 	

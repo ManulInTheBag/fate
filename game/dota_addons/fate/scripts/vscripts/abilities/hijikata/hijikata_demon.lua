@@ -132,7 +132,7 @@ function hijikata_demon:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex( particle )
 	end)
 
-	print(caster:GetAbilityByIndex(1):GetName())
+	--print(caster:GetAbilityByIndex(1):GetName())
 	if caster:GetAbilityByIndex(1):GetName() == "hijikata_demon"  then
 		caster:SwapAbilities("hijikata_demon", "hijikata_demon_recast", false, true)
 		Timers:CreateTimer("hijik_recast_w_window", {
@@ -184,7 +184,8 @@ function modifier_demon_buff_hijikata:OnAttackLanded(args)
     local caster_health = self.caster:GetHealth()
     local target_health = args.target:GetHealth()
     local damage = self.bonus_damage
-	local health_damage = (target_health - caster_health)/100 * self.percentage 
+
+	local health_damage = args.target:GetMaxHealth()/100 * self.percentage
     if health_damage <= 0 then 
 		health_damage = 0
 	 end

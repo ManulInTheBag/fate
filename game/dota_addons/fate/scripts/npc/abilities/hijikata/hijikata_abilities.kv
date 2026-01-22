@@ -102,7 +102,7 @@
 			"damage"									"250 325 400 475 550"
 			"buff_duration"								"3 3.5 4 4.5 5"		
 			"as_value"									"50"
-			"hp_percentage_diff_to_damage"				"10"
+			"hp_percentage_diff_to_damage"				"3" // MAX HEALTH TO DAMAGE
 			"slow_duration" "2"
             "slow_amount" "60"
             "bonus_damage" "100"
@@ -154,11 +154,12 @@
 		"MaxLevel"							"5"
 		"LevelsBetweenUpgrades"				"2"
 		"AbilityCooldown"				    "25 23 21 19 17"
-		"AbilityManaCost"					"400"
+		"AbilityManaCost"					"200"
 		"AbilityCastPoint"					"0.3"
 		"AbilityCastRange"				"550"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCastPoint"				"0.3"
+		"LinkedAbilities"				"hijikata_duel_recast"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_5"
 		"precache"
 		{
@@ -182,7 +183,49 @@
 			"regen_duration"									"5"
 		}
 	}
-
+	//=================================================================================================================
+	// Duel recast
+	//=================================================================================================================
+	"hijikata_duel_recast"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/hijikata/hijikata_duel_recast"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityTextureName"			"custom/hijikata/hijikata_new_e"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_2"
+		"precache"
+		{
+			"particle"			"particles/zlodemon/hijik_afterimage.vpcf"
+			"particle"			"particles/zlodemon/hijik_afterimage_2.vpcf"
+		}
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"25 23 21 19 17"
+		"AbilityManaCost"				"200"
+		
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "total_strikes" "6"
+            "damage" "30 37.5 45 52.5 60"
+            "damage_per_attack" "0.1 0.15 0.2 0.25 0.3"
+            "radius" "350"
+        }
+		
+		
+		
+	}
 
 
 	//=====================================
@@ -210,9 +253,9 @@
 		"AbilityValues"
 		{
 			"duration"								"3"		
-			"max_ms"								"650"	
+			"max_ms"								"600"	
 			"max_attack_damage"						"200"	
-			"ms_per_stack"						"1.5"
+			"ms_per_stack"						"1"
 			"distance_for_stack"						"25"
 		}
 	}
@@ -529,7 +572,7 @@
 		"AbilityTextureName"			"custom/hijikata/hijikata_sa2"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"11"
+		"AbilityManaCost"				"15"
 
 		 
 		"AbilityValues"
@@ -538,6 +581,10 @@
             "slow_duration" "2"
             "slow_amount" "60"
             "bonus_damage" "100"
+            "max_ms"								"600"	
+			"max_attack_damage"						"200"	
+			"ms_per_stack"						"1"
+			"distance_for_stack"						"25"
         }		
 	}
 	

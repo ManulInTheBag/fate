@@ -8156,11 +8156,12 @@
 		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit_hp_threshold_max"				"%HP THRESHOLD:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul"				"<font color='#FFE56E'>Restless Soul</font>"
-		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Description"				"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#05CAFF'>Passive:</font> If there isn't a <font color='#FF3399'>cooldown</font> in place, whenever Lu Bu incurs <font color='#FF5100'>fatal damage</font>, he will be <font color='#ACFF05'>healed</font> instead.\n\n<font color='#05CAFF'>Active:</font> Lu Bu is able to <font color='#ACFF05'>heal</font> back a set amount of <font color='#ACFF05'>health</font> plus 5% of his max health every few seconds.\n\n<font color='#FF3399'>Upgradable with attribute Restless Soul</font>"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Description"				"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#05CAFF'>Passive:</font> If there isn't a <font color='#FF3399'>cooldown</font> in place, whenever Lu Bu incurs <font color='#FF5100'>fatal damage</font>, he will be <font color='#ACFF05'>healed</font> instead.\n\n<font color='#05CAFF'>Active:</font> Lu Bu is able to <font color='#ACFF05'>heal</font> back a set amount of <font color='#ACFF05'>health</font> plus percentage of his max health every few seconds.\n\n<font color='#FF3399'>Upgradable with attribute Restless Soul</font>"
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Lore"				"The wandering soul knows no rest."
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul_cooldown"				"PASSIVE HEAL COOLDOWN:"
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul_passive_heal"				"PASSIVE HEAL:"
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul_active_heal"				"ACTIVE HEAL:"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_max_health_heal"			"%ACTIVE HEAL FROM HP:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_god_force"				"<font color='#FFE56E'>God Force: The Five Soldiers of the War God</font>"
 		"DOTA_Tooltip_Ability_lu_bu_god_force_Description"				"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu strikes all enemies in radius 5 times, inflicting <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>stunning</font> them repetitively.\n\nThe last strike has bigger radius, deals more <font color='#05CAFF'>magical damage</font> and briefly <font color='#FF3399'>knocks</font> enemies back.\n\n<font color='#FF3399'>Upgradable with attribute Fangtian Huaji</font>"
@@ -9988,11 +9989,11 @@
         "DOTA_Tooltip_ability_hijikata_dash_Lore"										"Battlefield with a lot of men is where Hijikata shines the best, being able to find perfect opportunity to strike down even the most guarded target."
 
         "DOTA_Tooltip_ability_hijikata_demon"							"Demon of the battlefield"
-        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> plus base damage  as <font color='#58ACFA'>magical</font> damage on every attack for a duration.\nAllows to recast this ability after usage."
+        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of enemy <font color='#ACFF05'>max health</font> plus base damage  as <font color='#58ACFA'>magical</font> damage on every attack for a duration.\nAllows to recast this ability after usage."
         "DOTA_Tooltip_ability_hijikata_demon_damage"								"Damage:"
         "DOTA_Tooltip_ability_hijikata_demon_buff_duration"							"Buff duration:"
         "DOTA_Tooltip_ability_hijikata_demon_as_value"								"Attack speed bonus:"
-        "DOTA_Tooltip_ability_hijikata_demon_hp_percentage_diff_to_damage"			"%Health difference to damage:"
+        "DOTA_Tooltip_ability_hijikata_demon_hp_percentage_diff_to_damage"			"%Max health to damage:"
         "DOTA_Tooltip_ability_hijikata_demon_base_damage"			"Base on-hit damage"
         "DOTA_Tooltip_ability_hijikata_demon_sa_atk_dmg_mod"						"SA atk damage mod:"
         "DOTA_Tooltip_ability_hijikata_demon_Lore"										"The way Hijikata fights, just like that of a demon, sometimes strikes fear even towards his allies. No matter how bad his condition is, his power never withers."
@@ -10007,7 +10008,7 @@
  
 
         "DOTA_Tooltip_ability_hijikata_duel"							"Duel"
-        "DOTA_Tooltip_ability_hijikata_duel_Description"			"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata declares <font color='#ff9900'>Duel</font> to the target enemy, creating a <font color='#FFFAFA'>territory</font> which him and his enemy <font color='#FF3399'>cannot leave</font> for a duration, or until one of them <font color='#FF3399'>dies</font>.\nWhile Duel persists, effects apply:\nHijikata and his target deal <font color='#FFFAFA'>more</font> damage to each other\nHijikata takes <font color='#FFFAFA'>less</font> damage from all other enemies\nHijikata deals <font color='#FFFAFA'>less</font> damage to all other enemies.\nOnly one duel can persist at a time."
+        "DOTA_Tooltip_ability_hijikata_duel_Description"			"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata declares <font color='#ff9900'>Duel</font> to the target enemy, creating a <font color='#FFFAFA'>territory</font> which him and his enemy <font color='#FF3399'>cannot leave</font> for a duration, or until one of them <font color='#FF3399'>dies</font>.\nWhile Duel persists, effects apply:\nHijikata and his target deal <font color='#FFFAFA'>more</font> damage to each other\nHijikata takes <font color='#FFFAFA'>less</font> damage from all other enemies\nHijikata deals <font color='#FFFAFA'>less</font> damage to all other enemies.\nWhen in duel, this skill changes to <font color='#FF0000'>Tearing afterimages</font>\nOnly one duel can persist at a time."
         "DOTA_Tooltip_ability_hijikata_duel_dmg_res"							"%Damage reduction:"
         "DOTA_Tooltip_ability_hijikata_duel_duration"							"Duration:"
         "DOTA_Tooltip_ability_hijikata_duel_dmg_increase"						"%Damage increase:"
@@ -10015,8 +10016,19 @@
         "DOTA_Tooltip_ability_hijikata_duel_cast_range"							"Cast range:"
         "DOTA_Tooltip_ability_hijikata_duel_Lore"										"Hijikata's madness drives him to break Shinsengumi codex if it is required, which often only increases his chances on winning the duel."
 
+
+
+        "DOTA_Tooltip_ability_hijikata_duel_recast"							"Tearing afterimages"
+        "DOTA_Tooltip_ability_hijikata_duel_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata sends a bunch of his afterimages at the target point, dealing <font color='#58ACFA'>damage</font> to all enemies in radius and <font color='#ACFF05'>healing</font> himself for the same amount.\n<font color='#ACFF05'>Healing</font> can occur only once per hit.\nDamage is increased based on Hijikata's attack"
+        "DOTA_Tooltip_ability_hijikata_duel_recast_damage"							"Damage:"
+        "DOTA_Tooltip_ability_hijikata_duel_recast_damage_per_attack"				"Attack to damage modifier:"
+        "DOTA_Tooltip_ability_hijikata_duel_recast_total_strikes"					"Total strikes:"
+        "DOTA_Tooltip_ability_hijikata_duel_recast_radius"						"Radius:"
+
+
+
         "DOTA_Tooltip_ability_hijikata_madness"							"Madness"
-        "DOTA_Tooltip_ability_hijikata_madness_Description"			"Cast delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Hijikata goes insane for a short moment, gaining <font color='#ff9900'>immune to crowd control effects</font> buff for a short time.\nIf Hijikata's health percentage is less then <font color='#FFFAFA'>25%%</font>, this ability becomes <font color='#FFFAFA'>instant cast</font> and stun-castable.\nPassive: Swiftness<br/>Hijikata's movespeed limit is increased to %max_ms%.\nWhen moving, Hijikata gains swiftness stacks for each %distance_for_stack% distance, which increase movement speed by %ms_per_stack% per stack.\nWhen attacking, Hijikata will lose all stacks and deal additional <font color='#58ACFA'>magical</font> damage to target based on his attack damage, for up to %max_attack_damage%%%."
+        "DOTA_Tooltip_ability_hijikata_madness_Description"			"Cast delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Hijikata goes insane for a short moment, gaining <font color='#ff9900'>immune to crowd control effects</font> buff for a short time.\nIf Hijikata's health percentage is less then <font color='#FFFAFA'>25%%</font>, this ability becomes <font color='#FFFAFA'>instant cast</font> and stun-castable."
         "DOTA_Tooltip_ability_hijikata_madness_duration"								"Duration:"
         "DOTA_Tooltip_ability_hijikata_madness_Lore"							"Hijikata is driven by intense self-confidence that spurs his insanity. He believes that as long as he remains, the Shinsengumi shall never die."
 
@@ -10105,14 +10117,14 @@
         "DOTA_Tooltip_ability_hijikata_eternal_madness_attribute_max_stacks"			"New maximum stacks:"
 
         "DOTA_Tooltip_ability_hijikata_tactics_attribute"							"Tactics"
-        "DOTA_Tooltip_ability_hijikata_tactics_attribute_Description"				"Upgrades <font color='#58ACFA'>Shinsengumi</font>, by increasing its <font color='#58ACFA'>damage</font>, based on enemy lost health percentage. Combo version also benefits from this. \nUpgrades <font color='#58ACFA'>Demon of the battlefield</font> by increasing its <font color='#58ACFA'>damage</font> by a flat value and adding a <font color='#9400D3'>slow</font> effect on hit.\nUpgrades <font color='#58ACFA'>Madness</font>, by increasing health percentage conditional to 40%%."
+        "DOTA_Tooltip_ability_hijikata_tactics_attribute_Description"				"Upgrades <font color='#58ACFA'>Shinsengumi</font>, by increasing its <font color='#58ACFA'>damage</font>, based on enemy lost health percentage. Combo version also benefits from this. \nUpgrades <font color='#58ACFA'>Demon of the battlefield</font> by increasing its <font color='#58ACFA'>damage</font> by a flat value and adding a <font color='#9400D3'>slow</font> effect on hit.\nUpgrades <font color='#58ACFA'>Madness</font>, by increasing health percentage conditional to 40%%.\nAdds new passive:</br>Swiftness<br/>Hijikata's movespeed limit is increased to %max_ms%.\nWhen moving, Hijikata gains swiftness stacks for each %distance_for_stack% distance, which increase movement speed by %ms_per_stack% per stack.\nWhen attacking, Hijikata will lose all stacks and deal additional <font color='#58ACFA'>magical</font> damage to target based on his attack damage, for up to %max_attack_damage%%%"
         "DOTA_Tooltip_ability_hijikata_tactics_attribute_max_damage_pct"			"%Maximum damage modifier:"
         "DOTA_Tooltip_ability_hijikata_tactics_attribute_slow_duration"						"Slow duration:"
         "DOTA_Tooltip_ability_hijikata_tactics_attribute_slow_amount"						"%Slow:"
         "DOTA_Tooltip_ability_hijikata_tactics_attribute_bonus_damage"						"Bonus damage:"
 
         "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute"							"Fierce sincerity"
-        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_Description"				"Upgrades <font color='#58ACFA'>Demon of the battlefield</font>, by adding a cleave effect in 180 degrees semi circle.\nUpgrades <font color='#58ACFA'>Shinsengumi codex</font>, decreasing stun duration on 5th stack by 1.5 second and increasing time before stacks dissapear by 2 seconds.\nActivating 5th stack also grants bonus damage for all allies in 1000 radius. This bonus is increased for Shinsengumi."
+        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_Description"				"Upgrades <font color='#58ACFA'>Demon of the battlefield</font>, by adding a cleave effect in 180 degrees semi circle.\nUpgrades <font color='#58ACFA'>Shinsengumi codex</font>, decreasing stun duration on 5th stack by 1.5 second and increasing time before stacks dissapear by 2 seconds.\nActivating 5th stack also grants bonus damage for all allies in 1000 radius. This bonus is increased for Shinsengumi.\nUpgrades <font color='#FF0000'>Tearing afterimages</font>: now applies auto-attacks to enemies in radius with his attackspeed."
         "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_cleave_radius"					"Cleave radius:"
         "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_cleave_damage_pct"				"%Cleave damage:"
         "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_damage_bonus"						"Bonus damage:"
@@ -10252,12 +10264,13 @@
 		"DOTA_Tooltip_ability_scathach_gae_bolg_jump_cast_range"			"CAST RANGE :"
 		
 		"DOTA_Tooltip_ability_scathach_pinning_thorn"				"<font color='#FFE56E'>Pinning God Killer Thorns</font>"
-		"DOTA_Tooltip_ability_scathach_pinning_thorn_Description"	"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Scathach brandishes her spear with maximal power and throws it an enemy target.\n\nInflicting individual <font color='#05CAFF'>magical damage</font> to the target.\n\nAlso explodes, dealing <font color='#05CAFF'>magical damage</font> to surrounding enemies.\n\nAdditional damage added per <font color='#2CE300'>AGI</font> will be split between target and secondary damage." 
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_Description"	"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Scathach brandishes her spear with maximal power and throws it an enemy target.\n\nInflicting individual <font color='#05CAFF'>magical damage</font> to the target.\n\nAlso explodes, dealing <font color='#05CAFF'>magical damage</font> to surrounding enemies.\n\nAdditional damage added per <font color='#2CE300'>AGI</font> and hero level will be split between target and secondary damage." 
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_range"			"RANGE:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_damage"			"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_damage_secondary"			"EXPLOSION DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_agi_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_damage_per_hero_level"			"ADDITIONAL DAMAGE PER HERO LEVEL:"
 
 		"DOTA_Tooltip_Ability_scathach_primeval_rune_attribute"				"<font color='#FFE56E'>Improve Primeval Rune</font>"
 		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_Description"	"Upgrades <font color='#FFE56E'>Thorn Of The Red Wind</font>, adding additional <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>cast range</font> and <font color='#FF3399'>stun</font>.\n\nUpgrades <font color='#FFE56E'>Funeral Gait - Fangs of Earth</font>, <font color='#FFE56E'>Funeral Gait - Curruid's Maw</font> and <font color='#FFE56E'>Funeral Gait - Legion's Bite</font>, adding additional <font color='#FF5100'>damage</font>, based on Scathach's <font color='#2CE300'>AGI</font>. respectively."
