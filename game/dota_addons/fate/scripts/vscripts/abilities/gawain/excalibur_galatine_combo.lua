@@ -117,8 +117,8 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     ParticleManager:SetParticleControl( castFx2, 0, caster:GetAbsOrigin())
 
     if caster.IsSoVAcquired then
-        damage = damage + 1250
-        local bonus_damage = 333
+        damage = damage + 1000
+        local bonus_damage = 111
         fireTrailDuration = fireTrailDuration + 1.5
     end
 

@@ -190,7 +190,7 @@ function artoria_ultimate_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation
 	local target = hTarget
 	local damage = self:GetSpecialValueFor("damage")
 	if caster:HasModifier("modifier_artoria_improve_excalibur_attribute") then
-		damage = damage + 5500
+		damage = damage + 1000
 	end
 
 	damage = damage/25

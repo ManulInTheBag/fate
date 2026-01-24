@@ -549,7 +549,7 @@ function OnMaxEnumaHit(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
 	if caster.IsEnumaImproved then
-		keys.Damage = 35000
+		keys.Damage = 3000
 	end
 	DoDamage(keys.caster, keys.target, keys.Damage, DAMAGE_TYPE_PURE, 0, keys.ability, false)
 end
