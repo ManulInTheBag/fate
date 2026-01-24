@@ -70,7 +70,7 @@ end
 
 function modifier_dirk_poison:GetModifierPhysicalArmorBonus()
 	if self:GetCaster().IsWeakeningVenomAcquired then
-    	return self:GetParent():GetModifierStackCount("modifier_weakening_venom", self:GetAbility()) * -1*0.5
+    	return self:GetParent():GetModifierStackCount("modifier_weakening_venom", self:GetAbility()) * -1*0
     else
     	return 0
     end

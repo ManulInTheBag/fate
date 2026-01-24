@@ -527,7 +527,7 @@ function OnBerserkProc(keys)
 		local radius = 300
 		local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do
-	        DoDamage(caster, v, caster:GetAverageTrueAttackDamage(caster)/2, DAMAGE_TYPE_PHYSICAL, 0, keys.ability, false)
+	        DoDamage(caster, v, caster:GetAverageTrueAttackDamage(caster)/4, DAMAGE_TYPE_PHYSICAL, 0, keys.ability, false)
 	        v:AddNewModifier(caster, keys.ability, "modifier_berserker_clap_slow", {Duration = 1})
 		end
 		caster.IsRageBashOnCooldown = true
