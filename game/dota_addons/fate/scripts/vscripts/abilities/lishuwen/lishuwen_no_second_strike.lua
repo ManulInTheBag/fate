@@ -19,11 +19,11 @@ function lishuwen_no_second_strike:AddShock(target, amount)
 		stacks = target:FindModifierByName("modifier_nss_shock_stackable"):GetStackCount()
 	end
 	if (stacks + amount) > 50 then 
-		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration")})
-		target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(50)
+		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration"), stacks = 50})
+		--target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(50)
 	else
-		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration")})
-		target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(stacks + amount)
+		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration"), stacks = stacks + amount})
+		--target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(stacks + amount)
 
 	end
 
@@ -126,12 +126,25 @@ function modifier_nss_shock_stackable:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
+	self:SetStackCount(tTable.stacks)
 	self.stacks = self:GetStackCount()
 	self.reduction = 0
 	self.slow_power = 0
 	self.armor_reduction = 0
 	self.mr_reduction = 0
 	self.heal_reduction = 0
+	self.parent = self:GetParent()
+	if  self.counterfx == nil then
+		self.counterfx =   ParticleManager:CreateParticle( "particles/li_shuwen/li_shuwen_stacks.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
+	end
+	if self.stacks < 10 then 
+		ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
+		ParticleManager:SetParticleControl( self.counterfx , 2, Vector(self.stacks,0,0) )
+	else
+		ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
+		ParticleManager:SetParticleControl( self.counterfx , 2, Vector(self.stacks % 10,0,0) )
+		ParticleManager:SetParticleControl( self.counterfx , 7, Vector( math.floor(self.stacks / 10),0,0) )
+	end
 	if IsServer() then
 		Timers:RemoveTimer("liShuwenDebuffsTimer")
 	end
@@ -188,6 +201,10 @@ end
 
 function modifier_nss_shock_stackable:OnDestroy()
 	if not IsServer() then return end
+	ParticleManager:DestroyParticle(self.counterfx , true)
+	ParticleManager:ReleaseParticleIndex(self.counterfx )
+
+
 end
 
 
@@ -408,6 +425,13 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 		end
 	end
 	hTarget:RemoveModifierByName("modifier_nss_shock_stackable")
+	self.counterfxExplosion =   ParticleManager:CreateParticle( "particles/li_shuwen/li_shuwen_stacks_jopa.vpcf", PATTACH_OVERHEAD_FOLLOW, hTarget )
+	ParticleManager:SetParticleControl( self.counterfxExplosion , 3,hTarget:GetAbsOrigin() + Vector(0,0,150)  )
+	Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(self.counterfxExplosion , true)
+			ParticleManager:ReleaseParticleIndex(self.counterfxExplosion )
+	
+	end)
 	if caster:HasModifier("modifier_berserk") then
 		DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	else

@@ -85,7 +85,7 @@ function lancelot_parry:Counter()
 	if modi then
 		dur = dur + modi:GetRemainingTime()
 	end
-	abil:ActivateArondite(dur)
+	abil:ActivateArondite(dur, false)
 
 	local damage = self:GetSpecialValueFor("damage")
 	

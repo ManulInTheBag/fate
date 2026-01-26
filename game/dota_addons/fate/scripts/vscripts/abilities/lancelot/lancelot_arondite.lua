@@ -30,10 +30,10 @@ function lancelot_arondite:OnAbilityPhaseStart()
 end
 
 function lancelot_arondite:OnSpellStart()
-	self:ActivateArondite(self:GetSpecialValueFor("duration"))
+	self:ActivateArondite(self:GetSpecialValueFor("duration"), true)
 end
 
-function lancelot_arondite:ActivateArondite(duration)
+function lancelot_arondite:ActivateArondite(duration, shouldheal)
 	local caster = self:GetCaster()
     local ability = self
    
@@ -67,7 +67,9 @@ function lancelot_arondite:ActivateArondite(duration)
     															BonusDamage = 0,
     															KotlAttribute = caster.KotlSaAcquired })
 
-    caster:Heal(self:GetSpecialValueFor("activate_heal"), caster)
+	if shouldheal then
+   	 	caster:Heal(self:GetSpecialValueFor("activate_heal"), caster)
+	end
 end
 
 function lancelot_arondite:CreateFireProjectile()

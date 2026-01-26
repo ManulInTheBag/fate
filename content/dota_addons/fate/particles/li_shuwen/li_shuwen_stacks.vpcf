@@ -548,13 +548,22 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/muramasa/soul_sword_counter/muramasa_soul_sword_counterbgovno.vpcf"
+			m_ChildRef = resource:"particles/li_shuwen/li_shuwen_stacksb.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/muramasa/soul_sword_counter/muramasa_soul_sword_counterc.goivnovpcf.vpcf"
+			m_ChildRef = resource:"particles/li_shuwen/li_shuwen_stacksc.vpcf"
+			m_bDisableChild = true
 		},
 		{
-			m_ChildRef = resource:"particles/muramasa/soul_sword_counter/muramasa_soul_sword_counteragovno.vpcf"
+			m_ChildRef = resource:"particles/li_shuwen/li_shuwen_stacksa.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/li_shuwen/li_shuwen_stacksa2.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/li_shuwen/li_shuwen_stacks_jopa.vpcf"
+			m_bEndCap = true
+			m_bDisableChild = true
 		},
 	]
 }

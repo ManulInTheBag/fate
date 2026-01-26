@@ -29,6 +29,8 @@
 		"precache"
 		{
 			"particle"				"particles/ryougi/ryougi_dagger_2.vpcf"
+			"particle"				"particles/ryougi/ryougi_dash_radius.vpcf"
+			"particle"				"particles/ryougi/lines_effect.vpcf"
 		}
 		"AbilityValues"
 		{	
@@ -44,8 +46,8 @@
 			"damage_per_line"		"40 50 60 70 80"
 			"mark_duration"			"5"
 			"swap_duration"			"5"
-			"bfm_range"				"600"
-			"bfm_marked_range"		"1500"
+			"bfm_range"				"1500"
+			//"bfm_marked_range"		"1500"
 		}
 	}
 
@@ -60,7 +62,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				" DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -82,8 +84,8 @@
 			"radius"				"250"
 			"damage_first"			"100 125 150 175 200"
 			"damage_second"			"300 350 400 450 500"
-			"range"					"600"
-			"marked_range"			"1500"
+			"range"					"1500"
+			//"marked_range"			"1500"
 			"damage_per_line"		"40 50 60 70 80"
 			"attr_execute"			"10"
 		}

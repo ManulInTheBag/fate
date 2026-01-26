@@ -843,6 +843,8 @@ function OnAvariceAcquired(keys)
 	else 
 		hero.ShardAmount = hero.ShardAmount - 1
 		hero.ServStat:getS1()
+		local caster_name =  PlayerResource:GetPlayerName(hero:GetPlayerID())
+		GameRules:SendCustomMessageToTeam(caster_name .. " just acquired shard of Avarice!", hero:GetTeamNumber(), 0, 0)
 	end
 
 

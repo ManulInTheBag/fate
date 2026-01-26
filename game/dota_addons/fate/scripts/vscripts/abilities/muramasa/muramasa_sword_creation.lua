@@ -127,7 +127,9 @@ end
 function modifier_muramasa_sword_drop_enemy_buff:OnAttackLanded(args)
     local stackCount = self:GetStackCount()
     if self.isReady == false then return end
+    if args.attacker ~= self:GetParent() then return end
     self.isReady = false
+
     ----idk if its needed
     local position = args.target:GetAbsOrigin() + (args.target:GetAbsOrigin() - args.attacker:GetAbsOrigin() ):Normalized() * 100
 	self.Dummy = CreateUnitByName("dummy_unit", args.target:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
