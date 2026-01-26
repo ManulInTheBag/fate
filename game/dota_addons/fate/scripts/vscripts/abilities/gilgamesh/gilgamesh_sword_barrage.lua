@@ -199,7 +199,7 @@ function gilgamesh_sword_barrage:OnProjectileHit_ExtraData(hTarget, vLocation, t
 	local damage1  = 0
 	DoDamage(hCaster, hTarget, damage/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	if hCaster.IsSumerAcquired then
-		damage1 = hCaster:GetAttackDamage() * 0.5
+		damage1 = hCaster:GetAttackDamage() * 0.25
 		DoDamage(hCaster, hTarget, damage1/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	end
 	local targets = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
@@ -209,7 +209,8 @@ function gilgamesh_sword_barrage:OnProjectileHit_ExtraData(hTarget, vLocation, t
 		DoDamage(hCaster, v, damage1/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	end
 	if not hTarget:IsMagicImmune() then
-		hTarget:AddNewModifier(hCaster, hTarget, "modifier_stunned", { Duration = self:GetSpecialValueFor("stun_duration") })
+		hTarget:AddNewModifier(hCaster, hTarget, "modifier_rooted", { Duration = self:GetSpecialValueFor("root_duration") })
+		giveUnitDataDrivenModifier(hCaster, hTarget, "locked", self:GetSpecialValueFor("lock_duration"))
 	end
 
 	end

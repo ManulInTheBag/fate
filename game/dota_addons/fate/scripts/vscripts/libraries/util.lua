@@ -204,7 +204,7 @@ deargdispellable = {
 
 revokes = {
     "modifier_ubw_chronosphere",
-    "modifier_enkidu_hold",
+    --"modifier_enkidu_hold",
     "jump_pause",
     "pause_sealdisabled",
     "rb_sealdisabled",

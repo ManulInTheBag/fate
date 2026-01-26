@@ -14,8 +14,8 @@ if IsServer() then
 end
 
 function modifier_enkidu_hold:CheckState()
-	return { [MODIFIER_STATE_STUNNED] = true,
-			 [MODIFIER_STATE_COMMAND_RESTRICTED] = true }
+	return { [MODIFIER_STATE_STUNNED] = true
+			 }
 end
 
 function modifier_enkidu_hold:GetTexture()

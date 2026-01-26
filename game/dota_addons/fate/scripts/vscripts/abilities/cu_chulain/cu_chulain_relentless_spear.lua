@@ -212,7 +212,7 @@ function cu_chulain_relentless_spear:TigerStrike1()
 		ParticleManager:ReleaseParticleIndex(blow_fx)
 		Timers:CreateTimer(0.1, function()
 			if targets[1]:IsAlive() then
-				DoDamage(caster, targets[1], self:GetSpecialValueFor("damage_first"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, targets[1], self:GetSpecialValueFor("damage_first"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 				caster:PerformAttack(targets[1], true, true, true, true, false, false, true)
 				if self:CheckSequence() == 2 then
 					giveUnitDataDrivenModifier(caster, targets[1], "rooted", self:GetSpecialValueFor("root_dur"))

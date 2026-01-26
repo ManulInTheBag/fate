@@ -85,7 +85,7 @@ function gilgamesh_gate_of_babylon:OnProjectileHit_ExtraData(hTarget, vLocation,
 	local damage1 = 0
 	if  not hTarget:HasModifier("modifier_protection_from_arrows_active") then 
 		if hCaster.IsSumerAcquired then
-			damage1 = hCaster:GetAttackDamage() * 0.175
+			damage1 = hCaster:GetAttackDamage() * 0.08
 			damage = damage +  hCaster:GetAttackDamage() * 0.05
 			DoDamage(hCaster, hTarget, damage1, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		end

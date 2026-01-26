@@ -17,7 +17,7 @@ function hijikata_duel_recast:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_point = self:GetCursorPosition()
 	local total_strikes = self:GetSpecialValueFor("total_strikes")
-	local damage = self:GetSpecialValueFor("damage")/3 + self:GetSpecialValueFor("damage_per_attack") * caster:GetAverageTrueAttackDamage(caster)/3
+	local damage = self:GetSpecialValueFor("damage")/3 --+ self:GetSpecialValueFor("damage_per_attack") * caster:GetAverageTrueAttackDamage(caster)/3
 	print(damage)
 	local duration = total_strikes * 0.1
 	local radius = self:GetSpecialValueFor("radius")
@@ -56,7 +56,7 @@ function hijikata_duel_recast:CreateOneSlash(position, radius, damage, startorig
 			v:EmitSound("hijikata_attack_"..math.random(1,3))
 		end
 	end
-	if #enemies > 1 then
+	if #enemies => 1 then
 		caster:Heal(damage, self)
 	end
 	local animcount = math.random(1,2)
