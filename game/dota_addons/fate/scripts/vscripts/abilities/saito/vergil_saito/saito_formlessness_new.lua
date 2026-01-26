@@ -289,7 +289,6 @@ function saito_formlessness_new_stacks:OnCreated(args)
  	self:SetStackCount(1)
 	self.parent = self:GetParent()
 	self.counterfx =   ParticleManager:CreateParticle( "particles/saito/qwe_counter_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
-    print("creat4ed")
 	ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
 	ParticleManager:SetParticleControl( self.counterfx , 2, Vector(1,0,0) )
  

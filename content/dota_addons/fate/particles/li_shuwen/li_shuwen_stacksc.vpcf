@@ -2,37 +2,51 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 0
-	m_flConstantRadius = 12.0
-	m_ConstantColor = [ 168, 72, 8, 255 ]
+	m_nMaxParticles = 4
+	m_flConstantRadius = 20.0
+	m_ConstantColor = [ 21, 11, 5, 255 ]
 	m_nBehaviorVersion = 12
 	m_controlPointConfigurations = 
 	[
 		{
 			m_name = "preview"
-			m_drivers = 
-			[
-				{
-					m_iControlPoint = 3
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 2
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 2.0
+			}
 		},
 	]
 	m_Initializers = 
 	[
 		{
+			_class = "C_INIT_CreateWithinSphereTransform"
+			m_TransformInput = 
+			{
+				m_nControlPoint = 3
+			}
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+			m_nOutputField = 1
+		},
+		{
 			_class = "C_INIT_PositionOffset"
 			m_OffsetMin = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 150.0, 0.0, 0.0 ]
+				m_vLiteralValue = [ -150.0, 0.0, 400.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
@@ -289,7 +303,7 @@
 			m_OffsetMax = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 150.0, 0.0, 0.0 ]
+				m_vLiteralValue = [ -150.0, 0.0, 400.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
@@ -545,16 +559,45 @@
 			}
 		},
 	]
-	m_Children = 
+	m_Operators = 
 	[
 		{
-			m_ChildRef = resource:"particles/muramasa/soul_sword_counter/muramasa_soul_sword_counterbgovno.vpcf"
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
 		},
 		{
-			m_ChildRef = resource:"particles/muramasa/soul_sword_counter/muramasa_soul_sword_counterc.goivnovpcf.vpcf"
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.15
+			m_Gravity = [ 0.0, 0.0, -200.0 ]
+			m_bDisableOperator = true
 		},
 		{
-			m_ChildRef = resource:"particles/muramasa/soul_sword_counter/muramasa_soul_sword_counteragovno.vpcf"
+			_class = "C_OP_SetToCP"
+			m_nControlPointNumber = 3
+			m_vecOffset = [ 0.0, 0.0, 40.0 ]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 5.0
+			m_flBias = 0.9
+			m_flEndScale = 3.0
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/particle_glow_04.vtex"
+				},
+			]
+			m_bDisableZBuffering = true
 		},
 	]
 }

@@ -2,14 +2,6 @@ LinkLuaModifier("modifier_scathach_combo_window", "abilities/scathach/scathach_r
 LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 scathach_red_wind = class({})
 
-function scathach_red_wind:GetCastRange(vLocation, hTarget)
-    local range = 1100
-
-    if self:GetCaster():HasModifier("modifier_scathach_primeval_rune_attribute") then
-        range = range + 200
-    end
-    return range
-end
 
 function scathach_red_wind:OnSpellStart()
 	local caster = self:GetCaster()
@@ -40,6 +32,9 @@ function scathach_red_wind:OnSpellStart()
 	stun_duration = self:GetSpecialValueFor("stun_duration")
 	
 	charge_distance = self:GetSpecialValueFor("distance")
+    if self:GetCaster():HasModifier("modifier_scathach_primeval_rune_attribute") then
+        charge_distance = charge_distance + 200
+    end
 	
 	if distance > charge_distance then
 		distance = charge_distance

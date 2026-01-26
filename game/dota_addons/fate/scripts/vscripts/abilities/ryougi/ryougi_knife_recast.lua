@@ -8,22 +8,35 @@ function ryougi_knife_recast:OnUpgrade()
     end
 end
 
-function ryougi_knife_recast:GetCastRange(location, target)
-	if target and target:HasModifier("modifier_ryougi_knife_target") then
-		return self:GetSpecialValueFor("marked_range")
+function ryougi_knife_recast:CastFilterResult()
+	local caster = self:GetCaster()
+	if IsServer() then
+		local target = caster.CurrentKnifeTarget
+		local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+
+		if dist > self:GetSpecialValueFor("range") then 
+			return UF_FAIL_CUSTOM 
+		end
+
 	end
-	return self:GetSpecialValueFor("range")
+	return UF_SUCCESS
+end
+
+function ryougi_knife_recast:GetCustomCastError()
+    return "#Target_out_of_range"
+
 end
 
 function ryougi_knife_recast:OnSpellStart()
-	local combo_enemy = self:GetCursorTarget()
-	self:StartCombo(combo_enemy)
+	--local combo_enemy = self:GetCursorTarget()
+	local caster = self:GetCaster()
+	self:StartCombo(caster.CurrentKnifeTarget)
 end
 
 function ryougi_knife_recast:StartCombo(combo_enemy)
 	local caster = self:GetCaster()
 	caster:RemoveModifierByName("modifier_ryougi_knife_swap")
-	if IsSpellBlocked(combo_enemy) then return end
+	--if IsSpellBlocked(combo_enemy) then return end
 	local origin = caster:GetAbsOrigin()
 	local damage_first = self:GetSpecialValueFor("damage_first")
 	local damage_second = self:GetSpecialValueFor("damage_second")

@@ -48,9 +48,9 @@ function hijikata_duel_recast:CreateOneSlash(position, radius, damage, startorig
 
 	for k,v in pairs(enemies) do
 		if v:GetName() ~= "npc_dota_ward_base" then
-			if caster.IsHijikataSincerityAcquired then
-				caster:PerformAttack(v, true, false, false, false, false, false, true)
-			end
+			-- if caster.IsHijikataSincerityAcquired then
+			-- 	caster:PerformAttack(v, true, false, false, false, false, false, true)
+			-- end
 			DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			
 			v:EmitSound("hijikata_attack_"..math.random(1,3))

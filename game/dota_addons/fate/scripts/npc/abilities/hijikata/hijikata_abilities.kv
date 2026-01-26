@@ -45,14 +45,14 @@
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_dash_recast"
 		"AbilityTextureName"				"custom/hijikata/hijikata_dash"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"							"5"
 		"AbilityCooldown"				    "0"
 		"AbilityManaCost"					"0"
-		"AbilityCastPoint"					"0.1"
+		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1_END"
 		"precache"
 		{
@@ -99,7 +99,7 @@
 		"AbilityValues"
 		{
 			"radius"								"750"		
-			"damage"									"250 325 400 475 550"
+			"damage"									"200 250 300 350 400"
 			"buff_duration"								"3 3.5 4 4.5 5"		
 			"as_value"									"50"
 			"hp_percentage_diff_to_damage"				"3" // MAX HEALTH TO DAMAGE
