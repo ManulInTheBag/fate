@@ -16,7 +16,7 @@ function sasaki_heart_of_harmony:OnSpellStart()
 																	   ManaRegenBonus = self:GetSpecialValueFor("focus_regen"),
 																	   SlashCount = self:GetSpecialValueFor("slash_count"),
 																	   Threshold = self:GetSpecialValueFor("threshold"),
-																	   StunDuration = 0})
+																	   StunDuration = self:GetSpecialValueFor("stun_duration")})
 
 	caster:AddNewModifier(caster, self, "modifier_heart_of_harmony_disarm", { Duration = self:GetSpecialValueFor("duration") })
 end

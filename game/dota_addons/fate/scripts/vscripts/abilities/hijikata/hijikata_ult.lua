@@ -172,7 +172,7 @@ function hijikata_ult:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 			dmg_mod = (self:GetSpecialValueFor("max_damage_pct")/100 - 1)* (1 - hp_pct/100) + 1
 		end
 		--dmg_mod = dmg_mod +  (self:GetSpecialValueFor("max_damage_pct_self")/100 - 1)* (1 - self_hp_pct/100)
-	 	DoDamage(hCaster, hTarget, tData.fDamage*dmg_mod, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	 	DoDamage(hCaster, hTarget, tData.fDamage*dmg_mod, self:GetAbilityDamageType(), 0, self, false)
 		hTarget:AddNewModifier(hCaster,self,"modifier_hijikata_ult_slow", {duration = self:GetSpecialValueFor("duration")})
 		hTarget:AddNewModifier(hCaster, self, "modifier_vision_provider", { duration = self:GetSpecialValueFor("duration") })
 		print(tData.should_silence)

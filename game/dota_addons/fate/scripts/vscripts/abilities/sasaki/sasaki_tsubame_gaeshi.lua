@@ -40,7 +40,9 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 	local caster = self:GetCaster()	
 	local target = self:GetCursorTarget()
 
-	caster:RemoveModifierByName("modifier_heart_of_harmony")
+	if caster:FindAbilityByName("sasaki_heart_of_harmony"):GetAutoCastState() then
+		caster:RemoveModifierByName("modifier_heart_of_harmony")
+	end
 	--EmitGlobalSound("FA.TGReady")
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())

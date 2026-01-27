@@ -16,7 +16,7 @@ function sasaki_windblade:OnSpellStart()
 	local empowered = false
 	local number_of_slash = self:GetSpecialValueFor("base_slashes")
 	
-	local targets = FindUnitsInRadius(caster:GetTeam(), casterInitOrigin, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local targets = FindUnitsInRadius(caster:GetTeam(), casterInitOrigin, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_FARTHEST, false)
 
 	--if caster:GetMana() > 99 then		
 		--empowered = true

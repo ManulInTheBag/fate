@@ -106,7 +106,7 @@ function nobu_shot:OnProjectileHit(target, location )
         DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     end
     if( hCaster.NobuActionAcquired and not  hCaster:FindModifierByName("modifier_nobu_turnlock")) then
-        local knockback = { should_stun = true,
+        local knockback = { should_stun = false,
         knockback_duration = 0.1,
         duration = 0.1,
         knockback_distance = 80,

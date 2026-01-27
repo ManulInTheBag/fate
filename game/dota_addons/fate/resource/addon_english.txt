@@ -3787,7 +3787,7 @@
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk"						"Attribute: Eternal Rage"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Berserker's attacks deal additional 50% of his attack damage in 300 radius around target slowing all affected enemies.\nCourage gains additional base stats (25 strength, 10%% movespeed, 25 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage \n Fissure Strike: damage is increased based on Berserker's strength (1 damage per STR)."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Berserker's attacks deal additional 50% of his attack damage in 300 radius around target slowing all affected enemies.\nCourage gains additional base stats (10%% movespeed, 40 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage \n Fissure Strike: damage is increased based on Berserker's strength (1 damage per STR)."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note0"				"Bash has 1.5 seconds cooldown."	
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note1"				"Berserk's periodic damage is equivalent to the amount of mana replenished from damage taken for 1 second."
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_chance"			"%COURAGE BASH CHANCE:"
@@ -3997,7 +3997,7 @@
 		//"DOTA_Tooltip_ability_false_assassin_gate_keeper_duration"	"DURATION:"
 
 		"DOTA_Tooltip_Ability_sasaki_heart_of_harmony"					"Heart of Harmony"
-		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Description"		"Kojiro assumes a defensive stance for %duration% seconds, placing shield that reduces incoming damage by %damage_reduc%% . Upon taking damage above %threshold%, Kojiro teleports to the attacker's rear and counter attacks with a flurry of slashes, stunning him. Heart of Harmony ends when Kojiro uses an offensive ability."
+		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Description"		"Kojiro assumes a defensive stance for %duration% seconds, placing shield that reduces incoming damage by %damage_reduc%% . Upon taking damage above %threshold%, Kojiro teleports to the attacker's rear and counter attacks with a flurry of slashes, stunning him and locking him. Heart of Harmony ends when Kojiro uses an offensive ability."
 		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Lore"				"With harmony comes the precision."
 		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_slash_count"		"Slash Count:"
 		"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note0"		"Counterattack has maximum of 2000 range."
@@ -4270,7 +4270,7 @@
 
 		
 		"DOTA_Tooltip_Ability_gilgamesh_sword_barrage"	"Sword Barrage"
-		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_Description"	"Fires swords from Gate of Babylon locking onto targets, briefly <font color='#FF3399'>stunning</font> and damaging them. Half of the damage is dealt in small aoe." 
+		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_Description"	"Fires swords from Gate of Babylon locking onto targets, briefly <font color='#FF3399'>slowing, rooting</font> and damaging them. Half of the damage is dealt in small aoe." 
 		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_Lore"	"At Archer's will, the flurry of weapons mercilessly skewer the enemies of their master."
 		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_damage"	"DAMAGE:"
 		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_strike_amount"	"STRIKE AMOUNT:"
@@ -4289,7 +4289,7 @@
 		"DOTA_Tooltip_ability_gilgamesh_golden_rule_gold_gain"		"GOLD PER SECOND:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_enkidu"					"Enkidu"	
-		"DOTA_Tooltip_ability_gilgamesh_enkidu_Description"		"A stream of chains bind the enemy target solid, <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> target from Master until channeling ends or duration expires."
+		"DOTA_Tooltip_ability_gilgamesh_enkidu_Description"		"A stream of chains bind the enemy target solid, <font color='#FF3399'>stunning target from Master until channeling ends or duration expires."
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_Lore"			"Of King of Heroes' limitless arsenal, Chains of Heaven is his most trusted weapon."
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_duration"		"MAX DURATION:"
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_damage"	"Attribute sword damage:"
@@ -6563,7 +6563,7 @@
 
 
         "DOTA_Tooltip_Ability_li_shuwen_new_w"			"Unpredictable assault"
-        "DOTA_Tooltip_Ability_li_shuwen_new_w_Description"	"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.2</font>.\nLi shuwen gets barrier, based on his maximum health and starts attacking targets in selected radius %total_strikes% times, dealing additional <font color='#58ACFA'>magical</font> damage on each hit.\nTargets are selected randomly.\nIf there is no targets in radius, the ability will end.\nLi shuwen applies <font color='#9400D3'>slow</font> debuff on each attack to the enemy.\nAttacks apply 2 <font color='#FF0000'>Circulatory shock</font> stacks on the enemy hit.\nAmount of strikes increases by 1 for each enemy after the first one.\nLi shuwen disjoins projectiles on cast.\nLi Shuwen cleanses himself after finishing the ability"
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_Description"	"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.2</font>.\nLi shuwen gets barrier, based on his maximum health and starts attacking targets for 25% of his attack damage in selected radius %total_strikes% times, dealing additional <font color='#58ACFA'>magical</font> damage on each hit.\nTargets are selected randomly.\nIf there is no targets in radius, the ability will end.\nLi shuwen applies <font color='#9400D3'>slow</font> debuff on each attack to the enemy.\nAttacks apply 2 <font color='#FF0000'>Circulatory shock</font> stacks on the enemy hit.\nAmount of strikes increases by 1 for each enemy after the first one.\nLi shuwen disjoins projectiles on cast.\nLi Shuwen cleanses himself after finishing the ability"
         "DOTA_Tooltip_Ability_li_shuwen_new_w_Lore"		""
         "DOTA_Tooltip_Ability_li_shuwen_new_w_total_strikes"	"TOTAL ATTACKS: "
         "DOTA_Tooltip_Ability_li_shuwen_new_w_bonus_damage"		"BONUS DAMAGE:"        

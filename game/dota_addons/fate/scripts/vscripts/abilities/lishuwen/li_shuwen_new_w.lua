@@ -61,7 +61,7 @@ function li_shuwen_new_w:OnSpellStart()
 	caster:EmitSound("li_new_w_voice")
 	caster:AddNewModifier(caster, self, "modifier_li_shuwen_new_w_contoller", {duration = duration, total_strikes = total_strikes, duration = duration, radius = radius, slow_dur = slow_dur,
 																				slow_power = slow_power, bonus_damage = bonus_damage, target_point_x = target_point.x,
-																				target_point_y = target_point.y, target_point_z = target_point.z})
+																				target_point_y = target_point.y, target_point_z = target_point.z, attackdamage = caster:GetAverageTrueAttackDamage(caster)})
 	caster:AddNewModifier(caster, self, "modifier_li_shuwen_barrier", {duration = self:GetSpecialValueFor("shield_duration")})
 end
 
@@ -86,6 +86,7 @@ function modifier_li_shuwen_new_w_contoller:OnCreated(htable)
 		self.radius = htable.radius
 		self.duration = htable.duration
 		self.total_strikes = htable.total_strikes
+		self.attackdamage = htable.attackdamage/4
 		local enemies = FindUnitsInRadius(self.hCaster:GetTeam(), self.target_point, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 		self.enemiesCount = #enemies -1
@@ -177,6 +178,11 @@ end
 function modifier_li_shuwen_new_w_contoller:OnRefresh(hTable)
     self:OnCreated(hTable)
 end
+
+function modifier_li_shuwen_new_w_contoller:GetModifierOverrideAttackDamage()
+   	return self.attackdamage
+end
+
 function modifier_li_shuwen_new_w_contoller:OnDestroy(hTable)
 	HardCleanse(self.hCaster)
 	ParticleManager:DestroyParticle(self.particle, false)
@@ -196,6 +202,10 @@ function modifier_li_shuwen_new_w_contoller:CheckState()
 
                     }
     return state
+end
+
+function modifier_li_shuwen_new_w_contoller:DeclareFunctions()
+	return { MODIFIER_PROPERTY_OVERRIDE_ATTACK_DAMAGE}
 end
 
 function li_shuwen_new_w:PlayRandomAttackAnimation(animation_number, additionalTargetsCount)

@@ -50,7 +50,7 @@ function hijikata_knockup:OnSpellStart()
 			AttackedTargets[enemy:entindex()] = true
 
 			if not enemy:IsMagicImmune() then
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, enemy, damage, self:GetAbilityDamageType(), 0, self, false)
 				enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = knockbackDuration})
 			end
 			--[[

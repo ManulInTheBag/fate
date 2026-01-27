@@ -45,7 +45,7 @@ function hijikata_target_dash:OnSpellStart()
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
-    	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+    	DoDamage(caster, v, damage, self:GetAbilityDamageType(), 0, self, false)
 	end
 
 	target:AddNewModifier(caster, self, "modifier_stunned", {Duration = duration})

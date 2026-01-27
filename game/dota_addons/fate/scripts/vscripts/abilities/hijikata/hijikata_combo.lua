@@ -117,7 +117,7 @@ end
 function modifier_hijikata_combo_ticker:OnIntervalThink()
 	self.counter = self.counter + 1 
 	self.speed = 550 + self.counter * 5
-	self.ally_speed = 550 + self.counter*5
+	self.ally_speed = 550 + self.counter * 5
 	if IsServer() then
 		local targets = FindUnitsInLine(  		 self.caster:GetTeamNumber(),
 													self.start_point,

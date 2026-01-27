@@ -638,7 +638,7 @@ function OnTGStart(keys)
 			
 			DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
 			if caster.ImproveKnightOfOwner then
-				caster:PerformAttack( target, true, true, true, true, false, false, false )
+				--caster:PerformAttack( target, true, true, true, true, false, false, false )
 			end
 			local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		    ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())
@@ -659,7 +659,7 @@ function OnTGStart(keys)
 			
 			DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
 			if caster.ImproveKnightOfOwner then
-				caster:PerformAttack( target, true, true, true, true, false, false, false )
+				--caster:PerformAttack( target, true, true, true, true, false, false, false )
 			end
 			local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		    ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())

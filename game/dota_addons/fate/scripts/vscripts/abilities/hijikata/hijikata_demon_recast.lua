@@ -54,9 +54,9 @@ function hijikata_demon_recast:OnSpellStart()
 						DoCleaveAttack(caster, v, self, caster:GetAverageTrueAttackDamage(hCaster), 500, 500, 500, "particles/hijikata/hijikata_cleave.vpcf")
 						part1 = true
 					end
-					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 					if caster.IsShinsengumiAcquired then
-						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster) * 0.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster) * 0.5, self:GetAbilityDamageType(), 0, self, false)
 					end
 					
 				end
@@ -85,9 +85,9 @@ function hijikata_demon_recast:OnSpellStart()
 						DoCleaveAttack(caster, v, self, caster:GetAverageTrueAttackDamage(hCaster), 500, 500, 500, "particles/hijikata/hijikata_cleave.vpcf")
 						part2 = true
 					end
-				    DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				    DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 					if caster.IsShinsengumiAcquired then
-						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster)* 0.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster)* 0.5, self:GetAbilityDamageType(), 0, self, false)
 					end
 			  	end
 			end

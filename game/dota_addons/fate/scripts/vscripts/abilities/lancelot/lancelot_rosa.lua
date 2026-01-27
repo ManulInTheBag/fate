@@ -83,7 +83,7 @@ function lancelot_rosa:OnSpellStart()
 					if hCaster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 						DoDamage(hCaster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 						if hCaster.ImproveKnightOfOwner then
-							hCaster:PerformAttack(v, true, true, true, true, false, false, true)
+							--hCaster:PerformAttack(v, true, true, true, true, false, false, true)
 						end
 						if self:GetAutoCastState() then 
 							local knockback = { should_stun = true,
