@@ -1122,7 +1122,7 @@
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
-		"ArmorPhysical"				"-5"			// Physical protection.
+		"ArmorPhysical"				"0"			// Physical protection.
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
 		"MovementSpeed"				"450"		// Speed.
@@ -1161,7 +1161,7 @@
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
-		"ArmorPhysical"				"-5"			// Physical protection.
+		"ArmorPhysical"				"0"			// Physical protection.
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
 		"MovementSpeed"				"350"		// Speed.

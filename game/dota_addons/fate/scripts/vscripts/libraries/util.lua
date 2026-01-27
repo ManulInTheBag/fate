@@ -387,7 +387,8 @@ cleansable = {
     "modifier_robin_yew_bow_silence",
     "modifier_robin_yew_bow_combo_lock",
     "modifier_khsn_grab_target",
-    "modifier_demon_king_extermination_burn"
+    "modifier_demon_king_extermination_burn",
+    "modifier_lu_bu_relentless_assault_one"
 }
 
 

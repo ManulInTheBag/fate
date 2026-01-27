@@ -219,7 +219,7 @@ function OnSeal3Start(keys)
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
-	elseif hero:GetHealth() == hero:GetMaxHealth() then
+	elseif hero:GetHealth() == hero:GetMaxHealth() and not hero:GetName() == "npc_dota_hero_beastmaster" then
 		caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#At_Max_Health")

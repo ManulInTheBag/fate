@@ -1248,7 +1248,7 @@ function OnRBStart(keys)
 	
 	--print(caster:GetName())
 	--print(keys.StunDuration)
-	keys.target:AddNewModifier(caster, target, "modifier_stunned", {Duration = keys.StunDuration})
+	keys.target:AddNewModifier(caster, target, "modifier_muted", {Duration = keys.StunDuration})
 
 end
 
