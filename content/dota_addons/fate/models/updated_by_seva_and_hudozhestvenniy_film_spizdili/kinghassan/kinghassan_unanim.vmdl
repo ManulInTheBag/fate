@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -84,6 +84,51 @@
 						name = "maw"
 						parent_bone = "bone_new8"
 						relative_origin = [ -0.044073, -1.206516, -0.420036 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang1"
+						parent_bone = "bone_newk0"
+						relative_origin = [ 0.207111, -7.475861, -0.077781 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang2"
+						parent_bone = "bone_newk0"
+						relative_origin = [ 0.135548, -10.423454, -0.119931 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang3"
+						parent_bone = "bone_newk0"
+						relative_origin = [ 0.247074, -12.540935, 0.250624 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang4"
+						parent_bone = "bone_newk0"
+						relative_origin = [ -0.516579, -18.535995, 0.124574 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang5"
+						parent_bone = "bone_newk0"
+						relative_origin = [ -0.064339, -21.526894, 0.2594 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -585,6 +630,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -605,6 +651,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -664,6 +711,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -684,18 +732,126 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
 								_class = "AnimEvent"
 								disabled = true
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
-								event_frame = 25
+								event_frame = 35
 								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/kinghassan/khsn_eye.vpcf"
 									stop_on_seq_change = true
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 1
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang1"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 2
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang2"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang3"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang3"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 5
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang4"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang4"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 5
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang5"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang5"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -720,6 +876,13 @@
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 765
+								frame_count = 10
+							},
+						]
 					},
 					{
 						_class = "AnimFile"
@@ -801,6 +964,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -821,6 +985,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]

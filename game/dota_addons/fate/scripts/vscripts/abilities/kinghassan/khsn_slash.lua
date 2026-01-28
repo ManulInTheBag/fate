@@ -22,6 +22,17 @@ function khsn_slash:OnSpellStart()
 	local speed = ability:GetSpecialValueFor("speed")
 
 	local ori = caster:GetAbsOrigin()
+	local counterJopaMang = 0
+	Timers:CreateTimer(0, function()
+		if counterJopaMang < 3 then
+			caster:EmitSound("mang")
+			counterJopaMang = counterJopaMang + 1
+			return 0.1
+		else
+			return
+		end
+	
+	end)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
     caster:EmitSound("KingHassan.Azrael")
@@ -63,7 +74,11 @@ function khsn_slash:OnSpellStart()
 		vVelocity = caster:GetForwardVector() * 9999
 	}
 
-	FreezeAnimation(caster, cast_delay)	
+
+		FreezeAnimation(caster, cast_delay - 0.05)	
+
+
+	
 
     local particle = ParticleManager:CreateParticle("particles/kinghassan/azrael/hassanultarea.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, targetPoint + Vector(0,0,50))
@@ -89,6 +104,7 @@ function khsn_slash:OnSpellStart()
 			local excalFxIndex = ParticleManager:CreateParticle( "particles/kinghassan/azrael/hassanult.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, dummy )
 			ParticleManager:SetParticleControl(excalFxIndex, 4, Vector(width * 4,6,4))
 			caster:EmitSound("KingHassan.AzraelCut")
+			caster:EmitSound("mang2")
 
 			Timers:CreateTimer( 0.5, function()
 				ParticleManager:DestroyParticle( excalFxIndex, false )
