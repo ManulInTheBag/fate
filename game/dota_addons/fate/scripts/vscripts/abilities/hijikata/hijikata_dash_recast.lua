@@ -196,9 +196,9 @@ function modifier_hijikata_rush:BOOM()
     	if not self.target:IsMagicImmune() then
             Timers:CreateTimer(0.1, function()
                 if self.parent.IsShinsengumiAcquired then
-                    DoDamage(self.parent, self.target, self.parent:GetAverageTrueAttackDamage(hCaster) * self.ability:GetSpecialValueFor("sa_atk_dmg_mod"), self:GetAbility():GetAbilityDamageType(), 0, self.ability, false)
+                    DoDamage(self.parent, self.target, self.parent:GetAverageTrueAttackDamage(hCaster) * self.ability:GetSpecialValueFor("sa_atk_dmg_mod"), DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
                 end
-                DoDamage(self.parent, self.target, damage, self:GetAbility():GetAbilityDamageType(), 0, self.ability, false)
+                DoDamage(self.parent, self.target, damage, DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
                 if self.parent:GetHealth() < self.parent:GetMaxHealth() then
                     local diff = self.parent:GetMaxHealth() - self.parent:GetHealth()
             
