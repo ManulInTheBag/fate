@@ -1,0 +1,67 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf64:version{c95f3434-dfef-4a35-9913-024beddb416a} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb4.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb3.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb8.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb1.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb5.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb2.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb6.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb7.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb9.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/diarmuid/parry/diar_parry_castb0.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/diar_combo/flower_counter.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/diar_combo/flower_counter_red.vpcf"
+		},
+	]
+}

@@ -860,6 +860,10 @@
 		"DOTA_Tooltip_modifier_love_spot"						"Love Spot"
 		"DOTA_Tooltip_modifier_love_spot_Description"			"Sexy boi"
 
+		"DOTA_Tooltip_modifier_diarmuid_parry"						"Noble Stance of the First Knight of House Fiona"
+		"DOTA_Tooltip_modifier_diarmuid_parry_Description"			"Parry on prock"
+
+
 		"DOTA_Tooltip_modifier_love_spot_charmed"				"Charmed"
 		"DOTA_Tooltip_modifier_love_spot_charmed_Description"	"Someone's too sexy"	
 
@@ -5005,6 +5009,18 @@
 	"npc_dota_hero_huskar_hype"	""
 	"npc_dota_hero_huskar_bio"	""
 
+	    "DOTA_Tooltip_Ability_diarmuid_parry"       			"Noble Stance of the First Knight of House Fiona"
+        "DOTA_Tooltip_ability_diarmuid_parry_Description"   	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nDiarmuid <font color='#FF3399'>microstuns</font> enemies around him, dealing small <font color='#58ACFA'>damage</font> and gains an <font color='#FFFAFA'>all-damage barrier</font> for the duration.\nIf barrier is broken, Diarmuid <font color='#FFFAFA'>hard cleanses</font> himself and slashes all enemies around, dealing <font color='#58ACFA'>damage</font>  and <font color='#9400D3'>disarming</font> targets hit\nDamage that have breaken shield is additionally decreased."
+        "DOTA_Tooltip_ability_diarmuid_parry_duration"								"Duration:"
+        "DOTA_Tooltip_ability_diarmuid_parry_shield_amount"							"Barrier:"
+        "DOTA_Tooltip_ability_diarmuid_parry_shield_damage_decrease_flat_value"		"Flat damage decrease:"
+        "DOTA_Tooltip_ability_diarmuid_parry_stun_duration"							"Stun duration:"
+        "DOTA_Tooltip_ability_diarmuid_parry_damage_cast"							"Damage on cast:"
+        "DOTA_Tooltip_ability_diarmuid_parry_damage"								"Damage on prock:"
+        "DOTA_Tooltip_ability_diarmuid_parry_disarm_duration"						"Disarm duration:"
+        "DOTA_Tooltip_ability_diarmuid_parry_first_hit_radius"						"Radius:"
+        "DOTA_Tooltip_ability_diarmuid_parry_Lore"  			"Совокупность методов боя, позволяющая побеждать превосходящих по силе противников, провоцируя их на совершение тактических просчётов и максимальной реализации полученного преимущества."
+
         "DOTA_Tooltip_Ability_diarmuid_love_spot"       			"Love Spot"
         "DOTA_Tooltip_ability_diarmuid_love_spot_Description"   	"For duration, Lancer's inhumanly hansome look charms targeted  Servants. Charmed Servants are silenced, disarmed and forced to walk towards Lancer and if they are woman they will deal reduced damage to him."
         "DOTA_Tooltip_ability_diarmuid_love_spot_duration"			"Duration:"
@@ -5018,7 +5034,7 @@
         "DOTA_Tooltip_Ability_diarmuid_minds_eye_duration"			"Active Duration:"
 
         "DOTA_Tooltip_Ability_diarmuid_warrior_charge"				"Warrior's Charge"
-        "DOTA_Tooltip_ability_diarmuid_warrior_charge_Description"	"Diarmuid instantly closes gap to target and strikes nearby enemies on arrival, dealing damage.\nThe primary target is <font color='#9400D3'>rooted</font> for a short duration and <font color='#A72E28'>attacked</font> by Diarmuid once."
+        "DOTA_Tooltip_ability_diarmuid_warrior_charge_Description"	"Diarmuid instantly closes gap to target and strikes nearby enemies on arrival, dealing damage.\nThe primary target is <font color='#9400D3'>rooted</font> and <font color='#9400D3'>locked</font> for a short duration and <font color='#A72E28'>attacked</font> by Diarmuid once."
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_Lore"    "The blinding charge by first spear of Fianna Knights is a prelude to the showstopper's showdown."
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_cast_range"	"Cast range:"
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_damage"	"Damage:"
@@ -5070,6 +5086,14 @@
         "DOTA_Tooltip_Ability_diarmuid_double_spear_strike"       		"Double Spear Strike(On/Off)"
         "DOTA_Tooltip_ability_diarmuid_double_spear_strike_Description"   "Toggle this ability to enable/disable Double Spear Strike."
         "DOTA_Tooltip_ability_diarmuid_double_spear_strike_Note0"       "When Double Spear Strike activates, there is 0.033 second interval between two spears."
+
+
+        "DOTA_Tooltip_Ability_diarmuid_attribute_parry"					"Attribute: Improve Noble Stance of the First Knight of House Fiona"
+        "DOTA_Tooltip_ability_diarmuid_attribute_parry_Description"		"Upgrades <font color='#58ACFA'>Noble Stance of the First Knight of House Fiona</font>, increasing its prock <font color='#58ACFA'>damage</font>, damage block.\nNow enemies hit by counter will be visible to Diar for a duration.\nIncreases  <font color='#58ACFA'>warrior's charge</font> range when casted on said enemies."
+        "DOTA_Tooltip_Ability_diarmuid_attribute_parry_bonus_damage_reduction"		"Bonus damage reduction:"
+        "DOTA_Tooltip_Ability_diarmuid_attribute_parry_bonus_damage"			"Bonus damage:"
+        "DOTA_Tooltip_Ability_diarmuid_attribute_parry_vision_duration"			"Vision duration:"
+        "DOTA_Tooltip_Ability_diarmuid_attribute_parry_bonus_q_range"			"Bonus warrior's charge range:"
 
         "DOTA_Tooltip_Ability_diarmuid_attribute_love_spot"					"Attribute: Improve Love Spot"
         "DOTA_Tooltip_ability_diarmuid_attribute_love_spot_Description"		"Increases duration and castrange of Love Spot."
@@ -10429,7 +10453,7 @@
 		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+11 HP, +0.25 HP Regen and 0.1%%  Magical Resistance)"
 
 		"DOTA_Tooltip_Ability_master_agility"						"Acquire Agility"
-		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor and +2 Attack Speed).\nServant additionally gains 3 Movement Speed and 0.55 bonus armor."
+		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+2 Attack Speed).\nServant additionally gains 3 Movement Speed and + 0.1 Armor."
 
 		"DOTA_Tooltip_Ability_master_intelligence"					"Acquire Intelligence"
 		"DOTA_Tooltip_ability_master_intelligence_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's INT by 1 (+11 MP and +0.15 MP Regen).\nServant aditionally gains 0.7%% cooldown reduction for everything except combo abilities."

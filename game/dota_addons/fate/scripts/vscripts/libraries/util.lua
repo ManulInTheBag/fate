@@ -705,6 +705,7 @@ CannotReset = {
     "demon_king_combo_recast",
     "demon_king_release",
     "demon_king_materialization",
+    "diarmuid_parry",
 }
 
 

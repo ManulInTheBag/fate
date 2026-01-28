@@ -2,6 +2,47 @@
 "DOTAAbilities"
 {	
 
+	//====================================
+	// Parry
+	//====================================
+	"diarmuid_parry"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_parry"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE |  DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING| DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+		"AbilityTextureName"			"custom/diar_parry"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"30 20"
+		"AbilityManaCost"				"100 0"
+		"AbilityChannelTime"			"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+
+		"precache"
+		{
+			"particle"			"particles/diarmuid/parry/diar_parry_cast.vpcf"
+			"particle"			"particles/diarmuid/diar_parry/diar_parry_shield.vpcf"
+			"particle"			"particles/zlodemon/diar_combo/gae_buidhe_slash_counter.vpcf"
+			"particle"			"particles/zlodemon/zlodemon_overhead_duel_diarmuid.vpcf"
+		}
+
+		"AbilityValues"
+		{	
+			"stun_duration"				"0.1"
+			"first_hit_radius"			"500"
+			"shield_amount"				"400"
+			"damage_cast"				"100"
+			"damage"					"300 600"
+			"duration"					"3"
+			"disarm_duration"					"3"
+			"shield_damage_decrease_flat_value"						"300 600"
+		}
+	}
+
 	"diarmuid_dash"
 	{
 		"BaseClass"						"ability_lua"
@@ -384,7 +425,35 @@
         }
 	}
 
+	//=======================================
+	// Diarmuid Attribute : Improve parry
+	//=======================================
+	"diarmuid_attribute_parry"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/diar_parry"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"7"
 
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "bonus_damage_reduction" "300"
+            "bonus_damage" "300"
+            "vision_duration" "5"
+            "bonus_q_range" "500"
+        }
+	}
 	//=======================================
 	// Diarmuid Attribute : Improve Love Spot
 	//=======================================

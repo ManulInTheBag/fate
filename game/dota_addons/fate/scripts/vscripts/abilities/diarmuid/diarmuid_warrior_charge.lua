@@ -35,7 +35,13 @@ end
 function modifier_diur_atk_sound:IsHidden() return true end
 function modifier_diur_atk_sound:RemoveOnDeath() return true end
 
-
+function diarmuid_warrior_charge:GetCastRange(location, target) 
+	if target:HasModifier("modifier_diarmuid_parry_marker") then
+		return self:GetSpecialValueFor("cast_range") + 500
+	else
+		return self:GetSpecialValueFor("cast_range")
+	end
+end
 
 function diarmuid_warrior_charge:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
@@ -66,11 +72,14 @@ end
 function diarmuid_warrior_charge:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-
+	local range_checker  = self:GetSpecialValueFor("cast_range_checker")
 	if IsSpellBlocked(target) then return end -- Linken effect checker
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
-	if((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("cast_range_checker")) then
+	if target:HasModifier("modifier_diarmuid_parry_marker") then
+		range_checker = range_checker + 500
+	end
+	if((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > range_checker) then
 		self:EndCooldown()
 		return
 	end
