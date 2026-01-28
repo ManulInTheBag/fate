@@ -198,7 +198,7 @@ function OnDownHit(keys)
 
 	if caster.bIsMStrengthAcquired then
 		--caster:PerformAttack(target, true, true, true, true, false)
-		caster:PerformAttack( target, true, true, true, true, false, false, false )
+		caster:PerformAttack( target, true, true, true, true, false, true, false )
 	end
 
 	if caster.bIsSanityAcquired then
