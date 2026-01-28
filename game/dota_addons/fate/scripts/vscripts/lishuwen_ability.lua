@@ -614,7 +614,9 @@ function OnDragonStrike3Start(keys)
 		return 
 	end
 
-	keys.Damage = keys.Damage + caster:GetAverageTrueAttackDamage(caster)
+	keys.Damage = keys.Damage + caster:GetAverageTrueAttackDamage(caster) * 0.2
+
+	print (keys.Damage)
 
 	local endpoint = nil
 	local counter = 0
