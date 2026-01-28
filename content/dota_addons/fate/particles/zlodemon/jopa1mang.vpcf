@@ -93,6 +93,12 @@
 		{
 			_class = "C_OP_Decay"
 		},
+		{
+			_class = "C_OP_Orient2DRelToCP"
+		},
+		{
+			_class = "C_OP_SetChildControlPoints"
+		},
 	]
 	m_Children = 
 	[

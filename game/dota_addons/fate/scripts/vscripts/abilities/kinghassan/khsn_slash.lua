@@ -75,7 +75,7 @@ function khsn_slash:OnSpellStart()
 	}
 
 
-		FreezeAnimation(caster, cast_delay - 0.05)	
+		FreezeAnimation(caster, cast_delay)	
 
 
 	

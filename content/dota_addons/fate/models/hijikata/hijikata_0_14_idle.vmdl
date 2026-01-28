@@ -663,6 +663,30 @@
 					{
 						_class = "AnimFile"
 						name = "dash_end"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang_3.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang1"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION"
 						activity_weight = 1
@@ -688,6 +712,30 @@
 					{
 						_class = "AnimFile"
 						name = "dash_pose"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang_3.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang1"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_AMBUSH"
 						activity_weight = 1
@@ -709,6 +757,13 @@
 						framerate = 1.0
 						reverse = false
 						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 614
+								frame_count = 120
+							},
+						]
 					},
 					{
 						_class = "AnimFile"
@@ -758,6 +813,27 @@
 									name = resource:"particles/hijikata/hijikata_ult_charge.vpcf"
 									stop_instantly = true
 									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 19
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
@@ -990,6 +1066,24 @@
 						parent_bone = "Musket_bone_fuse"
 						relative_origin = [ -1.940012, 84.807175, -31.228439 ]
 						relative_angles = [ 0.0, 0.0, -22.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang"
+						parent_bone = "Musket_bone_fuse"
+						relative_origin = [ -1.272663, 51.543091, -17.448891 ]
+						relative_angles = [ 0.0, 0.0, -21.999994 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang1"
+						parent_bone = "Sword"
+						relative_origin = [ -6.868958, 79.221649, 0.17337 ]
+						relative_angles = [ -2.179696, 9.371499, 13.37504 ]
 						weight = 1.0
 						ignore_rotation = false
 					},

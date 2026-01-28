@@ -29,7 +29,8 @@ function khsn_mde:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_khsn_bk_improved", {})
 	end
 
-	caster:AddNewModifier(caster, self, "modifier_khsn_mde_active", {duration = self:GetSpecialValueFor("duration")})
+	caster:AddNewModifier(caster, self, "modifier_khsn_mde_active", {duration = self:GetSpecialValueFor("duration"), armor =  self:GetSpecialValueFor("bonus_armor"), radius = self:GetSpecialValueFor("radius") , 
+																	regen =  self:GetSpecialValueFor("heal")})
 	caster:EmitSound("Hero_Necrolyte.SpiritForm.Cast")
 	--caster:Heal(self:GetSpecialValueFor("heal"), caster)
 	
@@ -103,18 +104,24 @@ modifier_khsn_mde_active = modifier_khsn_mde_active or class({})
 	}
 end]]
 
-function modifier_khsn_mde_active:OnCreated()
+function modifier_khsn_mde_active:OnCreated(args)
+		self.fArmor   = args.armor
+		self.radius =  args.radius
+		self.fRegenHP = args.regen
 	if IsServer() then
-		self.parent = self:GetParent()
 		self.ability = self:GetAbility()
+		self.parent = self:GetParent()
+	
 
-		self.radius = self.ability:GetSpecialValueFor("radius")
+
+
+		
 		
 		self:StartIntervalThink(FrameTime())
 		self:OnIntervalThink()
 
-		self.fRegenHP = self.ability:GetSpecialValueFor("hp_regen")
-		self.fArmor   = self.ability:GetSpecialValueFor("bonus_armor")
+		
+	
 
 		self.fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_shroud/khsn_shroud.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.fx, 1, Vector(self.radius, 0, 0))
@@ -178,7 +185,7 @@ end
 end]]
 
 function modifier_khsn_mde_active:GetModifierPhysicalArmorBonus()
-	return self.fArmor
+	return  self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 function modifier_khsn_mde_active:GetModifierMoveSpeedBonus_Percentage()
