@@ -170,7 +170,7 @@ function modifier_edmon_mythologie:OnTakeDamage(args)
 		if self.parent.FlamesAcquired then
 			if (args.inflictor and args.inflictor:GetName() ~= "edmon_beam") then
 				local modifier2 = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_beam_stacks", {duration = 5})
-				if modifier2:GetStackCount() < 6 then
+				if modifier2:GetStackCount() < 4 then
 					modifier2:IncrementStackCount()
 				end
 			end

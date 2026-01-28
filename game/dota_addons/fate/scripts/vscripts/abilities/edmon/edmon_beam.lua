@@ -14,7 +14,7 @@ function edmon_beam:OnAbilityPhaseStart()
 	local modifier = caster:FindModifierByName("modifier_edmon_beam_stacks")
 	self.sound = 1
 	if modifier then
-		if modifier:GetStackCount() == 6 then
+		if modifier:GetStackCount() == 4 then
 			self.sound = 2
 		end
 	end
@@ -199,7 +199,7 @@ function edmon_beam:OnSpellStart()
 						for _, enemy in pairs(enemies) do
 							if caster.FlamesAcquired then
 								local modifier = caster:AddNewModifier(caster, caster:FindAbilityByName("edmon_mythologie"), "modifier_edmon_melee_stacks", {duration = 5})
-								if modifier:GetStackCount() < 6 then
+								if modifier:GetStackCount() < 4 then
 									modifier:IncrementStackCount()
 								end
 							end
@@ -248,7 +248,7 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 			if not isBeams then
 				if caster.FlamesAcquired then
 					local modifier = caster:AddNewModifier(caster, caster:FindAbilityByName("edmon_mythologie"), "modifier_edmon_melee_stacks", {duration = 5})
-					if modifier:GetStackCount() < 6 then
+					if modifier:GetStackCount() < 4 then
 						modifier:IncrementStackCount()
 					end
 				end
