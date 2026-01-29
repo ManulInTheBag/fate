@@ -7263,7 +7263,7 @@
 	"npc_dota_hero_drow_ranger_hype"		""
 	"npc_dota_hero_drow_ranger_bio"			""
 		"DOTA_Tooltip_modifier_celestial_arrow_stacking_debuff"												"Calydonian Snipe"
-		"DOTA_Tooltip_modifier_celestial_arrow_stacking_debuff_Description"									"Damage taken from arrows increased by persentage"
+		"DOTA_Tooltip_modifier_celestial_arrow_stacking_debuff_Description"									"Damage taken from arrows increased by percentage"
 
 		"DOTA_Tooltip_modifier_atalanta_big_dipper_slow"												"Big Dipper slow"
 		"DOTA_Tooltip_modifier_atalanta_big_dipper_slow_Description"									"Movement slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
@@ -7474,7 +7474,7 @@
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_bonus_range"       "BONUS RANGE:"
 
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute"				"Attribute: Calydonian Snipe"
-        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Arrow of the Big Dipper now pierces the enemies. \nWhenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 1%% per stack.<br/>Arrow of the Big Dipper applies 10 stacks."
+        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Arrow of the Big Dipper now pierces the enemies. \nWhenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 3%% per stack.<br/>Arrow of the Big Dipper applies 10 stacks."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Lore"			"Once the hunt is on, there is no hiding from the arrows of the huntress."
         //"DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Note0"		"Arrows can be disjointed."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_stacks_duration"		"Duration:"

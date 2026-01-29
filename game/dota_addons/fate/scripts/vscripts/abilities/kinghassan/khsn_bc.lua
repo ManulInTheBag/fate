@@ -38,7 +38,8 @@ function modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock(keys)
             local hMDE_Ability = self.hCaster:FindAbilityByName("khsn_mde")
             if hMDE_Ability
                 and hMDE_Ability:IsTrained() then
-                local hModifier = keys.target:AddNewModifier(self.hCaster, hMDE_Ability, "modifier_khsn_mde_active", {duration = hMDE_Ability:GetSpecialValueFor("duration")})
+                local hModifier = keys.target:AddNewModifier(self.hCaster, hMDE_Ability, "modifier_khsn_mde_active", {duration = hMDE_Ability:GetSpecialValueFor("duration"), armor =  hMDE_Ability:GetSpecialValueFor("bonus_armor"), radius = hMDE_Ability:GetSpecialValueFor("radius") , 
+                                                                    regen =  hMDE_Ability:GetSpecialValueFor("heal")})
             end
 
             if not Convars:GetBool("dota_ability_debug") then

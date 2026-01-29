@@ -706,6 +706,7 @@ CannotReset = {
     "demon_king_release",
     "demon_king_materialization",
     "diarmuid_parry",
+    "saber_alter_unleashed_ferocity",
 }
 
 

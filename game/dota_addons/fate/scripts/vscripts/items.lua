@@ -772,7 +772,7 @@ function AScroll(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
-	local mres = 30
+	local mres = 40
 	local satedCooldown = ability:GetCooldown(1) * 0.5
 
 	if caster:HasModifier("jump_pause_nosilence") then
@@ -783,7 +783,7 @@ function AScroll(keys)
 	hero.ServStat:useA()
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
 	if caster:HasModifier("modifier_a_scroll_sated") then
-		mres = 15
+		mres = 20
 	end
 
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,
@@ -797,7 +797,7 @@ function APlusScroll(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
-	local mres = 30
+	local mres = 40
 	local satedCooldown = ability:GetCooldown(1) * 0.5
 
 	if caster:HasModifier("jump_pause_nosilence") then
@@ -810,11 +810,11 @@ function APlusScroll(keys)
 	hero:Heal(300, hero)
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
 	if caster:HasModifier("modifier_a_scroll_sated") then
-		mres = 15
+		mres = 20
 	end
 
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,
-																  Armor = 9,
+																  Armor = 11,
 																  Duration = 10 })
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
 

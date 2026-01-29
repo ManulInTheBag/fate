@@ -195,7 +195,7 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     local dmgMod = 1
     if  caster.CalydonianSnipeAcquired then
         self:ApplyStacks(target, 1)
-        dmgMod = dmgMod + target:GetModifierStackCount("modifier_celestial_arrow_stacking_debuff", caster)/100
+        dmgMod = dmgMod + target:GetModifierStackCount("modifier_celestial_arrow_stacking_debuff", caster)/33
         
     end
     if caster.ArrowsOfTheBigDipperAcquired then
