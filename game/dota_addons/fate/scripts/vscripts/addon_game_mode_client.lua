@@ -1,4 +1,5 @@
-SendToConsole("dota_clientside_wearables⁩ false")
+SendToConsole("dota_clientside_wearables false")
+SendToServerConsole("dota_clientside_wearables false")
 
 require('libraries/animations_cl')
 require('modifiers/attributes_cl')
