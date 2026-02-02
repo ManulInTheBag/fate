@@ -66,6 +66,9 @@ function flower_beam:OnSpellStart()
 	local movement_time = self:GetSpecialValueFor("movement_time")
 	local tick_time = movement_time/beam_counter_starting
 	local illusion  = CreateIllusions(caster,caster,nil,1,0,false,false)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		illusion[1]:AddNewModifier(caster, self, "modifier_hero_selection_skin", {skinNumber =  caster:FindModifierByName("modifier_hero_selection_skin").skinNumber})
+	end
 	local beam_particle
 	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = movement_time + 1})
 	 

@@ -1,0 +1,251 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Reduced earth (OKITA "COPY")
+	//=====================================
+	"okada_reduced_earth"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/okada/okada_reduced_earth"
+		"AbilityTextureName"				"custom/okada/okada_reduced_earth"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"				"1"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "10"
+		"AbilityManaCost"					"100"
+		"AbilityCastRange"					"700"
+		"AbilityCastPoint"					"0.3"
+		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"					"0.1"
+
+
+		"precache"
+		{
+			"particle"		"particles/okada/okada_pierce.vpcf"
+			"particle"		"particles/hijikata/hijikata_demon_pierce.vpcf"
+			"particle"		"particles/okada/okada_dash.vpcf"
+			"particle"		"particles/_2okada/okada_dash_red.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage"							"200 250 300 350 400"
+			"radius"							"900"
+			"speed"								"2500"
+
+		}
+	}
+	//=====================================
+	// Flashblade copy (SAITO)
+	//=====================================
+	"okada_flashblade"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/okada/okada_flashblade"
+		"AbilityTextureName"				"custom/okada/okada_flashblade"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES "
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"				"1"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "12"
+		"AbilityManaCost"					"200"
+		"AbilityCastPoint"					"0.1"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1"
+
+		"precache"
+		{
+			"particle"		"particles/okada/okada_dash_slashes.vpcf"
+			"particle"		"particles/okada/okada_dash_slashes_red.vpcf"
+			"particle"		"particles/okada/okada_dash.vpcf"
+			"particle"		"particles/_2okada/okada_dash_red.vpcf"
+		}
+		"AbilityValues"
+		{
+			"distance"								"1000"		
+			"speed"									"2000"
+			"root_duration"					"0.7"
+			"radius"							"300"
+			"damage"							"200 250 300 350 400"
+			"slash_create_dist"					"150"
+			"sa_atk_dmg_mod"								"0.5"
+		}
+	}
+
+	//=====================================
+	// OKADA STRONG SLASH COPY 
+	//=====================================
+	"okada_chest"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/okada/okada_chest"
+		"AbilityTextureName"				"custom/okada/okada_chest"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"				"2"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "20"
+		"AbilityManaCost"					"400"
+		"AbilityCastPoint"					"0.4"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1"
+
+		"precache"
+		{
+			"particle"		"particles/okada/okada_dash_slashes.vpcf"
+			"particle"		"particles/okada/okada_dash_slashes_red.vpcf"
+			"particle"		"particles/okada/okada_dash.vpcf"
+			"particle"		"particles/_2okada/okada_dash_red.vpcf"
+		}
+		"AbilityValues"
+		{
+			"duration"								"0.7"
+			"width"									"150"
+			"damage"								"600 750 900 1050 1200"
+			"range"									"500"
+		}
+	}
+
+	//=================================================================================================================
+	// MANSLAYER
+	//=================================================================================================================
+	"okada_manslayer"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okada/okada_manslayer"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/okada/okada_manslayer"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"30"
+		"AbilityCastAnimation" 			"ACT_DOTA_DIE"
+		
+		"precache"
+		{
+			"particle"					"particles/jtr/jtr_red_mark.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "passive_duration" "7"
+            "active_duration" "7"
+        }
+	}
+
+
+	"okada_sa_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okada/okada_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okada/okada_sa_1"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		 
+		"AbilityValues"
+        {
+			"value"										"100"
+
+        }		
+	}
+	"okada_sa_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okada/okada_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okada/okada_sa_2"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		 
+		"AbilityValues"
+        {
+			"value"										"100"
+
+        }		
+	}
+	"okada_sa_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okada/okada_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okada/okada_sa_3"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		 
+		"AbilityValues"
+        {
+			"value"										"100"
+
+        }		
+	}
+	"okada_sa_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okada/okada_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okada/okada_sa_4"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		 
+		"AbilityValues"
+        {
+			"value"										"100"
+
+        }		
+	}
+	"okada_sa_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okada/okada_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okada/okada_sa_5"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		 
+		"AbilityValues"
+        {
+			"value"										"100"
+
+        }		
+	}
+
+
+}
