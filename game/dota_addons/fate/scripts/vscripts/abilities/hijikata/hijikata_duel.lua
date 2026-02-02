@@ -20,10 +20,12 @@ end
 function hijikata_duel:OnSpellStart()
 	self.caster = self:GetCaster()
 	local ability = self
+
+    self.target = self:GetCursorTarget()
+	if IsSpellBlocked(self.target )  then return end
 	if self.AuraDummy ~= nil and not self.AuraDummy:IsNull() then 
 		self:RemoveDuel()
     end
-    self.target = self:GetCursorTarget()
     self.caster:EmitSound("hijikata_flag")
     local targetpos = (-self.target:GetAbsOrigin() + self.caster:GetAbsOrigin())/2 + self.target:GetAbsOrigin()
     local duration = self:GetSpecialValueFor("duration")

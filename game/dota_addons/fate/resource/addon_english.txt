@@ -2970,7 +2970,7 @@
 		"DOTA_Tooltip_ability_rider_5th_breaker_gorgon_duration""DURATION:"
 		
 		"DOTA_Tooltip_Ability_rider_5th_bloodfort_andromeda"	"Bloodfort Andromeda"
-		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Description"	"Rider creates a zone of blood that <font color='#FF3399'>slows</font> movement speed of enemies inside and sucks away their life force. \n Mana drain is 35% of HP drain." 
+		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Description"	"Rider creates a zone of blood that <font color='#FF3399'>slows</font> movement speed of enemies inside and sucks away their life force. \n Mana drain is 20% of HP drain." 
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Lore"	"Disintegrate and Drain."
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_delay"	"Delay:"
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_radius"	"Radius:"
@@ -10658,9 +10658,9 @@
 		//====================================
 		"DOTA_Tooltip_ability_item_a_scroll"					"Rank A Magic Scroll"
 		"DOTA_Tooltip_ability_item_a_scroll_Lore"				"The effect is not unlike that of a defensive usage of the skill known as Mana Burst."
-		"DOTA_Tooltip_ability_item_a_scroll_Description"		"<h1>Use: Shield</h1>Shrouds hero with thick protection of mana, granting massive bonus Magic Resistance for short duration. Grants half as much magic resistance if A+ scroll has been used recently.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_a_scroll_Description"		"<h1>Use: Shield</h1>Shrouds hero with thick protection of mana, granting massive bonus Magic Resistance and Armor for short duration. Grants half as much magic resistance if A+ scroll has been used recently.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_a_scroll_bonus_mr"			"%Bonus Magic Resistance:"
-		//"DOTA_Tooltip_ability_item_a_scroll_bonus_armor"		"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_item_a_scroll_bonus_armor"		"BONUS ARMOR:"
 		"DOTA_Tooltip_ability_item_a_scroll_duration"			"Duration:"
 		"DOTA_Tooltip_ability_item_a_scroll_Note0"				"Command Seal 2 and similar effects (Reset Cooldowns) will remove the penalty."
 

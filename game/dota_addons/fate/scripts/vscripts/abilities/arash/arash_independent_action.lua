@@ -141,7 +141,7 @@ function arash_independent_action:OnProjectileHit_ExtraData(hTarget, vLocation, 
     hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
 	self:StopPhysics(caster)
     giveUnitDataDrivenModifier(caster,  hTarget, "stunned", 1)
-    DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+    DoDamage(caster, hTarget, damage, self:GetAbilityDamageType(), 0, self, false)
     Timers:RemoveTimer("arash_rush")
     if caster.ArashMobilityBoost then 
         caster:AddNewModifier(caster, self, "modifier_arash_mobility_boost", {duration =  caster.MasterUnit2:FindAbilityByName("arash_mobility_boost"):GetSpecialValueFor("recast_duration") or 0})

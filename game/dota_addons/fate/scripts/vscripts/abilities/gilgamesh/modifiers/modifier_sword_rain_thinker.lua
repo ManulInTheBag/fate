@@ -30,7 +30,7 @@ if IsServer() then
 
 			for i = 1, #targets do
 				if  not targets[i]:HasModifier("modifier_protection_from_arrows_active") then 
-					DoDamage(caster, targets[i], damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					DoDamage(caster, targets[i], damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 					targets[i]:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
 				end
 			end

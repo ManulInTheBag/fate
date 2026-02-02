@@ -88,7 +88,7 @@ function lancelot_minigun:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
 
 
     if not modifier.__jopa[modifier.jopa1][hTarget] then
-        DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(hCaster, hTarget, damage, self:GetAbilityDamageType(), 0, self, false)
         hTarget:AddNewModifier(hCaster, self, "modifier_lancelot_minigun_slow", { Duration = 1 })
         if hCaster:HasModifier("modifier_eternal_flame_attribute") then
             hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = 5 })

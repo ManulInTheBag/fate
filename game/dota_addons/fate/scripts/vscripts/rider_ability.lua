@@ -208,11 +208,12 @@ function OnBloodfortStart(keys)
 
 		        DoDamage(caster, v, target_damage * 0.5, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 		        if v:IsHero() then
-		        	v:SetMana(v:GetMana() - (target_damage * 0.175))
+		        	v:SetMana(v:GetMana() - (target_damage * 0.1))
+					print(target_damage * 0.1)
 		        end
 		        caster:ApplyHeal(target_absorb * 0.5, caster)
 		        if v:IsHero() then
-		        	caster:GiveMana(target_absorb * 0.175)
+		        	caster:GiveMana(target_absorb * 0.1)
 		        end
 
 				if caster.SealAcquired and (bloodfortCount % 2 == 0) then  

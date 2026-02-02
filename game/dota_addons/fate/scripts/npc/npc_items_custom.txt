@@ -1407,7 +1407,7 @@
 	    "AbilityValues"
         {
             "bonus_mr" "40"
-            "bonus_armor" "5"
+            "bonus_armor" "6"
             "duration" "10"
         }
 	    "OnSpellStart"
@@ -1515,7 +1515,7 @@
             "bonus_mr" "40"
             "bonus_armor" "11"
             "duration" "10"
-            "healing" "300"
+            "healing" "400"
         }
 	    "OnSpellStart"
 	    {

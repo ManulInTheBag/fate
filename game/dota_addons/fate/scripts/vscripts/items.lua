@@ -787,7 +787,7 @@ function AScroll(keys)
 	end
 
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll", { MagicResistance = mres,
-																  Armor = 0,
+																  Armor = 6,
 																  Duration = 10 })
 	caster:AddNewModifier(caster, ability, "modifier_a_scroll_sated", { Duration = satedCooldown})
 	caster:EmitSound("Hero_Oracle.FatesEdict.Cast")
@@ -807,7 +807,7 @@ function APlusScroll(keys)
 
 	hero.ServStat:useA()
 
-	hero:Heal(300, hero)
+	hero:Heal(400, hero)
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_a_scroll", {})
 	if caster:HasModifier("modifier_a_scroll_sated") then
 		mres = 20

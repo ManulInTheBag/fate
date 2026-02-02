@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_merlin_self_slow","abilities/merlin/flower_beam", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_merlin_slow","abilities/merlin/flower_beam", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_animation", "libraries/modifiers/modifier_animation.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_hero_selection_skin", "modules/hero_selection/hero_replacer.lua", LUA_MODIFIER_MOTION_NONE)
 flower_beam = class({})
 

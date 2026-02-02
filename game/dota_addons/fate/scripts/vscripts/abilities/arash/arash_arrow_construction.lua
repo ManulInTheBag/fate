@@ -87,7 +87,7 @@ end
 
 function modifier_arash_arrow_construction:OnAttackLanded(args)
 	if args.attacker ~= self.parent then return end
-	DoDamage(self.parent, args.target, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+	DoDamage(self.parent, args.target, self.damage, self.ability:GetAbilityDamageType(), 0, self.ability, false)
 	args.target:EmitSound("arash_attack_hit")
 	if self.parent.ArashLoadMagicalEnergy then
 		local cd1 = self.parent:FindAbilityByName("arash_star_arrow"):GetCooldownTimeRemaining()

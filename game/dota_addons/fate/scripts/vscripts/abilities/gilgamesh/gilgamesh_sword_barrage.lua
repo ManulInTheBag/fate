@@ -192,19 +192,19 @@ end
 function gilgamesh_sword_barrage:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
 	if hTarget == nil then return end
 
-	if IsSpellBlocked(hTarget) then return end
+	
 
 	local hCaster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage")
 	local damage1  = 0
-	DoDamage(hCaster, hTarget, damage/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	DoDamage(hCaster, hTarget, damage/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	if hCaster.IsSumerAcquired then
 		damage1 = hCaster:GetAttackDamage() * 0.25
 		DoDamage(hCaster, hTarget, damage1/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	end
 	local targets = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 	for k,v in pairs(targets) do       
-	DoDamage(hCaster, v, damage/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	DoDamage(hCaster, v, damage/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	if hCaster.IsSumerAcquired then
 		DoDamage(hCaster, v, damage1/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	end
