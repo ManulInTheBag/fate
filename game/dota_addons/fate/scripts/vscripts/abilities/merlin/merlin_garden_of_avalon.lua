@@ -26,6 +26,18 @@ function merlin_garden_of_avalon:OnSpellStart()
 		if(caster:IsAlive() == false) then    
 			StopGlobalSound(self.sound)
 			return end
+		if caster:HasModifier("modifier_hero_selection_skin") then
+		    caster:SetBodygroup(0, 1)
+			caster:SetModelScale(0.6)
+			caster:SetForwardVector(Vector(0,-1, 0))
+	    end
+		Timers:CreateTimer(10, function()
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				caster:SetBodygroup(0, 0)
+				caster:SetModelScale(1.1)
+			end
+		
+		end)
 		self.particle = ParticleManager:CreateParticle("particles/merlin/garden_of_avalon_flowers.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(    self.particle , 0,  caster:GetAbsOrigin()   )  
 		caster:AddNewModifier(caster, self, "modifier_merlin_garden_of_avalon_aura",{duration = self:GetSpecialValueFor("duration")+4 })

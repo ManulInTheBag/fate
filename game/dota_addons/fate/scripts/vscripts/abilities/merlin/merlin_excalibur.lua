@@ -9,6 +9,21 @@ function merlin_excalibur:GetIntrinsicModifierName()
 	return "modifier_merlin_atk_sound"
 end
 
+function merlin_excalibur:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:SetBodygroup(0, 1)
+	end
+end
+
+function merlin_excalibur:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:SetBodygroup(0, 0)
+	end
+end
+
+
 
 function merlin_excalibur:OnSpellStart()
     local caster = self:GetCaster()
@@ -57,6 +72,9 @@ function merlin_excalibur:OnSpellStart()
     Timers:CreateTimer(0.8, function()
         ParticleManager:DestroyParticle( excalpepegFxIndex, false )
         ParticleManager:ReleaseParticleIndex( excalpepegFxIndex )
+         if caster:HasModifier("modifier_hero_selection_skin") then
+		    caster:SetBodygroup(0, 0)
+	    end
     end)
     Timers:CreateTimer(0.1, function()
         local excalFxIndex = ParticleManager:CreateParticle("particles/merlin/melin_excalibur_test.vpcf", PATTACH_ABSORIGIN, caster)

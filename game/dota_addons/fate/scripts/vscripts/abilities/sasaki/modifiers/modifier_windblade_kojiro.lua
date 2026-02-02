@@ -48,6 +48,7 @@ if IsServer() then
 
 			if not skip_target then
 				local diff = target_search[i]:GetAbsOrigin() - self.WindbladeOrigin
+				diff.z = 0
 				caster:SetAbsOrigin(target_search[i]:GetAbsOrigin() - diff:Normalized() * 100)
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)	
 

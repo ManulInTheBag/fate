@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -29,6 +29,7 @@
 					{
 						_class = "AnimFile"
 						name = "WTF"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -41,12 +42,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 27
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -66,6 +69,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -78,12 +82,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 47
 						end_frame = 95
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -103,6 +109,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -115,16 +122,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 115
 						end_frame = 165
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_atk2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -137,16 +147,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 165
 						end_frame = 195
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_channel_begin"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -159,16 +172,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 195
 						end_frame = 220
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_channel"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_7"
 						activity_weight = 1
 						weight_list_name = ""
@@ -181,12 +197,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 215
 						end_frame = 245
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -206,6 +224,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -218,16 +237,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 265
 						end_frame = 290
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_staff_laser"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -240,12 +262,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 310
 						end_frame = 352
-						framerate = 80.0
+						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -272,6 +296,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -284,12 +309,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 372
 						end_frame = 414
 						framerate = 80.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -315,6 +342,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = "sword_glow_attach1"
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -382,9 +410,11 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = ""
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -397,12 +427,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 434
 						end_frame = 488
 						framerate = 80.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -414,6 +446,7 @@
 					{
 						_class = "AnimFile"
 						name = "Merlin_staff_airborn"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -426,16 +459,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 508
 						end_frame = 535
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_run"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -448,16 +484,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 555
 						end_frame = 574
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -470,16 +509,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 590
 						end_frame = 630
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_sword_ground1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_AMBUSH"
 						activity_weight = 1
 						weight_list_name = ""
@@ -492,16 +534,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 470
 						end_frame = 471
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "Merlin_idle1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -514,12 +559,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/merlin/Merlin.fbx"
 						import_bone_scales = false
 						start_frame = 47
 						end_frame = 48
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
@@ -1154,8 +1201,8 @@
 						_class = "Attachment"
 						name = "2"
 						parent_bone = "bone_new20"
-						relative_origin = [ -7.309238, -69.216431, -3.606327 ]
-						relative_angles = [ 0.0, 0.0, 0.000285 ]
+						relative_origin = [ 25.942617, -61.31382, 32.703026 ]
+						relative_angles = [ 0.0, 0.0, 0.000286 ]
 						weight = 1.0
 						ignore_rotation = false
 					},
