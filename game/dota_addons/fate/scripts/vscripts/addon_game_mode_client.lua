@@ -1,3 +1,6 @@
+SendToConsole("dota_clientside_wearables false")
+SendToServerConsole("dota_clientside_wearables false")
+
 require('libraries/animations_cl')
 require('modifiers/attributes_cl')
 -- require('modules/hero_selection/hero_selection')
