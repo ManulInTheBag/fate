@@ -28,6 +28,8 @@
 			"particle"		"particles/hijikata/hijikata_demon_pierce.vpcf"
 			"particle"		"particles/okada/okada_dash.vpcf"
 			"particle"		"particles/_2okada/okada_dash_red.vpcf"
+			"particle"		"particles/econ/items/invoker/invoker_ti7/status_effect_alacrity_ti7.vpcf"
+			
 		}
 		"AbilityValues"
 		{
@@ -54,7 +56,7 @@
 		"AbilityCooldown"				    "12"
 		"AbilityManaCost"					"200"
 		"AbilityCastPoint"					"0.1"
-		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_2"
 
 		"precache"
 		{
@@ -96,10 +98,8 @@
 
 		"precache"
 		{
-			"particle"		"particles/okada/okada_dash_slashes.vpcf"
-			"particle"		"particles/okada/okada_dash_slashes_red.vpcf"
-			"particle"		"particles/okada/okada_dash.vpcf"
-			"particle"		"particles/_2okada/okada_dash_red.vpcf"
+			"particle"		"particles/okada/okada_chest_slash.vpcf"
+			"particle"		"particles/okada/okada_chest_slash_red.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -109,6 +109,41 @@
 			"range"									"500"
 		}
 	}
+
+	//=====================================
+	// OKADA HEATCLIFF R 
+	//=====================================
+	"okada_ult"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/okada/okada_ult"
+		"AbilityTextureName"				"custom/okada/okada_r"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"				"2"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "30"
+		"AbilityManaCost"					"800"
+		"AbilityCastPoint"					"0.6"
+		"AbilityCastRange"					"600"
+		"AbilityCastRangeBuffer"			"200"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_4"
+
+		"precache"
+		{
+			"particle"		"particles/okada/okada_slash_ult.vpcf"
+			"particle"		"particles/okada/okada_slash_ult_red.vpcf"
+
+		}
+		"AbilityValues"
+		{
+			"duration"								"0.7"
+			"damage"								"50 60 70 80 90"
+		}
+	}
+
 
 	//=================================================================================================================
 	// MANSLAYER
@@ -121,7 +156,7 @@
 		"AbilityTextureName"			"custom/okada/okada_manslayer"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"30"
-		"AbilityCastAnimation" 			"ACT_DOTA_DIE"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		
 		"precache"
 		{

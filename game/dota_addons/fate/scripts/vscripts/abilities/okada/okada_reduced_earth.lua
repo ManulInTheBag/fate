@@ -56,10 +56,11 @@ function okada_reduced_earth:PerformStrike(unit, caster, target, addVector, dmgM
         particle_name = "particles/hijikata/hijikata_demon_pierce.vpcf"
      end
     Timers:CreateTimer(0.1, function()
+        --unit:EmitSound("okada_pierce")
             local enemies = FindUnitsInLine(
-                                                                caster:GetTeamNumber(),
-                                                                caster:GetAbsOrigin(),
-                                                                caster:GetAbsOrigin() + vec * 500,
+                                                                unit:GetTeamNumber(),
+                                                                unit:GetAbsOrigin(),
+                                                                unit:GetAbsOrigin() + vec * 500,
                                                                 nil,
                                                                 200,
                                                                 DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -69,7 +70,8 @@ function okada_reduced_earth:PerformStrike(unit, caster, target, addVector, dmgM
 
         for _, enemy in pairs(enemies) do
             DoDamage(caster, enemy, damage * dmgMod, self:GetAbilityDamageType(), 0, self, false)
-            EmitSoundOn("hijikata_demon_sfx", enemy)
+            EmitSoundOn("okada_pierce", enemy)
+
         end
     	local particle = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, nil)
 	    ParticleManager:SetParticleControlTransformForward(particle, 0, unit:GetAbsOrigin() + Vector(0,0,130), vec)
@@ -94,6 +96,7 @@ function okada_reduced_earth:OnSpellStart()
 	local target = self:GetCursorTarget()
 
 	if IsSpellBlocked(target) then return end -- Linken effect checker
+    caster:EmitSound("okada_blink")
     local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 	if((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("radius")) then
 		self:EndCooldown()
@@ -103,31 +106,38 @@ function okada_reduced_earth:OnSpellStart()
     caster.QDashTargetIzo = target
     self:PerformStrike(caster, caster, target, Vector(0,0,0), 1)
     if caster:HasModifier("modifier_okada_manslayer") then
+        caster:EmitSound("okada_q2")
         if IsValidEntity(Dummy1) then
             Dummy1:RemoveSelf()
         end
         if IsValidEntity(Dummy2) then
             Dummy2:RemoveSelf()
         end
-        Dummy1 = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+        Dummy1 = CreateUnitByName("okada_clone", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 		Dummy1:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		Dummy1:SetDayTimeVisionRange(0)
+        Dummy1:SetModelScale(1.3)
 		Dummy1:SetNightTimeVisionRange(0)
-        Dummy2 = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+        Dummy2 = CreateUnitByName("okada_clone", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 		Dummy2:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		Dummy2:SetDayTimeVisionRange(0)
 		Dummy2:SetNightTimeVisionRange(0)
+        Dummy2:SetModelScale(1.3)
         diff = - diff
         local rightVec = Vector(diff.y, -diff.x, 0) 
+        -- Dummy1:EmitSound("okada_blink")
+        -- Dummy2:EmitSound("okada_blink")
         self:PerformStrike(Dummy1, caster, target, rightVec * 300, 0.5)
         self:PerformStrike(Dummy2, caster, target,rightVec * -300, 0.5)
 
-        Timers:CreateTimer(1, function()
+        Timers:CreateTimer(0.37, function()
             Dummy1:RemoveSelf()
             Dummy2:RemoveSelf()
         end)
        
 
+    else
+        caster:EmitSound("okada_q")
     end
 	
 end
@@ -217,8 +227,8 @@ function modifier_okada_earth_motion:OnCreated(tTable)
             self:AddParticle(self.nDashPFX, false, false, -1, false, false)
         end
 
-        self.sEmitSound = "Saito.Flashblade.Cast"
-        self.hParent:EmitSound(self.sEmitSound)
+        -- self.sEmitSound = "Saito.Flashblade.Cast"
+        -- self.hParent:EmitSound(self.sEmitSound)
 
     end
 end
@@ -268,4 +278,8 @@ function modifier_okada_earth_motion:OnDestroy()
        --Uncomment if there will be any problem with that in the future.
       --This line is necessary to prevent animation loop issues when modifiers are not exist but you are still animated.
     end
+end
+
+function modifier_okada_earth_motion:GetStatusEffectName()
+    return "particles/econ/items/invoker/invoker_ti7/status_effect_alacrity_ti7.vpcf"
 end

@@ -13,6 +13,7 @@ end
 
 function okada_manslayer:OnSpellStart()
 	local caster = self:GetCaster()
+	caster:EmitSound("okada_d")
 	caster:AddNewModifier(caster, self, "modifier_okada_manslayer", {duration = self:GetSpecialValueFor("active_duration")})
 end
 
