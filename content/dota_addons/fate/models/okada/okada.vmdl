@@ -472,7 +472,7 @@
 						_class = "AnimFile"
 						name = "throw"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -489,7 +489,7 @@
 						import_bone_scales = false
 						start_frame = 343
 						end_frame = 363
-						framerate = -1.0
+						framerate = 80.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -775,6 +775,102 @@
 						framerate = 15.0
 						reverse = false
 						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "idiot_jump1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/okada/okada.fbx"
+						import_bone_scales = false
+						start_frame = 582
+						end_frame = 584
+						framerate = 1.0
+						reverse = false
+						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 584
+								frame_count = 2
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_up_jopa"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_LIFESTEALER_INFEST"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/okada/okada.fbx"
+						import_bone_scales = false
+						start_frame = 439
+						end_frame = 479
+						framerate = 35.0
+						reverse = false
+						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 439
+								frame_count = 10
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "stand_pierce_long_jopa"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_LIFESTEALER_RAGE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/okada/okada.fbx"
+						import_bone_scales = false
+						start_frame = 315
+						end_frame = 325
+						framerate = 20.0
+						reverse = false
+						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 325
+								frame_count = 10
+							},
+						]
 					},
 				]
 				default_root_bone_name = ""

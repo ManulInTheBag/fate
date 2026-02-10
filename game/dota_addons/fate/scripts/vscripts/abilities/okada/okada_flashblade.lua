@@ -267,7 +267,7 @@ function modifier_okada_flashblade_motion:DoEffect(hUnit, vPosition)
     ParticleManager:SetParticleControl(particle, 0, vPosition)
     ParticleManager:SetParticleControl(particle, 1, vPosition)
     ParticleManager:SetParticleControl(particle, 2, vPosition)
-    ParticleManager:SetParticleShouldCheckFoW(particle, false)
+    --ParticleManager:SetParticleShouldCheckFoW(particle, false)
 
 
     ParticleManager:ReleaseParticleIndex(particle)

@@ -766,3 +766,355 @@
         }
     }
 }
+"okada_combo_activate"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_activate.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_strike_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_strike_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_strike_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_strike_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_strike_3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_strike_3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_strikes"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_strikes.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "70.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_blood"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_blood.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_blood_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_blood_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_slash_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_slash_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_slash_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_slash_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "8.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_slash_4"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_slash_4.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"okada_combo_slash_3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/okada/okada_combo_slash_3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}

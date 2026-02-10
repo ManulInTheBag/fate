@@ -416,6 +416,7 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_windrunner.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_pugna.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_clinkz.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_troll_warlord.vsndevts", context )
 
     -- Items
     PrecacheItemByNameSync("item_apply_modifiers", context)

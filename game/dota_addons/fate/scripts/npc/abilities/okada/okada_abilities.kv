@@ -47,7 +47,7 @@
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/okada/okada_flashblade"
 		"AbilityTextureName"				"custom/okada/okada_flashblade"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES "
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES "
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
@@ -145,6 +145,48 @@
 	}
 
 
+	//=====================================
+	// OKADA COMBO
+	//=====================================
+	"okada_combo"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/okada/okada_combo"
+		"AbilityTextureName"				"custom/okada/okada_combo"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING| DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"				"25"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "120"
+		"AbilityManaCost"					"600"
+		"AbilityCastPoint"					"0"
+		"AbilityCastRange"					"600"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_6"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+			"particle"		"particles/okada/okada_combo_flash.vpcf"
+
+			"particle"		"particles/okada/okada_combo_blood.vpcf"
+			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			"particle"		"particles/okada/okada_combo_blood_mist.vpcf"
+
+		}
+		"AbilityValues"
+		{
+			"max_invis_duration"					"20"
+			"invis_activation_delay"				"3"
+			"invis_activation_radius"				"500"
+			"damage_reduction_pct"				"70"
+			"damage_first"					"500"
+			"damage_last"					"1500"
+		}
+	}
+
+
 	//=================================================================================================================
 	// MANSLAYER
 	//=================================================================================================================
@@ -160,7 +202,7 @@
 		
 		"precache"
 		{
-			"particle"					"particles/jtr/jtr_red_mark.vpcf"
+			"particle"					"particles/okada/okada_manslayer_ambient.vpcf"
 		}
 
 		"AbilityValues"
@@ -170,7 +212,35 @@
         }
 	}
 
+	"okada_mark"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okada/okada_mark"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/okada/okada_mark"
 
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate" 		"1"
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"					"600"
+		"precache"
+		{
+			"particle"				"particles/zlodemon/zlodemon_overhead_okada_mark.vpcf"
+		}
+
+
+		"AbilityValues"
+        {
+
+            "revoke_duration" "2"
+            "vision_duration" "5"
+        }
+	}
 	"okada_sa_1"
 	{
 		// General

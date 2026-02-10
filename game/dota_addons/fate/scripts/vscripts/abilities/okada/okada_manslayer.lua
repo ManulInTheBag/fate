@@ -34,6 +34,15 @@ function modifier_okada_manslayer:CheckState()
     return state
 end
 
+function modifier_okada_manslayer:GetEffectName()
+	return "particles/okada/okada_manslayer_ambient.vpcf"
+end
+
+function modifier_okada_manslayer:GetEffectAttachType()
+	return PATTACH_CUSTOMORIGIN_FOLLOW
+end
+
+
 
 
 modifier_okada_manslayer_passive = class({})
