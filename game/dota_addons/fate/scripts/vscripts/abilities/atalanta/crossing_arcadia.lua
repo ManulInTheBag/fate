@@ -196,6 +196,8 @@ function atalanta_crossing_arcadia:OnSpellStart()
         caster:OnPhysicsFrame(nil)
         FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
     end)
+    caster:OnPreBounce(function(unit, normal)
+    end)
     StartAnimation(caster, {duration=duration, activity=ACT_DOTA_ATTACK_EVENT, rate=1.0})
     --[[rotateCounter = 1
     Timers:CreateTimer(function()
