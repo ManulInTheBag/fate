@@ -23,7 +23,7 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
     DoDamage(caster, target, damage* dmgMod, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self, false)
     caster:EmitSound("okada_combo_strike_1")
     target:EmitSound("okada_combo_slash_1")
-            local particle_blood = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_WORLDORIGIN, nil)
+            local particle_blood = ParticleManager:CreateParticle("particles/okada/okada_combo_blood_phantom.vpcf", PATTACH_WORLDORIGIN, nil)
         ParticleManager:SetParticleControl(particle_blood, 0, target:GetAbsOrigin())
         ParticleManager:SetParticleControlTransformForward(particle_blood, 1, target:GetAbsOrigin(), diff)
         ParticleManager:SetParticleShouldCheckFoW(particle_blood, false)
@@ -47,7 +47,7 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
         unit:SetForwardVector(Vector(diff.x, diff.y, 0))
         self:CreateSlashParticle(target:GetAbsOrigin() + Vector(0,0, 50),sImagePFX )
         DoDamage(caster, target, damage* dmgMod, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self, false)
-        local particle_blood = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_WORLDORIGIN, nil)
+        local particle_blood = ParticleManager:CreateParticle("particles/okada/okada_combo_blood_phantom.vpcf", PATTACH_WORLDORIGIN, nil)
         ParticleManager:SetParticleControl(particle_blood, 0, target:GetAbsOrigin())
         ParticleManager:SetParticleControlTransformForward(particle_blood, 1, target:GetAbsOrigin(), diff)
         ParticleManager:SetParticleShouldCheckFoW(particle_blood, false)
@@ -75,7 +75,7 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
         target:AddNewModifier(caster, nil, "modifier_kb_immune", {duration = 1.9})
         giveUnitDataDrivenModifier(unit, target, "pause_sealenabled", 1.3)
         DoDamage(caster, target, damage* dmgMod, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self, false)
-        local particle_blood = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_WORLDORIGIN, nil)
+        local particle_blood = ParticleManager:CreateParticle("particles/okada/okada_combo_blood_phantom.vpcf", PATTACH_WORLDORIGIN, nil)
         ParticleManager:SetParticleControl(particle_blood, 0, target:GetAbsOrigin())
         ParticleManager:SetParticleControlTransformForward(particle_blood, 1, target:GetAbsOrigin(), diff)
         ParticleManager:SetParticleShouldCheckFoW(particle_blood, false)
@@ -102,7 +102,7 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
 	    ParticleManager:SetParticleControlTransformForward(particle, 0, unit:GetAbsOrigin() + Vector(0,0,130), vec)
         ParticleManager:SetParticleControlTransformForward(particle, 1, unit:GetAbsOrigin()+ Vector(0,0,130), vec)
         DoDamage(caster, target, damage* dmgMod, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self, false)
-        local particle_blood = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_WORLDORIGIN, nil)
+        local particle_blood = ParticleManager:CreateParticle("particles/okada/okada_combo_blood_phantom.vpcf", PATTACH_WORLDORIGIN, nil)
         ParticleManager:SetParticleControl(particle_blood, 0, target:GetAbsOrigin())
         ParticleManager:SetParticleControlTransformForward(particle_blood, 1, target:GetAbsOrigin(), diff)
         ParticleManager:SetParticleShouldCheckFoW(particle_blood, false)
@@ -173,7 +173,7 @@ function okada_combo:performInvisCombo()
     caster:AddNewModifier(caster, self, "modifier_okada_combo_true_invis", {duration = maxInvisDuration, timeToStartMove  = timeToActivate, checkRadius = radius})
     EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "okada_combo_activate", caster)
     StartAnimation( caster, {duration=3.2, activity=ACT_DOTA_CAST_ABILITY_6 , rate=1})
-    caster:AddNewModifier(caster,self, "modifier_kb_immune", {duration = 15})
+    caster:AddNewModifier(caster,self, "modifier_kb_immune", {duration = maxInvisDuration})
 end
 
 function okada_combo:OnSpellStart()
@@ -189,7 +189,7 @@ function okada_combo:OnSpellStart()
     masterCombo:StartCooldown(self:GetCooldown(1))
 
 	caster:AddNewModifier(caster, self, "modifier_okada_combo_cd", {duration = self:GetCooldown(1)})
-
+    
 end
 
 
@@ -240,7 +240,7 @@ end
                     [MODIFIER_STATE_SILENCED] = true,
                     [MODIFIER_STATE_MUTED] = true,
                     [MODIFIER_STATE_DISARMED] = true,
-                    
+                    [MODIFIER_STATE_ROOTED] = true,
                     }
         self.timeToStartMove =  table.timeToStartMove
         self.TimeTotal = 0
@@ -258,6 +258,8 @@ end
 
     function modifier_okada_combo_true_invis:OnIntervalThink()
     	local caster = self:GetParent()
+        caster:RemoveModifierByName("modifier_hijikata_combo_buff")
+        caster:RemoveModifierByName("modifier_aoko_blue_ms")
         self.TimeTotal = self.TimeTotal + self.fTime
         if self.TimeTotal >= self.timeToStartMove then
             if self.iParticleCreated <= 1 then
@@ -267,20 +269,19 @@ end
                 self.iParticleCreated = self.iParticleCreated + 1
             end
 
-            self.movespeedAbsolute = 100
+            self.movespeedAbsolute = 250
             self.state = { [MODIFIER_STATE_INVISIBLE] = true,
                             [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                            [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,
                             }
             local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self.checkRadius + 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
             if #targets > 0 then
-                if targets[1]:GetName() ~= "gille_gigantic_horror" and targets[1]:GetName() ~= "f16_at_vinta" then
+                if targets[1]:IsRealHero() then
                     self:GetAbility():PerformComboAttack(caster, caster, targets[1], 1)
                     self:Destroy()
                     
                 else
                     if #targets> 1 then
-                        if targets[2]:GetName() ~= "gille_gigantic_horror" and targets[2]:GetName() ~= "f16_at_vinta" then
+                        if targets[2]:IsRealHero() then
                             self:GetAbility():PerformComboAttack(caster, caster, targets[2], 1)
                             self:Destroy()
                         end

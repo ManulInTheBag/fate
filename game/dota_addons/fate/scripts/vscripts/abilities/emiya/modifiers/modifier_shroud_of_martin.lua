@@ -14,7 +14,7 @@ end
 
 function modifier_shroud_of_martin:GetModifierHealthBonus()
 	if IsServer() then	
-		self.HealthBonus = self:GetParent():GetIntellect() * 4
+		self.HealthBonus = self:GetParent():GetIntellect() * 2
 		CustomNetTables:SetTableValue("sync","shroud_of_martin", { armor_bonus = self.Armor,
 																   magic_resist = self.MagicResist,
 																   health = self.HealthBonus})

@@ -120,14 +120,14 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 	local slashCounter = 0
 	Timers:CreateTimer(0.4, function()
 		if slashCounter == 0 then caster:SetModel("models/development/invisiblebox.vmdl") end
-		if slashCounter == 5 or not caster:IsAlive() then caster:SetModel("models/assassin/asn.vmdl") return end
+		if slashCounter == 3 or not caster:IsAlive() then caster:SetModel("models/assassin/asn.vmdl") return end
 		caster:PerformAttack( target, true, true, true, true, false, false, false )
 		CreateSlashFx(caster, target:GetAbsOrigin()+RandomVector(400), target:GetAbsOrigin()+RandomVector(400))
 		caster:SetAbsOrigin(target:GetAbsOrigin()+RandomVector(400))
 		EmitGlobalSound("FA.Quickdraw") 
 
 		slashCounter = slashCounter + 1
-		return 0.2-slashCounter*0.03
+		return 0.2-slashCounter*0.05
 	end)
 
 	Timers:CreateTimer(1.0, function()

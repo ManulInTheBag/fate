@@ -1,6 +1,8 @@
 
 okada_chest = class({})
-LinkLuaModifier("modifier_okada_chest_clone_motion", "abilities/okada/okada_chest", LUA_MODIFIER_MOTION_HORIZONTAL) 
+LinkLuaModifier("modifier_okada_chest_clone_motion", "abilities/okada/okada_chest", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_okada_cdr", "abilities/okada/okada_chest", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE) 
 SetDirectionByAngles = function(hUnit, vDirection) --Explained why I am using that in the first ability modifier.
     vDirection = VectorToAngles(vDirection)
     return hUnit:SetAbsAngles(vDirection[1], vDirection[2], vDirection[3])
@@ -10,6 +12,9 @@ function okada_chest:OnAbilityPhaseStart()
     return true
 end
 
+function okada_chest:GetIntrinsicModifierName()
+    return "modifier_okada_cdr"
+end
 function okada_chest:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
 end
@@ -36,7 +41,11 @@ function okada_chest:PeformCloneDash(clone, caster, dmgMod, delay)
 		--=================================--
 		for _, hEntity in pairs(hEntities) do
 			if IsNotNull(hEntity) then
-				DoDamage(caster, hEntity, self:GetSpecialValueFor("damage") * dmgMod, self:GetAbilityDamageType(), DOTA_DAMAGE_FLAG_NONE,self, false)
+                local damage = self:GetSpecialValueFor("damage")
+                if caster.OkadaSa1Acquired then
+                    damage = damage + self:GetSpecialValueFor("sa_bonus_damage")/100 * caster:GetAgility()
+                end
+				DoDamage(caster, hEntity,  damage * dmgMod, self:GetAbilityDamageType(), DOTA_DAMAGE_FLAG_NONE,self, false)
 				hEntity:EmitSound("okada_dash_slash_enemy")
 
 			end
@@ -80,7 +89,15 @@ function okada_chest:OnSpellStart()
     ParticleManager:SetParticleShouldCheckFoW(fx, false)
     ParticleManager:ReleaseParticleIndex(fx)
 	for _, enemy in pairs(enemies) do
-		DoDamage(caster, enemy, self:GetSpecialValueFor("damage"), self:GetAbilityDamageType(), 0, self, false)
+        local damage = self:GetSpecialValueFor("damage")
+        if caster.OkadaSa1Acquired then
+            damage = damage + self:GetSpecialValueFor("sa_bonus_damage")/100 * caster:GetAgility()
+        end
+		DoDamage(caster, enemy, damage, self:GetAbilityDamageType(), DOTA_DAMAGE_FLAG_NONE,self, false)
+
+        enemy:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", {duration = self:GetSpecialValueFor("healres_duration")})
+        giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("lock_duration"))
+        
 		--EmitSoundOn("hijikata_demon_sfx", enemy)
 
 		
@@ -120,8 +137,8 @@ function okada_chest:OnSpellStart()
         vec.z = 0
         vec = vec:Normalized()
 		Dummy2:SetForwardVector(vec)
-		self:PeformCloneDash(Dummy1, caster, 0.5, 0.2)
-		self:PeformCloneDash(Dummy2, caster, 0.5, 0.2)
+		self:PeformCloneDash(Dummy1, caster, self:GetSpecialValueFor("clones_damage")/100, self:GetSpecialValueFor("clones_delay"))
+		self:PeformCloneDash(Dummy2, caster, self:GetSpecialValueFor("clones_damage")/100, self:GetSpecialValueFor("clones_delay"))
 		Dummy1:EmitSound("okada_sword_draw")
 		Dummy1:EmitSound("okada_sword_draw")
 		StartAnimation(Dummy1, {duration = 0.6, activity = ACT_DOTA_CAST_LIFE_BREAK_START, rate = 1})
@@ -278,3 +295,44 @@ end
 
  
 
+modifier_okada_cdr = class({})
+
+function modifier_okada_cdr:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
+end
+
+function modifier_okada_cdr:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+  }
+  return funcs
+end
+
+
+function modifier_okada_cdr:GetModifierPercentageCooldown(args)
+--hero.BaseMS + agility * Attributes.ms_adjustment + hero.MSgained * Attributes.additional_movespeed_adjustment
+  if args.ability ~= nil then
+    if  args.ability:IsItem() then
+      return self:GetStackCount()
+    else
+        return 0
+    end
+  end
+  return 0
+end
+
+function modifier_okada_cdr:OnCreated()
+  self:setstackcount(0)
+end
+
+function modifier_okada_cdr:IsHidden()
+  return true
+end
+
+function modifier_okada_cdr:IsDebuff()
+  return false
+end
+
+function modifier_okada_cdr:RemoveOnDeath()
+  return false
+end

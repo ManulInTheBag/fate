@@ -588,30 +588,33 @@ function OnTentacleHookHit(keys)
 	target:EmitSound("Hero_Pudge.AttackHookImpact")
 	local diff = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() 
 	target:AddNewModifier(target, target, "modifier_stunned", {Duration = 0.75})
-	local pullTarget = Physics:Unit(target)
-	local pullVector = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized() * diff * 2
-	target:PreventDI()
-	target:SetPhysicsFriction(0)
-	target:SetPhysicsVelocity(Vector(pullVector.x, pullVector.y, 2000))
-	target:SetNavCollisionType(PHYSICS_NAV_NOTHING)
-	target:FollowNavMesh(false)
-	target:SetAutoUnstuck(false)
+	if not  IsKnockbackImmune(target) then
+		local pullTarget = Physics:Unit(target)
+		local pullVector = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized() * diff * 2
 
-	Timers:CreateTimer({
-		endTime = 0.25,
-		callback = function()
-		target:SetPhysicsVelocity(Vector(pullVector.x, pullVector.y, -2000))
+		target:PreventDI()
+		target:SetPhysicsFriction(0)
+		target:SetPhysicsVelocity(Vector(pullVector.x, pullVector.y, 2000))
+		target:SetNavCollisionType(PHYSICS_NAV_NOTHING)
+		target:FollowNavMesh(false)
+		target:SetAutoUnstuck(false)
+
+		Timers:CreateTimer({
+			endTime = 0.25,
+			callback = function()
+			target:SetPhysicsVelocity(Vector(pullVector.x, pullVector.y, -2000))
+		end
+		})
+
+		Timers:CreateTimer(0.5, function()
+			target:PreventDI(false)
+			target:SetPhysicsVelocity(Vector(0,0,0))
+			target:OnPhysicsFrame(nil)
+			target:SetAutoUnstuck(true)
+			FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
+
+		end)
 	end
-	})
-
-  	Timers:CreateTimer(0.5, function()
-		target:PreventDI(false)
-		target:SetPhysicsVelocity(Vector(0,0,0))
-		target:OnPhysicsFrame(nil)
-		target:SetAutoUnstuck(true)
-		FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
-
-	end)
   	Timers:CreateTimer(1.0, function()
 		caster.IsHookHit = false
 		caster.unithit = false 

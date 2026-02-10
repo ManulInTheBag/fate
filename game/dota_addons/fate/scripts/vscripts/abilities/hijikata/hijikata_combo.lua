@@ -128,8 +128,10 @@ function modifier_hijikata_combo_ticker:OnIntervalThink()
 													DOTA_UNIT_TARGET_ALL,
 													DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 													)
-		for k,v in pairs(targets) do   
-			v:AddNewModifier(self.caster, self.ability, "modifier_hijikata_combo_buff", { Duration = 0.13, speed = self.ally_speed })
+		for k,v in pairs(targets) do  
+			if not v:HasModifier("modifier_okada_combo_true_invis") then
+				v:AddNewModifier(self.caster, self.ability, "modifier_hijikata_combo_buff", { Duration = 0.13, speed = self.ally_speed })
+			end
 		end		
 											
 	end

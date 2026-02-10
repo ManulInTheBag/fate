@@ -1,7 +1,7 @@
 
 LinkLuaModifier("modifier_okada_manslayer", "abilities/okada/okada_manslayer", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_okada_manslayer_passive", "abilities/okada/okada_manslayer", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 okada_manslayer = class({})
 
 
@@ -86,7 +86,21 @@ function modifier_okada_manslayer_passive:ActivateThirst()
 			self:StartIntervalThink(FrameTime())
 	end
 	self.parent:AddNewModifier(self.parent, self.ability, "modifier_okada_manslayer", {duration = self.ability:GetSpecialValueFor("passive_duration")})
-
+	if self.parent.OkadaSa2Acquired then
+		self:GetAbility():EndCooldown()
+		 self.parent:Heal(self.parent:GetMaxHealth() * 0.25, self.ability)
+		 self.parent:GiveMana(self.parent:GetMaxMana() * 0.25)
+		local targets = FindUnitsInRadius(self.parent:GetTeam(), self.parent:GetOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+		for _,v in pairs(targets) do
+    		if not v:HasModifier("modifier_murderer_mist_in") then
+			self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, v )
+			ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,0.1,0.1 ) )
+			ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 5,0,0 ) )
+			ParticleManager:ReleaseParticleIndex(self.OverheadFx)
+			v:AddNewModifier(self.parent, self, "modifier_vision_provider", { duration = 5 })
+			end
+		end
+    end
 
 end
 function modifier_okada_manslayer_passive:OnHeroKilled(args)

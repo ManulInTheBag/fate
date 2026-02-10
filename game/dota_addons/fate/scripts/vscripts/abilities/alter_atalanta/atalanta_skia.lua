@@ -147,6 +147,7 @@ function modifier_atalanta_skia:OnDestroy()
                                             FIND_ANY_ORDER, 
                                             false)
 
+									
 		for _,enemy in ipairs(enemies2) do
 	            local knockback = { should_stun = self.parent.EvolutionAcquired,
 	                                knockback_duration = 1.0,
@@ -156,8 +157,9 @@ function modifier_atalanta_skia:OnDestroy()
 	                                center_x = self.parent:GetAbsOrigin().x,
 	                                center_y = self.parent:GetAbsOrigin().y,
 	                                center_z = self.parent:GetAbsOrigin().z }
-
+			if not IsKnockbackImmune(enemy) then
 	            enemy:AddNewModifier(self.parent, self.ability, "modifier_knockback", knockback)
+			end
         end
 
 

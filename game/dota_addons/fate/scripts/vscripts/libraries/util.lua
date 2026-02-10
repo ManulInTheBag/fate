@@ -492,6 +492,7 @@ donotlevel = {
     "robin_faceless_king",
     "khsn_bc",
     "scathach_wisdom_of_dun_scaith",
+    "okada_mark",
 }
 
 CannotReset = {
@@ -707,6 +708,10 @@ CannotReset = {
     "demon_king_materialization",
     "diarmuid_parry",
     "saber_alter_unleashed_ferocity",
+
+    "okada_mark",
+    "okada_combo",
+    "okada_manslayer",
 }
 
 
@@ -743,6 +748,7 @@ tCannotDetect = {
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_night_stalker",
     "npc_dota_hero_phantom_assassin",
+    "npc_dota_hero_troll_warlord",
 }
 
 tDangerousBuffs = {
@@ -797,6 +803,7 @@ tRemoveTheseModifiers = {
     "modifier_ubw_chant_count",
     "modifier_lancelot_minigun",
     "modifier_demon_king_materialization",
+    "modifier_okada_combo_true_invis",
 }
 
 tDivineHeroes = {
@@ -856,7 +863,8 @@ tHorsemanClass = {
     "npc_dota_hero_puck",
     "npc_dota_hero_night_stalker",
     "npc_dota_hero_ogre_magi",
-    "npc_dota_hero_kentaur"
+    "npc_dota_hero_kentaur",
+    "npc_dota_hero_troll_warlord",
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -2520,6 +2528,7 @@ local heroNames = {
     ["npc_dota_hero_ogre_magi"] = "Aozaki Aoko",
     ["npc_dota_hero_monkey_king"] = "Scathach",
     ["npc_dota_hero_nevermore"] = "Demon king Nobunaga",
+    ["npc_dota_hero_troll_warlord"] = "Okada Izo",
 }
 
  
@@ -2588,6 +2597,7 @@ local heroCombos = {
     ["npc_dota_hero_aoko"] = "aoko_blue",
     ["npc_dota_hero_scathach"] = "scathach_gate_of_skye",
     ["npc_dota_hero_demon_king_nobunaga"] = "demon_king_combo",
+     ["npc_dota_hero_okada"] = "okada_combo",
 }
 
 function GetHeroCombo(hero)

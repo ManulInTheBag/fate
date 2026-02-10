@@ -1,6 +1,6 @@
 okada_flashblade = okada_flashblade or class({})
 LinkLuaModifier("modifier_okada_flashblade_marker", "abilities/okada/okada_flashblade", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_okada_combo_switch", "abilities/okada/okada_flashblade", LUA_MODIFIER_MOTION_NONE)
 SetDirectionByAngles = function(hUnit, vDirection) --Explained why I am using that in the first ability modifier.
     vDirection = VectorToAngles(vDirection)
     return hUnit:SetAbsAngles(vDirection[1], vDirection[2], vDirection[3])
@@ -9,12 +9,28 @@ function okada_flashblade:GetAOERadius()
     return self:GetSpecialValueFor("distance")
 end
 
+function okada_flashblade:CheckCombo()
+	local caster = self:GetCaster()
+    local num = 29.1
+	if caster:GetStrength() >= num and caster:GetAgility() >= num and caster:GetIntellect() >= num then
+		if caster:FindAbilityByName("okada_combo"):IsCooldownReady()  then
+			return true
+		end
+	end
+    return false
+end
+
 
 function okada_flashblade:OnSpellStart()
     local hCaster   = self:GetCaster()
     hCaster:RemoveModifierByName("modifier_okada_earth_motion")
     local nDuration = (self:GetAOERadius()/self:GetSpecialValueFor("speed")) + 0.1
     self:GetCaster():EmitSound("okada_sword_draw")
+    if self:GetAutoCastState() then
+        if self:CheckCombo() then
+            hCaster:AddNewModifier(hCaster, self, "modifier_okada_combo_switch", { Duration = 3 })
+        end
+    end
     if hCaster:HasModifier("modifier_okada_manslayer") then
         hCaster:EmitSound("okada_w2")
         local vec = (self:GetCursorPosition() - hCaster:GetAbsOrigin())
@@ -74,6 +90,9 @@ function modifier_okada_flashblade_motion:OnCreated(tTable)
     self.nImageRootDuration = self.hAbility:GetSpecialValueFor("root_duration")
     self.nImageRadius       = self.hAbility:GetSpecialValueFor("radius")
     self.nImageDamage       = self.hAbility:GetSpecialValueFor("damage") 
+    if self.hCaster.OkadaSa1Acquired then
+         self.nImageDamage  =  self.nImageDamage  +  self.hAbility:GetSpecialValueFor("sa_bonus_damage") or 0
+    end
     self.nImageCreationDist = self.hAbility:GetSpecialValueFor("slash_create_dist")
     self.soundController = 1
     self.iMoveState = tTable.state
@@ -256,7 +275,7 @@ function modifier_okada_flashblade_motion:DoEffect(hUnit, vPosition)
         if IsNotNull(hEntity) then
             if not hEntity:HasModifier("modifier_okada_flashblade_marker") then
                 DoDamage(self.hCaster, hEntity, self.nImageDamage, self.nDamageType, DOTA_DAMAGE_FLAG_NONE, self.hAbility, false)
-                hEntity:AddNewModifier(self.hCaster, self:GetAbility(), "modifier_okada_flashblade_marker", {duration = 0.2})
+                hEntity:AddNewModifier(self.hCaster, self:GetAbility(), "modifier_okada_flashblade_marker", {duration = 0.3})
 
                 hEntity:EmitSound("okada_dash_slash_enemy")
             end
@@ -287,4 +306,32 @@ function modifier_okada_flashblade_marker:IsHidden() return false end
 function modifier_okada_flashblade_marker:IsDebuff() return false end
 function modifier_okada_flashblade_marker:RemoveOnDeath() return true end
 
+
+
+modifier_okada_combo_switch = class({})
+
+function modifier_okada_combo_switch:IsHidden()
+	return false 
+end
+
+function modifier_okada_combo_switch:RemoveOnDeath()
+	return true
+end
+
+if IsServer() then
+	function modifier_okada_combo_switch:OnCreated(args)
+		local caster = self:GetParent()
+         if caster:GetAbilityByIndex(4):GetName() == "okada_mark" then
+		     caster:SwapAbilities("okada_mark", "okada_combo", false, true)
+         end
+	end
+
+	function modifier_okada_combo_switch:OnDestroy()	
+		local caster = self:GetParent()	
+        if caster:GetAbilityByIndex(4):GetName() == "okada_combo" then
+		     caster:SwapAbilities("okada_mark", "okada_combo", true, false)
+        end
+      
+	end
+end
 

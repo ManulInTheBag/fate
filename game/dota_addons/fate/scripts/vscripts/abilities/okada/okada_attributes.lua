@@ -2,7 +2,7 @@ okada_sa_1 = class({})
 okada_sa_2 = class({})
 okada_sa_3 = class({})
 okada_sa_4 = class({})
-okada_sa_5 = class({})
+--okada_sa_5 = class({})
 
 
 
@@ -33,8 +33,8 @@ end
 function okada_sa_3:OnSpellStart()
 	local caster = self:GetCaster()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
-
-
+	hero:FindAbilityByName("okada_mark"):SetLevel(1)
+	hero:FindAbilityByName("okada_manslayer"):SetLevel(2)
 	hero.OkadaSa3Acquired = true
 
 	-- Set master 1's mana 
@@ -46,20 +46,21 @@ function okada_sa_4:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 
-	hero.OkadaSa1Acquired = true
+	hero.OkadaSa4Acquired = true
+	hero:FindModifierByName("modifier_okada_cdr"):SetStackCount(25)
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
-function okada_sa_5:OnSpellStart()
-	local caster = self:GetCaster()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
+-- function okada_sa_5:OnSpellStart()
+-- 	local caster = self:GetCaster()
+-- 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 
-	hero.OkadaSa1Acquired = true
+-- 	hero.OkadaSa1Acquired = true
 
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
-end
+-- 	-- Set master 1's mana 
+-- 	local master = hero.MasterUnit
+-- 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+-- end

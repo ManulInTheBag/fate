@@ -3330,6 +3330,10 @@ function FateGameMode:OnEntityKilled( keys )
 
         killerEntity:ModifyGold(bounty , false, 0)
         -- if killer has Golden Rule attribute, grant 50% more gold
+
+        if killerEntity:GetName() == "npc_dota_hero_troll_warlord" and killerEntity.OkadaSa4Acquired then
+            killerEntity:ModifyGold(BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()] / 2, false, 0)
+        end
         if killerEntity:FindAbilityByName("gilgamesh_golden_rule") and killerEntity:FindAbilityByName("gilgamesh_golden_rule"):GetLevel() == 2 then
             killerEntity:ModifyGold(BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()] / 2, false, 0)
         end
@@ -3472,6 +3476,10 @@ function FateGameMode:OnEntityKilled( keys )
                 end
             end        
             -- if killer has Golden Rule attribute, grant 50% more gold
+
+            if killerEntity:GetName() == "npc_dota_hero_troll_warlord" and killerEntity.OkadaSa4Acquired then
+                killerEntity:ModifyGold(BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()] / 2, false, 0)
+            end
             if killerEntity:FindAbilityByName("gilgamesh_golden_rule") and killerEntity:FindAbilityByName("gilgamesh_golden_rule"):GetLevel() == 2 then
                 killerEntity:ModifyGold(BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()] / 2, false, 0)
             end

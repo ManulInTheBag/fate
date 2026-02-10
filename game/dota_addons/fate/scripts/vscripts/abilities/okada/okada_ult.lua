@@ -16,7 +16,10 @@ function okada_ult:PerformLastStrike(unit, caster, target, dmgMod)
     local diff = (target:GetAbsOrigin() - unit:GetAbsOrigin()):Normalized()
     unit:FaceTowards(target:GetAbsOrigin())
     unit:SetForwardVector(Vector(diff.x, diff.y, 0))
-
+    local damageType = self:GetAbilityDamageType()
+    if unit ~= caster then
+        damageType = DAMAGE_TYPE_MAGICAL
+    end
     Timers:CreateTimer(0.3, function()
         local sImagePFX = "particles/okada/okada_slash_ult.vpcf"
         if caster:HasModifier("modifier_okada_manslayer") then
@@ -28,12 +31,16 @@ function okada_ult:PerformLastStrike(unit, caster, target, dmgMod)
     
     end)
     Timers:CreateTimer(0.4, function()
-        local damage = self:GetSpecialValueFor("damage")
+        local damage = self:GetSpecialValueFor("last_strike_damage")
+        if caster.OkadaSa1Acquired then
+            damage = damage + self:GetSpecialValueFor("sa_bonus_damage_last")/100 * caster:GetAgility()
+        end
+
         if target and target:IsAlive() then
             target:EmitSound("okada_ult_last_1")
             target:EmitSound("okada_ult_last_2")
             target:EmitSound("okada_e_slash")
-			DoDamage(caster, target, damage * dmgMod, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+			DoDamage(caster, target, damage * dmgMod, damageType, DOTA_DAMAGE_FLAG_NONE, self, false)
 		end
         if unit ~= caster then
             unit:RemoveSelf()
@@ -94,13 +101,20 @@ function okada_ult:PerformStrike(unit, caster, target, dmgMod, soundCounter)
         sImagePFX = "particles/okada/okada_dash_slashes_red.vpcf"
     end
     self:CreateSlashParticle(target:GetAbsOrigin() + Vector(0,0, 50),sImagePFX )
-
+    local damageType = self:GetAbilityDamageType()
+    if unit ~= caster then
+        damageType = DAMAGE_TYPE_MAGICAL
+    end
 
     Timers:CreateTimer(0.1, function()
         local damage = self:GetSpecialValueFor("damage")
+        if caster.OkadaSa1Acquired then
+            damage = damage + self:GetSpecialValueFor("sa_bonus_damage")/100 * caster:GetAgility()
+        end
         if target and target:IsAlive() then
             target:EmitSound("okada_ult_"..soundCounter)
-			DoDamage(caster, target, damage* dmgMod, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+            
+			DoDamage(caster, target, damage* dmgMod, damageType, DOTA_DAMAGE_FLAG_NONE, self, false)
 		end
     end)
 end
@@ -175,7 +189,7 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
             return
         end
          if not target:IsAlive()  then
-            if self:GetAutoCastState() then
+            if false then
                 target = self:SearchForRandomTarget(unit, 500, target:GetAbsOrigin(), target, TargetToIgnore)
             else
                 return
@@ -195,7 +209,7 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
             counterPerform = counterPerform + 1
         end
         if counterPerform >= counterPerformMax then 
-            self:PerformLastStrike(unit, caster, target, dmgMod * 3)
+            self:PerformLastStrike(unit, caster, target, dmgMod)
             StartAnimation( unit, {duration=0.5, activity=ACT_DOTA_CAST_ICE_WALL , rate=2})
             return
         end
@@ -204,7 +218,7 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
         self:PerformStrike(unit, caster, target, dmgMod, soundCounter)
         animTable = self:PlayRandomAttackAnimation(unit, animTable)
         if shouldJumpTargets then
-             target = self:SearchForRandomTarget(unit, 500, target:GetAbsOrigin(), target, TargetToIgnore)
+             target = self:SearchForRandomTarget(unit, self:GetSpecialValueFor("clone_search_radius"), target:GetAbsOrigin(), target, TargetToIgnore)
         end
         return animationTimerTime
     end)
@@ -223,7 +237,7 @@ function okada_ult:OnSpellStart()
 	caster:AddNewModifier(caster, nil, "modifier_okada_dmg_reduct", {duration = duration})
     if caster:HasModifier("modifier_okada_manslayer") then
         caster:EmitSound("okada_r2")
-        local secondTarget = self:SearchForRandomTarget(caster,500, target:GetAbsOrigin(),target, target )
+        local secondTarget = self:SearchForRandomTarget(caster,self:GetSpecialValueFor("clone_search_radius"), target:GetAbsOrigin(),target, target )
         if secondTarget ~= nil then
             local Dummy1 = CreateUnitByName("okada_clone", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
             Dummy1:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
@@ -233,7 +247,7 @@ function okada_ult:OnSpellStart()
             Dummy1:AddNewModifier(caster, nil, "modifier_okada_statusfx", {duration = duration})
 
             Dummy1:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY )
-            self:PefrormAttackTimer(Dummy1, caster, secondTarget,  0.5, true, target)
+            self:PefrormAttackTimer(Dummy1, caster, secondTarget,  self:GetSpecialValueFor("clones_damage")/100, true, target)
             local Dummy2 = CreateUnitByName("okada_clone", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
             Dummy2:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
             Dummy2:SetModelScale(1.3)
@@ -242,7 +256,7 @@ function okada_ult:OnSpellStart()
             Dummy2:AddNewModifier(caster, nil, "modifier_okada_statusfx", {duration = duration})
 	        
             Dummy2:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY )
-            self:PefrormAttackTimer(Dummy2, caster, secondTarget,  0.5, true, target)
+            self:PefrormAttackTimer(Dummy2, caster, secondTarget,  self:GetSpecialValueFor("clones_damage")/100, true, target)
         end
     else
         caster:EmitSound("okada_r")
@@ -277,7 +291,7 @@ end
 
 
 function modifier_okada_dmg_reduct:GetModifierIncomingDamage_Percentage() 
-	return -45
+	return -self:GetAbility():GetSpecialValueFor("dmg_reduct")
 end
 
 modifier_okada_statusfx = class({})

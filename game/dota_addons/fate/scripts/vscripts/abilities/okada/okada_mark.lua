@@ -25,6 +25,10 @@ function okada_mark:OnSpellStart()
 	local rCooldown = 0
 	
 	if not IsSpellBlocked(target) then
+		target:SetDayTimeVisionRange(self:GetSpecialValueFor("target_vision"))
+		target:SetNightTimeVisionRange(self:GetSpecialValueFor("target_vision"))
+		caster:SetDayTimeVisionRange(50)
+		caster:SetNightTimeVisionRange(50)
 		--target:AddNewModifier(caster, self, "modifier_silence", {duration = 3})
 		giveUnitDataDrivenModifier(caster, target, "revoked", self:GetSpecialValueFor("revoke_duration"))
 		giveUnitDataDrivenModifier(caster, caster, "revoked", self:GetSpecialValueFor("revoke_duration"))
@@ -38,17 +42,22 @@ end
 
 modifier_okada_mark = class({})
 function modifier_okada_mark:IsHidden() return false end
-function modifier_okada_mark:IsDebuff() return false end
+function modifier_okada_mark:IsDebuff() return true end
 function modifier_okada_mark:RemoveOnDeath() return true end
 
+function modifier_okada_mark:OnCreated()
+	local particle = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_overhead_okada_mark.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+	ParticleManager:SetParticleShouldCheckFoW(particle, false)
+    self:AddParticle(particle, true, false, -1, false, true)
 
-function modifier_okada_mark:GetEffectName()
-	return "particles/zlodemon/zlodemon_overhead_okada_mark.vpcf"
 end
 
-function modifier_okada_mark:GetEffectAttachType()
-	return PATTACH_OVERHEAD_FOLLOW
+function modifier_okada_mark:OnDestroy()
+	
+	self:GetParent():SetDayTimeVisionRange(1000)
+	self:GetParent():SetNightTimeVisionRange(1000)
 end
+
 
 
 function modifier_okada_mark:CheckState()
@@ -61,14 +70,7 @@ end
 function modifier_okada_mark:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
-		MODIFIER_PROPERTY_FIXED_DAY_VISION,
-		MODIFIER_PROPERTY_FIXED_NIGHT_VISION  
+		   
            }
 end
 
-function modifier_okada_mark:GetFixedDayVision()
-    return  0
-end
-function modifier_okada_mark:GetFixedNightVision()
-    return  0
-end
