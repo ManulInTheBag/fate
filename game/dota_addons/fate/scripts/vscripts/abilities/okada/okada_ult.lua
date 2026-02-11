@@ -104,6 +104,8 @@ function okada_ult:PerformStrike(unit, caster, target, dmgMod, soundCounter)
     local damageType = self:GetAbilityDamageType()
     if unit ~= caster then
         damageType = DAMAGE_TYPE_MAGICAL
+    else
+        giveUnitDataDrivenModifier(caster, target, "locked", 0.2)
     end
 
     Timers:CreateTimer(0.1, function()
@@ -234,7 +236,7 @@ function okada_ult:OnSpellStart()
     self:PefrormAttackTimer(caster, caster, target,  1, false)
     caster:AddNewModifier(caster, nil, "modifier_phased", {duration = duration})
 	giveUnitDataDrivenModifier(caster, caster, "dragged", duration)
-	caster:AddNewModifier(caster, nil, "modifier_okada_dmg_reduct", {duration = duration})
+	caster:AddNewModifier(caster, self, "modifier_okada_dmg_reduct", {duration = duration})
     if caster:HasModifier("modifier_okada_manslayer") then
         caster:EmitSound("okada_r2")
         local secondTarget = self:SearchForRandomTarget(caster,self:GetSpecialValueFor("clone_search_radius"), target:GetAbsOrigin(),target, target )
@@ -257,6 +259,15 @@ function okada_ult:OnSpellStart()
 	        
             Dummy2:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY )
             self:PefrormAttackTimer(Dummy2, caster, secondTarget,  self:GetSpecialValueFor("clones_damage")/100, true, target)
+
+            Timers:CreateTimer(duration + 0.5, function()
+                if IsValidEntity(Dummy1) then
+                    Dummy1:RemoveSelf()
+                end
+                if IsValidEntity(Dummy2) then
+                    Dummy2:RemoveSelf()
+                end
+            end)
         end
     else
         caster:EmitSound("okada_r")
