@@ -306,7 +306,7 @@ function OnEnigmaHit(keys)
 
 	--ability:ApplyDataDrivenModifier(caster, target, "modifier_white_queens_enigma_dot", {})
 	SpawnAttachedVisionDummy(caster, target, 300, 3, false)
-	DoDamage(caster, target, ability:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, ability, false)
+	DoDamage(caster, target, ability:GetSpecialValueFor("damage"), DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 
 	local iceFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff_model.vpcf", PATTACH_CUSTOMORIGIN, nil )
 	ParticleManager:SetParticleControl( iceFx, 0, target:GetAbsOrigin() + Vector(0,0,100) )
@@ -374,9 +374,9 @@ function ChainLightning(keys, source, target, count, CC, bIsFirstItrn)
 	if count == 0 then return end
 	if IsSpellBlocked(target) then return end
 
-	if not bIsFirstItrn then
-		damage = keys.Damage * (100+reduction)/100
-	end
+	--if not bIsFirstItrn then
+		--damage = keys.Damage * (100+reduction)/100
+	--end
 
 	if target:GetName() ~= "dummy_unit" then
 		if caster.bIsNightmareAcquired then 
@@ -385,9 +385,9 @@ function ChainLightning(keys, source, target, count, CC, bIsFirstItrn)
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_plains_of_water_int_debuff", {})
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_plains_of_water_int_buff", {})
 			end
-			damage = damage + 1.5*caster:GetIntellect()
+			damage = damage + 1.5 * caster:GetIntellect()
 		end
-		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_plains_of_water_slow", { Duration = 0.35 })
 	end
 
@@ -497,7 +497,7 @@ function OnCloneTakeDamage(keys)
 	local damageTaken = keys.DamageTaken
 	local damageShared = keys.SharedDamage
 
-	DoDamage(caster, caster.CurrentDoppelgangerOriginal, damageTaken*damageShared/100, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+	DoDamage(caster, caster.CurrentDoppelgangerOriginal, damageTaken*damageShared/100, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 end
 
 --[[
@@ -508,7 +508,7 @@ function OnCloneThink(keys)
 	local ability = keys.ability
 	if caster.bIsFTAcquired then
 		if not IsFacingUnit(caster.CurrentDoppelgangerOriginal, caster.CurrentDoppelganger, 180) then
-			DoDamage(caster, caster.CurrentDoppelgangerOriginal, caster:GetIntellect()*0.5 + keys.damage_per_sec/3 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			DoDamage(caster, caster.CurrentDoppelgangerOriginal, caster:GetIntellect()*0.25 + keys.damage_per_sec/3 , DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 			ability:ApplyDataDrivenModifier(caster, caster.CurrentDoppelgangerOriginal, "modifier_doppelganger_lookaway_slow", {})
 		end
 	end

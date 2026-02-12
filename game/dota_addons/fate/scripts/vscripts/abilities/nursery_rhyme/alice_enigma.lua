@@ -49,7 +49,7 @@ function alice_enigma:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	target:AddNewModifier(caster, self, "modifier_alice_enigma",  { duration = duration })
 
 	SpawnAttachedVisionDummy(caster, target, 300, 3, false)
-	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 
 	target:EmitSound("Hero_Tusk.IceShards")
 end
@@ -84,5 +84,5 @@ function modifier_alice_enigma:OnIntervalThink()
 	local damage = self.ability:GetSpecialValueFor("perc_damage_per_second")*0.25
 	damage = damage*self.parent:GetMaxHealth()/100
 
-	DoDamage(self.caster, self.parent, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+	DoDamage(self.caster, self.parent, damage, DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
 end

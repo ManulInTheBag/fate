@@ -12,8 +12,7 @@ function modifier_jeanne_luminosite_eternelle:OnCreated()
 	self.parent = self:GetParent()
 	self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
 	if self.parent.IsDivineSymbolAcquired then
-		self.hp_heal = self.hp_heal + 3 * caster:GetIntellect()
-
+		self.hp_heal = self.hp_heal + 0.5 * caster:GetIntellect()
 	end
 	
 	
