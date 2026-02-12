@@ -133,7 +133,7 @@ function modifier_edmon_enfer:BOOM(target)
 	local count = 0
 	local radius = self.ability:GetSpecialValueFor("radius")
 	local damage = self.ability:GetSpecialValueFor("hit_damage") + (caster.HellfireAcquired and 25 or 0)
-	local last_damage = self.ability:GetSpecialValueFor("last_damage") + (caster.HellfireAcquired and 1500 or 0)
+	local last_damage = self.ability:GetSpecialValueFor("last_damage") + (caster.HellfireAcquired and 1000 or 0)
 	local burn_damage = self.ability:GetSpecialValueFor("burn_damage") + (caster.HellfireAcquired and 1000 or 0)
 
 	EmitGlobalSound("edmon_enfer2")

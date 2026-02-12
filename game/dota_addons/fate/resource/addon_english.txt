@@ -3297,7 +3297,7 @@
         "npc_dota_hero_troll_warlord"						"Okada Izo"
 
 		"DOTA_Tooltip_Ability_okada_reduced_earth"				"Shimatsuken: Reduced Earth"
-		"DOTA_Tooltip_Ability_okada_reduced_earth_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada blinks behind target and pierces it, dealing damage, while dashing through it.\n<font color='#FF0000'>Manslayer</font>: two Okada clones will appear, piercing target together, dealing percentage of skill damage each."
+		"DOTA_Tooltip_Ability_okada_reduced_earth_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada blinks behind target and pierces it, dealing <font color='#58ACFA'>damage</font>, while dashing through it.\n<font color='#FF0000'>Manslayer</font>: two Okada clones will appear, piercing target together, dealing percentage <font color='#58ACFA'>damage</font> of skill damage each."
 		"DOTA_Tooltip_Ability_okada_reduced_earth_damage"				"Damage:"
 		"DOTA_Tooltip_Ability_okada_reduced_earth_radius"				"Dash distance:"
 		"DOTA_Tooltip_Ability_okada_reduced_earth_speed"				"Dash speed:"
@@ -3305,7 +3305,7 @@
 
 
 		"DOTA_Tooltip_Ability_okada_flashblade"				"Shimatsuken: Flashblade"
-		"DOTA_Tooltip_Ability_okada_flashblade_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes in the targetted direction, slicing all enemies on his way, dealing damage\n<font color='#FF0000'>Manslayer</font>: Okada will blink to the target location instead, while his clone will dash towards blink point, dealing same damage\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
+		"DOTA_Tooltip_Ability_okada_flashblade_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes in the targetted direction, slicing all enemies on his way, dealing <font color='#58ACFA'>damage</font>\n<font color='#FF0000'>Manslayer</font>: Okada will blink to the target location instead, while his clone will dash towards blink point, dealing same <font color='#58ACFA'>damage</font>\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
 		"DOTA_Tooltip_Ability_okada_flashblade_damage"				"Damage:"
 		"DOTA_Tooltip_Ability_okada_flashblade_radius"				"Hit radius:"
 		"DOTA_Tooltip_Ability_okada_flashblade_speed"				"Dash speed:"
@@ -3313,7 +3313,7 @@
 
 
 		"DOTA_Tooltip_Ability_okada_chest"				"Shimatsuken: Chest"
-		"DOTA_Tooltip_Ability_okada_chest_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada slashes enemies in line, dealing damage, <font color='#9400D3'>dimensionally locks</font> and applies <font color='#7F00FF'>healing reduction tier 2</font> for a duration\n<font color='#FF0000'>Manslayer</font>: After a %clones_delay% second delay, two okada clones will appear, dashing towards slash end point, dealing damage on their way.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
+		"DOTA_Tooltip_Ability_okada_chest_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada slashes enemies in line, dealing <font color='#58ACFA'>damage</font>, <font color='#9400D3'>dimensionally locks</font> and applies <font color='#7F00FF'>healing reduction tier 2</font> for a duration\n<font color='#FF0000'>Manslayer</font>: After a %clones_delay% second delay, two okada clones will appear, dashing towards slash end point, dealing damage on their way.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
 		"DOTA_Tooltip_Ability_okada_chest_damage"				"Damage:"
 		"DOTA_Tooltip_Ability_okada_chest_width"				"Hit radius:"
 		"DOTA_Tooltip_Ability_okada_chest_clones_damage"		"%Clones damage"
@@ -3332,7 +3332,7 @@
 		"DOTA_Tooltip_Ability_okada_mark_target_vision"					"Target vision:"
 
 		"DOTA_Tooltip_Ability_okada_ult"				"Shimatsuken"
-		"DOTA_Tooltip_Ability_okada_ult_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes towards selected enemy and starts slicing him multiple times from different angles, dealing damage.\nAt the end, Okada will perform a powerful slash, dealing more damage.\nWhile performing, Okada takes less damage from all sources.\n<font color='#FF0000'>Manslayer</font>: Two clones will appear, performing same ability on the other targets, but dealing magical damage, jumping between targets before each slash. \nClones could not target same target as Okada.\nIf there are no targets, clones will disappear.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
+		"DOTA_Tooltip_Ability_okada_ult_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes towards selected enemy and starts slicing him multiple times from different angles, dealing <font color='#D1A951'>damage</font> and <font color='#9400D3'>dimensionally locking</font> for a short duration.\nAt the end, Okada will perform a powerful slash, dealing more <font color='#D1A951'>damage</font>.\nWhile performing, Okada takes less damage from all sources.\n<font color='#FF0000'>Manslayer</font>: Two clones will appear, performing same ability on the other targets, but dealing <font color='#58ACFA'>magical</font> damage without lock, jumping between targets before each slash. \nClones could not target same target as Okada.\nIf there are no targets, clones will disappear.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
 		"DOTA_Tooltip_Ability_okada_ult_duration"				"Total duration:"
 		"DOTA_Tooltip_Ability_okada_ult_normal_strikes"			"Total ordinary strikes:"
 		"DOTA_Tooltip_Ability_okada_ult_damage"					"Strike damage:"
@@ -3351,7 +3351,8 @@
 
 		"DOTA_Tooltip_Ability_okada_sa_2"				"The Sky on that Day"
 		"DOTA_Tooltip_Ability_okada_sa_2_Description"	"Upon activating <font color='#FF0000'>Manslayer</font>'s passive effect, Okada will refresh it's cooldown and gain vision over all enemies around himself, as well as restoring 25%% of his <font color='#58ACFA'>mana</font> and <font color='#ACFF05'>health</font>."
-		"DOTA_Tooltip_Ability_okada_sa_2_vision_duration" "Vision duration:"
+		"DOTA_Tooltip_Ability_okada_sa_2_vision_duration" 	"Vision duration:"
+		"DOTA_Tooltip_Ability_okada_sa_2_vision_radius" 	"Vision radius:"
 
 		"DOTA_Tooltip_Ability_okada_sa_3"				"Contractor"
 		"DOTA_Tooltip_Ability_okada_sa_3_Description"	"Unlocks <font color='#FF0000'>Select prey</font> ability.\nUpgrades <font color='#FF0000'>Manslayer</font>, increasing its active duration by %bonus_duration% seconds."
@@ -3360,7 +3361,7 @@
 		"DOTA_Tooltip_Ability_okada_sa_4_Description"	"Okada will get %gold_bonus%%  more gold for kills.\nAll of Okada's items get a %item_cdr%%  cooldown reduction"
 
 		"DOTA_Tooltip_Ability_okada_combo"				"Shimatsuken: Calm"
-		"DOTA_Tooltip_Ability_okada_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast W - F in 3 seconds</font>\nOkada enters a true invisible state, getting damage reduction and disabling himself for a short time.\nAfter activation, Okada gains constant movement speed and will activate a strong series of strikes onto the closest enemy in his radius.\nIf Okada uses any ability, item or attack, combo will instantly end.\nUpon activation, Okada will slice his target 4 times, dealing damage, before <font color='#FF3399'>stunning</font> them undispellably, until he finishes his move with last slash, dealing more damage."
+		"DOTA_Tooltip_Ability_okada_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast W - F in 3 seconds</font>\nOkada enters a true invisible state, getting damage reduction and disabling himself for a short time.\nAfter activation, Okada gains constant movement speed, switches true invisibility to ordinary invisibility and will activate a strong series of strikes onto the closest enemy in his radius.\nIf Okada uses any ability, item or attack, combo will instantly end.\nUpon activation, Okada will slice his target 4 times, dealing <font color='#D1A951'>damage</font>, before <font color='#FF3399'>stunning</font> them undispellably, until he finishes his move with last slash, dealing more damage."
 		"DOTA_Tooltip_Ability_okada_combo_max_invis_duration"				"Total duration:"
 		"DOTA_Tooltip_Ability_okada_combo_invis_activation_delay"			"Activation delay:"
 		"DOTA_Tooltip_Ability_okada_combo_invis_activation_radius"			"Activation radius:"
@@ -8530,7 +8531,7 @@
 		"DOTA_Tooltip_ability_edmon_ground_beams_Description"	"Dantes touches the ground, causing it to burst dark and light beams in a small area around him.\nDeals two instances of damage, roots and locks on each impact."
 		"DOTA_Tooltip_ability_edmon_ground_beams_damage"		"Damage per impact:"
 		"DOTA_Tooltip_ability_edmon_ground_beams_radius"		"Radius:"
-		"DOTA_Tooltip_ability_edmon_ground_beams_stun_duration"	"Stun duration:"
+		"DOTA_Tooltip_ability_edmon_ground_beams_stun_duration"	"Debuffs duration:"
 
 		"DOTA_Tooltip_ability_edmon_dash"						"Afterglow"
 		"DOTA_Tooltip_ability_edmon_dash_Description"			"Dashes to the target enemy or ally. If unit blinks or somehow changes position too quickly, he will instead dash to the point where it was."
@@ -8557,7 +8558,7 @@
 		"DOTA_Tooltip_ability_edmon_escape_attribute_Description"			"Allows Dantes to use Afterglow and My Vengeance Never Dies when rooted and locked.\nIncreased My Vengeance Never Dies castrange by 300."
 
 		"DOTA_Tooltip_ability_edmon_hellfire_attribute"			"Attribute: Furious Hellfire"
-		"DOTA_Tooltip_ability_edmon_hellfire_attribute_Description"		"My Vengeance Never Dies deals additional damage per hit based on Dantes agility.\nEnfer Chateau d'If deals 25 additional damage per hit, 1000 more damage with burn and 1500 more damage with last impact."
+		"DOTA_Tooltip_ability_edmon_hellfire_attribute_Description"		"My Vengeance Never Dies deals additional damage per hit based on Dantes agility.\nEnfer Chateau d'If deals 25 additional damage per hit, 1000 more damage with burn and 1000 more damage with last impact."
 		"DOTA_Tooltip_ability_edmon_hellfire_attribute_agi_scaling"				"Agi scaling:"
 
 		//====================================
