@@ -61,7 +61,8 @@ function jeanne_charisma:Pepega(target, bcleanse)
 
 	target:Heal(heal, self)
 	if caster.IsRevelationAcquired and bcleanse then
-		HardCleanse(target)
+		--HardCleanse(target)
+		target:RemoveModifierByName("modifier_stunned")
 	end
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do				

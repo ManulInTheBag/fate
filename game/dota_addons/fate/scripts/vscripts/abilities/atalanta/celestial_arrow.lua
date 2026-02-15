@@ -65,8 +65,8 @@ end
 
 function atalanta_celestial_arrow:GetCooldown()
     --local cast_point = 2.5
-    local cast_point = 0.5
     local caster = self:GetCaster()
+    local cast_point = 0.5 - (0.008 * caster:GetLevel())
 
     --if caster:HasModifier("modifier_tauropolos") then
         --local pct_reduc = (caster:GetAgility() + 30) / 200 
@@ -200,7 +200,8 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     end
     if caster.ArrowsOfTheBigDipperAcquired then
 
-        DoDamage(caster, target, caster:GetAgility() * dmgMod, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        --DoDamage(caster, target, caster:GetAgility() * dmgMod, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        damage = damage + (caster:GetAgility()*0.75)
 
     end
 
@@ -241,6 +242,10 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     
     if bIsPhoebus and not (bIsCombo) then
         damage = damage * caster:FindAbilityByName("atalanta_phoebus_catastrophe_barrage"):GetSpecialValueFor("arrows_damage_percentage")/100
+    end
+
+    if bIsPhoebus and (bIsCombo) then
+        damage = damage * caster:FindAbilityByName("atalanta_phoebus_catastrophe_snipe"):GetSpecialValueFor("arrows_damage_percentage")/100
     end
 
     if target:HasModifier("modifier_protection_from_arrows") then
