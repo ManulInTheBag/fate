@@ -40,12 +40,19 @@ function okada_ult:PerformLastStrike(unit, caster, target, dmgMod)
             target:EmitSound("okada_ult_last_1")
             target:EmitSound("okada_ult_last_2")
             target:EmitSound("okada_e_slash")
-			DoDamage(caster, target, damage * dmgMod, damageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+			DoDamage(caster, target, damage * dmgMod, damageType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self, false)
 		end
         if unit ~= caster then
             unit:RemoveSelf()
         else
             FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+            HardCleanse(caster)
+            if caster:HasModifier("dragged") then
+                caster:RemoveModifierByName("dragged")
+            end
+             if caster:HasModifier("modifier_okada_dmg_reduct") then
+                caster:RemoveModifierByName("modifier_okada_dmg_reduct")
+             end
         end
     end)
 
@@ -116,7 +123,7 @@ function okada_ult:PerformStrike(unit, caster, target, dmgMod, soundCounter)
         if target and target:IsAlive() then
             target:EmitSound("okada_ult_"..soundCounter)
             
-			DoDamage(caster, target, damage* dmgMod, damageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+			DoDamage(caster, target, damage* dmgMod, damageType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self, false)
 		end
     end)
 end
@@ -194,6 +201,15 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
             if false then
                 target = self:SearchForRandomTarget(unit, 500, target:GetAbsOrigin(), target, TargetToIgnore)
             else
+                if unit == caster then
+                    HardCleanse(unit)
+                    if unit:HasModifier("dragged") then
+                        unit:RemoveModifierByName("dragged")
+                    end
+                    if unit:HasModifier("modifier_okada_dmg_reduct") then
+                        unit:RemoveModifierByName("modifier_okada_dmg_reduct")
+                    end
+                end
                 return
             end
         end

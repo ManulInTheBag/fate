@@ -3,6 +3,7 @@ okada_combo = class({})
 LinkLuaModifier("modifier_okada_combo_cd", "abilities/okada/okada_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_okada_combo_true_invis", "abilities/okada/okada_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_heal_reduction_tier_3", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
     local initorigin = target:GetForwardVector()*200 + target:GetAbsOrigin()
     unit:SetAbsOrigin(initorigin)
@@ -151,6 +152,9 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
         unit:RemoveModifierByName("modifier_kb_immune")
         target:RemoveModifierByName("modifier_kb_immune")
         FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
+        if target:IsAlive() then
+            target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_3", {duration = self:GetSpecialValueFor("healres_duration")})
+        end
     end)
 
 end

@@ -3322,17 +3322,17 @@
 		"DOTA_Tooltip_Ability_okada_chest_lock_duration"		"Lock duration:"
 
 		"DOTA_Tooltip_Ability_okada_manslayer"				"Manslayer"
-		"DOTA_Tooltip_Ability_okada_manslayer_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#FF0000'>Unrefreshable</font>\n<font color='#FFFFFF'>Passive</font>:Whenever Okada kills an enemy or is close to dying enemy, he will get <font color='#FF0000'>Manslayer</font> effect, which will strengten his abilities.\n<font color='#FFFFFF'>Active</font>: Get <font color='#FF0000'>Manslayer</font> effect.\n<font color='#F1C40F'>Upgradable by attribute Contractor.</font>"
+		"DOTA_Tooltip_Ability_okada_manslayer_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#FF0000'>Unrefreshable</font>\n<font color='#FFFFFF'>Passive</font>:Whenever Okada kills an enemy or is close to dying enemy, he will get <font color='#FF0000'>Manslayer</font> effect, which will strengten his abilities.\n<font color='#FFFFFF'>Active</font>: Get <font color='#FF0000'>Manslayer</font> effect.\n<font color='#F1C40F'>Upgradable by attributes Contractor and The Sky on that Day.</font>"
 		"DOTA_Tooltip_Ability_okada_manslayer_passive_duration"				"Passive duration:"
 		"DOTA_Tooltip_Ability_okada_manslayer_active_duration"				"Active duration:"
 
 		"DOTA_Tooltip_Ability_okada_mark"				"Select prey"
-		"DOTA_Tooltip_Ability_okada_mark_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#FF0000'>Unrefreshable</font>\nOkada and selected enemy are marked, unable to go invisible, visible to respective teams and have <font color='#9400D3'>reduced vision</font>.\nFor the first %revoke_duration% seconds, they are <font color='#FF3399'>revoked</font>.\n<font color='#F1C40F'>Unlockable by attribute Contractor.</font>"
+		"DOTA_Tooltip_Ability_okada_mark_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#FF0000'>Unrefreshable</font>\nOkada and selected enemy are marked, unable to go invisible, visible to respective teams and have <font color='#9400D3'>reduced vision</font>.\nFor the first %revoke_duration% seconds, they are <font color='#FF3399'>revoked</font>.\nFor the first %mute_duration% seconds, enemy is <font color='#FF3399'>muted</font>\n<font color='#F1C40F'>Unlockable by attribute Contractor.</font>"
 		"DOTA_Tooltip_Ability_okada_mark_vision_duration"				"Duration:"
 		"DOTA_Tooltip_Ability_okada_mark_target_vision"					"Target vision:"
 
 		"DOTA_Tooltip_Ability_okada_ult"				"Shimatsuken"
-		"DOTA_Tooltip_Ability_okada_ult_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes towards selected enemy and starts slicing him multiple times from different angles, dealing <font color='#D1A951'>damage</font> and <font color='#9400D3'>dimensionally locking</font> for a short duration.\nAt the end, Okada will perform a powerful slash, dealing more <font color='#D1A951'>damage</font>.\nWhile performing, Okada takes less damage from all sources.\n<font color='#FF0000'>Manslayer</font>: Two clones will appear, performing same ability on the other targets, but dealing <font color='#58ACFA'>magical</font> damage without lock, jumping between targets before each slash. \nClones could not target same target as Okada.\nIf there are no targets, clones will disappear.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
+		"DOTA_Tooltip_Ability_okada_ult_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes towards selected enemy and starts slicing him multiple times from different angles, dealing <font color='#D1A951'>damage</font> and <font color='#9400D3'>dimensionally locking</font> for a short duration.\nAt the end, Okada will perform a powerful slash, dealing more <font color='#D1A951'>damage</font>.\nWhile performing, Okada takes less damage from all sources.\nUpon skill end, Okada <font color='#FFFAFA'>hard cleanses himself</font>\n<font color='#FF0000'>Manslayer</font>: Two clones will appear, performing same ability on the other targets, but dealing <font color='#58ACFA'>magical</font> damage without lock, jumping between targets before each slash. \nClones could not target same target as Okada.\nIf there are no targets, clones will disappear.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
 		"DOTA_Tooltip_Ability_okada_ult_duration"				"Total duration:"
 		"DOTA_Tooltip_Ability_okada_ult_normal_strikes"			"Total ordinary strikes:"
 		"DOTA_Tooltip_Ability_okada_ult_damage"					"Strike damage:"
@@ -3350,18 +3350,18 @@
 
 
 		"DOTA_Tooltip_Ability_okada_sa_2"				"The Sky on that Day"
-		"DOTA_Tooltip_Ability_okada_sa_2_Description"	"Upon activating <font color='#FF0000'>Manslayer</font>'s passive effect, Okada will refresh it's cooldown and gain vision over all enemies around himself, as well as restoring 25%% of his <font color='#58ACFA'>mana</font> and <font color='#ACFF05'>health</font>."
+		"DOTA_Tooltip_Ability_okada_sa_2_Description"	"Upon activating <font color='#FF0000'>Manslayer</font>'s passive effect, Okada will refresh it's cooldown and cooldowns of <font color='#FF0000'>Shimatsuken: Flashblade</font> and <font color='#FF0000'>Shimatsuken: Reduced Earth</font>\n Okada will also gain vision over all enemies around himself, as well as restoring 25%% of his <font color='#58ACFA'>mana</font> and <font color='#ACFF05'>health</font>."
 		"DOTA_Tooltip_Ability_okada_sa_2_vision_duration" 	"Vision duration:"
-		"DOTA_Tooltip_Ability_okada_sa_2_vision_radius" 	Vision radius:"
+		"DOTA_Tooltip_Ability_okada_sa_2_vision_radius" 	"Vision radius:"
 
 		"DOTA_Tooltip_Ability_okada_sa_3"				"Contractor"
 		"DOTA_Tooltip_Ability_okada_sa_3_Description"	"Unlocks <font color='#FF0000'>Select prey</font> ability.\nUpgrades <font color='#FF0000'>Manslayer</font>, increasing its active duration by %bonus_duration% seconds."
 
 		"DOTA_Tooltip_Ability_okada_sa_4"				"Money-maker dream"
-		"DOTA_Tooltip_Ability_okada_sa_4_Description"	"Okada will get %gold_bonus%%  more gold for kills.\nAll of Okada's items get a %item_cdr%%  cooldown reduction"
+		"DOTA_Tooltip_Ability_okada_sa_4_Description"	"Okada will get %gold_bonus%%  more gold for kills.\nAll of Okada's items get a %item_cdr%%  cooldown reduction."
 
 		"DOTA_Tooltip_Ability_okada_combo"				"Shimatsuken: Calm"
-		"DOTA_Tooltip_Ability_okada_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast W - F in 3 seconds</font>\nOkada enters a true invisible state, getting damage reduction and disabling himself for a short time.\nAfter activation, Okada gains constant movement speed, switches true invisibility to ordinary invisibility and will activate a strong series of strikes onto the closest enemy in his radius.\nIf Okada uses any ability, item or attack, combo will instantly end.\nUpon activation, Okada will slice his target 4 times, dealing <font color='#D1A951'>damage</font>, before <font color='#FF3399'>stunning</font> them undispellably, until he finishes his move with last slash, dealing more damage."
+		"DOTA_Tooltip_Ability_okada_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast W - F in 3 seconds</font>\nOkada enters a true invisible state, getting damage reduction and disabling himself for a short time.\nAfter activation, Okada gains constant movement speed, switches true invisibility to ordinary invisibility and will activate a strong series of strikes onto the closest enemy in his radius.\nIf Okada uses any ability, item or attack, combo will instantly end.\nUpon activation, Okada will slice his target 4 times, dealing <font color='#D1A951'>damage</font>, before <font color='#FF3399'>stunning</font> them undispellably, until he finishes his move with last slash, dealing more damage.\nAfter dealing damage, apply <font color='#7F00FF'>healing reduction tier 3</font> for %healres_duration% seconds."
 		"DOTA_Tooltip_Ability_okada_combo_max_invis_duration"				"Total duration:"
 		"DOTA_Tooltip_Ability_okada_combo_invis_activation_delay"			"Activation delay:"
 		"DOTA_Tooltip_Ability_okada_combo_invis_activation_radius"			"Activation radius:"

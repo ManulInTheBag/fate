@@ -936,7 +936,7 @@ function HealingScroll(keys)
 		--Timers:CreateTimer(0, function()
 			if v:GetName() ~= "npc_dota_ward_base" then
 				ParticleManager:SetParticleControl(healFx, 1, v:GetAbsOrigin()) -- target effect location
-	    	    v:ApplyHeal(555, ability)
+	    	    v:ApplyHeal(350, ability)
 	       		--ability :ApplyDataDrivenModifier(caster, v, "modifier_healing_scroll", {})
 	       	end
 	    --end)
