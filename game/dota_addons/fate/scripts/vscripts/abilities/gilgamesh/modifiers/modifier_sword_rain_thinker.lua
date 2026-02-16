@@ -26,7 +26,7 @@ if IsServer() then
 		ParticleManager:SetParticleControl(swordFxIndex, 1, (sword_loc - spawn_location):Normalized() * 3000)		
 
 		Timers:CreateTimer(0.5, function()
-			local targets = FindUnitsInRadius(caster:GetTeam(), target_loc, nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local targets = FindUnitsInRadius(caster:GetTeam(), target_loc, nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 			for i = 1, #targets do
 				if  not targets[i]:HasModifier("modifier_protection_from_arrows_active") then 

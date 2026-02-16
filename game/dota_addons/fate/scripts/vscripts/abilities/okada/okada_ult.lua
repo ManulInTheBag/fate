@@ -146,7 +146,7 @@ function okada_ult:SearchForRandomTarget(unit, radius, point, oldTarget, TargetT
                 radius,
                 DOTA_UNIT_TARGET_TEAM_ENEMY,
                 DOTA_UNIT_TARGET_ALL,
-                DOTA_UNIT_TARGET_FLAG_NONE,
+                DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                 FIND_ANY_ORDER,
                 false)
     local indexOfUnit = self:indexOf(enemies, TargetToIgnore)
@@ -162,7 +162,13 @@ function okada_ult:SearchForRandomTarget(unit, radius, point, oldTarget, TargetT
                 return enemies[1]
             end
     elseif #enemies == 1 then
-        return enemies[1] 
+        if enemies[1]:IsAlive() then
+            return enemies[1] 
+        else
+            if self:GetCaster() ~= unit then
+                unit:RemoveSelf()
+            end
+        end
     else
     
         if self:GetCaster() ~= unit then
@@ -210,7 +216,9 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
                         unit:RemoveModifierByName("modifier_okada_dmg_reduct")
                     end
                 end
-                return
+                if not shouldJumpTargets then
+                    return
+                end
             end
         end
         if soundCounter >= soundCounterMax then

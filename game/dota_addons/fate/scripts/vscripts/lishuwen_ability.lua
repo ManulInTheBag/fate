@@ -479,7 +479,7 @@ function OnDragonStrike1Start(keys)
         bHasFrontalCone = true,
         bReplaceExisting = false,
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
         iUnitTargetType = DOTA_UNIT_TARGET_ALL,
         fExpireTime = GameRules:GetGameTime() + 0.1,
 		bDeleteOnHit = false,
@@ -545,7 +545,7 @@ function OnDragonStrike2Start(keys)
 		GrantFuriousChainBuff(caster) 
 	end]]
 
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, keys.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, keys.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 	for k,v in pairs(targets) do
 		DoDamage(caster, v, keys.Damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 		caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(v, 5)
@@ -601,7 +601,7 @@ function OnDragonStrike3Start(keys)
 	caster.bIsCurrentDSCycleFinished = true
 	Timers:RemoveTimer('raging_dragon_timer')
 	caster:SwapAbilities("lishuwen_tiger_strike","lishuwen_raging_dragon_strike_3", true, false) 
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 	if #targets == 0 then 
     		local abil = caster:FindAbilityByName("lishuwen_raging_dragon_strike")

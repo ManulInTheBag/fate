@@ -87,10 +87,10 @@ function modifier_okada_manslayer_passive:ActivateThirst()
 	self.parent:AddNewModifier(self.parent, self.ability, "modifier_okada_manslayer", {duration = self.ability:GetSpecialValueFor("passive_duration")})
 	if self.parent.OkadaSa2Acquired then
 		self:GetAbility():EndCooldown()
-		 self.parent:Heal(self.parent:GetMaxHealth() * 0.25, self.ability)
-		 self.parent:GiveMana(self.parent:GetMaxMana() * 0.25)
-		 self.parent:FindAbilityByName("okada_flashblade")
-		 self.parent:FindAbilityByName("okada_reduced_earth")
+		self.parent:Heal(self.parent:GetMaxHealth() * 0.25, self.ability)
+		self.parent:GiveMana(self.parent:GetMaxMana() * 0.25)
+		self.parent:FindAbilityByName("okada_flashblade"):EndCooldown()
+		self.parent:FindAbilityByName("okada_reduced_earth"):EndCooldown()
 		local targets = FindUnitsInRadius(self.parent:GetTeam(), self.parent:GetOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 		for _,v in pairs(targets) do
     		if not v:HasModifier("modifier_murderer_mist_in") then

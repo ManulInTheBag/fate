@@ -59,15 +59,16 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
   	local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
 
-  	print("ryougi knife hit target "..hTarget:GetName())
-  	hCaster:AddNewModifier(hCaster, self, "modifier_ryougi_knife_swap", {duration = self:GetSpecialValueFor("swap_duration")})
-  	-- if (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Length2D() <= self:GetSpecialValueFor("bfm_range") then
-  	-- 	hCaster:FindAbilityByName("ryougi_knife_recast"):StartCombo(hTarget)
-  	-- else
-  	-- 	hCaster:AddNewModifier(hCaster, self, "modifier_ryougi_knife_swap", {duration = self:GetSpecialValueFor("swap_duration")})
-	-- end
-  	hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_target", {duration = self:GetSpecialValueFor("mark_duration")})
-  	print("ryougi knife after modifier applied target "..hTarget:GetName())
+	if hTarget:IsHero() then
+		hCaster:AddNewModifier(hCaster, self, "modifier_ryougi_knife_swap", {duration = self:GetSpecialValueFor("swap_duration")})
+		-- if (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Length2D() <= self:GetSpecialValueFor("bfm_range") then
+		-- 	hCaster:FindAbilityByName("ryougi_knife_recast"):StartCombo(hTarget)
+		-- else
+		-- 	hCaster:AddNewModifier(hCaster, self, "modifier_ryougi_knife_swap", {duration = self:GetSpecialValueFor("swap_duration")})
+		-- end
+		hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_target", {duration = self:GetSpecialValueFor("mark_duration")})
+	end
+
   	if hCaster.BlackMoonAcquired then
       hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_throw_slow", {duration = self:GetSpecialValueFor("attribute_slow_duration")})
 	  hTarget:AddNewModifier(hCaster, self, "modifier_heal_reduction_tier_2", {duration = self:GetSpecialValueFor("attribute_slow_duration")})

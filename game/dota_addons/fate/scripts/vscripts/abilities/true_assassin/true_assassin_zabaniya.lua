@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_zabaniya_curse", "abilities/true_assassin/modifiers/mo
 LinkLuaModifier("modifier_heal_reduction_tier_4", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 function true_assassin_zabaniya:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
-	local target_flag = DOTA_UNIT_TARGET_FLAG_NONE
+	local target_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 
 	--if caster:HasModifier("modifier_shadow_strike_upgrade") then		
 	--	target_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
