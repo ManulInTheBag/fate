@@ -6912,7 +6912,7 @@
         //"DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_bonus_damage"	"%DAMAGE AMPLIFICATION:"	
 
         "DOTA_Tooltip_Ability_jeanne_attribute_punishment"				"Attribute: Punishment"
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"Purge the Unjust slows the enemies.\nIncreases God's Resolution active duration and damage, based on Jeanne's <font color='#1E90FF'>intellect</font> and makes Jeanne <font color='#ff9900'>unslowable</font> and <font color='#ff9900'>phased</font> for the duration."
+        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"Increases God's Resolution active duration and damage, based on Jeanne's <font color='#1E90FF'>intellect</font> and makes Jeanne <font color='#ff9900'>unslowable</font> and <font color='#ff9900'>phased</font> for the duration."
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_bonus_damage"	"%PURGE THE UNJUST EXTRA DAMAGE PER DEAD TEAMMATE:"
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_amount"	"%PURGE THE UNJUST SLOW AMOUNT:"
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_duration"	"SLOW AND REVOKE DURATION:"
@@ -6925,7 +6925,7 @@
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_bonus_reduction"	"%Bonus reduction:"
 
         "DOTA_Tooltip_Ability_jeanne_attribute_revelation"				"Attribute: Revelation"
-        "DOTA_Tooltip_Ability_jeanne_attribute_revelation_Description"	"Improves Magic Resistance EX.\nCharisma applies <font color='#FFFAFA'>hard cleanse</font> to Jeanne and targetted ally."
+        "DOTA_Tooltip_Ability_jeanne_attribute_revelation_Description"	"Improves Magic Resistance EX. \nCharisma dispells stuns from target."
         "DOTA_Tooltip_Ability_jeanne_attribute_revelation_Lore"			"It is said that Jeanne receives Revelations directly from God."
 
         //====================================
@@ -7350,8 +7350,8 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_Description"	"Reduces Nameless Forest's cooldown, increases its cast range, and causes it to steal STR, AGI, and INT from enemy hero. Also, enables Reminiscence.\nReminiscence: Releases hero from Nameless Forest immediately. Nursery Rhyme gains unconditional mana regen."
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_cdr"		"COOLDOWN REDUCTION:"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_bonus_cast_range"	"BONUS CAST RANGE:"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_stat_steal"			"STAT STEAL AMOUNT:"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_stat_steal_duration"	"STAT STEAL DURATION:"
+        //"DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_stat_steal"			"STAT STEAL AMOUNT:"
+        //"DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_stat_steal_duration"	"STAT STEAL DURATION:"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_pct_mana_regen"		"MANA REGEN PERCENTAGE:"
 
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game"				"Attribute: A Tale That Never Ends"
@@ -7537,7 +7537,7 @@
 		"DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_snipe_arrows_damage_percentage"      "%ARROW DAMAGE SCALING:"
 
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper"					"Attribute: Arrows of the Big Dipper"
-        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"Atalanta imbues her arrows with the blessing of Artemis. Celestial Arrows reveal FOW where they fly. \nArrows additionally deal Atalanta's agility as bonus magic damage."
+        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"Atalanta imbues her arrows with the blessing of Artemis. Celestial Arrows reveal FOW where they fly. \nIncrease arrows base damage by 75% of Atalanta's agility."
         //"DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_conversion"		"%Damage Conversion:"
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Lore"				"Her hunt is blessed by the Goddess of Hunt herself."
         
@@ -7576,7 +7576,7 @@
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_bonus_range"       "BONUS RANGE:"
 
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute"				"Attribute: Calydonian Snipe"
-        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Arrow of the Big Dipper now pierces the enemies. \nWhenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 3%% per stack.<br/>Arrow of the Big Dipper applies 10 stacks."
+        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Whenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 3%% per stack.<br/>Arrow of the Big Dipper applies 15 stacks."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Lore"			"Once the hunt is on, there is no hiding from the arrows of the huntress."
         //"DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Note0"		"Arrows can be disjointed."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_stacks_duration"		"Duration:"
@@ -8953,7 +8953,7 @@
         "DOTA_Tooltip_ability_jtr_mental_pollution_passive_cooldown"		"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_murderer_mist"				"Murderer of the Misty Night"
-        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in %reveal_radius% radius from any enemy hero. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). Also grants bonus agility.\nDisables ward vision (but not truesight) in 3200 radius.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
+        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in %reveal_radius% radius from any enemy hero. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). \nDisables ward vision (but not truesight) in 3200 radius.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
         "DOTA_Tooltip_ability_jtr_murderer_mist_radius"			"Area of Effect:"
         "DOTA_Tooltip_ability_jtr_murderer_mist_slow_pct"		"%Slow:"
 	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_vision"		"\n<font color='#FF0000'>Bloody Thirst</font> detection radius:"
@@ -10170,7 +10170,7 @@
         "DOTA_Tooltip_ability_hijikata_laws_Lore"							"Even after he threw away his pride as a warrior, Hijikata still aspired to be Shinsengumi, because of that he renders insane when he breaks the codex, up until he is not able to move anymore."
 
         "DOTA_Tooltip_ability_hijikata_ult"							"Shinsengumi"
-        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata stores damage he has taken for up to %stack_reset_delay% seconds, capped at 75% of Hijikata's base maximum health(not counting STR).\nHijikata shoots his gun after a delay, dealing <font color='#A72E28'>physical</font> damage to all enemies hit, increased by Hijikata's attack and a portion of stored damage, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nHijikata is pushed back after shooting.\nAt full stacks, width of the shot is increased and it applies <font color='#FF3399'>silence</font> debuff for %silence_duration% second, as well as powerful <font color='#9400D3'>slow</font>."
+        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata stores damage he has taken for up to %stack_reset_delay% seconds, capped at 75% of Hijikata's base maximum health(not counting STR).\nHijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, increased by Hijikata's attack and a portion of stored damage, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nHijikata is pushed back after shooting.\nAt full stacks, width of the shot is increased and it applies <font color='#FF3399'>silence</font> debuff for %silence_duration% second, as well as powerful <font color='#9400D3'>slow</font>."
         "DOTA_Tooltip_ability_hijikata_ult_damage"							"Damage:"
         "DOTA_Tooltip_ability_hijikata_ult_attack_damage_mod"				"%Attack damage:"
         "DOTA_Tooltip_ability_hijikata_ult_duration"						"Slow duration:"

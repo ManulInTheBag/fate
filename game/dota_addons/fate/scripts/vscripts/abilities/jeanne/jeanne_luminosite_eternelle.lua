@@ -46,7 +46,7 @@ function jeanne_luminosite_eternelle:OnChannelFinish( bInterrupted )
 		local final_burst_heal = self:GetSpecialValueFor("final_burst_heal")
 		
 		if caster.IsDivineSymbolAcquired then
-			final_burst_heal = final_burst_heal + 4 * caster:GetIntellect()
+			final_burst_heal = final_burst_heal + 2.5 * caster:GetIntellect()
 		end
 		
 		caster:EmitSound("jeanne_heal_beep")

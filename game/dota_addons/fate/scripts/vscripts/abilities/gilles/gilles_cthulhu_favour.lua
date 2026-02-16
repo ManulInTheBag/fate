@@ -79,7 +79,7 @@ if IsServer() then
 		
 		local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetAOERadius() - 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for _,v in pairs(tEnemies) do
-			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("prock_damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("prock_damage"), DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 			if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
 				if not v:IsMagicImmune() and not v.GillesChtulhuRootApplied then
 					EmitSoundOnLocationWithCaster(v:GetAbsOrigin(), "Gilles_Cthulhu_Root", v)
