@@ -5326,8 +5326,9 @@
         "DOTA_Tooltip_ability_gilles_eye_for_art_passive_Description"	"Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds."
 
         "DOTA_Tooltip_Ability_gilles_cthulhu_favour"     			"Cthulu's Favour"
-        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm.\nAll enemies inside take <font color='#58ACFA'>damage</font> every 0.2 seconds.</font>\n<font color='#F1C40F'>Upgradable by attribute Sunken City of R'lyeh.</font>"
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm.\nPortal opens after a 1 second delay, dealing <font color='#58ACFA'>magical</font> damage\nAll enemies inside take <font color='#58ACFA'>damage</font> every 0.2 seconds.</font>\n<font color='#F1C40F'>Upgradable by attribute Sunken City of R'lyeh.</font>"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_radius"			"Area of Effect:"
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_cast_damage"	"Activation damage:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_spawn_damage"	"Spawn damage:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_prock_damage"	"Prock damage:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_duration"		"Portal duration:"
@@ -6200,7 +6201,7 @@
         "DOTA_Tooltip_ability_nero_rosa_buffed_range"			"Range:"
 
         "DOTA_Tooltip_Ability_nero_laus_saint_claudius"     			"Combo: Laus Saint Claudius"
-        "DOTA_Tooltip_ability_nero_laus_saint_claudius_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R while Aestus Domus Aurea is active</font>.\nNero performs her final and ultimate technique. After a 6 seconds all enemies inside Aestus Domus Aurea will be slashed, dealt a massive amount of damage and set on fire for a short duration of time."
+        "DOTA_Tooltip_ability_nero_laus_saint_claudius_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-D while Aestus Domus Aurea is active</font>.\nNero performs her final and ultimate technique. After a 6 seconds all enemies inside Aestus Domus Aurea will be slashed, dealt a massive amount of damage and set on fire for a short duration of time."
         "DOTA_Tooltip_ability_nero_laus_saint_claudius_Lore"			"The emperor ends her performance with her fiery passion."
         "DOTA_Tooltip_ability_nero_laus_saint_claudius_damage"			"Damage:"
         "DOTA_Tooltip_ability_nero_laus_saint_claudius_damage"			"Fire Damage:"
@@ -7632,7 +7633,7 @@
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_note0"									"Bloodpower stacks from Bloodletter attribute count as bleed stacks for determining if Cursed Lance is soft dispellable."
 		
 		"DOTA_Tooltip_ability_vlad_attribute_bloodletter" 											"Attribute: Fortress of Dracula"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"While having less then 60% HP, using any basic ability will cause Vlad 3 to summon spikes in 450 radius around him, dealing damage, applying 5 bleed stacks and rooting all enemies for 0.5 seconds.\nRebellious intent has a 2 second cooldown for this effect."
+		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"While having less then 60% HP, using any basic ability will cause Vlad 3 to summon spikes in 450 radius around him, dealing %damage% damage, applying 3 bleed stacks and rooting all enemies for 0.5 seconds.\nRebellious intent has a 2 second cooldown for this effect."
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_transfusionbonus"								"TRANSFUSION BONUS DAMAGE:"
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_shield_per_stack__TT"				"%E BONUS SHIELD PER BLOODPOWER:"
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_dmg_per_stack__TT"				"%E BONUS DAMAGE PER BLOODPOWER:"
@@ -7822,7 +7823,7 @@
 
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him taking damage from units outside of barrier translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealt only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealt additional physical damage, based on Leonidas attack."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him taking damage from units outside of barrier translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas gives barrier to all Allies, and  consumes  portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealt only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealt additional physical damage, based on Leonidas attack."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
@@ -9182,7 +9183,7 @@
 
 		//Formlessness
 		"DOTA_Tooltip_ability_saito_formlessness_new"													"Formlessness"
-		"DOTA_Tooltip_ability_saito_formlessness_new_Description"										"Saitō unleashes a special move cutting inverse and diagonally. Saito slashes target multiple times based on stacks. The first slashes are a double slash, dealing <font color='#58ACFA'>damage</font> and dimensionally locking the target for %lock_duration% seconds. Last slash deals more <font color='#58ACFA'>damage</font> and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of <font color='#0075B5'>Formless</font> early.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige</font>."
+		"DOTA_Tooltip_ability_saito_formlessness_new_Description"										"Saitō unleashes a special move cutting inverse and diagonally. Saito slashes target multiple times based on stacks. The first slashes are a double slash, dealing <font color='#58ACFA'>damage</font> and dimensionally locking the target for %lock_duration% seconds. Last slash deals more <font color='#58ACFA'>damage</font> and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of <font color='#0075B5'>Formless</font> early.\nInvis is breaken upon taking damage\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige</font>."
 		"DOTA_Tooltip_ability_saito_formless_slash_Lore"											"No matter what kind of melee weapon the target uses, be it spear, sword, or anything else, Saitō always makes the first move from any distance, ignoring the target’s reach."
 		"DOTA_Tooltip_ability_saito_formless_slash_AbilityCastPoint"								"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_formlessness_new_max_slashes"									"MAX STACKS:"
@@ -9201,7 +9202,7 @@
 		"saito_step_locked_error"																	"Ability Not Castable While Locked"
 
 		"DOTA_Tooltip_ability_saito_step"															"Tetra-Step"
-		"DOTA_Tooltip_ability_saito_step_Description"												"Teleports to the target location, dealing damage and stunning enemies within %radius% AoE for %stun_duration% seconds.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
+		"DOTA_Tooltip_ability_saito_step_Description"												"Teleports to the target location, dealing damage and stunning enemies within %radius% AoE for %stun_duration% seconds.\nUpgraded with hero level.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_step_Lore"														"To be formless is to be unmoving."
 		"DOTA_Tooltip_ability_saito_step_Note0"														"Cannot be used while locked."
 		"DOTA_Tooltip_ability_saito_step_abilitycastpoint"											"CAST POINT:"
@@ -9209,23 +9210,25 @@
 		//"DOTA_Tooltip_ability_saito_step_min_distance"											""
 		//"DOTA_Tooltip_ability_saito_step_radius"													""
 		"DOTA_Tooltip_ability_saito_step_damage"													"DAMAGE:"
+		"DOTA_Tooltip_ability_saito_step_damage_per_level"											"DAMAGE PER LEVEL:"
 		//"DOTA_Tooltip_ability_saito_step_stun_duration"											""
 
 		//Shieldbreaker
 		"DOTA_Tooltip_ability_saito_storm"															"Shieldbreaker"
-		"DOTA_Tooltip_ability_saito_storm_Description"												"Saitō thrusts his blade forward at the target enemy, creating a beam that travels %pierce_range% range and stuns the primary target for %stun_duration% seconds.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
+		"DOTA_Tooltip_ability_saito_storm_Description"												"Saitō thrusts his blade forward at the target enemy, creating a beam that travels %pierce_range% range and stuns the primary target for %stun_duration% seconds.\nUpgraded with hero level.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_storm_Lore"														"A special thrust variant of the Shinsengumi’s Hirazuki method."
 		"DOTA_Tooltip_ability_saito_storm_abilitycastpoint"											"CAST POINT:"
 		//"DOTA_Tooltip_ability_saito_storm_duration"												""
 		//"DOTA_Tooltip_ability_saito_storm_fly_duration"											""
 		//"DOTA_Tooltip_ability_saito_storm_stun_duration"											""
 		"DOTA_Tooltip_ability_saito_storm_damage"													"DAMAGE:"
+		"DOTA_Tooltip_ability_saito_storm_damage_per_level"											"DAMAGE PER LEVEL:"
 		//"DOTA_Tooltip_ability_saito_storm_pierce_range"											""
 		//"DOTA_Tooltip_ability_saito_storm_pierce_width"											""
 
 		//Blade Vortex
 		"DOTA_Tooltip_ability_saito_vortex"															"Blade Vortex"
-		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repeatedly. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away. Saitō is revoked for the duration.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
+		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repeatedly. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away. Saitō is revoked for the duration.\nUpgraded with hero level.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_vortex_Lore"													"Wha~at, this way is just more interesting to me."
 		"DOTA_Tooltip_ability_saito_vortex_AbilityCastPoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"PULL RADIUS:"
@@ -9237,7 +9240,9 @@
 		//"DOTA_Tooltip_ability_saito_vortex_slashes_count"											""
 		//"DOTA_Tooltip_ability_saito_vortex_slashes_interval"										""
 		"DOTA_Tooltip_ability_saito_vortex_slash_damage"											"DAMAGE PER SLASH:"
+		"DOTA_Tooltip_ability_saito_vortex_damage_per_level"									"DAMAGE PER SLASH PER LEVEL:"
 		"DOTA_Tooltip_ability_saito_vortex_slash_last_damage"										"LAST SLASH DAMAGE:"
+		"DOTA_Tooltip_ability_saito_vortex_damage_per_level_last"								"LAST SLASH DAMAGE PER LEVEL:"
 		"DOTA_Tooltip_ability_saito_vortex_pull_speed"												"PULL SPEED PER SECOND:"
 
 		"DOTA_Tooltip_modifier_saito_vortex_slashing"												"Blade Vortex"
@@ -9353,7 +9358,7 @@
 
 		//Kijinmaru Kunishige
 		"DOTA_Tooltip_ability_saito_attribute_kunishige"											"Attribute: Kijinmaru Kunishige"
-		"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"<font color='#0075B5'>Formless</font>: reduces fade delay by %fli_fade_delay% seconds, giving %fli_evasion%%% evasion bonus.\n<font color='#0075B5'>Formlessness</font>: slash and last slash gain bonus damage based on Saitō's attack damage and deals %fls_revoked_scale%x damage to revoked enemies and non-hero units, also increasing its cast range by %fls_cast_range%."
+		"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"<font color='#0075B5'>Formless</font>: reduces fade delay by %fli_fade_delay% seconds, giving %fli_evasion%%% evasion bonus.\n<font color='#0075B5'>Formlessness</font>: slash and last slash gain bonus damage based on Saitō's attack damage and deals %fls_revoked_scale%x damage to revoked enemies and non-hero units, also increasing its cast range by %fls_cast_range%.\nAlso increases damage to break invisibility to %fls_invis_dmg%."
 		"DOTA_Tooltip_ability_saito_attribute_kunishige_Lore"										"The beloved sword of the Shinsengumi’s Third Unit Captain."
 		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_fade_delay"							""
 		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_evasion"								""
@@ -10021,7 +10026,7 @@
 		"DOTA_Tooltip_Ability_robin_tools_pitfall_Lore"	"The bow can materialize a number of roots that swarm around the target and take the form of a tree that subsequently bursts and withers."
 		
 		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane"	"<font color='#FFE56E'>Poisonous Concoction - Wolf's Bane</font>"
-		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_Description"	"Cast Point: <font color='#FFFFF9'>0.35</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin throws a poisonous concoction at his target.\n\nExploding for <font color='#05CAFF'>magical damage</font>, applying <font color='#FF3399'>stuns</font> and <font color='#52b000'>10 poison stacks</font> to enemies within a radius."
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_Description"	"Cast Point: <font color='#FFFFF9'>0.35</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin throws a poisonous concoction at his target.\n\nExploding for <font color='#C24401'>damage</font>, applying <font color='#FF3399'>stuns</font> and <font color='#52b000'>10 poison stacks</font> to enemies within a radius."
 		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_range"	"THROW RANGE:"
 		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_max_stun"	"STUN DURATION:"
 		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_max_damage"	"EXPLOSION DAMAGE:"

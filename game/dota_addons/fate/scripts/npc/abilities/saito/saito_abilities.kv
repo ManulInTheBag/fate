@@ -367,7 +367,7 @@
 		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this is a global ability, the range is capped in Lua basically.
 
-		"MaxLevel"									"5"
+		"MaxLevel"									"1"
 		"RequiredLevel"								"1"
 		"LevelsBetweenUpgrades"						"1"
 
@@ -380,10 +380,11 @@
 
 		"AbilityValues"
 		{
-			"max_distance"							"850 900 950 1000 1050"
+			"max_distance"							"1050"
 			"min_distance"							"200"
 			"radius"								"315"
-			"damage"								"500 625 750 875 1000"
+			"damage"								"500"
+			"damage_per_level"						"27"
 			"stun_duration"							"1.25"
 		}
 	}
@@ -414,7 +415,7 @@
 		"AbilityManaCost"							"200"
 		"AbilityCastRange"							"800"
 
-		"MaxLevel"									"5"
+		"MaxLevel"									"1"
 		"RequiredLevel"								"1"
 		"LevelsBetweenUpgrades"						"1"
 
@@ -430,7 +431,8 @@
 			"duration"								"0.2"
 			"fly_duration"							"0.2"
 			"stun_duration"							"0.5"
-			"damage"								"400 500 600 700 800"
+			"damage"								"400"
+			"damage_per_level"						"22"
 			"pierce_range"							"720"
 			"pierce_width"							"180"
 		}
@@ -461,7 +463,7 @@
 		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
-		"MaxLevel"									"5"
+		"MaxLevel"									"1"
 		"RequiredLevel"								"1"
 		"LevelsBetweenUpgrades"						"1"
 
@@ -482,8 +484,10 @@
 			"knockback_duration"					"0.5"
 			"slashes_count"							"5"
 			"slashes_interval"						"0.3"		//Optimum time.
-			"slash_damage"							"70 80 90 100 110"
-			"slash_last_damage"						"270 330 390 450 510"
+			"slash_damage"							"70"
+			"damage_per_level"						"2"
+			"slash_last_damage"						"270"
+			"damage_per_level_last"					"12"
 			"pull_speed"							"180"
 		}
 	}
@@ -760,7 +764,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCooldown"							"9999"
-		"AbilityManaCost"							"11"
+		"AbilityManaCost"							"12"
 
 		"MaxLevel"									"1"
 		"RequiredLevel"								"1"
@@ -773,12 +777,13 @@
 
 		"AbilityValues"
 		{
-			"fli_fade_delay"						"0.75"
+			"fli_fade_delay"						"0.35"
 			"fli_evasion"							"35"
 			"fls_cast_range"						"150"
 			"fls_revoked_scale"						"1.5"
 			"fls_dmg_per_atk"						"15"
 			"fls_last_dmg_per_atk"					"100"
+			"fls_invis_dmg"							"300"
 		}
 	}
 	//	Updating the tooltips after acquiring the Special Attribute (SA) cannot be used on Saitō Hajime,

@@ -56,7 +56,7 @@ function hijikata_demon_recast:OnSpellStart()
 					end
 					DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 					if caster.IsShinsengumiAcquired then
-						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster) * 0.5, self:GetAbilityDamageType(), 0, self, false)
+						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster) * 1, self:GetAbilityDamageType(), 0, self, false)
 					end
 					
 				end
@@ -87,7 +87,7 @@ function hijikata_demon_recast:OnSpellStart()
 					end
 				    DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 					if caster.IsShinsengumiAcquired then
-						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster)* 0.5, self:GetAbilityDamageType(), 0, self, false)
+						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster)* 1, self:GetAbilityDamageType(), 0, self, false)
 					end
 			  	end
 			end

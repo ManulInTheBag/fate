@@ -2488,6 +2488,17 @@ function modifier_saito_formless_invis:BreakInvis()
         self:StartIntervalThink(self.nFadeDelay) --Start fade delay.
     end
 end
+
+function modifier_saito_formless_invis:OnTakeDamage(keys)
+	if IsServer() then
+		local caster = self:GetParent()
+		if keys.unit ~= caster then return end
+        if keys.damage >  GetAttributeValue(caster, "saito_attribute_kunishige", "fls_invis_dmg", -1, 50) then
+		    self:BreakInvis()
+        end
+	end	
+end
+
 function modifier_saito_formless_invis:StartInvis()
     if IsServer() then
         self:SetStackCount(0) --Stack counter helps us to provide value to client side for CheckState.
@@ -2769,7 +2780,7 @@ function saito_step:OnSpellStart()
     local nRadius = self:GetSpecialValueFor("radius")
 
     local nDamageType = self:GetAbilityDamageType()
-    local nDamage = self:GetSpecialValueFor("damage")
+    local nDamage = self:GetSpecialValueFor("damage") +self:GetSpecialValueFor("damage_per_level")  * hCaster:GetLevel()
 
     local nStunDuration = self:GetSpecialValueFor("stun_duration")
 
@@ -2904,7 +2915,7 @@ function modifier_saito_storm_motion:OnCreated(tTable)
 
         self.fOffset = ( self.hTarget:BoundingRadius2D() + self.hParent:BoundingRadius2D() ) * 2
 
-        self.nDamage = self.hAbility:GetSpecialValueFor("damage")
+        self.nDamage = self.hAbility:GetSpecialValueFor("damage") +self.hAbility:GetSpecialValueFor("damage_per_level")  * self.hCaster:GetLevel()
 
         self.nStunDuration = self.hAbility:GetSpecialValueFor("stun_duration")
 
@@ -3146,8 +3157,8 @@ function modifier_saito_vortex_slashing:OnCreated(hTable)
     self.nSlashCount    = self.hAbility:GetSpecialValueFor("slashes_count")
     self.nSlashInterval = self.hAbility:GetSpecialValueFor("slashes_interval")
 
-    self.nSlashDamage     = self.hAbility:GetSpecialValueFor("slash_damage")
-    self.nSlashLastDamage = self.hAbility:GetSpecialValueFor("slash_last_damage")
+    self.nSlashDamage     = self.hAbility:GetSpecialValueFor("slash_damage") +self.hAbility:GetSpecialValueFor("damage_per_level")  * self.hCaster:GetLevel()
+    self.nSlashLastDamage = self.hAbility:GetSpecialValueFor("slash_last_damage")  +self.hAbility:GetSpecialValueFor("damage_per_level_last")  * self.hCaster:GetLevel()
 
     if IsServer() then
         self.nDamageType           = self.hAbility:GetAbilityDamageType()

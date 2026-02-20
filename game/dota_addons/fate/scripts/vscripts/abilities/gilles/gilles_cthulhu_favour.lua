@@ -38,15 +38,19 @@ function gilles_cthulhu_favour:OnSpellStart()
 		local thinker = CreateModifierThinker(hCaster, self, "modifier_cthulhu_favour_thinker", tModifierArgs, vTargetLocation, hCaster:GetTeamNumber(), false)
 		ParticleManager:DestroyParticle(particleIndex, false)
 		ParticleManager:ReleaseParticleIndex(particleIndex)
-
+		local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), vTargetLocation, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		for _,v in pairs(tEnemies) do
+			DoDamage(hCaster, v, self:GetSpecialValueFor("cast_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+		end
 		if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
 	 		EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Gilles_Cthulhu_Root", self:GetCaster())
-	 		local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), vTargetLocation, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		
 			for _,v in pairs(tEnemies) do
+				DoDamage(hCaster, v, self:GetSpecialValueFor("cast_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 				if not v:IsMagicImmune() and not v.GillesChtulhuRootApplied then
 					giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", self:GetSpecialValueFor("root_duration"))
 					giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", self:GetSpecialValueFor("lock_duration"))
+					
 					v.GillesChtulhuRootApplied = true
 					Timers:CreateTimer(2.0, function()
 						v.GillesChtulhuRootApplied = false
@@ -79,7 +83,7 @@ if IsServer() then
 		
 		local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetAOERadius() - 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for _,v in pairs(tEnemies) do
-			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("prock_damage"), DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
+			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("prock_damage"), DAMAGE_TYPE_PHYSICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self:GetAbility(), false)
 			if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
 				if not v:IsMagicImmune() and not v.GillesChtulhuRootApplied then
 					EmitSoundOnLocationWithCaster(v:GetAbsOrigin(), "Gilles_Cthulhu_Root", v)

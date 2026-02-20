@@ -179,7 +179,7 @@ function modifier_atalanta_jump:PlayEffects()
 	            local knockback = { should_stun = self.parent.EvolutionAcquired,
 	                                knockback_duration = 0.5,
 	                                duration = 0.5,
-	                                knockback_distance = self.parent.TornadoAcquired and -300 or 0,
+	                                knockback_distance = self.parent.TornadoAcquired and -200 or 0,
 	                                knockback_height = self.parent.EvolutionAcquired and 50 or 0,
 	                                center_x = self.parent:GetAbsOrigin().x,
 	                                center_y = self.parent:GetAbsOrigin().y,

@@ -1309,9 +1309,7 @@ function leonidas_pride:OnSpellStart()
     local barrier = self:GetSpecialValueFor("barrier_on_cast") + GetAttributeValue(hCaster, "leonidas_math_attribute",
     "wall_bonus_barrier_per_int", -1, 0, false) * hCaster:GetIntellect(false)
     local barriers_modifiers = hCaster:FindAllModifiersByName("modifier_leonidas_enomotia_shield")
-    for _, modifier in pairs(barriers_modifiers) do
-        barrier =  barrier + modifier:GetStackCount()
-    end
+ 
     self.brothers = {}
     hCaster:RemoveAllModifiersOfName("modifier_leonidas_enomotia_shield")
     local right_vec = hCaster:GetRightVector()
@@ -1322,8 +1320,17 @@ function leonidas_pride:OnSpellStart()
     for k,v in pairs(BROTHERS) do
         if v:GetUnitName() == "leonidas_brother_soldier" then
             initialBrotherCount = initialBrotherCount + 1
+        else
+            if v:IsHero() then
+                if  v ~= hCaster then
+                    v:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nCounterDuration, nDamageBlock = barrier})
+                end
+            end
         end
 
+    end
+    for _, modifier in pairs(barriers_modifiers) do
+        barrier =  barrier + modifier:GetStackCount()
     end
     local right_vec_mod = 1
     if initialBrotherCount == 0 then
@@ -1363,12 +1370,12 @@ function leonidas_pride:OnSpellStart()
                 nShieldRows = nShieldRows + 1
             end
         else
-            if v:HasModifier("modifier_leonidas_enomotia_shield") then
-                barrier = barrier + v:GetModifierStackCount("modifier_leonidas_brother", hCaster)
-                v:RemoveModifierByName("modifier_leonidas_enomotia_shield")
-                nShowShields = nShowShields + 2
+            -- if v:HasModifier("modifier_leonidas_enomotia_shield") then
+            --     barrier = barrier + v:GetModifierStackCount("modifier_leonidas_brother", hCaster)
+            --     v:RemoveModifierByName("modifier_leonidas_enomotia_shield")
+            --     nShowShields = nShowShields + 2
                 
-            end
+            -- end
             barrier = barrier + self:GetSpecialValueFor("shield_per_ally_inside")
             nShowShields = nShowShields + 1
         end
