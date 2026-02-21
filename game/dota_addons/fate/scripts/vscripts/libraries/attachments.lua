@@ -141,13 +141,13 @@ end
 
 function Attachments:start()
 
-  local src = debug.getinfo(1).source
-  --print(src)
-
-  self.gameDir = ""
-  self.addonName = ""
-
   if IsInToolsMode() then
+
+    local src = debug.getinfo(1).source
+    --print(src)
+
+    self.gameDir = ""
+    self.addonName = ""
 
     if src:sub(2):find("(.*dota 2 beta[\\/]game[\\/]dota_addons[\\/])([^\\/]+)[\\/]") then
 

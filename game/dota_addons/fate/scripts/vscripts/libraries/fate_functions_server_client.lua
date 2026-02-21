@@ -396,10 +396,10 @@ end]]
 --thx eyeoflie
 if IsServer() then
 
-    RegisteredTracebacks = {}
+    --RegisteredTracebacks = {}
 
     --if not IsInToolsMode() then
-        debug.old_traceback = debug.old_traceback or debug.traceback
+        --[[debug.old_traceback = debug.old_traceback or debug.traceback
         debug.traceback = function(...)
             local stack = debug.old_traceback(...)
             local table_to_send = string.split(stack, "\n")
@@ -421,7 +421,7 @@ if IsServer() then
             end
 
             return stack
-        end
+        end]]
     --end
 
 	local RegistredCustomEventsListeners = RegistredCustomEventsListeners or {}

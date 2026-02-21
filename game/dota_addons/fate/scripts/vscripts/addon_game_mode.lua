@@ -1,3 +1,4 @@
+function init_shit ()
 SendToConsole("dota_clientside_wearables false")
 SendToServerConsole("dota_clientside_wearables false")
 
@@ -4996,3 +4997,8 @@ end
 function ZlojamonTestDaunStudy()
 
 end
+end
+
+local status, err = pcall(init_shit)
+
+print("pepegagaming"..err)
