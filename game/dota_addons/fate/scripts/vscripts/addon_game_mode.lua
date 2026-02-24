@@ -3350,8 +3350,10 @@ function FateGameMode:OnEntityKilled( keys )
                         table.insert(assistTable, assister)
                         assister.ServStat:onAssist()
                         assister:ModifyGold(400 , false, 0)
+
                         if assister:GetName() == "npc_dota_hero_troll_warlord" and assister.OkadaSa4Acquired then
                             assister:ModifyGold(200 , false, 0)
+
                         end
                         local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
                         ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
@@ -3499,7 +3501,12 @@ function FateGameMode:OnEntityKilled( keys )
                         if atker:GetTeam() == assister:GetTeam() and assister ~= killerEntity then
                             table.insert(assistTable, assister)
                             assister.ServStat:onAssist()
+                            local goldPopUpValue = 400
                             assister:ModifyGold(400 , false, 0)
+                            if assister:GetName() == "npc_dota_hero_troll_warlord" and assister.OkadaSa4Acquired then
+                                assister:ModifyGold(200, false, 0)
+                                goldPopUpValue = 600
+                            end
                             if assister:GetName() == "npc_dota_hero_spirit_breaker" then
                                 local modifier = assister:FindModifierByName("modifier_hijikata_laws")
                                 if modifier.kill_restriction == false then
@@ -3511,7 +3518,7 @@ function FateGameMode:OnEntityKilled( keys )
                             local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
                             --local goldPopupFx = ParticleManager:CreateParticleForTeam("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, killerEntity:GetTeamNumber())
                             ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
-                            ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,400,0))
+                            ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,goldPopUpValue,0))
                             ParticleManager:SetParticleControl( goldPopupFx, 2, Vector(3,#tostring(bounty)+1, 0))
                             ParticleManager:SetParticleControl( goldPopupFx, 3, Vector(255, 200, 33))
                         end

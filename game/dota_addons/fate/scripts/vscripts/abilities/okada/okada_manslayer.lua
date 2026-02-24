@@ -68,7 +68,7 @@ end
 function modifier_okada_manslayer_passive:DeclareFunctions()
 	return {	MODIFIER_EVENT_ON_HERO_KILLED	}
 end
-function modifier_okada_manslayer_passive:OnHeroDiedNearby( hVictim, hKiller, kv )
+function okada_manslayer:OnHeroDiedNearby( hVictim, hKiller, kv )
 	if hVictim == nil or hKiller == nil then
 		return
 	end
@@ -76,11 +76,13 @@ function modifier_okada_manslayer_passive:OnHeroDiedNearby( hVictim, hKiller, kv
 	if self:GetCaster().OkadaSa3Acquired then
 		range = range + 300
 	end
+
 	if hKiller == self:GetCaster() or ((hVictim:GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() < range and hVictim:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() )then
-		self:ActivateThirst()
+		self:GetCaster():FindModifierByName("modifier_okada_manslayer_passive"):ActivateThirst()
 	end
 end
 function modifier_okada_manslayer_passive:ActivateThirst()
+
 	if not self.pepega then
 			self.pepega = 1
 			self.parent = self:GetParent()

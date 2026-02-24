@@ -70,6 +70,10 @@ function okada_reduced_earth:PerformStrike(unit, caster, target, addVector, dmgM
 
         for _, enemy in pairs(enemies) do
             DoDamage(caster, enemy, damage * dmgMod, self:GetAbilityDamageType(), 0, self, false)
+            if caster.OkadaSa4Acquired then
+                giveUnitDataDrivenModifier(caster, enemy, "rooted", self:GetSpecialValueFor("sa_debuff_duration"))
+                giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("sa_debuff_duration"))
+            end
             EmitSoundOn("okada_pierce", enemy)
 
         end

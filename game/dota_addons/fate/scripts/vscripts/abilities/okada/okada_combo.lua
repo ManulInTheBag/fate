@@ -4,6 +4,7 @@ LinkLuaModifier("modifier_okada_combo_cd", "abilities/okada/okada_combo", LUA_MO
 LinkLuaModifier("modifier_okada_combo_true_invis", "abilities/okada/okada_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_heal_reduction_tier_3", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_okada_dmg_reduct", "abilities/okada/okada_ult", LUA_MODIFIER_MOTION_NONE)
 function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
     local initorigin = target:GetForwardVector()*200 + target:GetAbsOrigin()
     unit:SetAbsOrigin(initorigin)
@@ -11,6 +12,7 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
     unit:FaceTowards(target:GetAbsOrigin())
     unit:SetForwardVector(Vector(diff.x, diff.y, 0))
     unit:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.9})
+    unit:AddNewModifier(caster, self, "modifier_okada_dmg_reduct", {duration = 1.9})
 	giveUnitDataDrivenModifier(unit, caster, "dragged", 1.9)
     caster:Stop()
     local damage = self:GetSpecialValueFor("damage_first")
@@ -128,6 +130,9 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
         local particle_blood_big = ParticleManager:CreateParticle("particles/okada/okada_combo_blood.vpcf", PATTACH_WORLDORIGIN, nil)
         ParticleManager:SetParticleControl(particle_blood_big, 0, target:GetAbsOrigin())
         ParticleManager:SetParticleShouldCheckFoW(particle_blood_big, false)
+        if target:IsAlive() then
+            target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_3", {duration = self:GetSpecialValueFor("healres_duration")})
+        end
         Timers:CreateTimer(3, function()
             ParticleManager:DestroyParticle(particle_blood_big, true)
             ParticleManager:ReleaseParticleIndex(particle_blood_big)
@@ -152,9 +157,7 @@ function okada_combo:PerformComboAttack(unit, caster, target, dmgMod)
         unit:RemoveModifierByName("modifier_kb_immune")
         target:RemoveModifierByName("modifier_kb_immune")
         FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
-        if target:IsAlive() then
-            target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_3", {duration = self:GetSpecialValueFor("healres_duration")})
-        end
+
     end)
 
 end
@@ -330,7 +333,7 @@ end
 
 
 function modifier_okada_combo_true_invis:GetModifierIncomingDamage_Percentage() 
-	return -self:GetAbility():GetSpecialValueFor("damage_reduction_pct")
+	return -self:GetAbility():GetSpecialValueFor("dmg_reduct")
 end
 
 function modifier_okada_combo_true_invis:GetModifierMoveSpeed_Absolute()
