@@ -72,7 +72,11 @@ function modifier_okada_manslayer_passive:OnHeroDiedNearby( hVictim, hKiller, kv
 	if hVictim == nil or hKiller == nil then
 		return
 	end
-	if hKiller == self:GetCaster() or ((hVictim:GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() < 300 and hVictim:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() )then
+	local range = 300 
+	if self:GetCaster().OkadaSa3Acquired then
+		range = range + 300
+	end
+	if hKiller == self:GetCaster() or ((hVictim:GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() < range and hVictim:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() )then
 		self:ActivateThirst()
 	end
 end

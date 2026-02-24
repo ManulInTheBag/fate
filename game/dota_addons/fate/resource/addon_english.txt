@@ -3355,10 +3355,10 @@
 		"DOTA_Tooltip_Ability_okada_sa_2_vision_radius" 	"Vision radius:"
 
 		"DOTA_Tooltip_Ability_okada_sa_3"				"Contractor"
-		"DOTA_Tooltip_Ability_okada_sa_3_Description"	"Unlocks <font color='#FF0000'>Select prey</font> ability.\nUpgrades <font color='#FF0000'>Manslayer</font>, increasing its active duration by %bonus_duration% seconds."
+		"DOTA_Tooltip_Ability_okada_sa_3_Description"	"Unlocks <font color='#FF0000'>Select prey</font> ability.\nUpgrades <font color='#FF0000'>Manslayer</font>, increasing its active duration by %bonus_duration% seconds.\nIncreases <font color='#FF0000'>Manslayer</font> passive radius by %bonus_onkill_passive_radius%."
 
 		"DOTA_Tooltip_Ability_okada_sa_4"				"Money-maker dream"
-		"DOTA_Tooltip_Ability_okada_sa_4_Description"	"Okada will get %gold_bonus%%  more gold for kills.\nAll of Okada's items get a %item_cdr%%  cooldown reduction."
+		"DOTA_Tooltip_Ability_okada_sa_4_Description"	"Okada will get %gold_bonus%%  more gold for kills and assists.\nAll of Okada's items get a %item_cdr%%  cooldown reduction."
 
 		"DOTA_Tooltip_Ability_okada_combo"				"Shimatsuken: Calm"
 		"DOTA_Tooltip_Ability_okada_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast W - F in 3 seconds</font>\nOkada enters a true invisible state, getting damage reduction and disabling himself for a short time.\nAfter activation, Okada gains constant movement speed, switches true invisibility to ordinary invisibility and will activate a strong series of strikes onto the closest enemy in his radius.\nIf Okada uses any ability, item or attack, combo will instantly end.\nUpon activation, Okada will slice his target 4 times, dealing <font color='#D1A951'>damage</font>, before <font color='#FF3399'>stunning</font> them undispellably, until he finishes his move with last slash, dealing more damage.\nAfter dealing damage, apply <font color='#7F00FF'>healing reduction tier 3</font> for %healres_duration% seconds."

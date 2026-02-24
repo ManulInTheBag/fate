@@ -258,7 +258,7 @@ function OnHornStart(keys)
 	for k,v in pairs(silenceTargets) do
 		if not v:IsMagicImmune() then 
 			-- apply silence
-			giveUnitDataDrivenModifier(caster, v, "silenced", 1)
+			giveUnitDataDrivenModifier(caster, v, "silenced", 0.5)
 		end
     end
 
@@ -352,7 +352,7 @@ function OnHornThink(keys)
     local silenceTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, silenceRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(silenceTargets) do
 		-- apply silence
-		giveUnitDataDrivenModifier(caster, v, "silenced", 0.15)
+		--giveUnitDataDrivenModifier(caster, v, "silenced", 0.15)
     end
 
 end

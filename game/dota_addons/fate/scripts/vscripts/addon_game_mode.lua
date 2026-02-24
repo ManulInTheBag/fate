@@ -3349,6 +3349,9 @@ function FateGameMode:OnEntityKilled( keys )
                         table.insert(assistTable, assister)
                         assister.ServStat:onAssist()
                         assister:ModifyGold(400 , false, 0)
+                        if assister:GetName() == "npc_dota_hero_troll_warlord" and assister.OkadaSa4Acquired then
+                            assister:ModifyGold(200 , false, 0)
+                        end
                         local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
                         ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
                         ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,300,0))
