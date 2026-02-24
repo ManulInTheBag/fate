@@ -871,7 +871,7 @@
 		"AbilityTextureName"			"custom/cmd_seal_1"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"1"
+		"AbilityManaCost"				"0"
 
 		"precache"
 		{
@@ -952,7 +952,7 @@
 		"AbilityTextureName"			"custom/cmd_seal_3"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"1"
+		"AbilityManaCost"				"0"
 		
 		"precache"
 		{
@@ -987,7 +987,7 @@
 		"AbilityTextureName"			"custom/cmd_seal_4"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"10"
-		"AbilityManaCost"				"1"
+		"AbilityManaCost"				"0"
 		//"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		
 		

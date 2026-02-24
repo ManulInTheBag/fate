@@ -20,14 +20,14 @@ function OnSeal1Start(keys)
 	local hero = ply:GetAssignedHero()
 
 	if caster:GetHealth() <= 2 then
-		caster:SetMana(caster:GetMana()+3) 
+		--caster:SetMana(caster:GetMana()+3) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
 	end
 
 	if not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
-		caster:SetMana(caster:GetMana()+3) 
+		--caster:SetMana(caster:GetMana()+3) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
@@ -41,7 +41,7 @@ function OnSeal1Start(keys)
 
 	-- Set master 2's mana 
 	local master2 = hero.MasterUnit2
-	master2:SetMana(master2:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+	--master2:SetMana(master2:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 	-- Set master's health
 	caster:SetHealth(caster:GetHealth() - 2) 
 
@@ -156,9 +156,9 @@ function OnSeal2Start(keys)
 	end
 	hero.ServStat:useWSeal()
 	-- pay mana cost
-	caster:SetMana(caster:GetMana()-2)
+	--caster:SetMana(caster:GetMana()-2)
 	local master2 = hero.MasterUnit2
-	master2:SetMana(caster:GetMana())
+	--master2:SetMana(caster:GetMana())
 	-- pay health cost
 	caster:SetHealth(caster:GetHealth()-1) 
 
@@ -208,19 +208,19 @@ function OnSeal3Start(keys)
 	local hero = ply:GetAssignedHero()
 
 	if caster:GetHealth() == 1 then
-		caster:SetMana(caster:GetMana()+1) 
+		--caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
 	end
 
 	if not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
-		caster:SetMana(caster:GetMana()+1) 
+		--caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
 	elseif hero:GetHealth() == hero:GetMaxHealth() and not hero:GetName() == "npc_dota_hero_beastmaster" then
-		caster:SetMana(caster:GetMana()+1) 
+		--caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#At_Max_Health")
 		return
@@ -244,7 +244,7 @@ function OnSeal3Start(keys)
 	hero.ServStat:useESeal()
 	-- Set master 2's mana 
 	local master2 = hero.MasterUnit2
-	master2:SetMana(master2:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+	--master2:SetMana(master2:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 	-- Set master's health
 	caster:SetHealth(caster:GetHealth()-1) 
 
@@ -256,10 +256,10 @@ function OnSeal3Start(keys)
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
 	else
-		--caster:FindAbilityByName("cmd_seal_1"):StartCooldown(20)
-		--caster:FindAbilityByName("cmd_seal_2"):StartCooldown(20)
+		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(20)
+		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(20)
 		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(20)
-		--caster:FindAbilityByName("cmd_seal_4"):StartCooldown(20)
+		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(20)
 		keys.ability:ApplyDataDrivenModifier(keys.caster, hero, "modifier_command_seal_3",{})
 	end
 end
@@ -270,22 +270,22 @@ function OnSeal4Start(keys)
 	local hero = ply:GetAssignedHero()
 
 	if hero:GetName() == "npc_dota_hero_juggernaut" then
-		caster:SetMana(caster:GetMana()+1) 
+		--caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Recover_Mana")
 		return 
 	elseif caster:GetHealth() == 1 then
-		caster:SetMana(caster:GetMana()+1) 
+		--caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
 	elseif not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention"))  then
-		caster:SetMana(caster:GetMana()+1) 
+		--caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
 	elseif hero:GetMana() == hero:GetMaxMana() then
-		caster:SetMana(caster:GetMana()+1) 
+		--caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#At_Max_Mana")
 		return
@@ -293,7 +293,7 @@ function OnSeal4Start(keys)
 	hero.ServStat:useRSeal()
 	-- Set master 2's mana 
 	local master2 = hero.MasterUnit2
-	master2:SetMana(master2:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+	--master2:SetMana(master2:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 	-- Set master's health
 	caster:SetHealth(caster:GetHealth()-1) 
 
@@ -320,9 +320,9 @@ function OnSeal4Start(keys)
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
 	else
-		--caster:FindAbilityByName("cmd_seal_1"):StartCooldown(10)
-		--caster:FindAbilityByName("cmd_seal_2"):StartCooldown(10)
-		--caster:FindAbilityByName("cmd_seal_3"):StartCooldown(10)
+		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(10)
+		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(10)
+		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(10)
 		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(10)
 		keys.ability:ApplyDataDrivenModifier(keys.caster, hero, "modifier_command_seal_4",{})
 	end

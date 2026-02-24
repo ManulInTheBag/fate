@@ -19,9 +19,9 @@ end
 function cmd_seal_2:GetManaCost(iLevel)
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_command_seal_1") then
-		return 1
+		return 0
 	end
-	return 2
+	return 0
 end
 
 function cmd_seal_2:GetCooldown(iLevel)
@@ -42,12 +42,12 @@ function cmd_seal_2:OnSpellStart()
 
 	if caster:GetHealth() == 1 then
 		self:EndCooldown() 
-		caster:SetMana(caster:GetMana() + self:GetManaCost(1))
+		--caster:SetMana(caster:GetMana() + self:GetManaCost(1))
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
 	elseif not hero:IsAlive() or ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
 		self:EndCooldown()
-		caster:SetMana(caster:GetMana() + self:GetManaCost(1))
+		--caster:SetMana(caster:GetMana() + self:GetManaCost(1))
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
 	end
@@ -63,7 +63,7 @@ function cmd_seal_2:OnSpellStart()
 	-- pay mana cost
 	
 	local master2 = hero.MasterUnit2
-	master2:SetMana(caster:GetMana())
+	--master2:SetMana(caster:GetMana())
 	-- pay health cost
 	caster:SetHealth(caster:GetHealth() - 1) 
 	master2:SetHealth(caster:GetHealth())
@@ -158,10 +158,10 @@ function cmd_seal_2:OnSpellStart()
 
 	-- Set cooldown
 	if not caster:HasModifier("modifier_command_seal_1") then
-		--aster:FindAbilityByName("cmd_seal_1"):StartCooldown(30)
-		--caster:FindAbilityByName("cmd_seal_2"):StartCooldown(30)
-		--caster:FindAbilityByName("cmd_seal_3"):StartCooldown(30)
-		--caster:FindAbilityByName("cmd_seal_4"):StartCooldown(30)
+		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(30)
+		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(30)
+		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(30)
+		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(30)
 		hero:AddNewModifier(caster, self, "modifier_command_seal_2", { Duration = self:GetCooldown(1) })
 	end
 

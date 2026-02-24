@@ -19,14 +19,14 @@ function cmd_seal_1:OnSpellStart()
 	local hero = ply:GetAssignedHero()
 
 	if caster:GetHealth() <= 2 then
-		caster:SetMana(caster:GetMana()+self:GetManaCost(-1)) 
+		--caster:SetMana(caster:GetMana()+self:GetManaCost(-1)) 
 		self:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
 	end
 	
 	if not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
-		caster:SetMana(caster:GetMana()+self:GetManaCost(-1)) 
+		--caster:SetMana(caster:GetMana()+self:GetManaCost(-1)) 
 		self:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
@@ -49,7 +49,7 @@ function cmd_seal_1:OnSpellStart()
 
 	-- Set master 2's mana 
 	local master2 = hero.MasterUnit2
-	master2:SetMana(caster:GetMana())
+	--master2:SetMana(caster:GetMana())
 	-- Set master's health
 	caster:SetHealth(caster:GetHealth() - 1)
 

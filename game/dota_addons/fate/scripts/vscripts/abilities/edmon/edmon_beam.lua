@@ -203,7 +203,7 @@ function edmon_beam:OnSpellStart()
 									modifier:IncrementStackCount()
 								end
 							end
-							DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+							DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 
 							--self:PlayEffects2(enemy)
 
@@ -253,7 +253,7 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 					end
 				end
 			end
-			DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 
 			--self:PlayEffects2(enemy)
 
@@ -283,7 +283,7 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 			EmitSoundOn("edmon_common_melee", caster)
 		end
 		if not part1:IsMagicImmune() then
-			DoDamage(caster, part1, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			DoDamage(caster, part1, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		end
 		local firstImpactIndex = ParticleManager:CreateParticle( "particles/edmon/edmon_hit_indicator.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControlEnt(firstImpactIndex,	3, part1, PATTACH_POINT, "attach_hitloc", part1:GetOrigin(), true)

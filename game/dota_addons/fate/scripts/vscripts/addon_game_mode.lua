@@ -105,7 +105,7 @@ PRESENCE_ALERT_DURATION = 60
 ROUND_DURATION = 120
 FIRST_BLESSING_PERIOD = 300
 BLESSING_PERIOD = 480
-BLESSING_MANA_REWARD = 15
+BLESSING_MANA_REWARD = 10
 SPAWN_POSITION_RADIANT_DM = Vector(-5300, 650, 376)
 SPAWN_POSITION_DIRE_DM = Vector(7230, 4400, 755)
 SPAWN_POSITION_T1_TRIO = Vector(-796,7032,512)
@@ -4238,6 +4238,10 @@ function FateGameMode:InitializeRound()
         ResetAbilities(hero)
         ResetItems(hero)
         ResetMasterAbilities(hero)
+        if self.nCurrentRound == 1 then
+            hero.MasterUnit:SetHealth(7)
+            hero.MasterUnit2:SetHealth(7)
+        end
 
         --SendChatToPanorama("IRL3"..plyID)
         
@@ -4249,10 +4253,10 @@ function FateGameMode:InitializeRound()
         --SendChatToPanorama("IRL4"..plyID)
 
         if hero.ProsperityCount ~= nil then
-            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
-            hero.MasterUnit:SetHealth(hero.MasterUnit:GetHealth() + 1 * hero.ProsperityCount)
+            --hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
+            hero.MasterUnit:SetHealth(hero.MasterUnit:GetHealth() + 2 * hero.ProsperityCount)
             hero.MasterUnit2:SetHealth(hero.MasterUnit:GetHealth())
-            hero.MasterUnit2:SetMana(hero.MasterUnit:GetMana())
+            --hero.MasterUnit2:SetMana(hero.MasterUnit:GetMana())
             --print("granted more mana")
         end
 
@@ -4722,11 +4726,11 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         -- radiant = 2(equivalent to 0)
         -- dire = 3(equivalent to 1)
 
-        if pHero:GetTeam() - 2 ~= winnerEventData.winnerTeam and winnerEventData.winnerTeam ~= 2 then
-            pHero.MasterUnit:GiveMana(1)
-            pHero.MasterUnit2:SetMana(pHero.MasterUnit:GetMana())
-            --print("granted 1 mana to " .. pHero:GetName())
-        end
+        -- if pHero:GetTeam() - 2 ~= winnerEventData.winnerTeam and winnerEventData.winnerTeam ~= 2 then
+        --     pHero.MasterUnit:GiveMana(1)
+        --     pHero.MasterUnit2:SetMana(pHero.MasterUnit:GetMana())
+        --     --print("granted 1 mana to " .. pHero:GetName())
+        -- end
     end)
 
     --SendChatToPanorama("FR6")
