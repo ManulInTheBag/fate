@@ -9,7 +9,7 @@ function iskander_brilliance_of_the_king:OnSpellStart()
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 	for k,v in pairs(targets) do
-		giveUnitDataDrivenModifier(caster, v, "silenced",2)
+		giveUnitDataDrivenModifier(caster, v, "silenced",1)
 	end
 
 	---these 2 are many years old and dont really fit into fate anymore
@@ -31,6 +31,6 @@ function iskander_brilliance_of_the_king:OnSpellStart()
 	end)
 	EmitGlobalSound("Waver_NP_" .. math.random(1,2))
 	for k,v in pairs(targets) do
-		giveUnitDataDrivenModifier(caster, v, "rooted",2)
+		giveUnitDataDrivenModifier(caster, v, "rooted",1)
 	end
 end

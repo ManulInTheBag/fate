@@ -17,7 +17,14 @@ function modifier_jtr_dmg_reduct:DeclareFunctions()
 end
 
 
+function modifier_jtr_dmg_reduct:CheckState()
 
+    return     {
+            [MODIFIER_STATE_SILENCED] = true, 
+            [MODIFIER_STATE_MUTED] = true, 
+            [MODIFIER_STATE_DISARMED] = true, 
+        }
+end
 
 
 function modifier_jtr_dmg_reduct:IsHidden() 

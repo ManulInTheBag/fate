@@ -1,6 +1,6 @@
 ServantStatistics = {cScroll = 0, bScroll = 0, aScroll = 0, sScroll = 0, exScroll = 0, attr1 = 0, attr2 = 0, attr3 = 0, attr4 = 0, attr5 = 0, shard1 = 0, shard2 = 0, shard3 =0, 
 shard4 = 0, damageDealt = 0, damageTaken = 0, damageTakenBR = 0, damageDealtBR = 0, ward = 0, familiar = 0, link = 0, goldWasted = 0, itemValue = 0, qseal = 0, wseal = 0, eseal = 0, rseal = 0, 
-kill = 0, tkill=0, death = 0, assist = 0, str = 0, agi = 0, int = 0, atk = 0, armor = 0, hpregen = 0, mpregen = 0, ms = 0, lvl = 1, round = 0, winGame = "Ongoing", radiantWin = 0, direWin = 0}
+kill = 0, tkill=0, death = 0, assist = 0, GPS = 0, str = 0, agi = 0, int = 0, atk = 0, armor = 0, hpregen = 0, mpregen = 0, ms = 0, lvl = 1, round = 0, winGame = "Ongoing", radiantWin = 0, direWin = 0}
 
 function ServantStatistics:initialise(hero)
   NameAndID = {heroName = PlayerResource:GetSelectedHeroName(hero:GetPlayerOwnerID()), playerName = PlayerResource:GetPlayerName(hero:GetPlayerOwnerID()), steamId = PlayerResource:GetSteamID(hero:GetPlayerOwnerID())}
@@ -49,6 +49,9 @@ end
 
 function ServantStatistics:useA5()
   self.attr5 = self.attr5 + 1
+end
+function ServantStatistics:addGps()
+  self.GPS = self.GPS + 1
 end
 
 function ServantStatistics:addStr()
@@ -207,7 +210,7 @@ function ServantStatistics:printconsole()
   SendChatToPanorama("Seal Q / W / E / R:                               "..tostring(self.qseal.."\t"..self.wseal.."\t"..self.eseal.."\t"..self.rseal))
   SendChatToPanorama("C / B / A / S / EX:                               "..tostring(self.cScroll.."\t"..self.bScroll.."\t"..self.aScroll.."\t"..self.sScroll.."\t"..self.exScroll))
   SendChatToPanorama("Ward / Familiar / Link:                           "..tostring(self.ward.."\t"..self.familiar.."\t"..self.link))
-  SendChatToPanorama("Str/Agi/Int/Atk/Armor/HPregen/MPregen/MSpeed      "..tostring(self.str.."\t"..self.agi.."\t"..self.int.."\t"..self.atk.."\t"..self.armor.."\t"..self.hpregen.."\t"..self.mpregen.."\t"..self.ms))
+  SendChatToPanorama("Str/Agi/Int/Atk/Armor/HPregen/MPregen/GPS      "..tostring(self.str.."\t"..self.agi.."\t"..self.int.."\t"..self.atk.."\t"..self.armor.."\t"..self.hpregen.."\t"..self.mpregen.."\t"..self.GPS))
   --SendChatToPanorama("(Work in Progress) Attributes taken:             "..tostring(self.attr1.."\t"..self.attr2.."\t"..self.attr3.."\t"..self.attr4.."\t"..self.attr5))
   SendChatToPanorama("Avarice / Anti-Magic / Replenishment / Prosperity:"..tostring(self.shard1.."\t"..self.shard2.."\t"..self.shard3.."\t"..self.shard4))
   SendChatToPanorama("------------------------------------------------------------------------------------------------------------------------------------------------------------------")

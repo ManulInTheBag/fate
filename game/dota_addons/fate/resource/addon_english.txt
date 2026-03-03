@@ -3332,7 +3332,7 @@
 		"DOTA_Tooltip_Ability_okada_mark_target_vision"					"Target vision:"
 
 		"DOTA_Tooltip_Ability_okada_ult"				"Shimatsuken"
-		"DOTA_Tooltip_Ability_okada_ult_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes towards selected enemy and starts slicing him multiple times from different angles, dealing <font color='#D1A951'>damage</font> and <font color='#9400D3'>dimensionally locking</font> for a short duration.\nAt the end, Okada will perform a powerful slash, dealing more <font color='#D1A951'>damage</font>.\nWhile performing, Okada takes less damage from all sources.\nUpon skill end, Okada <font color='#FFFAFA'>hard cleanses himself</font>\n<font color='#FF0000'>Manslayer</font>: Two clones will appear, performing same ability on the other targets, but dealing <font color='#58ACFA'>magical</font> damage without lock, jumping between targets before each slash. \nClones could not target same target as Okada.\nIf there are no targets, clones will disappear.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
+		"DOTA_Tooltip_Ability_okada_ult_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nOkada dashes towards selected enemy and starts slicing him multiple times from different angles, dealing <font color='#D1A951'>damage</font> and <font color='#9400D3'>dimensionally locking</font> for a short duration.\nAt the end, Okada will perform a powerful slash, dealing more <font color='#D1A951'>damage</font>.\nWhile performing, Okada takes less damage from all sources.\nUpon skill end, Okada <font color='#FFFAFA'>hard cleanses himself</font>\n<font color='#FF0000'>Manslayer</font>:Performed faster;  Two clones will appear, performing same ability on the other targets, but dealing <font color='#58ACFA'>magical</font> damage without lock, jumping between targets before each slash. \nClones could not target same target as Okada.\nIf there are no targets, clones will disappear.\n<font color='#F1C40F'>Upgradable by attribute Swordplay as Swift and Powerful as a Falcon.</font>"
 		"DOTA_Tooltip_Ability_okada_ult_duration"				"Total duration:"
 		"DOTA_Tooltip_Ability_okada_ult_normal_strikes"			"Total ordinary strikes:"
 		"DOTA_Tooltip_Ability_okada_ult_damage"					"Strike damage:"
@@ -10536,16 +10536,16 @@
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"
-		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nFor 15 seconds, Master can cast Command Seal without cooldown limitation."
+		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#FF0000'>Master Health Required : 1</font>\nFor 15 seconds, Master can cast Command Seal without cooldown limitation."
 
 		"DOTA_Tooltip_Ability_cmd_seal_2"				"2nd Command Seal"
-		"DOTA_Tooltip_ability_cmd_seal_2_Description"		"<font color='#58ACFA'>Master Mana Required : 2</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nResets all cooldowns of Servant's abilities and items."
+		"DOTA_Tooltip_ability_cmd_seal_2_Description"		"<font color='#FF0000'>Master Health Required : 1</font>\nResets all cooldowns of Servant's abilities and items."
 
 		"DOTA_Tooltip_Ability_cmd_seal_3"				"3rd Command Seal"
-		"DOTA_Tooltip_ability_cmd_seal_3_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nInstantly restores Servant to full health."
+		"DOTA_Tooltip_ability_cmd_seal_3_Description"		"<font color='#FF0000'>Master Health Required : 1</font>\nInstantly restores Servant to full health."
 
 		"DOTA_Tooltip_Ability_cmd_seal_4"				"4th Command Seal"
-		"DOTA_Tooltip_ability_cmd_seal_4_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nInstantly restores Servant to full mana."
+		"DOTA_Tooltip_ability_cmd_seal_4_Description"		"<font color='#FF0000'>Master Health Required : 1</font>\nInstantly restores Servant to full mana."
 
         "DOTA_Tooltip_Ability_master_presence_resonator"				"Presence Resonator"
        	"DOTA_Tooltip_Ability_master_presence_resonator_Description"	"Activates a magical device that locates the nearest enemy servant on the minimap. Does not work when your servant is dead." 
@@ -10558,7 +10558,7 @@
        	"DOTA_Tooltip_Ability_master_presence_resonator_Note0"			"Cannot detect assassins or invulnerable heroes."
 
 		"DOTA_Tooltip_Ability_master_strength"						"Acquire Strength"
-		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+11 HP, +0.25 HP Regen and 0.1%%  Magical Resistance)"
+		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+9 HP, +0.25 HP Regen and 0.1%%  Magical Resistance)"
 
 		"DOTA_Tooltip_Ability_master_agility"						"Acquire Agility"
 		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+2 Attack Speed).\nServant additionally gains 3 Movement Speed and + 0.1 Armor."
@@ -10580,6 +10580,10 @@
 
 		"DOTA_Tooltip_Ability_master_movement_speed"				"Acquire Movement Speed"
 		"DOTA_Tooltip_ability_master_movement_speed_Description"	"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's movement speed by 3"	
+
+
+		"DOTA_Tooltip_Ability_master_gold_per_second_new"				"Acquire Gold per second"
+		"DOTA_Tooltip_ability_master_gold_per_second_new_Description"	"<font color='#58ACFA'>Master Mana Required : 1</font>\nGrants your servant 2.5 gold every second."	
 
 		"DOTA_Tooltip_Ability_master_2_passive"					"Master 2"
 		"DOTA_Tooltip_ability_master_2_passive_Description"		""	

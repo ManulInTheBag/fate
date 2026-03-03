@@ -105,13 +105,18 @@ function modifier_okada_flashblade_motion:OnCreated(tTable)
 
         }
     self.state =  {
-            [MODIFIER_STATE_STUNNED] = true, 
-
+            [MODIFIER_STATE_SILENCED] = true, 
+            [MODIFIER_STATE_MUTED] = true, 
+            [MODIFIER_STATE_ROOTED] = true, 
+            [MODIFIER_STATE_DISARMED] = true, 
         }
 
     if self.iMoveState == 1 then
             self.state =  {
-            [MODIFIER_STATE_STUNNED] = true, 
+            [MODIFIER_STATE_SILENCED] = true, 
+            [MODIFIER_STATE_MUTED] = true, 
+            [MODIFIER_STATE_ROOTED] = true, 
+            [MODIFIER_STATE_DISARMED] = true, 
             [MODIFIER_STATE_FLYING] = true,
 
         }
@@ -178,7 +183,11 @@ function modifier_okada_flashblade_motion:OnHorizontalMotionInterrupted()
     end
 end
 function modifier_okada_flashblade_motion:UpdateHorizontalMotion(hUnit, nTime)
+
     if IsServer() then
+        if self.hParent:IsStunned() then
+            return nil
+        end
         local vCurrentLoc = hUnit:GetAbsOrigin()
         self.animationTimeAccumulated = self.animationTimeAccumulated + nTime
         if self.animationTimeAccumulated >= 0.15 then

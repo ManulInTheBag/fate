@@ -98,6 +98,7 @@ function UpdateStatPanel(data)
 	$("#INTAmount").text = (data.INT || 0) +  " / 30";
 	$("#DMGAmount").text = (data.DMG || 0) +  " / 30";
 	//$("#ARMORAmount").text = (data.ARMOR || 0) +  " / 30";
+	$("#GPSAmount").text = (data.GPS || 0) +  " / 10";
 	$("#HPREGAmount").text = (data.HPREG || 0) +  " / 30";
 	$("#MPREGAmount").text = (data.MPREG || 0) +  " / 30";
 	//$("#MSAmount").text = (data.MS || 0) +  " / 30";

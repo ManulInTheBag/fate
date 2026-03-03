@@ -97,7 +97,7 @@ function okada_ult:CreateLashSlashParticle(location1, location2, particle)
 
 end
 
-function okada_ult:PerformStrike(unit, caster, target, dmgMod, soundCounter)
+function okada_ult:PerformStrike(unit, caster, target, dmgMod, soundCounter, bBerserkered)
     
     local point = PointOnCircle(GetGroundPosition(target:GetAbsOrigin(), target), 150, math.random(0, 359))
     unit:SetAbsOrigin(point)
@@ -114,8 +114,12 @@ function okada_ult:PerformStrike(unit, caster, target, dmgMod, soundCounter)
     else
         giveUnitDataDrivenModifier(caster, target, "locked", 0.2)
     end
-
-    Timers:CreateTimer(0.1, function()
+    local timerTime = 0.1 
+    
+    if bBerserkered then
+        timerTime = 0.06
+    end
+    Timers:CreateTimer(timerTime, function()
         local damage = self:GetSpecialValueFor("damage")
         if caster.OkadaSa1Acquired then
             damage = damage + self:GetSpecialValueFor("sa_bonus_damage")/100 * caster:GetAgility()
@@ -128,13 +132,17 @@ function okada_ult:PerformStrike(unit, caster, target, dmgMod, soundCounter)
     end)
 end
 
-function okada_ult:PlayRandomAttackAnimation(unit, animTable)
+function okada_ult:PlayRandomAttackAnimation(unit, animTable, bBerserkered)
     if IsServer() then
         local number = math.random( #animTable )
         local value = animTable[number  ]
         table.remove(animTable, number)
         --EndAnimation(self.hParent)
-       StartAnimation( unit, {duration=0.2, activity=value , rate=6})
+        if bBerserkered then
+            StartAnimation( unit, {duration=0.12, activity=value , rate=9})
+        else
+            StartAnimation( unit, {duration=0.2, activity=value , rate=6})
+        end
        return animTable
     end
 end
@@ -180,7 +188,7 @@ function okada_ult:SearchForRandomTarget(unit, radius, point, oldTarget, TargetT
      
 end
 
-function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJumpTargets, TargetToIgnore)
+function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJumpTargets, TargetToIgnore, bBerserkered)
     local animTable = {
         ACT_DOTA_RAZE_1,
         ACT_DOTA_RAZE_2,
@@ -193,12 +201,15 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
     local counterPerform = 0
     local counterPerformMax = 3
     local animationTimerTime  = 0.15
+    if bBerserkered then
+        animationTimerTime = 0.1
+    end
     local totalPerformTimerTime = animationTimerTime * counterAnimMax
     local soundCounterMax = 3
     local soundCounter = 1
     local target = targetInnit
-    animTable = self:PlayRandomAttackAnimation(unit, animTable)
-    self:PerformStrike(unit, caster, target, dmgMod, soundCounter)
+    animTable = self:PlayRandomAttackAnimation(unit, animTable, bBerserkered)
+    self:PerformStrike(unit, caster, target, dmgMod, soundCounter, bBerserkered)
     Timers:CreateTimer(animationTimerTime, function()
         if not caster:IsAlive() then
             return
@@ -241,8 +252,8 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
         end
         counterAnim = counterAnim + 1
         soundCounter = soundCounter + 1
-        self:PerformStrike(unit, caster, target, dmgMod, soundCounter)
-        animTable = self:PlayRandomAttackAnimation(unit, animTable)
+        self:PerformStrike(unit, caster, target, dmgMod, soundCounter, bBerserkered)
+        animTable = self:PlayRandomAttackAnimation(unit, animTable, bBerserkered)
         if shouldJumpTargets then
              target = self:SearchForRandomTarget(unit, self:GetSpecialValueFor("clone_search_radius"), target:GetAbsOrigin(), target, TargetToIgnore)
         end
@@ -257,7 +268,13 @@ function okada_ult:OnSpellStart()
 	local target = self:GetCursorTarget()
 	if IsSpellBlocked(target) then return end 
     local duration = 0.15 * 13 + 0.2
-    self:PefrormAttackTimer(caster, caster, target,  1, false)
+    local bBerserkered = false
+    if caster:HasModifier("modifier_okada_manslayer") then
+        local duration = 0.1 * 13 + 0.2
+        bBerserkered = true
+    end
+    
+    self:PefrormAttackTimer(caster, caster, target,  1, false, nil, bBerserkered)
     caster:AddNewModifier(caster, nil, "modifier_phased", {duration = duration})
 	giveUnitDataDrivenModifier(caster, caster, "dragged", duration)
 	caster:AddNewModifier(caster, self, "modifier_okada_dmg_reduct", {duration = duration})
@@ -273,7 +290,7 @@ function okada_ult:OnSpellStart()
             Dummy1:AddNewModifier(caster, nil, "modifier_okada_statusfx", {duration = duration})
 
             Dummy1:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY )
-            self:PefrormAttackTimer(Dummy1, caster, secondTarget,  self:GetSpecialValueFor("clones_damage")/100, true, target)
+            self:PefrormAttackTimer(Dummy1, caster, secondTarget,  self:GetSpecialValueFor("clones_damage")/100, true, target, bBerserkered)
             local Dummy2 = CreateUnitByName("okada_clone", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
             Dummy2:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
             Dummy2:SetModelScale(1.3)
@@ -282,7 +299,7 @@ function okada_ult:OnSpellStart()
             Dummy2:AddNewModifier(caster, nil, "modifier_okada_statusfx", {duration = duration})
 	        
             Dummy2:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY )
-            self:PefrormAttackTimer(Dummy2, caster, secondTarget,  self:GetSpecialValueFor("clones_damage")/100, true, target)
+            self:PefrormAttackTimer(Dummy2, caster, secondTarget,  self:GetSpecialValueFor("clones_damage")/100, true, target, bBerserkered)
 
             Timers:CreateTimer(duration + 0.5, function()
                 if IsValidEntity(Dummy1) then
@@ -313,7 +330,14 @@ function modifier_okada_dmg_reduct:DeclareFunctions()
 	return funcs
 end
 
+function modifier_okada_dmg_reduct:CheckState()
 
+    return     {
+            [MODIFIER_STATE_SILENCED] = true, 
+            [MODIFIER_STATE_MUTED] = true, 
+            [MODIFIER_STATE_DISARMED] = true, 
+        }
+end
 
 
 function modifier_okada_dmg_reduct:IsHidden() 

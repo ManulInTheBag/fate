@@ -697,7 +697,12 @@ function FateGameMode:OnGameInProgress()
                 CreateUITimer("Next Holy Grail's Blessing", BLESSING_PERIOD, "ten_min_timer")
                 self:LoopOverPlayers(function(player, playerID, playerHero)
                     local hero = playerHero
-                    local manaReward = BLESSING_MANA_REWARD
+                    local manaReward = 0
+                    if hero.blessingCount ~= 1 then
+                         manaReward = BLESSING_MANA_REWARD + 3
+                    else
+                         manaReward = BLESSING_MANA_REWARD
+                    end
                     if hero:GetLevel() == 24 then 
                         manaReward = manaReward + 3 
                     end
@@ -705,6 +710,7 @@ function FateGameMode:OnGameInProgress()
                     hero.MasterUnit:SetMana(hero.MasterUnit:GetMana()+manaReward)
                     hero.MasterUnit2:SetHealth(hero.MasterUnit2:GetMaxHealth())
                     hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana()+manaReward)
+                    hero.blessingCount = 1
                     MinimapEvent( hero:GetTeamNumber(), hero, hero.MasterUnit:GetAbsOrigin().x, hero.MasterUnit2:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 2 )
                 end)
                 --Notifications:TopToAll("#Fate_Timer_10minute", 5, nil, {color="rgb(255,255,255)", ["font-size"]="25px"})
@@ -2476,6 +2482,8 @@ function FateGameMode:OnHeroInGame(hero)
         shardUnit = master:entindex(),
         hero = hero:entindex()
     }
+    master:SetHealth(7)
+    master2:SetHealth(7)
     --hero:AddNewModifier(hero, hero:GetAbilityByIndex(0), "modifier_tp_cooldown", {})
     --[[-- Create personal stash for hero
     masterStash = CreateUnitByName("master_stash", Vector(4500 + hero:GetPlayerID()*350,-7250,0), true, hero, hero, hero:GetTeamNumber())
@@ -3200,8 +3208,8 @@ function FateGameMode:OnPlayerLevelUp(keys)
     --    hero:SetAbilityPoints(hero:GetAbilityPoints()+1)
     --end
 
-    hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2)
-    hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 2)
+    hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 3)
+    hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)
     --Notifications:Top(player, "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>3 mana.</font>", 5, nil, {color="rgb(255,255,255)", ["font-size"]="20px"})
 
     Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>3 mana.</font>", duration=5, style={color="rgb(255,255,255)", ["font-size"]="20px"}, continue=true})
@@ -3811,7 +3819,7 @@ function FateGameMode:InitGameMode()
     hGameModeEntity:SetControlFateMechanic( true )
     hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.0)
     hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED , 2)
-    hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 11)
+    hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 9)
     --GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN_PERCENT, 0)
     --GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT, 0)
     --GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT, 0)  
@@ -4238,10 +4246,10 @@ function FateGameMode:InitializeRound()
         ResetAbilities(hero)
         ResetItems(hero)
         ResetMasterAbilities(hero)
-        if self.nCurrentRound == 1 then
-            hero.MasterUnit:SetHealth(7)
-            hero.MasterUnit2:SetHealth(7)
-        end
+        -- if self.nCurrentRound == 1 then
+        --     hero.MasterUnit:SetHealth(7)
+        --     hero.MasterUnit2:SetHealth(7)
+        -- end
 
         --SendChatToPanorama("IRL3"..plyID)
         
@@ -4261,8 +4269,8 @@ function FateGameMode:InitializeRound()
         end
 
         if hero.Level24Acquired then
-            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2)
-            hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 2)
+            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1)
+            hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 1)
         end
 
         --SendChatToPanorama("IRL5"..plyID)

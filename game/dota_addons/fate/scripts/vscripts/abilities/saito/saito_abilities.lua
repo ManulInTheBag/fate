@@ -887,7 +887,10 @@ function modifier_saito_flashblade_motion:IsPurgeException()                    
 function modifier_saito_flashblade_motion:RemoveOnDeath()                                                           return true end --Necessary because we want to remove it on death, but if you want you can make it false and the corpse will fly if it dies when flying.
 function modifier_saito_flashblade_motion:CheckState()
     local tState =  {
-                        [MODIFIER_STATE_STUNNED] = true, --Basically for disable any actions all of them use the stun modifier.
+                                    [MODIFIER_STATE_SILENCED] = true, 
+                                    [MODIFIER_STATE_MUTED] = true, 
+                                    [MODIFIER_STATE_ROOTED] = true, 
+                                    [MODIFIER_STATE_DISARMED] = true,  --Basically for disable any actions all of them use the stun modifier.
                         -- [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         -- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true, --Added for testing, can uncomment if there are some errors in the future.
                     }
@@ -980,6 +983,9 @@ function modifier_saito_flashblade_motion:OnHorizontalMotionInterrupted()
 end
 function modifier_saito_flashblade_motion:UpdateHorizontalMotion(hUnit, nTime)
     if IsServer() then
+        if self.hParent:IsStunned() then
+            return nil
+        end
         local vCurrentLoc = hUnit:GetAbsOrigin()
 
         local vDirection = self.vMainDirection

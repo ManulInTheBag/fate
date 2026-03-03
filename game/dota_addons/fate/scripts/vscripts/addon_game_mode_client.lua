@@ -7,3 +7,4 @@ LinkLuaModifier("modifier_sex_scroll_slow","items/modifiers/modifier_sex_scroll_
 LinkLuaModifier("modifier_a_scroll", "items/modifiers/modifier_a_scroll.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_a_scroll_sated", "items/modifiers/modifier_a_scroll_sated.lua", LUA_MODIFIER_MOTION_NONE)
 SendToConsole("dota_clientside_wearables false")
+--LinkLuaModifier("modifier_hero_selection_skin", "modules/hero_selection/hero_replacer.lua", LUA_MODIFIER_MOTION_NONE)

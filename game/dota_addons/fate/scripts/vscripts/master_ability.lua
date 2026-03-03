@@ -409,6 +409,7 @@ function AddMasterAbility(master, name)
 	--master:AddAbility("master_armor")
 	master:AddAbility("master_health_regen")
 	master:AddAbility("master_mana_regen")
+	master:AddAbility("master_gold_per_second_new")
 	--master:AddAbility("master_movement_speed")
 	master:AddAbility("master_2_passive")
 end
@@ -833,6 +834,35 @@ function OnMovementSpeedGain(keys)
     CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "servant_stats_updated", statTable )
 end
 
+
+function OnGpsGain(keys)
+	local caster = keys.caster
+	local ply = caster:GetPlayerOwner()
+	local hero = ply:GetAssignedHero()
+
+
+	if hero.GpsGained == nil then
+		hero.GpsGained = 1
+	else 
+		if hero.GpsGained < 10 then
+			hero.GpsGained = hero.GpsGained + 1
+		else
+			SendErrorMessage(caster:GetPlayerOwnerID(), "Cannot aquire gps over 10")
+			caster:GiveMana(1)
+			return
+		end
+	end 
+	hero.ServStat:addGps()
+	
+	hero:CalculateStatBonus(true)
+	hero:FindModifierByName("modifier_attributes_gps"):UpdateValues()
+	
+	-- Set master 1's mana 
+	local master1 = hero.MasterUnit
+	master1:SetMana(master1:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+	local statTable = CreateTemporaryStatTable(hero)
+    CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "servant_stats_updated", statTable )
+end
 function OnAvariceAcquired(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()

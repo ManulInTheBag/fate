@@ -287,7 +287,7 @@ function iskander_ionioi:OnAOTKStart()
 				aotkTargets[i]:RemoveModifierByName("modifier_hijikata_duel_leash")
 				aotkTargets[i]:RemoveModifierByName("modifier_hijikata_duel")
 				if aotkTargets[i]:GetTeamNumber() ~= caster:GetTeamNumber() then
-					aotkTargets[i]:AddNewModifier(caster, self, "modifier_silence", {duration = 2})
+					aotkTargets[i]:AddNewModifier(caster, self, "modifier_silence", {duration = 1})
 				end
 				
 				--if aotkTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or aotkTargets[i]:GetName() == "npc_dota_hero_riki" then

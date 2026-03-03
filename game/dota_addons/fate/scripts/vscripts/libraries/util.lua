@@ -2108,6 +2108,7 @@ function CreateTemporaryStatTable(hero)
         HPREG = 0,
         MPREG = 0,
         MS = 0,
+        GPS = 0,
         ShardAmount = 0
     }
     statTable.STR = hero.STRgained 
@@ -2118,6 +2119,7 @@ function CreateTemporaryStatTable(hero)
     statTable.HPREG = hero.HPREGgained
     statTable.MPREG = hero.MPREGgained
     statTable.MS = hero.MSgained
+    statTable.GPS = hero.GpsGained
     statTable.ShardAmount = hero.ShardAmount
     return statTable
 end

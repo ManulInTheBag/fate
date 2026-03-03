@@ -71,7 +71,7 @@
 
         "AbilityValues"
         {
-            "bonus_health" "30"
+            "bonus_health" "25"
         }
     }
 
@@ -1603,6 +1603,32 @@
 			{
 			 	"ScriptFile"	"master_ability"
 			 	"Function"		"OnIntelligenceGain"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Gain GPS Stat
+	//=================================================================================================================
+	"master_gold_per_second_new"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gilgamesh_golden_rule"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"1"
+		
+		"AbilityValues"
+        {
+        }
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"master_ability"
+			 	"Function"		"OnGpsGain"
 			}
 		}
 	}
