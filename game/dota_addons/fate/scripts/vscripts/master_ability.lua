@@ -840,18 +840,21 @@ function OnGpsGain(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
 
-
-	if hero.GpsGained == nil then
-		hero.GpsGained = 1
-	else 
-		if hero.GpsGained < 10 then
-			hero.GpsGained = hero.GpsGained + 1
-		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "Cannot aquire gps over 10")
-			caster:GiveMana(1)
-			return
+	if hero.AvariceCount == 1 or hero.AvariceCount == 2 then
+		if hero.GpsGained == nil then
+			hero.GpsGained = 1
+		else 
+			if hero.GpsGained < 10 then
+				hero.GpsGained = hero.GpsGained + 1
+			else
+				SendErrorMessage(caster:GetPlayerOwnerID(), "Cannot acquire gps over 10")
+				caster:GiveMana(1)
+				return
+			end
 		end
-	end 
+	else
+		SendErrorMessage(caster:GetPlayerOwnerID(), "Cannot aquire without Avarice")
+	end
 	hero.ServStat:addGps()
 	
 	hero:CalculateStatBonus(true)

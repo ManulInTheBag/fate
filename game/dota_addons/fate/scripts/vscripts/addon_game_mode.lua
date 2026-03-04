@@ -699,7 +699,7 @@ function FateGameMode:OnGameInProgress()
                     local hero = playerHero
                     local manaReward = 0
                     if hero.blessingCount ~= 1 then
-                         manaReward = BLESSING_MANA_REWARD + 3
+                         manaReward = BLESSING_MANA_REWARD + 5
                     else
                          manaReward = BLESSING_MANA_REWARD
                     end
@@ -3208,11 +3208,11 @@ function FateGameMode:OnPlayerLevelUp(keys)
     --    hero:SetAbilityPoints(hero:GetAbilityPoints()+1)
     --end
 
-    hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 3)
-    hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)
+    hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2)
+    hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 2)
     --Notifications:Top(player, "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>3 mana.</font>", 5, nil, {color="rgb(255,255,255)", ["font-size"]="20px"})
 
-    Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>3 mana.</font>", duration=5, style={color="rgb(255,255,255)", ["font-size"]="20px"}, continue=true})
+    Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>2 mana.</font>", duration=5, style={color="rgb(255,255,255)", ["font-size"]="20px"}, continue=true})
     if level == 24 then
         Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has ascended to max level! Your Master's max health has been increased by 2.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
         Notifications:Top(player, {text= "Exalted by your ascension, Holy Grail's Blessing from now on will award 3 more mana.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
