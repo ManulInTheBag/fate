@@ -854,6 +854,8 @@ function OnGpsGain(keys)
 		end
 	else
 		SendErrorMessage(caster:GetPlayerOwnerID(), "Cannot aquire without Avarice")
+		caster:GiveMana(1)
+		return
 	end
 	hero.ServStat:addGps()
 	
