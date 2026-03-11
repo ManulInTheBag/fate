@@ -24,7 +24,7 @@ if IsServer() then
 			and IsRevivePossible(caster)
 			then
 
-			caster:SetHealth(1000)
+			caster:SetHealth(500)
 			
 			local radius = 800
 			

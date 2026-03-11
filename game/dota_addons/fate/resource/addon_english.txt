@@ -10004,7 +10004,7 @@
 		"DOTA_Tooltip_Ability_robin_tools_close_Lore"	"Being an Outlaw and on the run.\n\nRobin of Sherwood has multiple tricks under his belt to escape the local authorities."
 		
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap"	"<font color='#FFE56E'>Net Trap</font>"
-		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin quickly throws a reinforced net at a target, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them in place.\n\nApplies <font color='#52b000'>4 poison stacks</font>."
+		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin quickly throws a reinforced net at a target, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them in place.\n\nApplies <font color='#52b000'>4 poison stacks</font>."
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_net_range"	"NET RANGE:"
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_duration"	"ROOT DURATION:"
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Lore"	"Being a hunter has its perks, the skills that Robin had acquired from hunting wildlife could be applied to hostile humanoid enemies."
@@ -10018,7 +10018,7 @@
 		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_Lore"	"It is unknown what the substance is, just that it makes the afflicted more paranoid and unaware of their surroundings."
 		
 		"DOTA_Tooltip_Ability_robin_tools_pitfall"	"<font color='#FFE56E'>Pitfall</font>"
-		"DOTA_Tooltip_Ability_robin_tools_pitfall_Description"	"Cast Point: <font color='#FFFFF9'>0.4</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin uses his Noble Phantasm <font color='#FFE56E'>Yew Bow</font> to create vines on the ground that latch on to targets within their proximity.\n\nDealing <font color='#C24401'>physical damage</font>, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them for a short duration.\n\nApplies <font color='#52b000'>2 poison stacks</font> per latch."
+		"DOTA_Tooltip_Ability_robin_tools_pitfall_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin uses his Noble Phantasm <font color='#FFE56E'>Yew Bow</font> to create vines on the ground that latch on to targets within their proximity.\n\nDealing <font color='#C24401'>physical damage</font>, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them for a short duration.\n\nApplies <font color='#52b000'>2 poison stacks</font> per latch."
 		"DOTA_Tooltip_Ability_robin_tools_pitfall_placement_count"	"NUMBER OF VINES:"
 		"DOTA_Tooltip_Ability_robin_tools_pitfall_placement_duration"	"VINES DURATION:"
 		"DOTA_Tooltip_Ability_robin_tools_pitfall_latch_duration"	"LATCH DURATION:"
@@ -10583,7 +10583,7 @@
 
 
 		"DOTA_Tooltip_Ability_master_gold_per_second_new"				"Acquire Gold per second"
-		"DOTA_Tooltip_ability_master_gold_per_second_new_Description"	"<font color='#58ACFA'>Master Mana Required : 1</font>\nGrants your servant 2.5 gold every second."	
+		"DOTA_Tooltip_ability_master_gold_per_second_new_Description"	"<font color='#58ACFA'>Master Mana Required : 1</font>\nGrants your servant 2.5 gold every second.\nCANNOT ACQUIRE WITHOUT AVARICE GRAIL"	
 
 		"DOTA_Tooltip_Ability_master_2_passive"					"Master 2"
 		"DOTA_Tooltip_ability_master_2_passive_Description"		""	
@@ -10672,7 +10672,7 @@
 		//====================================
 		"DOTA_Tooltip_ability_item_attack_familiar"                              "Attack Familiar"
 		"DOTA_Tooltip_ability_item_attack_familiar_Lore"                         "Useful for setting up a fight."
-		"DOTA_Tooltip_ability_item_attack_familiar_Description"                  "<h1>Use: Summon Familiar</h1> Summons an Attack Familiar. The familiar has unobstructed movement and vision, and can send a C scroll once, dying after cast.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_attack_familiar_Description"                  "<h1>Use: Summon Familiar</h1> Summons an Attack Familiar. The familiar has unobstructed movement and vision, and can send a C scroll once.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_attack_familiar_scout_duration"               "FAMILIAR DURATION:"
 
 
