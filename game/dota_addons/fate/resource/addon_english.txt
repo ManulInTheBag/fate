@@ -7918,7 +7918,7 @@
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow"											"Thermopylae Enomotia : Universal Slow"
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. This Modifier universal and applies many effects based on leonidas properties."
 
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia Counterattack"
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-E-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends."
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_radius"									"RADIUS:"
 		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
@@ -8096,7 +8096,7 @@
 		"DOTA_Tooltip_ability_aoko_bullet_attribute_Description"		"<font color='#58ACFA'>Browning Starmine - Burst:</font>\nApplies debuff that reduces outgoing <font color='#58ACFA'>magical</font> damage by %short_beam_debuff_power%%  for %short_beam_duration% seconds.\nDeals %short_beam_int_scale% <font color='#1E90FF'>INT</font> more damage.\n<font color='#58ACFA'>Browning Starmine - Barrage:</font>\nDeals %lazers_int_scale% <font color='#1E90FF'>INT</font> more damage and reveals them for %lazers_vision_duration% seconds."
 
 		"DOTA_Tooltip_ability_aoko_incantation_attribute"				"Attribute: Unlimited Rotation"
-		"DOTA_Tooltip_ability_aoko_incantation_attribute_Description"	"\n<font color='#58ACFA'>Forced Rotation Acceleration:</font>\nApplies <font color='#9400D3'>dimensional lock</font> for 1 second on impact.\n<font color='#58ACFA'>Severe Break Slider:</font>\nDeals %severe_int_scale% <font color='#1E90FF'>INT</font> more damage. Third laser deals %severe_int_scale_leg% <font color='#1E90FF'>INT</font> more damage instead."
+		"DOTA_Tooltip_ability_aoko_incantation_attribute_Description"	"\n<font color='#58ACFA'>Forced Rotation Acceleration:</font>\nApplies <font color='#9400D3'>dimensional lock</font> for 1 second on impact; Deals %slam_int_scale% <font color='#1E90FF'>INT</font> more damage..\n<font color='#58ACFA'>Severe Break Slider:</font>\nDeals %severe_int_scale% <font color='#1E90FF'>INT</font> more damage. Third laser deals %severe_int_scale_leg% <font color='#1E90FF'>INT</font> more damage instead."
 
 		//Creates a <font color='#58ACFA'>Floating Starmine</font> on impact.
 
@@ -10520,7 +10520,7 @@
 		"DOTA_Tooltip_ability_master_shard_of_holy_grail_Lore"	"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_avarice"				"Shard of Avarice"
-		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 4000 bonus gold at the beginning of round, increases gold cap to get gold at the round start by 4000."
+		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 2500 bonus gold at the beginning of round, increases gold cap to get gold at the round start by 4000.\nGrants one master mana at round starts"
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"

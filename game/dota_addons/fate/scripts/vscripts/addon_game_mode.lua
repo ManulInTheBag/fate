@@ -4301,7 +4301,9 @@ function FateGameMode:InitializeRound()
             end
 
             if hero.AvariceCount ~= nil then
-                hero:ModifyGold(4000*hero.AvariceCount, false, 0)
+                hero:ModifyGold(2500*hero.AvariceCount, false, 0)
+                hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 *hero.AvariceCount)
+                hero.MasterUnit2:SetMana(hero.MasterUnit:GetMana())
             end
 
             --local xpBonus = 100 + 

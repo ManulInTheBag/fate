@@ -88,6 +88,10 @@ function aoko_intimidation:GroundHit(target)
 	local radius = self:GetSpecialValueFor("impact_radius")
 	local duration = self:GetSpecialValueFor("slow_duration")
 
+	if caster.HighSpeedIncantationAcquired then
+		damage = damage + self:GetSpecialValueFor("attribute_int_scaling")*caster:GetIntellect()
+	end
+
 	if target:HasModifier("modifier_aoko_sphere_dummy") then
 		damage = self:GetSpecialValueFor("impact_aoko_damage")
 		target:FindModifierByName("modifier_aoko_sphere_dummy"):IntimidationExplode(point)
