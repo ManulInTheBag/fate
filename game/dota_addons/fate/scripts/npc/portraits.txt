@@ -1049,6 +1049,34 @@
 		}
 	}
 
+		"models/zlodemon/nanaya_skin/nanaya_panda.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"255 255 255"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/nanaya_fon_panda.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				
+				"PortraitPosition"		"500 -350 150"
+				"PortraitAngles"		"355.89 145.83 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
 
 	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.vmdl"
 	{

@@ -70,7 +70,13 @@ end
 				if(stacks < self:GetMaxStackCount()) then
 					self:SetStackCount(stacks+1)
 				end
-				self.nanaya = ParticleManager:CreateParticle("particles/nanaya_blood2.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+				local particleName = "particles/nanaya_blood2.vpcf"
+				print("has skin1")
+				if self.parent:HasModifier("modifier_hero_selection_skin") then
+					print("has skin")
+					particleName = "particles/nanaya_blood_panda_2.vpcf"
+				end
+				self.nanaya = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, self.parent)
 				Timers:CreateTimer("nanaya", {
 					endTime = self:GetAbility():GetSpecialValueFor("stacks_duration"), 
 					callback = function()

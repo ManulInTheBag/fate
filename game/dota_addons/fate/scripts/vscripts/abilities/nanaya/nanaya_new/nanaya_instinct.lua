@@ -64,7 +64,11 @@ function modifier_nanaya_instinct_passive:OnTakeDamage(keys)
 			if self:GetStackCount() >= 10 and not self.parent:HasModifier("modifier_nanaya_instinct") then
 				self:EnterInstinct()
 			end
-			self.nanaya = ParticleManager:CreateParticle("particles/nanaya_blood2.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+			local particleName = "particles/nanaya_blood2.vpcf"
+			if self.parent:HasModifier("modifier_hero_selection_skin") then
+				particleName = "particles/nanaya_blood_panda_2.vpcf"
+			end
+			self.nanaya = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, self.parent)
 			Timers:CreateTimer("nanaya", {
 				endTime = self:GetAbility():GetSpecialValueFor("stacks_duration"), 
 				callback = function()
@@ -138,7 +142,11 @@ function modifier_nanaya_instinct:NanayaBlink(location)
 	ParticleManager:SetParticleControlEnt(nanaya_knife10, 0, caster, PATTACH_POINT, "attach_hand", self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(nanaya_clone_jump, 1, GetGroundPosition(self.parent:GetAbsOrigin(), nil))
 
-	local nanaya_clone = ParticleManager:CreateParticle("particles/nanaya_image_clone.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
+	local clone_particle = "particles/nanaya_image_clone.vpcf"
+	if self.parent:HasModifier("modifier_hero_selection_skin") then
+		clone_particle = "particles/nanaya_image_clone_panda.vpcf"
+	end
+	local nanaya_clone = ParticleManager:CreateParticle(clone_particle, PATTACH_CUSTOMORIGIN, self.parent)
 	ParticleManager:SetParticleControl(nanaya_clone, 0, GetGroundPosition(self.parent:GetAbsOrigin(), nil)) --0.35
 	ParticleManager:SetParticleControl(nanaya_clone, 2, Vector(3, 9, 0))
 	ParticleManager:SetParticleControl(nanaya_clone, 4, location)

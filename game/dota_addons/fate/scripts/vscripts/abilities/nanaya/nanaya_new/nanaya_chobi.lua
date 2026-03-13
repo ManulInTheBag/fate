@@ -96,8 +96,11 @@ function modifier_nanaya_chobi:OnCreated(args)
 	self.kappa = false
 
 	local angle = self.caster:GetLocalAngles()
-
-	self.dash_fx = ParticleManager:CreateParticle("particles/nanaya/nanaya_afterimage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+	local clone_particle = "particles/nanaya/nanaya_afterimage.vpcf"
+	if self.caster:HasModifier("modifier_hero_selection_skin") then
+		clone_particle = "particles/zlodemon/nanaya_afterimage_panda.vpcf"
+	end
+	self.dash_fx = ParticleManager:CreateParticle(clone_particle, PATTACH_ABSORIGIN_FOLLOW, self.caster)
 	ParticleManager:SetParticleControl(self.dash_fx, 0, self.caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.dash_fx, 1, Vector(angle[1], angle[2], angle[3]))
 	self:AddParticle(self.dash_fx, false, false, -1, true, false)
