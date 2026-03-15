@@ -175,7 +175,7 @@ function artoria_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	target:AddNewModifier(caster, self, "modifier_excalibur_slow", {Duration = 0.5})
 	giveUnitDataDrivenModifier(caster, target, "locked", 0.5)
 	
-	if target:GetUnitName() == "gille_gigantic_horror" then damage = damage * 1.5 end
+	if target:GetUnitName() == "gille_gigantic_horror" then damage = damage * 1.3 end
 	
 	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
 end

@@ -370,16 +370,16 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%health_regen"
 				}
-				//"OnTakeDamage"
-				//{
-				//	"RunScript"
-				//	{
-				//		"ScriptFile"	"gille_ability"
-				//		"Function"		"OnHorrorTakeDamage"
-				//		"DamageTaken"	"%attack_damage"
-				//		"Threshold"		"%damage_threshold"
-				//	}
-				//}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"gille_ability"
+						"Function"		"OnHorrorTakeDamage"
+						"DamageTaken"	"%attack_damage"
+						"Threshold"		"%damage_threshold"
+					}
+				}
 				"OnAttackStart"
 				{
 					"FireSound"

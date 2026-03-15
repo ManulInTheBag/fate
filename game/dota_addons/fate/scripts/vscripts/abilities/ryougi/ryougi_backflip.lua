@@ -24,8 +24,13 @@ function ryougi_backflip:OnSpellStart()
 		ProjectileManager:ProjectileDodge(caster)
 
 		local origin = caster:GetAbsOrigin()
-		local direction = (caster:GetAbsOrigin() - target):Normalized()
+		local direction =caster:GetAbsOrigin() - target
 		direction.z = 0
+		
+		if direction:Length2D() < 1 then
+			direction = caster:GetForwardVector() * -1
+		end
+		direction = direction:Normalized()
 		caster:SetForwardVector(-direction)
 		local range = self:GetSpecialValueFor("range")
 

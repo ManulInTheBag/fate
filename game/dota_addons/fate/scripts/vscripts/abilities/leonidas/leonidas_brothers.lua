@@ -21,10 +21,10 @@ end
 
 function leonidas_brothers:OnOwnerDied()
 	local hCaster = self:GetCaster()
-	if IsNotNull(hCaster.soldier2) and hCaster.soldier1:IsAlive() then
-		hCaster.soldier1:Kill(nil, hCaster)
+	if IsNotNull(hCaster.soldier2) and hCaster.soldier2:IsAlive() then
+		hCaster.soldier2:Kill(nil, hCaster)
 	end
-	if IsNotNull(hCaster.soldier2) and hCaster.soldier1:IsAlive() then
+	if IsNotNull(hCaster.soldier1) and hCaster.soldier1:IsAlive() then
 		hCaster.soldier1:Kill(nil, hCaster)
 	end
 end

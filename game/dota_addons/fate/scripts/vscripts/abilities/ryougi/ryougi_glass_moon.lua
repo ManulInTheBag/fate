@@ -68,6 +68,7 @@ function ryougi_glass_moon:Cast2(target)
 	local ori = caster:GetAbsOrigin()
 	local range = self:GetSpecialValueFor("leap_range")
 	local direction = (target - ori):Normalized()
+	direction.z = 0
 	local counter = 0
 
 	EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)

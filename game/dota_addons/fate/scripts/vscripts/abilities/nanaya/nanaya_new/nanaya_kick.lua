@@ -19,7 +19,10 @@ function nanaya_kick:CastFilterResult()
 	local caster = self:GetCaster()
 	if IsServer() then
 		local target = self.target
-		if not target or not target:IsAlive() then return UF_FAIL_CUSTOM end
+		if not target or not target:IsAlive() then 
+			self:EndSequence()
+			return UF_FAIL_CUSTOM
+		 end
 		local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
 
 		if dist > (self:CheckSequence() == 5 and self:GetSpecialValueFor("fly_range") or self:GetSpecialValueFor("kick_range")) then 

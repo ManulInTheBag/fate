@@ -116,7 +116,7 @@ function modifier_nanaya_instinct:OnOrder(args)
 	if (args.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE) then--or (args.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION) then
 	  	--self:NanayaBlink(args.new_pos)
 	end
-	if (args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET) then
+	if (args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET and not self:GetAbility():GetAutoCastState()) then
 	  	self:NanayaBlink(args.target:GetAbsOrigin() + (self.parent:GetAbsOrigin() - args.target:GetAbsOrigin()):Normalized()*100)
 	end
 end

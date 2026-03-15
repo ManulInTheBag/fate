@@ -161,6 +161,7 @@ function modifier_altera_beam:Impact(target, mult)
 			-- end
         else
         	local damage = self.damage
+			if target:GetUnitName() == "gille_gigantic_horror" then damage = damage * 1.3 end
             if self.form == "agi" then
             	damage = damage*(1 + (1 - target:GetHealth()/target:GetMaxHealth())*0.75)
 			end

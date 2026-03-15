@@ -7577,7 +7577,7 @@
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_bonus_range"       "BONUS RANGE:"
 
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute"				"Attribute: Calydonian Snipe"
-        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Whenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 3%% per stack.<br/>Arrow of the Big Dipper applies 15 stacks."
+        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Whenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 3%% per stack.<br/>Arrow of the Big Dipper applies 5 stacks."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Lore"			"Once the hunt is on, there is no hiding from the arrows of the huntress."
         //"DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Note0"		"Arrows can be disjointed."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_stacks_duration"		"Duration:"
@@ -9867,7 +9867,7 @@
         "DOTA_Tooltip_ability_nanaya_dash_invis_duration"           "Invisibility duration:"
 
         "DOTA_Tooltip_ability_nanaya_instinct"                      "Instinct"
-        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>agility</font> and %mana_regen_constant% <font color='#58ACFA'>mana regen</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction. After casting any ability, Nanaya can instantly blink up to %blink_distance% range with attack-move, attack-target orders or using this ability."
+        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>agility</font> and %mana_regen_constant% <font color='#58ACFA'>mana regen</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction. After casting any ability, Nanaya can instantly blink up to %blink_distance% range with attack-move, attack-target orders or using this ability.\nWhen set to auto-cast, attack unit order will not activate blink."
         "DOTA_Tooltip_ability_nanaya_instinct_Note0"                 "Instinct blinks do not break Sensou・Suigetsu invisibility."
         "DOTA_Tooltip_ability_nanaya_instinct_Note1"                 "Sensa・Yotsutsuji casts 2, 3 and 4 do not reset instant blinks."
 

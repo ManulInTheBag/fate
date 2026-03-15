@@ -514,9 +514,6 @@ function OnHorrorTakeDamage(keys)
 	local damageTaken = keys.DamageTaken
 	local threshold = keys.Threshold
 	local multiplier = 0.3
-	if hero.IsAbyssalConnection1Acquired then
-		multiplier = 0.1
-	end
 	if damageTaken > threshold then 
 		DoDamage(keys.attacker, caster, damageTaken * multiplier, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 	end 

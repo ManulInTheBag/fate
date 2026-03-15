@@ -179,7 +179,9 @@ function robin_yew_bow:OnProjectileHit_ExtraData( target, location, extradata )
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = self, --Optional.
 	}
-	ApplyDamage(damageTable)
+	if  not target:HasModifier("modifier_protection_from_arrows_active") then 
+		ApplyDamage(damageTable)
+	end
 
 	-- stun
 	target:Interrupt()
