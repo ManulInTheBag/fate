@@ -108,7 +108,7 @@ end
 
 function modifier_merlin_illusion:OnIntervalThink()
     if IsServer() then
-        DoDamage(self.caster, self.parent, self.damage , DAMAGE_TYPE_MAGICAL, 0,  self.abililty, false)
+        DoDamage(self.caster, self.parent, self.damage , DAMAGE_TYPE_PHYSICAL, 0,  self.abililty, false)
     end
 
 end

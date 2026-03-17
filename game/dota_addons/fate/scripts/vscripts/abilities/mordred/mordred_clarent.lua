@@ -136,9 +136,9 @@ function mordred_clarent:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 
 	local caster = self:GetCaster()
 	local target = hTarget 
-	local damage = self:GetSpecialValueFor("damage") + caster:GetMaxMana()*self:GetSpecialValueFor("mana_percent")/1000
+	local damage = self:GetSpecialValueFor("damage") + (caster:GetLevel()*self:GetSpecialValueFor("damagelvl"))
 	if caster:HasModifier("modifier_mordred_overload") then
-		damage = damage + caster:GetMaxMana()*1/33
+		damage = damage + caster:GetMaxMana()*self:GetSpecialValueFor("mana_percent")/1000
 	end
 
 	target:AddNewModifier(caster, self, "modifier_clarent_slow", {Duration = self:GetSpecialValueFor("slow_duration")})

@@ -165,7 +165,7 @@ function artoria_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 
 	local caster = self:GetCaster()
 	local target = hTarget 
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetSpecialValueFor("damage") + (caster:GetLevel()*self:GetSpecialValueFor("damagelvl"))
 	local player = caster:GetPlayerOwner()
 
 	if caster:HasModifier("modifier_artoria_improve_excalibur_attribute") then

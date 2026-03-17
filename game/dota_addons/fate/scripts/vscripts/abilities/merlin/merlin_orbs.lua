@@ -117,7 +117,7 @@ function merlin_orbs:OnProjectileHit_ExtraData(target, location, table)
 
    		 local targets = FindUnitsInRadius(caster:GetTeam(), location, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
   	 		  for k,v in pairs(targets) do            
-      	 	  DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+      	 	  DoDamage(caster, v, damage, self:GetAbilityDamageType(), 0, self, false)
       	 	  v:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})   
      	   	  v:AddNewModifier(caster, self, "modifier_merlin_orb_silence", {Duration = self:GetSpecialValueFor("silence_duration")})      
    	 	      end 

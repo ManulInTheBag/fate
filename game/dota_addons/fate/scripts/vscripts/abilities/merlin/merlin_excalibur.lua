@@ -238,7 +238,7 @@ function modifier_merlin_excalibur_attack:OnAttackLanded(keys)
 	if keys.attacker ~= caster or target == caster then return end
 
 	if IsServer() then
- 		DoDamage(caster, target, self:GetAbility():GetSpecialValueFor("on_hit_damage") + (caster.KingAssistantAcquired and caster:GetIntellect()*self:GetAbility():GetSpecialValueFor("att_dmg_per_int") or 0), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+ 		DoDamage(caster, target, self:GetAbility():GetSpecialValueFor("on_hit_damage") + (caster.KingAssistantAcquired and caster:GetIntellect()*self:GetAbility():GetSpecialValueFor("att_dmg_per_int") or 0), DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
          
 	end
     local particle = ParticleManager:CreateParticle("particles/merlin/merlin_excalibur_attack.vpcf", PATTACH_ABSORIGIN, target)

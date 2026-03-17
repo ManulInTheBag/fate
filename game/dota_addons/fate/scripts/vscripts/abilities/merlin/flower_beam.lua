@@ -103,7 +103,7 @@ function flower_beam:OnSpellStart()
 		local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do       
       
-			DoDamage(caster, v, damage +v:GetMaxHealth()*self:GetSpecialValueFor("damage_per_hp")/100 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			DoDamage(caster, v, damage +v:GetMaxHealth()*self:GetSpecialValueFor("damage_per_hp")/100 , self:GetAbilityDamageType(), 0, ability, false)
 			v:AddNewModifier(caster, self, "modifier_merlin_slow", {Duration = 0.2})   
 		end
 		ParticleManager:SetParticleControl( beam_particle, 1, start_location) 

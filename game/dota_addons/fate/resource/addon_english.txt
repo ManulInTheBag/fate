@@ -2476,6 +2476,7 @@
 		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"CAST DELAY:"
 		"DOTA_Tooltip_ability_artoria_excalibur_range"		"RANGE:"
 		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_excalibur_damagelvl"	"DAMAGE per hero level:"
 		"DOTA_Tooltip_ability_artoria_excalibur_Note0"		"Saber is stunned Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"Combo: The Sword of Promised Victory"
@@ -2869,6 +2870,7 @@
 		"DOTA_Tooltip_ability_saber_alter_excalibur_Lore"			"The sword mirrors its owner."
 		"DOTA_Tooltip_ability_saber_alter_excalibur_delay"			"DELAY:"
 		"DOTA_Tooltip_ability_saber_alter_excalibur_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_damagelvl"		"DAMAGE per hero level:"
 		"DOTA_Tooltip_ability_saber_alter_excalibur_length"			"RANGE:"
 		"DOTA_Tooltip_ability_saber_alter_excalibur_slow_power"		"%MOVE SPEED SLOW:"
 		"DOTA_Tooltip_ability_saber_alter_excalibur_slow_duration"	"SLOW DURATION:"
@@ -5990,6 +5992,7 @@
 		"DOTA_Tooltip_Ability_mordred_clarent"	"Clarent Blood Arhtur"
 		"DOTA_Tooltip_Ability_mordred_clarent_Description"	"Mordred supercharges Clarent with her prana using Mana Burst to utilize it as an Anti-Army Noble Phantasm and then swing it, releasing a deadly wave of crimson light. This ability deals damage within 10 instances over a period of 0.8 seconds. Enemies hit are greatly slowed and dimensionally locked for a short period of time. Deals additional damage based on her max mana (but does not spend it).\nRemoves her helmet on cast."
 		"DOTA_Tooltip_Ability_mordred_clarent_damage"	"Base damage per tick:"
+		"DOTA_Tooltip_Ability_mordred_clarent_damagelvl"	"Damage per Hero level:"
 		"DOTA_Tooltip_Ability_mordred_clarent_slow"		"%Slow:"
 		
 		"DOTA_Tooltip_Ability_mordred_clarent_mana_percent"	"%Max mana converted to damage:"
@@ -6023,7 +6026,7 @@
 		"DOTA_Tooltip_Ability_mordred_pedigree_attribute_Description"	"Gives additional armor and magic resistance from Secret of Pedigree."
 
 		"DOTA_Tooltip_Ability_mordred_overload_attribute"	"Attribute: Lightning Overload"
-		"DOTA_Tooltip_Ability_mordred_overload_attribute_Description"	"When Mordred casts a spell, she deals 10*(Slash + Hit + Rage Rush levels) magic damage to all enemies in 400 radius and reveals this area. Clarent Blood Arthur deals 30% more damage from mana."
+		"DOTA_Tooltip_Ability_mordred_overload_attribute_Description"	"When Mordred casts a spell, she deals 10*(Slash + Hit + Rage Rush levels) magic damage to all enemies in 400 radius and reveals this area. Clarent Blood Arthur deals 20% more damage from mana."
 		
 
 		//====================================
@@ -9377,7 +9380,7 @@
 		"npc_dota_hero_puck_bio"						""
 
         "DOTA_Tooltip_ability_flower_beam"							"Flower beam"
-        "DOTA_Tooltip_ability_flower_beam_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0   </font> |    <font color='#FFFAFA'>   Vector target.</font>\nMerlin creates an <font color='#FFFAFA'>illusion</font> of him shooting a beam, which travels along the selected vector, dealing <font color='#58ACFA'>damage</font> to all enemies, which scales with the <font color='#FFFAFA'>enemy max health</font>.\nBeam applies a <font color='#9400D3'>slow</font> effect on each hit\n<font color='#F1C40F'>Upgradable by attribute Rapid chanting.</font>"
+        "DOTA_Tooltip_ability_flower_beam_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0   </font> |    <font color='#FFFAFA'>   Vector target.</font>\nMerlin creates an <font color='#FFFAFA'>illusion</font> of him shooting a beam, which travels along the selected vector, dealing <font color='#A72E28'>damage</font> to all enemies, which scales with the <font color='#FFFAFA'>enemy max health</font>.\nBeam applies a <font color='#9400D3'>slow</font> effect on each hit\n<font color='#F1C40F'>Upgradable by attribute Rapid chanting.</font>"
         
         "DOTA_Tooltip_ability_flower_beam_range"					"Cast range:"
         "DOTA_Tooltip_ability_flower_beam_damage"					"Damage per tick:"
@@ -9388,7 +9391,7 @@
          
 
         "DOTA_Tooltip_ability_merlin_orbs"					"Tracking orbs"
-        "DOTA_Tooltip_ability_merlin_orbs_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.4</font>\nMerlin sends <font color='#FFFAFA'>3</font> magical orbs to a targeted enemy.\nOrbs will <font color='#FFFAFA'>follow</font> him for a short time.\nOn touch orbs will <font color='#FFFAFA'>explode in aoe</font>, dealing <font color='#58ACFA'>damage</font>, <font color='#FF3399'> microstunning</font> and <font color='#FF3399'>silencing</font> all enemies hit."
+        "DOTA_Tooltip_ability_merlin_orbs_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.4</font>\nMerlin sends <font color='#FFFAFA'>3</font> magical orbs to a targeted enemy.\nOrbs will <font color='#FFFAFA'>follow</font> him for a short time.\nOn touch orbs will <font color='#FFFAFA'>explode in aoe</font>, dealing <font color='#A72E28'>damage</font>, <font color='#FF3399'> microstunning</font> and <font color='#FF3399'>silencing</font> all enemies hit."
         "DOTA_Tooltip_ability_merlin_orbs_damage"				"Damage:"
         "DOTA_Tooltip_ability_merlin_orbs_radius"				"Explosion radius:"
         "DOTA_Tooltip_ability_merlin_orbs_silence_duration"		"Silence duration:"
@@ -9398,7 +9401,7 @@
 	 
 
         "DOTA_Tooltip_ability_merlin_illusion"					"Illusion"
-        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.2       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.85</font>\nMerlin creates an illusion in <font color='#FFFAFA'>radius</font>, sending enemies to <font color='#FF3399'>sleep</font> after a <font color='#FFFAFA'>delay</font>.\n<font color='#FF3399'>Sleep</font> duration <font color='#FFFAFA'>decreases</font> with amount of enemies affected.\nEnemy will <font color='#FFFAFA'>awake</font> if  <font color='#FFFAFA'>total damage</font> he received under <font color='#FF3399'>sleep</font> effect will be greater than threshold.\nEach <font color='#FFFAFA'>0.25</font> seconds enemy will take <font color='#58ACFA'>damage</font> while <font color='#FF3399'>sleeping</font>.\nIf same enemy gets caught in sleep more than once in <font color='#FFFAFA'>5</font> seconds, sleep duration will be <font color='#FFFAFA'>minimazed</font> for that enemy."
+        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.2       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.85</font>\nMerlin creates an illusion in <font color='#FFFAFA'>radius</font>, sending enemies to <font color='#FF3399'>sleep</font> after a <font color='#FFFAFA'>delay</font>.\n<font color='#FF3399'>Sleep</font> duration <font color='#FFFAFA'>decreases</font> with amount of enemies affected.\nEnemy will <font color='#FFFAFA'>awake</font> if  <font color='#FFFAFA'>total damage</font> he received under <font color='#FF3399'>sleep</font> effect will be greater than threshold.\nEach <font color='#FFFAFA'>0.25</font> seconds enemy will take <font color='#A72E28'>damage</font> while <font color='#FF3399'>sleeping</font>.\nIf same enemy gets caught in sleep more than once in <font color='#FFFAFA'>5</font> seconds, sleep duration will be <font color='#FFFAFA'>minimazed</font> for that enemy."
         "DOTA_Tooltip_ability_merlin_illusion_basic_duration"			"Sleep base duration:"
         "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
         "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
@@ -9441,7 +9444,7 @@
 
 
         "DOTA_Tooltip_ability_merlin_excalibur"						"Excalibur"
-        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMerlin strikes the ground with <font color='#58ACFA'>Excalibur</font>, dealing <font color='#58ACFA'>damage</font> to all enemies in line over <font color='#FFFAFA'>0.9</font> seconds.\nAll enemies hit are <font color='#FF3399'>pulled</font> towards Merlin.\nMerlin gains an effect which will deal <font color='#58ACFA'>damage</font> on <font color='#FFFAFA'>basic attacks</font> after usage of <font color='#58ACFA'>Excalibur</font>.\n<font color='#F1C40F'>Upgradable by attribute King's assistant.</font>"
+        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMerlin strikes the ground with <font color='#58ACFA'>Excalibur</font>, dealing <font color='#58ACFA'>damage</font> to all enemies in line over <font color='#FFFAFA'>0.9</font> seconds.\nAll enemies hit are <font color='#FF3399'>pulled</font> towards Merlin.\nMerlin gains an effect which will deal <font color='#A72E28'>damage</font> on <font color='#FFFAFA'>basic attacks</font> after usage of <font color='#58ACFA'>Excalibur</font>.\n<font color='#F1C40F'>Upgradable by attribute King's assistant.</font>"
         "DOTA_Tooltip_ability_merlin_excalibur_damage"							"Damage:"
         "DOTA_Tooltip_ability_merlin_excalibur_range"								"Range:"
         "DOTA_Tooltip_ability_merlin_excalibur_width"								"Width:"
@@ -9495,7 +9498,7 @@
  
 
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute"				"Attribute: King's assistant"
-        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_Description"	"Increases <font color='#58ACFA'>Excalibur</font> on-hit  <font color='#58ACFA'>damage</font> based on <font color='#1E90FF'>INT</font>\nEach time Merlin uses an ability he gains a stackable refreshing <font color='#FFFAFA'>attack speed</font> buff, capped at <font color='#FFFAFA'>6</font>.\nIncreases <font color='#58ACFA'>Excalibur</font> damage based on Merlin <font color='#1E90FF'>INT</font>"
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_Description"	"Increases <font color='#58ACFA'>Excalibur</font> on-hit  <font color='#A72E28'>damage</font> based on <font color='#1E90FF'>INT</font>\nEach time Merlin uses an ability he gains a stackable refreshing <font color='#FFFAFA'>attack speed</font> buff, capped at <font color='#FFFAFA'>6</font>.\nIncreases <font color='#58ACFA'>Excalibur</font> damage based on Merlin <font color='#1E90FF'>INT</font>"
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_attackspeed_per_stack" 		"Attack speed per stack:"
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_duration" 					"Attack speed duration:"
  		"DOTA_Tooltip_ability_merlin_king_assistant_attribute_dmg_per_int" 						"Dmg per INT:"

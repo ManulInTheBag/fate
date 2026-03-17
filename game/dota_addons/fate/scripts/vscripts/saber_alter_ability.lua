@@ -524,10 +524,16 @@ function OnDexHit(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
+	local damagetotal = keys.Damage + keys.Damagelvl * caster:GetLevel()
 	local ply = caster:GetPlayerOwner()
-	if caster.IsDarklightAcquired then keys.Damage = keys.Damage + caster:GetMaxMana()*(25 + ability:GetLevel()*5)/1000 end
-	if target:GetUnitName() == "gille_gigantic_horror" then keys.Damage = keys.Damage*1.3 end
-	DoDamage(keys.caster, keys.target, keys.Damage , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	if caster.IsDarklightAcquired then 
+		damagetotal = damagetotal + caster:GetMaxMana()*(2.5)/100 
+	end
+	if target:GetUnitName() == "gille_gigantic_horror" then 
+		DoDamage(keys.caster, keys.target, damagetotal*1.3 , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	else
+		DoDamage(keys.caster, keys.target, damagetotal , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	end
 	target:AddNewModifier(caster, ability, "modifier_morgan_slow", {Duration = 1})
 	giveUnitDataDrivenModifier(caster, target, "locked", 1)
 end
