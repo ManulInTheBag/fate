@@ -111,6 +111,7 @@ Tab.prototype.Hover = function(){
     });
 
     var config = new Tab("Configuration", "file://{resources}/layout/custom_game/fateanother_configuration.xml", true);
+    var hotkey = new Tab("Hotkey Setting", "file://{resources}/layout/custom_game/fateanother_hotkey.xml", true);
     var fatepedia = new Tab("Fatepedia", "file://{resources}/layout/custom_game/fateanother_fatepedia.xml", true);
     var about = new Tab("About", "file://{resources}/layout/custom_game/fateanother_about.xml", false);
 

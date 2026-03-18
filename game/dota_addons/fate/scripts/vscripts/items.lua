@@ -122,6 +122,49 @@ function OnFFABaseLeft(trigger)
 	SendErrorMessage(hero:GetPlayerOwnerID(), "#Left_Base")
 end
 
+function IsItemFullSlot(hHero)
+	local isFull = true 
+	for i = 9,14 do -- stash slot
+		if hHero:GetItemInSlot(i) == nil then 
+			isFull = false 
+			break
+		end
+	end
+
+	for j = 0, 5 do -- item slot
+		if hHero:GetItemInSlot(j) == nil then 
+			isFull = false 
+			break
+		end
+	end
+
+	return isFull
+end
+
+function IsStashFullSlot(hHero)
+	local isFull = true 
+	for i = 9,14 do -- stash slot
+		if hHero:GetItemInSlot(i) == nil then 
+			isFull = false 
+			break
+		end
+	end
+
+	return isFull
+end
+
+function IsInventoryFullSlot(hHero)
+	local isFull = true 
+	for i = 0,5 do -- stash slot
+		if hHero:GetItemInSlot(i) == nil then 
+			isFull = false 
+			break
+		end
+	end
+
+	return isFull
+end
+
 function TransferItem(keys)
 	local item = keys.ability
 	local caster = keys.caster

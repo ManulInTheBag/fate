@@ -95,6 +95,13 @@
 		"FA_Config_Option5"				"禁用直接将物品购买到物品栏"
 		"FA_Config_Option5_Context"		"选中此选项时，购买的物品将处于储藏处而非加入从者的物品栏。"
 
+		"seal_hotkey"                           	"令咒快捷键设置"
+		"quickbuy_hotkey"                       	"快速购买快捷键设置"
+		"AltButton"                        		"ALT键"
+		"CtrlButton"                        		"CTRL键"
+		"FButton"                        		"F键"
+		"sealhotkeytip"                         	"请勿禁用御主栏。"
+
 		"FA_Config_Cmd1"	"向你的队友传送一条需求金钱的消息。"
 		"FA_Config_Cmd2"	"控制背景音乐的开关。"
 		"FA_Config_Cmd3"	"将御主的魔力值/生命值设置为100/1000，\n并使得连击技能处于可用状态。"

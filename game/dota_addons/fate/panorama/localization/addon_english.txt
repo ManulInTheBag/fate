@@ -148,6 +148,13 @@
 		"FA_Config_Cmd4"	"Removes pre-round pause status from all Servants."
 		"FA_Config_Cmd5"	"Enables or disables servants' voices."
 
+		"seal_hotkey"                           "Command Seal Hotkey Setting"
+		"quickbuy_hotkey"                       "Quick Buy Hotkey Setting"
+		"AltButton"                        		"ALT Button"
+		"CtrlButton"                        	"CTRL Button"
+		"FButton"                        		"F Button"
+		"sealhotkeytip"                         "Do NOT disable master bar."
+
 
 		"Fateanother_Portrait_Tooltip"					"Click to select your Servant."
 		"Fateanother_Master_Tooltip"					"Click to select Master, who can aid your Servant with powerful Command Seals."
@@ -159,7 +166,7 @@
         "FA_Options_tooltip"                            "Fate settings"
 
         "ABOUT_DEV"                                     "Fate/Balance"
-        "ABOUT_DEV_BODY"                                "Currently developed by: ManulInTheBag"
+        "ABOUT_DEV_BODY"                                "Currently developed by: ManulInTheBag, Zlodemon"
         "ABOUT_CREDITS"                                 "Credits and acknowledgements"
 
         "ABOUT_CREDITS_BODY"

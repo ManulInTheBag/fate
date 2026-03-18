@@ -1989,50 +1989,118 @@ function OnPlayerCastSeal(iSource, args)
     if iPlayer == hUnit:GetPlayerOwnerID() then
         if hUnit.HeroUnit and not hUnit.HeroUnit:IsAlive() then
             SendErrorMessage(iPlayer, "Hero is dead")
+            return
         end
 
-        if hAbility:GetName() == "cmd_seal_4" then
-            if hUnit.HeroUnit:GetName() == "npc_dota_hero_juggernaut" or hUnit.HeroUnit:GetName() == "npc_dota_hero_shadow_shaman" then
-                SendErrorMessage(iPlayer, "Cannot use Command Seal 4")
+        if string.match(hAbility:GetAbilityName(), "cmd_seal") then
+            if hAbility:GetName() == "cmd_seal_4" then
+                -- if IsManaLess(hUnit.HeroUnit) --[[hUnit.HeroUnit:GetName() == "npc_dota_hero_juggernaut" or hUnit.HeroUnit:GetName() == "npc_dota_hero_shadow_shaman"]] then
+                --     SendErrorMessage(iPlayer, "Cannot use Command Seal 4")
+                --     return
+                -- end
             end
-        end
 
-        if hUnit:GetMana() < hAbility:GetManaCost(1) then
-            SendErrorMessage(iPlayer, "Not enough mana")
-        elseif hUnit:GetHealth() <= 1 then
-            SendErrorMessage(iPlayer, "Not enough master health")
+            if IsRevoked(hUnit.HeroUnit) then
+                SendErrorMessage(iPlayer, "#Revoked_Error") 
+                return 
+            end
+
+            if hUnit:GetMana() < hAbility:GetManaCost(1) then
+                SendErrorMessage(iPlayer, "Not enough mana")
+            elseif hUnit:GetHealth() <= 1 then
+                SendErrorMessage(iPlayer, "Not enough master health")
+            else
+                --For some reason this thing ignores the cast filter SeemsGood
+                hUnit:CastAbilityNoTarget(hAbility, iPlayer)
+            end
         else
-            --For some reason this thing ignores the cast filter SeemsGood
             hUnit:CastAbilityNoTarget(hAbility, iPlayer)
         end
     end
 end
 
-function OnPlayerCastSeal(iSource, args)
+function OnPlayerCustomQuickBuy(iSource, args)
     local iPlayer = args.PlayerID
-    local hUnit = EntIndexToHScript(args.iUnit)
-    local hAbility = EntIndexToHScript(args.iAbility)
+    local hHero = EntIndexToHScript(args.iHero)
+    local sItem_Name = args.sItem
 
-    if iPlayer == hUnit:GetPlayerOwnerID() then
-        if hUnit.HeroUnit and not hUnit.HeroUnit:IsAlive() then
-            SendErrorMessage(iPlayer, "Hero is dead")
+    local isPriceIncreased = not hHero.IsInBase
+
+    local item_cost = GetItemCost(sItem_Name)
+    if isPriceIncreased then 
+        item_cost = item_cost * 1.5 
+    end
+
+    local current_gold = hHero:GetGold()
+
+    if current_gold < item_cost then 
+        if isPriceIncreased then
+            SendErrorMessage(iPlayer, "#Not_Enough_Gold_Item")
+        else
+            SendErrorMessage(iPlayer, "#Not_Enough_Gold")
+        end
+        return 
+    end
+
+    if IsItemFullSlot(hHero) then
+        SendErrorMessage(iPlayer, "Inventory is full.")
+        return 
+    end
+
+    local new_item = nil
+
+    local ply = PlayerResource:GetPlayer(iPlayer)
+
+    if (ply.bIsNewItemSystemDisabled and ply.bIsNewItemSystemDisabled == true) or not hHero:IsAlive() then
+        if IsStashFullSlot(hHero) then 
+            SendErrorMessage(iPlayer, "Stash is full.")
+            return 
         end
 
-        if hAbility:GetName() == "cmd_seal_4" then
-            if IsManaLess(hUnit.HeroUnit) --[[hUnit.HeroUnit:GetName() == "npc_dota_hero_juggernaut" or hUnit.HeroUnit:GetName() == "npc_dota_hero_shadow_shaman"]] then
-                SendErrorMessage(iPlayer, "Cannot use Command Seal 4")
+        hHero:SpendGold(item_cost, DOTA_ModifyGold_PurchaseConsumable)
+        new_item = CreateItem(sItem_Name, hHero, hHero)
+
+        if IsInventoryFullSlot(hHero) then
+            hHero:AddItem(new_item)
+        else
+            hHero:AddItem(new_item)
+            print('inventory not full')
+            local inventory_slot = new_item:GetItemSlot()
+
+            local stash_slot = 0
+            for i = 9,14 do 
+                stash_item = hHero:GetItemInSlot(i)
+                if stash_item == nil then 
+                    stash_slot = i 
+                    break 
+                end
+            end
+
+            if stash_slot >= 9 then 
+                print('stash slot available')
+                print(inventory_slot)
+                print(stash_slot)
+                hHero:SwapItems(inventory_slot, stash_slot)
             end
         end
+        CustomGameEventManager:Send_ServerToPlayer(ply, "PlayVoiceSound", { SoundEvent = "General.Buy" })
+        CheckItemCombination(hHero)
+        CheckItemCombinationInStash(hHero)
+        SaveStashState(hHero)
+    else
+        hHero:SpendGold(item_cost, DOTA_ModifyGold_PurchaseConsumable)
+        new_item = CreateItem(sItem_Name, hHero, hHero)
+        hHero:AddItem(new_item)
+        CustomGameEventManager:Send_ServerToPlayer(ply, "PlayVoiceSound", { SoundEvent = "General.Buy" })
+        CheckItemCombination(hHero)
+        CheckItemCombinationInStash(hHero)
+        SaveStashState(hHero)
+    end    
 
-        if hUnit:GetMana() < hAbility:GetManaCost(1) then
-            SendErrorMessage(iPlayer, "Not enough mana")
-        elseif hUnit:GetHealth() <= 1 then
-            SendErrorMessage(iPlayer, "Not enough master health")
-        else
-            --For some reason this thing ignores the cast filter SeemsGood
-            hUnit:CastAbilityNoTarget(hAbility, iPlayer)
-        end
+    if current_gold - item_cost < 200 and hHero.bIsAutoGoldRequestOn then
+        Notifications:RightToTeamGold(hHero:GetTeam(), "<font color='#FF5050'>" .. FindName(hHero:GetName()) .. "</font> at <font color='#FFD700'>" .. hHero:GetGold() .. "g</font> is requesting gold. Type <font color='#58ACFA'>-" .. iPlayer .. " (goldamount)</font> to send gold!", 7, nil, {color="rgb(255,255,255)", ["font-size"]="20px"}, true)
     end
+
 end
 
 function OnPlayerCastSeal1(index, keys) 
@@ -2522,6 +2590,8 @@ function FateGameMode:OnHeroInGame(hero)
         master3:SetDayTimeVisionRange(150)
         master3:SetNightTimeVisionRange(150)
     end)
+
+    CustomGameEventManager:Send_ServerToPlayer(player, "player_selected_hero", playerData)
 
 
     -- Ping master location on minimap
@@ -3883,6 +3953,7 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener( "player_alt_click", OnPlayerAltClick )
     CustomGameEventManager:RegisterListener("player_remove_buff", OnPlayerRemoveBuff )
     CustomGameEventManager:RegisterListener("player_cast_seal", OnPlayerCastSeal )
+    CustomGameEventManager:RegisterListener("player_quick_buy_custom", OnPlayerCustomQuickBuy ) 
     CustomGameEventManager:RegisterListener("player_seal_1", OnPlayerCastSeal1 )
     CustomGameEventManager:RegisterListener("player_seal_2", OnPlayerCastSeal2 )
     CustomGameEventManager:RegisterListener("player_seal_3", OnPlayerCastSeal3 )

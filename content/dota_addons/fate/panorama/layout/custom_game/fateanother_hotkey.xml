@@ -1,0 +1,64 @@
+<!-- xml reconstructed by Source 2 Viewer 16.0.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.css" />
+		<include src="s2r://panorama/styles/custom_game/fateanother_hotkey.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/util.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/fateanother_hotkey.vjs_c" />
+		<include src="s2r://panorama/scripts/custom_game/fateanother_util.vjs_c" />
+	</scripts>
+	<snippets>
+		<snippet name="SealContainerSnippet">
+			<Panel class="SealPortrait" hittest="true">
+				<Label id="SealLabel" text="" class="SealHotkeyLabel" />
+			</Panel>
+		</snippet>
+		<snippet name="QuickBuyContainerSnippet">
+			<Panel class="ItemContainer" hittest="false">
+				<Panel class="ItemArrow" hittest="true" />
+				<Panel class="ItemPortrait" hittest="true">
+					<Label id="QuickBuyLabel" text="" class="SealHotkeyLabel" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="ItemListContainerSnippet">
+			<Panel class="ItemOptionPortrait" hittest="true" />
+		</snippet>
+	</snippets>
+	<Panel class="HotkeyRoot" hittest="false">
+		<Panel id="CMDContainer" class="CMDContainer" hittest="false">
+			<Panel id="SealHeader" class="HeaderContainer" hittest="false">
+				<Label id="SealHeaderLabel" text="#Seal_Hotkey" class="SectionHeaderLabel" hittest="false" />
+			</Panel>
+			<Panel id="SealContainer" class="SealContainer" hittest="false" />
+			<Panel id="SealOptionContainer" class="SealOptionContainer" hittest="false">
+				<ToggleButton id="AltButton" class="ALTCTRL" checked="false" text="#AltButton" onactivate="OnAltButtonToggle()" />
+				<ToggleButton id="CtrlButton" class="ALTCTRL" checked="false" text="#CtrlButton" onactivate="OnCtrlButtonToggle()" />
+				<ToggleButton id="FButton" class="ALTCTRL" checked="false" text="#FButton" onactivate="OnFButtonToggle()" />
+				<Panel id="SealTipContainer" class="SealTipContainer" hittest="false">
+					<Label id="SealTipLabel" text="#SealHotKeyTip" class="SealApplyLabel" hittest="false" />
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="StickyContainer" class="StickyContainer" hittest="false">
+			<Panel id="QuickBuyHeader" class="HeaderContainer" hittest="false">
+				<Label id="QuickBuyHeaderLabel" text="#Quickbuy_Hotkey" class="SectionHeaderLabel" hittest="false" />
+			</Panel>
+			<Panel id="QuickBuyContainer" class="SealContainer" hittest="false" />
+			<Panel id="QuickBuyOptionContainer" class="SealOptionContainer" hittest="false">
+				<ToggleButton id="AltButtonBuy" class="ALTCTRL" checked="false" text="#AltButton" onactivate="OnAltButtonBuyToggle()" />
+				<ToggleButton id="CtrlButtonBuy" class="ALTCTRL" checked="false" text="#CtrlButton" onactivate="OnCtrlButtonBuyToggle()" />
+				<ToggleButton id="FButtonBuy" class="ALTCTRL" checked="false" text="#FButton" onactivate="OnFButtonBuyToggle()" />
+				<Panel id="SealApplyButton" class="SealApplyButton" hittest="true" onmouseactivate="SealButtonApply()">
+					<Label id="SealApplyLabel" text="Apply" class="SealApplyLabel" hittest="false" />
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="HotkeyEntryPanel" class="HotkeyEntryPanel" hittest="false">
+			<TextEntry id="HotkeyEntry" maxchars="1" placeholder="" oninputsubmit="OnHotkeySubmitted()" />
+		</Panel>
+		<Panel id="ItemListContainer" hittest="true" />
+	</Panel>
+</root>
