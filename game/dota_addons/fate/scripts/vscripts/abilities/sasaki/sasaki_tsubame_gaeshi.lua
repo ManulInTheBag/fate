@@ -26,7 +26,7 @@ function sasaki_tsubame_gaeshi:GetCustomCastErrorTarget()
 	end
 end
 
-function sasaki_tsubame_gaeshi:GetCastPoint()
+--[[function sasaki_tsubame_gaeshi:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_ganryu_attribute") then
@@ -34,7 +34,7 @@ function sasaki_tsubame_gaeshi:GetCastPoint()
 	else
 		return 0.7
 	end
-end
+end]]
 
 function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 	local caster = self:GetCaster()	
@@ -100,7 +100,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 	if caster.IsGanryuAcquired then
 		split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.35
 		final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*0.7
-		giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
+		--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
 	end
 
 	--caster:SetMana(0)
@@ -139,7 +139,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 	Timers:CreateTimer(delay, function()  
 		if caster:IsAlive() and target:IsAlive() then			
 			if caster.IsGanryuAcquired then
-				giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)	
+				--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)	
 			end	
 
 			--if enhanced then
