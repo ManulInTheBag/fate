@@ -228,6 +228,7 @@ function okada_ult:PefrormAttackTimer(unit, caster, targetInnit, dmgMod, shouldJ
                     end
                 end
                 if not shouldJumpTargets then
+                    FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
                     return
                 end
             end
