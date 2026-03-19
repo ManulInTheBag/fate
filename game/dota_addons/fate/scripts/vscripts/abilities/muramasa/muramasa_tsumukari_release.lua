@@ -81,7 +81,7 @@ local tsumukariProjectile =
         vVelocity = start_vec * speed
     }
 
-Timers:CreateTimer(1.5, function()  
+Timers:CreateTimer(2, function()  
     EmitGlobalSound("muramasa_explosion") 
     for i = 1, 10 do
         point = pull_center + i *start_vec * 120
