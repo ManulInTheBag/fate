@@ -30,7 +30,11 @@ function khsn_aoe_flame:OnSpellStart()
 	end)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.66)
-	StartAnimation(caster, {duration = 2.4, activity = ACT_DOTA_CAST_ABILITY_4_END, rate = 0.5 })
+	if not caster:HasModifier("modifier_hero_selection_skin") then
+		StartAnimation(caster, {duration = 2.4, activity = ACT_DOTA_CAST_ABILITY_4_END, rate = 0.5 })
+	else
+		StartAnimation(caster, {duration = 1.8, activity = ACT_DOTA_CAST_ABILITY_4_END, rate = 0.25 })
+	end
 
 	Timers:CreateTimer(0, function()
 		if caster:IsAlive() then
@@ -120,6 +124,7 @@ function khsn_aoe_flame:OnSpellStart()
 				return 0.1
 			end
 		else
+			
 			FxDestroyer(self.PI4, false)
 			FxDestroyer(self.PI5, false)
 			return nil

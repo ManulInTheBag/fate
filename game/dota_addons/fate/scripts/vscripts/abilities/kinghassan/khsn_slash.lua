@@ -11,6 +11,14 @@ function khsn_slash:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
 end
 
+LinkLuaModifier("modifier_shuwen_atk_sound","abilities/lishuwen/li_shuwen_new_w", LUA_MODIFIER_MOTION_NONE)
+
+function khsn_slash:GetIntrinsicModifierName()
+	return "modifier_shuwen_atk_sound"
+end
+
+
+
 
 function khsn_slash:OnSpellStart()
 	local caster = self:GetCaster()
@@ -73,9 +81,11 @@ function khsn_slash:OnSpellStart()
 		bDeleteOnHit = false,
 		vVelocity = caster:GetForwardVector() * 9999
 	}
-
-
+	if not caster:HasModifier("modifier_hero_selection_skin") then
 		FreezeAnimation(caster, cast_delay)	
+	end
+
+		
 
 
 	
@@ -84,7 +94,10 @@ function khsn_slash:OnSpellStart()
 	ParticleManager:SetParticleControl(particle, 0, targetPoint + Vector(0,0,50))
 
 	Timers:CreateTimer( cast_delay - 0.15, function()
-		UnfreezeAnimation(caster)
+		if not caster:HasModifier("modifier_hero_selection_skin") then
+			UnfreezeAnimation(caster)
+		end
+		
 		if caster:IsAlive() then
 			azrael.vSpawnOrigin = caster:GetAbsOrigin() 
 			azrael.vVelocity = caster:GetForwardVector() * speed
@@ -100,8 +113,12 @@ function khsn_slash:OnSpellStart()
 			dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 			dummy:SetForwardVector(casterFacing)
 			dummy:SetAbsOrigin(caster:GetAbsOrigin())
-					
-			local excalFxIndex = ParticleManager:CreateParticle( "particles/kinghassan/azrael/hassanult.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, dummy )
+			
+			local particle_name = "particles/kinghassan/azrael/hassanult.vpcf"
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				particle_name = "particles/zlodemon/yujiro/yujiro_wind.vpcf"
+			end
+			local excalFxIndex = ParticleManager:CreateParticle( particle_name, PATTACH_CUSTOMORIGIN_FOLLOW, dummy )
 			ParticleManager:SetParticleControl(excalFxIndex, 4, Vector(width * 4,6,4))
 			caster:EmitSound("KingHassan.AzraelCut")
 			caster:EmitSound("mang2")

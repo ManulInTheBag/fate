@@ -1421,6 +1421,37 @@
 			}
 		}
 	}
+"models/zlodemon/yujiro/yujiro_kh.vmdl"
+	{
+		"PortraitLightPosition"		"8.34 -51.72 127.79"
+		"PortraitLightAngles"		"12.96 83.92 0.00"
+		"PortraitLightFOV"		"51"
+		"PortraitLightDistance"		"85"
+		"PortraitLightColor"		"254 210 218"
+		"PortraitShadowColor"		"93 93 93"
+		"PortraitShadowScale"		"4.025000"
+		"PortraitAmbientColor"		"241 165 97"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
+		"PortraitBackgroundColor1"		"0.2 0.2 0.2"
+		"PortraitBackgroundColor2"		"0 0.05 0.7"
+		"PortraitBackgroundColor3"		"0 0.1 0.6"
+		"PortraitBackgroundColor4"		"0.2 0.2 0.2"
+		"PortraitLightScale"		"4.100000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"35.039 1 40"
+				"PortraitAngles"		"5 182 0"
+				"PortraitFOV"		"10"
+			}
+		}
+	}
 
 	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan_unanim.vmdl"
 	{
@@ -2869,6 +2900,40 @@
 			}
 		}
 	}
+
+
+	"models/zlodemon/baki/baki_shuwen.vmdl"
+	{
+		"PortraitLightPosition"		"8.34 -51.72 127.79"
+		"PortraitLightAngles"		"12.96 83.92 0.00"
+		"PortraitLightFOV"		"51"
+		"PortraitLightDistance"		"85"
+		"PortraitLightColor"		"254 210 218"
+		"PortraitShadowColor"		"93 93 93"
+		"PortraitShadowScale"		"4.025000"
+		"PortraitAmbientColor"		"241 165 97"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
+		"PortraitBackgroundColor1"		".9 .1 0"
+		"PortraitBackgroundColor2"		".9 .3 0"
+		"PortraitBackgroundColor3"		".9 .5 1"
+		"PortraitBackgroundColor4"		".9 .3 0"
+		"PortraitLightScale"		"4.100000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"241.25 130.63 75.35"
+				"PortraitAngles"		"338.37 209.12 0.00"
+				"PortraitFOV"		"12"
+			}
+		}
+	}
+
 
 
 	"models/archer/archertest.vmdl"

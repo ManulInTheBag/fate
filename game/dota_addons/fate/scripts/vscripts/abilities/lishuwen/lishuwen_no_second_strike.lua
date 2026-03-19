@@ -29,6 +29,14 @@ function lishuwen_no_second_strike:AddShock(target, amount)
 
 end
 
+
+
+function lishuwen_no_second_strike:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
+end
+
+
 modifier_nss_shock_stackable = class({})
 
 function lishuwen_no_second_strike:GetIntrinsicModifierName()
@@ -253,6 +261,8 @@ function lishuwen_no_second_strike:OnAbilityPhaseStart()
     local delay = self:GetSpecialValueFor("cast_delay")
 	EmitZlodemonTrueSoundEveryone("moskes_li_r")
    	caster:EmitSound("Lishuwen_NP1")
+		EndAnimation(caster)
+	StartAnimation(caster, {duration=0.55, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.35})
 	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
 	vector.z = 0
 	caster:SetForwardVector(vector)
@@ -427,9 +437,10 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 	hTarget:RemoveModifierByName("modifier_nss_shock_stackable")
 	self.counterfxExplosion =   ParticleManager:CreateParticle( "particles/li_shuwen/li_shuwen_stacks_jopa.vpcf", PATTACH_OVERHEAD_FOLLOW, hTarget )
 	ParticleManager:SetParticleControl( self.counterfxExplosion , 3,hTarget:GetAbsOrigin() + Vector(0,0,150)  )
+	ParticleManager:ReleaseParticleIndex(self.counterfxExplosion )
 	Timers:CreateTimer(3, function()
-			ParticleManager:DestroyParticle(self.counterfxExplosion , true)
-			ParticleManager:ReleaseParticleIndex(self.counterfxExplosion )
+			--ParticleManager:DestroyParticle(self.counterfxExplosion , true)
+			
 	
 	end)
 	if caster:HasModifier("modifier_berserk") then

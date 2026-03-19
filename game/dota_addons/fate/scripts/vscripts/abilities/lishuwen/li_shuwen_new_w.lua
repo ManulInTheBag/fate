@@ -78,7 +78,7 @@ function modifier_li_shuwen_new_w_contoller:GetPriority()                       
 function modifier_li_shuwen_new_w_contoller:OnCreated(htable)
 		self.hCaster  = self:GetCaster()
 		self.hAbility = self:GetAbility()
-		self.hAbility:PlayRandomAttackAnimation()
+		
 		self.target_point = Vector(htable.target_point_x, htable.target_point_y, htable.target_point_z)
 		self.bonus_damage = htable.bonus_damage
 		self.slow_dur = htable.slow_dur
@@ -93,6 +93,7 @@ function modifier_li_shuwen_new_w_contoller:OnCreated(htable)
 
 		if self.enemiesCount > 0 then
 			self.total_strikes = self.total_strikes + self.enemiesCount
+			self.hAbility:PlayRandomAttackAnimation()
 		end
 		self.interval = self.duration/self.total_strikes
 
@@ -130,28 +131,44 @@ function modifier_li_shuwen_new_w_contoller:OnIntervalThink()
 		local animcount = math.random(1,4)
 		self.hAbility:PlayRandomAttackAnimation(animcount, 0)
 		if animcount == 1 then
-			local particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage.vpcf", PATTACH_ABSORIGIN, self.hCaster)
+			local particle_name = "particles/zlodemon/li_shuwen_w_afterimage.vpcf"
+				if self.hCaster:HasModifier("modifier_hero_selection_skin") then
+				particle_name = "particles/zlodemon/li_shuwen_w_afterimage_baki.vpcf"
+			end
+			local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, self.hCaster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, self.hCaster:GetAbsOrigin() + direction_vector * (450 * 0.9))
 			ParticleManager:SetParticleControlEnt(particle, 2, self.hCaster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", direction_vector, true)
 			ParticleManager:ReleaseParticleIndex(particle)
 
 		elseif animcount == 2 then
-			local particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage_2.vpcf", PATTACH_ABSORIGIN, self.hCaster)
+			local particle_name = "particles/zlodemon/li_shuwen_w_afterimage_2.vpcf"
+			if self.hCaster:HasModifier("modifier_hero_selection_skin") then
+				particle_name = "particles/zlodemon/li_shuwen_w_afterimage_2_baki.vpcf"
+			end
+			local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, self.hCaster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, self.hCaster:GetAbsOrigin() + direction_vector * (450 * 0.9))
 			ParticleManager:SetParticleControlEnt(particle, 2, self.hCaster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", direction_vector, true)
 			ParticleManager:ReleaseParticleIndex(particle)
 
 		elseif animcount == 3 then
-			local particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage_3.vpcf", PATTACH_ABSORIGIN, self.hCaster)
+			local particle_name = "particles/zlodemon/li_shuwen_w_afterimage_3.vpcf"
+			if self.hCaster:HasModifier("modifier_hero_selection_skin") then
+				particle_name = "particles/zlodemon/li_shuwen_w_afterimage_3_baki.vpcf"
+			end
+			local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, self.hCaster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, self.hCaster:GetAbsOrigin() + direction_vector * (450 * 0.9))
 			ParticleManager:SetParticleControlEnt(particle, 2, self.hCaster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", direction_vector, true)
 			ParticleManager:ReleaseParticleIndex(particle)
 
 		else 
-			local particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage_4.vpcf", PATTACH_ABSORIGIN, self.hCaster)
+			local particle_name = "particles/zlodemon/li_shuwen_w_afterimage_4.vpcf"
+			if self.hCaster:HasModifier("modifier_hero_selection_skin") then
+				particle_name = "particles/zlodemon/li_shuwen_w_afterimage_4_baki.vpcf"
+			end
+			local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, self.hCaster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, self.hCaster:GetAbsOrigin() + direction_vector * (450 * 0.9))
 			ParticleManager:SetParticleControlEnt(particle, 2, self.hCaster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", direction_vector, true)

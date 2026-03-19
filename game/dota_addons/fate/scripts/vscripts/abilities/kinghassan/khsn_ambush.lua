@@ -113,12 +113,22 @@ if IsServer() then
         end)
         caster:AddNewModifier(caster, self.ability, "modifier_khsn_ambush_block", {duration = self.ability:GetSpecialValueFor("shield_duration")})
 
-        local burn_fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_shadowraze.vpcf", PATTACH_ABSORIGIN, target)
+        local particle_name = "particles/kinghassan/khsn_shadowraze.vpcf"
+        if caster:HasModifier("modifier_hero_selection_skin") then
+            particle_name = "particles/zlodemon/yujiro/yujiro_slam.vpcf"
+        end
+        local burn_fx = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, target)
         ParticleManager:SetParticleControl(burn_fx, 0, target:GetAbsOrigin())
 
-        local flame_fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_flame_kappa.vpcf", PATTACH_ABSORIGIN, target)
+        local particle_name_2 = "particles/kinghassan/khsn_flame_kappa.vpcf"
+        local vector = Vector(0,0,1000)
+        if caster:HasModifier("modifier_hero_selection_skin") then
+            particle_name_2 = "particles/yujiro/yujiro_flame_ambush.vpcf"
+            vector = target:GetForwardVector() * 100
+        end
+        local flame_fx = ParticleManager:CreateParticle(particle_name_2, PATTACH_ABSORIGIN, target)
         ParticleManager:SetParticleControl(flame_fx, 0, target:GetAbsOrigin())
-        ParticleManager:SetParticleControl(flame_fx, 1, Vector(0, 0, 1000))
+        ParticleManager:SetParticleControl(flame_fx, 1, vector)
 
         DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 

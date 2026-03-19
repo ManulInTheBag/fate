@@ -46,10 +46,10 @@ function lishuwen_tiger_strike:CheckSequence()
 end
 
 function lishuwen_tiger_strike:GetCastAnimation()
-	if self:CheckSequence() == 2 then
-		return ACT_DOTA_CAST_ABILITY_3
-	elseif self:CheckSequence() == 1 then
+	if self:CheckSequence() == 3 then
 		return ACT_DOTA_CAST_ABILITY_2
+	elseif self:CheckSequence() == 2 then
+		return ACT_DOTA_CAST_ABILITY_3
 	else
 		return ACT_DOTA_ATTACK
 	end
@@ -111,7 +111,11 @@ function lishuwen_tiger_strike:OnSpellStart()
 	local caster = self:GetCaster()
 
 	ProjectileManager:ProjectileDodge(caster)
-
+	modifier = caster:FindModifierByName("modifier_li_shuwen_idle_animation")
+	if IsNotNull(modifier) then
+		modifier:SetDuration(4, true)
+		modifier.activity = "in_fight"
+	end
 	if self:CheckSequence() == 3 then
 		self:TigerStrike3()
 	elseif self:CheckSequence() == 2 then

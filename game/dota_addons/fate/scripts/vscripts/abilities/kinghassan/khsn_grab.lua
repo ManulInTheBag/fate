@@ -74,12 +74,23 @@ function modifier_khsn_grab_target:OnCreated()
 	local duration = self.ability:GetSpecialValueFor("channel_duration")
 
 	self.damage = self.ability:GetSpecialValueFor("damage_per_second")
-
-	self.dummy_1 = CreateUnitByName("kh_grab_unit", self.parent:GetAbsOrigin() - 50*self.parent:GetForwardVector() + 100*self.parent:GetRightVector(), false, nil, nil, self.caster:GetTeamNumber())
+	local unitName1 ="kh_grab_unit"
+	local unitName2 = "kh_grab_unit_mirror"
+	local unitName3 = "kh_grab_unit_back"
+	local vec1 = self.parent:GetForwardVector()
+	local vec2 = self.parent:GetForwardVector()
+	if self.caster:HasModifier("modifier_hero_selection_skin") then
+		unitName1 = "kh_grab_unit_yujiro"
+		unitName2 = "kh_grab_unit_yujiro"
+		unitName3 = "kh_grab_unit_yujiro"
+		vec1 = self.parent:GetRightVector()* -1
+		vec2 = self.parent:GetRightVector() 
+	end
+	self.dummy_1 = CreateUnitByName(unitName1, self.parent:GetAbsOrigin() - 50*self.parent:GetForwardVector() + 100*self.parent:GetRightVector(), false, nil, nil, self.caster:GetTeamNumber())
 	self.dummy_1:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	self.dummy_1:SetDayTimeVisionRange(300)
 	self.dummy_1:SetNightTimeVisionRange(300)
-	self.dummy_1:SetForwardVector(self.parent:GetForwardVector())
+	self.dummy_1:SetForwardVector(vec1)
 	self.dummy_1:AddNewModifier(self.caster, self, "modifier_khsn_grab_dummy", {duration  = duration+0.1})
 
 	local fx1 = ParticleManager:CreateParticle("particles/kinghassan/khsn_grab_dummy_smoke_appear.vpcf", PATTACH_ABSORIGIN, self.dummy_1)
@@ -87,11 +98,11 @@ function modifier_khsn_grab_target:OnCreated()
 
 	self.dummy_1:EmitSound("hassanchik_laugh")
 
-	self.dummy_2 = CreateUnitByName("kh_grab_unit_mirror", self.parent:GetAbsOrigin() - 50*self.parent:GetForwardVector() - 100*self.parent:GetRightVector(), false, nil, nil, self.caster:GetTeamNumber())
+	self.dummy_2 = CreateUnitByName(unitName2, self.parent:GetAbsOrigin() - 50*self.parent:GetForwardVector() - 100*self.parent:GetRightVector(), false, nil, nil, self.caster:GetTeamNumber())
 	self.dummy_2:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	self.dummy_2:SetDayTimeVisionRange(300)
 	self.dummy_2:SetNightTimeVisionRange(300)
-	self.dummy_2:SetForwardVector(self.parent:GetForwardVector())
+	self.dummy_2:SetForwardVector(vec2)
 	self.dummy_2:AddNewModifier(self.caster, self, "modifier_khsn_grab_dummy", {duration  = duration+0.1})
 
 	local fx2 = ParticleManager:CreateParticle("particles/kinghassan/khsn_grab_dummy_smoke_appear.vpcf", PATTACH_ABSORIGIN, self.dummy_2)
@@ -101,7 +112,7 @@ function modifier_khsn_grab_target:OnCreated()
 		self.dummy_2:EmitSound("hassanchik_laugh")
 	end)
 
-	self.dummy_3 = CreateUnitByName("kh_grab_unit_back", self.parent:GetAbsOrigin() - 100*self.parent:GetForwardVector(), false, nil, nil, self.caster:GetTeamNumber())
+	self.dummy_3 = CreateUnitByName(unitName3, self.parent:GetAbsOrigin() - 100*self.parent:GetForwardVector(), false, nil, nil, self.caster:GetTeamNumber())
 	self.dummy_3:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	self.dummy_3:SetDayTimeVisionRange(300)
 	self.dummy_3:SetNightTimeVisionRange(300)

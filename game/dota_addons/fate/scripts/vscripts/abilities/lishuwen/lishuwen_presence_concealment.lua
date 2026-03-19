@@ -2,6 +2,58 @@ lishuwen_presence_concealment = class({})
 
 LinkLuaModifier("modifier_pc_invis", "abilities/lishuwen/modifiers/modifier_pc_invis", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pc_nss_cooldown_recovery", "abilities/lishuwen/modifiers/modifier_pc_nss_cooldown_recovery", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_li_shuwen_idle_animation", "abilities/lishuwen/lishuwen_presence_concealment", LUA_MODIFIER_MOTION_NONE)
+function lishuwen_presence_concealment:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+	StartAnimation(caster, {duration=1, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START, rate=1})
+end
+
+function lishuwen_presence_concealment:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
+end
+
+function lishuwen_presence_concealment:GetIntrinsicModifierName()
+	return "modifier_li_shuwen_idle_animation"
+end
+modifier_li_shuwen_idle_animation = class({})
+function modifier_li_shuwen_idle_animation:OnCreated(args)
+    self.activity = "not_in_fight"
+	self:StartIntervalThink(0.5)
+end
+function modifier_li_shuwen_idle_animation:OnIntervalThink()
+	if self:GetRemainingTime() < 0.5 then
+		self.activity = "not_in_fight"
+	end
+end
+function modifier_li_shuwen_idle_animation:OnTakeDamage(args)
+	if args.unit ~= self:GetParent() then return end
+ 	self.activity = "in_fight"
+	self:SetDuration(4, true)
+end
+function modifier_li_shuwen_idle_animation:OnAttackLanded(args)
+    if args.attacker ~= self:GetParent() then return end
+    self.activity = "in_fight"
+	self:SetDuration(4, true)
+end
+
+function modifier_li_shuwen_idle_animation:IsHidden() return true end
+function modifier_li_shuwen_idle_animation:IsDebuff() return false end
+function modifier_li_shuwen_idle_animation:IsPurgable() return false end
+function modifier_li_shuwen_idle_animation:IsPurgeException() return false end
+function modifier_li_shuwen_idle_animation:DestroyOnExpire() return false end
+function modifier_li_shuwen_idle_animation:RemoveOnDeath() return false end
+
+function modifier_li_shuwen_idle_animation:DeclareFunctions()
+    local func = {    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS}
+    return func
+end
+
+function modifier_li_shuwen_idle_animation:GetActivityTranslationModifiers()
+	return self.activity
+end
+
+
 
 function lishuwen_presence_concealment:GetTexture()
 	return "custom/lishuwen_presence_concealment"

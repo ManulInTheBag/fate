@@ -121,9 +121,12 @@ function modifier_khsn_mde_active:OnCreated(args)
 		self:OnIntervalThink()
 
 		
-	
+		local particle_name = "particles/kinghassan/khsn_shroud/khsn_shroud.vpcf"
+		if self.parent:HasModifier("modifier_hero_selection_skin") then
+			particle_name = "particles/zlodemon/yujiro/yujiro_shroud.vpcf"
+		end
 
-		self.fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_shroud/khsn_shroud.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.fx = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.fx, 1, Vector(self.radius, 0, 0))
 
 		self:AddParticle(self.fx, false, false, -1, false, false)
@@ -258,8 +261,12 @@ function modifier_khsn_mde_enemy:OnCreated()
 	self.linger_duration = self.ability:GetSpecialValueFor("linger_duration")
 
 	self.timer = 0
+	local particle_name = "particles/kinghassan/khsn_siphon.vpcf"
+	if self.caster:HasModifier("modifier_hero_selection_skin") then
+		particle_name = "particles/zlodemon/yujiro/yujiro_siphon.vpcf"
+	end
 
-	self.fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_siphon.vpcf", PATTACH_ABSORIGIN, self.caster)
+	self.fx = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, self.caster)
 	self.attach_caster = self.caster:ScriptLookupAttachment("maw")
 	self.attach_parent = self.parent:ScriptLookupAttachment("attach_hitloc")
 	ParticleManager:SetParticleControl(self.fx, 0, self.caster:GetAttachmentOrigin(self.attach_caster))
