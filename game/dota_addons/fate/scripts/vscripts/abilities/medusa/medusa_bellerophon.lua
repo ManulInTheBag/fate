@@ -1,4 +1,6 @@
 LinkLuaModifier("modifier_medusa_bellerophon","abilities/medusa/medusa_bellerophon", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_medusa_bellerophon_landing","abilities/medusa/medusa_bellerophon", LUA_MODIFIER_MOTION_NONE)
+
 
 medusa_bellerophon = class({})
 
@@ -228,7 +230,7 @@ function medusa_bellerophon:OnSpellStart()
 					FindClearSpaceForUnit(caster, currentPosition, true)
 				end
 
-				local projectile_info = {
+				--[[local projectile_info = {
 					Ability = self,
 					EffectName = nil,
 					vSpawnOrigin = caster:GetAbsOrigin(),
@@ -246,7 +248,7 @@ function medusa_bellerophon:OnSpellStart()
 					bProvidesVision = false,
 					bDeleteOnHit = false
 				}
-				local belle_proj = ProjectileManager:CreateLinearProjectile(projectile_info)
+				local belle_proj = ProjectileManager:CreateLinearProjectile(projectile_info)]]
 				--[[local curr_speed = 2000
 				Timers:CreateTimer(FrameTime(), function()
 					if ProjectileManager:IsValidProjectile(belle_proj) then
@@ -256,71 +258,77 @@ function medusa_bellerophon:OnSpellStart()
 					end
 				end)]]
 
-				local sin = Physics:Unit(caster)
-				caster:SetPhysicsFriction(0)
-				caster:SetPhysicsVelocity(direction*2000)
-				caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-				caster:SetPhysicsAcceleration(-direction*2000)
+				caster:AddNewModifier(caster, self, "modifier_medusa_bellerophon_landing", {duration = 0.9,
+					equine_index = chTarget:entindex(),
+				 	dir_x = direction.x,
+				 	dir_y = direction.y,
+				 	dir_z = direction.z })
 
-				local sin2 = Physics:Unit(chTarget)
-				chTarget:SetPhysicsFriction(0)
-				chTarget:SetPhysicsVelocity(direction*2000)
-				chTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-				chTarget:SetPhysicsAcceleration(-direction*2000)
+				-- local sin = Physics:Unit(caster)
+				-- caster:SetPhysicsFriction(0)
+				-- caster:SetPhysicsVelocity(direction*2000)
+				-- caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+				-- caster:SetPhysicsAcceleration(-direction*2000)
 
-				Timers:CreateTimer("medusa_bellerophon", {
-					endTime = 0.9,
-					callback = function()
-					caster:OnPreBounce(nil)
-					caster:SetBounceMultiplier(0)
-					caster:PreventDI(false)
-					caster:SetPhysicsVelocity(Vector(0,0,0))
-					caster:SetPhysicsAcceleration(Vector(0,0,0))
-					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-					chTarget:OnPreBounce(nil)
-					chTarget:SetBounceMultiplier(0)
-					chTarget:PreventDI(false)
-					chTarget:SetPhysicsVelocity(Vector(0,0,0))
-					chTarget:SetPhysicsAcceleration(Vector(0,0,0))
-					FindClearSpaceForUnit(chTarget, chTarget:GetAbsOrigin(), true)
-					--DestroyLinearProjectile(belle_proj)
-				return end
-				})
+				-- local sin2 = Physics:Unit(chTarget)
+				-- chTarget:SetPhysicsFriction(0)
+				-- chTarget:SetPhysicsVelocity(direction*2000)
+				-- chTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+				-- chTarget:SetPhysicsAcceleration(-direction*2000)
 
-				caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-					Timers:RemoveTimer("medusa_bellerophon")
-					unit:OnPreBounce(nil)
-					unit:SetBounceMultiplier(0)
-					unit:PreventDI(false)
-					unit:SetPhysicsVelocity(Vector(0,0,0))
-					unit:SetPhysicsAcceleration(Vector(0,0,0))
-					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-					chTarget:OnPreBounce(nil)
-					chTarget:SetBounceMultiplier(0)
-					chTarget:PreventDI(false)
-					chTarget:SetPhysicsVelocity(Vector(0,0,0))
-					chTarget:SetPhysicsAcceleration(Vector(0,0,0))
-					FindClearSpaceForUnit(chTarget, chTarget:GetAbsOrigin(), true)
-					unit:SetAbsOrigin(chTarget:GetAbsOrigin())
-					ProjectileManager:DestroyLinearProjectile(belle_proj)
-				end)
-				chTarget:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-					Timers:RemoveTimer("medusa_bellerophon")
-					unit:OnPreBounce(nil)
-					unit:SetBounceMultiplier(0)
-					unit:PreventDI(false)
-					unit:SetPhysicsVelocity(Vector(0,0,0))
-					unit:SetPhysicsAcceleration(Vector(0,0,0))
-					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-					caster:OnPreBounce(nil)
-					caster:SetBounceMultiplier(0)
-					caster:PreventDI(false)
-					caster:SetPhysicsVelocity(Vector(0,0,0))
-					caster:SetPhysicsAcceleration(Vector(0,0,0))
-					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-					caster:SetAbsOrigin(unit:GetAbsOrigin())
-					ProjectileManager:DestroyLinearProjectile(belle_proj)
-				end)
+				-- Timers:CreateTimer("medusa_bellerophon", {
+				-- 	endTime = 0.9,
+				-- 	callback = function()
+				-- 	caster:OnPreBounce(nil)
+				-- 	caster:SetBounceMultiplier(0)
+				-- 	caster:PreventDI(false)
+				-- 	caster:SetPhysicsVelocity(Vector(0,0,0))
+				-- 	caster:SetPhysicsAcceleration(Vector(0,0,0))
+				-- 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+				-- 	chTarget:OnPreBounce(nil)
+				-- 	chTarget:SetBounceMultiplier(0)
+				-- 	chTarget:PreventDI(false)
+				-- 	chTarget:SetPhysicsVelocity(Vector(0,0,0))
+				-- 	chTarget:SetPhysicsAcceleration(Vector(0,0,0))
+				-- 	FindClearSpaceForUnit(chTarget, chTarget:GetAbsOrigin(), true)
+				-- 	--DestroyLinearProjectile(belle_proj)
+				-- return end
+				-- })
+
+				-- caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+				-- 	Timers:RemoveTimer("medusa_bellerophon")
+				-- 	unit:OnPreBounce(nil)
+				-- 	unit:SetBounceMultiplier(0)
+				-- 	unit:PreventDI(false)
+				-- 	unit:SetPhysicsVelocity(Vector(0,0,0))
+				-- 	unit:SetPhysicsAcceleration(Vector(0,0,0))
+				-- 	FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+				-- 	chTarget:OnPreBounce(nil)
+				-- 	chTarget:SetBounceMultiplier(0)
+				-- 	chTarget:PreventDI(false)
+				-- 	chTarget:SetPhysicsVelocity(Vector(0,0,0))
+				-- 	chTarget:SetPhysicsAcceleration(Vector(0,0,0))
+				-- 	FindClearSpaceForUnit(chTarget, chTarget:GetAbsOrigin(), true)
+				-- 	unit:SetAbsOrigin(chTarget:GetAbsOrigin())
+				-- 	ProjectileManager:DestroyLinearProjectile(belle_proj)
+				-- end)
+				-- chTarget:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+				-- 	Timers:RemoveTimer("medusa_bellerophon")
+				-- 	unit:OnPreBounce(nil)
+				-- 	unit:SetBounceMultiplier(0)
+				-- 	unit:PreventDI(false)
+				-- 	unit:SetPhysicsVelocity(Vector(0,0,0))
+				-- 	unit:SetPhysicsAcceleration(Vector(0,0,0))
+				-- 	FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+				-- 	caster:OnPreBounce(nil)
+				-- 	caster:SetBounceMultiplier(0)
+				-- 	caster:PreventDI(false)
+				-- 	caster:SetPhysicsVelocity(Vector(0,0,0))
+				-- 	caster:SetPhysicsAcceleration(Vector(0,0,0))
+				-- 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+				-- 	caster:SetAbsOrigin(unit:GetAbsOrigin())
+				-- 	ProjectileManager:DestroyLinearProjectile(belle_proj)
+				-- end)
 			else
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 			end
@@ -329,17 +337,66 @@ function medusa_bellerophon:OnSpellStart()
 	end)
 end
 
-function medusa_bellerophon:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
+modifier_medusa_bellerophon_landing = class({})
+
+function modifier_medusa_bellerophon_landing:IsHidden() return true end
+function modifier_medusa_bellerophon_landing:IsDebuff() return false end
+function modifier_medusa_bellerophon_landing:IsPurgable() return false end
+function modifier_medusa_bellerophon_landing:IsPurgeException() return false end
+function modifier_medusa_bellerophon_landing:RemoveOnDeath() return true end
+
+function modifier_medusa_bellerophon_landing:OnCreated(args)
+	if not IsServer() then return end
+	self.parent = self:GetParent()
+	self.equine = EntIndexToHScript(args.equine_index)
+	self.ability = self:GetAbility()
+
+	self.radius = 350
+
+	self.speed = 2000
+	self.accel = -2000
+	self.vec = Vector(args.dir_x, args.dir_y, args.dir_z)
+
+	self.fx = ParticleManager:CreateParticle("particles/medusa/medusa_surge_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	ParticleManager:SetParticleControl(self.fx, 1, Vector(self.radius, 0, 0))
+
+	self:AddParticle(self.fx, false, false, -1, false, false)
+
+	self.AttackedTargets = {}
+
+	self:StartIntervalThink(FrameTime())
+end
+
+function modifier_medusa_bellerophon_landing:OnIntervalThink()
+	if not IsServer() then return end
+
+	local ori = GetGroundPosition(self.parent:GetAbsOrigin() + self.vec*self.speed*FrameTime(), self.parent)
+	self.parent:SetAbsOrigin(ori)
+	self.equine:SetAbsOrigin(ori)
+	self.speed = self.speed + self.accel*FrameTime()
+
+	local targets = FindUnitsInRadius(self.parent:GetTeam(), ori, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+
+	for k,v in pairs(targets) do
+		self:EnemyHit(v)
+	end
+end
+
+function modifier_medusa_bellerophon_landing:OnDestroy()
+	FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
+end
+
+function modifier_medusa_bellerophon_landing:EnemyHit(hTarget)
     if IsNotNull(hTarget) then
-        local hCaster       = self:GetCaster()
+        local hCaster = self:GetCaster()
         local iCasterTeam   = hCaster:GetTeamNumber()
         local caster = self:GetCaster()
         local enemy = hTarget
 
         if not self.AttackedTargets[hTarget:entindex()] then
             self.AttackedTargets[hTarget:entindex()] = true
-        	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage") + (hCaster.RidingAcquired and (self:GetSpecialValueFor("riding_damage") + hCaster:GetAgility()*self:GetSpecialValueFor("agility_multiplier")) or 0), DAMAGE_TYPE_MAGICAL, 0, self, false)
-        	enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
+        	DoDamage(hCaster, hTarget, self.ability:GetSpecialValueFor("damage") + (hCaster.RidingAcquired and (self.ability:GetSpecialValueFor("riding_damage") + hCaster:GetAgility()*self:GetSpecialValueFor("agility_multiplier")) or 0), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        	enemy:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = self.ability:GetSpecialValueFor("stun_duration")})
 
 	        local anglevalue = caster:GetRightVector()
 	        local right_point = caster:GetAbsOrigin() + anglevalue*100
@@ -379,7 +436,7 @@ function medusa_bellerophon:OnProjectileHit_ExtraData(hTarget, vLocation, hTable
 	                                center_y = kborigin.y,
 	                                center_z = kborigin.z }
 			if( not IsKnockbackImmune(enemy)) then
-	    		enemy:AddNewModifier(caster, self, "modifier_knockback", knockback)
+	    		enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
 			end
         end
     end
