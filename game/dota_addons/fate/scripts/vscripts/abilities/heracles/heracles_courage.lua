@@ -55,7 +55,16 @@ function heracles_courage:OnSpellStart()
         end
     end)
 	caster:EmitSound("Hero_Axe.Berserkers_Call")
-	caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			caster:EmitSound("barbatos_attack1")
+		else
+			caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
+		end
+	else
+		caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
+	end
+	
 
 	-- Reduce Nine Lives cooldown if applicable
 	--[[if caster.IsEternalRageAcquired then

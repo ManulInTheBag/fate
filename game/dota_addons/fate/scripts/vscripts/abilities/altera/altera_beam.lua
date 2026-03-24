@@ -1,17 +1,17 @@
 altera_beam = class({})
 
-function altera_beam:OnAbilityPhaseStart()
-	self:GetCaster():EmitSound("altera_photon")
-	return true
-end
+-- function altera_beam:OnAbilityPhaseStart()
+-- 	self:GetCaster():EmitSound("altera_photon")
+-- 	return true
+-- end
 
-function altera_beam:OnAbilityPhaseInterrupted()
-	self:GetCaster():StopSound("altera_photon")
-end
+-- function altera_beam:OnAbilityPhaseInterrupted()
+-- 	self:GetCaster():StopSound("altera_photon")
+-- end
 
 function altera_beam:OnSpellStart()
     local hCaster = self:GetCaster()
-
+	EmitGlobalSound("altera_photon")
     hCaster:AddNewModifier(hCaster, self, "modifier_altera_beam", {duration = self:GetSpecialValueFor("duration")})
 end
 
@@ -69,7 +69,7 @@ function modifier_altera_beam:OnCreated()
         	self.distance = self.distance + self.ability:GetSpecialValueFor("int_bonus_distance")
         end
         self.direction = (Vector(self.point.x, self.point.y, self.point.z) - Vector(self.caster:GetAbsOrigin().x, self.caster:GetAbsOrigin().y, self.caster:GetAbsOrigin().z)):Normalized()
-        self.vAttachLoc = self.caster:GetAttachmentOrigin(self.caster:ScriptLookupAttachment("attach_attack1")) - self.direction * 30 + Vector(0, 0, 50)
+        self.vAttachLoc = self.caster:GetAttachmentOrigin(self.caster:ScriptLookupAttachment("attach_attack1")) - self.direction * 30 + Vector(0, 0, -100)
         self.point     = self.vAttachLoc + self.direction * self.distance
 
         self.start_width = self.ability:GetSpecialValueFor("start_width")
@@ -163,7 +163,7 @@ function modifier_altera_beam:Impact(target, mult)
         	local damage = self.damage
 			if target:GetUnitName() == "gille_gigantic_horror" then damage = damage * 1.3 end
             if self.form == "agi" then
-            	damage = damage*(1 + (1 - target:GetHealth()/target:GetMaxHealth())*0.75)
+            	damage = damage*(1 + (1 - target:GetHealth()/target:GetMaxHealth())*0.5)
 			end
             if self.form == "str" then
                	target:AddNewModifier(self.caster, self.ability, "modifier_altera_beam_slow", {Duration = self.ability:GetSpecialValueFor("str_slow_duration")})

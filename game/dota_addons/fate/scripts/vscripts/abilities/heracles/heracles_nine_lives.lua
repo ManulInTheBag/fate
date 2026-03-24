@@ -3,7 +3,7 @@ heracles_nine_lives = class({})
 LinkLuaModifier("modifier_heracles_nine_lives", "abilities/heracles/modifiers/modifier_heracles_nine_lives", LUA_MODIFIER_MOTION_NONE)
 
 function heracles_nine_lives:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
+	return self:GetSpecialValueFor("radius")+ self:GetCaster():GetStrength() * (self:GetCaster():FindAbilityByName("pepeg_divinity"):GetLevel() > 1 and 1 or 0)
 end
 
 function heracles_nine_lives:OnAbilityPhaseStart()
@@ -93,6 +93,6 @@ function heracles_nine_lives:NineLivesHits()
 	caster:AddNewModifier(caster, self, "modifier_heracles_nine_lives", { Duration = 4,
 																 SmallDamage = self:GetSpecialValueFor("damage")+bonus_damage,
 																 LargeDamage = self:GetSpecialValueFor("damage_lasthit")+bonus_damage,
-																 SmallRadius = self:GetSpecialValueFor("radius"),
-																 LargeRadius = self:GetSpecialValueFor("radius_lasthit")})
+																 SmallRadius = self:GetSpecialValueFor("radius") + (caster:GetStrength() * (caster.IsDivinityImproved and 1 or 0)),
+																 LargeRadius = self:GetSpecialValueFor("radius_lasthit") + (caster:GetStrength() * (caster.IsDivinityImproved and 1 or 0))})
 end

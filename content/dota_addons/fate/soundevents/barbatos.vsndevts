@@ -1,0 +1,87 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	barbatos_attack1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/barbatos/barbatos_attack1.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.692521
+	}
+	barbatos_attack2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/barbatos/barbatos_attack2.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.872083
+	}
+	barbatos_berserk = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/barbatos/barbatos_berserk.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.970125
+	}
+	barbatos_combo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/barbatos/barbatos_combo.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 1.209917
+	}
+	barbatos_nine_lives = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/barbatos/barbatos_nine_lives.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 3.257833
+	}
+	barbatos_roar = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/barbatos/barbatos_roar.vsnd",
+		]
+		volume = "12.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 4.551565
+	}
+	barbatos_bgm = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/barbatos/barbatos_bgm.vsnd",
+		]
+		volume = "4.500000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 8.650687
+	}
+}

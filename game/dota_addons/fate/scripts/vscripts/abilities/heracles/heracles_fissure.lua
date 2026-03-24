@@ -2,7 +2,15 @@ heracles_fissure = class({})
 
 function heracles_fissure:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_q_new_2", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "barbatos_attack2", caster)
+		else
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_q_new_2", caster)
+		end
+	else
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_q_new_2", caster)
+	end
 	return true
 end
 

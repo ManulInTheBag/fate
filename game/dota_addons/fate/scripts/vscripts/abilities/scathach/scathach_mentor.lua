@@ -9,7 +9,7 @@ LinkLuaModifier("modifier_scathach_pupil_int_quest", "abilities/scathach/scathac
 function scathach_mentor:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-	if target:GetName() == "gille_gigantic_horror" or target:GetName() == "f16_at_vinta" or target:GetName() == "caster_5th_ancient_dragon" or target:GetName() == "npc_dota_hero_monkey_king" then
+	if target:GetName() == "gille_gigantic_horror" or target:GetName() == "f16_at_vinta" or target:GetName() == "caster_5th_ancient_dragon" or target:GetName() == "npc_dota_hero_monkey_king" or target:GetName() == "npc_dota_hero_target_dummy" then
 		self:StartCooldown(10)
 		return 
 	end

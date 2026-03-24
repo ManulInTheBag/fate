@@ -26,7 +26,8 @@ function jeanne_lagron:OnSpellStart()
     local castrange = self:GetSpecialValueFor("cast_range")
     StartAnimation(caster, {duration=block + 0.5, activity=ACT_DOTA_CAST_ABILITY_6, rate=0.2})
 
-    caster:EmitSound("lagron")
+    EmitGlobalSound("lagron")
+    --caster:EmitSound("lagron")
 
 	caster:AddNewModifier(caster, self, "modifier_jeanne_lagron_block", {duration = block})
     Timers:CreateTimer(0.2, function()

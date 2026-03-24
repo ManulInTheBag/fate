@@ -3776,7 +3776,7 @@
 		//=================================================================================================================
 		"npc_dota_hero_doom_bringer"			"Heracles"
 		"herc_1"			"Cool Heracles (ARBUZ)"
-
+		"herc_2"			"BARBATOS"
 		"npc_dota_hero_doom_bringer_hype"	""
 		"npc_dota_hero_doom_bringer_bio"	""
 		
@@ -3890,7 +3890,7 @@
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_bers_duration"	"BERSERK DURATION:"		
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity"					"Attribute: Improve Divinity"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_improve_divinity_Description"		"Grants bonus armor to Berserker and allows him to block more flat damage from physical attacks. Radius of courage increased by x2 of Heracles' strength."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_improve_divinity_Description"		"Grants bonus armor to Berserker and allows him to block more flat damage from physical attacks. Radius of courage increased by x2 of Heracles' strength.\nIncreases radius of <font color='#FF0000'>Nine lives</font> based on Heracles's strength."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_armor"		"BONUS ARMOR:"	
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_mr"		"%BONUS MAGIC RESISTANCE:"
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
@@ -4150,7 +4150,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai_slash_amount"	"SLASH AMOUNT:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_ganryu"					"Attribute: Ganryu"
-		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nTsubame Gaeshi pierces invulnerability and Avalon."
+		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nTsubame Gaeshi pierces invulnerability and Avalon." 		
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_minor_slash_dmg"	"%First Two Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_final_slash_dmg"	"%Final Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Note0"			"Untargettability follows the same rules as Jump effects such as Gae Bolg and Bellerophon."
@@ -6999,7 +6999,7 @@
 		"DOTA_Tooltip_Ability_altera_form_close_Description"       "Close the spellbook."
 
 		"DOTA_Tooltip_Ability_altera_beam"       "Photon Ray"
-		"DOTA_Tooltip_Ability_altera_beam_Description"       "Altera unleashes the power of Photon Ray, activating it as a laser beam and dealing %damage% magical damage over %duration% seconds.\n<font color='#FF0000'>Strength</font> stance: <font color='#9400D3'>slows</font> enemies by %str_slow%%  for %str_slow_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals up to 75%% more damage based on enemies' missing health.\n<font color='#1E90FF'>Intellect</font> stance: increases range by %int_bonus_distance%. <font color='#FFFAFA'>Heals</font> allies struck by Photon Ray for the half of the damage value.\nUpgrades with <font color='#58ACFA'>Civilization Erosion</font> attribute: deals additional %atr_damage_mult% damage per current stance primary attribute point. \n<font color='#FF0000'>Strength</font> stance: <font color='#9400D3'>locks</font> enemies for %str_lock_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage_mult% damage per point. 25%% of the damage is dealt as <font color='#D1A951'>pure</font> damage.\n<font color='#1E90FF'>Intellect</font> stance: deals %int_damage_mult% damage per point. <font color='#FFFAFA'>Reduces cooldowns</font> of allies' active abilities by maximum %int_cdr% seconds."
+		"DOTA_Tooltip_Ability_altera_beam_Description"       "Altera unleashes the power of Photon Ray, activating it as a laser beam and dealing %damage% magical damage over %duration% seconds.\n<font color='#FF0000'>Strength</font> stance: <font color='#9400D3'>slows</font> enemies by %str_slow%%  for %str_slow_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals up to 50%% more damage based on enemies' missing health.\n<font color='#1E90FF'>Intellect</font> stance: increases range by %int_bonus_distance%. <font color='#FFFAFA'>Heals</font> allies struck by Photon Ray for the half of the damage value.\nUpgrades with <font color='#58ACFA'>Civilization Erosion</font> attribute: deals additional %atr_damage_mult% damage per current stance primary attribute point. \n<font color='#FF0000'>Strength</font> stance: <font color='#9400D3'>locks</font> enemies for %str_lock_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage_mult% damage per point. 25%% of the damage is dealt as <font color='#D1A951'>pure</font> damage.\n<font color='#1E90FF'>Intellect</font> stance: deals %int_damage_mult% damage per point. <font color='#FFFAFA'>Reduces cooldowns</font> of allies' active abilities by maximum %int_cdr% seconds."
 
 		"DOTA_Tooltip_Ability_altera_teardrop"       "Combo - Teardrop Photon Ray"
 		"DOTA_Tooltip_Ability_altera_teardrop_Description"       "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-R in 4 seconds, then R in 10 seconds</font>\nAltera invokes an orbital strike towards the target location.\nFirst use: activates the combo. For the next 10 seconds Combo - Teardrop Photon Ray: Release can be used to choose the strike target.\nSecond use: After a 1 second delay, system starts aiming at the target location. Aim marker is visible for everyone. After 2.5 seconds of aim, laser beam strikes, dealing enormous magical damage."
@@ -8699,7 +8699,7 @@
 
 
 		"DOTA_Tooltip_ability_karna_spears_barrage"					"Lightning spears"
-		"DOTA_Tooltip_ability_karna_spears_barrage_Description" 	"Cast point: <font color='#FFFFF9'>0.4</font>s\nKarna summons spears over the target point, which after a short delay drop down, dealing <font color='#58ACFA'>magical</font> damage, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>locking</font> all enemies hit."
+		"DOTA_Tooltip_ability_karna_spears_barrage_Description" 	"Cast point: <font color='#FFFFF9'>0.7</font>s\nKarna summons spears over the target point, which after a short delay drop down, dealing <font color='#58ACFA'>magical</font> damage, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>locking</font> all enemies hit."
 		"DOTA_Tooltip_ability_karna_spears_barrage_damage" 				"Damage:"
 		"DOTA_Tooltip_ability_karna_spears_barrage_radius"			"Radius:"
 		"DOTA_Tooltip_ability_karna_spears_barrage_duration"			"Debuffs duration:"
@@ -8958,7 +8958,7 @@
         "DOTA_Tooltip_ability_jtr_mental_pollution_passive_cooldown"		"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_murderer_mist"				"Murderer of the Misty Night"
-        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in %reveal_radius% radius from any enemy hero. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). \nDisables ward vision (but not truesight) in 3200 radius.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
+        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in %reveal_radius% radius from any enemy hero. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). \nDisables ward vision (but not truesight) in radius.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
         "DOTA_Tooltip_ability_jtr_murderer_mist_radius"			"Area of Effect:"
         "DOTA_Tooltip_ability_jtr_murderer_mist_slow_pct"		"%Slow:"
 	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_vision"		"\n<font color='#FF0000'>Bloody Thirst</font> detection radius:"

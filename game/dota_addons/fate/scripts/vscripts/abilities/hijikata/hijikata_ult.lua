@@ -175,7 +175,7 @@ function hijikata_ult:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	 	DoDamage(hCaster, hTarget, tData.fDamage*dmg_mod, self:GetAbilityDamageType(), 0, self, false)
 		hTarget:AddNewModifier(hCaster,self,"modifier_hijikata_ult_slow", {duration = self:GetSpecialValueFor("duration")})
 		hTarget:AddNewModifier(hCaster, self, "modifier_vision_provider", { duration = self:GetSpecialValueFor("duration") })
-		print(tData.should_silence)
+		--print(tData.should_silence)
 		if tData.should_silence == 1 then
 			giveUnitDataDrivenModifier(hCaster, hTarget, "silenced", self:GetSpecialValueFor("silence_duration"))
 			hTarget:AddNewModifier(hCaster,self,"modifier_hijikata_ult_slow_powerful", {duration = self:GetSpecialValueFor("silence_duration")})
@@ -255,7 +255,7 @@ if IsServer() then
 		self:SetDuration(reset_delay, true)
 		local caster = self:GetParent()
 		local attacker = args.attacker
-		local maxHealth = 1000 + (caster:GetLevel()-1) *30
+		local maxHealth = 1000 + (caster:GetLevel()-1) *25
 
 		self.DamageTaken = (self.DamageTaken or 0) + args.damage
 		if self.DamageTaken > (maxHealth * (self:GetAbility():GetSpecialValueFor("health_pct_to_max_damage")*0.01 + (caster.IsHijikataBcAcquired and 0.25 or 0) )) then

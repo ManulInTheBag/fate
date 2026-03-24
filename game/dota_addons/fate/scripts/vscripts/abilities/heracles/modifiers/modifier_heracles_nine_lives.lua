@@ -3,6 +3,7 @@ modifier_heracles_nine_lives = class({})
 
 function modifier_heracles_nine_lives:OnCreated(args)
 	if IsServer() then
+		local caster = self:GetParent()
 		self.HitNumber = 1
 		self.SmallDamage = args.SmallDamage
 		self.LargeDamage = args.LargeDamage
@@ -17,11 +18,25 @@ function modifier_heracles_nine_lives:OnCreated(args)
 				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 			end
 		end)
-		if math.random(1,100) > 10 then
-			self:GetParent():EmitSound("Heracles_NineLives_" .. math.random(1,3))
+
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				self:GetParent():EmitSound("barbatos_nine_lives")
+			else
+				if math.random(1,100) > 10 then
+					self:GetParent():EmitSound("Heracles_NineLives_" .. math.random(1,3))
+				else
+					self:GetParent():EmitSound("Heracles_Combo_Easter_1")
+				end
+			end
 		else
-			self:GetParent():EmitSound("Heracles_Combo_Easter_1")
+			if math.random(1,100) > 10 then
+				self:GetParent():EmitSound("Heracles_NineLives_" .. math.random(1,3))
+			else
+				self:GetParent():EmitSound("Heracles_Combo_Easter_1")
+			end
 		end
+
 
 		StartAnimation(self:GetParent(), {duration = 2.1, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.2})
 	end

@@ -73,7 +73,7 @@ function atalanta_phoebus_catastrophe_snipe:OnSpellStart()
 
     Timers:CreateTimer(2, function()
         local screenFx = ParticleManager:CreateParticle("particles/custom/screen_green_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
-
+        ParticleManager:SetParticleShouldCheckFoW(screenFx, false)
         local midpoint = (origin + position) / 2
         local sourceLocation = midpoint + Vector(0, 0, 1000)
 
@@ -111,8 +111,9 @@ function atalanta_phoebus_catastrophe_snipe:OnSpellStart()
 
         Timers:CreateTimer(0.2 + 0.1 * arrows, function()
             ParticleManager:DestroyParticle(screenFx, false)
+            ParticleManager:ReleaseParticleIndex(screenFx)
             ParticleManager:DestroyParticle(caster.snipeParticle, true)
-
+            ParticleManager:ReleaseParticleIndex(caster.snipeParticle)
         dummy:RemoveSelf()
         end)
     end)

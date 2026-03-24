@@ -12,7 +12,17 @@ end
 
 function heracles_berserk:OnSpellStart()
 	local duration = self:GetSpecialValueFor("duration")
-	EmitGlobalSound("Berserker.Roar")
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitGlobalSound("barbatos_berserk")
+		else
+			EmitGlobalSound("Berserker.Roar")
+		end
+	else
+		EmitGlobalSound("Berserker.Roar")
+	end
+	
 	self:EnterBerserk(duration)
 end
 

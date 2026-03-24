@@ -30,6 +30,8 @@ if IsServer() then
 			HardCleanse(caster)
 			caster:EmitSound("lu_bu_bc")
 			caster:AddNewModifier(caster, ability, "modifier_lu_bu_restless_soul_active", { Duration = 0 })
+			local blastFx = ParticleManager:CreateParticle("particles/zlodemon/lu_bu_res.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
+			ParticleManager:ReleaseParticleIndex(blastFx)
 		end
 	end
 end

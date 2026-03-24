@@ -70,7 +70,16 @@ function berserker_5th_madmans_roar:OnSpellStart()
 	caster:FindAbilityByName("heracles_berserk"):EnterBerserk(self:GetSpecialValueFor("bers_duration"))
 
 	local soundQueue = math.random(1,100)
-	EmitGlobalSound("berserker_roar_02")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitGlobalSound("barbatos_roar")
+			EmitSoundOn("barbatos_bgm", caster)
+		else
+			EmitGlobalSound("berserker_roar_02")
+		end
+	else
+		EmitGlobalSound("berserker_roar_02")
+	end
 	LoopOverPlayers(function(player, playerID, playerHero)
     	--print("looping through " .. playerHero:GetName())
         if playerHero.gachi == true then
@@ -137,11 +146,26 @@ function berserker_5th_madmans_roar:OnSpellStart()
 	    DoDamage(caster, v, finaldmg , DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 	--ParticleManager:CreateParticle("particles/custom/screen_face_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
-	LoopOverPlayers(function(player, playerID, playerHero)
+		LoopOverPlayers(function(player, playerID, playerHero)
 		if not (playerHero:GetTeamNumber() == caster:GetTeamNumber()) then
-    		ParticleManager:CreateParticleForPlayer("particles/custom/screen_face_splash.vpcf", PATTACH_EYES_FOLLOW, caster, player)
+			    if caster:HasModifier("modifier_hero_selection_skin") then
+					if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+						local screen_fx = ParticleManager:CreateParticleForPlayer("particles/custom/barbatos/barbatos_combo.vpcf", PATTACH_EYES_FOLLOW, caster, player)
+						ParticleManager:SetParticleShouldCheckFoW(screen_fx, false)
+						ParticleManager:ReleaseParticleIndex(screen_fx)
+					elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+						local screen_fx = ParticleManager:CreateParticleForPlayer("particles/zlodemon/arbuz_combo.vpcf", PATTACH_EYES_FOLLOW, caster, player)
+						ParticleManager:SetParticleShouldCheckFoW(screen_fx, false)
+						ParticleManager:ReleaseParticleIndex(screen_fx)
+					end
+				else
+    				local screen_fx = ParticleManager:CreateParticleForPlayer("particles/custom/screen_face_splash.vpcf", PATTACH_EYES_FOLLOW, caster, player)
+					ParticleManager:SetParticleShouldCheckFoW(screen_fx, false)
+					ParticleManager:ReleaseParticleIndex(screen_fx)
+				end
     	end
     end)
+
 	ScreenShake(caster:GetOrigin(), 30, 2.0, 5.0, 10000, 0, true)
 end
 
