@@ -354,11 +354,14 @@ function Physics:AngleGrid( anggrid, angoffsets )
 end
 
 function Physics:Unit(unit)
+  if not IsValidEntity(unit) or unit:IsNull() then return end
   function unit:StopPhysicsSimulation ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     Physics.timers[unit.PhysicsTimerName] = nil
     unit.bStarted = false
   end
   function unit:StartPhysicsSimulation ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     Physics.timers[unit.PhysicsTimerName] = unit.PhysicsTimer
     unit.PhysicsTimer.endTime = GameRules:GetGameTime()
     unit.PhysicsLastPosition = unit:GetAbsOrigin()
@@ -369,6 +372,7 @@ function Physics:Unit(unit)
   end
   
   function unit:SetPhysicsVelocity (velocity)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.vVelocity = velocity / 30
     if unit.nVelocityMax > 0 and unit.vVelocity:Length() > unit.nVelocityMax then
       unit.vVelocity = unit.vVelocity:Normalized() * unit.nVelocityMax
@@ -385,6 +389,7 @@ function Physics:Unit(unit)
     end
   end
   function unit:AddPhysicsVelocity (velocity)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.vVelocity = unit.vVelocity + velocity / 30
     if unit.nVelocityMax > 0 and unit.vVelocity:Length() > unit.nVelocityMax then
       unit.vVelocity = unit.vVelocity:Normalized() * unit.nVelocityMax
@@ -402,13 +407,16 @@ function Physics:Unit(unit)
   end
   
   function unit:SetPhysicsVelocityMax (velocityMax)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nVelocityMax = velocityMax / 30
   end
   function unit:GetPhysicsVelocityMax ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.vVelocity * 30
   end
   
   function unit:SetPhysicsAcceleration (acceleration)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.vAcceleration = acceleration / 900
     
     if unit.bStarted and unit.bHibernating then
@@ -422,6 +430,7 @@ function Physics:Unit(unit)
     end
   end
   function unit:AddPhysicsAcceleration (acceleration)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.vAcceleration = unit.vAcceleration + acceleration / 900
     
     if unit.bStarted and unit.bHibernating then
@@ -436,41 +445,52 @@ function Physics:Unit(unit)
   end
   
   function unit:SetPhysicsFriction (friction)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.fFriction = friction
   end
   
   function unit:GetPhysicsVelocity ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.vVelocity  * 30
   end
   function unit:GetPhysicsAcceleration ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.vAcceleration * 900
   end
   function unit:GetPhysicsFriction ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.fFriction
   end
   
   function unit:FollowNavMesh (follow)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.bFollowNavMesh = follow
   end
   function unit:IsFollowNavMesh ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.bFollowNavMesh
   end
   
   function unit:SetGroundBehavior (ground)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nLockToGround = ground
   end
   function unit:GetGroundBehavior ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.nLockToGround
   end
   
   function unit:SetSlideMultiplier (slideMultiplier)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.fSlideMultiplier = slideMultiplier
   end
   function unit:GetSlideMultiplier ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.fSlideMultiplier
   end
   
   function unit:Slide (slide)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.bSlide = slide
     
     if unit.bStarted and unit.bHibernating then
@@ -484,113 +504,140 @@ function Physics:Unit(unit)
     end
   end
   function unit:IsSlide ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.bSlide
   end
   
   function unit:PreventDI (prevent)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.bPreventDI = prevent
     if not prevent and unit:HasModifier("modifier_rooted") then
       unit:RemoveModifierByName("modifier_rooted")
     end
   end
   function unit:IsPreventDI ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.bPreventDI
   end
   
   function unit:SetNavCollisionType (collisionType)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nNavCollision = collisionType
   end
   function unit:GetNavCollisionType ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.nNavCollision
   end
   
   function unit:OnPhysicsFrame(fun)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.PhysicsFrameCallback = fun
   end
   
   function unit:SetVelocityClamp (clamp)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.fVelocityClamp = clamp / 30
   end
   
   function unit:GetVelocityClamp ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.fVelocityClamp * 30
   end
   
   function unit:Hibernate (hibernate)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.bHibernate = hibernate
   end
   
   function unit:IsHibernate ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.bHibernate
   end
   
   function unit:DoHibernate ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     Physics.timers[unit.PhysicsTimerName] = nil
     unit.bHibernating = true
   end
   
   function unit:OnHibernate(fun)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.PhysicsHibernateCallback = fun
   end
 
   function unit:OnPreBounce(fun)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.PhysicsOnPreBounce = fun
   end
 
   function unit:OnBounce(fun)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.PhysicsOnBounce = fun
   end
   
   function unit:SetNavGridLookahead (lookahead)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nNavGridLookahead = lookahead
   end
   
   function unit:GetNavGridLookahead ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.nNavGridLookahead
   end
   
   function unit:SkipSlide (frames)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nSkipSlide = frames or 1
   end
   
   function unit:SetRebounceFrames ( rebounce )
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nMaxRebounce = rebounce
     unit.nRebounceFrames = 0
   end
   
   function unit:GetRebounceFrames ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nRebounceFrames = 0
     return unit.nMaxRebounce
   end
   
   function unit:GetLastGoodPosition ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.vLastGoodPosition
   end
   
   function unit:SetStuckTimeout (timeout)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nStuckTimeout = timeout
     unit.nStuckFrames = 0
   end
   function unit:GetStuckTimeout ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.nStuckFrames = 0
     return unit.nStuckTimeout
   end
   
   function unit:SetAutoUnstuck (unstuck)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.bAutoUnstuck = unstuck
   end
   function unit:GetAutoUnstuck ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.bAutoUnstuck
   end
 
   function unit:SetBounceMultiplier (bounce)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.fBounceMultiplier = bounce
   end
   function unit:GetBounceMultiplier ()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.fBounceMultiplier
   end
 
   function unit:GetTotalVelocity()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     if unit.bStarted and not unit.bHibernating then
       return unit.vTotalVelocity
     else
@@ -599,10 +646,12 @@ function Physics:Unit(unit)
   end
 
   function unit:GetColliders()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.oColliders
   end
 
   function unit:RemoveCollider(name)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     if name == nil then
       local i,v = next(unit.oColliders,  nil)
       if i == nil then
@@ -616,6 +665,7 @@ function Physics:Unit(unit)
   end
 
   function unit:AddCollider(name, collider)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     local coll = Physics:AddCollider(name, collider)
     coll.unit = unit
     unit.oColliders[coll.name] = coll
@@ -623,6 +673,7 @@ function Physics:Unit(unit)
   end
 
   function unit:AddColliderFromProfile(name, profile, collider)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     if profile == nil then
       profile = name
       name = DoUniqueString("collider")
@@ -638,10 +689,12 @@ function Physics:Unit(unit)
   end
 
   function unit:GetMass()
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     return unit.fMass
   end
 
   function unit:SetMass(mass)
+    if not IsValidEntity(unit) or unit:IsNull() then return end
     unit.fMass = mass
   end
   
@@ -718,7 +771,7 @@ function Physics:Unit(unit)
         end
         if unit.bHibernate then
           unit:DoHibernate()
-          local ent = Entities:FindInSphere(nil, position, 35)
+          local ent = nil --Entities:FindInSphere(nil, position, 35) --VectorWS Bug Disable
           local blocked = false
           while ent ~= nil and not blocked do
             if ent.IsHero ~= nil and ent ~= unit then
@@ -741,7 +794,7 @@ function Physics:Unit(unit)
           return
         end
         
-        local ent = Entities:FindInSphere(nil, position, 35)
+        local ent = nil --Entities:FindInSphere(nil, position, 35) --VectorWS Bug Disable
         local blocked = false
         while ent ~= nil and not blocked do
           if ent.IsHero ~= nil and ent ~= unit then
@@ -837,7 +890,7 @@ function Physics:Unit(unit)
               --print(dir:Dot(Vector(0,-1,0)))
               --print('---------------')
               local vVelocity = unit.vVelocity
-              if dir:Dot(Vector(1,0,0)) > .707 then
+              if dir:Dot(Vector(1,0,0)) > 0.707 then
                 normal = Vector(1,0,0)
                 local navPos2 = navPos + Vector(-64,0,0)
                 local navConnect2 = not GridNav:IsTraversable(navPos2) or GridNav:IsBlocked(navPos2)
@@ -858,7 +911,7 @@ function Physics:Unit(unit)
                     end
                   end
                 end
-              elseif dir:Dot(Vector(-1,0,0)) > .707 then
+              elseif dir:Dot(Vector(-1,0,0)) > 0.707 then
                 normal = Vector(-1,0,0)
                 local navPos2 = navPos + Vector(64,0,0)
                 local navConnect2 = not GridNav:IsTraversable(navPos2) or GridNav:IsBlocked(navPos2)
@@ -879,7 +932,7 @@ function Physics:Unit(unit)
                     end
                   end
                 end
-              elseif dir:Dot(Vector(0,1,0)) > .707 then
+              elseif dir:Dot(Vector(0,1,0)) > 0.707 then
                 normal = Vector(0,1,0)
                 local navPos2 = navPos + Vector(0,-64,0)
                 local navConnect2 = not GridNav:IsTraversable(navPos2) or GridNav:IsBlocked(navPos2)
@@ -900,7 +953,7 @@ function Physics:Unit(unit)
                     end
                   end
                 end
-              elseif dir:Dot(Vector(0,-1,0)) > .707 then
+              elseif dir:Dot(Vector(0,-1,0)) > 0.707 then
                 normal = Vector(0,-1,0)
                 local navPos2 = navPos + Vector(0,64,0)
                 local navConnect2 = not GridNav:IsTraversable(navPos2) or GridNav:IsBlocked(navPos2)

@@ -764,7 +764,7 @@ function OnAzraelCast(keys)
 			local projectile = ProjectileManager:CreateLinearProjectile(azrael)
 			ParticleManager:SetParticleControl(projectile, 2, GetRotationPoint(caster:GetAbsOrigin(), range ,caster:GetAnglesAsVector().x))
 
-			ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
+			--ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
 
 				
 					-- Create Particle for projectile

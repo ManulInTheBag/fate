@@ -54,7 +54,7 @@ function lu_bu_relentless_assault_four:OnSpellStart()
 
     local projectile = ProjectileManager:CreateLinearProjectile(projectileTable2)
 	
-	ScreenShake(caster:GetOrigin(), 7, 4.0, 2, 20000, 0, true)
+	--ScreenShake(caster:GetOrigin(), 7, 4.0, 2, 20000, 0, true)
 
 	-- Create Particle
 	local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_relentless_four.vpcf", PATTACH_CUSTOMORIGIN, nil)

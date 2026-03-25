@@ -470,7 +470,7 @@ function WardFam(keys)
 	caster.ward:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = keys.Radius, duration = keys.Duration})
     caster.ward:AddNewModifier(caster, caster, "modifier_kill", {duration = keys.Duration})
     giveUnitDataDrivenModifier(caster, caster.ward, "modifier_ward_dmg_reduce", {duration = keys.Duration})
-    EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
+    caster.ward:EmitSound("DOTA_Item.ObserverWard.Activate")
 end
 
 function WardOnTakeDamage(keys)

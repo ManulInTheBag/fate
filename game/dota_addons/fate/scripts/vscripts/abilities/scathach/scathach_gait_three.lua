@@ -116,7 +116,7 @@ function scathach_gait_three:OnSpellStart()
 		
 		self:PlayEffects1( caught, (point_2-origin_2):Normalized() )
 		
-		ScreenShake(caster:GetOrigin(), 2, 0.5, 2, 3000, 0, true)
+--		ScreenShake(caster:GetOrigin(), 2, 0.5, 2, 3000, 0, true)
 		
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do

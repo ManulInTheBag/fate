@@ -376,7 +376,26 @@ Say = function(entity, msg, teamOnly)
     return]]
 end
 
+local VALVE_EmitSoundOnLocationWithCaster = EmitSoundOnLocationWithCaster
+EmitSoundOnLocationWithCaster = function(point, sound, caster)
+    local temptarget = CreateUnitByName("hrunt_illusion", point, true, nil, nil, caster:GetTeamNumber())
+    temptarget:SetModel("models/development/invisiblebox.vmdl")
+    temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
+    temptarget:SetModelScale(1)
+    local unseen = temptarget:FindAbilityByName("dummy_unit_passive")
+    unseen:SetLevel(1)
+
+    Timers:CreateTimer(5, function()
+        if IsValidEntity(temptarget) and not temptarget:IsNull() then 
+            temptarget:ForceKill(false)
+            temptarget:AddEffects(EF_NODRAW)
+        end
+    end)
+
+    EmitSoundOn(sound, temptarget)
+end
 --[[CBaseEntity = IsServer() and CBaseEntity or C_BaseEntity
+
 local VALVE_GetAbsOrigin = CBaseEntity.GetAbsOrigin
 CBaseEntity.GetAbsOrigin = function(self)
     if not IsValidEntity(self) then

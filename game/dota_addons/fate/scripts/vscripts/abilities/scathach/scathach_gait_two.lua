@@ -54,7 +54,7 @@ function scathach_gait_two:OnSpellStart()
 				-- 	spin_target_1:Script_ReduceMana(50, nil)
 				-- end
 			end
-			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
+--			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
 		end
 	end)
 	
@@ -76,7 +76,7 @@ function scathach_gait_two:OnSpellStart()
 				-- 	spin_target_2:Script_ReduceMana(50, nil)
 				-- end
 			end
-			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
+--			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
 		end
 	end)
 	
@@ -99,7 +99,7 @@ function scathach_gait_two:OnSpellStart()
 				-- 	spin_target_3:Script_ReduceMana(50, nil)
 				-- end
 			end
-			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
+--			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
 		end
 	end)
 	
@@ -124,7 +124,7 @@ function scathach_gait_two:OnSpellStart()
 				-- 	spin_target_4:Script_ReduceMana(50, nil)
 				-- end
 			end
-			ScreenShake(caster:GetOrigin(), 3, 0.5, 2, 4000, 0, true)
+--			ScreenShake(caster:GetOrigin(), 3, 0.5, 2, 4000, 0, true)
 		end
 	end)
 

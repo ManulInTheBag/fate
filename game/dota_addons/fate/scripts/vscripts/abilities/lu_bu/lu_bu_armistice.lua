@@ -64,7 +64,7 @@ function lu_bu_armistice:OnSpellStart()
 				DoDamage(caster, armistice_target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				armistice_target:AddNewModifier(caster, self, "modifier_lu_bu_armistice_stun", { Duration = stun_duration })
 			end
-			ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
+			--ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 				-- Create Particle
 			local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())

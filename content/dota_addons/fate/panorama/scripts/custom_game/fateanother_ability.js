@@ -14,7 +14,7 @@ function SetAbility( ability, queryUnit, bInLevelUp, bIsAttribute)
     m_bInLevelUp = bInLevelUp;
     m_bIsAttribute = bIsAttribute;
     
-    var canUpgradeRet = Abilities.CanAbilityBeUpgraded( m_Ability );
+    var canUpgradeRet = Abilities.CanAbilityBeUpgraded( m_Ability, false );
     var canUpgrade = ( canUpgradeRet == AbilityLearnResult_t.ABILITY_CAN_BE_UPGRADED );
     
     $.GetContextPanel().SetHasClass( "no_ability", ( ability == -1 ) );

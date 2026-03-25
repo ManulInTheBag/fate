@@ -103,7 +103,7 @@ function lu_bu_god_force:OnSpellStart()
 	
 	Timers:CreateTimer(2.0, function()
 		if caster:IsAlive() then
-			ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
+			--ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 				-- Create Particle
 			local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())

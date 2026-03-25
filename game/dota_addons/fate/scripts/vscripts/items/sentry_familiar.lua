@@ -28,7 +28,7 @@ function item_sentry_familiar:OnSpellStart()
 	caster.ward:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", { true_sight_range = self:GetSpecialValueFor("truesight_range"), duration = self:GetSpecialValueFor("duration")})
     caster.ward:AddNewModifier(caster, caster, "modifier_kill", {duration = self:GetSpecialValueFor("duration")})
     giveUnitDataDrivenModifier(caster, caster.ward, "modifier_ward_dmg_reduce", {duration = self:GetSpecialValueFor("duration")})
-    EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
+    caster.ward:EmitSound("DOTA_Item.ObserverWard.Activate")
 
     self:SpendCharge(1)
 end

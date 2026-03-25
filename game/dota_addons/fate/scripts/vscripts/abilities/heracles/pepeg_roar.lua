@@ -166,7 +166,7 @@ function berserker_5th_madmans_roar:OnSpellStart()
     	end
     end)
 
-	ScreenShake(caster:GetOrigin(), 30, 2.0, 5.0, 10000, 0, true)
+	--ScreenShake(caster:GetOrigin(), 30, 2.0, 5.0, 10000, 0, true)
 end
 
 modifier_madmans_roar_slow_moderate = class({})

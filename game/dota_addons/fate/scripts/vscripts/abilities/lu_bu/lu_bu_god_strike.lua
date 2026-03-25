@@ -102,7 +102,7 @@ function lu_bu_god_strike:OnSpellStart()
 	
 	caster:EmitSound("lu_bu_generic_2")
 	
-	ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
+	--ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 	local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())
 	

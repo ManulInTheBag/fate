@@ -82,7 +82,7 @@ function demon_king_beam:CastGroundSlam()
         caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
     end
     caster:EmitSound("maou_slam")
-    ScreenShake(caster:GetOrigin(), 15, 0.5, 0.5, 2000, 0, true)
+    --ScreenShake(caster:GetOrigin(), 15, 0.5, 0.5, 2000, 0, true)
     local particle = ParticleManager:CreateParticle("particles/maou/ground_slam/maou_ground_slam_.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin() + caster:GetForwardVector()* 100)
     if self:CheckCombo() then

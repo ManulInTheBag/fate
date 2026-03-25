@@ -225,7 +225,7 @@ function modifier_mordred_mmb:OnDestroy()
 		end
 
 		local YellowScreenFx = ParticleManager:CreateParticle("particles/custom/screen_red_splash.vpcf", PATTACH_EYES_FOLLOW, self.parent)
-		ScreenShake(self.parent:GetAbsOrigin(), 7, 2.0, 2, 10000, 0, true)
+		--ScreenShake(self.parent:GetAbsOrigin(), 7, 2.0, 2, 10000, 0, true)
 			
     	Timers:CreateTimer( 3.0, function()
 			ParticleManager:DestroyParticle( YellowScreenFx, false )

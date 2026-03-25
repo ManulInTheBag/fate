@@ -111,7 +111,7 @@ function OnNineLanded(caster, ability)
 
 				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
 				caster:RemoveModifierByName("pause_sealdisabled") 
-				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
+				--ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
 				-- do damage to targets
 				local damage = lasthitdmg 				
 				

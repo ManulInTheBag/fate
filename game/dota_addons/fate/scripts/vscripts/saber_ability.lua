@@ -265,7 +265,7 @@ function OnExcaliburStart(keys)
             return 0.08
         	end)
  
-			ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
+--			ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
 			AddFOWViewer(2,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
     		AddFOWViewer(3,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
 			local excalFxIndex = ParticleManager:CreateParticle("particles/saber/saber_excalibur_beam.vpcf", PATTACH_ABSORIGIN, caster)
@@ -591,7 +591,7 @@ function OnMaxStart(keys)
 				return 0.1
 			end)
 			local YellowScreenFx = ParticleManager:CreateParticle("particles/custom/screen_yellow_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
-			ScreenShake(caster:GetOrigin(), 7, 2.0, 2, 10000, 0, true)
+--			ScreenShake(caster:GetOrigin(), 7, 2.0, 2, 10000, 0, true)
 			
         	Timers:CreateTimer( 3.0, function()
 				ParticleManager:DestroyParticle( YellowScreenFx, false )

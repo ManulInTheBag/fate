@@ -44,7 +44,7 @@ function khsn_aoe_flame:OnSpellStart()
 				FxDestroyer(self.PI5, false)
 
         		caster:EmitSound("Hero_OgreMagi.Bloodlust.Cast")
-				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
+				--ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
 
 				local direction = caster:GetForwardVector()
 

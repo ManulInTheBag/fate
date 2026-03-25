@@ -70,7 +70,7 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 				end
 			end)
 			local BlueSplashFx = ParticleManager:CreateParticle("particles/custom/screen_blue_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
-			ScreenShake(caster:GetOrigin(), 15, 2.0, 2, 10000, 0, true)
+			--ScreenShake(caster:GetOrigin(), 15, 2.0, 2, 10000, 0, true)
 			-- Destroy particle
 			Timers:CreateTimer( 3.0, function()
 				ParticleManager:DestroyParticle( BlueSplashFx, false )

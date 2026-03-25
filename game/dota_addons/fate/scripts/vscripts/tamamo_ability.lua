@@ -1116,7 +1116,7 @@ function OnKickStart(keys)
 			nextTarget:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.1})
 
 
-			ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
+--			ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
 			nextTarget:EmitSound("Hero_Tusk.WalrusPunch.Target")
 		end
 		ParticleManager:SetParticleControl( trailFxIndex, 0, nextTarget:GetAbsOrigin() )

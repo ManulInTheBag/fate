@@ -142,7 +142,7 @@ function nanaya_kick:SimpleKick(seq, target)
 
 	FindClearSpaceForUnit(caster, position + dir*(250-50*seq), false)
 
-	ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
+	--ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
 
 	ParticleManager:CreateParticle("particles/nanaya_work_2.vpcf", PATTACH_ABSORIGIN, target)
 
@@ -260,7 +260,7 @@ function modifier_nanaya_kerikedak:BOOM()
 
     target:EmitSound("nanaya.hitleg")
 	ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, target)
-	ScreenShake(target:GetOrigin(), 10, 1.0, 0.7, 2000, 0, true)
+	--ScreenShake(target:GetOrigin(), 10, 1.0, 0.7, 2000, 0, true)
 	DoDamage(caster, target, damagetodo, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 
 	caster:SetOrigin(target:GetOrigin() - caster:GetForwardVector()*100)
@@ -274,7 +274,7 @@ function modifier_nanaya_kerikedak:BOOM()
 			DoDamage(caster, target, damagetodo, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 
    			ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, target)
-  			ScreenShake(target:GetOrigin(), 10, 1.0, 0.3, 2000, 0, true)
+  --			ScreenShake(target:GetOrigin(), 10, 1.0, 0.3, 2000, 0, true)
    			target:EmitSound("nanaya.hitleg")
     		return 0.1
     	else
@@ -346,7 +346,7 @@ function modifier_nanaya_kerikedak:BOOM()
 
         Timers:CreateTimer(0.05, function()
         	target:EmitSound("nanaya.hit")
-            ScreenShake(target:GetOrigin(), 10, 1.0, 0.4, 2000, 0, true)
+            --ScreenShake(target:GetOrigin(), 10, 1.0, 0.4, 2000, 0, true)
 
             damagetodo = damage + ((caster.ScaleAcquired and caster:HasModifier("modifier_nanaya_instinct")) and caster:GetAgility()*self.ability:GetSpecialValueFor("attribute_fly_agility_multiplier") or 0)
 		  	DoDamage(caster, target, damagetodo*2, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)

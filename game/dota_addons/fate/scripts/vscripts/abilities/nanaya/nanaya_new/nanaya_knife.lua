@@ -265,7 +265,7 @@ function nanaya_kekshi:ExecuteCombo(caster, target)
 
 	Timers:CreateTimer(1.20, function()
 
-		ScreenShake(targetabs, 14, 20, 1, 2000, 0, true)
+		--ScreenShake(targetabs, 14, 20, 1, 2000, 0, true)
 
 		local nanaya_knife1 = ParticleManager:CreateParticle("particles/pa_arcana_phantom_strike_end2.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControlEnt(nanaya_knife1, 0, caster, PATTACH_POINT, "attach_hand", caster:GetAbsOrigin(), true)
