@@ -164,7 +164,7 @@ function vlad_kazikli_bey:OnSpellStart()
 				self.PI3 = {}
 				self:VFX2_LastSpikes(caster)
         		caster:EmitSound("Hero_OgreMagi.Bloodlust.Cast")
---				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
+				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
 				dmg_lastspike = self:ApplyAttrExtraDmg(caster,dmg_lastspike,bloodpower) --last spike bonuses from bleeds and bloodpower are calculated right before it hits
 
 				local lasthitTargets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, aoe_lastspike, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)

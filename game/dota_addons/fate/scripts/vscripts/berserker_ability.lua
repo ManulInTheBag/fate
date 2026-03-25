@@ -389,7 +389,7 @@ function OnRoarStart(keys)
 	    DoDamage(caster, v, finaldmg , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 	end
 	ParticleManager:CreateParticle("particles/custom/screen_face_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
---	ScreenShake(caster:GetOrigin(), 30, 2.0, 5.0, 10000, 0, true)
+	ScreenShake(caster:GetOrigin(), 30, 2.0, 5.0, 10000, 0, true)
 
 end
 
@@ -705,7 +705,7 @@ function OnNineLanded(caster, ability)
 
 				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
 				caster:RemoveModifierByName("pause_sealenabled") 
---				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
+				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
 				-- do damage to targets
 				local damage = lasthitdmg 
 				if caster:HasModifier("modifier_courage_damage_stack_indicator") then

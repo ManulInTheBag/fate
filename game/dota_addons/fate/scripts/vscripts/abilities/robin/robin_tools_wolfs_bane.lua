@@ -117,7 +117,7 @@ function robin_tools_wolfs_bane:OnProjectileHit_ExtraData( target, location, Ext
 		ParticleManager:ReleaseParticleIndex( blastFx )
 	end)
 			
-	--ScreenShake(target:GetOrigin(), 1, 1.0, 2, 1000, 0, true)
+	ScreenShake(target:GetOrigin(), 1, 1.0, 2, 1000, 0, true)
 
 	-- precache damage
 	local damageTable = {

@@ -266,7 +266,7 @@ function modifier_edmon_enfer:BOOM(target)
 			Timers:CreateTimer(0.5, function()
 				EmitGlobalSound("edmon_enfer3")
 
-				--ScreenShake(origin, 3, 2.0, 2.4, 2000, 0, true)
+				ScreenShake(origin, 3, 2.0, 2.4, 2000, 0, true)
 
 				local particle2 = ParticleManager:CreateParticle("particles/edmon/edmon_enfer_magnetic_ring.vpcf", PATTACH_ABSORIGIN, caster)
 				ParticleManager:SetParticleControl(particle2, 0, origin)

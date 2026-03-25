@@ -514,7 +514,7 @@ function OnBelleStart(keys)
             return 0.03
         end)
 
---	    ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
+	    ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
 	end)
 end
 

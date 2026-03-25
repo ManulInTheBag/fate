@@ -103,22 +103,8 @@ if IsServer() then
 		self.counter = 0
 		self:StartIntervalThink(0.1)
 
-		local temptarget = CreateUnitByName("hrunt_illusion", self.origin, true, nil, nil, self.caster:GetTeamNumber())
-			temptarget:SetModel("models/development/invisiblebox.vmdl")
-		    temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
-		    temptarget:SetModelScale(1)
-		    local unseen = temptarget:FindAbilityByName("dummy_unit_passive")
-		    unseen:SetLevel(1)
-
-		    Timers:CreateTimer(5, function()
-				if IsValidEntity(temptarget) and not temptarget:IsNull() then 
-		            temptarget:ForceKill(false)
-		            temptarget:AddEffects(EF_NODRAW)
-		    	end
-		    end)
-
-		EmitSoundOn("chrono_ti11", temptarget )
-		EmitSoundOn("Hero_Leshrac.Split_Earth", temptarget)
+		EmitSoundOnLocationWithCaster(self.origin, "chrono_ti11", self.caster )
+		EmitSoundOnLocationWithCaster(self.origin, "Hero_Leshrac.Split_Earth", self.caster)
 
 		self:Explode(1)
 	end

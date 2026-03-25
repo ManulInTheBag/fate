@@ -62,7 +62,7 @@ function lu_bu_sky_piercer:OnSpellStart()
 	local radius_indicator_right_pos_end = crack_ending_right_ext + caster_fw_right_ext * 1250+ (Vector(caster_fw_right_ext.y, -caster_fw_right_ext.x, 0))* crack_width
 	local radius_indicator_left_pos_end = crack_ending_left_ext + caster_fw_left_ext * 1250 + (Vector(-caster_fw_left_ext.y, caster_fw_left_ext.x, 0))* crack_width
 	
-	--ScreenShake(caster:GetOrigin(), 15, 4, 8, 40000, 0, true)
+	ScreenShake(caster:GetOrigin(), 15, 4, 8, 40000, 0, true)
 
 	-- Play cast sound
 	EmitGlobalSound("lu_bu_sky_piercer_cast")
@@ -177,9 +177,9 @@ function lu_bu_sky_piercer:OnSpellStart()
 			DoDamage(caster, enemy, crack_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end
 		
-		--ScreenShake(crack_ending_center, 10, 10.0, 2, 5000, 0, true)
-		--ScreenShake(crack_ending_left, 10, 10.0, 2, 5000, 0, true)
-		--ScreenShake(crack_ending_right, 10, 10.0, 2, 5000, 0, true)
+		ScreenShake(crack_ending_center, 10, 10.0, 2, 5000, 0, true)
+		ScreenShake(crack_ending_left, 10, 10.0, 2, 5000, 0, true)
+		ScreenShake(crack_ending_right, 10, 10.0, 2, 5000, 0, true)
 
 
 		

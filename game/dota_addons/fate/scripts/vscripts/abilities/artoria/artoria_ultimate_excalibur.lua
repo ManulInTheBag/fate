@@ -93,7 +93,7 @@ function artoria_ultimate_excalibur:OnSpellStart()
 	
 		Timers:CreateTimer(3.50, function() -- Adjust 2.5 to 3.5 to match the sound
 			if caster:IsAlive() then
-				--ScreenShake(caster:GetOrigin(), 7, 2.0, 2, 15000, 0, true)
+				ScreenShake(caster:GetOrigin(), 7, 2.0, 2, 15000, 0, true)
 				
 				ParticleManager:DestroyParticle( chargeFxIndex, false )
 				ParticleManager:ReleaseParticleIndex( chargeFxIndex )

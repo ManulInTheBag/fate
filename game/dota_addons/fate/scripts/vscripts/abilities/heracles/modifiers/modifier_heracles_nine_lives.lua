@@ -71,7 +71,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 		caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
 	 
 		caster:RemoveModifierByName("pause_sealenabled") 
-		--ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)			
+		ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)			
 		
 		local lasthitTargets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.LargeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 1, false)
 		for k,v in pairs(lasthitTargets) do

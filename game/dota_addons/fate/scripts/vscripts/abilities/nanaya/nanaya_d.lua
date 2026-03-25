@@ -290,7 +290,7 @@ ParticleManager:SetParticleControl(knife, 4, target:GetAbsOrigin())
                     damage_flags = 0,
                     ability = self
                 })]]
-			--ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
+			ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
 					--ParticleManager:SetParticleControl(test_hit, 1, units:GetAbsOrigin() + units:GetForwardVector() * 180)
 					end)
 	return 0.3
@@ -419,7 +419,7 @@ end
                     damage_flags = 0,
                     ability = self
                 })]]
-			--ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
+			ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
 					--ParticleManager:SetParticleControl(test_hit, 1, units:GetAbsOrigin() + units:GetForwardVector() * 180)
 			end)
 			

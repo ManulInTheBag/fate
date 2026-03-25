@@ -389,7 +389,7 @@ function OnEnumaStart(keys)
 			enuma.vSpawnOrigin = caster:GetAbsOrigin() 
 			enuma.vVelocity = frontward * keys.Speed
 			projectile = ProjectileManager:CreateLinearProjectile(enuma)
---			ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 10000, 0, true)
+			ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 10000, 0, true)
 
 			-- Create particle
 			local casterLocation = caster:GetAbsOrigin()
@@ -511,7 +511,7 @@ function OnMaxEnumaStart(keys)
 			enuma.vSpawnOrigin = caster:GetAbsOrigin()
 			enuma.vVelocity = frontward * keys.Speed
 			projectile = ProjectileManager:CreateLinearProjectile(enuma)
---			ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 10000, 0, true)
+			ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 10000, 0, true)
 			ParticleManager:CreateParticle("particles/custom/screen_scarlet_splash.vpcf", PATTACH_EYES_FOLLOW, caster)
 
 			-- Create particle

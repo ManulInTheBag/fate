@@ -161,7 +161,7 @@ function scathach_red_creed_combo:OnProjectileHit_ExtraData(hTarget, vLocation, 
 
 	DoDamage(hCaster, hTarget, damage_primary, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 	
---	ScreenShake(hTarget:GetOrigin(), 15, 0.5, 1, 20000, 0, true)
+	ScreenShake(hTarget:GetOrigin(), 15, 0.5, 1, 20000, 0, true)
 	
 	local targets = FindUnitsInRadius(caster:GetTeam(), hTarget:GetOrigin(), nil, explosion_radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	

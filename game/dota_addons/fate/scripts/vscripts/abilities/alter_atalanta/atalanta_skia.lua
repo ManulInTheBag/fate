@@ -120,7 +120,7 @@ end
 function modifier_atalanta_skia:OnDestroy()
 	if not self.parent:IsAlive() then return end
 
-	--ScreenShake(self.parent:GetOrigin(), 20, 2.0, 3.0, 2000, 0, true)
+	ScreenShake(self.parent:GetOrigin(), 20, 2.0, 3.0, 2000, 0, true)
 	FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
 	self.parent:EmitSound("Misc.Crash")
 

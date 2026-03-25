@@ -74,7 +74,7 @@ function altera_adaptive:OnSpellStart()
 
 		local point = GetGroundPosition(caster:GetAbsOrigin() + caster:GetForwardVector()*100, caster)
 
-		EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
+		EmitSoundOnLocationWithCaster(point, "Hero_Leshrac.Split_Earth", caster)
 
 		local hit_fx2 = ParticleManager:CreateParticle(particlename2, PATTACH_ABSORIGIN, caster )
 		ParticleManager:SetParticleControl( hit_fx2, 0, point)

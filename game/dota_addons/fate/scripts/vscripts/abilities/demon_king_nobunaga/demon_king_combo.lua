@@ -120,7 +120,7 @@ function demon_king_combo:PlayStartEffects()
     end)
 
     EmitGlobalSound("kostya_appear_laughter")
-    --ScreenShake(caster:GetOrigin(), 50, 3, 2, 5000, 0, true)
+    ScreenShake(caster:GetOrigin(), 50, 3, 2, 5000, 0, true)
 
     StartAnimation(caster, {duration=duration, activity=ACT_DOTA_POOF_END, rate=1})
     local kostyaPos = caster:GetAbsOrigin()+caster:GetForwardVector()*-300

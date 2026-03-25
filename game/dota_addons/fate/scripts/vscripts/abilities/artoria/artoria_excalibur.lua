@@ -88,7 +88,7 @@ function artoria_excalibur:OnSpellStart()
             return 0.08
         	end)
  
-			--ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
+			ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
 			AddFOWViewer(2,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
     		AddFOWViewer(3,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
 			local excalFxIndex = ParticleManager:CreateParticle("particles/saber/saber_excalibur_beam.vpcf", PATTACH_ABSORIGIN, caster)

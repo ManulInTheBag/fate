@@ -80,13 +80,6 @@ function modifier_tauropolos_alter:OnCreated()
         self.ability = self:GetAbility()
         self:StartIntervalThink(0.5)
 
-        self.temptarget = CreateUnitByName("hrunt_illusion", self.target_loc, true, nil, nil, self.caster:GetTeamNumber())
-            self.temptarget:SetModel("models/development/invisiblebox.vmdl")
-            self.temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
-            self.temptarget:SetModelScale(1)
-            local unseen = self.temptarget:FindAbilityByName("dummy_unit_passive")
-            unseen:SetLevel(1)
-
         if self.caster:GetAbilityByIndex(5):GetName() == "atalanta_tauropolos_alter" then               
             self.caster:SwapAbilities("atalanta_tauropolos_alter", "atalanta_tauropolos_alter_stop", false, true)  
         end
@@ -96,11 +89,6 @@ function modifier_tauropolos_alter:OnDestroy()
     if IsServer() then
         if self.caster:GetAbilityByIndex(5):GetName() == "atalanta_tauropolos_alter_stop" then               
             self.caster:SwapAbilities("atalanta_tauropolos_alter", "atalanta_tauropolos_alter_stop", true, false)  
-        end
-
-        if IsValidEntity(self.temptarget) and not self.temptarget:IsNull() then 
-            self.temptarget:ForceKill(false)
-            self.temptarget:AddEffects(EF_NODRAW)
         end
     end
 end
@@ -140,7 +128,7 @@ function modifier_tauropolos_alter:OnIntervalThink()
             self.quadrant = 4 % (self.quadrant + 1)
 
             Timers:CreateTimer(0.02*pepega, function()
-                EmitSoundOn("Ability.Powershot.Alt", self.temptarget)
+                EmitSoundOnLocationWithCaster(attackPoint, "Ability.Powershot.Alt", self.caster)
                 local iPillarFx = ParticleManager:CreateParticle("particles/atalanta/ruler_purge_the_unjust_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
                 ParticleManager:SetParticleControl( iPillarFx, 0, attackPoint)
                 ParticleManager:SetParticleControl( iPillarFx, 1, attackPoint)

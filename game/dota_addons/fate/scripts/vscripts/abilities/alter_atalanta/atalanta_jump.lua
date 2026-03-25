@@ -159,7 +159,7 @@ function modifier_atalanta_jump:PlayEffects()
                                 ParticleManager:SetParticleControl(destruct_pfx, 1, Vector(self.radius, self.radius, self.radius))
                                 ParticleManager:ReleaseParticleIndex(destruct_pfx)]]
 
-        EmitSoundOn("Hero_Leshrac.Split_Earth", self.parent)
+        EmitSoundOnLocationWithCaster(self.point, "Hero_Leshrac.Split_Earth", self.parent)
 
         local hit_fx = ParticleManager:CreateParticle("particles/atalanta/atalanta_earthshock.vpcf", PATTACH_ABSORIGIN, self.parent )
 		ParticleManager:SetParticleControl( hit_fx, 0, GetGroundPosition(self.parent:GetAbsOrigin(), self.parent))

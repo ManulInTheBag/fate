@@ -58,7 +58,7 @@ function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 				ParticleManager:ReleaseParticleIndex( LaPucelleAura )]]
 			end)
 			
-			--ScreenShake(caster:GetOrigin(), 10, 1.5, 3, 40000, 0, true)
+			ScreenShake(caster:GetOrigin(), 10, 1.5, 3, 40000, 0, true)
 			
 			EmitGlobalSound("jeanne_la_pucelle_explosion")
 			

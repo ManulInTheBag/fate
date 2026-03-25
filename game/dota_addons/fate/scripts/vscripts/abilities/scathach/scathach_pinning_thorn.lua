@@ -94,7 +94,7 @@ function scathach_pinning_thorn:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 
 	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 	hTarget:AddNewModifier(hCaster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
---	ScreenShake(hTarget:GetOrigin(), 15, 0.5, 2, 20000, 0, true)
+	ScreenShake(hTarget:GetOrigin(), 15, 0.5, 2, 20000, 0, true)
 	
 	local targets = FindUnitsInRadius(caster:GetTeam(), hTarget:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	

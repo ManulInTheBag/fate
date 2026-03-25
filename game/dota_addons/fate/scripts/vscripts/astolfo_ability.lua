@@ -530,7 +530,7 @@ function OnRaidStart(keys)
 			        	v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
 			        end
 			    end
---			    ScreenShake(targetPoint, 15, 1.0, 2, 2000, 0, true)
+			    ScreenShake(targetPoint, 15, 1.0, 2, 2000, 0, true)
 
 			    --[[if caster.nCurrentRaidAmount >= 1 then
 					caster.nCurrentRaidAmount = caster.nCurrentRaidAmount-1

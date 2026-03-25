@@ -73,7 +73,7 @@ function scathach_red_wind:OnSpellStart()
 	
 	local particle3 = ParticleManager:CreateParticle("particles/custom/scathach/red_wind_lightning_2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	
---	ScreenShake(caster:GetOrigin(), 1.5, 0.5, 2, 5000, 0, true)
+	ScreenShake(caster:GetOrigin(), 1.5, 0.5, 2, 5000, 0, true)
 	
 	-- Stomp
 	local stompParticleIndex = ParticleManager:CreateParticle( "particles/custom/scathach/red_wind_impact.vpcf", PATTACH_CUSTOMORIGIN, caster )

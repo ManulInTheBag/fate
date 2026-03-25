@@ -1622,7 +1622,7 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
             end
         end
         --===============================
-        --ScreenShake(vLocation, 7, 3, 2, tExtraData.nRadius * 5, 0, true)
+        ScreenShake(vLocation, 7, 3, 2, tExtraData.nRadius * 5, 0, true)
         --===============================
         local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_pride_spear_impact.vpcf", PATTACH_WORLDORIGIN, nil)
                             ParticleManager:SetParticleShouldCheckFoW(nImpactPFX, false)
@@ -2745,7 +2745,7 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
     EndAnimation(hCaster)
     StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CHANNEL_END_ABILITY_6, rate = 2.0})
 
-    --ScreenShake(vCasterGnd, 7, 3, 2, nRadius * 5, 0, true)
+    ScreenShake(vCasterGnd, 7, 3, 2, nRadius * 5, 0, true)
 
     EmitSoundOnLocationWithCaster(vCasterGnd, "Leonidas.Enomotia.Release.1", hCaster)
     EmitSoundOn("Leonidas.Enomotia.Release.2", hCaster)
@@ -3506,7 +3506,7 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
     EndAnimation(hCaster)
     StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CHANNEL_END_ABILITY_6, rate = 2.0})
 
-    --ScreenShake(vCasterGnd, 7, 3, 2, nRadius * 5, 0, true)
+    ScreenShake(vCasterGnd, 7, 3, 2, nRadius * 5, 0, true)
 
     EmitSoundOnLocationWithCaster(vCasterGnd, "Leonidas.Enomotia.Release.1", hCaster)
     EmitSoundOn("Leonidas.Enomotia.Release.2", hCaster)

@@ -108,7 +108,7 @@ function artoria_final_slash:OnSpellStart()
 			
 			EmitGlobalSound("artoria_final_slash_2")
 			
-			--ScreenShake(target:GetOrigin(), 25, 3.0, 3, 10000, 0, true)
+			ScreenShake(target:GetOrigin(), 25, 3.0, 3, 10000, 0, true)
 			
 			caster:RemoveModifierByName("modifier_artoria_ultimate_avalon")
 			caster:RemoveModifierByName("modifier_artoria_final_slash_window")

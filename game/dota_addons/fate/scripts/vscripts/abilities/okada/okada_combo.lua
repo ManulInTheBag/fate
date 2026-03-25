@@ -178,7 +178,7 @@ function okada_combo:performInvisCombo()
     local radius = self:GetSpecialValueFor("invis_activation_radius")
     local caster = self:GetCaster()
     caster:AddNewModifier(caster, self, "modifier_okada_combo_true_invis", {duration = maxInvisDuration, timeToStartMove  = timeToActivate, checkRadius = radius})
-    caster:EmitSound("okada_combo_activate")
+    EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "okada_combo_activate", caster)
     StartAnimation( caster, {duration=3.2, activity=ACT_DOTA_CAST_ABILITY_6 , rate=1})
     caster:AddNewModifier(caster,self, "modifier_kb_immune", {duration = maxInvisDuration})
 end

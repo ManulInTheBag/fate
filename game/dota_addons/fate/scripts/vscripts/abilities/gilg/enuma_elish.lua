@@ -81,7 +81,7 @@ function gilgamesh_enuma_elish:AfterOnSpellSt()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
-  --EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "gilgamesh_enuma_" .. math.random(2,5), caster)
+  EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "gilgamesh_enuma_" .. math.random(2,5), caster)
   StartAnimation(self:GetCaster(), {duration=0.5, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.5})
   Timers:CreateTimer(0.5, function()
     if caster and caster:IsAlive() and caster.IsKappaChanneling then

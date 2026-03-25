@@ -30,7 +30,7 @@ function lu_bu_relentless_assault_one:OnSpellStart()
 	caster:EmitSound("relentless_assault_one")
 	caster:EmitSound("lu_bu_relentless_assault")
 		
-	--ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
+	ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 
 	-- Do for each affected enemies
 	for _,enemy in pairs(enemies) do
@@ -55,7 +55,7 @@ function lu_bu_relentless_assault_one:OnSpellStart()
 		local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_small_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl( blastFx, 0, cast_point)
 		
-		--ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
+		ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 	end
 
 	-- Play effects
