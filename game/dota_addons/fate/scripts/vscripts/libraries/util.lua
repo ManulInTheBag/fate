@@ -1660,7 +1660,7 @@ function CalculateDamagePreReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:Script_GetMagicalArmorValue(false, nil)
+		local fMagicRes = hUnit:Script_GetMagicalArmorValue(nil)
 		return fDamage * (1 + fMagicRes)
 	end
 	
@@ -1675,7 +1675,7 @@ function CalculateDamagePostReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:Script_GetMagicalArmorValue(false, nil)
+		local fMagicRes = hUnit:Script_GetMagicalArmorValue(nil)
 		return fDamage * (1 - fMagicRes)
 	end
 	
