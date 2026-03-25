@@ -394,34 +394,6 @@ EmitSoundOnLocationWithCaster = function(point, sound, caster)
 
     EmitSoundOn(sound, temptarget)
 end
-
-local VALVE_RotatePosition = RotatePosition
-RotatePosition = function(point1, angle, point2)
-    local temptarget = CreateUnitByName("hrunt_illusion", point1, true, nil, nil, DOTA_TEAM_NEUTRALS)
-    temptarget:SetModel("models/development/invisiblebox.vmdl")
-    temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
-    temptarget:SetModelScale(1)
-    local unseen = temptarget:FindAbilityByName("dummy_unit_passive")
-    unseen:SetLevel(1)
-
-    Timers:CreateTimer(FrameTime(), function()
-        if IsValidEntity(temptarget) and not temptarget:IsNull() then 
-            temptarget:ForceKill(false)
-            temptarget:AddEffects(EF_NODRAW)
-        end
-    end)
-
-    local diff = -1*(point1 - point2)
-
-    temptarget:SetForwardVector(diff:Normalized())
-
-    local resulting_angle = QAngle(temptarget:GetLocalAngles().x + angle.x, temptarget:GetLocalAngles().y + angle.y, temptarget:GetLocalAngles().z + angle.z)
-    temptarget:SetAbsAngles(resulting_angle.x, resulting_angle.y, resulting_angle.z)
-
-    local point = point1 + temptarget:GetForwardVector()*diff:Length()
-
-    return point
-end
 --[[CBaseEntity = IsServer() and CBaseEntity or C_BaseEntity
 
 local VALVE_GetAbsOrigin = CBaseEntity.GetAbsOrigin

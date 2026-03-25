@@ -11,7 +11,7 @@ if IsServer() then
 	function modifier_whitechapel_murderer:OnCreated(args)
 		self.AgiBonus = args.AgiBonus
 
-		GameRules:BeginTemporaryNight(self:GetDuration(), 0)
+		GameRules:BeginTemporaryNight(self:GetDuration())
 
 		self.time_remaining = self:GetDuration()
 
