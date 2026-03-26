@@ -395,7 +395,7 @@ function modifier_medusa_bellerophon_landing:EnemyHit(hTarget)
 
         if not self.AttackedTargets[hTarget:entindex()] then
             self.AttackedTargets[hTarget:entindex()] = true
-        	DoDamage(hCaster, hTarget, self.ability:GetSpecialValueFor("damage") + (hCaster.RidingAcquired and (self.ability:GetSpecialValueFor("riding_damage") + hCaster:GetAgility()*self:GetSpecialValueFor("agility_multiplier")) or 0), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        	DoDamage(hCaster, hTarget, self.ability:GetSpecialValueFor("damage") + (hCaster.RidingAcquired and (self.ability:GetSpecialValueFor("riding_damage") + hCaster:GetAgility()*self.ability:GetSpecialValueFor("agility_multiplier")) or 0), DAMAGE_TYPE_MAGICAL, 0, self, false)
         	enemy:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = self.ability:GetSpecialValueFor("stun_duration")})
 
 	        local anglevalue = caster:GetRightVector()
