@@ -34,6 +34,39 @@
 		}
 	}
 
+		"models/zlodemon/hassan/new_true_assasin_ta.vmdl"
+	{
+		"PortraitLightPosition"		"72.31 75.79 30.43"
+		"PortraitLightAngles"		"228.07 56.50 0.00"
+		"PortraitLightFOV"		"61"
+		"PortraitLightDistance"		"126"
+		"PortraitLightColor"		"190 218 254"
+		"PortraitShadowColor"		"100 79 79"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"185 185 185"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"0 0 0"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitBackgroundColor1"		".65 .35 .0"
+		"PortraitBackgroundColor2"		".65 .35 .0"
+		"PortraitBackgroundColor3"		".65 .35 .0"
+		"PortraitBackgroundColor4"		".65 .35 .0"
+		//"PortraitParticle"		"particles/units/heroes/hero_bounty_hunter/portrait_bounty_hunter.vpcf"
+		"PortraitLightScale"		"1.350000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-22.890 -24.590 72.430"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"180.49 -60.48 170.72"
+				"PortraitAngles"		"354.14 153.33 0.00"
+				"PortraitFOV"		"18"
+			}
+		}
+	}
+
 	"models/maounobu/nobus/nobutank.vmdl"
 	{
 		"PortraitLightPosition"		"202.70 -23.15 308.17"

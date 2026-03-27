@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -256,7 +256,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -9.050465, -9.066242, -40.790192 ]
+								hitbox_mins = [ -9.050465, -9.066242, -40.79019 ]
 								hitbox_maxs = [ 9.219135, 8.245567, 1.779709 ]
 							},
 							{
@@ -328,7 +328,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.558308, -22.861429, -13.976917 ]
+								hitbox_mins = [ -7.558308, -22.86143, -13.976917 ]
 								hitbox_maxs = [ 7.715759, 9.355364, 5.650581 ]
 							},
 							{
@@ -355,7 +355,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -18.60376, -120.526962, -2.281487 ]
+								hitbox_mins = [ -18.60376, -120.52696, -2.281487 ]
 								hitbox_maxs = [ 18.583755, 18.101032, 2.401802 ]
 							},
 							{
@@ -365,7 +365,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -7.700468, -15.901164, -34.769547 ]
-								hitbox_maxs = [ 11.450079, 16.831791, 0.139992 ]
+								hitbox_maxs = [ 11.450079, 16.83179, 0.139992 ]
 							},
 							{
 								_class = "Hitbox"
@@ -373,7 +373,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.581312, -16.049372, -34.374229 ]
+								hitbox_mins = [ -11.581312, -16.049372, -34.37423 ]
 								hitbox_maxs = [ 7.244479, 16.775778, 0.204613 ]
 							},
 							{
@@ -445,6 +445,7 @@
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_idle"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_IDLE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -457,16 +458,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 90
 								end_frame = 124
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_death"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_DIE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -479,16 +483,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 130
 								end_frame = 167
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_move"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_RUN"
 								activity_weight = 1
 								weight_list_name = ""
@@ -501,16 +508,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 208
 								end_frame = 230
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_attack"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK"
 								activity_weight = 1
 								weight_list_name = ""
@@ -523,16 +533,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 238
 								end_frame = 272
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_attack_two"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK2"
 								activity_weight = 1
 								weight_list_name = ""
@@ -545,16 +558,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 300
 								end_frame = 332
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_attack_three"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_3"
 								activity_weight = 1
 								weight_list_name = ""
@@ -567,16 +583,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 363
 								end_frame = 394
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_cast"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_1"
 								activity_weight = 1
 								weight_list_name = ""
@@ -589,16 +608,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 469
 								end_frame = 515
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_excal"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_6"
 								activity_weight = 1
 								weight_list_name = ""
@@ -611,16 +633,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 627
 								end_frame = 674
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_crit"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK_EVENT"
 								activity_weight = 1
 								weight_list_name = ""
@@ -633,16 +658,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 590
 								end_frame = 623
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_dexcal"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_4"
 								activity_weight = 1
 								weight_list_name = ""
@@ -655,16 +683,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 520
 								end_frame = 620
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "sbr_alter_anim"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_DISABLED"
 								activity_weight = 1
 								weight_list_name = ""
@@ -677,12 +708,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/saber_alter/sbr_alter_anim.FBX"
 								import_bone_scales = false
 								start_frame = 90
 								end_frame = 91
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 						]
 					},
@@ -694,5 +727,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

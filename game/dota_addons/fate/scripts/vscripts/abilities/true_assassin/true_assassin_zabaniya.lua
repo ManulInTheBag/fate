@@ -30,7 +30,7 @@ end
 function true_assassin_zabaniya:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-
+	EmitSoundOn("Hassan_Zabaniya", caster) 
 	local smokeFx = ParticleManager:CreateParticleForTeam("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_loadout.vpcf", PATTACH_CUSTOMORIGIN, target, caster:GetTeamNumber())
 	ParticleManager:SetParticleControl(smokeFx, 0, caster:GetAbsOrigin())
 
@@ -78,7 +78,7 @@ function true_assassin_zabaniya:OnSpellStart()
 		end)
 
 		caster:EmitSound("TA.Darkness")
-		caster:EmitSound("Hassan_Zabaniya") 
+		--caster:EmitSound("Hassan_Zabaniya") 
 	end
 	})
 end
