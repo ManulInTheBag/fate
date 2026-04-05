@@ -7,8 +7,9 @@ end
 
 if IsServer() then
 	function modifier_karna_divinity:OnCreated(args)
-		self.MagicResist = 5
-		self.BlockAmount = 60
+		self.ability = self:GetAbility()
+		self.MagicResist = self.ability:GetSpecialValueFor("magic_resist_gain")
+		self.HpPerStr = self.ability:GetSpecialValueFor("hp_per_str")
 
 		CustomNetTables:SetTableValue("sync","karna_divinity", { magic_resist = self.MagicResist,
 																 block_amount = self.BlockAmount })
@@ -24,14 +25,14 @@ function modifier_karna_divinity:GetModifierMagicalResistanceBonus()
 	end
 end
 
-function modifier_karna_divinity:GetModifierPhysical_ConstantBlock()
+--[[function modifier_karna_divinity:GetModifierPhysical_ConstantBlock()
 	if IsServer() then
 		return self.BlockAmount
 	elseif IsClient() then
 		local block_amount = CustomNetTables:GetTableValue("sync","karna_divinity").block_amount
 		return block_amount 
 	end
-end
+end]]
 
 function modifier_karna_divinity:IsHidden()
 	return false 

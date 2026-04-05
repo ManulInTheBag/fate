@@ -6,15 +6,34 @@ if IsServer() then
 			self:SetStackCount(args.Stacks)
 		end
 
+		self.max_block = (self:GetCaster().IsDivinityImproved and self:GetAbility():GetSpecialValueFor("physical_block") or 0)
+		self.block = self.max_block
+		self.duration = self:GetAbility():GetSpecialValueFor("duration")
+		self.tick = self.duration
+
+		self:StartIntervalThink(0.1)
+
 		self.Particle = ParticleManager:CreateParticle("particles/custom/berserker/courage/buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(self.Particle, 1, Vector(self:GetStackCount() + 1,1,1))
 		ParticleManager:SetParticleControl(self.Particle, 3, Vector(400,1,1))	
+	end
+
+	function modifier_courage_self_buff:OnIntervalThink()
+		self.tick = self.tick - 0.1
+		self.block = self.max_block*(self.tick/self.duration)
 	end
 
 	function modifier_courage_self_buff:OnRefresh(args)
 		if args.Stacks > 0 then
 			self:SetStackCount(args.Stacks)
 		end
+
+		self.max_block = (self:GetCaster().IsDivinityImproved and self:GetAbility():GetSpecialValueFor("physical_block") or 0)
+		self.block = self.max_block
+		self.duration = self:GetAbility():GetSpecialValueFor("duration")
+		self.tick = self.duration
+
+		self:StartIntervalThink(0.1)
 		
 		ParticleManager:SetParticleControl(self.Particle, 1, Vector(self:GetStackCount() + 1,1,1))
 		ParticleManager:SetParticleControl(self.Particle, 3, Vector(400,1,1))
@@ -29,10 +48,15 @@ end
 function modifier_courage_self_buff:DeclareFunctions()
 	return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 			 --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+			 MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
 			 MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			 MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			 MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 			 MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE }
+end
+
+function modifier_courage_self_buff:GetModifierPhysical_ConstantBlock()
+	return self.block
 end
 
 function modifier_courage_self_buff:GetModifierIncomingDamage_Percentage()

@@ -177,7 +177,7 @@ if IsServer() then
 			self.hCaster:SwapAbilities(tArmorAbilities[4], tNoArmorAbilities[4], true, false)
 		end
 		self.hAbility:EndCooldown()
-		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel()
+		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel() + (self.hCaster:HasModifier("modifier_karna_divinity") and self.hCaster:FindModifierByName("modifier_karna_divinity").HpPerStr*self.hCaster:GetStrength() or 0)
 		self.Armor = self.hAbility:GetSpecialValueFor("bonus_armor")
 		self.MagicResist = self.hAbility:GetSpecialValueFor("bonus_resist")
 		CustomNetTables:SetTableValue("sync","karna_armor", { armor = self.Armor,
@@ -219,7 +219,7 @@ if IsServer() then
 		self.ArmorActive = true
 		self.ArmorRegenActive = false
 
-		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel()
+		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel() + (self.hCaster:HasModifier("modifier_karna_divinity") and self.hCaster:FindModifierByName("modifier_karna_divinity").HpPerStr*self.hCaster:GetStrength() or 0)
 		self.fBarrierBlock = self.fMaxBarrierBlock
 		self:SetStackCount(self.fBarrierBlock)
 		--self.hAbility:GetSpecialValueFor("attribute_shield_amount")
@@ -248,7 +248,7 @@ if IsServer() then
 		self.MagicResist = self.hAbility:GetSpecialValueFor("bonus_resist")
 		self.ArmorActive = true
 		self.ArmorRegenActive = false
-		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel()
+		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel() + (self.hCaster:HasModifier("modifier_karna_divinity") and self.hCaster:FindModifierByName("modifier_karna_divinity").HpPerStr*self.hCaster:GetStrength() or 0)
 		self.fBarrierBlock = self.fMaxBarrierBlock
 		self:SetStackCount(self.fMaxBarrierBlock)
 		self.hAbility:EndCooldown()
@@ -261,7 +261,7 @@ if IsServer() then
 	function modifier_karna_armor:RestoreArmorPercentage(percentage)
 		if self.ArmorActive == false then return end
 		local stack_count = self:GetStackCount()
-		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel()
+		self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel() + (self.hCaster:HasModifier("modifier_karna_divinity") and self.hCaster:FindModifierByName("modifier_karna_divinity").HpPerStr*self.hCaster:GetStrength() or 0)
 		local new_stack_count = self.fMaxBarrierBlock * percentage/100 + stack_count
 		if new_stack_count > self.fMaxBarrierBlock then new_stack_count = self.fMaxBarrierBlock end
 		self:SetStackCount(new_stack_count)
@@ -327,7 +327,7 @@ function modifier_karna_armor:OnIntervalThink()
 		return
 	end
 	--print("jopa2")
-	self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel()
+	self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel() + (self.hCaster:HasModifier("modifier_karna_divinity") and self.hCaster:FindModifierByName("modifier_karna_divinity").HpPerStr*self.hCaster:GetStrength() or 0)
 	self.fBarrierBlock = self.fBarrierBlock + self.fMaxBarrierBlock/10
 	if self.fBarrierBlock >= self.fMaxBarrierBlock then 
 		self.fBarrierBlock = self.fMaxBarrierBlock

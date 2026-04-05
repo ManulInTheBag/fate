@@ -23,9 +23,9 @@ function modifier_pepeg_divinity:DeclareFunctions()
 	return func
 end
 
-function modifier_pepeg_divinity:GetModifierPhysical_ConstantBlock()
+--[[function modifier_pepeg_divinity:GetModifierPhysical_ConstantBlock()
 	return self:GetAbility():GetSpecialValueFor("physical_block")
-end
+end]]
 
 function modifier_pepeg_divinity:GetModifierPhysicalArmorBonus()
 	return self:GetAbility():GetSpecialValueFor("bonus_armor")

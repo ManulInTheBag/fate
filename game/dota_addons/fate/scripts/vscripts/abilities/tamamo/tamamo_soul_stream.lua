@@ -10,9 +10,14 @@ LinkLuaModifier("modifier_tamamo_fire_debuff", "abilities/tamamo/tamamo_soul_str
 LinkLuaModifier("modifier_tamamo_ice_debuff", "abilities/tamamo/tamamo_soul_stream", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tamamo_wind_debuff", "abilities/tamamo/tamamo_soul_stream", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tamamo_wind_particle", "abilities/tamamo/tamamo_soul_stream", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tamamo_charm_pepeg", "abilities/tamamo/tamamo_soul_stream", LUA_MODIFIER_MOTION_NONE)
 
 function tamamo_soul_stream:GetCastRange(vLocation, hTarget)
 	return self:GetSpecialValueFor("range")
+end
+
+function tamamo_soul_stream:GetIntrinsicModifierName()
+	return "modifier_tamamo_charm_pepeg"
 end
 
 function tamamo_soul_stream:GetManaCost(iLevel)
@@ -228,13 +233,13 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	ParticleManager:SetParticleControl(explosionFx, 0, vLocation)
 
 	if hCaster:HasModifier("modifier_fiery_heaven_indicator") then
-		self:FireCharmProc(hTarget, vLocation, true)
+		self:FireCharmProc(hTarget, vLocation, true, fDamage)
 	elseif hCaster:HasModifier("modifier_frigid_heaven_indicator") then
-		self:IceCharmProc(hTarget, vLocation, true)
+		self:IceCharmProc(hTarget, vLocation, true, fDamage)
 	elseif hCaster:HasModifier("modifier_gust_heaven_indicator") then
-		self:WindCharmProc(hTarget, vLocation, true)
+		self:WindCharmProc(hTarget, vLocation, true, fDamage)
 	elseif hCaster:HasModifier("modifier_void_heaven_indicator") then
-		self:VoidCharmProc(hTarget, vLocation, true)
+		self:VoidCharmProc(hTarget, vLocation, true, fDamage)
 	end
 
 	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
@@ -247,7 +252,7 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 			tEnemies[i]:SetMana(tEnemies[i]:GetMana() - fManaBurn)			
 		end]]
 
-		DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		--DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 
 	local cdr = 0.5
@@ -267,7 +272,7 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	end
 end
 
-function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss)
+function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss, ss_damage)
 	local hCaster = self:GetCaster()
 	local fExplodeRadius = self:GetSpecialValueFor("explode_radius")
 	local fDamage = self:GetSpecialValueFor("damage")
@@ -279,14 +284,15 @@ function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss)
 	local fDamage = hCharmAbility:GetSpecialValueFor("damage") + hCharmAbility:GetSpecialValueFor("int_ratio")*hCaster:GetIntellect()
 
 	if is_ss then
-		fDamage = fDamage/6
+		fDamage = fDamage/6 + ss_damage/2
 	end
-	if not hTarget:IsMagicImmune() then
+	--[[if not hTarget:IsMagicImmune() then
 		DoDamage(hCaster, hTarget, fDamage*2, DAMAGE_TYPE_MAGICAL, 0, hCharmAbility, false)
-	end
+	end]]
 
 	for i = 1, #tEnemies do
 		if hCharmDebuff ~= nil and hCharmAbility ~= nil then
+			DoDamage(hCaster, tEnemies[i], fDamage*2, DAMAGE_TYPE_MAGICAL, 0, hCharmAbility, false)
 			tEnemies[i]:AddNewModifier(hCaster, hCharmAbility, hCharmDebuff, { Duration = hCharmAbility:GetSpecialValueFor("duration"), is_ss = is_ss })
 		end
 	end
@@ -312,7 +318,7 @@ function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss)
 	end)
 end
 
-function tamamo_soul_stream:IceCharmProc(hTarget, vLocation, is_ss)
+function tamamo_soul_stream:IceCharmProc(hTarget, vLocation, is_ss, ss_damage)
 	local hCaster = self:GetCaster()
 
 	local hCharmDebuff = "modifier_tamamo_ice_debuff"
@@ -324,7 +330,7 @@ function tamamo_soul_stream:IceCharmProc(hTarget, vLocation, is_ss)
 	hTarget:EmitSound("Hero_Invoker.ColdSnap.Freeze")
 
 	if is_ss then
-		fDamage = fDamage/6
+		fDamage = fDamage/6 + ss_damage
 	end
 
 	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), hTarget:GetAbsOrigin(), nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
@@ -344,7 +350,7 @@ function tamamo_soul_stream:IceCharmProc(hTarget, vLocation, is_ss)
 	end)
 end
 
-function tamamo_soul_stream:WindCharmProc(hTarget, vLocation, is_ss)
+function tamamo_soul_stream:WindCharmProc(hTarget, vLocation, is_ss, ss_damage)
 	local hCaster = self:GetCaster()
 
 	local hCharmDebuff = "modifier_tamamo_wind_debuff"
@@ -354,7 +360,7 @@ function tamamo_soul_stream:WindCharmProc(hTarget, vLocation, is_ss)
 	local fExplodeRadius = hCharmAbility:GetSpecialValueFor("radius")
 
 	if is_ss then
-		fDamage = fDamage/6
+		fDamage = fDamage/6 + ss_damage
 	end
 
 	local attacked_targets = {}
@@ -415,7 +421,7 @@ function tamamo_soul_stream:WindCharmProc(hTarget, vLocation, is_ss)
 	end)
 end
 
-function tamamo_soul_stream:VoidCharmProc(hTarget, vLocation, is_ss)
+function tamamo_soul_stream:VoidCharmProc(hTarget, vLocation, is_ss, ss_damage)
 	local hCaster = self:GetCaster()
 
 	local hCharmAbility = hCaster:FindAbilityByName("tamamo_void_heaven")
@@ -423,7 +429,7 @@ function tamamo_soul_stream:VoidCharmProc(hTarget, vLocation, is_ss)
 	local fDamage = hCharmAbility:GetSpecialValueFor("damage") + hCharmAbility:GetSpecialValueFor("int_ratio")*hCaster:GetIntellect()
 
 	if is_ss then
-		fDamage = fDamage/6
+		fDamage = fDamage/6 + ss_damage
 	end
 
 	local fExplodeRadius = self:GetSpecialValueFor("explode_radius")
@@ -492,19 +498,19 @@ if IsServer() then
 
 		if hCaster:HasModifier("modifier_fiery_heaven_indicator") then
 
-			soulstream_abil:FireCharmProc(hTarget, hTarget:GetAbsOrigin(), false)
+			soulstream_abil:FireCharmProc(hTarget, hTarget:GetAbsOrigin(), false, 0)
 
 		elseif hCaster:HasModifier("modifier_frigid_heaven_indicator") then
 
-			soulstream_abil:IceCharmProc(hTarget, hTarget:GetAbsOrigin(), false)
+			soulstream_abil:IceCharmProc(hTarget, hTarget:GetAbsOrigin(), false, 0)
 
 		elseif hCaster:HasModifier("modifier_gust_heaven_indicator") then
 
-			soulstream_abil:WindCharmProc(hTarget, hTarget:GetAbsOrigin(), false)
+			soulstream_abil:WindCharmProc(hTarget, hTarget:GetAbsOrigin(), false, 0)
 
 		elseif hCaster:HasModifier("modifier_void_heaven_indicator") then
 
-			soulstream_abil:VoidCharmProc(hTarget, hTarget:GetAbsOrigin(), false)
+			soulstream_abil:VoidCharmProc(hTarget, hTarget:GetAbsOrigin(), false, 0)
 			
 		end
 	end
@@ -678,4 +684,29 @@ end
 
 function modifier_tamamo_wind_particle:IsHidden()
 	return true
+end
+
+modifier_tamamo_charm_pepeg = class({})
+
+function modifier_tamamo_charm_pepeg:OnCreated()
+	self.parent = self:GetParent()
+	self.ability = self.parent:FindAbilityByName("tamamo_frigid_heaven")
+
+	self.ability:ApplyDataDrivenModifier(self.parent, self.parent, "modifier_frigid_heaven_indicator", {})
+end
+
+function modifier_tamamo_charm_pepeg:IsHidden()
+	return true 
+end
+
+function modifier_tamamo_charm_pepeg:RemoveOnDeath()
+	return false
+end
+
+function modifier_tamamo_charm_pepeg:IsDebuff()
+	return false 
+end
+
+function modifier_tamamo_charm_pepeg:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

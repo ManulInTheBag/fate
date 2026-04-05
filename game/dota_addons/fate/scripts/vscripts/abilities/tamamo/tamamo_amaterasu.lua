@@ -205,11 +205,11 @@ function modifier_amaterasu_ally:DeclareFunctions()
 end
 
 function modifier_amaterasu_ally:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetAbility():GetSpecialValueFor("movespeed_modifier")
+	return self:GetAbility():GetSpecialValueFor("movespeed_modifier")*((self:GetParent() == self:GetCaster()) and self:GetAbility():GetSpecialValueFor("tamamo_multiplier") or 1)
 end
 
 function modifier_amaterasu_ally:GetModifierAttackSpeedBonus_Constant()
-	return self:GetAbility():GetSpecialValueFor("movespeed_modifier")
+	return self:GetAbility():GetSpecialValueFor("movespeed_modifier")*((self:GetParent() == self:GetCaster()) and self:GetAbility():GetSpecialValueFor("tamamo_multiplier") or 1)
 end
 
 function modifier_amaterasu_ally:OnAbilityExecuted(args)
@@ -223,6 +223,11 @@ function modifier_amaterasu_ally:OnAbilityExecuted(args)
         local caster = self:GetCaster()
         local heal = amaterasu:GetSpecialValueFor("heal_per_cast")
         local mana = amaterasu:GetSpecialValueFor("mana_per_cast")
+        if caster == hero then
+        	local mod = amaterasu:GetSpecialValueFor("tamamo_multiplier")
+        	heal = heal*mod
+        	mana = mana*mod
+        end
         hero:ApplyHeal(heal, amaterasu)
         hero:GiveMana(mana)
         --hero:SetMana(hero:GetMana()+200)

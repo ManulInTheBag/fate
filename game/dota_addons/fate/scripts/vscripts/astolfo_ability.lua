@@ -361,8 +361,8 @@ function OnHornInterrupted(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	caster:RemoveModifierByName("modifier_protection_from_arrows_active")
-	if caster.rape_count == 9 and not keys.caster.AstolfoSimpleFix  then
-		local rapeTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if caster.rape_count == 5 and not keys.caster.AstolfoSimpleFix  then
+		local rapeTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(rapeTargets) do
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_la_black_luna_slow2", {})
 			keys.ability:ApplyDataDrivenModifier(caster,v, "modifier_astolfo_mute2", {})

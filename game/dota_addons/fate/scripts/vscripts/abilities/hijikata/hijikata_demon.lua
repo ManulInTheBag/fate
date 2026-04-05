@@ -99,7 +99,7 @@ function hijikata_demon:OnSpellStart()
 	--target:AddNewModifier(caster, v, "modifier_rooted", {Duration = duration})
 	--target:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.1})
 	--giveUnitDataDrivenModifier(caster, target, "locked", duration)
-	caster:PerformAttack(target, true, true, true, true, false, false, false)
+	--caster:PerformAttack(target, true, true, true, true, false, false, false)
 
 	DoDamage(caster, target, damage, self:GetAbilityDamageType(), 0, self, false)
 	if caster.IsShinsengumiAcquired then

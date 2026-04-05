@@ -1065,7 +1065,7 @@ function OnDWStart(keys)
 	local bonus_beams = math.floor(caster:GetIntellect() / 40)
 	print(bonus_beams)
 
-    Timers:CreateTimer(0.5, function()
+    Timers:CreateTimer(0.1, function()
     	if rainCount == (3 + bonus_beams) then return end
     	caster:EmitSound("Hero_Luna.LucentBeam.Target")
     	local vecLocation = targetPoint + RandomVector(50)
