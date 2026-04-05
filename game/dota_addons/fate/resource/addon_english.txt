@@ -3811,7 +3811,7 @@
 		"DOTA_Tooltip_ability_heracles_fissure_stun_duration"	"STUN DURATION:"
 		
 		"DOTA_Tooltip_Ability_heracles_courage"					"Courage"
-		"DOTA_Tooltip_ability_heracles_courage_Description"		"Heracles lets out terrifying howl, causing all enemies nearby to have reduced attack. Heracles gains bonus strength, damage, attackspeed and movespeed per each enemy hero affected. Heracles will gain at least 1 Courage stack even if he affects no enemies with Courage.\n<font color='#FF0000'>Berserked:</font> All enemies affected will also be <font color='#FF3399'>disarmed</font> for 2 seconds."
+		"DOTA_Tooltip_ability_heracles_courage_Description"		"Heracles lets out terrifying howl, causing all enemies nearby to have reduced attack, and slams the ground, dealing <font color='#58ACFA'>damage</font> around himself and <font color='#FF3399'>stunning</font>. Heracles gains bonus strength, damage, attackspeed and movespeed per each enemy hero affected. Heracles will gain at least 1 Courage stack even if he affects no enemies with Courage.\n<font color='#FF0000'>Berserked:</font> All enemies affected will also be <font color='#FF3399'>disarmed</font> for 2 seconds."
 		"DOTA_Tooltip_ability_heracles_courage_Lore"				"With the roar begins the onslaught of fallen warrior."
 		"DOTA_Tooltip_ability_heracles_courage_damage_reduction"	"%Enemy damage reduction:"		
 		"DOTA_Tooltip_ability_heracles_courage_self_str_inc"				"Bonus strength per enemy:"
@@ -3821,6 +3821,9 @@
 		"DOTA_Tooltip_ability_heracles_courage_duration"		"Self duration:"
 		"DOTA_Tooltip_ability_heracles_courage_enemy_duration"		"Enemy duration:"
 		"DOTA_Tooltip_ability_heracles_courage_physical_block"	"Divinity physical block:"	
+		"DOTA_Tooltip_ability_heracles_courage_damage"	"Slam damage:"	
+		"DOTA_Tooltip_ability_heracles_courage_stun_duration"	"Slam stun duration:"	
+		"DOTA_Tooltip_ability_heracles_courage_active_radius"	"Slam radius:"	
 		//"DOTA_Tooltip_ability_heracles_courage_Note0"				"Courage buff cannot be dispelled."
 
 		"DOTA_Tooltip_Ability_heracles_berserk"					"Berserk"

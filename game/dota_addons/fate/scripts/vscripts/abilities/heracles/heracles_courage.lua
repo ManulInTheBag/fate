@@ -12,8 +12,10 @@ function heracles_courage:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local radius = self:GetAOERadius()
-	print (radius)
+	local active_radius = self:GetSpecialValueFor("active_radius")
 	local lazy_counter = 1
+	local active_damage = self:GetSpecialValueFor("damage")
+	local active_stun = self:GetSpecialValueFor("stun_duration")
 	if(caster.MEacquired == true) then
 		local cd = caster:FindAbilityByName("heracles_nine_lives"):GetCooldownTimeRemaining()
 		caster:FindAbilityByName("heracles_nine_lives"):EndCooldown()
@@ -70,6 +72,19 @@ function heracles_courage:OnSpellStart()
 	--[[if caster.IsEternalRageAcquired then
 		ReduceCooldown(caster:FindAbilityByName("heracles_nine_lives"), 5)
 	end]]
+	local targetsActive = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, active_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	for k,v in pairs(targetsActive) do            
+        DoDamage(caster, v, active_damage, self:GetAbilityDamageType(), 0, self, false)
+        v:AddNewModifier(caster, self, "modifier_stunned", {Duration = active_stun, })     
+    end 
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_w_slam_sfx", caster)
+	ScreenShake(caster:GetOrigin(), 15, 0.5, 0.5, 2000, 0, true)
+ 	local particle = ParticleManager:CreateParticle("particles/zlodemon/herc_ground_slam.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 50)
+	Timers:CreateTimer(0.5, function()
+        ParticleManager:DestroyParticle(particle, false)
+        ParticleManager:ReleaseParticleIndex(particle)
+    end)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 then
 		if caster.QUsed and caster:FindAbilityByName("berserker_5th_madmans_roar"):IsCooldownReady() then
 			caster:AddNewModifier(caster, self, "modifier_heracles_combo_window", { Duration = 3 })
