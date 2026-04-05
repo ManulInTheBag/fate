@@ -101,7 +101,7 @@ function karna_jump:OnSpellStart()
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
-					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 					if not bArmorRestore and  bArmorActive ~= nil then 
 						armor_modifier:RestoreArmorPercentage(5)
 						bArmorRestore = true

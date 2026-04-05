@@ -123,7 +123,7 @@ function karna_spin:OnSpellStart()
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
-				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 				if not bArmorRestore and  bArmorActive ~= nil then 
 					armor_modifier:RestoreArmorPercentage(5)
 					bArmorRestore = true
@@ -132,7 +132,7 @@ function karna_spin:OnSpellStart()
 					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
 						if stacks == 4 then 
-							DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+							DoDamage(caster, v, caster:GetIntellect() * 1.5, self:GetAbilityDamageType(), 0, self, false)
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else
@@ -163,7 +163,7 @@ function karna_spin:OnSpellStart()
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
-				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 				if not bArmorRestore1 and  bArmorActive ~= nil then 
 					armor_modifier:RestoreArmorPercentage(5)
 					bArmorRestore1 = true
@@ -172,7 +172,7 @@ function karna_spin:OnSpellStart()
 					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
 						if stacks == 4 then 
-							DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+							DoDamage(caster, v, caster:GetIntellect() * 1.5, self:GetAbilityDamageType(), 0, self, false)
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else
@@ -213,7 +213,7 @@ function karna_spin:OnSpellStart()
 		)
 		for k,v in pairs(enemies) do
 			if v:GetName() ~= "npc_dota_ward_base" then
-				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 				if not bArmorRestore2 and  bArmorActive ~= nil then 
 					armor_modifier:RestoreArmorPercentage(5)
 					bArmorRestore2 = true
@@ -222,7 +222,7 @@ function karna_spin:OnSpellStart()
 					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
 						if stacks == 4 then 
-							DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+							DoDamage(caster, v, caster:GetIntellect() * 1.5, self:GetAbilityDamageType(), 0, self, false)
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else

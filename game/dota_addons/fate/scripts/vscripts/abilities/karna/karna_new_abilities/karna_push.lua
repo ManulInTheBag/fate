@@ -27,7 +27,7 @@ function karna_push:OnSpellStart()
 	if IsSpellBlocked(target) then return end
 
 		giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
-		DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+		DoDamage(caster, target, damage , self:GetAbilityDamageType(), 0, self, false)
 
 
 		if not IsKnockbackImmune(target) then

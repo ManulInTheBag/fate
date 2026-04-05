@@ -5704,7 +5704,7 @@
 		"DOTA_Tooltip_Ability_atalanta_roar_base_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_ora"	"Attack of the Beast"
-		"DOTA_Tooltip_Ability_atalanta_ora_Description"	"Atalanta enters enraged state, significantly increasing her attack speed, attack range and dealing additional magic damage with her attacks.\nDeals 0.25 additional damage per curse stack."
+		"DOTA_Tooltip_Ability_atalanta_ora_Description"	"Atalanta enters enraged state, significantly increasing her attack speed, attack range and dealing additional <font color='#A72E28'>damage</font> with her attacks.\nDeals 0.25 additional <font color='#A72E28'>damage</font> per curse stack."
 		"DOTA_Tooltip_Ability_atalanta_ora_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_atalanta_ora_base_damage"	"Base damage:"
 		"DOTA_Tooltip_Ability_atalanta_ora_as_bonus"	"Attackspeed bonus:"
@@ -8602,30 +8602,30 @@
 
 
         "DOTA_Tooltip_ability_karna_spin"							"Martial arts"
-        "DOTA_Tooltip_ability_karna_spin_Description"			"Cast point: <font color='#FFFFF9'>0.1</font>s\nKarna starts attacking all enemies with his spear with wide range slashes, while moving forward in a controllable dash.\nFirst two slashes hit in radius, third slash hits in line.<br>Slashes deal <font color='#58ACFA'>magical</font> damage on hit.\nIn the last <font color='#FFFFF9'>0.4</font> seconds of this ability it can be <font color='#FFFFF9'>recasted</font> with one of two abilities, following on first and second ability slot (Q, W)."
+        "DOTA_Tooltip_ability_karna_spin_Description"			"Cast point: <font color='#FFFFF9'>0.1</font>s\nKarna starts attacking all enemies with his spear with wide range slashes, while moving forward in a controllable dash.\nFirst two slashes hit in radius, third slash hits in line.<br>Slashes deal <font color='#A72E28'>damage</font> on hit.\nIn the last <font color='#FFFFF9'>0.4</font> seconds of this ability it can be <font color='#FFFFF9'>recasted</font> with one of two abilities, following on first and second ability slot (Q, W)."
         "DOTA_Tooltip_ability_karna_spin_damage"								"Damage:"
         "DOTA_Tooltip_ability_karna_spin_radius"							"Radius:"
         "DOTA_Tooltip_ability_karna_spin_recast_timer"								"Recast timer:"
 
         "DOTA_Tooltip_ability_karna_spin_2"							"Martial arts : Spin"
-        "DOTA_Tooltip_ability_karna_spin_2_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna starts spinning, attacking all enemies with his spear with wide range slashes.<br>Karna can move while attacking. Slashes deal <font color='#58ACFA'>magical</font> damage on hit."
+        "DOTA_Tooltip_ability_karna_spin_2_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna starts spinning, attacking all enemies with his spear with wide range slashes.<br>Karna can move while attacking. Slashes deal <font color='#A72E28'>damage</font> on hit."
         "DOTA_Tooltip_ability_karna_spin_2_damage"								"Damage:"
         "DOTA_Tooltip_ability_karna_spin_2_radius"								"Radius:"
 
 
         "DOTA_Tooltip_ability_karna_recast_dash"							"Martial arts : Dash"
-        "DOTA_Tooltip_ability_karna_recast_dash_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna dashes in the target direction, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, applying <font color='#FF3399'>airborn</font>."
+        "DOTA_Tooltip_ability_karna_recast_dash_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna dashes in the target direction, dealing <font color='#A72E28'>damage</font> to all enemies hit, applying <font color='#FF3399'>airborn</font>."
         "DOTA_Tooltip_ability_karna_recast_dash_damage"							"Damage:"
         "DOTA_Tooltip_ability_karna_recast_dash_distance"							"Distance:"
         "DOTA_Tooltip_ability_karna_recast_airborn_duration"						"Airborn duration:"
 
         "DOTA_Tooltip_ability_karna_slashes"							"Martial arts : Slashes"
-        "DOTA_Tooltip_ability_karna_slashes_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna slashes twice in the target direction, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit.\nOnly enemies in front of Karna are hit."
+        "DOTA_Tooltip_ability_karna_slashes_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna slashes twice in the target direction, dealing <font color='#A72E28'>damage</font> to all enemies hit.\nOnly enemies in front of Karna are hit."
         "DOTA_Tooltip_ability_karna_slashes_damage"							"Damage:"
         "DOTA_Tooltip_ability_karna_slashes_radius"							"Radius:"
 
         "DOTA_Tooltip_ability_karna_buff_melee"							"Mana burst: Flame"
-        "DOTA_Tooltip_ability_karna_buff_melee_Description"			"Cast point: <font color='#FFFFF9'>0.3</font>s\nKarna enchances his spear with mana, restoring percentage of <font color='#ff9900'>Kavacha and Kundala</font>'s shield, while gaining buff, which will apply stackable <font color='#FF0000'>Burn</font> effect on enemies on each of his basic attacks and skills, increase Karna's <font color='#FFFAFA'>movement speed </font> and restore %armor_restore_percentage_hit%%% of his armor on each Martial arts abilities hit.<br>This buff only persists while Karna has <font color='#ff9900'>Kavacha and Kundala</font>.\n<font color='#FF0000'>Burn</font> deals magical damage every 0.5 second."
+        "DOTA_Tooltip_ability_karna_buff_melee_Description"			"Cast point: <font color='#FFFFF9'>0.3</font>s\nKarna enchances his spear with mana, restoring percentage of <font color='#ff9900'>Kavacha and Kundala</font>'s shield, while gaining buff, which will apply stackable <font color='#FF0000'>Burn</font> effect on enemies on each of his basic attacks and skills, increase Karna's <font color='#FFFAFA'>movement speed </font> and restore %armor_restore_percentage_hit%%% of his armor on each Martial arts abilities hit.<br>This buff only persists while Karna has <font color='#ff9900'>Kavacha and Kundala</font>.\n<font color='#FF0000'>Burn</font> deals <font color='#A72E28'>damage</font> every 0.5 second."
         "DOTA_Tooltip_ability_karna_buff_melee_armor_restore_percentage"							"%Shield restore:"
         "DOTA_Tooltip_ability_karna_buff_melee_duration"							"Duration:"
         "DOTA_Tooltip_ability_karna_buff_melee_movespeed_bonus"							"%Movespeed bonus:"
@@ -8635,14 +8635,14 @@
 
 
         "DOTA_Tooltip_ability_karna_jump"							"Martial arts: Leap"
-        "DOTA_Tooltip_ability_karna_jump_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna leaps into the air for a short while, then descends on the target point, dealing <font color='#58ACFA'>magical</font> damage, applying <font color='#9400D3'>root</font> and <font color='#9400D3'>lock</font> effects for a short while and allowing recast this skill in a short time."
+        "DOTA_Tooltip_ability_karna_jump_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna leaps into the air for a short while, then descends on the target point, dealing <font color='#A72E28'>damage</font>, applying <font color='#9400D3'>root</font> and <font color='#9400D3'>lock</font> effects for a short while and allowing recast this skill in a short time."
         "DOTA_Tooltip_ability_karna_jump_damage"							"Damage:"
         "DOTA_Tooltip_ability_karna_jump_radius"							"Radius:"
         "DOTA_Tooltip_ability_karna_jump_recast_timer"						"Recast time:"
         "DOTA_Tooltip_ability_karna_jump_duration"							"Root and lock duration:"
 
         "DOTA_Tooltip_ability_karna_upper_slash"							"Martial arts : Uppercut"
-        "DOTA_Tooltip_ability_karna_upper_slash_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna Slashes upwards in the target direction, after a short delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, applying <font color='#FF3399'>airborn</font>."
+        "DOTA_Tooltip_ability_karna_upper_slash_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna Slashes upwards in the target direction, after a short delay, dealing <font color='#A72E28'>damage</font> to all enemies hit, applying <font color='#FF3399'>airborn</font>."
         "DOTA_Tooltip_ability_karna_upper_slash_damage"							"Damage:"
         "DOTA_Tooltip_ability_karna_upper_slash_radius"							"Distance:"
         "DOTA_Tooltip_ability_karna_upper_slash_airborne_duration"				"Airborn duration:"

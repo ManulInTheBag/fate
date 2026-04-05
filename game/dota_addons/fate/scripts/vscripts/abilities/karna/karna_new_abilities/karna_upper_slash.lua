@@ -62,7 +62,7 @@ function karna_upper_slash:OnSpellStart()
 				local origin_diff = v:GetAbsOrigin() - caster:GetAbsOrigin()
   				local origin_diff_norm = origin_diff:Normalized()
    				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					DoDamage(caster, v, aoe_damage, self:GetAbilityDamageType(), 0, self, false)
 					if not bArmorRestore and  bArmorActive ~= nil then 
 						armor_modifier:RestoreArmorPercentage(5)
 						bArmorRestore = true

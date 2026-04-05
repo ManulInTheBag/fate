@@ -88,12 +88,12 @@ function karna_recast_dash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 		self.armor_modifier:RestoreArmorPercentage(self:GetSpecialValueFor("armor_restore_percentage"))
 		self.bArmorRestore = true
 	end
-	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	DoDamage(caster, hTarget, damage, self:GetAbilityDamageType(), 0, self, false)
 	if bMartialArts then 
 		if hTarget:HasModifier("modifier_karna_ucm_sa_stacking") then
 			local stacks = hTarget:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
 			if stacks == 4 then 
-				DoDamage(caster, hTarget, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, hTarget, caster:GetIntellect() * 1.5, self:GetAbilityDamageType(), 0, self, false)
 				giveUnitDataDrivenModifier(caster, hTarget, "stunned",  0.5)
 				hTarget:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 			else

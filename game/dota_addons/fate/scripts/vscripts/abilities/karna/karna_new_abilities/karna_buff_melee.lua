@@ -107,8 +107,8 @@ if IsServer() then
 		local target = args.target
 		local ability = self:GetAbility()
 
-		if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
-			DoDamage(caster, target, self.Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		if not target:HasModifier("modifier_master_intervention") then
+			DoDamage(caster, target, self.Damage, self:GetParent():FindAbilityByName("karna_buff_melee"):GetAbilityDamageType(), 0, ability, false)
 			ability:ApplyBurnStacks(target)
 			--target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
 		end
@@ -167,7 +167,7 @@ end
 function modifier_karna_melee_buff_burn:OnIntervalThink()
     if(not IsServer() ) then return end
 
-    DoDamage(self.caster, self.target, self.damage_per_stack * self:GetStackCount(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    DoDamage(self.caster, self.target, self.damage_per_stack * self:GetStackCount(), self.caster:FindAbilityByName("karna_buff_melee"):GetAbilityDamageType(), 0, self:GetAbility(), false)
 	if self.target:GetName() == "npc_dota_hero_nevermore" then
 		self.target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
 	end
