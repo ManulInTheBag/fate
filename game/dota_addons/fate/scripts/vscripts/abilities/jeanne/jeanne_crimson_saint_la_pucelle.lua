@@ -82,7 +82,7 @@ function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 				end]]
 
 				--local enemy_damage = (1 - 0.5*(caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()/radius)*damage
-				DoDamage(caster, enemy, enemy_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				if enemy:GetName() == "npc_dota_hero_nevermore" then
 					enemy:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
 				end
