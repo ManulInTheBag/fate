@@ -101,7 +101,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -0.5, -0.5, -0.5 ]
-								hitbox_maxs = [ 0.5, 99.544617, 0.5 ]
+								hitbox_maxs = [ 0.5, 99.54462, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
@@ -130,8 +130,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -72.43248, -225.083298, -62.631157 ]
-								hitbox_maxs = [ 91.758621, 89.777985, 73.053421 ]
+								hitbox_mins = [ -72.43248, -225.0833, -62.631157 ]
+								hitbox_maxs = [ 91.75862, 89.777985, 73.05342 ]
 							},
 							{
 								_class = "Hitbox"
@@ -440,8 +440,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -23.200623, -48.960331, -23.230431 ]
-								hitbox_maxs = [ 25.04644, 142.161621, 25.01664 ]
+								hitbox_mins = [ -23.200623, -48.96033, -23.23043 ]
+								hitbox_maxs = [ 25.04644, 142.16162, 25.01664 ]
 							},
 							{
 								_class = "Hitbox"
@@ -520,7 +520,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.232696, -20.275101, -2.358563 ]
+								hitbox_mins = [ -4.232696, -20.2751, -2.358563 ]
 								hitbox_maxs = [ 4.232642, 5.540001, 5.014692 ]
 							},
 							{
@@ -550,7 +550,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.898348, -48.174599, -20.044254 ]
+								hitbox_mins = [ -11.898348, -48.1746, -20.044254 ]
 								hitbox_maxs = [ 11.89835, 10.896126, 16.164066 ]
 							},
 							{
@@ -600,7 +600,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.89835, -48.174599, -20.044254 ]
+								hitbox_mins = [ -11.89835, -48.1746, -20.044254 ]
 								hitbox_maxs = [ 11.898348, 10.896126, 16.164066 ]
 							},
 							{
@@ -1155,6 +1155,31 @@
 						start_frame = -1
 						end_frame = 30
 						framerate = 40.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "barbatos_ninelives1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barbatos/barbatos_ninelives.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = 21
+						framerate = 25.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
