@@ -5,14 +5,6 @@ LinkLuaModifier("modifier_aoko_sphere_meltdown", "abilities/aoko/aoko_sphere", L
 LinkLuaModifier("modifier_heal_reduction_tier_1", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 aoko_sphere = class({})
 
-function aoko_sphere:OnUpgrade()
-	local caster = self:GetCaster()
-    
-    if caster:FindAbilityByName("aoko_facebreaker"):GetLevel() ~= self:GetLevel() then
-    	caster:FindAbilityByName("aoko_facebreaker"):SetLevel(self:GetLevel())
-    end
-end
-
 function aoko_sphere:GetManaCost()
 	local caster = self:GetCaster()
 	local ability = caster:FindAbilityByName("aoko_circuits")

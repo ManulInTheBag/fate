@@ -16,14 +16,6 @@ local cd_ability_list = {
 
 aoko_shield = class({})
 
-function aoko_shield:OnUpgrade()
-	local caster = self:GetCaster()
-    
-    if caster:FindAbilityByName("aoko_jumpback"):GetLevel() ~= self:GetLevel() then
-    	caster:FindAbilityByName("aoko_jumpback"):SetLevel(self:GetLevel())
-    end
-end
-
 function aoko_shield:GetManaCost()
 	local caster = self:GetCaster()
 	local ability = caster:FindAbilityByName("aoko_circuits")

@@ -6,8 +6,8 @@ aoko_jumpback = class({})
 function aoko_jumpback:OnUpgrade()
 	local caster = self:GetCaster()
     
-    if caster:FindAbilityByName("aoko_shield"):GetLevel() ~= self:GetLevel() then
-    	caster:FindAbilityByName("aoko_shield"):SetLevel(self:GetLevel())
+    if caster:FindAbilityByName("aoko_facebreaker"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("aoko_facebreaker"):SetLevel(self:GetLevel())
     end
 end
 

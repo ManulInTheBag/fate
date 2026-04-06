@@ -6,8 +6,8 @@ aoko_facebreaker = class({})
 function aoko_facebreaker:OnUpgrade()
 	local caster = self:GetCaster()
     
-    if caster:FindAbilityByName("aoko_sphere"):GetLevel() ~= self:GetLevel() then
-    	caster:FindAbilityByName("aoko_sphere"):SetLevel(self:GetLevel())
+    if caster:FindAbilityByName("aoko_jumpback"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("aoko_jumpback"):SetLevel(self:GetLevel())
     end
 end
 
