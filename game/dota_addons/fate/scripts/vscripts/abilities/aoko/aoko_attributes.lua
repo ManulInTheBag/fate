@@ -1,6 +1,8 @@
 LinkLuaModifier("modifier_aoko_magician_attribute", "abilities/aoko/aoko_attributes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoko_choice_attribute_picked", "abilities/aoko/aoko_attributes", LUA_MODIFIER_MOTION_NONE)
 
+aoko_combo_proxy = class({})
+
 aoko_first_star_attribute = class({})
 
 function aoko_first_star_attribute:OnSpellStart()
@@ -66,6 +68,10 @@ function aoko_circuits_attribute:OnSpellStart()
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
+	-- Set master 1's mana 
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+
 	hero.CircuitsAcquired = true
 	hero.HighSpeedIncantationAcquired = false
 
@@ -78,10 +84,6 @@ function aoko_circuits_attribute:OnSpellStart()
 	if hero:HasModifier("modifier_aoko_circuits_overload") then
 		hero:FindModifierByName("modifier_aoko_circuits_overload"):OnRedEnter()
 	end
-
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
 aoko_incantation_attribute = class({})
@@ -98,6 +100,10 @@ function aoko_incantation_attribute:OnSpellStart()
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
+	-- Set master 1's mana 
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+
 	hero.HighSpeedIncantationAcquired = true
 	hero.CircuitsAcquired = false
 
@@ -110,10 +116,6 @@ function aoko_incantation_attribute:OnSpellStart()
 	if hero:HasModifier("modifier_aoko_circuits_overload") then
 		hero:FindModifierByName("modifier_aoko_circuits_overload"):OnBlueEnter()
 	end
-
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
 modifier_aoko_magician_attribute = class({})

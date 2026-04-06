@@ -216,7 +216,7 @@ function OnBloodfortStart(keys)
 		        	caster:GiveMana(target_absorb * 0.1)
 		        end
 
-				if caster.SealAcquired and (bloodfortCount % 2 == 0) then  
+				if caster.SealAcquired and (bloodfortCount % 1 == 0) then  
 					--[[
 					forcemove.UnitIndex = v:entindex()
 					ExecuteOrderFromTable(forcemove) 

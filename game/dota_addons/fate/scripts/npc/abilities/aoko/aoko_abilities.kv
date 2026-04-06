@@ -382,19 +382,19 @@
 			"stacks_duration"				"12" //stacks duration and overload duration, as well as combo overload duration, require manual particle fixes because i'm pepega
 			"manaregen_per_stack"			"2 1 2"
 			"manacost_increase_per_stack"	"0"
-			"overload_magres"				"5 10 20"
+			"overload_magres"				"5 10 15"
 			"overload_armor"				"2 4 6"
-			"overload_lifesteal"			"10 15 30"
+			"overload_lifesteal"			"10 15 20"
 			"overload_ms"					"30 10 20"
 			"attribute_cdr_per_stack"		"0.1"
-			"attribute_blue_amp_per_stack"	"0.1"
+			"attribute_blue_amp_per_stack"	"0.05"
 			"attribute_red_amp"				"40"
 			"overload_duration"				"15"
 			"overload_threshold"			"100"
 			"overload_sphere_charge_time"	"4"
 			"overload_cc_immune_duration"	"1.5"
 			"melee_cc_immune_duration"	"1.5"
-        	"range_cc_immune_duration"	"1.5"
+        	"range_cc_immune_duration"	"0.75"
 		}		
 	}
 
@@ -601,6 +601,117 @@
 		}
 	}
 
+	//=================================================================================================================
+	// Aozaki Aoko: Redshift Finality - Earthlight Starbow
+	//=================================================================================================================
+	"aoko_earthlight_starbow"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_earthlight_starbow"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_15"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityTextureName"			"custom/aoko/aoko_earthlight"
+		
+		"AbilityCastRange"				"1000"
+
+		"AbilityCastPoint"				"0.3"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"240"
+
+		"precache"
+		{
+			"particle"					"particles/aoko/aoko_cannon_blackhole.vpcf"
+			"particle"					"particles/aoko/aoko_cannon_blackhole_runes.vpcf"
+		}
+		
+		"AbilityValues"
+		{
+			"cast_point"						"0.3"
+			"range"								"1000"
+        	"succ_radius"						"600"
+        	"succ_duration"						"2"
+        	"consume_time"						"1"
+
+			"damage_per_second"					"400"
+			"slow"								"60"
+
+			"lazer_range"						"3500"
+			"lazer_width"						"400"
+			"lazer_damage"						"1750"
+			"wall_stun"							"1"
+
+			"stack_gain"						"100"
+
+			"circle_damage_radius"						"600"
+			"circle_damage_per_second"					"400"
+		}
+	}
+
+	"aoko_earthlight_starbow_recast"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_earthlight_starbow"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_16"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityTextureName"			"custom/aoko/aoko_earthlight"
+		
+		"AbilityCastRange"				"3500"
+
+		"AbilityCastPoint"				"0.3"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"AbilityCooldown"				"0"
+
+		"precache"
+		{
+			"particle"					"particles/aoko/aoko_cannon_blackhole.vpcf"
+			"particle"					"particles/aoko/aoko_cannon_big_beam.vpcf"
+			"particle"					"particles/aoko/aoko_cannon_big_beam_ground.vpcf"
+			"particle"					"particles/aoko/aoko_cannon_big_beam_runes.vpcf"
+			"particle"					"particles/aoko/aoko_cannon_runes.vpcf"
+			"particle"					"particles/aoko/aoko_blue_lightning_beams.vpcf"
+		}
+		
+		"AbilityValues"
+		{
+			"cast_point"						"0.3"
+        	"range"								"3500"
+        	"throw_range"						"3000"
+        	"width"								"400"
+        	"damage"							"1750"
+        	"wall_stun"							"1"
+
+        	"stack_gain"						"100"
+
+			"damage_radius"						"600"
+			"damage_per_second"					"400"
+			"slow"								"60"
+		}
+	}
+
 	//=======================================
 	// Aozaki Aoko - Attributes
 	//=======================================
@@ -685,7 +796,7 @@
 		"AbilityValues"
         {
         	"melee_cc_immune_duration"	"1.5"
-        	"range_cc_immune_duration"	"1.5"
+        	"range_cc_immune_duration"	"0.75"
         	"overload_cc_immune_duration" "1.5"
         	"blue_shield_amount"		"2500"
         	"blue_ms"					"700"
@@ -706,6 +817,8 @@
 		"AbilityTextureName"			"custom/aoko/aoko_bullet"
 		"AbilityCooldown"				"9999"
 
+		"LinkedAbilities"				"aoko_blue"
+
 		"AbilityManaCost"				"14"
 
 		// Time		
@@ -714,10 +827,10 @@
 		"AbilityValues"
         {
         	"change_cooldown"			"5"
-        	"normal_cost"				"9"
+        	"normal_cost"				"14"
         	"change_cost"				"2"
         	"cdr_per_stack"				"0.1"
-        	"amp_per_stack"				"0.1"
+        	"amp_per_stack"				"0.05"
         	"shield_cooldown_reduction"	"7.5"
         }		
 	}
@@ -735,6 +848,8 @@
 		"AbilityTextureName"			"custom/aoko/aoko_circuits_attribute"
 		"AbilityCooldown"				"9999"
 
+		"LinkedAbilities"				"aoko_earthlight_starbow"
+
 		"AbilityManaCost"				"14"
 
 		// Time		
@@ -743,11 +858,34 @@
 		"AbilityValues"
         {
         	"change_cooldown"			"5"
-        	"normal_cost"				"9"
+        	"normal_cost"				"14"
         	"change_cost"				"2"
         	"red_amp"					"40"
         	"shield_damage"				"200 250 300 350 400"
         	"shield_stun"				"0.5"
+        }		
+	}
+
+	"aoko_combo_proxy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/aoko/aoko_proxy"
+		"AbilityCooldown"				"0"
+
+		"AbilityManaCost"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
         }		
 	}
 

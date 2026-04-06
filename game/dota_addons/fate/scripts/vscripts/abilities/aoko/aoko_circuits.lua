@@ -41,13 +41,29 @@ local ampable = {
     ["aoko_lazers"] = true,
     ["aoko_sphere"] = true,
     ["aoko_3_beams"] = true,
-    ["aoko_blue"] = true
+    ["aoko_blue"] = true,
+    ["aoko_earthlight_starbow"] = true,
+    ["aoko_earthlight_starbow_recast"] = true
 }
 
 aoko_circuits = class({})
 
 function aoko_circuits:GetIntrinsicModifierName()
 	return "modifier_aoko_circuits_passive"
+end
+
+function aoko_circuits:CastFilterResult()
+	local caster = self:GetCaster()
+	if IsServer() then
+		if caster:HasModifier("modifier_aoko_earthlight_caster") then
+			return UF_FAIL_CUSTOM
+		end
+	end
+	return UF_SUCCESS
+end
+
+function aoko_circuits:GetCustomCastError()
+    return "#Earthlight_Starbow_Active"
 end
 
 function aoko_circuits:OnSpellStart()
@@ -183,7 +199,7 @@ function modifier_aoko_circuits_passive:RaiseStackCount(count)
 		if stacks >= 100 then
 			self.parent:EmitSound("aoko_overload_sfx")
 
-			if not self.parent:HasModifier("modifier_aoko_blue_damage_field") then
+			if not (self.parent:HasModifier("modifier_aoko_blue_damage_field") or self.parent:HasModifier("modifier_aoko_earthlight_damage_field")) then
 				self.parent:EmitSound("aoko_overload")
 			end
 

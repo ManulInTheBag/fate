@@ -9,6 +9,7 @@
 	m_flConstantRadius = 35.0
 	m_ConstantColor = [ 217, 216, 249, 255 ]
 	m_nConstantSequenceNumber = 8
+	m_bInfiniteBounds = true
 	m_controlPointConfigurations = 
 	[
 		{
@@ -241,10 +242,7 @@
 			m_ChildRef = resource:"particles/aoko/aoko_cannon_blackhole_ember.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/maou/breath_blackhole/enigma_blackhole_ti5_2_warp.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/aoko/aoko_cannon_blackhole_core_rays.vpcf"
+			m_ChildRef = resource:"particles/aoko/aoko_cannon_blackhole_warp.vpcf"
 		},
 		{
 			m_ChildRef = resource:"particles/aoko/aoko_cannon_blackhole_core_glow.vpcf"

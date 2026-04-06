@@ -59,7 +59,7 @@ function aoko_shield:OnSpellStart()
 	caster:EmitSound("aoko_barrier")
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-	    if self:GetAutoCastState() and caster:FindAbilityByName("aoko_blue"):IsCooldownReady() and caster:IsAlive() then	    		
+	    if self:GetAutoCastState() and caster:FindAbilityByName("aoko_blue"):IsCooldownReady() and caster:FindAbilityByName("aoko_earthlight_starbow"):IsCooldownReady() and caster:IsAlive() then	    		
 	    	caster:AddNewModifier(caster, self, "modifier_aoko_combo_window", {duration = 1.3})
 		end
 	end
@@ -290,8 +290,13 @@ function modifier_aoko_combo_window:IsDebuff() return false end
 function modifier_aoko_combo_window:OnCreated()
 	if IsServer() then
 		local caster = self:GetParent()
-		if caster:GetAbilityByIndex(0):GetName() == "aoko_shield" then	    		
-			caster:SwapAbilities("aoko_blue", "aoko_shield", true, false)	
+		if caster:GetAbilityByIndex(0):GetName() == "aoko_shield" then
+			if caster.HighSpeedIncantationAcquired then
+				caster:SwapAbilities("aoko_blue", "aoko_shield", true, false)
+			end
+			if caster.CircuitsAcquired then
+				caster:SwapAbilities("aoko_earthlight_starbow", "aoko_shield", true, false)
+			end	
 		end
 	end
 end
@@ -300,6 +305,9 @@ function modifier_aoko_combo_window:OnDestroy()
 		local caster = self:GetParent()
 		if caster:GetAbilityByIndex(0):GetName() == "aoko_blue" then
 			caster:SwapAbilities("aoko_blue", "aoko_shield", false, true)
+		end
+		if caster:GetAbilityByIndex(0):GetName() == "aoko_earthlight_starbow" then
+			caster:SwapAbilities("aoko_earthlight_starbow", "aoko_shield", false, true)
 		end
 	end
 end

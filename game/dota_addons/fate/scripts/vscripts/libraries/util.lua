@@ -784,6 +784,7 @@ tModifierKBImmune = {
     "modifier_kb_immune",
     "modifier_khsn_grab_target",
     "modifier_aoko_blue_damage_field",
+    "modifier_aoko_earthlight_caster",
 }
 
 tManalessHero = {

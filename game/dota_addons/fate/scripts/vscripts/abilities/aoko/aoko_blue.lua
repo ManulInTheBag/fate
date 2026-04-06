@@ -27,7 +27,7 @@ function aoko_blue:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
 
-	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+	local masterCombo = caster.MasterUnit2:FindAbilityByName("aoko_combo_proxy")
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(self:GetCooldown(1))
     local abil = caster:FindAbilityByName("aoko_blue")
@@ -617,7 +617,15 @@ end
 modifier_aoko_blue_damage_field = class({})
 
 function modifier_aoko_blue_damage_field:IsHidden() return true end
-function modifier_aoko_blue_damage_field:IsDebuff() return true end
+function modifier_aoko_blue_damage_field:IsDebuff() return false end
+
+function modifier_aoko_blue_damage_field:CheckState()
+	return { [MODIFIER_STATE_DISARMED] = true,
+			 [MODIFIER_STATE_SILENCED] = true,
+			 [MODIFIER_STATE_MUTED] = true,
+			 [MODIFIER_STATE_ROOTED] = true,
+				[MODIFIER_STATE_COMMAND_RESTRICTED] = true}
+end
 
 function modifier_aoko_blue_damage_field:OnCreated(args)
 	if IsServer() then
