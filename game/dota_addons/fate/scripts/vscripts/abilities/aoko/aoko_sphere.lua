@@ -33,7 +33,7 @@ function aoko_sphere:GetAbilityChargeRestoreTime()
 	if caster:HasModifier("modifier_aoko_circuits_overload") then
 		return caster:FindAbilityByName("aoko_circuits"):GetSpecialValueFor("overload_sphere_charge_time")
 	end
-	return self:GetSpecialValueFor("base_charge_restore_time")
+	return (self:GetSpecialValueFor("base_charge_restore_time") - caster:GetLevel()*caster:FindAbilityByName("aoko_circuits"):GetSpecialValueFor("charge_restore_reduc_per_level"))
 end
 
 function aoko_sphere:OnSpellStart()
@@ -180,7 +180,7 @@ function modifier_aoko_sphere_dummy:ProximityExplode()
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
 	local radius = ability:GetSpecialValueFor("radius")
-	local damage = ability:GetSpecialValueFor("damage")
+	local damage = ability:GetSpecialValueFor("damage") + ability:GetSpecialValueFor("damage_per_level")*caster:GetLevel()
 	local attr_duration = ability:GetSpecialValueFor("attribute_healres_duration")
 
 	local circuits = caster:FindAbilityByName("aoko_circuits")

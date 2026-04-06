@@ -8028,12 +8028,13 @@
 		"DOTA_Tooltip_ability_aoko_facebreaker_Lore"			"She can be called a 'melee-type' magus that generates magical energy from her ribs. By the time it passes through her limbs, the spell is already in a ritually complete form."
 
 		"DOTA_Tooltip_ability_aoko_sphere"					"Floating Starmine - Trap"
-		"DOTA_Tooltip_ability_aoko_sphere_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Charge amount</font>:  <font color='#7FFF00'>%charge_amount%</font>\nAoko launches a magical sphere towards the target location. Sphere lasts for %duration% seconds, provides vision in %vision_radius% radius and triggers an explosion in %radius% radius on arrival or when hit by her other abilities.\n<font color='#58ACFA'>Base explosion:</font> triggers on arrival and on destroy or on lifetime expiration. Deals %damage% damage.\nIncreases <font color='#00FFFF'>Circuit Charge</font> once per sphere if at least 1 enemy was hit with any type of explosion.\nShares level with <font color='#58ACFA'>Workout Routine</font>."
+		"DOTA_Tooltip_ability_aoko_sphere_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Charge amount</font>:  <font color='#7FFF00'>%charge_amount%</font>\nAoko launches a magical sphere towards the target location. Sphere lasts for %duration% seconds, provides vision in %vision_radius% radius and triggers an explosion in %radius% radius on arrival or when hit by her other abilities.\n<font color='#58ACFA'>Base explosion:</font> triggers on arrival and on destroy or on lifetime expiration. Deals %damage% + %damage_per_level% per Aoko's level damage.\nIncreases <font color='#00FFFF'>Circuit Charge</font> once per sphere if at least 1 enemy was hit with any type of explosion.\nShares level with <font color='#58ACFA'>Workout Routine</font>."
 		"DOTA_Tooltip_ability_aoko_sphere_Note0"						"This ability behaves as a basic ability for Command Seal 2 and cooldown reduction purposes."
 		"DOTA_Tooltip_ability_aoko_sphere_Note1"						"Triggering multiple spheres at once will not increase damage."
 		"DOTA_Tooltip_ability_aoko_sphere_Note2"						"Each explosion type can't be triggered more than 1 time per frame."
 		"DOTA_Tooltip_ability_aoko_sphere_Note3"						"Has a set travel time of 1 second."
 		"DOTA_Tooltip_ability_aoko_sphere_base_charge_restore_time"		"Charge restore time:"
+		"DOTA_Tooltip_ability_aoko_sphere_charge_restore_reduc_per_level"		"Charge restore time reduction per level:"
 		"DOTA_Tooltip_ability_aoko_sphere_explosion_stacks"				"\n<font color='#00FFFF'>Circuit Charge</font> gain:"
 		"DOTA_Tooltip_ability_aoko_sphere_Lore"							"She is apparently comfortable with imagining exploding fireworks and rotating stars, so all of her destructive spells are based upon those images."
 
