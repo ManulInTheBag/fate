@@ -84,7 +84,7 @@
 						name = "attach_hand"
 						parent_bone = "Bip001_L_Hand"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
-						relative_angles = [ 8.50289, -95.468285, 65.491547 ]
+						relative_angles = [ 8.50289, -95.468285, 65.49155 ]
 						weight = 1.0
 						ignore_rotation = false
 					},
@@ -107,7 +107,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -20.764114, -17.588802, -1.878578 ]
-								hitbox_maxs = [ 20.733009, 17.073566, 16.522842 ]
+								hitbox_maxs = [ 20.73301, 17.073566, 16.522842 ]
 							},
 							{
 								_class = "Hitbox"
@@ -116,8 +116,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -40.047062, -53.256058, -126.688957 ]
-								hitbox_maxs = [ 50.06498, 42.685219, 64.502319 ]
+								hitbox_mins = [ -40.047062, -53.256058, -126.68896 ]
+								hitbox_maxs = [ 50.06498, 42.68522, 64.50232 ]
 							},
 							{
 								_class = "Hitbox"
@@ -157,7 +157,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -11.805565, -14.885445, -10.725388 ]
-								hitbox_maxs = [ 41.481369, 28.627625, 27.554268 ]
+								hitbox_maxs = [ 41.48137, 28.627625, 27.554268 ]
 							},
 							{
 								_class = "Hitbox"
@@ -176,7 +176,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -32.074402, -10.493586, -10.580582 ]
+								hitbox_mins = [ -32.0744, -10.493586, -10.580582 ]
 								hitbox_maxs = [ 2.93169, 14.70245, 12.508713 ]
 							},
 							{
@@ -196,7 +196,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -19.469971, -15.638332, -10.288437 ]
+								hitbox_mins = [ -19.46997, -15.638332, -10.288437 ]
 								hitbox_maxs = [ 2.859962, 6.34243, 3.697037 ]
 							},
 							{
@@ -206,8 +206,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -17.214029, -18.30653, -41.159409 ]
-								hitbox_maxs = [ 23.636669, 17.511898, 0.894829 ]
+								hitbox_mins = [ -17.21403, -18.30653, -41.15941 ]
+								hitbox_maxs = [ 23.63667, 17.511898, 0.894829 ]
 							},
 							{
 								_class = "Hitbox"
@@ -226,7 +226,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -9.722019, -34.445702, -18.387188 ]
+								hitbox_mins = [ -9.722019, -34.4457, -18.387188 ]
 								hitbox_maxs = [ 14.662906, 10.587378, 12.572275 ]
 							},
 							{
@@ -236,8 +236,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -19.503811, -20.028402, -40.418442 ]
-								hitbox_maxs = [ 17.761839, 17.511932, 20.894119 ]
+								hitbox_mins = [ -19.50381, -20.028402, -40.41844 ]
+								hitbox_maxs = [ 17.761839, 17.511932, 20.89412 ]
 							},
 							{
 								_class = "Hitbox"
@@ -246,7 +246,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -13.019264, -22.551733, -42.362862 ]
+								hitbox_mins = [ -13.019264, -22.551733, -42.36286 ]
 								hitbox_maxs = [ 16.014885, 14.03298, 4.931641 ]
 							},
 							{
@@ -256,7 +256,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.261877, -34.743671, -18.372978 ]
+								hitbox_mins = [ -11.261877, -34.74367, -18.372978 ]
 								hitbox_maxs = [ 14.695968, 10.586845, 11.051769 ]
 							},
 							{
@@ -859,7 +859,7 @@
 						_class = "AnimFile"
 						name = "pepeg_slap1"
 						is_default_idle_anim = false
-						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -920,6 +920,38 @@
 						framerate = 40.0
 						reverse = false
 						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "pepeg_idle2"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.5
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/zlodemon/heracless.fbx"
+						import_bone_scales = false
+						start_frame = 479
+						end_frame = 529
+						framerate = 75.0
+						reverse = false
+						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 505
+								frame_count = 10
+							},
+						]
 					},
 				]
 				default_root_bone_name = ""

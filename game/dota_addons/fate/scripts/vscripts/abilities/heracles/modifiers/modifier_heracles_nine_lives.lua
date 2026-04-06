@@ -37,8 +37,8 @@ function modifier_heracles_nine_lives:OnCreated(args)
 			end
 		end
 
-
-		StartAnimation(self:GetParent(), {duration = 2.1, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.2})
+		EndAnimation(caster)
+		StartAnimation(caster, {duration = 2.1, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.2})
 	end
 end
 
