@@ -37,6 +37,14 @@ function aoko_3_beams:CheckSequence()
 	end
 end
 
+function aoko_3_beams:GetCastPoint()
+	local seq = self:CheckSequence()
+	if seq == 3 then
+		return 0.1
+	end
+	return self:GetSpecialValueFor("cast_point")
+end
+
 function aoko_3_beams:SequenceSkill(num)
 	local caster = self:GetCaster()	
 	local ability = self
@@ -190,7 +198,7 @@ function modifier_aoko_3_beams:OnCreated(args)
         end
 
         local damage_scaling = 0
-        if self.caster.HighSpeedIncantationAcquired then
+        if self.caster.MagicBulletLoadAcquired then
         	damage_scaling = self.ability:GetSpecialValueFor("attribute_int_scale")*self.caster:GetIntellect()
         	if self.leg then
         		damage_scaling = self.ability:GetSpecialValueFor("attribute_int_scale_leg")*self.caster:GetIntellect()
@@ -200,7 +208,7 @@ function modifier_aoko_3_beams:OnCreated(args)
         self.damage = self.damage + damage_scaling
 
         self.duration = self.ability:GetSpecialValueFor("duration")
-        self.damage = ( self.damage / self.duration ) * 0.1--FrameTime()
+        self.damage = ( self.damage / self.duration ) * FrameTime()*2
         self.stack_gain = self.ability:GetSpecialValueFor("stack_gain")*0.1/self.duration
 
         if not self.leg then
@@ -226,17 +234,17 @@ function modifier_aoko_3_beams:OnCreated(args)
 	    if self.leg then
         	self:StartIntervalThink(FrameTime())
         else
-        	self:StartIntervalThink(0.1)
+        	self:StartIntervalThink(FrameTime()*2)
         end
     end
 end
 function modifier_aoko_3_beams:OnIntervalThink()
-	if self.leg and self.counter < 14 then
+	if self.leg and self.counter < 10 then
 		local diff = 0
 
 		if self.counter < 2 then
 			diff = 200
-		elseif self.counter < 6 then
+		elseif self.counter < 5 then
 			diff = 50
 		end
 
@@ -271,8 +279,13 @@ function modifier_aoko_3_beams:OnIntervalThink()
 
         EmitSoundOn(self.sound, self.caster)
 
-        self:StartIntervalThink(0.1)
+        self:StartIntervalThink(FrameTime()*2)
 	end
+
+	if self.caster.MagicianOfFifthAcquired and self.caster:HasModifier("modifier_aoko_circuits_overload") then
+		self.caster:AddNewModifier(self.caster, self.circuits, "modifier_aoko_circuits_cc_immune", {duration = self.circuits:GetSpecialValueFor("range_cc_immune_duration")})
+	end
+
     local hEnemies =   FindUnitsInLine(
 								        self.caster_team,
 								        self.caster:GetAbsOrigin(),

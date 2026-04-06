@@ -13,23 +13,38 @@ local cd_ability_list = {
     "aoko_3_beams"
 }
 
+local melee = {
+    "aoko_shield",
+    "aoko_facebreaker",
+    "aoko_short_beam",
+    "aoko_circuits",
+    "aoko_sphere",
+    "aoko_intimidation",
+    "attribute_bonus_custom"
+}
+
+local range = {
+    "aoko_shield",
+    "aoko_jumpback",
+    "aoko_lazers",
+    "aoko_circuits",
+    "aoko_sphere",
+    "aoko_3_beams",
+    "attribute_bonus_custom"
+}
+
+local ampable = {
+	["aoko_facebreaker"] = true,
+    ["aoko_short_beam"] = true,
+    ["aoko_intimidation"] = true,
+    ["aoko_jumpback"] = true,
+    ["aoko_lazers"] = true,
+    ["aoko_sphere"] = true,
+    ["aoko_3_beams"] = true,
+    ["aoko_blue"] = true
+}
+
 aoko_circuits = class({})
-
-function aoko_circuits:CastFilterResult()
-	local caster = self:GetCaster()
-	if IsServer() then
-		local stacks = caster:FindModifierByName("modifier_aoko_circuits_passive"):GetStackCount()
-
-		if stacks < self:GetSpecialValueFor("overload_threshold") then 
-			return UF_FAIL_CUSTOM
-		end
-	end
-	return UF_SUCCESS
-end
-
-function aoko_circuits:GetCustomCastError()
-    return "#Not_enough_stacks"
-end
 
 function aoko_circuits:GetIntrinsicModifierName()
 	return "modifier_aoko_circuits_passive"
@@ -37,8 +52,18 @@ end
 
 function aoko_circuits:OnSpellStart()
 	local caster = self:GetCaster()
+    
+    if not self.form then
+    	self.form = 1
+    end
 
-	self:StartOverload()
+    if self.form == 1 then
+    	UpdateAbilityLayout(caster, range)
+    	self.form = 2
+    else
+    	UpdateAbilityLayout(caster, melee)
+    	self.form = 1
+    end
 end
 
 function aoko_circuits:GainStacks(number)
@@ -124,6 +149,8 @@ function modifier_aoko_circuits_passive:OnCreated()
 	self.parent = self:GetParent()
 	self.ability = self:GetAbility()
 	self:SetStackCount(0)
+
+	self.ability:SetLevel(2)
 end
 
 
@@ -134,16 +161,9 @@ end
 function modifier_aoko_circuits_passive:RaiseStackCount(count)
 	if IsServer() then
 		if self.parent:HasModifier("modifier_aoko_circuits_overload") then
-			if self.parent.MagicianOfFifthAcquired then
-				local cdr = self.ability:GetSpecialValueFor("attribute_cdr_per_stack")*count
-				for i = 1, #cd_ability_list do
-					local pepe_ability = self.parent:FindAbilityByName(cd_ability_list[i])
-					local cooldown = pepe_ability:GetCooldownTimeRemaining()
-					pepe_ability:EndCooldown()
-					if (cooldown - cdr) > 0 then
-						pepe_ability:StartCooldown(cooldown - cdr)
-					end
-				end
+			self:StartOverload()
+			if self.parent.HighSpeedIncantationAcquired then
+				self.parent:FindModifierByName("modifier_aoko_circuits_overload"):OnBlueCircuitStackGain(count)
 			end
 			return
 		end
@@ -160,35 +180,36 @@ function modifier_aoko_circuits_passive:RaiseStackCount(count)
 			self:SetStackCount(self:GetMaxStackCount())
 		end
 		stacks = self:GetStackCount()
-		if stacks >= 100 and not self.fullChargeSoundJopa then
-			LoopOverPlayers(function(player, playerID, playerHero)
-					if playerHero == self:GetParent() then
-						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="aoko_aoko_full_charge_jopa"})
-						end
-				   end)
+		if stacks >= 100 then
+			self.parent:EmitSound("aoko_overload_sfx")
 
-			self.fullChargeSoundJopa = true
-			Timers:CreateTimer("aoko_fullChargeSoundJopa", {
-				endTime = 5, 
-				callback = function()
-					self.fullChargeSoundJopa = false
-				end})
+			if not self.parent:HasModifier("modifier_aoko_blue_damage_field") then
+				self.parent:EmitSound("aoko_overload")
+			end
+
+			if self.parent.MagicianOfFifthAcquired then
+				self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_cc_immune", {duration = self.ability:GetSpecialValueFor("overload_cc_immune_duration")})
+			end
+			
+			self:StartOverload()
 		end
 		Timers:CreateTimer("aoko_circuits", {
 			endTime = self:GetAbility():GetSpecialValueFor("stacks_duration"), 
 			callback = function()
 				self:SetStackCount(0)
+				ParticleManager:DestroyParticle(self.aoko, true)
 			end})
 	end
 end
 
 function modifier_aoko_circuits_passive:StartOverload()
 	if IsServer() then
-		self.parent:EmitSound("aoko_overload_sfx")
-		self.parent:EmitSound("aoko_overload")
 		self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_overload", {duration = self.ability:GetSpecialValueFor("overload_duration")})
 		if self.parent.CircuitsAcquired then
-			self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_cc_immune", {duration = self.ability:GetSpecialValueFor("overload_cc_immune_duration")})
+			self.parent:FindModifierByName("modifier_aoko_circuits_overload"):OnRedEnter()
+		end
+		if self.parent.HighSpeedIncantationAcquired then
+			self.parent:FindModifierByName("modifier_aoko_circuits_overload"):OnBlueEnter()
 		end
 		local stacks = self:GetStackCount()
 		if self.aoko ~= nil then 
@@ -201,11 +222,12 @@ function modifier_aoko_circuits_passive:StartOverload()
 			endTime = self:GetAbility():GetSpecialValueFor("overload_duration"), 
 			callback = function()
 				self:SetStackCount(0)
+				ParticleManager:DestroyParticle(self.aoko, true)
 			end})
 	end
 end
 
-function modifier_aoko_circuits_passive:StartComboOverload()
+--[[function modifier_aoko_circuits_passive:StartComboOverload()
 	if IsServer() then
 		self.parent:EmitSound("aoko_overload_sfx")
 		self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_overload", {duration = self.parent:FindAbilityByName("aoko_blue"):GetSpecialValueFor("duration")})
@@ -225,7 +247,7 @@ function modifier_aoko_circuits_passive:StartComboOverload()
 				self:SetStackCount(0)
 			end})
 	end
-end
+end]]
 
 function modifier_aoko_circuits_passive:Reset()
 	if IsServer() then
@@ -241,11 +263,39 @@ modifier_aoko_circuits_overload = class ({})
 function modifier_aoko_circuits_overload:IsHidden() return false end
 function modifier_aoko_circuits_overload:IsDebuff() return false end
 
+function modifier_aoko_circuits_overload:DeclareFunctions()
+    local func = { MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE}
+    return func
+end
+
+function modifier_aoko_circuits_overload:GetModifierTotalDamageOutgoing_Percentage(keys)
+	if not (keys.attacker == self:GetParent()) then return 0 end
+
+    if keys.inflictor then	
+    	if ampable[keys.inflictor:GetName()] then
+	    	if self.dmg_output then
+	        	return (self.dmg_output)
+	        end
+	    end
+        return 0
+    end
+    return 0
+end
+
 function modifier_aoko_circuits_overload:OnCreated()
 	if IsServer() then
 		self.parent = self:GetParent()
 
 		self.ability = self:GetAbility()
+
+		self.amp_per_stack = self.ability:GetSpecialValueFor("attribute_blue_amp_per_stack")
+
+		self.internal_stacks = 0
+
+		self.dmg_output = 0
+
+		self.blue = false
+		self.red = false
 
 		--self.parent:FindAbilityByName("aoko_sphere"):RefreshCharges()
 
@@ -253,16 +303,50 @@ function modifier_aoko_circuits_overload:OnCreated()
 	end
 end
 
-function modifier_aoko_circuits_overload:OnIntervalThink()
+function modifier_aoko_circuits_overload:OnRefresh()
 	if IsServer() then
+	end
+end
+
+function modifier_aoko_circuits_overload:OnBlueCircuitStackGain(gain)
+	if IsServer() then
+		self.internal_stacks = self.internal_stacks + gain
+		self.dmg_output = self.internal_stacks*self.amp_per_stack
+		self:SetStackCount(self.dmg_output)
+
+		local cdr = self.ability:GetSpecialValueFor("attribute_cdr_per_stack")*gain
 		for i = 1, #cd_ability_list do
 			local pepe_ability = self.parent:FindAbilityByName(cd_ability_list[i])
 			local cooldown = pepe_ability:GetCooldownTimeRemaining()
 			pepe_ability:EndCooldown()
-			if (cooldown - 1) > 0 then
-				pepe_ability:StartCooldown(cooldown - 1)
+			if (cooldown - cdr) > 0 then
+				pepe_ability:StartCooldown(cooldown - cdr)
 			end
 		end
+	end
+end
+
+function modifier_aoko_circuits_overload:OnRedEnter()
+	if IsServer() then
+		if self.blue then
+			self.blue = false
+			self.internal_stacks = 0
+			self.dmg_output = 0
+		end
+		self.red = true
+		self.dmg_output = self.ability:GetSpecialValueFor("attribute_red_amp")
+		self:SetStackCount(self.dmg_output)
+	end
+end
+
+function modifier_aoko_circuits_overload:OnBlueEnter()
+	if IsServer() then
+		if self.red then
+			self.red = false
+			self.dmg_output = 0
+		end
+		self.blue = true
+		self:SetStackCount(self.dmg_output)
 	end
 end
 

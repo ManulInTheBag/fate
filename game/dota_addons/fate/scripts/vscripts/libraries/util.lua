@@ -388,7 +388,8 @@ cleansable = {
     "modifier_robin_yew_bow_combo_lock",
     "modifier_khsn_grab_target",
     "modifier_demon_king_extermination_burn",
-    "modifier_lu_bu_relentless_assault_one"
+    "modifier_lu_bu_relentless_assault_one",
+    "modifier_aoko_blue_ring_slow"
 }
 
 
@@ -782,6 +783,7 @@ tModifierKBImmune = {
     "modifier_leonidas_enomotia_ignore_motion_controll",
     "modifier_kb_immune",
     "modifier_khsn_grab_target",
+    "modifier_aoko_blue_damage_field",
 }
 
 tManalessHero = {

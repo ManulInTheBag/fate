@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc38:version{81520c21-94aa-45fa-a458-34731c145969} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -163,7 +163,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.729328, -5.355804, -36.468449 ]
+								hitbox_mins = [ -6.729328, -5.355804, -36.46845 ]
 								hitbox_maxs = [ 7.803773, 11.231472, 3.456833 ]
 							},
 							{
@@ -193,8 +193,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -59.488258, -68.028824, -111.790085 ]
-								hitbox_maxs = [ 59.044739, 64.127472, 84.614273 ]
+								hitbox_mins = [ -59.48826, -68.028824, -111.790085 ]
+								hitbox_maxs = [ 59.04474, 64.12747, 84.61427 ]
 							},
 							{
 								_class = "Hitbox"
@@ -224,7 +224,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -10.15252, -10.068699, -1.891159 ]
-								hitbox_maxs = [ 9.590331, 12.556953, 20.780701 ]
+								hitbox_maxs = [ 9.590331, 12.556953, 20.7807 ]
 							},
 							{
 								_class = "Hitbox"
@@ -243,7 +243,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -20.384577, -6.243913, -20.281891 ]
+								hitbox_mins = [ -20.384577, -6.243913, -20.28189 ]
 								hitbox_maxs = [ 19.830503, 6.241427, 0.687469 ]
 							},
 							{
@@ -556,6 +556,7 @@
 					{
 						_class = "AnimFile"
 						name = "stand_ready"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -568,16 +569,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 71
 						end_frame = 101
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -590,16 +594,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 753
 						end_frame = 823
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -612,16 +619,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 127
 						end_frame = 164
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "melee1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -634,16 +644,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 165
 						end_frame = 187
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "melee2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -656,16 +669,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 188
 						end_frame = 211
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "kick"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -678,16 +694,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 212
 						end_frame = 236
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "forward"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CHANNEL_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -700,16 +719,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 237
 						end_frame = 239
 						framerate = 5.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "spell_swim1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -722,16 +744,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 263
 						end_frame = 282
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "spell_swim_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -744,16 +769,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 283
 						end_frame = 313
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "punch1"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -766,16 +794,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 314
 						end_frame = 361
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "uppercut"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -788,16 +819,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 362
 						end_frame = 406
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "walk"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -810,16 +844,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 407
 						end_frame = 431
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "spell1"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -832,16 +869,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 432
 						end_frame = 461
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "beam_powerful"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_11"
 						activity_weight = 1
 						weight_list_name = ""
@@ -854,16 +894,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 462
 						end_frame = 483
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "beam_poweful2"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_12"
 						activity_weight = 1
 						weight_list_name = ""
@@ -876,12 +919,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 501
 						end_frame = 522
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -901,6 +946,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_13"
 						activity_weight = 1
 						weight_list_name = ""
@@ -913,12 +959,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 538
 						end_frame = 574
-						framerate = -1.0
+						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -943,6 +991,7 @@
 								rotation_xyz = [ 0.0, 0.0, 0.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_14"
 						activity_weight = 1
 						weight_list_name = ""
@@ -955,16 +1004,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 840
 						end_frame = 886
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "beamu592_624"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -977,16 +1029,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 592
 						end_frame = 602
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "beamu2"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_8"
 						activity_weight = 1
 						weight_list_name = ""
@@ -999,17 +1054,20 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 625
 						end_frame = 658
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "beamu3"
 						note = "718 true end"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_9"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1022,16 +1080,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 659
 						end_frame = 689
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "pepega"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1044,16 +1105,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 719
 						end_frame = 752
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "beam"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_10"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1066,16 +1130,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 824
 						end_frame = 839
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "grab"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1088,16 +1155,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 887
 						end_frame = 917
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "melee3"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_0"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1110,16 +1180,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 918
 						end_frame = 941
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "melee4"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1132,16 +1205,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 942
 						end_frame = 956
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "melee5"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1154,16 +1230,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 957
 						end_frame = 972
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "melee_combo_and_grab"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1176,16 +1255,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 973
 						end_frame = 1054
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "jumpback"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1198,16 +1280,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 1071
 						end_frame = 1095
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "forward_cast"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1220,16 +1305,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 1055
 						end_frame = 1071
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "kick_copy"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1242,16 +1330,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 212
 						end_frame = 218
 						framerate = 15.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "aoko_punch1"
+						is_default_idle_anim = false
 						activity_name = "0"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1264,16 +1355,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 165
 						end_frame = 170
 						framerate = 5.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "aoko_punch2"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1286,16 +1380,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 171
 						end_frame = 187
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "spell_swim1_copy"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_7"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1308,16 +1405,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 269
 						end_frame = 287
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "uppercut_copy"
+						is_default_idle_anim = false
 						activity_name = "ACT_SCRIPT_CUSTOM_15"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1330,12 +1430,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 389
 						end_frame = 406
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""

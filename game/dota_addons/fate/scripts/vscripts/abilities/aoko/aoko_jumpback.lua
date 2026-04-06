@@ -59,7 +59,7 @@ function aoko_jumpback:OnSpellStart()
 
 	caster:EmitSound("aoko_jumpback_"..math.random(1, 2))
 
-	if caster.CircuitsAcquired then
+	if caster.FirstStarAcquired then
 		caster:AddNewModifier(caster, self, "modifier_aoko_jumpback_ms", {duration = self:GetSpecialValueFor("attribute_ms_duration")})
 	end
 	--caster:EmitSound("aoko_jumpback_vfx")
@@ -74,7 +74,7 @@ function aoko_jumpback:OnSpellStart()
 
 		local origin_t = caster:GetAbsOrigin()
 		--caster:SetForwardVector(direction)
-		caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.35*0.033, caster))
+		caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.25*0.033, caster))
 		return 0.033
 	end)
 

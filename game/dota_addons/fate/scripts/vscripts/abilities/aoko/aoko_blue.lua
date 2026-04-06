@@ -4,6 +4,10 @@ LinkLuaModifier("modifier_aoko_blue_fx", "abilities/aoko/aoko_blue", LUA_MODIFIE
 LinkLuaModifier("modifier_aoko_blue_shield", "abilities/aoko/aoko_blue", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoko_blue_shield_decaying", "abilities/aoko/aoko_blue", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoko_blue_ms", "abilities/aoko/aoko_blue", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_aoko_blue_damage_field", "abilities/aoko/aoko_blue", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_aoko_blue_slow", "abilities/aoko/aoko_blue", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_aoko_blue_ring_slow", "abilities/aoko/aoko_blue", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_aoko_pink_ring_haste", "abilities/aoko/aoko_blue", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 
 aoko_blue = class({})
@@ -60,6 +64,7 @@ function aoko_blue:OnSpellStart()
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 7.5)
 	caster:AddNewModifier(caster, self, "modifier_aoko_blue_fx", {duration = 8.5, targetexists = (target and 1 or 0), target = (target and target:entindex() or 0)})
+	caster:AddNewModifier(caster, self, "modifier_aoko_blue_damage_field", {duration = 7.5})
 
 	--[[
 	local enemy = PickRandomEnemy(caster)
@@ -109,7 +114,7 @@ function aoko_blue:OnSpellStart()
 		end
 
 		local circuits = caster:FindAbilityByName("aoko_circuits")
-		circuits:StartComboOverload()
+		circuits:StartOverload()
 	end)
 end
 
@@ -145,10 +150,13 @@ function modifier_aoko_blue_fx:OnCreated(args)
 	if IsServer() then
 		self.caster = self:GetCaster()
 		local caster = self.caster
+		self.ability = self:GetAbility()
 		local target = nil
 		if args.targetexists == 1 then
 			target = EntIndexToHScript(args.target)
 		end
+
+		self.radius = self.ability:GetSpecialValueFor("rings_radius")
 
 		self.runes_fx = ParticleManager:CreateParticle("particles/aoko/aoko_blue_runes.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(self.runes_fx, 0, caster:GetAbsOrigin())
@@ -161,8 +169,17 @@ function modifier_aoko_blue_fx:OnCreated(args)
 			
 			AddFOWViewer(2, target:GetAbsOrigin(), 40, 7.5, false)
 			AddFOWViewer(3, target:GetAbsOrigin(), 40, 7.5, false)
-			
 		end
+
+		AddFOWViewer(2, caster:GetAbsOrigin(), 40, 7.5, false)
+		AddFOWViewer(3, caster:GetAbsOrigin(), 40, 7.5, false)
+
+		local green_heal = self.ability:GetSpecialValueFor("green_heal")
+		local yellow_vision = self.ability:GetSpecialValueFor("yellow_vision_duration")
+		local blue_slow = self.ability:GetSpecialValueFor("blue_slow_duration")
+		local pink_haste = self.ability:GetSpecialValueFor("pink_haste_duration")
+
+		print(pink_haste)
 
 		Timers:CreateTimer(1.2, function()
 			if not caster:IsAlive() then return end
@@ -173,6 +190,20 @@ function modifier_aoko_blue_fx:OnCreated(args)
 				ParticleManager:DestroyParticle(ring_fx, false)
 				ParticleManager:ReleaseParticleIndex(ring_fx)
 			end)
+
+			local allies = FindUnitsInRadius(self.caster:GetTeamNumber(),
+	                                        self.caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        self.radius, 
+	                                        DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+			for k,v in pairs(allies) do
+				v:ApplyHeal(green_heal, self.ability)
+			end
 		end)
 
 		Timers:CreateTimer(1.7, function()
@@ -184,6 +215,8 @@ function modifier_aoko_blue_fx:OnCreated(args)
 				ParticleManager:DestroyParticle(ring_fx, false)
 				ParticleManager:ReleaseParticleIndex(ring_fx)
 			end)
+
+			AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), self.radius, yellow_vision, false)
 		end)
 
 		Timers:CreateTimer(2.0, function()
@@ -195,6 +228,20 @@ function modifier_aoko_blue_fx:OnCreated(args)
 				ParticleManager:DestroyParticle(ring_fx, false)
 				ParticleManager:ReleaseParticleIndex(ring_fx)
 			end)
+
+			local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(),
+	                                        self.caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        self.radius, 
+	                                        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+			for k,v in pairs(enemies) do
+				v:AddNewModifier(caster, self.ability, "modifier_aoko_blue_ring_slow", {duration = blue_slow})
+			end
 		end)
 
 		Timers:CreateTimer(2.3, function()
@@ -206,6 +253,20 @@ function modifier_aoko_blue_fx:OnCreated(args)
 				ParticleManager:DestroyParticle(ring_fx, false)
 				ParticleManager:ReleaseParticleIndex(ring_fx)
 			end)
+
+			local allies = FindUnitsInRadius(self.caster:GetTeamNumber(),
+	                                        self.caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        self.radius, 
+	                                        DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+			for k,v in pairs(allies) do
+				v:AddNewModifier(caster, self.ability, "modifier_aoko_pink_ring_haste", {duration = pink_haste})
+			end
 		end)
 
 		Timers:CreateTimer(2.55, function()
@@ -217,6 +278,20 @@ function modifier_aoko_blue_fx:OnCreated(args)
 				ParticleManager:DestroyParticle(ring_fx, false)
 				ParticleManager:ReleaseParticleIndex(ring_fx)
 			end)
+
+			local allies = FindUnitsInRadius(self.caster:GetTeamNumber(),
+	                                        self.caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        self.radius, 
+	                                        DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+			for k,v in pairs(allies) do
+				v:ApplyHeal(green_heal, self.ability)
+			end
 		end)
 
 		Timers:CreateTimer(2.75, function()
@@ -228,6 +303,7 @@ function modifier_aoko_blue_fx:OnCreated(args)
 				ParticleManager:DestroyParticle(ring_fx, false)
 				ParticleManager:ReleaseParticleIndex(ring_fx)
 			end)
+			AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), self.radius, yellow_vision, false)
 		end)
 
 		Timers:CreateTimer(2.95, function()
@@ -239,6 +315,20 @@ function modifier_aoko_blue_fx:OnCreated(args)
 				ParticleManager:DestroyParticle(ring_fx, false)
 				ParticleManager:ReleaseParticleIndex(ring_fx)
 			end)
+
+			local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(),
+	                                        self.caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        self.radius, 
+	                                        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+			for k,v in pairs(enemies) do
+				v:AddNewModifier(caster, self.ability, "modifier_aoko_blue_ring_slow", {duration = blue_slow})
+			end
 		end)
 
 		self.flowers_fx = nil
@@ -248,6 +338,20 @@ function modifier_aoko_blue_fx:OnCreated(args)
 
 			local ring_fx = ParticleManager:CreateParticle("particles/aoko/aoko_blue_pulse_ring_white.vpcf", PATTACH_ABSORIGIN, caster)
 			ParticleManager:SetParticleControl(ring_fx, 0, caster:GetAbsOrigin())
+
+			local allies = FindUnitsInRadius(self.caster:GetTeamNumber(),
+	                                        self.caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        self.radius, 
+	                                        DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+			for k,v in pairs(allies) do
+				HardCleanse(v)
+			end
 
 			Timers:CreateTimer(4.3, function()
 				ParticleManager:DestroyParticle(ring_fx, false)
@@ -506,4 +610,137 @@ end
 
 function modifier_aoko_blue_ms:GetModifierMoveSpeed_Absolute(keys)
     return self:GetAbility():GetSpecialValueFor("attribute_ms")
+end
+
+--
+
+modifier_aoko_blue_damage_field = class({})
+
+function modifier_aoko_blue_damage_field:IsHidden() return true end
+function modifier_aoko_blue_damage_field:IsDebuff() return true end
+
+function modifier_aoko_blue_damage_field:OnCreated(args)
+	if IsServer() then
+		self.caster = self:GetCaster()
+		local caster = self.caster
+		self.ability = self:GetAbility()
+
+		self.circuits = caster:FindAbilityByName("aoko_circuits")
+		self.stacks = self.ability:GetSpecialValueFor("stack_gain")
+
+		self.time_for_stack = 7.5/self.stacks
+
+		self.elapsed = 0
+		self.gained = 0
+
+		self.radius = self.ability:GetSpecialValueFor("damage_radius")
+
+		self:StartIntervalThink(FrameTime())
+		self:OnIntervalThink()
+	end
+end
+
+function modifier_aoko_blue_damage_field:OnIntervalThink()
+	if IsServer() then
+		self.elapsed = self.elapsed + FrameTime()
+
+		local diff = self.elapsed/self.time_for_stack - self.gained
+		if diff > 1 then
+			self.gained = self.gained + math.floor(diff)
+			self.circuits:GainStacks(math.floor(diff))
+		end
+
+		local enemies = FindUnitsInRadius(  self.caster:GetTeamNumber(),
+	                                        self.caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        self.radius, 
+	                                        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+		for k,v in pairs(enemies) do
+			v:AddNewModifier(self.caster, self.ability, "modifier_aoko_blue_slow", {duration = 0.1 + FrameTime()})
+			giveUnitDataDrivenModifier(self.caster, v, "locked", 0.1)
+		end
+	end
+end
+
+--
+
+modifier_aoko_blue_slow = class({})
+
+function modifier_aoko_blue_slow:IsHidden() return false end
+function modifier_aoko_blue_slow:IsDebuff() return true end
+function modifier_aoko_blue_slow:RemoveOnDeath() return true end
+function modifier_aoko_blue_slow:DeclareFunctions()
+	return { 
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+           }
+end
+
+function modifier_aoko_blue_slow:OnCreated()
+	self.caster = self:GetCaster()
+	self.parent = self:GetParent()
+	self.ability = self:GetAbility()
+	self.damage = self.ability:GetSpecialValueFor("damage_per_second")*0.1
+
+	self:StartIntervalThink(0.1)
+end
+
+function modifier_aoko_blue_slow:OnIntervalThink()
+	if not IsServer() then return end
+
+	DoDamage(self.caster, self.parent, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+end
+
+function modifier_aoko_blue_slow:GetModifierMoveSpeedBonus_Percentage(keys)
+    return -1*self.ability:GetSpecialValueFor("slow")
+end
+
+--
+
+modifier_aoko_blue_ring_slow = class({})
+
+function modifier_aoko_blue_ring_slow:IsHidden() return false end
+function modifier_aoko_blue_ring_slow:IsDebuff() return true end
+function modifier_aoko_blue_ring_slow:RemoveOnDeath() return true end
+function modifier_aoko_blue_ring_slow:DeclareFunctions()
+	return { 
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+           }
+end
+
+function modifier_aoko_blue_ring_slow:OnCreated()
+	self.caster = self:GetCaster()
+	self.parent = self:GetParent()
+	self.ability = self:GetAbility()
+end
+
+function modifier_aoko_blue_ring_slow:GetModifierMoveSpeedBonus_Percentage(keys)
+    return -1*self.ability:GetSpecialValueFor("blue_slow")
+end
+
+--
+
+modifier_aoko_pink_ring_haste = class({})
+
+function modifier_aoko_pink_ring_haste:IsHidden() return false end
+function modifier_aoko_pink_ring_haste:IsDebuff() return true end
+function modifier_aoko_pink_ring_haste:RemoveOnDeath() return true end
+function modifier_aoko_pink_ring_haste:DeclareFunctions()
+	return { 
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+           }
+end
+
+function modifier_aoko_pink_ring_haste:OnCreated()
+	self.caster = self:GetCaster()
+	self.parent = self:GetParent()
+	self.ability = self:GetAbility()
+end
+
+function modifier_aoko_pink_ring_haste:GetModifierMoveSpeedBonus_Percentage(keys)
+    return self.ability:GetSpecialValueFor("pink_haste")
 end

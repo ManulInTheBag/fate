@@ -88,7 +88,7 @@ function aoko_intimidation:GroundHit(target)
 	local radius = self:GetSpecialValueFor("impact_radius")
 	local duration = self:GetSpecialValueFor("slow_duration")
 
-	if caster.HighSpeedIncantationAcquired then
+	if caster.MagicBulletLoadAcquired then
 		damage = damage + self:GetSpecialValueFor("attribute_int_scaling")*caster:GetIntellect()
 	end
 
@@ -146,8 +146,12 @@ function aoko_intimidation:GroundHit(target)
     	enemy:AddNewModifier(caster, self, "modifier_aoko_intimidation_slow", {duration = duration})
 
 
-		if caster.HighSpeedIncantationAcquired then
+		if caster.MagicBulletLoadAcquired then
 			giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("lock_duration"))
+		end
+
+		if caster.MagicianOfFifthAcquired and caster:HasModifier("modifier_aoko_circuits_overload") then
+			caster:AddNewModifier(caster, circuits, "modifier_aoko_circuits_cc_immune", {duration = circuits:GetSpecialValueFor("melee_cc_immune_duration")})
 		end
 
         DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)

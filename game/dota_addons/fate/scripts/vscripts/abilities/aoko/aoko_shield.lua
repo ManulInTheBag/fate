@@ -68,7 +68,7 @@ function aoko_shield:OnSpellStart()
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 	    if self:GetAutoCastState() and caster:FindAbilityByName("aoko_blue"):IsCooldownReady() and caster:IsAlive() then	    		
-	    	caster:AddNewModifier(caster, self, "modifier_aoko_combo_window", {duration = 2})
+	    	caster:AddNewModifier(caster, self, "modifier_aoko_combo_window", {duration = 1.3})
 		end
 	end
 end
@@ -113,7 +113,7 @@ function aoko_shield:Counter()
 		HardCleanse(caster)
 	end)
 
-	if caster.CircuitsAcquired then
+	if caster.HighSpeedIncantationAcquired then
 		for i = 1, #cd_ability_list do
 			local pepe_ability = caster:FindAbilityByName(cd_ability_list[i])
 			local cooldown = pepe_ability:GetCooldownTimeRemaining()
@@ -121,6 +121,42 @@ function aoko_shield:Counter()
 			if (cooldown - cdr) > 0 then
 				pepe_ability:StartCooldown(cooldown - cdr)
 			end
+		end
+	end
+
+	if caster.CircuitsAcquired then
+		EmitSoundOn("edmon_short_beam", caster)
+
+		local part1x = caster:GetAbsOrigin() + caster:GetForwardVector()*dist + Vector(0, 0, 80)
+		local part9x = caster:GetAbsOrigin() + Vector(0, 0, 80) + caster:GetForwardVector()*100
+
+		for i = 0,8 do
+			local part1 = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 40*i, 0), part1x)
+			local part9 = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 40*i, 0), part9x)
+
+			local particle = ParticleManager:CreateParticle("particles/aoko/aoko_beam_laser_short.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+			ParticleManager:SetParticleControl(particle, 0, part9)
+			ParticleManager:SetParticleControl(particle, 1, part1)
+			ParticleManager:SetParticleControl(particle, 9, part9)
+			ParticleManager:ReleaseParticleIndex(particle)
+		end
+
+		local stun_duration = self:GetSpecialValueFor("shield_stun")
+		local damage = self:GetSpecialValueFor("shield_damage")
+
+		local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+	                                        caster:GetAbsOrigin(), 
+	                                        nil, 
+	                                        dist, 
+	                                        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+	                                        DOTA_UNIT_TARGET_ALL, 
+	                                        0, 
+	                                        FIND_ANY_ORDER, 
+	                                        false)
+
+		for k,v in pairs(enemies) do
+			v:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+			DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end
 	end
 end
@@ -262,16 +298,16 @@ function modifier_aoko_combo_window:IsDebuff() return false end
 function modifier_aoko_combo_window:OnCreated()
 	if IsServer() then
 		local caster = self:GetParent()
-		if caster:GetAbilityByIndex(4):GetName() == "aoko_circuits" then	    		
-			caster:SwapAbilities("aoko_blue", "aoko_circuits", true, false)	
+		if caster:GetAbilityByIndex(0):GetName() == "aoko_shield" then	    		
+			caster:SwapAbilities("aoko_blue", "aoko_shield", true, false)	
 		end
 	end
 end
 function modifier_aoko_combo_window:OnDestroy()
 	if IsServer() then
 		local caster = self:GetParent()
-		if caster:GetAbilityByIndex(4):GetName() == "aoko_blue" then
-			caster:SwapAbilities("aoko_blue", "aoko_circuits", false, true)
+		if caster:GetAbilityByIndex(0):GetName() == "aoko_blue" then
+			caster:SwapAbilities("aoko_blue", "aoko_shield", false, true)
 		end
 	end
 end

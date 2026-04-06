@@ -1,8 +1,8 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf63:version{a6e6a69e-52d3-4527-8b9c-ff3bb91aca3e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf65:version{48e806a9-c210-4cd8-811a-38b5ef63b195} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 12
-	m_flConstantLifespan = 20.0
+	m_flConstantLifespan = 15.0
 	m_controlPointConfigurations = 
 	[
 		{
@@ -232,14 +232,14 @@
 									{
 										x = 0.0
 										y = 0.95
-										m_flSlopeIncoming = -0.0475
-										m_flSlopeOutgoing = -0.0475
+										m_flSlopeIncoming = -0.06333333
+										m_flSlopeOutgoing = -0.06333333
 									},
 									{
-										x = 20.0
+										x = 15.0
 										y = 0.0
-										m_flSlopeIncoming = -0.0475
-										m_flSlopeOutgoing = -0.0475
+										m_flSlopeIncoming = -0.06333333
+										m_flSlopeOutgoing = -0.06333333
 									},
 								]
 								m_tangents = 
@@ -254,7 +254,7 @@
 									},
 								]
 								m_vDomainMins = [ 0.0, 0.0 ]
-								m_vDomainMaxs = [ 20.0, 0.95 ]
+								m_vDomainMaxs = [ 15.0, 0.95 ]
 							}
 						}
 						m_flFinalTextureScaleV = 
