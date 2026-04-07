@@ -9075,7 +9075,7 @@
 
 		//Steelwing
 		"DOTA_Tooltip_ability_saito_steelwing"														"Steelwing"
-		"DOTA_Tooltip_ability_saito_steelwing_Description"											"Saitō slams his blade into the ground, knocking back all nearby enemies to a fixed distance, dealing damage and stunning them.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Shadowslash</font>.\nThis ability's damage and stun duration will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
+		"DOTA_Tooltip_ability_saito_steelwing_Description"											"Saitō slams his blade into the ground, knocking back all nearby enemies to a fixed distance and dealing damage.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Shadowslash</font>.\nThis ability's damage and stun duration will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_steelwing_Lore"													"Slamming hard-edged wings of a bird taking flight."
 		"DOTA_Tooltip_ability_saito_steelwing_AbilityCastPoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_steelwing_radius"												"RADIUS:"
@@ -9089,7 +9089,7 @@
 
 		//Shadowslash
 		"DOTA_Tooltip_ability_saito_shadowslash"													"Shadowslash"
-		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"Saitō slashes all enemies around him and pulls the enemies towards him, dealing damage. After a short delay, a burst of secondary damage is applied to the targets, mini-stunning and dealing %burst_damage_pct%%% of this ability's damage to enemy again.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Steelwing</font>.\nThis ability's initial damage and pull radius will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradable with Attribute: Swords of Freedom and Invincible Sword</font>."
+		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"Saitō slashes all enemies around him and pulls the enemies towards him, dealing damage. After a short delay, a burst of secondary damage is applied to the targets and dealing %burst_damage_pct%%% of this ability's damage to enemy again.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Steelwing</font>.\nThis ability's initial damage and pull radius will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_shadowslash_Lore"												"Light-speed assault invisible to the naked eye."
 		"DOTA_Tooltip_ability_saito_shadowslash_AbilityCastPoint"									"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_shadowslash_pull_radius"										"PULL RADIUS:"

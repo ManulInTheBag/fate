@@ -371,44 +371,46 @@ function modifier_aoko_earthlight_fire:OnIntervalThink()
 			EmitGlobalSound("aoko_slider_sfx")
 
 			for k,v in pairs(mod.succed_enemies) do
-				local target = EntIndexToHScript(k)
+				if mod.succed_enemies[k] then
+					local target = EntIndexToHScript(k)
 
-				target:RemoveModifierByName("modifier_aoko_earthlight_enemy")
+					target:RemoveModifierByName("modifier_aoko_earthlight_enemy")
 
-				local initialUnitOrigin = target:GetAbsOrigin()
+					local initialUnitOrigin = target:GetAbsOrigin()
 
-				local pushTarget = Physics:Unit(target)
+					local pushTarget = Physics:Unit(target)
 
-				if not target:HasModifier("modifier_master_intervention") then
-					giveUnitDataDrivenModifier(self.caster, target, "locked", 0.1)
-				end
+					if not target:HasModifier("modifier_master_intervention") then
+						giveUnitDataDrivenModifier(self.caster, target, "locked", 0.1)
+					end
 
-				if not IsKnockbackImmune(target) then
-					target:PreventDI()
-					target:SetPhysicsFriction(0)
-					target:SetPhysicsVelocity(self.forward * 6000)
-					target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-					target:OnPhysicsFrame(function(unit) 
-						local unitOrigin = unit:GetAbsOrigin()
-						local diff = unitOrigin - initialUnitOrigin
-						local n_diff = diff:Normalized()
-						unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-						if diff:Length() > (self.throw_range) then
+					if not IsKnockbackImmune(target) then
+						target:PreventDI()
+						target:SetPhysicsFriction(0)
+						target:SetPhysicsVelocity(self.forward * 6000)
+						target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+						target:OnPhysicsFrame(function(unit) 
+							local unitOrigin = unit:GetAbsOrigin()
+							local diff = unitOrigin - initialUnitOrigin
+							local n_diff = diff:Normalized()
+							unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
+							if diff:Length() > (self.throw_range) then
+								unit:PreventDI(false)
+								unit:SetPhysicsVelocity(Vector(0,0,0))
+								unit:OnPhysicsFrame(nil)
+								FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+							end
+						end)	
+						target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+							unit:SetBounceMultiplier(0)
 							unit:PreventDI(false)
 							unit:SetPhysicsVelocity(Vector(0,0,0))
-							unit:OnPhysicsFrame(nil)
+							giveUnitDataDrivenModifier(self.caster, target, "stunned", self.stun_duration)
+							target:EmitSound("Hero_EarthShaker.Fissure")
 							FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-						end
-					end)	
-					target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-						unit:SetBounceMultiplier(0)
-						unit:PreventDI(false)
-						unit:SetPhysicsVelocity(Vector(0,0,0))
-						giveUnitDataDrivenModifier(self.caster, target, "stunned", self.stun_duration)
-						target:EmitSound("Hero_EarthShaker.Fissure")
-						FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-						--DoDamage(caster, target, 200 + caster:GetStrength() * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)	
-					end)
+							--DoDamage(caster, target, 200 + caster:GetStrength() * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)	
+						end)
+					end
 				end
 			end
 
@@ -507,6 +509,11 @@ function modifier_aoko_earthlight_enemy:OnIntervalThink()
 
 	if not self.consumed then
 		if self.caster:HasModifier("modifier_aoko_earthlight_caster") then
+			local mod = self.caster:FindModifierByName("modifier_aoko_earthlight_caster")
+			if (mod.point - self.parent:GetAbsOrigin()):Length2D() > self.ability:GetSpecialValueFor("succ_radius") then
+				self:Destroy()
+			end
+			
 			self.duration = self.duration - FrameTime()
 
 			if self.duration <= 0 then

@@ -1062,7 +1062,7 @@ function modifier_saito_flashblade_motion:DoEffect(hUnit, vPosition)
                 ApplyAirborneOnly(hEntity, self.nAttr_KnockUPHeight / self.nAttr_KnockUPDuration, self.nAttr_KnockUPDuration, nil)
                 --fApplyKnockbackSpecial(hEntity, self.nAttr_KnockUPHeight, self.nAttr_KnockUPDuration, hEntity:GetUpVector())
                 --=================================--
-                giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nAttr_KnockUPDuration)
+                --giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nAttr_KnockUPDuration)
             end
             --=================================--
             giveUnitDataDrivenModifier(self.hCaster, hEntity, "rooted", self.nImageRootDuration)
@@ -1228,7 +1228,7 @@ function saito_steelwing:OnSpellStart()
             --=================================--
             --fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
             --=================================--
-            giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
+            --giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
             --=================================--
             if nAttr_MSS_Duraiton > 0 then
                 hEntity:AddNewModifier(hCaster, self, "modifier_saito_steelwing_mss", {duration = nAttr_MSS_Duraiton})
@@ -1442,7 +1442,7 @@ function saito_shadowslash:OnSpellStart()
                 end
                 ]]
                 local vEntLoc = hEntity:GetAbsOrigin()
-                giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nBurstStunDuration)
+                --giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nBurstStunDuration)
 
                 DoDamage(hCaster, hEntity, nBurstDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, hAbility, false)
                 --=================================--
