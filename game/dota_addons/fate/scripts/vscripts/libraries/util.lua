@@ -683,6 +683,7 @@ CannotReset = {
     "nobu_guns",
     "aoko_circuits",
     "aoko_blue",
+    "aoko_earthlight_starbow",
     "diarmuid_new_combo",
     "karna_armor",
     "karna_combo_vasavi_new",
