@@ -1,0 +1,175 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// 
+	//=====================================
+	"ozy_spawn_piramid"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/ozy/ozy_spawn_piramid"
+		"AbilityTextureName"				"custom/ozy/ozy_spawn_piramid"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"				"1"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "40"
+		"AbilityManaCost"					"800"
+		"AbilityCastRange"					"1000"
+		"AbilityCastPoint"					"0.5"
+		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_6"
+
+
+		"precache"
+		{
+			"particle"		"particles/ozy/piramid/ozy_piramid_passive_effect.vpcf"
+			"particle"		"particles/ozy/piramid/ozymandias_piramid_spawn.vpcf"
+			"particle"		"particles/ozy/piramid/ozy/piramid/eruption.vpcf"
+
+			
+		}
+		"AbilityValues"
+		{
+			"damage"							"1000"
+			"radius"							"500"
+			"summon_delay"						"2"
+			"max_health"						"1500"
+			"damage_first"						"500"
+			"slow_first"						"50"
+		}
+	}
+
+	//================================================
+	// Piramid aura
+	//================================================
+	"ozy_piramid_aura"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_piramid_aura"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"            "custom/iskander_charisma"
+		"MaxLevel"                      "5"
+		"AbilityCastRange"				"1000"
+
+		"AbilityValues"
+        {
+            "radius" "1000"
+            "bonus_mr" "5 6.25 7.5 8.75 10"
+            "bonus_regen" "40 50 60 70 80"
+        }
+	}
+
+	//================================================
+	// Piramid defence
+	//================================================
+	"ozy_piramid_auto_defence"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_piramid_auto_defence"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_TOGGLE  | DOTA_ABILITY_BEHAVIOR_IMMEDIATE| DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityTextureName"            "custom/iskander_charisma"
+		"MaxLevel"                      "5"
+		"AbilityCastRange"				"1500"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0"
+
+		"precache"
+		{
+			"particle"		"particles/ozy/piramid/piramid_beam.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_sphere_ring.vpcf"
+
+			
+		}
+
+		"AbilityValues"
+        {
+            "radius" "1500"
+            "delay" "1"
+            "hit_radius" "150"
+            "damage" "100 125 150 175 200"
+            "max_targets" "3"
+            "delay_before_damage" "0.5"
+        }
+	}
+
+	//=======================================
+	// Piramid curse
+	//=======================================
+	"ozy_piramid_curse"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_piramid_curse"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityTextureName"			"custom/jtr/information_erasure"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+
+		"AbilityCooldown"				"30 28 26 24 22"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"1500"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/piramid/ozy_piramid_curse_blast.vpcf"
+			"particle"				"particles/ozy/piramid/curse_debuff_enemy.vpcf"
+			"particle"				"particles/ozy/piramid/ozy_piramid_curse_precast.vpcf"
+			"particle"				"particles/ozy/piramid/ozy_scale.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "radius" "400"
+            "duration" "5"
+            "delay" 	"0.5"
+            "damage" 	"100 125 150 175 200"
+            "stat_debuff" 	"10 12.5 15 17.5 20"
+            "health_debuff"	"200 250 300 350 400"
+            "armor_debuff" 	"2 2.5 3 3.5 4"
+            "magres_debuff" 	"4 5 6 7 8"
+        }
+	}
+	//=======================================
+	// Piramid beam
+	//=======================================
+	"ozy_piramid_beam"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_piramid_beam"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityTextureName"			"custom/jtr/information_erasure"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+
+		"AbilityCooldown"				"40 38 36 34 32"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"1500"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/piramid/ozy_piramid_beam_precast.vpcf"
+			"particle"				"particles/ozy/piramid/piramid_laser_dmg.vpcf"
+			"particle"				"particles/ozy/piramid/piramid_laser_beam_1.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "radius" "500"
+            "duration" "2"
+            "delay" 	"1.5"
+            "damage" 	"800 1000 1200 1400 1600"
+        }
+	}
+}

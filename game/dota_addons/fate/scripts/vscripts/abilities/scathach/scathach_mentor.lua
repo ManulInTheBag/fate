@@ -193,7 +193,7 @@ modifier_scathach_pupil_int_quest = class({})
 
 function modifier_scathach_pupil_int_quest:OnCreated()
 	self.mana_spent = 0
-	self.mana_spent_request = 25000
+	self.mana_spent_request = 20000
 	self:SetStackCount(0)
 end
 
@@ -274,7 +274,7 @@ end
  
 
 function modifier_scathach_pupil_buff:GetModifierPhysicalArmorBonus()
-	return 10
+	return 4
 end
 
 

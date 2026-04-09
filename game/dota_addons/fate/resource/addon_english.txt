@@ -9075,11 +9075,11 @@
 
 		//Steelwing
 		"DOTA_Tooltip_ability_saito_steelwing"														"Steelwing"
-		"DOTA_Tooltip_ability_saito_steelwing_Description"											"Saitō slams his blade into the ground, knocking back all nearby enemies to a fixed distance and dealing damage.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Shadowslash</font>.\nThis ability's damage and stun duration will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
+		"DOTA_Tooltip_ability_saito_steelwing_Description"											"Saitō slams his blade into the ground, dealing damage and <font color='#9400D3'>dimensionally locks</font> them.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Shadowslash</font>.\nThis ability's damage and stun duration will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_steelwing_Lore"													"Slamming hard-edged wings of a bird taking flight."
 		"DOTA_Tooltip_ability_saito_steelwing_AbilityCastPoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_steelwing_radius"												"RADIUS:"
-		"DOTA_Tooltip_ability_saito_steelwing_stun_duration"										"STUN DURATION:"
+		"DOTA_Tooltip_ability_saito_steelwing_stun_duration"										"LOCK DURATION:"
 		"DOTA_Tooltip_ability_saito_steelwing_damage"												"DAMAGE:"
 		//"DOTA_Tooltip_ability_saito_steelwing_repeat_halver_count_need"							""
 		"DOTA_Tooltip_ability_saito_steelwing_combo_cooldown"										"COMBO COOLDOWN:"
@@ -9730,7 +9730,7 @@
 	 	
 
         "DOTA_Tooltip_ability_muramasa_rush"					"Rush"
-        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nMuramasa rushes to point selected. If muramasa hit someone with rush, he will deal <font color='#58ACFA'>damage</font> and apply a burn debuff.\nBurn deal <font color='#58ACFA'>damage</font> every 0.5 seconds.\n<font color='#F1C40F'>Upgradable by attribute Wicked sword.</font>"
+        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nMuramasa rushes to point selected. If muramasa hit someone with rush, he will deal <font color='#58ACFA'>damage</font> and apply a burn debuff.\nBurn deal <font color='#58ACFA'>damage</font> every 0.5 seconds.\n<font color='#F1C40F'>Upgradable by attribute Wicked sword.</font>"
         "DOTA_Tooltip_ability_muramasa_rush_damage"					"Damage:"
         "DOTA_Tooltip_ability_muramasa_rush_duration"				"Burn duration:"
         "DOTA_Tooltip_ability_muramasa_rush_range"					"Max range:"
@@ -9762,7 +9762,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_forge"				"Forge"
-        "DOTA_Tooltip_ability_muramasa_forge_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMuramasa creates his forge, which stays in place for a duration. Enemies inside of forge take damage every 0.25 second which is based on Muramasa's level, which greatly increases at the border.\nAll of Muramasa's abilities are buffed, while he is inside of forge:\n<font color='#58ACFA'>Sword dance</font> increases enemies damage taken for a short duration on hit\n<font color='#58ACFA'>Throw</font> renders Muramasa immune to crowd control for a short time.\n<font color='#58ACFA'>Rush</font> performs an auto-attack on each enemy hit.\n<font color='#58ACFA'>Sword creation</font> attacks have increased radius.\n<font color='#58ACFA'>Tsumukari Muramasa</font> deals 30%% of its damage as pure.\n<font color='#F1C40F'>Upgradable by attribute Appretiation of swords.</font>"
+        "DOTA_Tooltip_ability_muramasa_forge_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMuramasa creates his forge, which stays in place for a duration. Enemies inside of forge take damage every 0.25 second which is based on Muramasa's level, which greatly increases at the border.\nAll of Muramasa's abilities are buffed, while he is inside of forge:\n<font color='#58ACFA'>Sword dance</font> increases enemies damage taken for a short duration on hit\n<font color='#58ACFA'>Throw</font> renders Muramasa immune to crowd control for a short time.\n<font color='#58ACFA'>Rush</font> performs an auto-attack on each enemy hit.\n<font color='#58ACFA'>Sword creation</font> attacks have increased radius.\n<font color='#58ACFA'>Tsumukari Muramasa</font> deals 20%% of its damage as pure.\n<font color='#F1C40F'>Upgradable by attribute Appretiation of swords.</font>"
         "DOTA_Tooltip_ability_muramasa_forge_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
  		"DOTA_Tooltip_ability_muramasa_forge_duration"							"Duration:"
  		"DOTA_Tooltip_ability_muramasa_forge_radius"							"Radius:"
@@ -9994,7 +9994,7 @@
 		"DOTA_Tooltip_Ability_robin_backflip_Lore"	"An arrow constructed using simple techniques, combining various chemical compounds to produce a reaction that emulates a blinding flash of light."
 		
 		"DOTA_Tooltip_Ability_robin_multishot"	"<font color='#FFE56E'>Hunter's Rain</font>"
-		"DOTA_Tooltip_Ability_robin_multishot_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin releases multiple arrows that fan out horizontally over a short duration.\n\nDealing <font color='#C24401'>physical damage</font> and applying <font color='#52b000'>2 poison stack</font> to targets hit.\n\nArrows also do additional <font color='#FF5100'>damage</font> based on <font color='#0083E3'>INT</font> ratio.\n\n<font color='#FF3399'>Upgradable with attribute Independent Action</font>"
+		"DOTA_Tooltip_Ability_robin_multishot_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin releases multiple arrows that fan out horizontally over a short duration.\n\nDealing <font color='#C24401'>physical damage</font> and applying <font color='#52b000'>1 poison stack</font> to targets hit.\n\nArrows also do additional <font color='#FF5100'>damage</font> based on <font color='#0083E3'>INT</font> ratio.\n\n<font color='#FF3399'>Upgradable with attribute Independent Action</font>"
 		"DOTA_Tooltip_Ability_robin_multishot_arrow_count"	"ARROW COUNT:"
 		"DOTA_Tooltip_Ability_robin_multishot_arrow_range"	"ARROW RANGE:"
 		"DOTA_Tooltip_Ability_robin_multishot_arrow_damage"	"ARROW DAMAGE:"
@@ -10022,13 +10022,13 @@
 		"DOTA_Tooltip_Ability_robin_tools_close_Lore"	"Being an Outlaw and on the run.\n\nRobin of Sherwood has multiple tricks under his belt to escape the local authorities."
 		
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap"	"<font color='#FFE56E'>Net Trap</font>"
-		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin quickly throws a reinforced net at a target, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them in place.\n\nApplies <font color='#52b000'>4 poison stacks</font>."
+		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Description"	"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin quickly throws a reinforced net at a target, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them in place.\n\nApplies <font color='#52b000'>5 poison stacks</font>."
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_net_range"	"NET RANGE:"
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_duration"	"ROOT DURATION:"
 		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Lore"	"Being a hunter has its perks, the skills that Robin had acquired from hunting wildlife could be applied to hostile humanoid enemies."
 		
 		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance"	"<font color='#FFE56E'>Sabotage</font>"
-		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin smokes the area with an unknown substance, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>muting</font> enemies within a radius.\n\nApplies <font color='#52b000'>4 poison stacks</font>."
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin smokes the area with an unknown substance, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>muting</font> enemies within a radius.\n\nApplies <font color='#52b000'>5 poison stacks</font>."
 		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_range"	"CAST RANGE:"
 		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_radius"	"RADIUS:"
 		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_mute_duration"	"MUTE DURATION:"
@@ -10052,7 +10052,7 @@
 		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_Lore"	"Wolf's bane (also known as monkshood or aconite) can refer to many different species, but in particular those in the genus Aconitum."
 		
 		"DOTA_Tooltip_Ability_robin_yew_bow"	"<font color='#FFE56E'>Yew Bow</font>"
-		"DOTA_Tooltip_Ability_robin_yew_bow_Description"	"Cast Point: <font color='#FFFFF9'>1.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br><font color='#FFE56E'>PASSIVE:</font> Most of Robin's abilities will apply <font color='#52b000'>poison stacks</font>, up to a maximum of <font color='#f7e7c1'>30</font>. These stacks last for <font color='#f7e7c1'>15</font> seconds and will not do anything by themselves.\n\n<font color='#FFE56E'>ACTIVE:</font> Robin aims at a target, readying his Noble Phantasm <font color='#FFE56E'>Yew Bow</font>.\n\nAfter a delay, an arrow of immense energy is fired and inflicts initial <font color='#05CAFF'>magical damage</font> and <font color='#52b000'>10 poison stacks</font> onto the target.\n\nFor enemies within a certain radius of the target, <font color='#52b000'>Poison stacks</font> are detonated.\n\n<font color='#05CAFF'>Magical damage</font> is dealt based on how many <font color='#52b000'>poison stacks</font> that the victim has.\n\n<font color='#FF3399'>Upgradable with attribute Robin of Sherwood Forest and The Wise Man's Yew Bow</font>"
+		"DOTA_Tooltip_Ability_robin_yew_bow_Description"	"Cast Point: <font color='#FFFFF9'>1.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br><font color='#FFE56E'>PASSIVE:</font> Most of Robin's abilities will apply <font color='#52b000'>poison stacks</font>, up to a maximum of <font color='#f7e7c1'>30</font>. These stacks last for <font color='#f7e7c1'>15</font> seconds and will not do anything by themselves.\n\n<font color='#FFE56E'>ACTIVE:</font> Robin aims at a target, readying his Noble Phantasm <font color='#FFE56E'>Yew Bow</font>.\n\nAfter a delay, an arrow of immense energy is fired and inflicts initial <font color='#05CAFF'>magical damage</font>\n\nFor enemies within a certain radius of the target, <font color='#52b000'>Poison stacks</font> are detonated.\n\n<font color='#05CAFF'>Magical damage</font> is dealt based on how many <font color='#52b000'>poison stacks</font> that the victim has.\n\n<font color='#FF3399'>Upgradable with attribute Robin of Sherwood Forest and The Wise Man's Yew Bow</font>"
 		"DOTA_Tooltip_Ability_robin_yew_bow_range"	"RANGE:"
 		"DOTA_Tooltip_Ability_robin_yew_bow_damage"	"INITIAL DAMAGE:"
 		"DOTA_Tooltip_Ability_robin_yew_bow_damage_stack"	"DAMAGE PER STACK:"
@@ -10343,7 +10343,7 @@
 
 
 		"DOTA_Tooltip_Ability_scathach_mentor"				"<font color='#FFE56E'>Mentorship</font>"
-		"DOTA_Tooltip_ability_scathach_mentor_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font><br><br>ONE TIME ONLY!\nScathach selects an ally hero to make them her pupil.\nScathach and her pupil may use <font color='#FFFAFA'>Teleport scroll</font> item on each other.\nScathach's pupil gains additional 25 <font color='#ff9900'>experience</font> per hero level on round start.\nScathach's pupil must complete 3 trainings to unlock additional effects:\n<font color='#FF0000'>Strength</font> training: take <font color='#FFFAFA'>30</font> thousands damage;\n\n<font color='#00FF00'>Agility</font> training: take part in <font color='#FFFAFA'>12</font> kills (assists counts as half);\n <font color='#1E90FF'>Intellect</font> training: spend <font color='#FFFAFA'>25</font> thousand mana (mana burn and direct mana spend doesnt count).\nUpon completing each training, pupil gains <font color='#FFFAFA'>5</font> of corresponding stat.\nWhen all trainings are completed, Scathach and her pupil gain additional bonuses:\nWhen Scathach and her pupil are in <font color='#FFFAFA'>1200</font> range from each other, Scathach deals <font color='#FFFAFA'>10%%</font> more damage, and her pupil gains <font color='#FFFAFA'>10%%</font><font color='#58ACFA'> magic resistance</font> and <font color='#FFFAFA'>10</font> <font color='#ACFF05'>armor</font>"
+		"DOTA_Tooltip_ability_scathach_mentor_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font><br><br>ONE TIME ONLY!\nScathach selects an ally hero to make them her pupil.\nScathach and her pupil may use <font color='#FFFAFA'>Teleport scroll</font> item on each other.\nScathach's pupil gains additional 25 <font color='#ff9900'>experience</font> per hero level on round start.\nScathach's pupil must complete 3 trainings to unlock additional effects:\n<font color='#FF0000'>Strength</font> training: take <font color='#FFFAFA'>30</font> thousands damage;\n\n<font color='#00FF00'>Agility</font> training: take part in <font color='#FFFAFA'>12</font> kills (assists counts as half);\n <font color='#1E90FF'>Intellect</font> training: spend <font color='#FFFAFA'>20</font> thousand mana (mana burn and direct mana spend doesnt count).\nUpon completing each training, pupil gains <font color='#FFFAFA'>5</font> of corresponding stat.\nWhen all trainings are completed, Scathach and her pupil gain additional bonuses:\nWhen Scathach and her pupil are in <font color='#FFFAFA'>1200</font> range from each other, Scathach deals <font color='#FFFAFA'>10%%</font> more damage, and her pupil gains <font color='#FFFAFA'>10%%</font><font color='#58ACFA'> magic resistance</font> and <font color='#FFFAFA'>10</font> <font color='#ACFF05'>armor</font>"
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_range"			"SHOOT RANGE:"
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_damage"			"DAMAGE:"
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_speed"			"GAE BOLG SPEED:"
@@ -10367,7 +10367,7 @@
 
 
 		"DOTA_Tooltip_Ability_scathach_red_wind"				"<font color='#FFE56E'>Thorn Of The Red Wind</font>"
-		"DOTA_Tooltip_ability_scathach_red_wind_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach quickly dashes to the target point.\n\nDealing <font color='#05CAFF'>damage</font> and <font color='#FF3399'>stunning</font> all enemies along her path."
+		"DOTA_Tooltip_ability_scathach_red_wind_Description"	"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach quickly dashes to the target point.\n\nDealing <font color='#05CAFF'>damage</font> and <font color='#FF3399'>stunning</font> all enemies along her path."
 		"DOTA_Tooltip_ability_scathach_red_wind_stun_duration"			"STUN DURATION :"
 		"DOTA_Tooltip_ability_scathach_red_wind_damage"			"DAMAGE :"
 		"DOTA_Tooltip_ability_scathach_red_wind_distance"			"CHARGE DISTANCE:"
@@ -10382,7 +10382,7 @@
 
 		
 		"DOTA_Tooltip_Ability_scathach_gait_two"				"<font color='#FFE56E'>Funeral Gait - Curruid's Maw</font>"
-		"DOTA_Tooltip_ability_scathach_gait_two_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach strikes 4 times within an area over a duration.\n\nDealing <font color='#05CAFF'>damage</font> while inflicting <font color='#9400D3'>disarm</font> and <font color='#9400D3'>lock</font> .\n\nLast strike deals significantly more <font color='#05CAFF'>damage</font> and <font color='#FF3399'>stuns</font> nearby enemies for %stun_duration% second."
+		"DOTA_Tooltip_ability_scathach_gait_two_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach strikes 4 times within an area over a duration.\n\nDealing <font color='#05CAFF'>damage</font> while inflicting <font color='#9400D3'>disarm</font> and <font color='#9400D3'>lock</font> .\n\nLast strike deals significantly more <font color='#05CAFF'>damage</font> and <font color='#FF3399'>stuns</font> nearby enemies for %stun_duration% second.\nIgnores projectiles while performing."
 		"DOTA_Tooltip_ability_scathach_gait_two_duration"			"PERFORM TIME:"
 		"DOTA_Tooltip_ability_scathach_gait_two_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_scathach_gait_two_damage"			"DAMAGE :"

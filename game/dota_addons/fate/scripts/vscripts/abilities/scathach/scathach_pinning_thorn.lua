@@ -35,14 +35,19 @@ function scathach_pinning_thorn:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_scathach_pinning_god_self_stun", { Duration = 1.3 })
 	
 	local caster_name =  PlayerResource:GetPlayerName(caster:GetPlayerID())
-	local target_name =  PlayerResource:GetPlayerName(hTarget:GetPlayerID())
-
+	
+	if hTarget:IsRealHero() then
+		local target_name =  PlayerResource:GetPlayerName(hTarget:GetPlayerID())
+		GameRules:SendCustomMessage("<font color='#0083E3'>".. caster_name .." :</font> Prepare to die <font color='#FF0000'>".. target_name .."</font>, your heart is mine!", 0, 0)
+	else
+		GameRules:SendCustomMessage("<font color='#0083E3'>".. caster_name .." :</font> Prepare to die <font color='#FF0000'> creature! </font>, your heart is mine!", 0, 0)
+	end
     local enemy = PickRandomEnemy(hCaster)
 	if enemy then
         hCaster:AddNewModifier(enemy, nil, "modifier_vision_provider", { Duration = 6 })
     end
 	
-	GameRules:SendCustomMessage("<font color='#0083E3'>".. caster_name .." :</font> Prepare to die <font color='#FF0000'>".. target_name .."</font>, your heart is mine!", 0, 0)
+	
 
 	self.ForwardVector = hCaster:GetForwardVector()
 	

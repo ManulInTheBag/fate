@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -67,10 +67,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -83,12 +85,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
 						import_bone_scales = false
 						start_frame = 144
 						end_frame = 164
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -103,10 +107,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -119,16 +125,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
 						import_bone_scales = false
 						start_frame = 29
 						end_frame = 49
 						framerate = 5.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "attack"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -141,16 +150,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
 						import_bone_scales = false
 						start_frame = 54
 						end_frame = 78
 						framerate = 20.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "die"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -163,12 +175,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
 						import_bone_scales = false
 						start_frame = 84
 						end_frame = 139
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -183,10 +197,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -199,12 +215,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
 						import_bone_scales = false
 						start_frame = 4
 						end_frame = 24
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
@@ -236,7 +254,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -19.21899, -37.108696, -53.897682 ]
-								hitbox_maxs = [ 18.040585, 84.284683, 22.307434 ]
+								hitbox_maxs = [ 18.040585, 84.28468, 22.307434 ]
 							},
 							{
 								_class = "Hitbox"
@@ -246,7 +264,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -38.95314, -28.300884, -30.039276 ]
-								hitbox_maxs = [ 39.651093, 108.354446, 21.175858 ]
+								hitbox_maxs = [ 39.651093, 108.35445, 21.175858 ]
 							},
 							{
 								_class = "Hitbox"
@@ -255,8 +273,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -16.28639, -40.060398, -23.715164 ]
-								hitbox_maxs = [ 16.286402, 119.765411, 21.28302 ]
+								hitbox_mins = [ -16.28639, -40.0604, -23.715164 ]
+								hitbox_maxs = [ 16.286402, 119.76541, 21.28302 ]
 							},
 							{
 								_class = "Hitbox"
@@ -265,8 +283,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -16.286339, -75.328232, -23.542389 ]
-								hitbox_maxs = [ 16.28635, 111.314423, 21.398788 ]
+								hitbox_mins = [ -16.286339, -75.32823, -23.542389 ]
+								hitbox_maxs = [ 16.28635, 111.31442, 21.398788 ]
 							},
 							{
 								_class = "Hitbox"
@@ -275,7 +293,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -60.184963, -51.790249, -45.403885 ]
+								hitbox_mins = [ -60.184963, -51.79025, -45.403885 ]
 								hitbox_maxs = [ 51.087658, 119.26239, 121.294876 ]
 							},
 							{
@@ -285,8 +303,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -120.474663, -272.677094, -57.946243 ]
-								hitbox_maxs = [ 109.034073, 234.662567, 121.2565 ]
+								hitbox_mins = [ -120.47466, -272.6771, -57.946243 ]
+								hitbox_maxs = [ 109.03407, 234.66257, 121.2565 ]
 							},
 							{
 								_class = "Hitbox"
@@ -295,8 +313,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -54.191448, -69.209854, -67.13298 ]
-								hitbox_maxs = [ 54.191463, 111.022919, 121.198654 ]
+								hitbox_mins = [ -54.19145, -69.209854, -67.13298 ]
+								hitbox_maxs = [ 54.191463, 111.02292, 121.198654 ]
 							},
 							{
 								_class = "Hitbox"
@@ -306,7 +324,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -50.68774, -45.03273, -52.730637 ]
-								hitbox_maxs = [ 15.382114, 98.492905, 51.119652 ]
+								hitbox_maxs = [ 15.382114, 98.492905, 51.11965 ]
 							},
 							{
 								_class = "Hitbox"
@@ -316,7 +334,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -18.684797, -35.805473, -28.760338 ]
-								hitbox_maxs = [ 16.190275, 71.679253, 23.556007 ]
+								hitbox_maxs = [ 16.190275, 71.67925, 23.556007 ]
 							},
 							{
 								_class = "Hitbox"
@@ -325,8 +343,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -54.191177, -52.489075, -88.094391 ]
-								hitbox_maxs = [ 54.191216, 93.444031, 81.68396 ]
+								hitbox_mins = [ -54.191177, -52.489075, -88.09439 ]
+								hitbox_maxs = [ 54.191216, 93.44403, 81.68396 ]
 							},
 							{
 								_class = "Hitbox"
@@ -335,7 +353,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -37.447166, -52.640717, -44.682838 ]
+								hitbox_mins = [ -37.447166, -52.640717, -44.68284 ]
 								hitbox_maxs = [ 38.665108, 86.323975, 56.909508 ]
 							},
 							{
@@ -345,7 +363,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -36.600788, -50.270653, -37.522675 ]
+								hitbox_mins = [ -36.60079, -50.270653, -37.522675 ]
 								hitbox_maxs = [ 36.600735, 88.184425, 82.322556 ]
 							},
 							{
@@ -356,7 +374,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -15.382141, -41.859608, -46.207184 ]
-								hitbox_maxs = [ 68.775703, 98.492935, 50.957214 ]
+								hitbox_maxs = [ 68.7757, 98.492935, 50.957214 ]
 							},
 							{
 								_class = "Hitbox"
@@ -365,8 +383,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -16.190256, -41.418861, -28.760307 ]
-								hitbox_maxs = [ 18.684797, 71.967972, 23.556038 ]
+								hitbox_mins = [ -16.190256, -41.41886, -28.760307 ]
+								hitbox_maxs = [ 18.684797, 71.96797, 23.556038 ]
 							},
 							{
 								_class = "Hitbox"
@@ -375,8 +393,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -39.000771, -35.183838, -19.957687 ]
-								hitbox_maxs = [ 39.000771, 56.502365, 18.72205 ]
+								hitbox_mins = [ -39.00077, -35.183838, -19.957687 ]
+								hitbox_maxs = [ 39.00077, 56.502365, 18.72205 ]
 							},
 							{
 								_class = "Hitbox"
@@ -385,8 +403,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -50.087601, -34.731224, -17.24469 ]
-								hitbox_maxs = [ 55.960274, 35.201889, 18.662945 ]
+								hitbox_mins = [ -50.0876, -34.731224, -17.24469 ]
+								hitbox_maxs = [ 55.960274, 35.20189, 18.662945 ]
 							},
 							{
 								_class = "Hitbox"
@@ -395,8 +413,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -101.634689, -41.362579, -104.985062 ]
-								hitbox_maxs = [ 99.630623, 31.907288, 91.689941 ]
+								hitbox_mins = [ -101.63469, -41.36258, -104.98506 ]
+								hitbox_maxs = [ 99.63062, 31.907288, 91.68994 ]
 							},
 							{
 								_class = "Hitbox"
@@ -406,7 +424,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -9.987076, -9.392357, -11.618729 ]
-								hitbox_maxs = [ 12.404282, 38.711399, 11.478947 ]
+								hitbox_maxs = [ 12.404282, 38.7114, 11.478947 ]
 							},
 							{
 								_class = "Hitbox"
@@ -456,7 +474,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -16.402327, -6.60318, -13.898415 ]
-								hitbox_maxs = [ 16.402349, 32.092926, 13.176796 ]
+								hitbox_maxs = [ 16.40235, 32.092926, 13.176796 ]
 							},
 							{
 								_class = "Hitbox"
@@ -476,7 +494,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -8.989029, -15.63022, -5.874921 ]
-								hitbox_maxs = [ 6.75502, 49.862282, 9.809504 ]
+								hitbox_maxs = [ 6.75502, 49.86228, 9.809504 ]
 							},
 							{
 								_class = "Hitbox"
@@ -516,7 +534,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -7.547238, -13.45429, -11.601624 ]
-								hitbox_maxs = [ 7.90712, 61.689079, 7.459095 ]
+								hitbox_maxs = [ 7.90712, 61.68908, 7.459095 ]
 							},
 							{
 								_class = "Hitbox"
@@ -557,5 +575,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

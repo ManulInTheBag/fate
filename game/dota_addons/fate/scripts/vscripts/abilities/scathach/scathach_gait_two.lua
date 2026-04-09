@@ -1,6 +1,6 @@
 scathach_gait_two = class({})
 LinkLuaModifier( "modifier_scathach_gait_two", "abilities/scathach/modifiers/modifier_scathach_gait_two", LUA_MODIFIER_MOTION_NONE )
-
+LinkLuaModifier("modifier_protection_from_arrows_active", "abilities/cu_chulain/modifiers/modifier_protection_from_arrows_active", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_scathach_gait_three_window", "abilities/scathach/modifiers/modifier_scathach_gait_three_window", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ function scathach_gait_two:OnSpellStart()
 	end
 	
 	StartAnimation(caster, {duration = 1.3, activity=ACT_DOTA_CAST_ABILITY_3, rate = 2})
-	
+	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration = duration })
 	caster:EmitSound("scathach_gait_2")
 
 	-- Add modifier

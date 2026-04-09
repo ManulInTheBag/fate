@@ -1228,7 +1228,7 @@ function saito_steelwing:OnSpellStart()
             --=================================--
             --fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
             --=================================--
-            --giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
+            giveUnitDataDrivenModifier(hCaster, hEntity, "locked", nStunDuration)
             --=================================--
             if nAttr_MSS_Duraiton > 0 then
                 hEntity:AddNewModifier(hCaster, self, "modifier_saito_steelwing_mss", {duration = nAttr_MSS_Duraiton})

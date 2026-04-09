@@ -1,0 +1,1150 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 02.vmat"
+								to = "models/ozy/ozy1.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone30"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "bone58"
+						relative_origin = [ -1.1729431, -77.68865, -0.9670601 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK2"
+						parent_bone = "bone58"
+						relative_origin = [ -1.1729431, -77.68865, -0.9670601 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bone29"
+								parent_bone = "bone29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -53.323414, -42.084396, -121.4309 ]
+								hitbox_maxs = [ 47.01093, 39.993176, 63.333656 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone30"
+								parent_bone = "bone30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.438639, -7.813923, -1.5100021 ]
+								hitbox_maxs = [ 12.43634, 10.186062, 11.98999 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone31"
+								parent_bone = "bone31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.937475, -10.435112, -7.798973 ]
+								hitbox_maxs = [ 12.812479, 10.721104, 19.700989 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone54"
+								parent_bone = "bone54"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.367931, -7.038871, -15.7048645 ]
+								hitbox_maxs = [ 0.5, 5.554839, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone55"
+								parent_bone = "bone55"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.371673, -5.6852508, -16.653877 ]
+								hitbox_maxs = [ 0.8782358, 5.8459296, 3.8460083 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone56"
+								parent_bone = "bone56"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.625229, -6.4611206, -16.404953 ]
+								hitbox_maxs = [ 3.1245975, 5.02312, 3.0948334 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone57"
+								parent_bone = "bone57"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.8054657, -4.581195, -9.134331 ]
+								hitbox_maxs = [ 1.6944008, 2.7624044, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone59"
+								parent_bone = "bone59"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.8703766, -1.092001, -2.8020935 ]
+								hitbox_maxs = [ 1.1295509, 1.0329218, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone60"
+								parent_bone = "bone60"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.68743134, -0.7487259, -2.3497238 ]
+								hitbox_maxs = [ 0.8124733, 0.7511778, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone62"
+								parent_bone = "bone62"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.61411667, -1.010037, -2.3182755 ]
+								hitbox_maxs = [ 0.8858299, 1.0836372, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone63"
+								parent_bone = "bone63"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.71810913, -1.985054 ]
+								hitbox_maxs = [ 0.77606964, 0.7192993, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone65"
+								parent_bone = "bone65"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.9180069, -0.9341731, -2.378624 ]
+								hitbox_maxs = [ 1.0819206, 1.0032549, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone66"
+								parent_bone = "bone66"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.63614655, -0.56554365, -2.2021332 ]
+								hitbox_maxs = [ 0.8637581, 0.93436, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone68"
+								parent_bone = "bone68"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.60198975, -0.76129436, -1.9423218 ]
+								hitbox_maxs = [ 0.89795685, 0.8636446, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone69"
+								parent_bone = "bone69"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.5, -2.3414612 ]
+								hitbox_maxs = [ 0.79156494, 0.85150933, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone71"
+								parent_bone = "bone71"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.8385811, -1.7969494, -3.6986847 ]
+								hitbox_maxs = [ 1.9113197, 1.1404457, 0.8011551 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone32"
+								parent_bone = "bone32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.2823853, -4.3747873, -1.6189117 ]
+								hitbox_maxs = [ 4.280087, 4.703309, 6.3810577 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone35"
+								parent_bone = "bone35"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -7.038871, -15.7048645 ]
+								hitbox_maxs = [ 11.365634, 5.554839, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone36"
+								parent_bone = "bone36"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.8805351, -5.6852508, -16.653877 ]
+								hitbox_maxs = [ 13.369374, 5.8459296, 3.8460083 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone37"
+								parent_bone = "bone37"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.126896, -6.4611225, -16.499947 ]
+								hitbox_maxs = [ 12.622929, 5.023122, 2.9998398 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone38"
+								parent_bone = "bone38"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.6967087, -4.5811987, -9.134346 ]
+								hitbox_maxs = [ 4.803158, 2.7624006, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone39"
+								parent_bone = "bone39"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.9136314, -1.7969513, -3.6986923 ]
+								hitbox_maxs = [ 1.5862427, 0.5, 0.80114746 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone41"
+								parent_bone = "bone41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.1318474, -1.092, -2.8021011 ]
+								hitbox_maxs = [ 0.86808014, 1.0329208, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone42"
+								parent_bone = "bone42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.81477356, -0.74872875, -2.3497314 ]
+								hitbox_maxs = [ 0.6851311, 0.7511749, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone44"
+								parent_bone = "bone44"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.888134, -1.0100379, -2.3182755 ]
+								hitbox_maxs = [ 0.6118126, 1.0836368, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone45"
+								parent_bone = "bone45"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.7783699, -0.7181072, -1.9850616 ]
+								hitbox_maxs = [ 0.5, 0.7193012, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone47"
+								parent_bone = "bone47"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.0842361, -0.9341736, -2.3786316 ]
+								hitbox_maxs = [ 0.9156914, 1.0032568, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone48"
+								parent_bone = "bone48"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.86606216, -0.56554174, -2.2021408 ]
+								hitbox_maxs = [ 0.63384247, 0.93436193, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone50"
+								parent_bone = "bone50"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.65026855, -0.7612963, -1.9423294 ]
+								hitbox_maxs = [ 0.5996895, 0.8636427, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone51"
+								parent_bone = "bone51"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.79387283, -0.5, -2.3414688 ]
+								hitbox_maxs = [ 0.5, 0.85150766, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone74"
+								parent_bone = "bone74"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -4.0785513, -3.0009155 ]
+								hitbox_maxs = [ 8.196358, 2.8354874, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone75"
+								parent_bone = "bone75"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.79963017, -6.5449295, -9.024887 ]
+								hitbox_maxs = [ 6.762823, 4.087816, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone77"
+								parent_bone = "bone77"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.198658, -4.0785513, -3.0009155 ]
+								hitbox_maxs = [ 0.5, 2.8354874, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone78"
+								parent_bone = "bone78"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.7651215, -6.5449305, -9.024887 ]
+								hitbox_maxs = [ 0.7973337, 4.0878153, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone80"
+								parent_bone = "bone80"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.988106, -9.310159, -11.210884 ]
+								hitbox_maxs = [ 4.9806023, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone82"
+								parent_bone = "bone82"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.0449677, -10.366236, -11.803886 ]
+								hitbox_maxs = [ 12.953825, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone84"
+								parent_bone = "bone84"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -22.501076, -3.996399, -15.246849 ]
+								hitbox_maxs = [ 22.498775, 8.7477, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone85"
+								parent_bone = "bone85"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -27.25098, -7.0570097, -20.193863 ]
+								hitbox_maxs = [ 27.24868, 4.505419, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone86"
+								parent_bone = "bone86"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.617508, -3.1840744, -30.515831 ]
+								hitbox_maxs = [ 13.007233, 10.722019, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone87"
+								parent_bone = "bone87"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.061085, -7.5223637, -29.625027 ]
+								hitbox_maxs = [ 10.063505, 8.289818, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone89"
+								parent_bone = "bone89"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.716921, -1.0328007, -29.32286 ]
+								hitbox_maxs = [ 12.406706, 7.467105, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone90"
+								parent_bone = "bone90"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.103902, -1.2771549, -29.139431 ]
+								hitbox_maxs = [ 12.019479, 7.722662, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone92"
+								parent_bone = "bone92"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.409003, -1.0328016, -29.32286 ]
+								hitbox_maxs = [ 7.7169085, 7.467105, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone93"
+								parent_bone = "bone93"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.021784, -1.2771549, -29.139431 ]
+								hitbox_maxs = [ 11.103888, 7.722662, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone95"
+								parent_bone = "bone95"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.759537, -3.1840744, -30.515831 ]
+								hitbox_maxs = [ 9.6152115, 10.722019, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone96"
+								parent_bone = "bone96"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.065802, -7.5223627, -29.625027 ]
+								hitbox_maxs = [ 10.058786, 8.289818, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone21"
+								parent_bone = "bone21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.1977425, -5.772397, -30.757793 ]
+								hitbox_maxs = [ 10.5756855, 9.352598, 0.99220276 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone22"
+								parent_bone = "bone22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.054744, -6.9945602, -45.00039 ]
+								hitbox_maxs = [ 13.038991, 12.2554245, 2.5620613 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone25"
+								parent_bone = "bone25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.536649, -5.772397, -30.757793 ]
+								hitbox_maxs = [ 6.236783, 9.352598, 0.99220276 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone26"
+								parent_bone = "bone26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.354691, -6.978591, -44.995193 ]
+								hitbox_maxs = [ 5.7390447, 12.271394, 2.567257 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone101"
+								parent_bone = "bone101"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.76541996, -1.8614969, -8.800903 ]
+								hitbox_maxs = [ 2.609579, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone102"
+								parent_bone = "bone102"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.7163, -0.90939426, -17.547287 ]
+								hitbox_maxs = [ 2.2211962, 0.9656038, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone103"
+								parent_bone = "bone103"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.8667994, -0.8071966, -19.339882 ]
+								hitbox_maxs = [ 1.7581949, 1.2553005, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone105"
+								parent_bone = "bone105"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.6118822, -1.8615007, -8.800903 ]
+								hitbox_maxs = [ 0.76311684, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone106"
+								parent_bone = "bone106"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.2234983, -0.9093981, -17.547287 ]
+								hitbox_maxs = [ 1.7139969, 0.9656, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone107"
+								parent_bone = "bone107"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.7604961, -0.8071976, -19.339882 ]
+								hitbox_maxs = [ 1.8644972, 1.2553005, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone109"
+								parent_bone = "bone109"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.5, -10.1688385 ]
+								hitbox_maxs = [ 0.5, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone110"
+								parent_bone = "bone110"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.844896, -0.5, -10.636589 ]
+								hitbox_maxs = [ 6.8425927, 1.1821022, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone111"
+								parent_bone = "bone111"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.62614, -0.5, -10.994698 ]
+								hitbox_maxs = [ 6.623838, 1.1393003, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone112"
+								parent_bone = "bone112"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.376129, -0.5, -10.474716 ]
+								hitbox_maxs = [ 6.37383, 1.0312996, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone113"
+								parent_bone = "bone113"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.157361, -0.5, -11.056232 ]
+								hitbox_maxs = [ 6.1550646, 0.92589855, 0.5 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "ozy"
+						filename = "models/ozy/ozymandias.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"bone18",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "ozy"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "idle"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 10
+								end_frame = 85
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "move"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 416
+								end_frame = 452
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "death"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 14
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/ozy/light_pillar.vpcf"
+											detach_from_owner = false
+											always_run = false
+											aggregate = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "ATTACH_HITLOC"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "ATTACH_HITLOC"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimForceBoneScale"
+										bone = "bone20"
+										frame = 15
+										scale = 0.0
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 30
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/ozy/light_pillar.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 453
+								end_frame = 497
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "attack"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 86
+								end_frame = 116
+								framerate = 45.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 16
+										frame_count = 2
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "attack2"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 117
+								end_frame = 147
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "slam"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 148
+								end_frame = 178
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "spell_"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 179
+								end_frame = 212
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "spell2"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 213
+								end_frame = 243
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "attackBasic2"
+								disabled = true
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 246
+								end_frame = 277
+								framerate = 40.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 17
+										frame_count = 2
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "channel_start"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 278
+								end_frame = 317
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "channel_air"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 318
+								end_frame = 356
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "channel_end"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 367
+								end_frame = 415
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "spell3"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 244
+								end_frame = 277
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "channel_end1"
+								children = 
+								[
+									{
+										_class = "ExtractMotion"
+										extract_tx = true
+										extract_ty = true
+										extract_tz = true
+										extract_rz = false
+										linear = false
+										quadratic = false
+										extract_initial_offset = false
+										root_bone_name = ""
+										motion_type = "Uniform"
+									},
+									{
+										_class = "AnimOffset"
+										translation = [ 0.0, 0.0, -400.0 ]
+										rotation_xyz = [ 0.0, 0.0, 0.0 ]
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandias.fbx"
+								import_bone_scales = false
+								start_frame = 367
+								end_frame = 390
+								framerate = 45.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

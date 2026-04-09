@@ -2,6 +2,7 @@
 demon_king_extermination = class({})
 
 LinkLuaModifier("modifier_demon_king_extermination_burn", "abilities/demon_king_nobunaga/demon_king_extermination", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_demon_king_extermination_dash", "abilities/demon_king_nobunaga/demon_king_extermination", LUA_MODIFIER_MOTION_NONE)
 function demon_king_extermination:OnSpellStart()
    local caster = self:GetCaster() 
    local target = self:GetCursorTarget()
@@ -118,11 +119,13 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
             caster:FaceTowards(target:GetAbsOrigin())
             local dash_duration =  (distance + 250)/speed
 				StartAnimation(caster, {duration=dash_duration, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END, rate=1})
-            local sin = Physics:Unit(caster)
-            caster:SetPhysicsFriction(0)
-            caster:SetPhysicsVelocity(vector * speed)
-            caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
-            caster:SetGroundBehavior (PHYSICS_GROUND_LOCK)
+            self.dashTarget = target
+            caster:AddNewModifier(caster, self, "modifier_demon_king_extermination_dash", {duration = dash_duration + 0.1})
+            -- local sin = Physics:Unit(caster)
+            -- caster:SetPhysicsFriction(0)
+            -- caster:SetPhysicsVelocity(vector * speed)
+            -- caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
+            -- caster:SetGroundBehavior (PHYSICS_GROUND_LOCK)
            
             local dashProjectile = 
             {
@@ -144,22 +147,22 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
                  vVelocity = vector*speed
             }
             local projectile = ProjectileManager:CreateLinearProjectile(dashProjectile)
-            Timers:CreateTimer("maou_nobu_dash", {
-               endTime = dash_duration,
-               callback = function()
+            -- Timers:CreateTimer("maou_nobu_dash", {
+            --    endTime = dash_duration,
+            --    callback = function()
           
-               caster:OnPreBounce(nil)
-               caster:SetBounceMultiplier(0)
-               caster:PreventDI(false)
-               caster:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
-               caster:SetPhysicsVelocity(Vector(0,0,0))
-               FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-               local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false) 
-               if(targets[1] ~= nil ) then
-                  caster:MoveToTargetToAttack(targets[1])
-               end
+            --    caster:OnPreBounce(nil)
+            --    caster:SetBounceMultiplier(0)
+            --    caster:PreventDI(false)
+            --    caster:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
+            --    caster:SetPhysicsVelocity(Vector(0,0,0))
+            --    FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+            --    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false) 
+            --    if(targets[1] ~= nil ) then
+            --       caster:MoveToTargetToAttack(targets[1])
+            --    end
              
-            end})
+            -- end})
           
 		end)
    end
@@ -210,3 +213,110 @@ function modifier_demon_king_extermination_burn:RemoveOnDeath()return true end
 function modifier_demon_king_extermination_burn:IsDebuff() 	return false end
 
  
+modifier_demon_king_extermination_dash = class({})
+
+function modifier_demon_king_extermination_dash:OnCreated()
+	self.parent = self:GetParent()
+	self.ability = self:GetAbility()
+	if IsServer() then
+		self.target = self.ability.dashTarget
+		self.speed = self.ability:GetSpecialValueFor("dash_speed")
+		self.flytopoint = false
+
+
+
+      self.targetpos = self.target:GetAbsOrigin()
+
+		self:StartIntervalThink(FrameTime())
+
+	end
+end
+
+function modifier_demon_king_extermination_dash:IsHidden() return true end
+function modifier_demon_king_extermination_dash:IsDebuff() return false end
+function modifier_demon_king_extermination_dash:RemoveOnDeath() return true end
+function modifier_demon_king_extermination_dash:GetPriority() return MODIFIER_PRIORITY_HIGH end
+-- function modifier_demon_king_extermination_dash:DeclareFunctions()
+-- 	return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION}
+-- end
+-- function modifier_demon_king_extermination_dash:GetOverrideAnimation()
+-- 	return ACT_DOTA_CAST_ABILITY_4_END
+-- end
+function modifier_demon_king_extermination_dash:CheckState()
+    local state = { [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                    --[MODIFIER_STATE_DISARMED] = true,
+                    --[MODIFIER_STATE_SILENCED] = true,
+                    --[MODIFIER_STATE_MUTED] = true,
+                    [MODIFIER_STATE_STUNNED] = true, }
+
+    if self.target and not self.target:IsNull() and self.target:HasFlyMovementCapability() then
+        state[MODIFIER_STATE_FLYING] = true
+    else
+        state[MODIFIER_STATE_FLYING] = false
+    end
+    
+    return state
+end
+function modifier_demon_king_extermination_dash:OnRefresh(hui)
+    self:OnCreated(hui)
+end
+function modifier_demon_king_extermination_dash:OnDestroy()
+    if IsServer() then
+        self.parent:InterruptMotionControllers(true)
+         FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
+
+    end
+end
+function modifier_demon_king_extermination_dash:OnIntervalThink()
+	self:UpdateHorizontalMotion(self.parent, FrameTime())
+end
+function modifier_demon_king_extermination_dash:UpdateHorizontalMotion(me, dt)
+ 
+    if not IsNotNull(self.target) then
+        self.flytopoint = true
+    else 
+
+        if not self.target or not self.target:IsAlive() then
+            --self:Destroy()
+            self.flytopoint = true
+
+            --return nil
+        end
+
+        if (self.targetpos - self.target:GetAbsOrigin()):Length2D() > 300 then
+            --self:Destroy()
+            self.flytopoint = true
+
+            --return nil
+        end
+    end
+
+    if not self.flytopoint then
+    	self.targetpos = self.target:GetAbsOrigin() + (self.target:GetAbsOrigin() - self.parent:GetAbsOrigin() ):Normalized() * 200
+    end
+
+    if (self.targetpos - self.parent:GetOrigin()):Length2D() < 250 then
+      
+
+        self:Destroy()
+        return nil
+    end
+
+    self:Rush(me, dt)
+end
+
+function modifier_demon_king_extermination_dash:Rush(me, dt)
+    --[[if self.parent:IsStunned() then
+        return nil
+    end]]
+
+    local pos = self.parent:GetOrigin()
+    local targetpos = self.targetpos
+
+    local direction = targetpos - pos
+    direction.z = 0     
+    local target = pos + direction:Normalized() * (self.speed * dt)
+
+    self.parent:SetOrigin(target)
+    self.parent:SetForwardVector(direction:Normalized())
+end

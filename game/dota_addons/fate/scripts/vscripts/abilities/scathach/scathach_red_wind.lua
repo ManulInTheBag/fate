@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_scathach_combo_window", "abilities/scathach/scathach_red_wind", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 scathach_red_wind = class({})
 
 
@@ -12,13 +13,20 @@ function scathach_red_wind:OnSpellStart()
 		end
 	end
 	
+
+
+
 	local randomVec = RandomInt(-400,400)
 
 	StartAnimation(caster, {duration=1.00, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
 	local point = self:GetCursorPosition()
 	local distance = (point - caster:GetAbsOrigin()):Length2D()
 	local proc = RandomInt(1, 100)
-	
+	local dir = (point - caster:GetAbsOrigin()):Normalized()
+	dir.z = 0
+	if not (point == caster:GetAbsOrigin()) then
+		caster:SetForwardVector(dir)
+	end
 	if 0 < proc and proc < 33 then
 		caster:EmitSound("scathach_red_wind")
 	elseif 34 < proc and proc < 66 then
@@ -62,8 +70,8 @@ function scathach_red_wind:OnSpellStart()
 	}
 	local dash_time = distance/(charge_distance*2)
 	local projectile = ProjectileManager:CreateLinearProjectile(bindingchain_projectile)
-
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", dash_time+0.1)
+	caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {duration = dash_time + 0.1})
+	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", dash_time+0.1)
 	caster:EmitSound("caster_PhantomLancer.Doppelwalk") 
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)

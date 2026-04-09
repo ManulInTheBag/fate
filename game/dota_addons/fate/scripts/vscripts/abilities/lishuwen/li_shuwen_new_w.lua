@@ -23,7 +23,13 @@ end
 
 function modifier_shuwen_atk_sound:OnAttackLanded(args)
 	if args.attacker ~= self:GetParent() then return end
-	self.sound = "li_attack_sound_new_"..math.random(1,3)
+	if self:GetParent():GetUnitName() == "npc_dota_hero_skeleton_king" then
+		if self:GetParent():HasModifier("modifier_hero_selection_skin") then
+			self.sound = "li_attack_sound_new_"..math.random(1,3)
+		end
+	else
+		self.sound = "li_attack_sound_new_"..math.random(1,3)
+	end
 
 end
 
@@ -33,13 +39,19 @@ end
 
 function modifier_shuwen_atk_sound:DeclareFunctions()
 	local func = {
-					MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
+				MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
 
-				}
+			}
+
 	return func
 end
 
 function modifier_shuwen_atk_sound:GetAttackSound()
+	if self:GetParent():GetUnitName() == "npc_dota_hero_skeleton_king" then
+		if  not self:GetParent():HasModifier("modifier_hero_selection_skin") then
+			return nil
+		end
+	end
 	return self.sound
 end
 

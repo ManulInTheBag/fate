@@ -172,6 +172,13 @@ function demon_king_combo:PlayStartEffects()
             local counter = 0
             Timers:CreateTimer('maou_combo_shrapnel', {endtime = 0, callback = function()
                     if counter >= shrapnelCounterMax then return end
+                    if not IsInSameRealm(self.point, caster:GetAbsOrigin()) then
+                        self.point = caster:GetAbsOrigin()
+                        ParticleManager:SetParticleControl(self.shrapnelFx, 0, self.point)
+                        kostyaPos = caster:GetAbsOrigin()+caster:GetForwardVector()*-300
+                        ParticleManager:SetParticleControlTransformForward(self.castfx, 0, kostyaPos, caster:GetForwardVector())
+                        ParticleManager:SetParticleControlTransformForward(self.castfx, 5, kostyaPos, caster:GetForwardVector())
+                    end
                     local targets = FindUnitsInRadius(caster:GetTeam(), self.point, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
                     for k,v in pairs(targets) do
                         DoDamage(caster, v, self.shrapnelDamage * 0.2, DAMAGE_TYPE_MAGICAL, 0, self, false)

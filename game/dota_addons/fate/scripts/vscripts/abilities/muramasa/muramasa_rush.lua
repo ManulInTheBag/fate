@@ -35,6 +35,11 @@ function muramasa_rush:OnSpellStart()
     local rush_time = range/speed
      --caster:AddNewModifier(caster, ability, "modifier_muramasa_rush_mr",{duration = rush_time })
     StartAnimation(caster, {duration=rush_time, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
+	local dir = (self.RushPoint - caster:GetAbsOrigin()):Normalized()
+	dir.z = 0
+	if not (self.RushPoint == caster:GetAbsOrigin()) then
+		caster:SetForwardVector(dir)
+	end
 
     local qdProjectile = 
     {

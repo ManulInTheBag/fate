@@ -28,7 +28,7 @@ function khsn_slash:OnSpellStart()
 	local cast_delay = ability:GetSpecialValueFor("cast_delay")
 	local range = ability:GetSpecialValueFor("length")
 	local speed = ability:GetSpecialValueFor("speed")
-
+	print(caster:GetUnitName())
 	local ori = caster:GetAbsOrigin()
 	local counterJopaMang = 0
 	Timers:CreateTimer(0, function()

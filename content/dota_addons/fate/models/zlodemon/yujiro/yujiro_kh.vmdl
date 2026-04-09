@@ -98,7 +98,7 @@
 						name = "mang2"
 						parent_bone = "Bip001_L_ForeTwist1"
 						relative_origin = [ 2.82098, -0.956736, 1.085037 ]
-						relative_angles = [ -0.012967, 90.048454, 30.012911 ]
+						relative_angles = [ -0.012967, 90.048454, 30.01291 ]
 						weight = 1.0
 						ignore_rotation = false
 					},
@@ -148,7 +148,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -25.26989, -17.193331, -8.352951 ]
+								hitbox_mins = [ -25.26989, -17.19333, -8.352951 ]
 								hitbox_maxs = [ 25.269928, 16.19713, 18.562286 ]
 							},
 							{
@@ -158,8 +158,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -82.893944, -60.257618, -141.470383 ]
-								hitbox_maxs = [ 92.559631, 61.252056, 67.406296 ]
+								hitbox_mins = [ -82.89394, -60.257618, -141.47038 ]
+								hitbox_maxs = [ 92.55963, 61.252056, 67.406296 ]
 							},
 							{
 								_class = "Hitbox"
@@ -189,7 +189,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -18.14975, -16.021824, -10.56636 ]
-								hitbox_maxs = [ 18.149719, 17.591244, 22.686844 ]
+								hitbox_maxs = [ 18.14972, 17.591244, 22.686844 ]
 							},
 							{
 								_class = "Hitbox"
@@ -228,7 +228,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -9.960022, -8.992088, -16.762711 ]
+								hitbox_mins = [ -9.960022, -8.992088, -16.76271 ]
 								hitbox_maxs = [ 34.678635, 7.586308, 7.267548 ]
 							},
 							{
@@ -488,7 +488,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -14.195805, -16.644953, -48.647308 ]
+								hitbox_mins = [ -14.195805, -16.644953, -48.64731 ]
 								hitbox_maxs = [ 18.151878, 18.074179, 9.343475 ]
 							},
 							{
@@ -518,7 +518,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -18.151985, -16.644913, -48.647308 ]
+								hitbox_mins = [ -18.151985, -16.644913, -48.64731 ]
 								hitbox_maxs = [ 14.195679, 18.074242, 9.343376 ]
 							},
 							{
