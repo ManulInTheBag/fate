@@ -45,7 +45,7 @@ function karna_buff_melee:OnSpellStart()
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			local soundQueue = math.random (1,2)
 			caster:EmitSound("aemis_human_e" .. soundQueue)
-			caster:EmitSound("karna_new_karna_buff_voice")
+			caster:EmitSound("karna_new_fire_1")
 		else
 			caster:EmitSound("karna_new_fire_1")
 			caster:EmitSound("karna_new_karna_buff_voice")
