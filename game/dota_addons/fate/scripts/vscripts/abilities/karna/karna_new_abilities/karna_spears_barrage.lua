@@ -17,9 +17,12 @@ function karna_spears_barrage:GetAOERadius()
 end
 function karna_spears_barrage:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-
-	caster:EmitSound("karna_new_karna_spears_voice")
-
+	if caster:HasModifier("modifier_hero_selection_skin") then 
+		local soundQueue = math.random (1,2)
+		caster:EmitSound("aemis_mecha_r".. soundQueue)
+	else
+		caster:EmitSound("karna_new_karna_spears_voice")
+	end
 	return true 
 end
 
@@ -96,7 +99,12 @@ function karna_spears_barrage:OnSpellStart()
 								end
 							end
 							EmitSoundOnLocationWithCaster(targetPoint, "karna_new_fire_thunder", caster)
-							local explosionFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_1.vpcf", PATTACH_WORLDORIGIN, nil )
+							explosionFxIndex = {}
+							if caster:HasModifier("modifier_hero_selection_skin") then
+								explosionFxIndex = ParticleManager:CreateParticle( "particles/karna/aemis_mecha/mecha_barrage_spear_explosion_1.vpcf", PATTACH_WORLDORIGIN, nil )
+							else
+								explosionFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_1.vpcf", PATTACH_WORLDORIGIN, nil )
+							end
 							ParticleManager:SetParticleControl( explosionFxIndex, 0, targetPoint+ vector_point )
 							ParticleManager:SetParticleShouldCheckFoW(explosionFxIndex, false)
 							local impactFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_2.vpcf", PATTACH_WORLDORIGIN, nil )
@@ -127,7 +135,12 @@ function karna_spears_barrage:OnSpellStart()
 				local target_location = targetPoint + swordVector * scale_vector_1
 				local newForwardVec = ( target_location - spawn_location ):Normalized()
 				table.insert(self.vectors_point, self.counter, {swordVector.x, swordVector.y,swordVector.z})
-				local swordFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear.vpcf", PATTACH_WORLDORIGIN, nil )
+				local swordFxIndex = {}
+				if caster:HasModifier("modifier_hero_selection_skin") then
+					swordFxIndex = ParticleManager:CreateParticle( "particles/karna/aemis_mecha/mecha_barrage_spear.vpcf", PATTACH_WORLDORIGIN, nil )
+				else
+					swordFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear.vpcf", PATTACH_WORLDORIGIN, nil )
+				end
 				ParticleManager:SetParticleControl( swordFxIndex, 0, spawn_location )
 				ParticleManager:SetParticleControl( swordFxIndex, 1, newForwardVec *1 )
 				ParticleManager:SetParticleShouldCheckFoW(swordFxIndex, false)

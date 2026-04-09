@@ -1,6 +1,8 @@
 karna_armor = class({})
 
 LinkLuaModifier("modifier_karna_armor", "abilities/karna/karna_new_abilities/karna_armor", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_karna_skin_model", "abilities/karna/karna_new_abilities/karna_armor", LUA_MODIFIER_MOTION_NONE)
+
 function karna_armor:GetAOERadius()
 	return self:GetSpecialValueFor("explosion_radius")
 end
@@ -47,8 +49,15 @@ function karna_armor:OnSpellStart()
 	end
 	caster:GiveMana(caster:GetMaxMana() * self:GetSpecialValueFor("mana_resplenish_percentage")/100)
 	if modifier.ArmorActive == true then
-		caster:EmitSound("karna_new_karna_remove_armor_voice")
-		caster:EmitSound("karna_new_fire_explosion")
+		if caster:HasModifier ("modifier_hero_selection_skin") then
+			local soundQueue = math.random (1,2)
+			caster:EmitSound("aemis_human_f" .. soundQueue)
+			caster:EmitSound("karna_new_fire_explosion")
+			
+		else
+			caster:EmitSound("karna_new_karna_remove_armor_voice")
+			caster:EmitSound("karna_new_fire_explosion")
+		end
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_COLD_SNAP, rate=1})
 		modifier:RestoreArmorPercentage(50)
 		local effect_shield= ParticleManager:CreateParticle("particles/karna/karna_armor_shield.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
@@ -84,7 +93,12 @@ function karna_armor:OnSpellStart()
 				end
 			end
 			ParticleManager:ReleaseParticleIndex(effect_ground_)
-			caster:SetBodygroup(0, 1)
+			if caster:HasModifier ("modifier_hero_selection_skin") then
+				caster:AddNewModifier(caster, self, "modifier_karna_skin_model", {duration = 120})
+				caster:AddNewModifier(caster, self, "modifier_negr_sosal_aemis", {})
+			else
+				caster:SetBodygroup(0, 1)
+			end
 			modifier:RemoveArmor()
 			caster:SwapAbilities(tArmorAbilities[1], tNoArmorAbilities[1], false, true)
 			caster:SwapAbilities(tArmorAbilities[2], tNoArmorAbilities[2], false, true)
@@ -115,10 +129,22 @@ function karna_armor:OnSpellStart()
 		return
 	end
 	if modifier.ArmorActive == false then
-		caster:EmitSound("karna_new_karna_return_armor_voice")
+		if caster:HasModifier ("modifier_hero_selection_skin") then 
+			local soundQueue = math.random (1,2)
+			caster:EmitSound("aemis_mecha_f" .. soundQueue)
+			
+		else
+			caster:EmitSound("karna_new_karna_return_armor_voice")
+		end
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ICE_WALL, rate=1})
 		--print("active armor enable")
-		caster:SetBodygroup(0, 3)
+		if caster:HasModifier ("modifier_hero_selection_skin") then
+			caster:RemoveModifierByName("modifier_karna_skin_model")
+			caster:RemoveModifierByNameAndCaster("modifier_negr_sosal_aemis", caster)
+		else
+			caster:SetBodygroup(0, 3)
+		end
+		
 		Timers:CreateTimer(0.3, function()
 			caster:SetBodygroup(0, 0)
 			modifier:ReturnArmor()
@@ -395,3 +421,79 @@ function modifier_karna_armor:GetModifierIncomingDamageConstant(keys)
 end
 
 
+
+
+
+
+
+
+
+
+LinkLuaModifier("modifier_negr_sosal_aemis", "abilities/karna/karna_new_abilities/karna_armor.lua", LUA_MODIFIER_MOTION_NONE)
+modifier_negr_sosal_aemis = modifier_negr_sosal_aemis or class({})
+function modifier_negr_sosal_aemis:IsHidden() 																return false end
+function modifier_negr_sosal_aemis:IsDebuff() 																return false end
+function modifier_negr_sosal_aemis:IsPurgable() 															return false end
+function modifier_negr_sosal_aemis:IsPurgeException() 														return false end
+function modifier_negr_sosal_aemis:RemoveOnDeath() 															return false end
+
+
+function modifier_negr_sosal_aemis:OnCreated(hTable)
+
+	self.hCaster  = self:GetCaster()
+	self.hParent  = self:GetParent()
+	self.hAbility = self:GetAbility()
+	if IsServer() then
+		self.fx = ParticleManager:CreateParticle("particles/karna/aemis/aemis_spear_dash_glow.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hCaster )
+   		 	ParticleManager:SetParticleControlEnt(self.fx, 0, self.hCaster, PATTACH_POINT_FOLLOW, "attach_weapon_end_for_particle", self.hCaster:GetAbsOrigin(), false )
+			ParticleManager:SetParticleControlEnt(self.fx, 1, self.hCaster, PATTACH_POINT_FOLLOW, "attach_weapon_end_for_particle", self.hCaster:GetAbsOrigin(), false )
+			ParticleManager:SetParticleControlEnt(self.fx, 3, self.hCaster, PATTACH_POINT_FOLLOW, "attach_weapon_base", self.hCaster:GetAbsOrigin(), false )		 
+		self:AddParticle(
+		self.fx,
+		false, 
+		false, 
+		-1, 
+		false, 
+		false
+		)
+	end
+end
+
+
+	
+function modifier_negr_sosal_aemis:OnRefresh(hTable)
+	self:OnCreated(hTable)
+end
+function modifier_negr_sosal_aemis:OnDestroy()
+end
+
+
+modifier_karna_skin_model = modifier_karna_skin_model or class({})
+
+function modifier_karna_skin_model:IsHidden()                                                                       return true end
+function modifier_karna_skin_model:IsDebuff()                                                                       return false end
+function modifier_karna_skin_model:IsPurgable()                                                                     return false end
+function modifier_karna_skin_model:IsPurgeException()                                                               return false end
+function modifier_karna_skin_model:RemoveOnDeath()                                                                  return false end
+function modifier_karna_skin_model:IsDimensionException()                                                           return true end
+function modifier_karna_skin_model:AllowIllusionDuplicate()                                                         return true end
+function modifier_karna_skin_model:GetPriority()                                                                    return MODIFIER_PRIORITY_HIGH end
+function modifier_karna_skin_model:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_karna_skin_model:GetModifierModelChange(keys)
+    return "models/darkeyed/aemeath/mecha/aemeath_mecha.vmdl"
+end
+function modifier_karna_skin_model:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    
+end
+function modifier_karna_skin_model:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end

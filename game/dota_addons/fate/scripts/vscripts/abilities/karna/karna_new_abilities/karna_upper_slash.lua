@@ -43,8 +43,14 @@ function karna_upper_slash:OnSpellStart()
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ALACRITY, rate=1})
 	Timers:CreateTimer(0.42, function()
 		if not caster:IsAlive() then return end
-		caster:EmitSound("karna_new_fire_2")
-		caster:EmitSound("karna_new_karna_hit_2")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("karna_new_fire_2")
+			caster:EmitSound("aemis_human_q2")
+			caster:EmitSound("aemis_human_rr")
+		else
+			caster:EmitSound("karna_new_fire_2")
+			caster:EmitSound("karna_new_karna_hit_2")
+		end
 		--local particle = ParticleManager:CreateParticle("particles/karna/karna_spin_slash.vpcf", PATTACH_ABSORIGIN, caster)
 		--ParticleManager:ReleaseParticleIndex(particle)
 		local targets = FATE_FindUnitsInLine(

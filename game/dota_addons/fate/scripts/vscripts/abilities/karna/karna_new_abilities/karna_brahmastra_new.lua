@@ -50,7 +50,11 @@ function karna_brahmastra_new:OnSpellStart()
 	forward2.z = 0
 	caster:SetForwardVector(forward2)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5) 
-	self.Laser = ParticleManager:CreateParticle("particles/karna/brahmastra_laser/brahmastra_laser_powered.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	if caster:HasModifier("modifier_hero_selection_skin") then 
+		self.Laser = ParticleManager:CreateParticle("particles/karna/aemis/aemis_laser.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	else
+		self.Laser = ParticleManager:CreateParticle("particles/karna/brahmastra_laser/brahmastra_laser_powered.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	end
 	local counter = 0
 	self.AttackedTargets    = {}
 	--[[
@@ -124,8 +128,11 @@ function karna_brahmastra_new:OnSpellStart()
 		return FrameTime()
 		end
 	end)
-	caster:EmitSound("karna_brahmastra_" .. math.random(1,4))
- 
+	if caster:HasModifier("modifier_hero_selection_skin") then 
+		caster:EmitSound("aemis_mecha_w" .. math.random(1,2))
+	else
+		caster:EmitSound("karna_brahmastra_" .. math.random(1,4))
+	end 
 	caster:EmitSound("karna_brahmastra_laser")
 	caster:EmitSound("karna_new_karna_beam_1")
 	caster:EmitSound("karna_new_karna_beam_2")

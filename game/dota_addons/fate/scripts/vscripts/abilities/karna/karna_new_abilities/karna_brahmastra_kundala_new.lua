@@ -29,6 +29,7 @@ function modifier_karna_no_spear:OnCreated()
 		else
 			caster:SetBodygroup(0,3)
 		end
+		caster:RemoveModifierByNameAndCaster("modifier_negr_sosal_aemis", caster)
 	end
 end
 
@@ -40,6 +41,9 @@ function modifier_karna_no_spear:OnDestroy()
 			caster:SetBodygroup(0,0)
 		else
 			caster:SetBodygroup(0,1)
+		end
+		if caster:HasModifier ("modifier_hero_selection_skin") then
+			caster:AddNewModifier(caster,self:GetAbility(), "modifier_negr_sosal_aemis", {})
 		end
 	end
 end
@@ -65,9 +69,12 @@ end
 
 function karna_brahmastra_kundala_new:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-
-	caster:EmitSound("karna_new_karna_kundala")
-
+	if caster:HasModifier ("modifier_hero_selection_skin") then
+		local soundQueue = math.random (1,2) 
+		caster:EmitSound("aemis_mecha_e" .. soundQueue)
+	else
+		caster:EmitSound("karna_new_karna_kundala")
+	end
 	return true 
 end
 function karna_brahmastra_kundala_new:OnAbilityPhaseInterrupted()
@@ -92,33 +99,62 @@ function karna_brahmastra_kundala_new:OnSpellStart()
 		aoe_damage = aoe_damage + (caster.IndraAttribute and 1 * caster:GetIntellect() or 0)
 	end
 	caster:AddNewModifier(caster, self, "modifier_karna_no_spear", {duration = self:GetSpecialValueFor("spear_loss_duration")})
-	local tProjectile = {
-		EffectName = "particles/karna/spear_throw.vpcf",
-		Ability = self,
-		vSpawnOrigin = caster:GetAbsOrigin(),
-		vVelocity = target * 3000,
-		fDistance = range,
-		fStartRadius = 150,
-		fEndRadius = 150,
-		Source = caster,
-		bHasFrontalCone = false,
-		bReplaceExisting = false,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags = 0,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		--bProvidesVision = true,
-		bDeleteOnHit = false,
-		--iVisionRadius = 500,
-		--bFlyingVision = true,
-		--iVisionTeamNumber = caster:GetTeamNumber(),
-		ExtraData = {fDamage = aoe_damage, fRadius = self:GetSpecialValueFor("radius")}
-	}  
+	local tProjectile = {}
+		if caster:HasModifier("modifier_hero_selection_skin") then 
+			tProjectile = {
+			EffectName = "particles/karna/aemis_mecha/aemis_spear_throwspear_throw.vpcf",
+			Ability = self,
+			vSpawnOrigin = caster:GetAbsOrigin(),
+			vVelocity = target * 3000,
+			fDistance = range,
+			fStartRadius = 150,
+			fEndRadius = 150,
+			Source = caster,
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = 0,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			--bProvidesVision = true,
+			bDeleteOnHit = false,
+			--iVisionRadius = 500,
+			--bFlyingVision = true,
+			--iVisionTeamNumber = caster:GetTeamNumber(),
+			ExtraData = {fDamage = aoe_damage, fRadius = self:GetSpecialValueFor("radius")}
+			} 
+		else
+			tProjectile = {
+			EffectName = "particles/karna/spear_throw.vpcf",
+			Ability = self,
+			vSpawnOrigin = caster:GetAbsOrigin(),
+			vVelocity = target * 3000,
+			fDistance = range,
+			fStartRadius = 150,
+			fEndRadius = 150,
+			Source = caster,
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = 0,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			--bProvidesVision = true,
+			bDeleteOnHit = false,
+			--iVisionRadius = 500,
+			--bFlyingVision = true,
+			--iVisionTeamNumber = caster:GetTeamNumber(),
+			ExtraData = {fDamage = aoe_damage, fRadius = self:GetSpecialValueFor("radius")}
+			}  
+		end
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
 	--self:StartCooldown(self:GetLevel())	  	
 	local endpos = caster:GetAbsOrigin() + target * range
 	self.spear_position = GetGroundPosition(endpos, caster)
 	Timers:CreateTimer((range/2500), function()
-		self.endFX = ParticleManager:CreateParticle("particles/karna/karna_spear_in_ground_.vpcf", PATTACH_WORLDORIGIN, nil)
+		-- if caster:HasModifier "modifier_hero_selection_skin" then
+			self.endFX = ParticleManager:CreateParticle("particles/karna/aemis_mecha/mecha_spear_in_ground.vpcf", PATTACH_WORLDORIGIN, nil)
+		-- else
+		-- 	self.endFX = ParticleManager:CreateParticle("particles/karna/karna_spear_in_ground_.vpcf", PATTACH_WORLDORIGIN, nil)
+		-- end
 		ParticleManager:SetParticleControlTransformForward(self.endFX, 0, self.spear_position, self.spear_position)
 
 		if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_new"   and not  caster:FindModifierByName("modifier_karna_armor").ArmorActive  then

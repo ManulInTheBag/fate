@@ -13,7 +13,13 @@ function karna_recast_dash:OnSpellStart()
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1.1})
 	local ability = self
 	caster:FindAbilityByName("karna_spin_2"):StartCooldown(1)
-	caster:EmitSound("karna_new_karna_too_slow")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+			local soundQueue = math.random (1,3)
+ 			caster:EmitSound("aemis_human_qw" .. soundQueue)
+			caster:EmitSound("aemis_human_q2")
+	else
+		caster:EmitSound("karna_new_karna_too_slow")
+	end
 	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
 	local proj = 
 	{
@@ -41,7 +47,11 @@ function karna_recast_dash:OnSpellStart()
 	local projectile = ProjectileManager:CreateLinearProjectile(proj)
 	caster:AddNewModifier(caster, self, "modifier_karna_self_pause_2", {Duration = 0.5}) 
 	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
-	caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("aemis_human_q2")
+	else
+		caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 
+	end
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(vector * 1200)

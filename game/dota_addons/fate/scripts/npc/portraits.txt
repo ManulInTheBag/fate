@@ -25870,4 +25870,67 @@
 			}
 		}
 	}
+
+	"models/darkeyed/aemeath/normal/aemeath_normal.vmdl"
+	{
+		"PortraitLightPosition"		"8.34 -51.72 127.79"
+		"PortraitLightAngles"		"12.96 83.92 0.00"
+		"PortraitLightFOV"		"51"
+		"PortraitLightDistance"		"85"
+		"PortraitLightColor"		"254 210 218"
+		"PortraitShadowColor"		"93 93 93"
+		"PortraitShadowScale"		"4.025000"
+		"PortraitAmbientColor"		"241 165 97"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundColor1"		"0.795958 0.795958 0.795958"
+		"PortraitBackgroundColor2"		"0.840178 0.840178 0.840178"
+		"PortraitBackgroundColor3"		"0.500000 0.500000 0.500000"
+		"PortraitBackgroundColor4"		"0.700000 0.700000 0.700000"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"4.100000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE|ACT_DOTA_IDLE_RARE" 
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"250.90 -50.04 163.91"
+				"PortraitAngles"		"358.38 168.70 0.00"
+				"PortraitFOV"		"18"
+			}
+		}
+	}
+	"models/darkeyed/aemeath/mecha/aemeath_mecha.vmdl"
+	{
+		"PortraitLightPosition"		"8.34 -51.72 127.79"
+		"PortraitLightAngles"		"12.96 83.92 0.00"
+		"PortraitLightFOV"		"51"
+		"PortraitLightDistance"		"85"
+		"PortraitLightColor"		"254 210 218"
+		"PortraitShadowColor"		"93 93 93"
+		"PortraitShadowScale"		"4.025000"
+		"PortraitAmbientColor"		"241 165 97"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundColor1"		"0.795958 0.795958 0.795958"
+		"PortraitBackgroundColor2"		"0.840178 0.840178 0.840178"
+		"PortraitBackgroundColor3"		"0.500000 0.500000 0.500000"
+		"PortraitBackgroundColor4"		"0.700000 0.700000 0.700000"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"4.100000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE|ACT_DOTA_IDLE_RARE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"425.90 -50.04 163.91"
+				"PortraitAngles"		"360.38 171.70 0.00"
+				"PortraitFOV"		"22"
+			}
+		}
+	}
 }

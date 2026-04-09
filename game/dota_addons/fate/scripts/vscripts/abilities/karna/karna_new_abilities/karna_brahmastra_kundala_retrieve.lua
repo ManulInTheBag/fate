@@ -50,7 +50,31 @@ function karna_brahmastra_kundala_retrieve:OnSpellStart()
 	local distance = (caster:GetAbsOrigin()-spear_pos):Length2D()
 	local vector = (caster:GetAbsOrigin()-spear_pos):Normalized()
 	local speed = distance / 0.2
-	local tProjectile = {
+	local tProjectile = {}
+	if caster:HasModifier("modifier_hero_selection_skin") then
+	 tProjectile = {
+		EffectName = "particles/karna/aemis_mecha/aemis_spear_throwspear_throw.vpcf",
+		Ability = self,
+		vSpawnOrigin = spear_pos,
+		vVelocity = vector * speed,
+		fDistance = distance-50,
+		fStartRadius = aoe_radius,
+		fEndRadius = aoe_radius,
+		Source = caster,
+		bHasFrontalCone = false,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = 0,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		--bProvidesVision = true,
+		bDeleteOnHit = false,
+		--iVisionRadius = 500,
+		--bFlyingVision = true,
+		--iVisionTeamNumber = caster:GetTeamNumber(),
+		ExtraData = {fDamage = aoe_damage, fRadius = aoe_radius}
+		}
+	else
+		tProjectile = {
 		EffectName = "particles/karna/spear_throw.vpcf",
 		Ability = self,
 		vSpawnOrigin = spear_pos,
@@ -71,6 +95,7 @@ function karna_brahmastra_kundala_retrieve:OnSpellStart()
 		--iVisionTeamNumber = caster:GetTeamNumber(),
 		ExtraData = {fDamage = aoe_damage, fRadius = aoe_radius}
 	}  
+	end  
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
 
 end

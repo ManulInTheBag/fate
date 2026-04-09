@@ -45,7 +45,11 @@ function karna_combo_vasavi_new:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_combo_vasavi_cooldown", { Duration = self:GetCooldown(1) })
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 4)
-	self.flameFx1 = ParticleManager:CreateParticle("particles/custom/gawain/gawain_excalibur_galatine_orb.vpcf", PATTACH_ABSORIGIN, caster )
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		self.flameFx1 = ParticleManager:CreateParticle("particles/karna/aemis_mecha/combo/aemis_excalibur_galatine_orb.vpcf", PATTACH_ABSORIGIN, caster )
+	else
+		self.flameFx1 = ParticleManager:CreateParticle("particles/custom/gawain/gawain_excalibur_galatine_orb.vpcf", PATTACH_ABSORIGIN, caster )
+	end
 	ParticleManager:SetParticleControl( self.flameFx1, 0, caster:GetAbsOrigin() - caster:GetForwardVector()*300 + Vector(0,0,300))
     Timers:CreateTimer(fire_delay + 1.0, function()
     	ParticleManager:DestroyParticle( self.flameFx1, false )
@@ -101,8 +105,11 @@ function karna_combo_vasavi_new:OnSpellStart()
 
 		    self.Dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 			self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)			
-
-		    self.LaserBeam = ParticleManager:CreateParticle("particles/custom/karna/combo/vasavi_shakti_beam_combo.vpcf", PATTACH_CUSTOMORIGIN, self.Dummy)
+			-- if caster:HasModifier("modifier_hero_selection_skin") then
+			-- 	self.LaserBeam = ParticleManager:CreateParticle("particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf", PATTACH_CUSTOMORIGIN, self.Dummy)
+			-- else
+		    	self.LaserBeam = ParticleManager:CreateParticle("particles/custom/karna/combo/vasavi_shakti_beam_combo.vpcf", PATTACH_CUSTOMORIGIN, self.Dummy)
+		    -- end
 			ParticleManager:SetParticleControlEnt(self.LaserBeam, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon_end", caster:GetOrigin(), true)
 			ParticleManager:SetParticleControl(self.LaserBeam, 1, caster:GetOrigin())			
 		end
@@ -149,8 +156,11 @@ function karna_combo_vasavi_new:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 
 		--ParticleManager:DestroyParticle(self.WeaponSpark, true)
 		--ParticleManager:ReleaseParticleIndex(self.WeaponSpark)
-
-		EmitGlobalSound("karna_vasavi_explosion")
+		if hCaster:HasModifier("modifier_hero_selection_skin") then
+			EmitGlobalSound("mecha_combo_explosion")
+		else
+			EmitGlobalSound("karna_vasavi_explosion")
+		end
 
 		Timers:CreateTimer(2, function()
 			ParticleManager:DestroyParticle(particle, false)

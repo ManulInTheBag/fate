@@ -808,6 +808,8 @@ tRemoveTheseModifiers = {
     "modifier_lancelot_minigun",
     "modifier_demon_king_materialization",
     "modifier_okada_combo_true_invis",
+     "modifier_karna_skin_model",
+     "modifier_negr_sosal_aemis"
 }
 
 tDivineHeroes = {

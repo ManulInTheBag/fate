@@ -42,16 +42,28 @@ function karna_buff_melee:ApplyBurnStacks(target)
 end
 function karna_buff_melee:OnSpellStart()
 	local caster = self:GetCaster()
-		caster:EmitSound("karna_new_fire_1")
-		caster:EmitSound("karna_new_karna_buff_voice")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			local soundQueue = math.random (1,2)
+			caster:EmitSound("aemis_human_e" .. soundQueue)
+			caster:EmitSound("karna_new_karna_buff_voice")
+		else
+			caster:EmitSound("karna_new_fire_1")
+			caster:EmitSound("karna_new_karna_buff_voice")
+		end
 	if (self.fx) then	
 		ParticleManager:DestroyParticle( self.fx, true )
 		ParticleManager:ReleaseParticleIndex( self.fx )
 		Timers:RemoveTimer("karna_buff_melee_fx")
 	end
-	self.fx = ParticleManager:CreateParticle("particles/karna/karna_test_jopa_main.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt(self.fx, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon_base", caster:GetAbsOrigin(), false )
-	ParticleManager:SetParticleControlEnt(self.fx, 1, caster, PATTACH_POINT_FOLLOW, "attach_weapon_end", caster:GetAbsOrigin(), false )
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			self.fx = ParticleManager:CreateParticle("particles/karna/aemis/aemis_buff_.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+   		 	ParticleManager:SetParticleControlEnt(self.fx, 0, caster, PATTACH_POINT_FOLLOW, "ATTACH_ORIGIN", caster:GetAbsOrigin(), false )
+			ParticleManager:SetParticleControlEnt(self.fx, 1, caster, PATTACH_POINT_FOLLOW, "FOLLOW_OVERHEAD", caster:GetAbsOrigin(), false )
+		else
+			self.fx = ParticleManager:CreateParticle("particles/karna/karna_test_jopa_main.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+    		ParticleManager:SetParticleControlEnt(self.fx, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon_base", caster:GetAbsOrigin(), false )
+			ParticleManager:SetParticleControlEnt(self.fx, 1, caster, PATTACH_POINT_FOLLOW, "attach_weapon_end", caster:GetAbsOrigin(), false )
+		end
 	local armor_modifier = caster:FindModifierByName("modifier_karna_armor")
 	armor_modifier:RestoreArmorPercentage(self:GetSpecialValueFor("armor_restore_percentage"))
 	caster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")

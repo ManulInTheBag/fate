@@ -200,7 +200,11 @@ function karna_spin:OnSpellStart()
 		caster:SetPhysicsVelocity(Vector(0,0,0))
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 		if not caster:IsAlive() then return end
-		caster:EmitSound("karna_new_karna_hit_1")
+			if caster:HasModifier("modifier_hero_selection_skin") then 
+				caster:EmitSound("aemis_human_q")
+			else
+				caster:EmitSound("karna_new_karna_hit_1")
+			end
 		local enemies = FATE_FindUnitsInLine(
 			caster:GetTeamNumber(),
 			caster:GetAbsOrigin(),

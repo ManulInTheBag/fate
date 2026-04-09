@@ -75,7 +75,7 @@ function karna_spin_2:OnSpellStart()
 					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
 						if stacks == 4 then 
-							DoDamage(caster, v, caster:GetIntellect() * 1.5, self:GetAbility():GetAbilityDamageType(), 0, self, false)
+							DoDamage(caster, v, caster:GetIntellect() * 1.5, self:GetAbilityDamageType(), 0, self, false)
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else
@@ -137,8 +137,13 @@ function karna_spin_2:OnSpellStart()
 	end)
 	Timers:CreateTimer(0.72, function()
 		if not caster:IsAlive() then return end
-		caster:EmitSound("karna_new_fire_2")
-		caster:EmitSound("karna_new_karna_hit_2")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("karna_new_fire_2")
+			caster:EmitSound("aemis_human_q")
+		else
+			caster:EmitSound("karna_new_fire_2")
+			caster:EmitSound("karna_new_karna_hit_2")
+		end
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then

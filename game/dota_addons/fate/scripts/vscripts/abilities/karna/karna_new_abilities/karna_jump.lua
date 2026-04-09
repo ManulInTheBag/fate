@@ -67,7 +67,13 @@ function karna_jump:OnSpellStart()
 	
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.2)  
 	local vector_to_mid_position = (mid_position_in_air - origin):Normalized()
-	EmitSoundOn("karna_new_dash_2", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		local soundQueue = math.random (1,2)
+		EmitSoundOn("aemis_human_r".. soundQueue, caster)
+		EmitSoundOn("karna_new_dash_2", caster)
+	else
+		EmitSoundOn("karna_new_dash_2", caster)
+	end
 	caster:AddNewModifier(caster, self, "modifier_karna_dash", {duration = 0.55, distance = ((mid_position_in_air - origin):Length()), height = height, dashType = 0,
 																x = vector_to_mid_position.x, y = vector_to_mid_position.y, z = vector_to_mid_position.z})
 	

@@ -58,9 +58,13 @@ function karna_push:OnSpellStart()
 
 			end)
 		end
-
-		caster:EmitSound("karna_new_fire_2")
-		caster:EmitSound("karna_new_karna_hit_2")
-
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			local soundQueue = math.random (1,2)
+			caster:EmitSound("karna_new_fire_2")
+			caster:EmitSound("aemis_mecha_q" .. soundQueue)
+		else
+			caster:EmitSound("karna_new_fire_2")
+			caster:EmitSound("karna_new_karna_hit_2")
+		end
 end
 

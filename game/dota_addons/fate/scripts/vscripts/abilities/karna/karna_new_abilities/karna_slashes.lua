@@ -50,8 +50,13 @@ function karna_slashes:OnSpellStart()
 	local aoe_damage = self:GetSpecialValueFor("damage")
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.4)  
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")
-	caster:EmitSound("karna_new_fire_2")
-	caster:EmitSound("karna_new_karna_hit_3")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("karna_new_fire_2")
+		caster:EmitSound("aemis_human_w")
+	else
+		caster:EmitSound("karna_new_fire_2")
+		caster:EmitSound("karna_new_karna_hit_3")
+	end
 	local saBool1 = false
 	local saBool2 = false
 	local bMartialArts = caster.ManaBurstAttribute
@@ -107,8 +112,12 @@ function karna_slashes:OnSpellStart()
 	
 	end)
 	Timers:CreateTimer(0.35, function()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("karna_new_fire_2")
+	else
 		caster:EmitSound("karna_new_fire_2")
 		caster:EmitSound("karna_new_karna_hit_3")
+	end
 
 	end)
 	Timers:CreateTimer(0.4, function()
