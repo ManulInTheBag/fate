@@ -943,22 +943,22 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/karna/aemis/mecha_spear_in_groundd.vpcf"
+			m_ChildRef = resource:"particles/karna/aemis_mecha/mecha_spear_in_groundd.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/karna/aemis/mecha_spear_in_grounda.vpcf"
+			m_ChildRef = resource:"particles/karna/aemis_mecha/mecha_spear_in_grounda.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/karna/aemis/mecha_spear_in_grounde.vpcf"
+			m_ChildRef = resource:"particles/karna/aemis_mecha/mecha_spear_in_grounde.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/karna/aemis/mecha_spear_in_groundc.vpcf"
+			m_ChildRef = resource:"particles/karna/aemis_mecha/mecha_spear_in_groundc.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/karna/aemis/mecha_spear_in_groundb.vpcf"
+			m_ChildRef = resource:"particles/karna/aemis_mecha/mecha_spear_in_groundb.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/karna/aemis/mecha_spear_in_groundf.vpcf"
+			m_ChildRef = resource:"particles/karna/aemis_mecha/mecha_spear_in_groundf.vpcf"
 		},
 	]
 }
