@@ -60,7 +60,7 @@ function aoko_shield:OnSpellStart()
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 	    if self:GetAutoCastState() and caster:FindAbilityByName("aoko_blue"):IsCooldownReady() and caster:FindAbilityByName("aoko_earthlight_starbow"):IsCooldownReady() and caster:IsAlive() then	    		
-	    	caster:AddNewModifier(caster, self, "modifier_aoko_combo_window", {duration = 1.3})
+	    	caster:AddNewModifier(caster, self, "modifier_aoko_combo_window", {duration = 2.5})
 		end
 	end
 end
