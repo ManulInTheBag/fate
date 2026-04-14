@@ -1,7 +1,26 @@
 LinkLuaModifier("modifier_aoko_3_beams_tracker", "abilities/aoko/aoko_3_beams", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoko_3_beams_tracker_checker", "abilities/aoko/aoko_3_beams", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_aoko_3_beams_stacks", "abilities/aoko/aoko_3_beams", LUA_MODIFIER_MOTION_NONE)
 
 aoko_3_beams = class({})
+
+function aoko_3_beams:GetIntrinsicModifierName()
+	return "modifier_aoko_3_beams_stacks"
+end
+
+function aoko_3_beams:CastFilterResultLocation()
+	local caster = self:GetCaster()
+	if IsServer() then
+		if caster:FindModifierByName("modifier_aoko_3_beams_stacks"):GetStackCount() <= 0 then
+			return UF_FAIL_CUSTOM
+		end
+	end
+	return UF_SUCCESS
+end
+
+function aoko_3_beams:GetCustomCastErrorLocation()
+    return "#No_Stacks"
+end
 
 function aoko_3_beams:OnUpgrade()
 	local caster = self:GetCaster()
@@ -101,6 +120,8 @@ function aoko_3_beams:OnSpellStart()
     local second_threshold = self:GetSpecialValueFor("second_threshold")
 
     local seq = self:CheckSequence()
+
+    hCaster:FindModifierByName("modifier_aoko_3_beams_stacks"):DecrementStackCount()
 	
     if seq == 1 then
     	EmitGlobalSound("aoko_sbs_1")
@@ -318,7 +339,7 @@ function modifier_aoko_3_beams:OnIntervalThink()
     for _, check in pairs(spherecheck) do
     	if check:HasModifier("modifier_aoko_sphere_dummy") then
 	        local modifier = check:AddNewModifier(self.parent, self.parent:FindAbilityByName("aoko_sphere"), "modifier_aoko_sphere_dummy", {duration = 1, unbreakable = 1})
-	        modifier:SetDuration(1, true)
+	        modifier:SetDuration(self.ability:GetSpecialValueFor("sphere_duration"), true)
 	        check:FindModifierByName("modifier_aoko_sphere_dummy"):SevereExplode()
 	    end
     end
@@ -420,6 +441,24 @@ end
 
 --
 
+modifier_aoko_3_beams_stacks = class({})
+
+function modifier_aoko_3_beams_stacks:IsPurgable()
+	return false
+end
+
+function modifier_aoko_3_beams_stacks:IsHidden()
+	return false
+end
+
+function modifier_aoko_3_beams_stacks:IsDebuff()
+	return false
+end
+
+function modifier_aoko_3_beams_stacks:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 modifier_aoko_3_beams_tracker_checker = class({})
 
 function modifier_aoko_3_beams_tracker_checker:OnCreated()
@@ -427,8 +466,8 @@ function modifier_aoko_3_beams_tracker_checker:OnCreated()
 		self.caster = self:GetCaster()
 		self.circuits = self.caster:FindAbilityByName("aoko_circuits")
 		self.ability = self:GetAbility()
-		self.first_threshold = self.ability:GetSpecialValueFor("first_threshold")
-    	self.second_threshold = self.ability:GetSpecialValueFor("second_threshold")
+		self.first_threshold = 0--self.ability:GetSpecialValueFor("first_threshold")
+    	self.second_threshold = 0--self.ability:GetSpecialValueFor("second_threshold")
 
 		self:StartIntervalThink(FrameTime())
 	end

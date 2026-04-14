@@ -264,7 +264,7 @@
 			"sphere_disarm"							"2.0 2.5 3.0 3.5 4.0"
 			"attribute_magical_damage_reduction"	"20"
 			"attribute_debuff_duration"				"5"
-			"attribute_int_scaling"					"4"
+			"attribute_int_scaling"					"1"
 			"stack_gain"							"20"
 		}
 	}
@@ -388,7 +388,8 @@
 			"overload_ms"					"30 10 20"
 			"attribute_cdr_per_stack"		"0.1"
 			"attribute_blue_amp_per_stack"	"0.05"
-			"attribute_red_amp"				"40"
+			"attribute_red_amp"				"30"
+			"attribute_red_amp_per_level"	"0"
 			"overload_duration"				"15"
 			"overload_threshold"			"100"
 			"overload_sphere_charge_time"	"4"
@@ -513,16 +514,17 @@
         	"mana_cost"					"300"
             "damage" 					"300 375 450 525 600"
             "damage_leg" 				"300 375 450 525 600"
-            "attribute_int_scale"		"2"
-            "attribute_int_scale_leg"	"4"
+            "attribute_int_scale"		"1"
+            "attribute_int_scale_leg"	"2"
             "duration" 					"0.33"
             "distance" 					"1400"
             "radius" 					"200"
-            "first_threshold"			"40"
-            "second_threshold"			"80"
+            "stacks_for_charge"			"33"
+            "max_charges"				"3"
             "window_duration"			"2.5"
             "sphere_dps"				"100 125 150 175 200"
 			"sphere_slow"				"40"
+			"sphere_duration"			"2"
             "stack_gain"				"10"
         }
 	}
@@ -766,11 +768,11 @@
         {
         	"short_beam_debuff_power"	"20"
         	"short_beam_duration"		"5"
-        	"short_beam_int_scale"		"4"
+        	"short_beam_int_scale"		"1"
         	"lazers_int_scale"			"0.3"
         	"lazers_vision_duration"	"3"
-        	"severe_int_scale"			"2"
-        	"severe_int_scale_leg"		"4"
+        	"severe_int_scale"			"1"
+        	"severe_int_scale_leg"		"2"
         	"slam_int_scale"			"2"
         }		
 	}
@@ -860,7 +862,8 @@
         	"change_cooldown"			"5"
         	"normal_cost"				"14"
         	"change_cost"				"2"
-        	"red_amp"					"40"
+        	"red_amp"					"30"
+        	"red_amp_per_level"			"0"
         	"shield_damage"				"200 250 300 350 400"
         	"shield_stun"				"0.5"
         }		

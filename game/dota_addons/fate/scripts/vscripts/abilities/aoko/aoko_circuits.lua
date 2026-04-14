@@ -166,6 +166,8 @@ function modifier_aoko_circuits_passive:OnCreated()
 	self.ability = self:GetAbility()
 	self:SetStackCount(0)
 
+	self.beamcounter = 0
+
 	self.ability:SetLevel(2)
 end
 
@@ -176,6 +178,25 @@ end
 
 function modifier_aoko_circuits_passive:RaiseStackCount(count)
 	if IsServer() then
+		local mod = self.parent:FindModifierByName("modifier_aoko_3_beams_stacks")
+		self.beamability = self.parent:FindAbilityByName("aoko_3_beams")
+		self.stacks_for_beam = self.beamability:GetSpecialValueFor("stacks_for_charge")
+		self.beam_max_charges = self.beamability:GetSpecialValueFor("max_charges")
+		if mod and (mod:GetStackCount() < self.beam_max_charges) then
+			self.beamcounter = self.beamcounter + count
+			if self.beamcounter >= self.stacks_for_beam then
+				local beamstacks = math.floor(self.beamcounter/self.stacks_for_beam)
+				self.beamcounter = math.fmod(self.beamcounter, self.stacks_for_beam)
+				for i = 1, beamstacks do
+					if mod:GetStackCount() < self.beam_max_charges then
+						self.parent:FindModifierByName("modifier_aoko_3_beams_stacks"):IncrementStackCount()
+					end
+				end
+			end
+		else
+			self.beamcounter = 0
+		end
+
 		if self.parent:HasModifier("modifier_aoko_circuits_overload") then
 			self:StartOverload()
 			if self.parent.HighSpeedIncantationAcquired then
@@ -213,6 +234,7 @@ function modifier_aoko_circuits_passive:RaiseStackCount(count)
 			endTime = self:GetAbility():GetSpecialValueFor("stacks_duration"), 
 			callback = function()
 				self:SetStackCount(0)
+				self.parent:FindModifierByName("modifier_aoko_3_beams_stacks"):SetStackCount(0)
 				ParticleManager:DestroyParticle(self.aoko, true)
 			end})
 	end
@@ -238,6 +260,7 @@ function modifier_aoko_circuits_passive:StartOverload()
 			endTime = self:GetAbility():GetSpecialValueFor("overload_duration"), 
 			callback = function()
 				self:SetStackCount(0)
+				self.parent:FindModifierByName("modifier_aoko_3_beams_stacks"):SetStackCount(0)
 				ParticleManager:DestroyParticle(self.aoko, true)
 			end})
 	end
@@ -305,6 +328,8 @@ function modifier_aoko_circuits_overload:OnCreated()
 		self.ability = self:GetAbility()
 
 		self.amp_per_stack = self.ability:GetSpecialValueFor("attribute_blue_amp_per_stack")
+		self.red_amp = self.ability:GetSpecialValueFor("attribute_red_amp")
+		self.red_amp_per_level = self.ability:GetSpecialValueFor("attribute_red_amp_per_level")
 
 		self.internal_stacks = 0
 
@@ -315,7 +340,7 @@ function modifier_aoko_circuits_overload:OnCreated()
 
 		--self.parent:FindAbilityByName("aoko_sphere"):RefreshCharges()
 
-		--self:StartIntervalThink(1)
+		self:StartIntervalThink(FrameTime())
 	end
 end
 
@@ -350,9 +375,18 @@ function modifier_aoko_circuits_overload:OnRedEnter()
 			self.dmg_output = 0
 		end
 		self.red = true
-		self.dmg_output = self.ability:GetSpecialValueFor("attribute_red_amp")
+		self.dmg_output = self.ability:GetSpecialValueFor("attribute_red_amp") + self.parent:GetLevel()*self.red_amp_per_level
 		self:SetStackCount(self.dmg_output)
 	end
+end
+
+function modifier_aoko_circuits_overload:OnIntervalThink()
+	if not IsServer() then return end
+
+	if self.red then
+		self.dmg_output = self.red_amp + self.parent:GetLevel()*self.red_amp_per_level
+	end
+	self:SetStackCount(self.dmg_output)
 end
 
 function modifier_aoko_circuits_overload:OnBlueEnter()

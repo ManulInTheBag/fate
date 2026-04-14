@@ -37,6 +37,11 @@ function true_assassin_zabaniya:OnAbilityPhaseStart()
 	return true 
 end
 
+function true_assassin_zabaniya:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    StopSoundOn("Hassan_Zabaniya", caster) 
+end
+
 function true_assassin_zabaniya:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
