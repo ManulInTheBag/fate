@@ -67,12 +67,20 @@ function flower_beam:OnSpellStart()
 	local movement_time = self:GetSpecialValueFor("movement_time")
 	local tick_time = movement_time/beam_counter_starting
 	
-	local illusion  = CreateIllusions(caster,caster,nil,1,0,false,false)
+	--local illusion  = CreateIllusions(caster,caster,nil,1,0,false,false)
 	--[[if caster:HasModifier("modifier_hero_selection_skin") then
 		illusion[1]:AddNewModifier(caster, self, "modifier_hero_selection_skin", {skinNumber = caster:FindModifierByName("modifier_hero_selection_skin").skinNumber})
 	end]]
+	local illusion = CreateUnitByName("merlin_illusion", RandomPointInCircle(caster:GetAbsOrigin(), 300), false, nil, nil, caster:GetTeamNumber())
+	illusion:SetDayTimeVisionRange(0)
+	illusion:SetNightTimeVisionRange(0)
+	illusion:SetForwardVector(caster:GetForwardVector())
+	illusion:SetModel(caster:GetModelName())
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		illusion:AddNewModifier(caster, self, "modifier_hero_selection_skin", {skinNumber = caster:FindModifierByName("modifier_hero_selection_skin").skinNumber})
+	end
 	local beam_particle
-	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = movement_time + 1})
+	 illusion:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = movement_time + 1})
 	 
 	 Timers:CreateTimer( 0 +movement_time, function()
  
@@ -82,20 +90,21 @@ function flower_beam:OnSpellStart()
 	
 	 end)
 
-	 illusion[1]:SetForwardVector(caster:GetForwardVector())
-	 StartAnimation( illusion[1], {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+	 illusion:SetForwardVector(caster:GetForwardVector())
+	 StartAnimation( illusion, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
 	
 	Timers:CreateTimer(0.1, function() 
-		if( not caster:IsAlive()) then return end
-		local start_location = illusion[1]:GetAttachmentOrigin(2) 
-		illusion[1]:SetForwardVector((target - illusion[1]:GetAbsOrigin()):Normalized()) 
+		if( not caster:IsAlive()) then illusion:RemoveSelf() return end
+		local start_location = illusion:GetAttachmentOrigin(2) 
+		illusion:SetForwardVector((target - illusion:GetAbsOrigin()):Normalized()) 
 		if(beam_counter == beam_counter_starting) then
 			 beam_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( beam_particle, 1, start_location) 
 		end
 		if(beam_counter == 0 ) then 
 			ParticleManager:DestroyParticle( beam_particle, true)
-			illusion[1]:RemoveModifierByName("modifier_merlin_self_slow")
+			illusion:RemoveModifierByName("modifier_merlin_self_slow")
+			illusion:RemoveSelf()
 			return
 		end
 		beam_counter = beam_counter - 1
