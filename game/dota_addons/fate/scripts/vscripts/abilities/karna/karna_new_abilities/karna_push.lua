@@ -24,7 +24,7 @@ function karna_push:OnSpellStart()
 	local pushback_range = self:GetSpecialValueFor("distance")
 	local target = self:GetCursorTarget()
 	local speed = 1500
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 		giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
 		DoDamage(caster, target, damage , self:GetAbilityDamageType(), 0, self, false)

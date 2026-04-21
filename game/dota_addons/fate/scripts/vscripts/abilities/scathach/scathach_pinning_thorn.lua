@@ -73,10 +73,10 @@ end
 
 function scathach_pinning_thorn:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
-	
-	if IsSpellBlocked(hTarget) or hTarget:IsMagicImmune() or hTarget:IsInvulnerable() then return end
-
 	local hCaster = self:GetCaster()
+	if IsSpellBlocked(hTarget, hCaster) or hTarget:IsMagicImmune() or hTarget:IsInvulnerable() then return end
+
+	
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage") + (caster:GetAgility() * self:GetSpecialValueFor("agi_ratio"))/2 + self:GetSpecialValueFor("damage_per_hero_level")/2 * hCaster:GetLevel()
 	local damage_secondary = self:GetSpecialValueFor("damage_secondary") + (caster:GetAgility() * self:GetSpecialValueFor("agi_ratio"))/2 + self:GetSpecialValueFor("damage_per_hero_level")/2 * hCaster:GetLevel()

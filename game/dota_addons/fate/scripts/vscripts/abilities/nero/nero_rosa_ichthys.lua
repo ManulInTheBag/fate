@@ -77,7 +77,7 @@ function nero_rosa_ichthys:OnSpellStart()
 	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.5})	
 	caster:MoveToTargetToAttack(target)
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	caster:AddNewModifier(caster,self,"modifier_rosa_buffer", {})
 

@@ -55,7 +55,7 @@ function kuro_gae_bolg:OnSpellStart()
 	local close_ability = self:GetCaster():FindAbilityByName("kuro_spellbook_close")
 	close_ability:OnSpellCalled(self)	
 
-	if IsSpellBlocked(hTarget) then
+	if IsSpellBlocked(hTarget, hCaster) then
 		return
 	end
 	

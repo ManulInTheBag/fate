@@ -1487,7 +1487,7 @@ function CreateSlashFx(source, backpoint, frontpoint)
     ParticleManager:SetParticleControl( slash1ParticleIndex, 3, frontpoint )
 end
 
-function IsSpellBlocked(target)
+function IsSpellBlocked(target, caster)
     if target:HasModifier("modifier_artoria_improved_instinct") then  --This abililty is blocked by the active/targeted Linken's effect.
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
@@ -1518,6 +1518,11 @@ function IsSpellBlocked(target)
         --target:FindAbilityByName("modifier_scathach_wisdom_of_dun_scaith"):OnRuneProck()
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_scathach_wisdom_of_dun_scaith")
+        return true
+    elseif target:HasModifier("modifier_ozy_mystic_eyes") then
+        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        target:RemoveModifierByName("modifier_ozy_mystic_eyes")
+        target:FindAbilityByName("ozy_mystic_eyes"):OnMysticEyesProck(caster)
         return true
     elseif target:HasModifier("modifier_jtr_mental_pollution_shield") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)

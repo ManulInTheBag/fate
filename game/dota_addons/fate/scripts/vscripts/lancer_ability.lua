@@ -307,7 +307,7 @@ end
 
 function OnGBTargetHit(keys)
 	ArsenalReturnMana(keys.caster)
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, keys.caster) then return end -- Linken effect checker
 	if keys.caster:GetAbilityByIndex(2):GetAbilityName() == "lancer_5th_wesen_gae_bolg" then return end -- laziest fix of my lyfe
 
 	local caster = keys.caster
@@ -425,7 +425,7 @@ function PlayNormalGBEffect(target)
 end 
 
 function OnGBComboHit(keys)
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, keys.caster) then return end -- Linken effect checker
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

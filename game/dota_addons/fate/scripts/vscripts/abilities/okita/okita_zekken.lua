@@ -44,7 +44,7 @@ function okita_zekken:OnSpellStart()
 
     caster:AddNewModifier(caster, self, "modifier_okita_zekken_cd", {duration = ability:GetCooldown(1)})
 
-    if IsSpellBlocked(target)  then return end
+    if IsSpellBlocked(target, caster)  then return end
     self:StartZekken(target)
     --caster:AddNewModifier(caster, self, "modifier_okita_zekken_flight", {})
 end

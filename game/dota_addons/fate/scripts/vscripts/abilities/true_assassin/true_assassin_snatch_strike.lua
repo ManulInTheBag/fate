@@ -10,10 +10,10 @@ end
 
 function true_assassin_snatch_strike:OnSpellStart()
 	local target = self:GetCursorTarget()
-
-	if IsSpellBlocked(target) then return end
-
 	local caster = self:GetCaster()
+	if IsSpellBlocked(target, caster) then return end
+
+	
 	local ability = self
 	local damage = self:GetSpecialValueFor("damage")
 	local totalDamage = damage

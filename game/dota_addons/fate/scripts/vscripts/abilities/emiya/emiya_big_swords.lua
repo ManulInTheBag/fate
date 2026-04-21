@@ -17,6 +17,9 @@ end
 function emiya_big_swords:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
+	if( IsNotNull(target)) then 
+		if IsSpellBlocked(target, caster) then return end 
+	end
 	self.fw = caster:GetForwardVector()
 	local range = self:GetSpecialValueFor("range")
 	local speed = self:GetSpecialValueFor("speed")

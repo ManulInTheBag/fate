@@ -30,7 +30,7 @@
 					{
 						_class = "Attachment"
 						name = "ATTACH_HITLOC"
-						parent_bone = "bone30"
+						parent_bone = "bone31"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -886,7 +886,7 @@
 								_class = "AnimFile"
 								name = "slam"
 								is_default_idle_anim = false
-								activity_name = ""
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
@@ -903,7 +903,7 @@
 								import_bone_scales = false
 								start_frame = 148
 								end_frame = 178
-								framerate = 30.0
+								framerate = 60.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -911,7 +911,7 @@
 								_class = "AnimFile"
 								name = "spell_"
 								is_default_idle_anim = false
-								activity_name = ""
+								activity_name = "ACT_DOTA_CAST_ABILITY_2"
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
@@ -928,7 +928,7 @@
 								import_bone_scales = false
 								start_frame = 179
 								end_frame = 212
-								framerate = 30.0
+								framerate = 75.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -936,7 +936,7 @@
 								_class = "AnimFile"
 								name = "spell2"
 								is_default_idle_anim = false
-								activity_name = ""
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
@@ -953,9 +953,16 @@
 								import_bone_scales = false
 								start_frame = 213
 								end_frame = 243
-								framerate = 30.0
+								framerate = 60.0
 								reverse = false
 								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 230
+										frame_count = 10
+									},
+								]
 							},
 							{
 								_class = "AnimFile"

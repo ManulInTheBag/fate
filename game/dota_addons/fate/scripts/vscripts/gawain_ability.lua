@@ -722,7 +722,7 @@ function OnIRStart(keys)
 			keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_invigorating_ray_armor_buff", {})
 		end
 	else
-		if IsSpellBlocked(keys.target) then return end
+		if IsSpellBlocked(keys.target, caster) then return end
 		target:EmitSound("Hero_Omniknight.Purification")
 		keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_invigorating_ray_enemy", {})
 	end

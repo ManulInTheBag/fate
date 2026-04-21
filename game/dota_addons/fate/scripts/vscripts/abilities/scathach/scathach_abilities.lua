@@ -535,7 +535,7 @@ function OnRedWindStart (keys)
 
 	ScathachCheckCombo1(caster, ability)
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	if caster.IsGodSlayerAcquired then 
 		if IsDivineServant(target) then 
@@ -657,7 +657,7 @@ function OnGBTargetHit(keys)
 
 	local ability = keys.ability
 
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 
 	local target = keys.target
 	local ability = keys.ability
@@ -1353,7 +1353,7 @@ function OnGaeComboStart (keys)
 	--StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=3})
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.0)
 
-	if IsSpellBlocked(target) then -- Linken effect checker / dodge 1 lance and not stunned 
+	if IsSpellBlocked(target, caster) then -- Linken effect checker / dodge 1 lance and not stunned 
 		DoDamage(caster, target, GaeDamage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	else
 		giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)

@@ -78,8 +78,9 @@ end
 
 
 function OnChainStart(keys)
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	local caster = keys.caster
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
+	
 	local ply = caster:GetPlayerOwner()
 	local target = keys.target
 	local targetloc = target:GetAbsOrigin()
@@ -164,8 +165,9 @@ function OnGramStart(keys)
 end
 
 function OnGramHit(keys)
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	local caster = keys.caster
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
+	
 	local target = keys.target
 	local damage = keys.Damage
 	

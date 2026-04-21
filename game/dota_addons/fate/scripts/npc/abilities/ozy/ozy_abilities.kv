@@ -1,5 +1,159 @@
 "DOTAAbilities"
 {
+
+	//=======================================
+	// Ozy ЧАКРАМ (Q)
+	//=======================================
+	"ozy_light_chacram"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_light_chacram"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"			"custom/ozy/ozy_chacram"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1"
+
+		"AbilityCooldown"				"15"
+		"AbilityCastPoint"					"0.2"
+		"AbilityCastRange"				"1000"
+		"AbilityManaCost"					"100"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/ozy_chacram.vpcf"
+			"particle"				"particles/ozy/ozy_blind.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "radius" 				"128"
+            "duration" 				"0.5 0.62 0.75 0.87 1"
+            "damage" 				"200 250 300 350 400"
+        }
+	}
+
+
+	//=======================================
+	// Ozy protection (W)
+	//=======================================
+	"ozy_protection_of_sun_god"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_protection_of_sun_god"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/ozy/ozy_flash_barrier"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1"
+
+		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityCastPoint"					"0.2"
+		"AbilityCastRange"				"1000"
+		"AbilityManaCost"					"200"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/sun_god_barrier.vpcf"
+			"particle"				"particles/ozy/ozy_blind.vpcf"
+			"particle"				"particles/ozy/ozy_flash_barrier.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "radius" 				"500"
+            "duration" 				"8"
+            "barrier" 				"200 250 300 350 400"
+            "damage" 				"200 250 300 350 400"
+            "blind" 				"100"
+            "slow_duration" 		"2"
+            "slow_percentage" 		"30"
+        }
+	}
+
+	//=======================================
+	// Ozy PILLAR (E)
+	//=======================================
+	"ozy_light_pillar"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_light_pillar"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/ozy/light_pillar"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1"
+
+		"AbilityCooldown"				"25"
+		"AbilityCastPoint"					"0.2"
+		"AbilityCastRange"				"1000"
+		"AbilityManaCost"				"400"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/ozy_light_pillar_runes.vpcf"
+			"particle"				"particles/ozy/ozy_blind.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "radius" 				"350"
+            "delay"					"1"
+            "stun_duration" 		"0.8"
+            "damage" 				"600 750 900 1050 1200"
+        }
+	}
+
+
+	//=======================================
+	// Ozy mystic eyes (F)
+	//=======================================
+	"ozy_mystic_eyes"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_mystic_eyes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/ozy/mystic_eyes"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+
+
+		"precache"
+		{
+			"particle"				"particles/zlodemon/immunity_sphere_buff_sun.vpcf"
+			"particle"				"particles/ozy/ozy_mystic_eyes_target.vpcf"
+
+
+		}
+
+		"AbilityValues"
+        {
+            "duration" 				"3"
+            "stun_duration" 		"1"
+        }
+	}
 	//=====================================
 	// 
 	//=====================================
@@ -41,6 +195,68 @@
 	}
 
 	//================================================
+	// Piramid flashka (ПРИКОЛ, ЭТОГО НЕТ!!!)
+	//================================================
+	"ozy_piramid_flash"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_piramid_flash"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"            "custom/ozy/ozy_piramid_flash"
+		"MaxLevel"                      "5"
+		"AbilityCastRange"				"1500"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0"
+
+		"precache"
+		{
+			"particle"		"particles/ozy/piramid/flashka_na_a.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "radius" "1500"
+            "delay" "1"
+        }
+	}
+
+	//=======================================
+	// Ozy piramid protection (W)
+	//=======================================
+	"ozy_piramid_barrier"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_piramid_barrier"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityTextureName"			"custom/ozy/piramid_barrier"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityChannelTime"			"4"
+		"AnimationPlaybackRate" 		"1"
+
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"0"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/piramid/piramid_barrier_new.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "duration" 				"4"
+            "barrier" 				"1000 1500 2000 2500 3000"
+        }
+	}
+
+
+	//================================================
 	// Piramid aura
 	//================================================
 	"ozy_piramid_aura"
@@ -48,7 +264,7 @@
 		"BaseClass" 					"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_piramid_aura"
 		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityTextureName"            "custom/iskander_charisma"
+		"AbilityTextureName"            "custom/ozy/piramid_aura"
 		"MaxLevel"                      "5"
 		"AbilityCastRange"				"1000"
 
@@ -68,7 +284,7 @@
 		"BaseClass" 					"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_piramid_auto_defence"
 		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_TOGGLE  | DOTA_ABILITY_BEHAVIOR_IMMEDIATE| DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
-		"AbilityTextureName"            "custom/iskander_charisma"
+		"AbilityTextureName"            "custom/ozy/piramid_defence"
 		"MaxLevel"                      "5"
 		"AbilityCastRange"				"1500"
 		"AbilityCooldown"				"0"
@@ -104,7 +320,7 @@
 		"ScriptFile"					"abilities/ozy/ozy_piramid_curse"
 		"MaxLevel"						"5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
-		"AbilityTextureName"			"custom/jtr/information_erasure"
+		"AbilityTextureName"			"custom/ozy/curse_of_ra"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
@@ -145,7 +361,7 @@
 		"ScriptFile"					"abilities/ozy/ozy_piramid_beam"
 		"MaxLevel"						"5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
-		"AbilityTextureName"			"custom/jtr/information_erasure"
+		"AbilityTextureName"			"custom/ozy/ozy_piramid_beam"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"

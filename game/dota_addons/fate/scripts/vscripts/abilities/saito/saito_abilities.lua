@@ -2610,7 +2610,7 @@ function saito_formless_slash:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
 
-    if IsSpellBlocked(hTarget) then
+    if IsSpellBlocked(hTarget, hCaster) then
         return nil
     end
 
@@ -3011,7 +3011,7 @@ function modifier_saito_storm_motion:PokeEnemy()
         -- if self.hTarget:TriggerSpellAbsorb(self.hAbility) then
         --     return nil
         -- end
-        if IsSpellBlocked(self.hTarget) then
+        if IsSpellBlocked(self.hTarget, self.hCaster) then
             return nil
         end
 

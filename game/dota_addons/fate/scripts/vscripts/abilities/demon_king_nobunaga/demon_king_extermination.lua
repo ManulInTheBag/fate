@@ -7,7 +7,7 @@ function demon_king_extermination:OnSpellStart()
    local caster = self:GetCaster() 
    local target = self:GetCursorTarget()
    local damage = self:GetSpecialValueFor("damage_hit") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("strike") * caster:GetAgility() or 0)
-   if IsSpellBlocked(target) then 
+   if IsSpellBlocked(target, caster) then 
 		return 
 	end
    DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)

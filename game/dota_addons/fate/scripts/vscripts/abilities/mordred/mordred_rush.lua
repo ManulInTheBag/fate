@@ -193,7 +193,7 @@ function modifier_mordred_rush:BOOM()
     local position = self.target:GetAbsOrigin()
     local damage = self.damage
 
-    if IsSpellBlocked(self.target) then return end
+    if IsSpellBlocked(self.target, self.parent) then return end
 
     if self.parent:HasModifier("pedigree_off") and self.parent:HasModifier("modifier_mordred_overload") then
     	local kappa = self.parent:FindModifierByName("modifier_mordred_overload")

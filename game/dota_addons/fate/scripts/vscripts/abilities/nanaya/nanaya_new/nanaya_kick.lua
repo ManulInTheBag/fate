@@ -93,7 +93,7 @@ function nanaya_kick:OnSpellStart()
 	local target = self.target
 
 	local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 	if (dist - 150) > (self:CheckSequence() == 5 and self:GetSpecialValueFor("fly_range") or self:GetSpecialValueFor("kick_range")) then
 		caster:GiveMana(80)
 		self:EndCooldown()
@@ -249,10 +249,10 @@ function modifier_nanaya_kerikedak:UpdateHorizontalMotion(me, dt)
 end
 function modifier_nanaya_kerikedak:BOOM()
     local position = self.target:GetAbsOrigin()
-
-    if IsSpellBlocked(self.target) then return end
-
     local caster = self:GetCaster()
+    if IsSpellBlocked(self.target, caster) then return end
+
+   
     local target = self.target
     local damage = self.ability:GetSpecialValueFor("fly_damage")
     local damagetodo = damage + ((caster.ScaleAcquired and caster:HasModifier("modifier_nanaya_instinct")) and caster:GetAgility()*self.ability:GetSpecialValueFor("attribute_fly_agility_multiplier") or 0)

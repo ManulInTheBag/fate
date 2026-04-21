@@ -55,7 +55,7 @@ function familiar_attack:OnProjectileHit(target, location, tData )
     local hModifier = nil
 
     local caster = self:GetCaster()
-    if IsSpellBlocked(target) then return true end
+    if IsSpellBlocked(target, caster) then return true end
     DoDamage(caster, target, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     target:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
     if not target:IsMagicImmune() then

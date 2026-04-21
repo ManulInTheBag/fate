@@ -22,7 +22,7 @@ function khsn_azrael:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
 		if playerHero.zlodemon == true     then

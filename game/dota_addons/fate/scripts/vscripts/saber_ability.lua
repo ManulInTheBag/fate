@@ -72,7 +72,7 @@ end
 function InvisibleAirPull(keys)
 	local target = keys.target
 	local caster = keys.caster
-	if IsSpellBlocked(target) -- Linken's
+	if IsSpellBlocked(target, caster) -- Linken's
 		or (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 1000
 		or target:IsMagicImmune() -- Magic immunity
 		or target:HasModifier("modifier_wind_protection_passive") 
@@ -162,7 +162,7 @@ end
 
 function OnCaliburnHit(keys)
 	ArsenalReturnMana(keys.caster)
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, keys.caster) then return end -- Linken effect checker
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

@@ -73,7 +73,7 @@ function diarmuid_warrior_charge:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 	local range_checker  = self:GetSpecialValueFor("cast_range_checker")
-	if IsSpellBlocked(target) then return end -- Linken effect checker
+	if IsSpellBlocked(target, caster) then return end -- Linken effect checker
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 	if target:HasModifier("modifier_diarmuid_parry_marker") then

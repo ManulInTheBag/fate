@@ -89,7 +89,7 @@ end
 function atalanta_calydonian_hunt:OnSpellStart()
     local caster = self:GetCaster()
     local v = self:GetCursorTarget()
-    if IsSpellBlocked(v) then return end
+    if IsSpellBlocked(v, caster) then return end
     --local detonateDamagePerStack = self:GetSpecialValueFor("detonate_stack")
 
     caster:EmitSound("Hero_BountyHunter.Target")

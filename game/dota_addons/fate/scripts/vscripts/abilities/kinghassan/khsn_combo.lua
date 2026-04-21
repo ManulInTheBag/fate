@@ -18,7 +18,7 @@ function khsn_combo:OnSpellStart()
     caster:AddNewModifier(caster, self, "modifier_azrael_combo_cd", {duration = ability:GetCooldown(1)})
     caster:FindAbilityByName("khsn_azrael"):StartCooldown(caster:FindAbilityByName("khsn_azrael"):GetCooldown(caster:FindAbilityByName("khsn_azrael"):GetLevel()))
 
-    if IsSpellBlocked(self:GetCursorTarget()) then return end
+    if IsSpellBlocked(self:GetCursorTarget(), caster) then return end
     
     self:StartCombo(self:GetCursorTarget())
 end

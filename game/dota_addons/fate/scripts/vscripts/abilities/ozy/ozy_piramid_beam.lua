@@ -30,7 +30,11 @@ function ozy_piramid_beam:OnSpellStart()
 	local damage_per_tick = damage/damage_ticks
 
 	local ParticleOrigin = piramid:GetAttachmentOrigin(2)  
-
+	local curseAbil = piramid:FindAbilityByName("ozy_piramid_curse")
+	if curseAbil:GetCooldownTimeRemaining() < (damage_duration + delay) then
+		curseAbil:StartCooldown((damage_duration + delay))
+	end
+	
 	self:CreateDelayEffects(piramid, delay, damage_duration, ParticleOrigin)
 	Timers:CreateTimer(delay, function()
 		if piramid:IsAlive() then

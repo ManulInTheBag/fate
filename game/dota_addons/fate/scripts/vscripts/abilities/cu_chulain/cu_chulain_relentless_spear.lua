@@ -244,7 +244,7 @@ function cu_chulain_relentless_spear:TigerStrike3()
 		OrderType = DOTA_UNIT_ORDER_STOP
 	}
 
-	if IsSpellBlocked(self.target) then
+	if IsSpellBlocked(self.target, caster) then
 		ExecuteOrderFromTable(self.stopOrder_self)  return
 		 end
 	caster:EmitSound("cu_skill_" .. math.random(1,4))

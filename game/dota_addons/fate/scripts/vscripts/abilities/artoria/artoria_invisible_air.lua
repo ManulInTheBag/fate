@@ -105,7 +105,7 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 	vision_radius = self:GetSpecialValueFor( "vision_radius" )  
 	vision_duration = self:GetSpecialValueFor( "vision_duration" )
 	
-	if IsSpellBlocked(target) -- Linken's
+	if IsSpellBlocked(target, caster) -- Linken's
 		or target:IsMagicImmune() -- Magic immunity
 		or target:HasModifier("modifier_wind_protection_passive") 
 	then

@@ -174,7 +174,7 @@ function OnNamelessStart(keys)
 	local ability = keys.ability
 	local target = keys.target
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-		if IsSpellBlocked(target) or target:IsMagicImmune() then return end -- Linken effect checker
+		if IsSpellBlocked(target, caster) or target:IsMagicImmune() then return end -- Linken effect checker
 	end
 	caster.NamelessTarget = target
 	ApplyPurge(target)
@@ -352,7 +352,7 @@ function OnPlainStart(keys)
 	local target = keys.target
 	local bounceCount = keys.MaxBounce
 
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 
 	if caster.bIsNightmareAcquired then 
 		bounceCount = bounceCount + ability:GetSpecialValueFor("bonus_bounce")
@@ -372,7 +372,7 @@ function ChainLightning(keys, source, target, count, CC, bIsFirstItrn)
 	if not CC then CC = {} end -- temporal storage for list of CCs to be applied by W	
 
 	if count == 0 then return end
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	--if not bIsFirstItrn then
 		--damage = keys.Damage * (100+reduction)/100

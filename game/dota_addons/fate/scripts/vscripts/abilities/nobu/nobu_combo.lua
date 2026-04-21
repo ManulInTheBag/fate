@@ -27,7 +27,7 @@ function nobu_combo:OnSpellStart()
     local masterCombo = hCaster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(self:GetCooldown(1))
-    if IsSpellBlocked(hCaster.target_enemy) then  return end
+    if IsSpellBlocked(hCaster.target_enemy, hCaster) then  return end
     hCaster.runningCombo = false
     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1} )
     hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = 1}) 

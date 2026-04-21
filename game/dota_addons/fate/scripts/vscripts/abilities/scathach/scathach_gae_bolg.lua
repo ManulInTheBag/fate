@@ -50,7 +50,7 @@ function scathach_gae_bolg:OnSpellStart()
 	local damage = self:GetSpecialValueFor("damage")
 	local totalDamage = damage
 	local damage_per_stack = self:GetSpecialValueFor("damage_per_stack")
-	if IsSpellBlocked(target) then 
+	if IsSpellBlocked(target, caster) then 
 		return 
 	end
 	local target_stacks = target:GetModifierStackCount("modifier_stachach_gae_bolg_curse", caster)

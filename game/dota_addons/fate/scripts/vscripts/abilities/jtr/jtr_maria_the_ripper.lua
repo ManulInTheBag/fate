@@ -229,7 +229,7 @@ function jtr_maria_the_ripper:PerformSlash(caster, target)
 		return 
 	end)
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	if IsFemaleServant(target) then
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NONE, self, false)

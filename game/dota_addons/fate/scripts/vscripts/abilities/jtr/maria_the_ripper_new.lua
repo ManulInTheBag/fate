@@ -134,7 +134,7 @@ function jtr_mtr_new:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	--[[if not target then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(),

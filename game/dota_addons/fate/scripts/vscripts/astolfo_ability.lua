@@ -70,7 +70,7 @@ end
 
 function OnVanishHit(keys)
 	local target = keys.target
-	if IsSpellBlocked(target)
+	if IsSpellBlocked(target, keys.caster)
 		or target:IsMagicImmune()
 	then
 		return

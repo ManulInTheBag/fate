@@ -518,7 +518,7 @@ function OnSGStart(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 	--TamamoCheckCombo(caster, keys.ability)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_subterranean_grasp_delay", {})
 	SpawnAttachedVisionDummy(caster, target, 300, 3, false)
@@ -561,7 +561,7 @@ function OnMantraStart(keys)
 	local orbAmount = keys.OrbAmount
 	local modifierName = 0
 	if caster:GetTeam() ~= target:GetTeam() then
-		if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+		if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 	end
 	
 	--[[if target:HasModifier("modifier_mantra_ally") or target:HasModifier("modifier_mantra_enemy") then
@@ -1046,7 +1046,7 @@ function OnKickStart(keys)
 	local nextTarget = caster
 	local count = 0
 	local targets = 0
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 
 	if ability:GetAbilityName() == "tamamo_polygamist_castration_fist" then
 		-- Set master's combo cooldown

@@ -37,7 +37,7 @@ function arcueid_melty:OnSpellStart()
     EmitGlobalSound("arcueid_combo_end")
 
 	local target = self:GetCursorTarget()
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 	local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControl(fxIndexjopa, 0, target:GetAbsOrigin())
 	ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(0.01,1,0.01))

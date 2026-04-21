@@ -22,7 +22,7 @@ function hijikata_duel:OnSpellStart()
 	local ability = self
 
     self.target = self:GetCursorTarget()
-	if IsSpellBlocked(self.target )  then return end
+	if IsSpellBlocked(self.target, self.caster)  then return end
 	if self.AuraDummy ~= nil and not self.AuraDummy:IsNull() then 
 		self:RemoveDuel()
     end

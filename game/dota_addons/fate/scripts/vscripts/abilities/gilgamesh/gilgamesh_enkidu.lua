@@ -22,7 +22,7 @@ function gilgamesh_enkidu:OnSpellStart()
 		OrderType = DOTA_UNIT_ORDER_STOP
 	}
 
-	if IsSpellBlocked(target) then
+	if IsSpellBlocked(target, caster) then
 		ExecuteOrderFromTable(self.stopOrder_self)  return
 		 end
 	caster:EmitSound("Gilgamesh_Enkidu_2")
@@ -210,10 +210,10 @@ function gilgamesh_enkidu:OnSpellStart()
 
 	function gilgamesh_enkidu:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
 		if hTarget == nil then return end
-	
-		if IsSpellBlocked(hTarget) then return end
-	
 		local hCaster = self:GetCaster()
+		if IsSpellBlocked(hTarget, hCaster) then return end
+	
+		
 		local damage = self:GetSpecialValueFor("damage")
 		DoDamage(hCaster, hTarget, damage/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		local targets = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 

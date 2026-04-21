@@ -94,7 +94,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
         end
     end)
 	if not doPierceSpellBlock then 
-		if IsSpellBlocked(target)  then return end
+		if IsSpellBlocked(target, caster)  then return end
 	end
 
 	if caster.IsGanryuAcquired then

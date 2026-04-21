@@ -99,7 +99,7 @@ function okada_reduced_earth:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 
-	if IsSpellBlocked(target) then return end -- Linken effect checker
+	if IsSpellBlocked(target, caster) then return end -- Linken effect checker
     caster:EmitSound("okada_blink")
     local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 	if((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("radius")) then

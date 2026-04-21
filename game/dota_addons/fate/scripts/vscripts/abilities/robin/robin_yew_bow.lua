@@ -94,11 +94,12 @@ end
 -- Projectile
 function robin_yew_bow:OnProjectileHit_ExtraData( target, location, extradata )
 	-- cancel if gone
-	if (not target) or target:IsInvulnerable() or target:IsOutOfGame() or IsSpellBlocked(target) then
+	local caster = self:GetCaster()
+	if (not target) or target:IsInvulnerable() or target:IsOutOfGame() or IsSpellBlocked(target, caster) then
 		return
 	end
 	
-	local caster = self:GetCaster()
+	
 	
 	local poison_stack = target:GetModifierStackCount("modifier_robin_poison_stack", caster)
 	

@@ -45,7 +45,7 @@ function mordred_mana_burst_hit:OnSpellStart()
 	EmitSoundOn("mordred_lightning", caster)
 	EmitSoundOn("mordred_lightning", target)
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	target:AddNewModifier(caster, self, "modifier_mordred_mb_silence", {duration = self:GetSpecialValueFor("duration")})
 

@@ -70,7 +70,7 @@ function nero_rosa_buffed:OnSpellStart()
 		caster:SwapAbilities("nero_spectaculi_buffed", "nero_spectaculi_initium", false, true)
 	end
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	caster:EmitSound("nero_lsk")
 	target:EmitSound("nero_lsk")

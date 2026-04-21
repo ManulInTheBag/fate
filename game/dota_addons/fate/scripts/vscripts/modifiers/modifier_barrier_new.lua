@@ -30,6 +30,9 @@ function modifier_barrier_new:OnCreated(args)
 		self:SetStackCount(self.fBarrierBlock)
 	end
 end
+function modifier_barrier_new:OnDestroy()
+	self.hAbility:OptionalDestroy(self:GetParent())
+end
 
 function modifier_barrier_new:DeclareFunctions()
 	local hFunc = 	{	
@@ -110,7 +113,7 @@ function modifier_barrier_new:ActivateCounter()
 			self.hAbility:EndChannel(false)
 		end
 		if self.HasCounter == 1 then
-			self.hAbility:Counter()
+			self.hAbility:Counter(self:GetParent())
 		end
 	end
 end

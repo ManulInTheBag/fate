@@ -135,7 +135,7 @@ end
 
 function OnShukuchiBreathLand(keys)
 	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
-	if IsSpellBlocked(keys.target) then keys.caster:RemoveModifierByName("modifier_shukuchi_stab") return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, keys.caster) then keys.caster:RemoveModifierByName("modifier_shukuchi_stab") return end -- Linken effect checker
 
 	if keys.target:GetName() == "npc_dota_ward_base" then
 		DoDamage(keys.caster, keys.target, 2, DAMAGE_TYPE_PURE, 0, keys.ability, false)

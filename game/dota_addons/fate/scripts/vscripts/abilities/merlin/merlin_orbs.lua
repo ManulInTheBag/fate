@@ -6,7 +6,7 @@ function merlin_orbs:OnSpellStart()
     local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 	local ability = self
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 	caster:EmitSound("merlin_orbs_sent")
 	caster:FindAbilityByName("merlin_charisma"):AttStack() 
 	if(caster.RapidChantingAcquired) then

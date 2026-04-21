@@ -55,8 +55,9 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   		return
   	end
 	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
-    if IsSpellBlocked(hTarget) then return end
-  	local hCaster = self:GetCaster()
+	local hCaster = self:GetCaster()
+    if IsSpellBlocked(hTarget,hCaster) then return end
+  	
   	local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
 
 	if hTarget:IsHero() then

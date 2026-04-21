@@ -51,8 +51,9 @@ function nanaya_slashes:OnSpellStart()
 
 
 local target = self:GetCursorTarget()
-if IsSpellBlocked(target) then return end
 local caster = self:GetCaster()
+if IsSpellBlocked(target, caster) then return end
+
 local target_2 = target:entindex()
 
 

@@ -94,10 +94,10 @@ function emiya_hrunting:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     if hTarget == nil then
         return 
     end
-
-    if IsSpellBlocked(hTarget) or hTarget:IsMagicImmune() or hTarget:IsInvulnerable() then return end
-
     local hCaster = self:GetCaster()
+    if IsSpellBlocked(hTarget, hCaster) or hTarget:IsMagicImmune() or hTarget:IsInvulnerable() then return end
+
+    
     local fTargetDamage = tData["hrunt_damage"]
     local fRadius = self:GetSpecialValueFor("radius")
     local fStun = self:GetSpecialValueFor("stun_duration")

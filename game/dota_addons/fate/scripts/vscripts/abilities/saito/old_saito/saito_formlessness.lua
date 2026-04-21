@@ -292,7 +292,7 @@ function saito_formlessness:SaitoFormlessnessSlash()
 	if(caster.ShinsengumiAcquired) then
 		damage = damage  +  caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
 	end
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 	local slashes = ParticleManager:CreateParticle("particles/saito/saito_formless_slash_new.vpcf", PATTACH_CUSTOMORIGIN, nil) 
  
  
@@ -364,7 +364,7 @@ function saito_formlessness:SaitoFormlessnessLastSlash()
 	--if IsValidEntity(illusion) and not illusion:IsNull() then 
 	--	caster.illusion:ForceKill(false)
 	--end
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 	DoDamage(caster, target, damage, DamageType, 0, self, false)
 	target:EmitSound("saito_last_slash")
 

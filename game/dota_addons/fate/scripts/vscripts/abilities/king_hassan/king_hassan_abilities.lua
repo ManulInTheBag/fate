@@ -516,7 +516,7 @@ function kinghassan_beheader:OnSpellStart()
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100)
 	FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )	
 
-	if IsSpellBlocked(target) then 
+	if IsSpellBlocked(target, caster) then 
 		caster:EmitSound("Hero_Axe.Culling_Blade_Fail ")
 		return 
 	end -- Linken effect checker
@@ -575,7 +575,7 @@ function OnKHBeheaderHit(keys)
 	local damage = ability:GetSpecialValueFor("damage")
 	local stackdamage = ability:GetSpecialValueFor("damage_per_stack")
 
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 
 	local stack = caster:GetModifierStackCount("modifier_kinghassan_stack", caster) or 0
 

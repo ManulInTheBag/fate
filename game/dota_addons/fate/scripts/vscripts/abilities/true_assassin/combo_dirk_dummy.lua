@@ -29,7 +29,7 @@ function true_assassin_dirk:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     local fDamage = self:GetSpecialValueFor("damage") 
     local fPoisonDamage = self:GetSpecialValueFor("poison_dot")
     
-    if IsSpellBlocked(hTarget) or hTarget:IsMagicImmune() then return end
+    if IsSpellBlocked(hTarget, hCaster) or hTarget:IsMagicImmune() then return end
 
     if not hCaster.IsWeakeningVenomAcquired then
     	fDamage = fDamage + hCaster:GetAverageTrueAttackDamage(hCaster)

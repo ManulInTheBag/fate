@@ -33,7 +33,7 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 	local hTarget = self:GetCursorTarget()
 	local ability = hCaster:FindAbilityByName("cu_chulain_gae_bolg")
 
-	if not hCaster.HeartSeekerImproved and IsSpellBlocked(hTarget) then
+	if not hCaster.HeartSeekerImproved and IsSpellBlocked(hTarget, hCaster) then
 		return
 	end
 

@@ -267,7 +267,7 @@ end
 function okada_ult:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-	if IsSpellBlocked(target) then return end 
+	if IsSpellBlocked(target, caster) then return end 
     local duration = 0.15 * 13 + 0.2
     local bBerserkered = false
     if caster:HasModifier("modifier_okada_manslayer") then

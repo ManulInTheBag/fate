@@ -83,14 +83,14 @@ end
 -- Projectile
 function robin_tools_wolfs_bane:OnProjectileHit_ExtraData( target, location, ExtraData )
 	if not target then return end
-
+	local caster = self:GetCaster()
 	-- check if the ability GOT TRIGGERED BY SOMETHING TRIVIAL
-	local TRIGGERED = IsSpellBlocked(target)
+	local TRIGGERED = IsSpellBlocked(target, caster)
 
 	-- calm down if you GOT TRIGGERED
 	if TRIGGERED then return end
 	
-	local caster = self:GetCaster()
+	
 	
 	caster:EmitSound("robin_wolfs_bane")
 	

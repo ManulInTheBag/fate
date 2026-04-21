@@ -43,7 +43,7 @@ function emiya_broken_phantasm:OnChannelFinish(bInterrupted)
 
     ParticleManager:DestroyParticle(self.pcMarker, false)
     ParticleManager:ReleaseParticleIndex(self.pcMarker)
-    if IsSpellBlocked(hTarget) then 
+    if IsSpellBlocked(hTarget, hCaster) then 
         Say(hPlayer, "Broken Phantasm failed.", true)
         self:StartCooldown(self:GetCooldown(self:GetLevel()))
         hCaster:SpendMana(self:GetManaCost(-1), self)

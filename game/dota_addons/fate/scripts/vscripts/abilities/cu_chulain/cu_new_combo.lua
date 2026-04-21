@@ -40,7 +40,7 @@ function cu_new_combo:OnSpellStart()
 		self.ForwardVector = vLookatTarget
 		hCaster:SetForwardVector(self.ForwardVector)
 		hCaster:FaceTowards(hTarget:GetAbsOrigin())
-	if not hCaster.HeartSeekerImproved and IsSpellBlocked(hTarget) then
+	if not hCaster.HeartSeekerImproved and IsSpellBlocked(hTarget, hCaster) then
 		return
 	end
 	self.combotarget = hTarget

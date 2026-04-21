@@ -45,7 +45,7 @@ function edmon_dash:OnSpellStart()
 	local caster = self:GetCaster()
     local target = self:GetCursorTarget()
     if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-        if IsSpellBlocked(target) then caster:RemoveModifierByName("modifier_edmon_dash_particle") return end
+        if IsSpellBlocked(target, caster) then caster:RemoveModifierByName("modifier_edmon_dash_particle") return end
     end
 	caster:AddNewModifier(caster, self, "modifier_edmon_dash", {})
 end
@@ -178,7 +178,7 @@ function modifier_edmon_dash:BOOM()
     local position = self.target:GetAbsOrigin()
     local damage = self.damage
 
-    if IsSpellBlocked(self.target) then return end
+    if IsSpellBlocked(self.target, self.parent) then return end
 
    	--[[local duck = 0
    	if self.parent.RampageAcquired then

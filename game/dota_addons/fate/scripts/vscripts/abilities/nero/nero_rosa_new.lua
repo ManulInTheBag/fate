@@ -176,7 +176,7 @@ function nero_rosa_new:OnSpellStart()
 		target:AddNewModifier(caster, self, "modifier_nero_rosa_motion_enemy", {})
 	else
 		local target = self:GetCursorTarget()
-		if IsSpellBlocked(target) then return end
+		if IsSpellBlocked(target, caster) then return end
 		caster:EmitSound("Nero.Skill1")
 		if not caster:HasModifier("modifier_nero_rosa_window") then
 	        caster:AddNewModifier(caster, self, "modifier_nero_rosa_window", {duration = self:GetSpecialValueFor("window_duration")})

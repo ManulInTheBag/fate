@@ -83,6 +83,9 @@ function nobu_dash:OnSpellStart()
 	end)
 end
 
+function nobu_dash:OptionalDestroy(parent)
+
+end
 function nobu_dash:GiveCharismaBarrier()
 
 	local allies = FindUnitsInRadius(

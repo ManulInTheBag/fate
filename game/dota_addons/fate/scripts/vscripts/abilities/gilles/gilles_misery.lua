@@ -16,7 +16,7 @@ end
 function gilles_misery:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local hTarget = self:GetCursorTarget()
-	 if IsSpellBlocked(hTarget) then return end
+	 if IsSpellBlocked(hTarget, hCaster) then return end
 	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Gilles_Misery_Cast", hCaster)
 
 	if not hTarget:IsMagicImmune() then

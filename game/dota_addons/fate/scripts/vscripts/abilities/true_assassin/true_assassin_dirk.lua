@@ -36,7 +36,7 @@ function true_assassin_dirk:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local ability = self
 	local maxTarget = self:GetSpecialValueFor("max_target")
-	if IsSpellBlocked(target) then
+	if IsSpellBlocked(target, caster) then
         caster:UseDagger(5)
         self:StartCooldown(self:GetSpecialValueFor("restock_dur") - caster.nextDagger)
          return end

@@ -7,6 +7,16 @@ function emiya_combo:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local enemy = self:GetCursorTarget()
+	if IsSpellBlocked(enemy, caster) then 
+		caster:AddNewModifier(caster, ability, "modifier_arrow_rain_cooldown", {duration = self:GetCooldown(1)})
+		-- Set master's combo cooldown
+		local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+		masterCombo:EndCooldown()
+		masterCombo:StartCooldown(self:GetCooldown(1))
+		caster:RemoveModifierByName("modifier_ubw_chant_count")
+		caster:RemoveModifierByName("modifier_arrow_rain_window")
+		return 
+	end
 	local distance = (caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()
 	local ubw_ability = caster:FindAbilityByName("emiya_unlimited_bladeworks")
 	LoopOverPlayers(function(player, playerID, playerHero)

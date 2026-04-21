@@ -1213,7 +1213,7 @@ function OnRBStart(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ply = caster:GetPlayerOwner()
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 	ApplyStrongDispel(target)
 	if caster:GetName() == "npc_dota_hero_crystal_maiden" then
 		caster:EmitSound("Medea_Rule_Breaker_" .. math.random(1,2))		

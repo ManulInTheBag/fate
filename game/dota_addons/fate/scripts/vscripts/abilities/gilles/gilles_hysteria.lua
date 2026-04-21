@@ -37,7 +37,7 @@ end
 function gilles_hysteria:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local hTarget = self:GetCursorTarget()
-	if IsSpellBlocked(hTarget) then return end
+	if IsSpellBlocked(hTarget, hCaster) then return end
 	--EmitSoundOnLocationWithCaster(vTargetLocation, "Hero_Nevermore.Shadowraze", hCaster)
 
 	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_hysteria", { --AttackSpeed = self:GetSpecialValueFor("attack_speed"),

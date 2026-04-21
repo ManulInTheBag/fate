@@ -10,7 +10,7 @@ function OnMartialStart(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local duration = keys.Duration
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 	giveUnitDataDrivenModifier(caster, target, "silenced", duration)
 	ApplyMarkOfFatality(caster, target)
 	--[[if caster:GetName() == "npc_dota_hero_bloodseeker" then
@@ -183,7 +183,7 @@ function OnTigerStrike1Start(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 
 	GrantCosmicOrbitResist(caster)
 	if caster.bIsMartialArtsImproved then
@@ -238,7 +238,7 @@ function OnTigerStrike2Start(keys)
 	local ability = keys.ability
 	
 	if TigerStrikeCheckTarget(caster, target, ability) then return end
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 
 	GrantCosmicOrbitResist(caster)
 	if caster.bIsMartialArtsImproved then
@@ -286,7 +286,7 @@ function OnTigerStrike3Start(keys)
 	local ability = keys.ability
 
 	if TigerStrikeCheckTarget(caster, target, ability) then return end
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 
 	GrantCosmicOrbitResist(caster)
 	if caster.bIsMartialArtsImproved then
@@ -353,7 +353,7 @@ function OnNSSStart(keys)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Be_Cast_Now")
 		return			
 	end
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 
 	GrantCosmicOrbitResist(caster)
 	if caster.bIsMartialArtsImproved then
@@ -453,7 +453,7 @@ function OnDragonStrike1Start(keys)
 	local tigerStrikeCooldown = tigerStrikeAbility:GetCooldown(tigerStrikeAbility:GetLevel())
 	tigerStrikeAbility:StartCooldown(tigerStrikeCooldown)
 
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 
 	--GrantCosmicOrbitResist(caster)
 	--[[if caster.bIsFuriousChainAcquired then

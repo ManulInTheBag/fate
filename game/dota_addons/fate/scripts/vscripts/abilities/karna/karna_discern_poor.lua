@@ -27,7 +27,7 @@ function karna_discern_poor:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 
-	if not IsSpellBlocked(target) then
+	if not IsSpellBlocked(target, caster) then
 		local modifier_name = ""
 
 		if IsKnightClass(target) then

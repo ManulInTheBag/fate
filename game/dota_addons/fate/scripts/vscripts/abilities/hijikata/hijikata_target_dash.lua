@@ -22,7 +22,7 @@ function hijikata_target_dash:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 
-	if IsSpellBlocked(target) then return end -- Linken effect checker
+	if IsSpellBlocked(target, caster) then return end -- Linken effect checker
 	caster:EmitSound("hijikata_np_1")
 	StopGlobalSound("hijikata_np_scream")
 	caster:EmitSound("hijikata_dash_recast_sfx")

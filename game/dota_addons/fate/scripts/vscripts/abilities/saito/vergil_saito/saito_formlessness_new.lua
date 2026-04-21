@@ -179,7 +179,7 @@ function saito_formlessness_new:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
 
-    if IsSpellBlocked(hTarget) then
+    if IsSpellBlocked(hTarget, hCaster) then
         return nil
     end
 	hCaster:RemoveModifierByNameAndCaster("modifier_saito_formless_invis", hCaster) --Invis breaks early.

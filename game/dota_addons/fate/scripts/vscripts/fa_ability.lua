@@ -593,7 +593,7 @@ function OnTGStart(keys)
 	local target = keys.target
 	local ability = keys.ability
 	EmitZlodemonTrueSoundEveryone("moskes_lanc_tg")
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 	EmitGlobalSound("FA.Chop")
 
 	-- Check if caster is FA or Lancelot

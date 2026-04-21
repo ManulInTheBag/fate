@@ -681,7 +681,7 @@ function leonidas_kick:OnSpellStart()
         nSlowDuration = nSlowDuration * 1.5
     end
     if( IsNotNull(hTarget) and (hTarget:GetAbsOrigin()-hCaster:GetAbsOrigin()):Length2D() < 450) then
-        if IsSpellBlocked(hTarget) then
+        if IsSpellBlocked(hTarget, hCaster) then
             return nil
         end
 
@@ -1413,7 +1413,7 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
         vPoint = hCaster:GetAbsOrigin() + GetDirection(vPoint, hCaster) * nCastRange
     end
     --=================================--
-    local bLockOnTarget = IsNotNull(hTarget) and not IsSpellBlocked(hTarget)
+    local bLockOnTarget = IsNotNull(hTarget) and not IsSpellBlocked(hTarget, hCaster)
 
     local nTeamNumber = hCaster:GetTeamNumber()
 

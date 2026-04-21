@@ -49,7 +49,7 @@ function kuro_nine_lives:OnSpellStart()
 	local caster = self:GetCaster()
 	local hCaster = self:GetCaster()
 	local target = self:GetCursorTarget()
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, hCaster) then return end
 	local enhanced = false
 	local delay = 0.2
 	local delay_per_slash = 0.1

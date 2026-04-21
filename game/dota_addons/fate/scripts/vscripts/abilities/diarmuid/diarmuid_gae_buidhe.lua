@@ -99,7 +99,7 @@ function diarmuid_gae_buidhe:OnSpellStart()
 
 	caster:RemoveModifierByName("modifier_doublespear_buidhe")
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	if (caster:HasModifier("modifier_doublespear_attribute") or caster:HasModifier("modifier_double_spearmanship_active")) 
 		and not caster:HasModifier("modifier_rampant_warrior") then

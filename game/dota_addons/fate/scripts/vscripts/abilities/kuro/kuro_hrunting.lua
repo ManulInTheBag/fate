@@ -127,7 +127,7 @@ function kuro_hrunting:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
         fStun = fStun * (tData["bounce_damage"] / 100 / tData["bounces"])
     end
     
-    if IsSpellBlocked(hTarget) or hTarget:IsMagicImmune() then return end
+    if IsSpellBlocked(hTarget, hCaster) or hTarget:IsMagicImmune() then return end
 
     local explosionParticleIndex = ParticleManager:CreateParticle( "particles/custom/archer/archer_hrunting_area.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
     ParticleManager:SetParticleControl( explosionParticleIndex, 0, hTarget:GetAbsOrigin() )

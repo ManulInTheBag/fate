@@ -56,7 +56,7 @@ end
 function okita_tennen:OnSpellStart()
 	local caster = self:GetCaster()
     local target = self:GetCursorTarget()
-    if IsSpellBlocked(target)  then return end
+    if IsSpellBlocked(target, caster)  then return end
     local damage = self:GetSpecialValueFor("damage")
     local stun_damage = self:GetSpecialValueFor("stun_damage")
 

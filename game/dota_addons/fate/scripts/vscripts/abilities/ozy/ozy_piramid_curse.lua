@@ -27,6 +27,10 @@ function ozy_piramid_curse:OnSpellStart()
 	ParticleManager:SetParticleControl(EruptionPreParticle, 0, targetPoint)
 	ParticleManager:SetParticleControl(EruptionPreParticle, 1, Vector(radius, 1, 1))
 
+	local beamAbil = caster:FindAbilityByName("ozy_piramid_beam")
+	if beamAbil:GetCooldownTimeRemaining() < 2 then
+		beamAbil:StartCooldown(2)
+	end
 	local EruptionPreParticlePiramid = ParticleManager:CreateParticle("particles/ozy/piramid/ozy_scale.vpcf", PATTACH_OVERHEAD_FOLLOW, caster )
 	ParticleManager:SetParticleControl(EruptionPreParticlePiramid, 3, caster:GetAbsOrigin())
 
@@ -73,7 +77,7 @@ function modifier_ozy_piramid_curse:GetEffectName()
     return "particles/ozy/piramid/curse_debuff_enemy.vpcf"
 end
 function modifier_ozy_piramid_curse:GetEffectAttachType()
-    return PATTACH_CUSTOMORIGIN_FOLLOW
+    return PATTACH_ABSORIGIN_FOLLOW
 end
 function modifier_ozy_piramid_curse:IsDebuff() return true end
 function modifier_ozy_piramid_curse:OnCreated()

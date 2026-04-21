@@ -91,7 +91,7 @@ function diarmuid_gae_dearg:OnSpellStart()
 	local ability = self	
 	local target = self:GetCursorTarget()	
 
-	if IsSpellBlocked(target) then return end -- Linken effect checker
+	if IsSpellBlocked(target, caster) then return end -- Linken effect checker
 
 	ApplyDeargDispel(target)
 

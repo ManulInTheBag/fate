@@ -10,7 +10,7 @@ function OnDirkStart(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local maxTarget = keys.MaxTarget
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 	local range = caster:GetRangeToUnit(target)
 	if keys.Range > range then
 		range =  keys.Range
@@ -44,7 +44,7 @@ function OnDirkHit(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ply = caster:GetPlayerOwner()
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
 
 	--[[if caster.IsWeakeningVenomAcquired then
 		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, "modifier_dirk_poison_empowered", {}) 
@@ -433,7 +433,7 @@ end
 
 function OnFirstHitLanded(keys)
 	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
-	if IsSpellBlocked(keys.target) then keys.caster:RemoveModifierByName("modifier_thrown") return end -- Linken effect checker
+	if IsSpellBlocked(keys.target, caster) then keys.caster:RemoveModifierByName("modifier_thrown") return end -- Linken effect checker
 
 	if keys.target:GetName() == "npc_dota_ward_base" then
 		DoDamage(keys.caster, keys.target, 2, DAMAGE_TYPE_PURE, 0, keys.ability, false)
@@ -483,8 +483,9 @@ function SelfModRefresh(keys)
 end
 
 function OnStealStart(keys)
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	local caster = keys.caster
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
+	
 	local ply = caster:GetPlayerOwner() 
 	local target = keys.target
 	local ability = keys.ability
@@ -590,8 +591,9 @@ function OnZabStart(keys)
 end
 
 function OnZabHit(keys)
-	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	local caster = keys.caster
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
+	
 	local ply = caster:GetPlayerOwner()
 	local target = keys.target
 	local stunduration = keys.StunDuration

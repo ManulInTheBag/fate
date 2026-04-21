@@ -132,8 +132,9 @@ end
 
 function emiya_arrow_rain:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	print("its triggering from rain 4head")
-	if IsSpellBlocked(hTarget) then return end -- Linken effect checker
 	local caster = self:GetCaster()
+	if IsSpellBlocked(hTarget, caster) then return end -- Linken effect checker
+	
 	local ability = caster:FindAbilityByName("emiya_broken_phantasm")
 	local targetdmg = ability:GetLevelSpecialValueFor("target_damage") 
 	local splashdmg = ability:GetLevelSpecialValueFor("splash_damage") 

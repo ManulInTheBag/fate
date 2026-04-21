@@ -191,7 +191,7 @@ function modifier_cu_rush:BOOM()
     local position = self.target:GetAbsOrigin()
     local damage = self.damage
     self.damage_dealth = true
-    if IsSpellBlocked(self.target) then return end
+    if IsSpellBlocked(self.target, self.parent) then return end
    
 	self.parent:RemoveGesture(ACT_DOTA_AMBUSH)
     StartAnimation( self.parent, {duration=0.45, activity=ACT_DOTA_RAZE_3, rate=1.5})

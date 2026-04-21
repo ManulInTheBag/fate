@@ -75,9 +75,10 @@ function robin_tools_its_a_trap:OnProjectileHit_ExtraData( target, location, dat
 	if target:IsMagicImmune() then return end
 
 	-- cancel if linken
-	if IsSpellBlocked(target) then return end
-	
 	local caster = self:GetCaster()
+	if IsSpellBlocked(target, caster) then return end
+	
+	
 
 	-- load data
 	local duration = self:GetSpecialValueFor( "duration" )

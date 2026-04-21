@@ -43,7 +43,7 @@ function emiya_crane_wings:OnSpellStart()
     local caster = self:GetCaster()
 	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1)
 	self.htarget = self:GetCursorTarget() 
-    
+    if IsSpellBlocked(self.htarget, caster) then return end 
     local distance = (caster:GetAbsOrigin() - self.htarget:GetAbsOrigin()):Length2D()
     if(distance > 500 ) then
          self:RefundManaCost()

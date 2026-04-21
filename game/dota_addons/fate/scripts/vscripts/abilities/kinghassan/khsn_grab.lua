@@ -13,7 +13,7 @@ function khsn_grab:OnSpellStart()
 		OrderType = DOTA_UNIT_ORDER_STOP
 	}
 
-	if IsSpellBlocked(self.target) then
+	if IsSpellBlocked(self.target, caster) then
 		ExecuteOrderFromTable(stopOrder_self)
 		return
 	end

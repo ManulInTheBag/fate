@@ -25,7 +25,7 @@ function jtr_information_erase:OnSpellStart()
 
 	local rCooldown = 0
 	
-	if not IsSpellBlocked(target) then
+	if not IsSpellBlocked(target, caster) then
 		target:AddNewModifier(caster, self, "modifier_silence", {duration = 3})
 		--[[ for i=0, 5 do 
 			local ability = target:GetAbilityByIndex(i)

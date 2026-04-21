@@ -284,7 +284,7 @@ function OnTZStart(keys)
 	local target = keys.target
 	local ability = keys.ability
 	local TZCount = 0
-	if IsSpellBlocked(keys.target) then return end	
+	if IsSpellBlocked(keys.target, caster) then return end	
 
 
 
@@ -350,7 +350,7 @@ function OnVengeanceStart(keys)
 		return
 	end]]
 
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 	keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_vengeance_mark", {})
 	giveUnitDataDrivenModifier(caster, target , "rooted", keys.Duration)
 	DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
@@ -373,7 +373,7 @@ function OnBloodStart(keys)
 	local target = keys.target
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_blood_mark_restriction", {})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_blood_mark_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
-	if IsSpellBlocked(keys.target) then return end
+	if IsSpellBlocked(keys.target, caster) then return end
 
 	DoDamage(caster, target, 500, DAMAGE_TYPE_PURE, 0, keys.ability, false)
 	caster:Heal(500, ability)

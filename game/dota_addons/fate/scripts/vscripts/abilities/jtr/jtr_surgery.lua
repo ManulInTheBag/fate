@@ -7,7 +7,7 @@ function jtr_surgery:OnSpellStart()
     local caster = self:GetCaster()
     local target = self:GetCursorTarget()
 
-    if IsSpellBlocked(target) then return end
+    if IsSpellBlocked(target, caster) then return end
 
     caster:AddNewModifier(caster, self, "modifier_jtr_surgery", {})
 end

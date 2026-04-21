@@ -89,6 +89,7 @@ function ozy_spawn_piramid:OnSpellStart()
 			--FindClearSpaceForUnit(Piramid, Piramid:GetAbsOrigin(), true)
 			
 			-- Level abilities
+			Piramid:FindAbilityByName("ozy_piramid_barrier"):SetLevel(self:GetLevel())
 			Piramid:FindAbilityByName("ozy_piramid_curse"):SetLevel(self:GetLevel())
 			Piramid:FindAbilityByName("ozy_piramid_beam"):SetLevel(self:GetLevel())
 			Piramid:FindAbilityByName("ozy_piramid_auto_defence"):SetLevel(self:GetLevel()) 

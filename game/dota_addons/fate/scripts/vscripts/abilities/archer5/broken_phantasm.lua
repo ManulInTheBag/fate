@@ -74,7 +74,7 @@ function archer_5th_broken_phantasm:OnProjectileHit_ExtraData(hTarget, vLocation
     local fRadius = self:GetSpecialValueFor("radius")
     local fStun = self:GetSpecialValueFor("stun_duration")
     
-    if IsSpellBlocked(hTarget) then return end
+    if IsSpellBlocked(hTarget, hCaster) then return end
 
     local pcExplosion = ParticleManager:CreateParticle("particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget)
     ParticleManager:SetParticleControl(pcExplosion, 3, hTarget:GetAbsOrigin())

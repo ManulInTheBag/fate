@@ -147,7 +147,7 @@ function lishuwen_tiger_strike:TigerStrike1()
 	self:StartCooldown(0.1)
 
 	-- Don't do anything if the spell is blocked
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	-- Damage type to physical and calculate for crit 
 	if caster:HasModifier("modifier_berserk") then 
@@ -211,7 +211,7 @@ function lishuwen_tiger_strike:TigerStrike2()
 	self:EndCooldown()
 	self:StartCooldown(0.1)
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 	
 	if caster.bIsFuriousChainAcquired then 
 		self:GrantFuriousChainBuff()
@@ -294,7 +294,7 @@ function lishuwen_tiger_strike:TigerStrike3()
 	local target = self:GetCursorTarget()
 	local ability = self
 	EmitZlodemonTrueSoundEveryone("moskes_li_e3")
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	local damage = self:GetSpecialValueFor("damage_3_magical")
 

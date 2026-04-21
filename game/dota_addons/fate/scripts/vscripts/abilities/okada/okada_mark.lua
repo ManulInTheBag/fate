@@ -24,7 +24,7 @@ function okada_mark:OnSpellStart()
 
 	local rCooldown = 0
 	
-	if not IsSpellBlocked(target) then
+	if not IsSpellBlocked(target, caster) then
 		target:SetDayTimeVisionRange(self:GetSpecialValueFor("target_vision"))
 		target:SetNightTimeVisionRange(self:GetSpecialValueFor("target_vision"))
 		caster:SetDayTimeVisionRange(50)

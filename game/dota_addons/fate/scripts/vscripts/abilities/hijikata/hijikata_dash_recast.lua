@@ -185,7 +185,7 @@ function modifier_hijikata_rush:BOOM()
     local position = self.target:GetAbsOrigin()
     local damage = self.damage
     self.damage_dealth = true
-    if IsSpellBlocked(self.target) then return end
+    if IsSpellBlocked(self.target, self.parent) then return end
    
     
 

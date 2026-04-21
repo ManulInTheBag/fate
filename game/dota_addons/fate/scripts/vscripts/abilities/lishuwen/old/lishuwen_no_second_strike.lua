@@ -235,7 +235,7 @@ function lishuwen_no_second_strike:OnSpellStart()
     local stunDuration = self:GetSpecialValueFor("stun_duration")
     local knockback_damage = 0
 
-	if IsSpellBlocked(target) then return end
+	if IsSpellBlocked(target, caster) then return end
 
 	if caster.bIsCirculatoryShockAcquired then stunDuration = self:GetSpecialValueFor("attribute_stun_duration") end
 

@@ -78,6 +78,10 @@ function demon_king_release:PerformAttackTimer()
 
 end
 
+function demon_king_release:OptionalDestroy(parent)
+
+end
+
 function demon_king_release:PerformDealingDamage(tick_damage, aoe_radius)
    local caster = self:GetCaster()
       local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER , false)

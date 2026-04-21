@@ -89,8 +89,9 @@ function true_assassin_zabaniya:OnSpellStart()
 end
 
 function true_assassin_zabaniya:OnProjectileHit_ExtraData(hTarget, vLocation, table)
-	if IsSpellBlocked(hTarget) then return end -- Linken effect checker
 	local caster = self:GetCaster()
+	if IsSpellBlocked(hTarget, caster) then return end -- Linken effect checker
+
 	
 	local blood = ParticleManager:CreateParticle("particles/units/heroes/hero_axe/axe_culling_blade_kill_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget)
 	ParticleManager:SetParticleControl(blood, 4, hTarget:GetAbsOrigin())
