@@ -1,1 +1,117 @@
-w's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."},{"timestamp":1776776222.146,"category":"console","level":"info","message":"15:57:02.146 > [RTCControlSocket(default)] Sending heartbeat with last received sequence number: 164"},{"timestamp":1776776222.198,"category":"console","level":"info","message":"15:57:02.198 > [RTCControlSocket(default)] Heartbeat ACK received"},{"timestamp":1776776233.241,"category":"console","level":"info","message":"15:57:13.241 > [RTCControlSocket(stream)] Sending heartbeat with last received sequence number: 376"},{"timestamp":1776776233.295,"category":"console","level":"info","message":"15:57:13.295 > [RTCControlSocket(stream)] Heartbeat ACK received"},{"timestamp":1776776235.896,"category":"console","level":"info","message":"15:57:15.896 > [RTCControlSocket(default)] Sending heartbeat with last received sequence number: 164"},{"timestamp":1776776235.942,"category":"console","level":"info","message":"15:57:15.942 > [RTCControlSocket(default)] Heartbeat ACK received"},{"timestamp":1776776246.992,"category":"console","level":"info","message":"15:57:26.991 > [RTCControlSocket(stream)] Sending heartbeat with last received sequence number: 376"},{"timestamp":1776776247.041,"category":"console","level":"info","message":"15:57:27.040 > [RTCControlSocket(stream)] Heartbeat ACK received"}],"attachments":[],"contexts":{},"tags":{"nativeBuildNumber":"80096"},"extra":{},"user":{"id":"485090524282355733","username":"zlodemon","email":"glebucha1112@gmail.com"},"fingerprint":[],"eventProcessors":[],"propagationContext":{"traceId":"373f5f29ef174dd88fb0410ce699c25b","spanId":"a58a9745fdfca42d"},"sdkProcessingMetadata":{}},"event":{"contexts":{"app":{"app_name":"discord","app_version":"1.0.9233","app_start_time":"2026-04-21T09:17:47.200Z"},"os":{"name":"Windows","version":"10.0.19045"},"browser":{"name":"Chrome"},"chrome":{"name":"Chrome","type":"runtime","version":"138.0.7204.251"},"device":{"arch":"x64","family":"Desktop"},"node":{"name":"Node","type":"runtime","version":"22.19.0"},"runtime":{"name":"Electron","version":"37.6.0"}},"environment":"stable","release":"1.0.9233","user":{"ip_address":"{{auto}}"},"tags":{"event.origin":"electron","event.environment":"javascript","event.process":"browser","event_type":"javascri
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf65:version{48e806a9-c210-4cd8-811a-38b5ef63b195} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 32
+	m_flConstantRadius = 48.0
+	m_ConstantColor = [ 233, 201, 0, 220 ]
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 3
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmissionDuration = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 10.0
+			}
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 60.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.3
+				m_flRandomMax = 0.4
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 1
+		},
+		{
+			_class = "C_INIT_CreateOnModel"
+			m_HitboxSetName = "head"
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+			m_nSequenceMin = 4
+			m_nSequenceMax = 6
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_bLocalCoords = true
+			m_OffsetMax = [ 30.0, 30.0, 10.0 ]
+			m_OffsetMin = [ 0.0, -30.0, -10.0 ]
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.2
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.2
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 0.0
+			m_flBias = 0.2
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 255, 160, 72 ]
+			m_flFadeStartTime = 0.5
+		},
+		{
+			_class = "C_OP_EndCapTimedDecay"
+			m_flDecayTime = 0.1
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_bDisableZBuffering = true
+			m_bBlendFramesSeq0 = false
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/lens_flare/lens_flare.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+}
