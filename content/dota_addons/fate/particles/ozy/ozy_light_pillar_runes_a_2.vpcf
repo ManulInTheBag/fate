@@ -794,7 +794,6 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flEndTime = 0.5
 			m_flStartScale = 0.0
-			m_flBias = 0.75
 		},
 	]
 	m_Renderers = 
@@ -1125,6 +1124,7 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 			m_flAddSelfAmount = 1.0
 			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
+			m_bDisableZBuffering = true
 		},
 		{
 			_class = "C_OP_RenderSprites"
@@ -1253,6 +1253,7 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
+			m_bDisableZBuffering = true
 		},
 		{
 			_class = "C_OP_RenderSprites"
@@ -1580,6 +1581,7 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 			m_flAddSelfAmount = 1.0
 			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
+			m_bDisableZBuffering = true
 		},
 	]
 }

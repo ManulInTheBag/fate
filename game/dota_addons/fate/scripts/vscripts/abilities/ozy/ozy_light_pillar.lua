@@ -37,6 +37,9 @@ function ozy_light_pillar:OnSpellStart()
 
 	    end
 	    EmitSoundOnLocationWithCaster(targetPoint, "Hero_Chen.TestOfFaith.Target", caster)		
-
+		local explosionFx = ParticleManager:CreateParticle("particles/ozy/ozy_light_pillar_endcap.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl( explosionFx, 0, targetPoint)
+		ParticleManager:SetParticleControl( explosionFx, 1, Vector(350, 0, 0))
+		ParticleManager:ReleaseParticleIndex(explosionFx)
 	end)
 end

@@ -10,6 +10,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_light_chacram"
 		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"				"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityTextureName"			"custom/ozy/ozy_chacram"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -48,6 +49,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_protection_of_sun_god"
 		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"				"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityTextureName"			"custom/ozy/ozy_flash_barrier"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -91,6 +93,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_light_pillar"
 		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"				"2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityTextureName"			"custom/ozy/light_pillar"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -108,7 +111,7 @@
 		"precache"
 		{
 			"particle"				"particles/ozy/ozy_light_pillar_runes.vpcf"
-			"particle"				"particles/ozy/ozy_blind.vpcf"
+			"particle"				"particles/ozy/ozy_light_pillar_endcap.vpcf"
 
 		}
 
@@ -153,6 +156,40 @@
             "stun_duration" 		"1"
         }
 	}
+
+	//=====================================
+	// 
+	//=====================================
+	"ozy_spawn_boat"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/ozy/ozy_spawn_boat"
+		"AbilityTextureName"				"custom/ozy/ozy_boat"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "0"
+		"AbilityManaCost"					"0"
+		"AbilityCastRange"					"1000"
+
+
+
+		"precache"
+		{
+			"particle"		"particles/ozy/piramid/ozy_piramid_passive_effect.vpcf"
+
+
+			
+		}
+		"AbilityValues"
+		{
+			"damage"							"1000"
+			"radius"							"500"
+			"summon_delay"						"2"
+			"max_health"						"1500"
+			"damage_first"						"500"
+			"slow_first"						"50"
+		}
+	}
 	//=====================================
 	// 
 	//=====================================
@@ -165,7 +202,7 @@
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
-		"LevelsBetweenUpgrades"				"1"
+		"LevelsBetweenUpgrades"				"2"
 		"MaxLevel"							"5"
 		"AbilityCooldown"				    "40"
 		"AbilityManaCost"					"800"

@@ -423,6 +423,21 @@ function RegisterTransport(data)
 {
     transport = data.transport;
 }
+function OzySelectBoat(data)
+{
+    var playerID = Players.GetLocalPlayer();
+    var mainSelected = Players.GetLocalPlayerPortraitUnit();
+    var hero = Players.GetPlayerHeroEntityIndex( playerID )
+
+    if (mainSelected == hero)
+    {
+        // check if transport is currently carrying Caster inside
+        if (Entities.IsAlive( data.boat ))
+        {
+            GameUI.SelectUnit(data.boat, false);
+        }
+    }
+}
 function UpdateMountStatus(data)
 {
     bIsMounted = data.bIsMounted;
@@ -450,6 +465,7 @@ function RegisterAllMasterUnits(data) {
     GameEvents.Subscribe( "player_bgm_off", TurnBGMOff);
     GameEvents.Subscribe( "dota_player_update_selected_unit", CheckTransportSelection );
     GameEvents.Subscribe( "player_summoned_transport", RegisterTransport);
+    GameEvents.Subscribe( "ozy_select_boat", OzySelectBoat);
     GameEvents.Subscribe( "player_mount_status_changed", UpdateMountStatus);
 
     var config = GameUI.CustomUIConfig()
