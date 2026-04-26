@@ -109,7 +109,8 @@ var buffProgress = {
 
 var buffCanBeRemoved = {
     modifier_rho_aias: true,
-    modifier_rho_aias_emiya: true
+    modifier_rho_aias_emiya: true,
+    modifier_gordius_wheel: true
 };
 
 function AltClickBuffs() {
