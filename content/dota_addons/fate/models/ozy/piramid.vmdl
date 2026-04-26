@@ -242,11 +242,18 @@
 								delete_from_compiled_model = false
 								source_filename = "models/ozy/ozymandiasnp/pyramid.fbx"
 								import_bone_scales = false
-								start_frame = 0
+								start_frame = -1
 								end_frame = 4
 								framerate = 10.0
 								reverse = true
 								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 0
+										frame_count = 15
+									},
+								]
 							},
 							{
 								_class = "AnimFile"

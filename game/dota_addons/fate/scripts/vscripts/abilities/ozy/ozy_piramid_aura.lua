@@ -37,11 +37,7 @@ function modifier_ozy_piramid_passive:GetModifierMagicalResistanceBonus()
 end
 
 function modifier_ozy_piramid_passive:IsHidden()
-	if self:GetParent() ~= self:GetCaster() then
-		return false
-	else
-		return true
-	end
+	return false
 end
 
 function modifier_ozy_piramid_passive:IsDebuff()

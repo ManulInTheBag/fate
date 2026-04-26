@@ -17,6 +17,7 @@ function ozy_spawn_boat:OnSpellStart()
 		--hCaster.Piramid = Piramid
 		boat:AddNewModifier(hCaster, self, "modifier_phased", {duration = life_dur})
 		hCaster.boat = boat
+		boat.ozy = hCaster
 	end
 
 
