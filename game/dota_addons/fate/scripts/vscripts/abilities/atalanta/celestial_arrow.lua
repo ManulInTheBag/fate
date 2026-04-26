@@ -201,7 +201,7 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     if caster.ArrowsOfTheBigDipperAcquired then
 
         --DoDamage(caster, target, caster:GetAgility() * dmgMod, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        damage = damage + (caster:GetAgility()*0.75)
+        damage = damage + (caster:GetAgility()*0.65)
 
     end
 

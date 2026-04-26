@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_lu_bu_rage", "abilities/lu_bu/lu_bu_rage", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_lu_bu_rage_passive", "abilities/lu_bu/lu_bu_rage", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lu_bu_rage_slow", "abilities/lu_bu/lu_bu_rage", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_assault_skillswap_3", "abilities/lu_bu/modifiers/modifier_assault_skillswap_3", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_relentless_assault_blocker", "abilities/lu_bu/modifiers/modifier_relentless_assault_blocker", LUA_MODIFIER_MOTION_NONE )
@@ -21,7 +22,8 @@ function lu_bu_rage:OnSpellStart()
 	end
 	caster:EmitSound("lu_bu_rage")
 	local duration = self:GetSpecialValueFor("active_duration")
-	caster:AddNewModifier(caster,self,"modifier_lu_bu_rage",{duration = duration})
+	caster:AddNewModifier(caster,self,"modifier_lu_bu_rage",{duration = 1})
+	caster:AddNewModifier(caster,self,"modifier_lu_bu_rage_passive",{duration = self:GetSpecialValueFor("passive_duration")})
 
 	self.resolutionFx = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
    	ParticleManager:SetParticleControl( self.resolutionFx, 4, caster:GetAbsOrigin())
@@ -46,10 +48,7 @@ function modifier_lu_bu_rage:IsHidden() return false end
 function modifier_lu_bu_rage:RemoveOnDeath() return false end
 
 function modifier_lu_bu_rage:DeclareFunctions()
-	return {MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-			MODIFIER_PROPERTY_OVERRIDE_ANIMATION
-		 }
+	return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION}
 end
 
 function modifier_lu_bu_rage:CheckState()
@@ -60,14 +59,6 @@ function modifier_lu_bu_rage:CheckState()
 end
 function modifier_lu_bu_rage:GetOverrideAnimation()
 	return ACT_DOTA_CAST_ABILITY_3_END
-end
-
-function modifier_lu_bu_rage:GetModifierPhysicalArmorBonus()
-	return self:GetAbility():GetSpecialValueFor("armor_bonus")
-end
-
-function modifier_lu_bu_rage:GetModifierMagicalResistanceBonus()
-	return self:GetAbility():GetSpecialValueFor("mr_bonus")
 end
 
 function modifier_lu_bu_rage:OnCreated()
@@ -111,4 +102,25 @@ end
 
 function modifier_lu_bu_rage_slow:GetModifierMoveSpeedBonus_Percentage()
 	return -self:GetAbility():GetSpecialValueFor("slow_amount")
+end
+
+
+modifier_lu_bu_rage_passive = class({})
+
+function modifier_lu_bu_rage_passive:IsDebuff() return false end
+function modifier_lu_bu_rage_passive:IsHidden() return false end
+function modifier_lu_bu_rage_passive:RemoveOnDeath() return false end
+
+function modifier_lu_bu_rage_passive:DeclareFunctions()
+	return {MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+		 }
+end
+
+function modifier_lu_bu_rage_passive:GetModifierPhysicalArmorBonus()
+	return self:GetAbility():GetSpecialValueFor("armor_bonus")
+end
+
+function modifier_lu_bu_rage_passive:GetModifierMagicalResistanceBonus()
+	return self:GetAbility():GetSpecialValueFor("mr_bonus")
 end
