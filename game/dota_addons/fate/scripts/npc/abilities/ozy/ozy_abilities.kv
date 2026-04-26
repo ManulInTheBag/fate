@@ -193,6 +193,56 @@
 	//=====================================
 	// 
 	//=====================================
+	"ozy_move_boat"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/ozy/ozy_move_boat"
+		"AbilityTextureName"				"custom/ozy/ozy_boat"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "0.5"
+		"AbilityManaCost"					"0"
+		"AbilityCastRange"					"9999"
+
+
+		"AbilityValues"
+		{
+			"speed"							"500"
+			"max_distance"							"1500"
+		}
+	}
+
+	//=====================================
+	// 
+	//=====================================
+	"ozy_teleport_boat"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/ozy/ozy_teleport_boat"
+		"AbilityTextureName"				"custom/ozy/ozy_boat"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "30"
+		"AbilityManaCost"					"0"
+		"AbilityCastRange"					"9999"
+		"AbilityChannelTime"			"3"
+
+
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_recall.vpcf"
+			
+		}
+		"AbilityValues"
+		{
+			"delay"							"3"
+			"max_distance"					"1500"
+			"minimum_damage"				"400"
+		}
+	}
+	//=====================================
+	// 
+	//=====================================
 	"ozy_spawn_piramid"
 	{
 		"BaseClass"          			    "ability_lua"
