@@ -7584,7 +7584,7 @@
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_bonus_range"       "BONUS RANGE:"
 
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute"				"Attribute: Calydonian Snipe"
-        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Whenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 3%% per stack.<br/>Arrow of the Big Dipper applies 5 stacks."
+        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Whenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 3%% per stack.<br/>Arrow of the Big Dipper applies 10 stacks."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Lore"			"Once the hunt is on, there is no hiding from the arrows of the huntress."
         //"DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Note0"		"Arrows can be disjointed."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_stacks_duration"		"Duration:"
@@ -8281,6 +8281,7 @@
 		"DOTA_Tooltip_Ability_lu_bu_armistice_Lore"				"The number of individuals who can withstand this rage is few indeed."
 		"DOTA_Tooltip_Ability_lu_bu_rage_damage"					"TOTAL DAMAGE:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_active_duration"			"DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_rage_passive_duration"			"DEFENSIVE DURATION:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_radius"					"RADIUS:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_armor_bonus"				"BONUS ARMOR:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_mr_bonus"					"%BONUS MR:"

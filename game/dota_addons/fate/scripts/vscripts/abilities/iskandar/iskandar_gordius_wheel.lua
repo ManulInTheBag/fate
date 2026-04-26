@@ -158,7 +158,7 @@ function modifier_gordius_wheel:OnCreated(args)
 					end
 					DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 					if(v:IsHero()) then
-						caster.BonusChargeDamage =  caster.BonusChargeDamage + 75
+						caster.BonusChargeDamage =  caster.BonusChargeDamage + caster:FindAbilityByName("iskander_forward"):GetSpecialValueFor("sa_damage")
 					end
 				end
 		 	
