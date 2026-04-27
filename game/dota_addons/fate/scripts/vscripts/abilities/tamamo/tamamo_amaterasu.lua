@@ -225,7 +225,7 @@ function modifier_amaterasu_ally:OnAbilityExecuted(args)
         local mana = amaterasu:GetSpecialValueFor("mana_per_cast")
         if caster == hero then
         	local mod = amaterasu:GetSpecialValueFor("tamamo_multiplier")
-        	heal = heal*mod
+        	heal = heal
         	mana = mana*mod
         end
         hero:ApplyHeal(heal, amaterasu)
