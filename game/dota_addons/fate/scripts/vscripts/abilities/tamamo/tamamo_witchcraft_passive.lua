@@ -48,9 +48,9 @@ if IsServer() then
 		--end
 
 		--DoDamage(hCaster, hTarget, base_damage + self:GetParent():GetIntellect(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-		if hCaster.IsWitchcraftAcquired then
+		--[[if hCaster.IsWitchcraftAcquired then
 			args.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_tamamo_witchcraft_debuff", { Duration = duration })
-		end
+		end]]
 	end
 end
 

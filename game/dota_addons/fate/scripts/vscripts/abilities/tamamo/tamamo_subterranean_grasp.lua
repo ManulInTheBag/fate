@@ -24,6 +24,8 @@ function tamamo_subterranean_grasp:OnSpellStart()
 	ParticleManager:SetParticleControl(ParticleIndex, 1, Vector(radius, radius, radius))
 	ParticleManager:SetParticleControl(ParticleIndex, 2, Vector(delay, 0, 0))
 
+	local dmg_type = DAMAGE_TYPE_MAGICAL
+
 	Timers:CreateTimer(delay, function()
 		EmitSoundOnLocationWithCaster(target, "Hero_Visage.GraveChill.Cast", caster)
 		local tEnemies = FindUnitsInRadius(caster:GetTeam(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
@@ -39,18 +41,20 @@ function tamamo_subterranean_grasp:OnSpellStart()
 			if caster:HasModifier("modifier_fiery_heaven_indicator") then
 				--tEnemies[i]:AddNewModifier(caster, self, "modifier_subterranean_grasp_fire", {duration = duration})
 				tEnemies[i]:AddNewModifier(caster, self, "modifier_heal_reduction_tier_3", {duration = duration})
+				dmg_type = DAMAGE_TYPE_PHYSICAL
 					if tEnemies[i]:GetName() == "npc_dota_hero_nevermore" then
 						tEnemies[i]:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
 					end
 			elseif caster:HasModifier("modifier_frigid_heaven_indicator") then 
 				giveUnitDataDrivenModifier(caster, tEnemies[i], "locked", duration)
+				dmg_type = DAMAGE_TYPE_PHYSICAL
 			elseif caster:HasModifier("modifier_gust_heaven_indicator") then
 				giveUnitDataDrivenModifier(caster, tEnemies[i], "silenced", duration)
 			elseif caster:HasModifier("modifier_void_heaven_indicator") then
 				tEnemies[i]:AddNewModifier(caster, self, "modifier_subterranean_grasp_void", {duration = duration})
 			end
 
-			DoDamage(caster, tEnemies[i], damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			DoDamage(caster, tEnemies[i], damage, dmg_type, 0, self, false)
 		end
 		ParticleManager:DestroyParticle(ParticleIndex, false)
 		ParticleManager:ReleaseParticleIndex(ParticleIndex)

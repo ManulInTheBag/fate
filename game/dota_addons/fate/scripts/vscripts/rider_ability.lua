@@ -197,6 +197,8 @@ function OnBloodfortStart(keys)
 			end
 			return
 		end
+
+		local first = false
 		
 		local targets = FindUnitsInRadius(caster:GetTeam(), initCasterPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
@@ -207,12 +209,15 @@ function OnBloodfortStart(keys)
 				local target_absorb = keys.AbsorbAmount + (v:HasModifier("modifier_medusa_bleed") and v:FindModifierByName("modifier_medusa_bleed"):GetStackCount()*ability:GetSpecialValueFor("bleed_absorb") or 0)
 
 		        DoDamage(caster, v, target_damage * 0.5, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+
 		        if v:IsHero() then
+		        	if not first then
+		        		first = true
+		        	else
+		        		target_absorb = target_absorb/3
+		        	end
 		        	v:SetMana(v:GetMana() - (target_damage * 0.1))
-					print(target_damage * 0.1)
-		        end
-		        caster:ApplyHeal(target_absorb * 0.5, caster)
-		        if v:IsHero() then
+		        	caster:ApplyHeal(target_absorb * 0.5, caster)
 		        	caster:GiveMana(target_absorb * 0.1)
 		        end
 

@@ -292,7 +292,7 @@ function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss, ss_damage)
 
 	for i = 1, #tEnemies do
 		if hCharmDebuff ~= nil and hCharmAbility ~= nil then
-			DoDamage(hCaster, tEnemies[i], fDamage*2, DAMAGE_TYPE_MAGICAL, 0, hCharmAbility, false)
+			DoDamage(hCaster, tEnemies[i], fDamage*2, DAMAGE_TYPE_PHYSICAL, 0, hCharmAbility, false)
 			tEnemies[i]:AddNewModifier(hCaster, hCharmAbility, hCharmDebuff, { Duration = hCharmAbility:GetSpecialValueFor("duration"), is_ss = is_ss })
 		end
 	end
@@ -338,7 +338,7 @@ function tamamo_soul_stream:IceCharmProc(hTarget, vLocation, is_ss, ss_damage)
 		if not (tEnemies[i]:GetUnitName() == "iskander_infantry") then
 			tEnemies[i]:AddNewModifier(hCaster, hCharmAbility, "modifier_tamamo_ice_debuff", {duration = hCharmAbility:GetSpecialValueFor("duration"), is_ss = is_ss})
 		end
-		DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, hCharmAbility, false)
+		DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_PHYSICAL, 0, hCharmAbility, false)
 	end
 	local ParticleIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf", PATTACH_ABSORIGIN, hTarget)
 	ParticleManager:SetParticleControl(ParticleIndex, 0, hTarget:GetAbsOrigin())
@@ -358,8 +358,11 @@ function tamamo_soul_stream:WindCharmProc(hTarget, vLocation, is_ss, ss_damage)
 
 	local fDamage = hCharmAbility:GetSpecialValueFor("damage") + hCharmAbility:GetSpecialValueFor("int_ratio")*hCaster:GetIntellect()
 	local fExplodeRadius = hCharmAbility:GetSpecialValueFor("radius")
+	local fOriginalExplodeRadius = self:GetSpecialValueFor("explode_radius")
 
+	local first_target = false
 	if is_ss then
+		first_target = true
 		fDamage = fDamage/6 + ss_damage
 	end
 
@@ -390,9 +393,14 @@ function tamamo_soul_stream:WindCharmProc(hTarget, vLocation, is_ss, ss_damage)
 
 	Timers:CreateTimer(FrameTime(), function()
 		if hCaster and IsNotNull(hCaster) then
-			local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), curr_target:GetAbsOrigin(), nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+			local tEnemies
+			if first_target then
+				tEnemies = FindUnitsInRadius(hCaster:GetTeam(), curr_target:GetAbsOrigin(), nil, fOriginalExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+			else
+				tEnemies = FindUnitsInRadius(hCaster:GetTeam(), curr_target:GetAbsOrigin(), nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+			end
 			for i = 1, #tEnemies do
-				if not attacked_targets[tEnemies[i]:entindex()] and tEnemies[i]:CanBeSeenByAnyOpposingTeam() then
+				if not attacked_targets[tEnemies[i]:entindex()] then
 					if not (tEnemies[i]:GetUnitName() == "iskander_infantry") then
 						local ParticleIndex2 = ParticleManager:CreateParticle("particles/tamamo/tamamo_lightning.vpcf", PATTACH_ABSORIGIN, curr_target)
 						if is_ss and (curr_target == hTarget) then
@@ -411,9 +419,14 @@ function tamamo_soul_stream:WindCharmProc(hTarget, vLocation, is_ss, ss_damage)
 					end
 
 					tEnemies[i]:EmitSound("Hero_Zuus.ArcLightning.Target")
-					DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, hCharmAbility, false)
+					local dmg = fDamage
+					if not first_target then
+						dmg = fDamage/2
+					end
+					DoDamage(hCaster, tEnemies[i], dmg, DAMAGE_TYPE_MAGICAL, 0, hCharmAbility, false)
 					attacked_targets[tEnemies[i]:entindex()] = true
 					curr_target = tEnemies[i]
+					first_target = false
 					return FrameTime()
 				end
 			end
@@ -573,7 +586,7 @@ if IsServer() then
 
 	function modifier_tamamo_fire_debuff:OnIntervalThink()
 		if not self.target:IsMagicImmune() then
-			DoDamage(self.caster, self.target, self.damage * 0.5 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+			DoDamage(self.caster, self.target, self.damage * 0.5 * self.damage_mult, DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
 		end
 	end
 end

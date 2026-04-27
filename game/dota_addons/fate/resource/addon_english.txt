@@ -2972,7 +2972,7 @@
 		"DOTA_Tooltip_ability_rider_5th_breaker_gorgon_duration""DURATION:"
 		
 		"DOTA_Tooltip_Ability_rider_5th_bloodfort_andromeda"	"Bloodfort Andromeda"
-		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Description"	"Rider creates a zone of blood that <font color='#FF3399'>slows</font> movement speed of enemies inside and sucks away their life force. \n Mana drain is 20% of HP drain." 
+		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Description"	"Rider creates a zone of blood that <font color='#FF3399'>slows</font> movement speed of enemies inside and sucks away their life force. \n Mana drain is 20% of HP drain.\nOnly restores health and mana for heroes or hero-type enemies. Subsequent targets after first one will only restore 1/3 health of the initial restoration value." 
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Lore"	"Disintegrate and Drain."
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_delay"	"Delay:"
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_radius"	"Radius:"
@@ -6495,27 +6495,27 @@
         "DOTA_Tooltip_ability_tamamo_armed_up_Lore"			"The nature is bound within papercraft of mythical spellcaster."
  
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven"				"<font color='#ffa500'>Fiery Heaven</font>"
-        "DOTA_Tooltip_ability_tamamo_fiery_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: applies burn effect on enemies affected, dealing damage over time.\n<font color='#58ACFA'>Subterranean Grasp</font>: also reduces healing.\n<font color='#58ACFA'>Mantra</font>: when Mantra charge is triggered, deals damage to the nearby enemies."
+        "DOTA_Tooltip_ability_tamamo_fiery_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: applies burn effect on enemies affected, dealing damage over time. Damage type is changed to <font color='#A72E28'>physical</font>.\n<font color='#58ACFA'>Subterranean Grasp</font>: also reduces healing. Damage type is changed to <font color='#A72E28'>physical</font>.\n<font color='#58ACFA'>Mantra</font>: when Mantra charge is triggered, deals damage to the nearby enemies."
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven_damage"     	"Soulstream charm DPS:"
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven_int_ratio"    "Soulstream charm int to damage ratio:"
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven_duration"     "Soulstream charm duration:"
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven_Note0"     	"Burn effect can stack"
  
         "DOTA_Tooltip_Ability_tamamo_frigid_heaven"				"<font color='#42aaff'>Frigid Heaven</font>"
-        "DOTA_Tooltip_ability_tamamo_frigid_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: creates frost explosions with a significantly bigger radius, dealing additional damage and <font color='#FF3399'>slowing</font> enemies for %duration% seconds.\n<font color='#58ACFA'>Subterranean Grasp</font>: also <font color='#FF3399'>locks</font>.\n<font color='#58ACFA'>Mantra</font>: each trigger heals allies around the target."
+        "DOTA_Tooltip_ability_tamamo_frigid_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: creates frost explosions with a significantly bigger radius, dealing additional damage and <font color='#FF3399'>slowing</font> enemies for %duration% seconds. Damage type is changed to <font color='#A72E28'>physical</font>.\n<font color='#58ACFA'>Subterranean Grasp</font>: also <font color='#FF3399'>locks</font>. Damage type is changed to <font color='#A72E28'>physical</font>.\n<font color='#58ACFA'>Mantra</font>: each trigger heals allies around the target."
         "DOTA_Tooltip_Ability_tamamo_frigid_heaven_radius"     	"Frost explosion radius:"
         "DOTA_Tooltip_Ability_tamamo_frigid_heaven_damage"     	"Frost explosion damage:"
         "DOTA_Tooltip_Ability_tamamo_frigid_heaven_int_ratio"   "Frost explosion int to damage ratio:"
         "DOTA_Tooltip_Ability_tamamo_frigid_heaven_slow_perc"	"%Frost explosion slow Amount:"
  
         "DOTA_Tooltip_Ability_tamamo_gust_heaven"				"<font color='#50c878'>Gust Heaven</font>"
-        "DOTA_Tooltip_ability_tamamo_gust_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: creates chain lightnings on each hit.\n<font color='#58ACFA'>Subterranean Grasp</font>: also <font color='#FF3399'>silences</font>.\n<font color='#58ACFA'>Mantra</font>: if used defencively, each trigger burns mana to all enemies around the target."
+        "DOTA_Tooltip_ability_tamamo_gust_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: creates chain lightnings on each hit. Targets after first one take 50%% less damage.\n<font color='#58ACFA'>Subterranean Grasp</font>: also <font color='#FF3399'>silences</font>.\n<font color='#58ACFA'>Mantra</font>: each trigger burns mana to all enemies around the target."
         "DOTA_Tooltip_Ability_tamamo_gust_heaven_radius"     	"Chain lightning search radius:"
         "DOTA_Tooltip_Ability_tamamo_gust_heaven_damage"     	"Chain lightning damage:"
         "DOTA_Tooltip_Ability_tamamo_gust_heaven_int_ratio"   	"Chain lightning int to damage ratio:"
  
         "DOTA_Tooltip_Ability_tamamo_void_heaven"     "<font color='#7442c8'>Void Heaven</font>"
-        "DOTA_Tooltip_ability_tamamo_void_heaven_Description" "<font color='#58ACFA'>Soul Stream</font>: each hit deals magical damage, which increases up to 150%% based on target's missing health.\n<font color='#58ACFA'>Subterranean Grasp</font>: also reduces magic resistance.\n<font color='#58ACFA'>Mantra</font>: each time Mantra charge is triggered, it will put abilities of all affected enemies on cooldown for a short duration."
+        "DOTA_Tooltip_ability_tamamo_void_heaven_Description" "<font color='#58ACFA'>Soul Stream</font>: each hit deals magical damage, which increases up to 150%% based on target's missing health.\n<font color='#58ACFA'>Subterranean Grasp</font>: also reduces magic resistance.\n<font color='#58ACFA'>Mantra</font>: increased damage based on enemy missing health."
         "DOTA_Tooltip_Ability_tamamo_void_heaven_damage"     	"Void bubble damage:"
         "DOTA_Tooltip_Ability_tamamo_void_heaven_int_ratio"   "Void bubble int to damage ratio:"
 
@@ -6628,12 +6628,12 @@
         "DOTA_Tooltip_Ability_tamamo_mystic_shackle_Note0"		"Shackle is removed when the distance between target and Caster becomes further than 2500."
 
         "DOTA_Tooltip_Ability_tamamo_attribute_mystic_shackle"		"Attribute: Mystic Shackle"
-        "DOTA_Tooltip_Ability_tamamo_attribute_mystic_shackle_Description"	"Casting Mantra grants bonus magic resistance to an allied target, or reduces magic resistance of an enemy. In addition, Mystic Shackle can be used within 3 seconds after casting Mantra.\n<font color='#58ACFA'>Mystic Shackle :</font> Sews the target's spirit with Caster's, forcing it to stay within certain distance. Caster is dimensionally <font color='#FF3399'>locked</font> while Mystic Shackle lasts. Caster must be no further than 500 distance away from where she initially casted Mantra and the target must be no further than 1000 range away to cast this ability. Applies dimensional <font color='#FF3399'>lock</font> on enemy targets."
+        "DOTA_Tooltip_Ability_tamamo_attribute_mystic_shackle_Description"	"Casting Mantra grants bonus magic resistance to an allied target. In addition, Mystic Shackle can be used within 3 seconds after casting Mantra.\n<font color='#58ACFA'>Mystic Shackle :</font> Sews the target's spirit with Caster's, forcing it to stay within certain distance. Caster is dimensionally <font color='#FF3399'>locked</font> while Mystic Shackle lasts. Caster must be no further than 500 distance away from where she initially casted Mantra and the target must be no further than 1000 range away to cast this ability. Applies dimensional <font color='#FF3399'>lock</font> on enemy targets."
         "DOTA_Tooltip_Ability_tamamo_attribute_mystic_shackle_bonus_mr"	"%MANTRA BONUS MAGIC RESISTANCE:"
         "DOTA_Tooltip_Ability_tamamo_attribute_mystic_shackle_distance"	"MAX. DRAG DISTANCE:"
 
         "DOTA_Tooltip_Ability_tamamo_attribute_witchcraft"					"Attribute: Witchcraft"
-        "DOTA_Tooltip_ability_tamamo_attribute_witchcraft_Description"		"Removes Armed Up's cooldown and causes Tamamo's basic attacks to reduce target's magic resistance by %magic_resist%% per attack.\nSoulstream castpoint is replaced by a delay."  
+        "DOTA_Tooltip_ability_tamamo_attribute_witchcraft_Description"		"Removes Armed Up's cooldown.\nSoulstream castpoint is replaced by a delay."  
 
 
         "DOTA_Tooltip_Ability_tamamo_attribute_territory"					"Attribute: Territory Creation"

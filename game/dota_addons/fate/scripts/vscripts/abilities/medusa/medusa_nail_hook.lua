@@ -213,7 +213,10 @@ function modifier_medusa_hook_movement:OnRefresh(table)
 end
 function modifier_medusa_hook_movement:UpdateHorizontalMotion(me, dt)
     if IsServer() then
-        if self.distance >= 0 then
+    	if self.parent:IsStunned() then
+    		self.parent:RemoveModifierByName("modifier_medusa_hook_movement")
+            self:Destroy()
+        elseif self.distance >= 0 then
             local units_per_dt = self.speed * dt
             local parent_pos = self.parent:GetAbsOrigin()
 
@@ -320,11 +323,11 @@ function modifier_medusa_hook_movement:OnDestroy()
     	ParticleManager:ReleaseParticleIndex(self.particle2)
         self.parent:InterruptMotionControllers(true)
         EndAnimation(self.parent)
-        if not ((self.parent:GetAbsOrigin() - self.point):Length2D() > 1700) then
+        --[[if not ((self.parent:GetAbsOrigin() - self.point):Length2D() > 1700) then
         	FindClearSpaceForUnit(self.parent, self.point, true)
-        else
+        else]]
         	FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
-        end
+        --end
         self.ability.launched = false
     end
 end
