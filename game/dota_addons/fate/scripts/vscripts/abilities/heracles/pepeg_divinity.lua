@@ -18,7 +18,7 @@ end
 
 function modifier_pepeg_divinity:DeclareFunctions()
 	local func =	{MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
-					MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+					MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 					MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT}
 	return func
 end
@@ -27,8 +27,8 @@ end
 	return self:GetAbility():GetSpecialValueFor("physical_block")
 end]]
 
-function modifier_pepeg_divinity:GetModifierPhysicalArmorBonus()
-	return self:GetAbility():GetSpecialValueFor("bonus_armor")
+function modifier_pepeg_divinity:GetModifierMagicalResistanceBonus()
+	return self:GetAbility():GetSpecialValueFor("bonus_mr")
 end
 
 function modifier_pepeg_divinity:OnCreated()
