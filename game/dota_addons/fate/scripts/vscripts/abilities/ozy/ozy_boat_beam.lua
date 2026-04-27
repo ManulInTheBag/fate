@@ -1,37 +1,60 @@
 ozy_boat_beam = class({})
 
-
+function ozy_boat_beam:GetAnimeVectorTargetingRange()
+    return 1200
+end
+function ozy_boat_beam:GetAnimeVectorTargetingStartRadius()
+	return 200
+end
+function ozy_boat_beam:GetAnimeVectorTargetingEndRadius()
+	return 200
+end
+function ozy_boat_beam:IsAnimeVectorTargetingIgnoreWidth()
+	return false
+end
+function ozy_boat_beam:GetAnimeVectorTargetingColor()
+    return Vector(156, 210, 212)
+end
 function ozy_boat_beam:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local vTargetPoint = self:GetCursorPosition()
 	local ozymandias = hCaster.ozy
 	local boatOrigin = hCaster:GetAbsOrigin()
 	local ozyOrigin = ozymandias:GetAbsOrigin()
-	local distance  = (vTargetPoint - ozyOrigin):Length2D()
-	local MaxDistance = self:GetSpecialValueFor("max_distance")
-	local speed = self:GetSpecialValueFor("speed")
-	local moveTime = 0
-	local vector = (vTargetPoint - boatOrigin):Normalized()
-	vector.z = 0
-	local tickTime = FrameTime()
-	if distance > MaxDistance then
-		vector = (vTargetPoint - ozyOrigin):Normalized()
-		vTargetPoint = ozyOrigin + vector * MaxDistance
-		vector = (vTargetPoint - boatOrigin):Normalized()
-	end
-	
-	Timers:CreateTimer("ozymandias_move_boat", {
-			endTime = 0,
-			callback = function()
-			if hCaster:IsAlive() == false then return end
-			boatOrigin = hCaster:GetAbsOrigin()
-			hCaster:SetAbsOrigin(boatOrigin + vector * speed*tickTime)
-			hCaster:FaceTowards(vTargetPoint)
-			if (hCaster:GetAbsOrigin() -  vTargetPoint):Length2D() < 30 then
-				return 
-			end
-			return tickTime
-		end})
+	local direction = self:GetAnimeVectorTargetingMainDirection()
+	self.direction = direction
+	local width = self:GetSpecialValueFor("width")
+	local range = self:GetAnimeVectorTargetingRange()
+	local speed = 1000
+	local timeToEnd = range/speed
+	self.Laser = ParticleManager:CreateParticle("particles/ozy/boat/ozy_boat_laser_linear.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	self.laserStartPoint = boatOrigin + Vector(0,0, 2500)
+	ParticleManager:SetParticleControlTransformForward(self.Laser, 1, self.laserStartPoint, direction)
+	ParticleManager:SetParticleControl(self.Laser, 9, vTargetPoint)
+	ParticleManager:SetParticleShouldCheckFoW(self.Laser, false)
+
+	self.Burn = ParticleManager:CreateParticle("particles/karna/brahmastra_laser/ground_burn.vpcf", PATTACH_CUSTOMORIGIN,nil)
+	ParticleManager:SetParticleControl(self.Burn, 0, vTargetPoint)
+	ParticleManager:SetParticleControl(self.Burn, 1, vTargetPoint)
+	ParticleManager:SetParticleShouldCheckFoW(self.Burn, false)
+	local projectileTable = {
+		caster = hCaster,
+		source = hCaster,
+	    EffectName = "",
+	    ability = self,
+	    sourceLoc = vTargetPoint,
+	    direction = direction,
+	    speed = speed,
+	    distance = range,
+	    startRadius = width,
+	    endRadius = width,
+	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	    iUnitTargetFlags = 0,
+	    iUnitTargetType = DOTA_UNIT_TARGET_ALL,
+	    DeleteOnHit = false,
+	}
+	local projectile = FATE_ProjectileManager:CreateLinearProjectile(projectileTable)
+	hCaster:EmitSound("karna_brahmastra_laser")
 	
 	
 
@@ -39,3 +62,25 @@ function ozy_boat_beam:OnSpellStart()
 end
 
 
+
+function ozy_boat_beam:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
+	if hTarget == nil then
+   		return
+  	end
+  	if (hTarget:GetName() == "npc_dota_ward_base") then
+  		return
+  	end
+	
+	local hCaster = self:GetCaster()
+
+    DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+
+end
+
+function ozy_boat_beam:OnProjectileThink_ExtraData(vLocation)
+	vLocation = GetGroundPosition(vLocation, self:GetCaster())
+	local jopa2 = vLocation+ self.direction * 80
+	ParticleManager:SetParticleControlTransformForward(self.Laser, 1, vLocation, self.direction)
+	ParticleManager:SetParticleControl(self.Laser, 9, self.laserStartPoint)
+	ParticleManager:SetParticleControl(self.Burn, 1, jopa2)
+end
