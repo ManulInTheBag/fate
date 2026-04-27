@@ -150,11 +150,11 @@ function karna_brahmastra_kundala_new:OnSpellStart()
 	local endpos = caster:GetAbsOrigin() + target * range
 	self.spear_position = GetGroundPosition(endpos, caster)
 	Timers:CreateTimer((range/2500), function()
-		-- if caster:HasModifier "modifier_hero_selection_skin" then
+		if caster:HasModifier ("modifier_hero_selection_skin") then
 			self.endFX = ParticleManager:CreateParticle("particles/karna/aemis_mecha/mecha_spear_in_ground.vpcf", PATTACH_WORLDORIGIN, nil)
-		-- else
-		-- 	self.endFX = ParticleManager:CreateParticle("particles/karna/karna_spear_in_ground_.vpcf", PATTACH_WORLDORIGIN, nil)
-		-- end
+		else
+			self.endFX = ParticleManager:CreateParticle("particles/karna/karna_spear_in_ground_.vpcf", PATTACH_WORLDORIGIN, nil)
+		end
 		ParticleManager:SetParticleControlTransformForward(self.endFX, 0, self.spear_position, self.spear_position)
 
 		if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_new"   and not  caster:FindModifierByName("modifier_karna_armor").ArmorActive  then

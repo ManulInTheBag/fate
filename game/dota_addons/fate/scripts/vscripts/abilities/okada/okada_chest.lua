@@ -73,7 +73,7 @@ function okada_chest:OnSpellStart()
                                                                 caster:GetAbsOrigin(),
                                                                target,
                                                                 nil,
-                                                                100,
+                                                                width,
                                                                 DOTA_UNIT_TARGET_TEAM_ENEMY,
                                                                 DOTA_UNIT_TARGET_ALL,
                                                                 0

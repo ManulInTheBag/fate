@@ -551,7 +551,7 @@ function OnMaxEnumaHit(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
 	if caster.IsEnumaImproved then
-		keys.Damage = 3000
+		keys.Damage = caster.MasterUnit2:FindAbilityByName("gilgamesh_attribute_sword_of_creation"):GetSpecialValueFor("max_enuma_damage")
 	end
 	DoDamage(keys.caster, keys.target, keys.Damage, DAMAGE_TYPE_PURE, 0, keys.ability, false)
 end
