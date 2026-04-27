@@ -184,7 +184,8 @@ function modifier_lagron_combo_ally:OnTakeDamage(args)
         hTarget = self:GetParent()
         previousHealth = self.hp
         local return_percentage = (self.ability:GetSpecialValueFor("return_percentage") + (self:GetCaster().AvengerAcquired and 10 or 0))/100
-        if (previousHealth - args.damage*(1 - return_percentage) > 0) then
+		local damagePostReduction = CalculateDamagePostReduction(args.damage_type, args.original_damage,self:GetParent())
+        if (previousHealth - damagePostReduction*(1 - return_percentage) > 0) then
             hTarget:SetHealth(previousHealth - args.damage*(1 - return_percentage))
         end
         self:GetCaster():FindModifierByName("modifier_jeanne_lagron_combo_block").stored_damage = self:GetCaster():FindModifierByName("modifier_jeanne_lagron_combo_block").stored_damage + args.damage*return_percentage

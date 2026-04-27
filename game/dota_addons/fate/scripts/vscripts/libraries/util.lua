@@ -714,6 +714,10 @@ CannotReset = {
     "okada_mark",
     "okada_combo",
     "okada_manslayer",
+
+    "emiya_clairvoyance",
+    "atalanta_curse",
+    "caster_5th_item_construction",
 }
 
 

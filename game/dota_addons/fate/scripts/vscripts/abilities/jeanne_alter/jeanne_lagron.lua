@@ -174,7 +174,8 @@ function modifier_jeanne_lagron_block:OnTakeDamage(args)
         hTarget = self:GetParent()
         previousHealth = self.hp
         local return_percentage = (self.ability:GetSpecialValueFor("return_percentage") + (self:GetParent().AvengerAcquired and 10 or 0))/100
-        if (previousHealth - args.damage*(1 - return_percentage) > 0) then
+        local damagePostReduction = CalculateDamagePostReduction(args.damage_type, args.original_damage,self:GetParent())
+        if (previousHealth - damagePostReduction*(1 - return_percentage) > 0) then
             hTarget:SetHealth(previousHealth - args.damage*(1 - return_percentage))
         end
         self.stored_damage = self.stored_damage + args.damage*return_percentage
