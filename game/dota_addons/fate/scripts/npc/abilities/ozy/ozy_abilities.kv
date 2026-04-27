@@ -176,6 +176,7 @@
 		"precache"
 		{
 			"particle"		"particles/ozy/piramid/ozy_piramid_passive_effect.vpcf"
+			"particle"		"particles/ui_mouseactions/range_finder_cone.vpcf"
 
 
 			
@@ -188,6 +189,95 @@
 			"max_health"						"1500"
 			"damage_first"						"500"
 			"slow_first"						"50"
+		}
+	}
+	//=====================================
+	//  [[[BOAT]]] ANCHOR (Q)
+	//=====================================
+	"ozy_boat_anchor"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/ozy/ozy_boat_anchor"
+		"AbilityTextureName"				"custom/ozy/ozy_boat"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "10"
+		"AbilityManaCost"					"100"
+		"AbilityCastRange"					"1300"
+		"precache"
+		{
+			"particle"		"particles/ozy/piramid/ozy_piramid_passive_effect.vpcf"
+		}
+
+
+		"AbilityValues"
+		{
+			"damage"							"500"
+			"max_distance"							"1500"
+		}
+	}
+	//=====================================
+	// [[[BOAT]]] BEAM (W)
+	//=====================================
+	"ozy_boat_beam"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/ozy/ozy_boat_beam"
+		"AbilityTextureName"				"custom/ozy/ozy_boat"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "10"
+		"AbilityManaCost"					"200"
+		"AbilityCastRange"					"1000"
+
+		"precache"
+		{
+			"particle"		"particles/ozy/piramid/ozy_piramid_passive_effect.vpcf"	
+		}
+
+
+		"AbilityValues"
+		{
+			"damage"							"500"
+			"max_distance"							"1500"
+		}
+	}
+	//=====================================
+	//[[[BOAT]]] SUNSTRIKES (E) 
+	//=====================================
+	"ozy_boat_sunstrike"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/ozy/ozy_boat_sunstrike"
+		"AbilityTextureName"				"custom/ozy/light_pillar"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "15"
+		"AbilityManaCost"					"400"
+		"AbilityCastRange"					"1000"
+
+		"precache"
+		{
+			"particle"				"particles/ozy/ozy_light_pillar_runes.vpcf"
+			"particle"				"particles/ozy/ozy_light_pillar_endcap.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage"							"500"
+			"max_distance"							"1900"
+			"radius" 				"350"
+            "delay"					"1"
+            "delay_between_strikes"	"0.5"
+            "stun_duration" 		"0.8"
 		}
 	}
 	//=====================================

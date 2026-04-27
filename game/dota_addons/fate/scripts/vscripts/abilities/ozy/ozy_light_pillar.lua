@@ -17,7 +17,7 @@ function ozy_light_pillar:OnSpellStart()
 	local markFx = ParticleManager:CreateParticle("particles/ozy/ozy_light_pillar_runes.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( markFx, 0, targetPoint)
 	EmitSoundOnLocationWithCaster(targetPoint, "Hero_Chen.PenitenceImpact", caster)	
-
+	ParticleManager:SetParticleShouldCheckFoW(markFx, false)
 
 
 
@@ -40,6 +40,7 @@ function ozy_light_pillar:OnSpellStart()
 		local explosionFx = ParticleManager:CreateParticle("particles/ozy/ozy_light_pillar_endcap.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl( explosionFx, 0, targetPoint)
 		ParticleManager:SetParticleControl( explosionFx, 1, Vector(350, 0, 0))
+		ParticleManager:SetParticleShouldCheckFoW(explosionFx, false)
 		ParticleManager:ReleaseParticleIndex(explosionFx)
 	end)
 end
