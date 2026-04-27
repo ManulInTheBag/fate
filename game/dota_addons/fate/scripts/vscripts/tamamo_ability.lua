@@ -580,11 +580,11 @@ function OnMantraStart(keys)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_mr_buff", {})
 		end
 	else
-		--if IsSpellBlocked(keys.target) then return end
+		if IsSpellBlocked(keys.target) then return end
 		modifierName = "modifier_mantra_enemy"
-		if caster.IsSeveredFateAcquired then
+		--[[if caster.IsSeveredFateAcquired then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_mr_debuff", {})
-		end
+		end]]
 	end
 
 	if caster.IsSeveredFateAcquired then

@@ -37,8 +37,6 @@ function medusa_breaker:OnSpellStart()
 
 	local cast_angle = VectorToAngles( caster_dir ).y
 
-	local casted = false
-
 	EmitSoundOn("medusa_magic1", self:GetCaster())
 
 	if caster:GetAbilityByIndex(4):GetName() == "medusa_monstrous_strength" and caster.GorgonRushAcquired then
@@ -68,9 +66,10 @@ function medusa_breaker:OnSpellStart()
 				enemy:AddNewModifier(caster, self, "modifier_medusa_breaker_not_facing", {duration = self:GetSpecialValueFor("slow_duration")})
 			else
 				if not enemy:HasModifier("modifier_medusa_breaker_facing") then
-					if casted == false then
-						casted = true
+					if not caster:HasModifier("modifier_medusa_breaker_window") then
 						caster:AddNewModifier(caster, self, "modifier_medusa_breaker_window", {duration = self:GetSpecialValueFor("window_duration")})
+					else
+						caster:RemoveModifierByName("modifier_medusa_breaker_window")
 					end
 					enemy:AddNewModifier(caster, self, "modifier_medusa_breaker_facing", {duration = self:GetSpecialValueFor("stun_duration")})
 				end
