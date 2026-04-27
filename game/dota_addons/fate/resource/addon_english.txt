@@ -3783,14 +3783,14 @@
 		"DOTA_Tooltip_Ability_pepeg_divinity"	"God hand"
 		"DOTA_Tooltip_ability_pepeg_divinity_Description"	"At the beggining of each round, Heracles gets a God hand stack, allowing him to ressurect upon death with percentage of his maximum health and STR debuff.\nWhen reviving, Heracles deals magical damage around him, increased by 1x o his STR. \nOnly one God hand stack persists at a time. \nReduces incoming physical damage by a flat value.\n\nUpgradable by Improve Divinity, Reincarnation, God hand."
 		"DOTA_Tooltip_ability_pepeg_divinity_Lore"	"The aptitude of Divine Spirit daunts whoever foolish enough to challenge the demigod's might."
-		"DOTA_Tooltip_ability_pepeg_divinity_physical_block"	"PHYS DAMAGE BLOCK:"
-		"DOTA_Tooltip_ability_pepeg_divinity_bonus_armor"		"BONUS ARMOR:"
-		"DOTA_Tooltip_ability_pepeg_divinity_duration"			"REINCARNATION REGENERATION DURATION:"
-		"DOTA_Tooltip_ability_pepeg_divinity_regen_percent"		"%REINCARNATION REGENERATION:"
+		"DOTA_Tooltip_ability_pepeg_divinity_physical_block"		"PHYS DAMAGE BLOCK:"
+		"DOTA_Tooltip_ability_pepeg_divinity_bonus_mr"				"%BONUS MAGIC RESISTANCE:"
+		"DOTA_Tooltip_ability_pepeg_divinity_duration"				"REINCARNATION REGENERATION DURATION:"
+		"DOTA_Tooltip_ability_pepeg_divinity_regen_percent"			"%REINCARNATION REGENERATION:"
 		"DOTA_Tooltip_ability_pepeg_divinity_health_percent"		"%HEALTH PERCENTAGE:"
-		"DOTA_Tooltip_ability_pepeg_divinity_debuff_duration"				"DEBUFF DURATION:"
-		"DOTA_Tooltip_ability_pepeg_divinity_debuff_str"				"STR DEBUFF:"
-		"DOTA_Tooltip_ability_pepeg_divinity_revival_damage"				"REVIVAL DAMAGE:"
+		"DOTA_Tooltip_ability_pepeg_divinity_debuff_duration"		"DEBUFF DURATION:"
+		"DOTA_Tooltip_ability_pepeg_divinity_debuff_str"			"STR DEBUFF:"
+		"DOTA_Tooltip_ability_pepeg_divinity_revival_damage"		"REVIVAL DAMAGE:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_fissure_strike"				"Fissure Strike"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Description"	"Heracles strikes ground with such force, creating a crack that deals damage to enemies in line, <font color='#FF3399'>pulling  towards him</font> and <font color='#FF3399'>slowing</font> them. If enemies collide with a structure from the knockback, an additional damage and stun are applied."
@@ -3895,9 +3895,9 @@
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity"					"Attribute: Improve Divinity"
 		"DOTA_Tooltip_ability_berserker_5th_attribute_improve_divinity_Description"		"Grants bonus armor to Berserker.\nRadius of Courage is increased by x2 of Heracles' <font color='#FF0000'>strength</font>. Allows Courage to block flat damage from each physical damage instance, decaying over time.\nIncreases radius of <font color='#FF0000'>Nine lives</font> based on Heracles's strength."
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_armor"		"BONUS ARMOR:"	
-		//"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_mr"		"%BONUS MAGIC RESISTANCE:"
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_armor"		"BONUS ARMOR:"	
+		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_mr"		"%BONUS MAGIC RESISTANCE:"
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk"						"Attribute: Eternal Rage"
 		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Berserker's attacks deal additional 50% of his attack damage in 300 radius around target slowing all affected enemies.\nCourage gains additional base stats (10%% movespeed, 40 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage \n Fissure Strike: damage is increased based on Berserker's strength (1 damage per STR)."
@@ -7227,7 +7227,7 @@
         "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit.\n Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish, when it is set to autocast.\n If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects.\nDown with a touch now also disarms on hit."
 
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute"					"Attribute: Deafening Blast"
-        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, <font color='#FF3399'>muting</font> and <font color='#9400D3'>slowing</font> all enemies for <font color='#FFFFFF'>99%</font> for <font color='#FFFFFF'>1</font> second.\nEnemies pushed away this way are dealt <font color='#FFFFFF'>500</font> <font color='#58ACFA'>damage</font>. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 1000 radius, that will deal <font color='#FFFFFF'>300</font> + <font color='#FFFFFF'>10x</font> <font color='#FF0000'>STR</font> <font color='#D1A951'>damage</font>, <font color='#FF3399'>mute</font> and <font color='#9400D3'>slow</font> all enemies for <font color='#FFFFFF'>99%</font> for <font color='#FFFFFF'>2</font> seconds.\nEach La Black Luna tick deals <font color='#FFFFFF'>50</font> more <font color='#58ACFA'>damage</font>."
+        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, <font color='#FF3399'>muting</font> and <font color='#9400D3'>slowing</font> all enemies for <font color='#FFFFFF'>99%</font> for <font color='#FFFFFF'>1</font> second.\nEnemies pushed away this way are dealt <font color='#FFFFFF'>350</font> <font color='#58ACFA'>damage</font>. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 1000 radius, that will deal <font color='#FFFFFF'>300</font> + <font color='#FFFFFF'>7x</font> <font color='#FF0000'>STR</font> <font color='#D1A951'>damage</font>, <font color='#FF3399'>mute</font> and <font color='#9400D3'>slow</font> all enemies for <font color='#FFFFFF'>99%</font> for <font color='#FFFFFF'>2</font> seconds.\nEach La Black Luna tick deals <font color='#FFFFFF'>50</font> more <font color='#58ACFA'>damage</font>."
 
         //====================================
         //      Caster(Extra) - Nursery Rhyme
@@ -8281,7 +8281,7 @@
 		"DOTA_Tooltip_Ability_lu_bu_armistice_Lore"				"The number of individuals who can withstand this rage is few indeed."
 		"DOTA_Tooltip_Ability_lu_bu_rage_damage"					"TOTAL DAMAGE:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_active_duration"			"DURATION:"
-		"DOTA_Tooltip_Ability_lu_bu_rage_passive_duration"			"DEFENSIVE DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_rage_passive_duration"			"DEFENSIVE BONUSES DURATION:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_radius"					"RADIUS:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_armor_bonus"				"BONUS ARMOR:"
 		"DOTA_Tooltip_Ability_lu_bu_rage_mr_bonus"					"%BONUS MR:"
