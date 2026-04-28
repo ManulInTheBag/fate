@@ -4,6 +4,8 @@ function modifier_tiger_strike_tracker:OnDestroy()
 	if IsServer() then
 		local ability = self:GetAbility()
 		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
+		ability.LastSecondHitTarget = nil
+		CustomNetTables:SetTableValue("sync","liShuwenETableJopa", { target = nil})
 	end
 end
 

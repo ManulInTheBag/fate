@@ -29,6 +29,13 @@ function OnCasaStart(keys)
 	   -- end
 	--else
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_casa_active_mr", {})
+		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_dazzle/dazzle_weave_circle_ray.vpcf", PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin() + Vector(0,0, 100))
+		Timers:CreateTimer(1, function()
+			ParticleManager:DestroyParticle(particle , true)
+			ParticleManager:ReleaseParticleIndex(particle)
+		
+		end)
 		caster:EmitSound("Hero_Oracle.FortunesEnd.Target")
 	--end
 end

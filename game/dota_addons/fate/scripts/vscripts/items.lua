@@ -452,6 +452,37 @@ end
 function TPFail(keys)
 end
 LinkLuaModifier("modifier_ward_invis", "items/sentry_familiar", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ward_fastfix", "items", LUA_MODIFIER_MOTION_NONE)
+
+
+modifier_ward_fastfix = class({})
+
+
+function modifier_ward_fastfix:IsHidden()
+	return false
+end
+function modifier_ward_fastfix:RemoveOnDeath()
+	return true
+end
+function modifier_ward_fastfix:RemoveOnDeath()
+	return true
+end
+function modifier_ward_fastfix:DeclareFunctions()
+	return { MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL , }
+end
+
+function modifier_ward_fastfix:GetAbsoluteNoDamagePhysical(keys)
+	return 1
+end
+
+function modifier_ward_fastfix:GetTotalDamageNullify(keys)
+ 
+   
+        return DAMAGE_TYPE_PHYSICAL
+  
+end
+
+
 function WardFam(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -469,18 +500,25 @@ function WardFam(keys)
 	caster.ward:AddNewModifier(caster, caster, "modifier_ward_invis", {})
 	caster.ward:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = keys.Radius, duration = keys.Duration})
     caster.ward:AddNewModifier(caster, caster, "modifier_kill", {duration = keys.Duration})
+    caster.ward:AddNewModifier(caster, caster, "modifier_ward_fastfix", {duration = keys.Duration})
     giveUnitDataDrivenModifier(caster, caster.ward, "modifier_ward_dmg_reduce", {duration = keys.Duration})
     EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
 end
 
 function WardOnTakeDamage(keys)
+
+	
 	if keys.unit.dmgcooldown ~= true then
 		keys.unit.dmgcooldown = true
+		local dmg = 2
 		--print("Took Dmg")
+		if keys.attacker:GetClassname() == "npc_dota_base_additive" then
+			dmg = 1
+		end
 		local dmgtable = {
 	        attacker = keys.attacker,
 	        victim = keys.unit,
-	        damage = 2,
+	        damage = dmg,
 	        damage_type = DAMAGE_TYPE_PURE,
 	    }
 	    --print(dmgtable.attacker:GetName(), dmgtable.victim:GetName(), dmgtable.damage)
@@ -556,6 +594,7 @@ function BecomeWard(keys)
 	transform:AddNewModifier(hero, hero, "modifier_ward_invis", {})
 	transform:AddNewModifier(hero, hero, "modifier_item_ward_true_sight", {true_sight_range = 1400, duration = 30})
 	transform:AddNewModifier(hero, hero, "modifier_kill", {duration = 30})
+	transform:AddNewModifier(caster, caster, "modifier_ward_fastfix", {duration = keys.Duration})
 	giveUnitDataDrivenModifier(hero, transform, "modifier_ward_dmg_reduce", {duration = 30})
 	caster:EmitSound("DOTA_Item.ObserverWard.Activate")
 	caster:ForceKill(false)
