@@ -430,6 +430,7 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_pugna.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_clinkz.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_troll_warlord.vsndevts", context )
+    CustomNetTables:SetTableValue("sync","liShuwenETableJopa", { target = nil})
 
     -- Items
     PrecacheItemByNameSync("item_apply_modifiers", context)

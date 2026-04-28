@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_ward_invis", "items/sentry_familiar", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ward_fastfix", "items", LUA_MODIFIER_MOTION_NONE)
 item_sentry_familiar = class({})
 
 function item_sentry_familiar:OnSpellStart()
@@ -23,7 +24,7 @@ function item_sentry_familiar:OnSpellStart()
 
 	caster.ward:SetDayTimeVisionRange(self:GetSpecialValueFor("vision_range"))
 	caster.ward:SetNightTimeVisionRange(self:GetSpecialValueFor("vision_range"))
-
+	caster.ward:AddNewModifier(caster, caster, "modifier_ward_fastfix", {duration = self:GetSpecialValueFor("duration")})
 	caster.ward:AddNewModifier(caster, self, "modifier_ward_invis", {})
 	caster.ward:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", { true_sight_range = self:GetSpecialValueFor("truesight_range"), duration = self:GetSpecialValueFor("duration")})
     caster.ward:AddNewModifier(caster, caster, "modifier_kill", {duration = self:GetSpecialValueFor("duration")})

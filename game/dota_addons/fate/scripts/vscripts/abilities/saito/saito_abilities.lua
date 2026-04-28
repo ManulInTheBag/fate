@@ -1956,7 +1956,11 @@ function saito_fds:OnSpellStart()
     local nDuration = self:GetSpecialValueFor("active_duration") + GetAttributeValue(hCaster, "saito_attribute_freestyle", "fds_active_duration", -1, 0)
 
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_fds_active", {duration = nDuration})
-    hCaster:AddNewModifier(hCaster, self, "modifier_saito_cc_immune", {Duration = 0.75})
+    if not hCaster:HasModifier("modifier_saito_cc_immune_cd") then
+        hCaster:AddNewModifier(hCaster, self, "modifier_saito_cc_immune", {Duration = 2.5})
+        hCaster:AddNewModifier(hCaster, self, "modifier_saito_cc_immune_cd", {Duration = 10})
+    end
+
     --=================================--
     if hCaster:GetStrength() >= 29.1 and hCaster:GetAgility() >= 29.1 and hCaster:GetIntellect() >= 29.1 then
         if hCaster:FindAbilityByName("saito_jce"):IsCooldownReady() and hCaster:IsAlive() then                
@@ -2303,6 +2307,22 @@ function modifier_saito_cc_immune:IsHidden()
 end
 function modifier_saito_cc_immune:RemoveOnDeath()return true end 
 function modifier_saito_cc_immune:IsDebuff() 	return false end
+
+
+function modifier_saito_cc_immune:GetEffectName()
+	return "particles/aoko/aoko_cc_immune.vpcf"
+end
+
+LinkLuaModifier("modifier_saito_cc_immune_cd", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+modifier_saito_cc_immune_cd = class({})
+ 
+ 
+function modifier_saito_cc_immune_cd:IsHidden()	
+    return false
+end
+function modifier_saito_cc_immune_cd:RemoveOnDeath()return true end 
+function modifier_saito_cc_immune_cd:IsDebuff() 	return true end
+ 
  
 
 ---------------------------------------------------------------------------------------------------------------------

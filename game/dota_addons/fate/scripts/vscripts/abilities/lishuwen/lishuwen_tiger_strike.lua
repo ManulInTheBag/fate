@@ -33,6 +33,8 @@ function lishuwen_tiger_strike:GetCustomCastError()
     return "#Invalid_Target"
 end
 
+
+
 function lishuwen_tiger_strike:CheckSequence()
 	local caster = self:GetCaster()
 
@@ -43,6 +45,16 @@ function lishuwen_tiger_strike:CheckSequence()
 	else
 		return 0
 	end	
+end
+function lishuwen_tiger_strike:GetBehavior()
+	if (CustomNetTables:GetTableValue("sync","liShuwenETableJopa").target ~= nil) then
+		if (EntIndexToHScript(CustomNetTables:GetTableValue("sync","liShuwenETableJopa").target):GetHealth() > 0 and (EntIndexToHScript(CustomNetTables:GetTableValue("sync","liShuwenETableJopa").target):GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() < 1200) then
+			return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET  + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING + DOTA_ABILITY_BEHAVIOR_AUTOCAST
+		end
+	end
+	
+	return  DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING + DOTA_ABILITY_BEHAVIOR_AUTOCAST
+	
 end
 
 function lishuwen_tiger_strike:GetCastAnimation()
@@ -277,8 +289,14 @@ function lishuwen_tiger_strike:TigerStrike2()
 	end
 
 	self.health_lost = self.health_lost + health_2 - target:GetHealth()
+	self.LastSecondHitTarget = nil
+	CustomNetTables:SetTableValue("sync","liShuwenETableJopa", { target = nil})
+	if self:GetAutoCastState() then
+		self.LastSecondHitTarget = target
+		
+		CustomNetTables:SetTableValue("sync","liShuwenETableJopa", { target = self.LastSecondHitTarget:entindex()})
+	end
 
-	
 
 	target:EmitSound("Hero_EarthShaker.Fissure")
 	self:PlayRandomSounds()
@@ -292,8 +310,17 @@ end
 function lishuwen_tiger_strike:TigerStrike3()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
+	
 	local ability = self
+	local point = caster:GetAbsOrigin()
 	EmitZlodemonTrueSoundEveryone("moskes_li_e3")
+	if self:GetAutoCastState() then
+		if target == nil then
+			target = self.LastSecondHitTarget 
+		end
+	end
+	print(target)
+	print(point)
 	if IsSpellBlocked(target, caster) then return end
 
 	local damage = self:GetSpecialValueFor("damage_3_magical")
