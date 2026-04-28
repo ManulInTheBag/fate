@@ -3781,9 +3781,9 @@
 		"npc_dota_hero_doom_bringer_bio"	""
 		
 		"DOTA_Tooltip_Ability_pepeg_divinity"	"God hand"
-		"DOTA_Tooltip_ability_pepeg_divinity_Description"	"At the beggining of each round, Heracles gets a God hand stack, allowing him to ressurect upon death with percentage of his maximum health and STR debuff.\nWhen reviving, Heracles deals magical damage around him, increased by 1x o his STR. \nOnly one God hand stack persists at a time. \nReduces incoming physical damage by a flat value.\n\nUpgradable by Improve Divinity, Reincarnation, God hand."
+		"DOTA_Tooltip_ability_pepeg_divinity_Description"	"At the beggining of each round, Heracles gets a God hand stack, allowing him to ressurect upon death with percentage of his maximum health and STR debuff.\nWhen reviving, Heracles deals magical damage around him, increased by 1x o his STR. \nOnly one God hand stack persists at a time. \n\nUpgradable by Improve Divinity, Reincarnation, God hand."
 		"DOTA_Tooltip_ability_pepeg_divinity_Lore"	"The aptitude of Divine Spirit daunts whoever foolish enough to challenge the demigod's might."
-		"DOTA_Tooltip_ability_pepeg_divinity_physical_block"		"PHYS DAMAGE BLOCK:"
+		//"DOTA_Tooltip_ability_pepeg_divinity_physical_block"		"PHYS DAMAGE BLOCK:"
 		"DOTA_Tooltip_ability_pepeg_divinity_bonus_mr"				"%BONUS MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_pepeg_divinity_duration"				"REINCARNATION REGENERATION DURATION:"
 		"DOTA_Tooltip_ability_pepeg_divinity_regen_percent"			"%REINCARNATION REGENERATION:"
@@ -3894,7 +3894,7 @@
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_bers_duration"	"BERSERK DURATION:"		
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity"					"Attribute: Improve Divinity"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_improve_divinity_Description"		"Grants bonus armor to Berserker.\nRadius of Courage is increased by x2 of Heracles' <font color='#FF0000'>strength</font>. Allows Courage to block flat damage from each physical damage instance, decaying over time.\nIncreases radius of <font color='#FF0000'>Nine lives</font> based on Heracles's strength."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_improve_divinity_Description"		"Radius of Courage is increased by x2 of Heracles' <font color='#FF0000'>strength</font>. Allows Courage to block flat damage from each physical damage instance, decaying over time.\nIncreases radius of <font color='#FF0000'>Nine lives</font> based on Heracles's strength."
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_armor"		"BONUS ARMOR:"	
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_mr"		"%BONUS MAGIC RESISTANCE:"
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
@@ -4040,7 +4040,7 @@
 		"DOTA_Tooltip_Ability_okita_jet_release_distance"	"Dash distance:"
 
 		"DOTA_Tooltip_Ability_okita_zekken"				"Combo: Incomplete Zekken Mukyuu Sandan"
-		"DOTA_Tooltip_Ability_okita_zekken_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>\n<font color='#58ACFA'>Combo Requirement : 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nOkita chooses a target and starts attacking all enemies around it's initial location, dealing heavy <font color='#58ACFA'>magical</font> damage."
+		"DOTA_Tooltip_Ability_okita_zekken_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>\n<font color='#58ACFA'>Combo Requirement : 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nOkita chooses a target and starts attacking all enemies around it, dealing heavy <font color='#58ACFA'>damage</font>."
 		"DOTA_Tooltip_Ability_okita_zekken_duration"	"Attack phase duration:"
 		"DOTA_Tooltip_Ability_okita_zekken_interval"	"Attack interval:"
 		"DOTA_Tooltip_Ability_okita_zekken_damage"	"Damage per attack:"
@@ -6005,8 +6005,8 @@
 		"DOTA_Tooltip_Ability_mordred_clarent_Lore"	"This is the cursed sword that destroyed my Father. Clarent Blood Arthur!"
 
 		"DOTA_Tooltip_Ability_mordred_mmb_lightning" 	"Max Mana Burst - Thunder"
-		"DOTA_Tooltip_Ability_mordred_mmb_lightning_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-D-R in 4 seconds</font>\nMordred charges to the target point and starts supercharging Clarent with her mana, inducing a thunder around her, that gets more powerful with time. After 4 seconds of charging she releases all stored mana as a powerful Mana Burst similar to Alter Artoria's Max Mana Burst.\nAbility can be interrupted by her death, but Mana Burst will still be released with damage based on how long did she charge it.\nStarting charge will always have 2000 range and will deal damage based on Rage Rush base damage."
-		"DOTA_Tooltip_Ability_mordred_mmb_lightning_damage"	"Thunder bolt max damage:"
+		"DOTA_Tooltip_Ability_mordred_mmb_lightning_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-D-R in 4 seconds</font>\nMordred charges to the target point and starts supercharging Clarent with her mana, inducing a thunder around her. After 4 seconds of charging she releases all stored mana as a powerful Mana Burst. \nAbility can be interrupted by her death, but Mana Burst will still be released with damage based on how long did she charge it.\nStarting charge will always have 2000 range and will deal damage based on Rage Rush base damage."
+		"DOTA_Tooltip_Ability_mordred_mmb_lightning_damage"			"Thunder damage per second:"
 		"DOTA_Tooltip_Ability_mordred_mmb_lightning_mana_damage"	"%Max mana final damage:"
 		"DOTA_Tooltip_Ability_mordred_mmb_lightning_blast_radius"	"Thunder radius:"
 		"DOTA_Tooltip_Ability_mordred_mmb_lightning_Lore"	"Alright, time to kill!"
@@ -7756,7 +7756,8 @@
 
 
 		"DOTA_Tooltip_ability_leonidas_army_attribute"											"Attribute: Struggle of Three Hundred"
-		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from armor values.\nPassivly, Grant bonus armor based on basic armor.\nShield wall now adds 2 additional soldiers into the wall."
+		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from Leonidas' <font color='#00FF00'>agility</font>.\nPassively grants bonus <font color='#FFFAFA'>resistances</font>.\nShield wall now adds 2 additional soldiers into the wall."
+		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_shield_agi"							"BONUS SHIELD PER AGILITY:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_armor_from_base_pct"				"%BONUS ARMOR BY BASE ARMOR:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_damage_block_from_armor_pct"		"%[R][COMBO] BONUS BLOCK PER ARMOR:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_nullify_armor_on_shield"			"[R][COMBO] NULLIFY SELF BASE ARMOR:"

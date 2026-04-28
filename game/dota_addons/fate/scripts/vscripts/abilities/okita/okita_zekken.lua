@@ -33,7 +33,8 @@ end
 function okita_zekken:OnSpellStart()
 	local caster = self:GetCaster()
     local ability = self
-    local target = self:GetCursorTarget()
+    local target = self:GetCursorPosition()
+    --local target = self:GetCursorTarget()
 
     local ability_cooldown = caster:FindAbilityByName("okita_sandanzuki")
     ability_cooldown:StartCooldown(ability_cooldown:GetCooldown(1) * caster:GetCooldownReduction())
@@ -44,20 +45,24 @@ function okita_zekken:OnSpellStart()
 
     caster:AddNewModifier(caster, self, "modifier_okita_zekken_cd", {duration = ability:GetCooldown(1)})
 
-    if IsSpellBlocked(target, caster)  then return end
-    self:StartZekken(target)
+    --if IsSpellBlocked(target, caster)  then return end
+    self:StartZekken()
     --caster:AddNewModifier(caster, self, "modifier_okita_zekken_flight", {})
 end
 
-function okita_zekken:StartZekken(target)
+function okita_zekken:StartZekken()
     local caster = self:GetCaster()
-
-    local origin = target:GetAbsOrigin()
+    self.origin = self:GetCursorPosition()
+    local direction = (self.origin - caster:GetAbsOrigin())
+    local dist = math.min(400, direction:Length2D())
+    direction = direction:Normalized()
+    local target = self:GetCursorPosition()
+    local origin = GetGroundPosition( caster:GetAbsOrigin() + direction*dist, nil )
     local ability = self
     local interval = ability:GetSpecialValueFor("interval")
     local duration = ability:GetSpecialValueFor("duration")
     local radius = ability:GetSpecialValueFor("radius")
-
+    caster:SetAbsOrigin(origin)
     local count = 0
 
     LoopOverPlayers(function(player, playerID, playerHero)
@@ -69,7 +74,7 @@ function okita_zekken:StartZekken(target)
         end
     end)
 
-    caster:AddNewModifier(caster, self, "modifier_okita_zekken", {duration = 3.9, targetind = target:entindex()})
+    caster:AddNewModifier(caster, self, "modifier_okita_zekken", {duration = 3.9})
 
     local circleIndex = ParticleManager:CreateParticle( "particles/okita/okita_zekken_ring.vpcf", PATTACH_ABSORIGIN, caster)
     ParticleManager:SetParticleControl( circleIndex, 0, origin)
@@ -292,8 +297,8 @@ function modifier_okita_zekken:CheckState()
 end
 function modifier_okita_zekken:OnCreated(args)
 	if IsServer() then
-		self.target = EntIndexToHScript(args.targetind)
-		self:StartIntervalThink(FrameTime())
+		--self.target = EntIndexToHScript(args.targetind)
+		--self:StartIntervalThink(FrameTime())
 	end
 end
 function modifier_okita_zekken:OnIntervalThink()
