@@ -2408,7 +2408,8 @@ function leonidas_bc:OnSpellStart()
         for _, hEntity in pairs(hEntities) do
             if IsNotNull(hEntity)
                 and hCaster ~= hEntity then
-                hEntity:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = self:GetSpecialValueFor("enomotia_shield_duration"), nDamageBlock = self:GetSpecialValueFor("enomotia_shield_block") + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )})
+                --hEntity:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = self:GetSpecialValueFor("enomotia_shield_duration"), nDamageBlock = self:GetSpecialValueFor("enomotia_shield_block") + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )})
+                hEntity:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = self:GetSpecialValueFor("enomotia_shield_duration"), nDamageBlock = self:GetSpecialValueFor("enomotia_shield_block") + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "bonus_shield_agi", -1, 0, false) * hCaster:GetAgility())})
             end
         end
         --=================================--
@@ -2872,7 +2873,8 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
     --=================================--
     --hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
-    nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
+    --nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
+    nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "bonus_shield_agi", -1, 0, false) * hCaster:GetAgility())
     --=================================--
     --print(nPushedUnits * nBonusBlockPerPushed)
     local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + ( nPushedUnits * nBonusBlockPerPushed ) )
@@ -3334,7 +3336,8 @@ function leonidas_enomotia_combo:OnSpellStart()
         --=================================--
         --hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
         --=================================--
-        nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
+        --nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
+        nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "bonus_shield_agi", -1, 0, false) * hCaster:GetAgility())
         --=================================--
         local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + nDefenceBonusBlockPerShield )
         --=================================--
@@ -3642,7 +3645,8 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
     --=================================--
     --hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
-    nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
+    --nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
+    nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "bonus_shield_agi", -1, 0, false) * hCaster:GetAgility())
     --=================================--
     local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + ( nPushedUnits * nBonusBlockPerPushed ) )
     --=================================--

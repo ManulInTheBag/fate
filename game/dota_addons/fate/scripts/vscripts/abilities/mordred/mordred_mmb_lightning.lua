@@ -160,10 +160,27 @@ function modifier_mordred_mmb:FireSingleParticleKappa(i)
 end
 
 function modifier_mordred_mmb:OnIntervalThink()
+	local caster = self:GetCaster()
 	self.ChargeTime = self.ChargeTime + self.interval
 	self.j = self.j+1
 	if self.j == 10 then self.j = 1 end
 	self:FireSingleParticleKappa(self.j)
+
+
+	local enemies = FindUnitsInRadius(self.parent:GetTeamNumber(),
+	                                            self.parent:GetAbsOrigin(), 
+	                                            nil, 
+	                                            self:GetAbility():GetSpecialValueFor("blast_radius"), 
+	                                            DOTA_UNIT_TARGET_TEAM_ENEMY, 
+	                                            DOTA_UNIT_TARGET_HERO, 
+	                                            0, 
+	                                            FIND_ANY_ORDER, 
+	                                            false)
+
+	for _,enemy in ipairs(enemies) do
+		DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("damage")/10, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	end
+
 
 	--[[local iPillarFx = ParticleManager:CreateParticle("particles/custom/mordred/purge_the_unjust/ruler_purge_the_unjust_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( iPillarFx, 0, self.parent:GetAbsOrigin())
@@ -175,12 +192,12 @@ function modifier_mordred_mmb:OnIntervalThink()
 		ParticleManager:ReleaseParticleIndex(iPillarFx)
 	end)]]
 
-	for i = 1,7 do
-		self:KappaBride(i)
-	end
+	--for i = 1,7 do
+		--self:KappaBride(i) /random lightning release
+	--end
 end
 
-function modifier_mordred_mmb:KappaBride(i)
+--[[function modifier_mordred_mmb:KappaBride(i)
 	local vPillarLoc = self.parent:GetAbsOrigin() + RandomVector(self:GetAbility():GetSpecialValueFor("blast_radius") * 1/7*i)
 
 	local tPillarTargets = FindUnitsInRadius(self.parent:GetTeam(), vPillarLoc, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -188,7 +205,7 @@ function modifier_mordred_mmb:KappaBride(i)
 		DoDamage(self.parent, tPillarTargets[j], self:GetAbility():GetSpecialValueFor("damage")*self.ChargeTime/4, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 	end
 
-	--[[local iPillarFx = ParticleManager:CreateParticle("particles/custom/mordred/purge_the_unjust/ruler_purge_the_unjust_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local iPillarFx = ParticleManager:CreateParticle("particles/custom/mordred/purge_the_unjust/ruler_purge_the_unjust_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( iPillarFx, 0, vPillarLoc)
 	ParticleManager:SetParticleControl( iPillarFx, 1, vPillarLoc)
 	ParticleManager:SetParticleControl( iPillarFx, 2, vPillarLoc)
@@ -196,13 +213,13 @@ function modifier_mordred_mmb:KappaBride(i)
 	Timers:CreateTimer(1.0, function()
 		ParticleManager:DestroyParticle(iPillarFx, false)
 		ParticleManager:ReleaseParticleIndex(iPillarFx)
-	end)]]
+	end)
 	local particle = ParticleManager:CreateParticle("particles/custom/mordred/zuus_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, self.parent)
     local target_point = vPillarLoc
     ParticleManager:SetParticleControl(particle, 0, Vector(target_point.x, target_point.y, target_point.z))
     ParticleManager:SetParticleControl(particle, 1, Vector(target_point.x, target_point.y, 2000))
     ParticleManager:SetParticleControl(particle, 2, Vector(target_point.x, target_point.y, target_point.z))
-end
+end]]
 
 function modifier_mordred_mmb:OnDestroy()
 	if IsServer() then
