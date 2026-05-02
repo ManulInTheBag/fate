@@ -1,8 +1,22 @@
+LinkLuaModifier("modifier_ozy_chacram_ability_change", "abilities/ozy/ozy_light_chacram", LUA_MODIFIER_MOTION_NONE)
 ozy_light_chacram = class({})
+
+function ozy_light_chacram:CastFilterResultLocation(hLocation)
+    local caster = self:GetCaster()
+    if self.casted then
+        return UF_FAIL_CUSTOM
+    end
+    return UF_SUCESS
+end
+
+function ozy_light_chacram:GetCustomCastErrorLocation(hLocation)
+    return "Only one at a timee"
+end
 
 function ozy_light_chacram:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
+    self.casted = true
 
     if target == caster:GetAbsOrigin() then
         target = caster:GetAbsOrigin() + caster:GetForwardVector()*100
@@ -28,9 +42,14 @@ function ozy_light_chacram:OnSpellStart()
         flExpireTime = GameRules:GetGameTime() + 0.1,
         --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
     }
+    Timers:CreateTimer("ozymandias_chacram_checker", {
+			endTime = 1100/speed + 0.1,
+			callback = function()
+			self.casted = false
+    end})
 
  
-    caster.cScrollProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
+    caster.ChacramProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
 
 end
 
@@ -53,8 +72,52 @@ function ozy_light_chacram:OnProjectileHit(target, location, tData )
        giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("duration"))
     end
     Timers:CreateTimer(0.033,function()
-        ProjectileManager:DestroyLinearProjectile(caster.cScrollProjectile )
+        ProjectileManager:DestroyLinearProjectile(caster.ChacramProjectile )
     end)
+    caster.OzyChacramTarget = target
+    caster:AddNewModifier(caster, self, "modifier_ozy_chacram_ability_change", {duration = 1})
+    
 
     return true
 end
+
+
+modifier_ozy_chacram_ability_change = class({})
+
+function modifier_ozy_chacram_ability_change:IsHidden()
+	return false 
+end
+
+function modifier_ozy_chacram_ability_change:RemoveOnDeath()
+	return true
+end
+
+if IsServer() then
+	function modifier_ozy_chacram_ability_change:OnCreated(args)
+		local caster = self:GetParent()
+        self.particle = ParticleManager:CreateParticle("particles/ozy/chacram_unit_hold.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster.OzyChacramTarget )
+        self.ozyParticle = ParticleManager:CreateParticleForPlayer("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster.OzyChacramTarget,caster:GetPlayerOwner() )
+        ParticleManager:SetParticleControl(self.ozyParticle, 0, caster.OzyChacramTarget:GetAbsOrigin())
+        ParticleManager:SetParticleControl(self.ozyParticle, 1, Vector(1,1,0.01))
+        ParticleManager:SetParticleControl(self.ozyParticle, 2, Vector(600,1,0))
+        ParticleManager:SetParticleControl(self.particle, 0, caster.OzyChacramTarget:GetAbsOrigin() + Vector(0,0, 100))
+         if caster:GetAbilityByIndex(0):GetName() == "ozy_light_chacram" then
+		     caster:SwapAbilities("ozy_light_chacram", "ozy_light_chacram_recast", false, true)
+         end
+	end
+
+	function modifier_ozy_chacram_ability_change:OnDestroy()	
+		local caster = self:GetParent()	
+        ParticleManager:DestroyParticle(self.particle, true)
+        ParticleManager:ReleaseParticleIndex(self.particle)
+        ParticleManager:DestroyParticle(self.ozyParticle, true)
+        ParticleManager:ReleaseParticleIndex(self.ozyParticle)
+        if caster:GetAbilityByIndex(0):GetName() == "ozy_light_chacram_recast" then
+		     caster:SwapAbilities("ozy_light_chacram", "ozy_light_chacram_recast", true, false)
+        end
+        caster.OzyChacramTarget = nil
+	end
+end
+
+
+

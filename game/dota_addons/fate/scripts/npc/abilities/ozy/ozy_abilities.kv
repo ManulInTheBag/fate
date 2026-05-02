@@ -28,6 +28,9 @@
 		"precache"
 		{
 			"particle"				"particles/ozy/ozy_chacram.vpcf"
+			"particle"				"particles/ozy/chacram_unit_hold.vpcf"
+			"particle"				"particles/zlodemon/zlodemon_basic_circle.vpcf"
+
 		}
 
 		"AbilityValues"
@@ -38,7 +41,44 @@
             "damage" 				"200 250 300 350 400"
         }
 	}
+	//=======================================
+	// Ozy ЧАКРАМ RECAST (Q-Q)
+	//=======================================
+	"ozy_light_chacram_recast"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_light_chacram_recast"
+		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"				"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/ozy/ozy_chacram"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1"
 
+		"AbilityCooldown"				"1"
+		"AbilityCastPoint"					"0"
+		"AbilityCastRange"				"9999"
+		"AbilityManaCost"					"0"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/ozy_chacram.vpcf"
+			"particle"				"particles/ozy/ozy_chacram_hook.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "radius" 				"128"
+            "distance"				"500"
+            "duration" 				"0.5"
+            "damage" 				"200 250 300 350 400"
+        }
+	}
 
 	//=======================================
 	// Ozy protection (W)
@@ -125,6 +165,8 @@
 	}
 
 
+
+
 	//=======================================
 	// Ozy mystic eyes (F)
 	//=======================================
@@ -209,14 +251,19 @@
 		"AbilityCastRange"					"1300"
 		"precache"
 		{
-			"particle"		"particles/ozy/piramid/ozy_piramid_passive_effect.vpcf"
+			"particle"		"particles/ozy/boat/ozy_boat_anchor_indicator.vpcf"
+			"particle"		"particles/ozy/boat/ozy_boat_anchor_impact_jopa2.vpcf"
 		}
 
 
 		"AbilityValues"
 		{
 			"damage"							"500"
-			"max_distance"							"1500"
+			"live_duration"							"10"
+			"aura_radius"						"400"
+			"hit_radius"						"300"
+			"slow"								"40"
+			"cast_range"								"1300"
 		}
 	}
 	//=====================================
@@ -331,6 +378,89 @@
 			"max_distance"					"1500"
 			"minimum_damage"				"400"
 		}
+	}
+
+	//=======================================
+	// Ozy [[BOAT]] ORBITAL (R)
+	//=======================================
+	"ozy_boat_orbital_laser"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_boat_orbital_laser"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityTextureName"			"custom/ozy/light_pillar"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCooldown"				"30"
+		"AbilityCastPoint"					"0"
+		"AbilityCastRange"				"1300"
+		"AbilityManaCost"				"0"
+		"AbilityChannelTime"			"10"
+
+		"precache"
+		{
+			"particle"				"particles/ozy/ozy_light_pillar_runes.vpcf"
+			"particle"				"particles/ozy/ozy_light_pillar_endcap.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "radius" 									"350"
+            "delay"										"1"
+            "stun_duration" 							"0.8"
+            "damage_per_second" 						"100"
+            "mana_drain_per_second" 					"100"
+            "mana_drain_increase_per_second" 			"50"
+            "damage_per_second_increase" 				"200"
+            "stacks_duration"							"0.5"
+        }
+	}
+
+	//=======================================
+	// Ozy [[BOAT]] ORBITAL MOVEMENT (R-R)
+	//=======================================
+	"ozy_boat_orbital_laser_move"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_boat_orbital_laser_move"
+		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"				"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/ozy/light_pillar"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1"
+
+		"AbilityCooldown"				"0"
+		"AbilityCastPoint"					"0"
+		"AbilityCastRange"				"99999"
+		"AbilityManaCost"				"0"
+
+
+		"precache"
+		{
+			"particle"				"particles/ozy/ozy_light_pillar_runes.vpcf"
+			"particle"				"particles/ozy/ozy_light_pillar_endcap.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "radius" 									"350"
+            "delay"										"1"
+            "stun_duration" 							"0.8"
+            "damage_per_second" 						"100"
+            "mana_drain_per_second" 					"100"
+            "mana_drain_increase_per_second" 			"100"
+            "damage_per_second_increase" 				"200"
+        }
 	}
 	//=====================================
 	// 
