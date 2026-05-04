@@ -12,6 +12,11 @@ function modifier_vision_provider:IsHidden()
     return true
 end
 
+function modifier_vision_provider:IsDebuff()
+    return false
+end
+
+
 function modifier_vision_provider:GetAttributes()
 	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

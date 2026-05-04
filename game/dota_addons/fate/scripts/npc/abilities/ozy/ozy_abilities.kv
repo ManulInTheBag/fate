@@ -219,18 +219,16 @@
 		{
 			"particle"		"particles/ozy/piramid/ozy_piramid_passive_effect.vpcf"
 			"particle"		"particles/ui_mouseactions/range_finder_cone.vpcf"
+			"particle"		"particles/ozy/boat/boat_marker.vpcf"
 
 
 			
 		}
 		"AbilityValues"
 		{
-			"damage"							"1000"
-			"radius"							"500"
-			"summon_delay"						"2"
-			"max_health"						"1500"
-			"damage_first"						"500"
-			"slow_first"						"50"
+			"mana_regen_max"			"200"
+			"mana_regen_min"			"50"
+			"mana_regen_distance"		"1500"
 		}
 	}
 	//=====================================
@@ -240,8 +238,8 @@
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/ozy/ozy_boat_anchor"
-		"AbilityTextureName"				"custom/ozy/ozy_boat"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"				"custom/ozy/ozy_boat_anchor"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT |DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -273,8 +271,8 @@
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/ozy/ozy_boat_beam"
-		"AbilityTextureName"				"custom/ozy/ozy_boat"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+		"AbilityTextureName"				"custom/ozy/ozy_boat_beam"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT |DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -305,7 +303,7 @@
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/ozy/ozy_boat_sunstrike"
 		"AbilityTextureName"				"custom/ozy/light_pillar"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT  | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING|DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -336,7 +334,7 @@
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/ozy/ozy_move_boat"
-		"AbilityTextureName"				"custom/ozy/ozy_boat"
+		"AbilityTextureName"				"custom/ozy/ozy_boat_move"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"MaxLevel"							"1"
 		"AbilityCooldown"				    "0.5"
@@ -363,7 +361,7 @@
 		"MaxLevel"							"1"
 		"AbilityCooldown"				    "30"
 		"AbilityManaCost"					"0"
-		"AbilityCastRange"					"9999"
+		"AbilityCastRange"					"99999"
 		"AbilityChannelTime"			"3"
 
 
@@ -390,7 +388,7 @@
 		"ScriptFile"					"abilities/ozy/ozy_boat_orbital_laser"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"custom/ozy/light_pillar"
+		"AbilityTextureName"			"custom/ozy/ozy_boat_laser"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"

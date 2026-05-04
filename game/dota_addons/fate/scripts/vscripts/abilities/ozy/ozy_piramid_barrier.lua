@@ -49,7 +49,7 @@ end
 
 function modifier_ozy_piramid_barrier_particle:OnIntervalThink()
     local caster = self:GetCaster()
-    local tEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local tEnemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for k,v in pairs(tEnemies) do
         if v:GetUnitName() ~= "ozy_piramid" then
 						local Distance = (v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()

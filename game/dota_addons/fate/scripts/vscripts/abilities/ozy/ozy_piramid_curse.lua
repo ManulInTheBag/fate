@@ -23,10 +23,13 @@ function ozy_piramid_curse:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	local caster = self:GetCaster()
 	local radius = self:GetSpecialValueFor("radius")
+	if (targetPoint-caster:GetAbsOrigin()):Length2D() > 1500 then
+		targetPoint = caster:GetAbsOrigin() + (targetPoint-caster:GetAbsOrigin()):Normalized() * 1500
+	end
 	local EruptionPreParticle = ParticleManager:CreateParticle("particles/ozy/piramid/ozy_piramid_curse_precast.vpcf", PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl(EruptionPreParticle, 0, targetPoint)
 	ParticleManager:SetParticleControl(EruptionPreParticle, 1, Vector(radius, 1, 1))
-
+	ParticleManager:SetParticleShouldCheckFoW(EruptionPreParticle, false)
 	local beamAbil = caster:FindAbilityByName("ozy_piramid_beam")
 	if beamAbil:GetCooldownTimeRemaining() < 2 then
 		beamAbil:StartCooldown(2)
@@ -41,6 +44,7 @@ function ozy_piramid_curse:OnSpellStart()
 		ParticleManager:SetParticleControl(EruptionParticle, 1, Vector(radius * 1.2, radius, radius))
 		ParticleManager:DestroyParticle(EruptionPreParticle, false)
 		ParticleManager:ReleaseParticleIndex(EruptionPreParticle)
+		ParticleManager:SetParticleShouldCheckFoW(EruptionParticle, false)
 		Timers:CreateTimer(1, function() 
 			ParticleManager:DestroyParticle(EruptionParticle, true)
 			ParticleManager:ReleaseParticleIndex(EruptionParticle)

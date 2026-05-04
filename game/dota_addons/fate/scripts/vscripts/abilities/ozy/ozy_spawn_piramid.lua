@@ -313,6 +313,6 @@ function modifier_ozy_no_healthbar:RemoveOnDeath() return true end
 
 function modifier_ozy_no_healthbar:CheckState()
 	return {  [MODIFIER_STATE_NO_HEALTH_BAR]	= true,
-			 [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+			 [MODIFIER_STATE_NOT_ON_MINIMAP] = false,
 			[MODIFIER_STATE_INVULNERABLE] = true,}
 end

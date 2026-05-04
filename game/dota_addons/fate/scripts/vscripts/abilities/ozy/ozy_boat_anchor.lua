@@ -6,6 +6,9 @@ ozy_boat_anchor = class({})
 function ozy_boat_anchor:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local vTargetPoint = self:GetCursorPosition()
+	if (vTargetPoint-hCaster:GetAbsOrigin()):Length2D() > 1300 then
+		vTargetPoint = hCaster:GetAbsOrigin() + (vTargetPoint-hCaster:GetAbsOrigin()):Normalized() * 1300
+	end
 	local ozymandias = hCaster.ozy
 	local boatOrigin = hCaster:GetAbsOrigin()
 	local ozyOrigin = ozymandias:GetAbsOrigin()

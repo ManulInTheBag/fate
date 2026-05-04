@@ -23,7 +23,9 @@ function ozy_piramid_beam:OnSpellStart()
 	local point = self:GetCursorPosition()
 	local aoe = self:GetAOERadius()
 	local delay = self:GetSpecialValueFor("delay")
-
+	if (point-piramid:GetAbsOrigin()):Length2D() > 1500 then
+		point = piramid:GetAbsOrigin() + (point-piramid:GetAbsOrigin()):Normalized() * 1500
+	end
 	local damage = self:GetSpecialValueFor("damage")
 	local damage_duration = self:GetSpecialValueFor("duration")
 	local damage_ticks = damage_duration*10

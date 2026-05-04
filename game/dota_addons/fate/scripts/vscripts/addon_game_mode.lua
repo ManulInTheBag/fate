@@ -4633,6 +4633,12 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             playerHero:RemoveModifierByName("modifier_integrate_gille")
             playerHero:RemoveModifierByName("modifier_integrate")
         end
+
+        if playerHero:GetName() == "npc_dota_hero_phoenix" then
+            if IsNotNull(playerHero.boat) then
+                playerHero.boat:Kill(playerHero.boat:GetAbilityByIndex(0), playerHero.boat)
+            end
+        end
     end)
 
     --SendChatToPanorama("FR2")
