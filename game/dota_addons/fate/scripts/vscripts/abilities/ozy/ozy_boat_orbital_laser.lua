@@ -5,34 +5,40 @@ function ozy_boat_orbital_laser:OnChannelThink(fInterval)
     self:GetCaster():FaceTowards(self:GetCursorPosition())
 	local manaSpendPerSec = self:GetSpecialValueFor("mana_drain_per_second") + (self:GetSpecialValueFor("mana_drain_increase_per_second")  * self.ChannelTime)
 	if self:GetCaster():GetMana() < manaSpendPerSec * fInterval then
-		--self:GetCaster():Interrupt()
+		self:GetCaster():Interrupt()
 	end
+	if (self.LaserTargetPoint - self.LaserPoint):Length2D() > 10 then
+		self.LaserPoint = self.LaserPoint + (self.LaserTargetPoint - self.LaserPoint):Normalized() * self:GetSpecialValueFor("move_speed")*fInterval
+	end
+	self.LaserPoint.z = 0
 	ParticleManager:SetParticleControl(self.particle, 0, self.LaserPoint + Vector(0,0, 2500))
 	ParticleManager:SetParticleControl(self.particle, 1, self.LaserPoint)
 	self:GetCaster():SpendMana(manaSpendPerSec * fInterval)
 	local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), self.LaserPoint , nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	local additiveStacks = self:GetSpecialValueFor("damage_per_second_increase") * fInterval
+	local additiveStacks = (self:GetSpecialValueFor("damage_per_second_increase") +self:GetCaster().ozy:GetLevel() * self:GetSpecialValueFor("damage_per_second_increase_per_level"))* fInterval 
 	for k, v in pairs(tEnemies) do
 		self:ApplyLaserStacks(v, additiveStacks)
-		DoDamage(self:GetCaster().ozy,v , fInterval* (self:GetSpecialValueFor("damage_per_second") + v:GetModifierStackCount("modifier_ozy_boat_orbital_laser_stacks", self:GetCaster().ozy)), self:GetAbilityDamageType(), 0, self, false)
+		DoDamage(self:GetCaster().ozy,v , fInterval* (self:GetCaster().ozy:GetLevel()* self:GetSpecialValueFor("damage_per_second_per_level") +self:GetSpecialValueFor("damage_per_second") + v:GetModifierStackCount("modifier_ozy_boat_orbital_laser_stacks", self:GetCaster().ozy)), self:GetAbilityDamageType(), 0, self, false)
 	end
 end
 
 function ozy_boat_orbital_laser:OnChannelFinish(bInterrupted)
 	local caster = self:GetCaster()
-	ParticleManager:DestroyParticle(self.particle, false)
+	ParticleManager:DestroyParticle(self.particle, true)
 	ParticleManager:ReleaseParticleIndex(self.particle)
-	
+	caster:SwapAbilities("ozy_boat_orbital_laser", "ozy_boat_orbital_laser_move", true, false)
 
 end
 
 function ozy_boat_orbital_laser:OnSpellStart()
 	self.ChannelTime = 0
-	self.particle = ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/phoenix_sunray.vpcf", PATTACH_WORLDORIGIN, nil)
+	self.particle = ParticleManager:CreateParticle("particles/ozy/boat/boat_orbital_laser.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleShouldCheckFoW(self.particle, false)
 	local hCaster = self:GetCaster()
 	local vTargetPoint = self:GetCursorPosition()
+	hCaster:SwapAbilities("ozy_boat_orbital_laser", "ozy_boat_orbital_laser_move", false, true)
 	self.LaserPoint = vTargetPoint
+	self.LaserTargetPoint = vTargetPoint
 	-- local ozymandias = hCaster.ozy
 	-- local boatOrigin = hCaster:GetAbsOrigin()
 	-- local ozyOrigin = ozymandias:GetAbsOrigin()

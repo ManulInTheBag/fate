@@ -34,6 +34,10 @@ function ozy_piramid_curse:OnSpellStart()
 	if beamAbil:GetCooldownTimeRemaining() < 2 then
 		beamAbil:StartCooldown(2)
 	end
+	local cageAbil = caster:FindAbilityByName("ozy_piramid_cage")
+	if cageAbil:GetCooldownTimeRemaining() < 0.5 then
+		cageAbil:StartCooldown(0.5)
+	end
 	local EruptionPreParticlePiramid = ParticleManager:CreateParticle("particles/ozy/piramid/ozy_scale.vpcf", PATTACH_OVERHEAD_FOLLOW, caster )
 	ParticleManager:SetParticleControl(EruptionPreParticlePiramid, 3, caster:GetAbsOrigin())
 

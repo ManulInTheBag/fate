@@ -494,6 +494,8 @@ donotlevel = {
     "khsn_bc",
     "scathach_wisdom_of_dun_scaith",
     "okada_mark",
+    "ozy_mystic_eyes",
+    "ozy_piramid_auto_defence",
 }
 
 CannotReset = {

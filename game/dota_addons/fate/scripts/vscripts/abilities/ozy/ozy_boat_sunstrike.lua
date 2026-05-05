@@ -22,9 +22,15 @@ function ozy_boat_sunstrike:OnSpellStart()
 	local radius = self:GetSpecialValueFor("radius")
 	local delay = self:GetSpecialValueFor("delay")
 	local delay_between_strikes = self:GetSpecialValueFor("delay_between_strikes")
-	local baseDamage = self:GetSpecialValueFor("damage")
+	local baseDamage = self:GetSpecialValueFor("base_damage") +self:GetCaster().ozy:GetLevel() * self:GetSpecialValueFor("damage_per_level")
 	local debuff_duration = self:GetSpecialValueFor("stun_duration")
 	local direction = self:GetAnimeVectorTargetingMainDirection()
+	local targetPointOld = targetPoint
+	if (targetPoint-caster:GetAbsOrigin()):Length2D() > 1300 then
+		targetPoint = caster:GetAbsOrigin() + (targetPoint-caster:GetAbsOrigin()):Normalized() * 1300
+		--direction = -(targetPoint - targetPointOld):Normalized()+ direction 
+	end
+	
 	direction.z = 0
 	direction = direction:Normalized()
 	local vectorRange = self:GetAnimeVectorTargetingRange()

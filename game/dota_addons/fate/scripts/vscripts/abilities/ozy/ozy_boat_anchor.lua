@@ -62,11 +62,11 @@ function ozy_boat_anchor:OnSpellStart()
 	Timers:CreateTimer(0, function()
 		if Anchor ~= self.JopaAnchor then return end
 		if counter>= CounterMax then
-			Anchor:AddNewModifier(hCaster, self, "modifier_ozy_anchor_aura_enemy", {duration = liveDuration})
+			Anchor:AddNewModifier(hCaster.ozy, self, "modifier_ozy_anchor_aura_enemy", {duration = liveDuration})
 			Anchor:SetAbsOrigin(targetPointGround)
 			local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), targetPointGround, nil, self:GetSpecialValueFor("hit_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(tEnemies) do
-				DoDamage(hCaster, v, self:GetSpecialValueFor("damage"), self:GetAbilityDamageType(), 0, self, false)
+				DoDamage(hCaster, v, self:GetSpecialValueFor("damage") + self:GetCaster().ozy:GetLevel()* self:GetSpecialValueFor("damage_per_level"), self:GetAbilityDamageType(), 0, self, false)
 			end
 			ParticleManager:DestroyParticle(self.particle_ground_fx, true)
 			ParticleManager:ReleaseParticleIndex(self.particle_ground_fx)
@@ -157,5 +157,5 @@ end
  
 
 function modifier_ozy_anchor_enemy:GetModifierMoveSpeedBonus_Percentage()
-	return -1*self:GetAbility():GetSpecialValueFor("slow")  
+	return ((self:GetCaster():FindAbilityByName("ozy_spawn_boat"):GetLevel() > 1) and -1*self:GetAbility():GetSpecialValueFor("slow") or 0) 
 end

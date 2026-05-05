@@ -26,7 +26,7 @@ function ozy_piramid_beam:OnSpellStart()
 	if (point-piramid:GetAbsOrigin()):Length2D() > 1500 then
 		point = piramid:GetAbsOrigin() + (point-piramid:GetAbsOrigin()):Normalized() * 1500
 	end
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetSpecialValueFor("damage") + ozy:GetIntellect() * self:GetSpecialValueFor("damage_per_int")
 	local damage_duration = self:GetSpecialValueFor("duration")
 	local damage_ticks = damage_duration*10
 	local damage_per_tick = damage/damage_ticks
@@ -35,6 +35,11 @@ function ozy_piramid_beam:OnSpellStart()
 	local curseAbil = piramid:FindAbilityByName("ozy_piramid_curse")
 	if curseAbil:GetCooldownTimeRemaining() < (damage_duration + delay) then
 		curseAbil:StartCooldown((damage_duration + delay))
+	end
+
+	local cageAbil = piramid:FindAbilityByName("ozy_piramid_cage")
+	if cageAbil:GetCooldownTimeRemaining() < 0.5 then
+		cageAbil:StartCooldown(0.5)
 	end
 	
 	self:CreateDelayEffects(piramid, delay, damage_duration, ParticleOrigin)

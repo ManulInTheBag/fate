@@ -48,10 +48,6 @@ function modifier_ozy_piramid_passive:RemoveOnDeath()
     return true
 end
 
-function modifier_ozy_piramid_passive:GetTexture()
-	return "custom/iskander_charisma"
-end
-
 function modifier_ozy_piramid_passive:GetEffectName()
 	return  "particles/ozy/piramid/ozy_piramid_passive_effect.vpcf" 
 end

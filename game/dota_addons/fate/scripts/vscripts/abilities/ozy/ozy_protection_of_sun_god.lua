@@ -51,6 +51,10 @@ function ozy_protection_of_sun_god:OnSpellStart()
 	local radius = self:GetSpecialValueFor("radius")
 	local shield_amount = self:GetSpecialValueFor("barrier")
 
+	if caster.ozySa4Acquired then
+		caster:AddNewModifier(caster, self, "modifier_ozy_barrier_particle", { Duration =  self:GetSpecialValueFor("duration")})            
+		caster:AddNewModifier(caster, self, "modifier_barrier_new", { Duration =  self:GetSpecialValueFor("duration"), decreaseDamageOnProck = 0, beforeBScroll = true, ShouldEndChannel = false, debuff_immune = false, shield_amount =shield_amount, HasCounter = true })            
+	end
 		
 	local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 

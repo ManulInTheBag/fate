@@ -7,6 +7,8 @@ LinkLuaModifier("modifier_piramid_alive", "abilities/ozy/ozy_spawn_piramid", LUA
 LinkLuaModifier("modifier_pyramid_cast_slow", "abilities/ozy/ozy_spawn_piramid", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ozy_no_healthbar", "abilities/ozy/ozy_spawn_piramid", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ozy_stacking_vision_provider", "abilities/ozy/ozy_spawn_piramid", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 
 function ozy_spawn_piramid:IsHiddenAbilityCastable()
 	return true
@@ -86,13 +88,18 @@ function ozy_spawn_piramid:OnSpellStart()
 			Piramid:SetControllableByPlayer(hCaster:GetPlayerID(), true)
 			Piramid:SetOwner(hCaster)
 			Piramid.Ozy = hCaster
+			
 			--FindClearSpaceForUnit(Piramid, Piramid:GetAbsOrigin(), true)
 			
 			-- Level abilities
+			
+			Piramid:FindAbilityByName("ozy_piramid_cage"):SetLevel(self:GetLevel())
 			Piramid:FindAbilityByName("ozy_piramid_barrier"):SetLevel(self:GetLevel())
 			Piramid:FindAbilityByName("ozy_piramid_curse"):SetLevel(self:GetLevel())
 			Piramid:FindAbilityByName("ozy_piramid_beam"):SetLevel(self:GetLevel())
-			Piramid:FindAbilityByName("ozy_piramid_auto_defence"):SetLevel(self:GetLevel()) 
+			if hCaster.ozySa1Acquired then
+				Piramid:FindAbilityByName("ozy_piramid_auto_defence"):SetLevel(self:GetLevel()) 
+			end
 			Piramid:FindAbilityByName("ozy_piramid_aura"):SetLevel(self:GetLevel())
 			Piramid:SetHullRadius(0)
 			Piramid:SetBaseMoveSpeed(0)
@@ -100,7 +107,8 @@ function ozy_spawn_piramid:OnSpellStart()
 			Piramid:SetMaxHealth(pyramidHp)
 			Piramid:SetBaseMaxHealth(pyramidHp)
 			Piramid:SetHealth(pyramidHp)
-			
+			Piramid:SetDayTimeVisionRange(1000)
+			Piramid:SetNightTimeVisionRange(1000)
 			Timers:CreateTimer(90, function()
 				if IsNotNull(Piramid) then
 						Piramid:Kill(nil, hCaster)
@@ -223,7 +231,7 @@ end
 
 if IsServer() then
 	function modifier_piramid_death_checker:OnCreated()
-		self:StartIntervalThink(FrameTime())
+		self:StartIntervalThink(0.1)
 	end
 
 	function modifier_piramid_death_checker:OnDestroy()		
@@ -235,21 +243,39 @@ if IsServer() then
 	end
 
 	function modifier_piramid_death_checker:OnIntervalThink()
-	    local targets = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	    local targets = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	    for k,v in pairs(targets) do
 	        self:GetParent():AddNewModifier(v, nil, "modifier_vision_provider", {duration = 0.2})
 	    end
+		if self:GetCaster().ozySa1Acquired then
+			local targets = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+			for k,v in pairs(targets) do
+				v:AddNewModifier(v, nil, "modifier_ozy_stacking_vision_provider", {duration = 0.5})
+			end
+		end
 	end
 end
 
 function modifier_piramid_death_checker:IsHidden()
 	return true
 end
+function modifier_piramid_death_checker:CheckState()
+	return {[MODIFIER_STATE_FORCED_FLYING_VISION ] = true}
+end
+
+
+
 function modifier_piramid_death_checker:DeclareFunctions()
 	return { MODIFIER_PROPERTY_DISABLE_TURNING,
 			MODIFIER_PROPERTY_MOVESPEED_MAX_OVERRIDE,
 			MODIFIER_PROPERTY_MOVESPEED_MIN_OVERRIDE,
-			MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE    }
+			MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
+			MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE    }
+end
+
+function modifier_piramid_death_checker:GetModifierIncomingDamage_Percentage(args) 
+	if ((args.attacker:GetAbsOrigin()-self:GetParent():GetAbsOrigin()):Length2D()) < self:GetAbility():GetSpecialValueFor("damage_reduction_distance_min") then return 0 end
+	return self:GetAbility():GetSpecialValueFor("damage_reduction_max") * math.min(0, -(   math.min(1, ((args.attacker:GetAbsOrigin()-self:GetParent():GetAbsOrigin()):Length2D())/self:GetAbility():GetSpecialValueFor("damage_reduction_distance_max"))))
 end
 
 function modifier_piramid_death_checker:GetModifierMoveSpeedOverride()
@@ -284,7 +310,6 @@ function modifier_piramid_alive:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-
 modifier_pyramid_cast_slow = class({})
 
 function modifier_pyramid_cast_slow:IsDebuff() return true end
@@ -314,5 +339,41 @@ function modifier_ozy_no_healthbar:RemoveOnDeath() return true end
 function modifier_ozy_no_healthbar:CheckState()
 	return {  [MODIFIER_STATE_NO_HEALTH_BAR]	= true,
 			 [MODIFIER_STATE_NOT_ON_MINIMAP] = false,
-			[MODIFIER_STATE_INVULNERABLE] = true,}
+			[MODIFIER_STATE_INVULNERABLE] = true,
+			[MODIFIER_STATE_FORCED_FLYING_VISION ] = true}
+end
+
+
+modifier_ozy_stacking_vision_provider = class({})
+
+
+
+function modifier_ozy_stacking_vision_provider:OnCreated(args)
+    self:SetStackCount(0)
+end
+
+function modifier_ozy_stacking_vision_provider:OnRefresh(args)
+	
+    self:SetStackCount(self:GetStackCount() + 3)
+	if self:GetStackCount() >= 100 then
+		self:SetStackCount(100)
+		self:GetParent():AddNewModifier(caster, self:GetAbility(), "modifier_vision_provider", {duration = 0.5})
+		self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+		ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,1,0.1 ) )
+		ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 0.5,0,0 ) )
+		ParticleManager:ReleaseParticleIndex(self.OverheadFx)
+	end
+end
+
+function modifier_ozy_stacking_vision_provider:IsHidden()
+    return false
+end
+
+function modifier_ozy_stacking_vision_provider:IsDebuff()
+    return true
+end
+
+
+function modifier_ozy_stacking_vision_provider:GetAttributes()
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

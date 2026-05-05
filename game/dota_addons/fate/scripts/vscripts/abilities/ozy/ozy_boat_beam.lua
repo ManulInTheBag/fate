@@ -22,21 +22,30 @@ function ozy_boat_beam:OnSpellStart()
 	local boatOrigin = hCaster:GetAbsOrigin()
 	local ozyOrigin = ozymandias:GetAbsOrigin()
 	local direction = self:GetAnimeVectorTargetingMainDirection()
+	direction.z = 0
+	direction = direction:Normalized()
 	self.direction = direction
+
 	local width = self:GetSpecialValueFor("width")
 	local range = self:GetAnimeVectorTargetingRange()
 	local speed = 1000
 	local timeToEnd = range/speed
+	if (vTargetPoint-hCaster:GetAbsOrigin()):Length2D() > 1300 then
+		vTargetPoint = hCaster:GetAbsOrigin() + (vTargetPoint-hCaster:GetAbsOrigin()):Normalized() * 1300
+		--direction = -(targetPoint - targetPointOld):Normalized()+ direction 
+	end
 	self.Laser = ParticleManager:CreateParticle("particles/ozy/boat/ozy_boat_laser_linear.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	self.laserStartPoint = boatOrigin + Vector(0,0, 2500)
 	ParticleManager:SetParticleControlTransformForward(self.Laser, 1, self.laserStartPoint, direction)
 	ParticleManager:SetParticleControl(self.Laser, 9, vTargetPoint)
 	ParticleManager:SetParticleShouldCheckFoW(self.Laser, false)
 
-	self.Burn = ParticleManager:CreateParticle("particles/karna/brahmastra_laser/ground_burn.vpcf", PATTACH_CUSTOMORIGIN,nil)
-	ParticleManager:SetParticleControl(self.Burn, 0, vTargetPoint)
-	ParticleManager:SetParticleControl(self.Burn, 1, vTargetPoint)
-	ParticleManager:SetParticleShouldCheckFoW(self.Burn, false)
+	if ozymandias.ozySa2Acquired then
+		self.Burn = ParticleManager:CreateParticle("particles/karna/brahmastra_laser/ground_burn.vpcf", PATTACH_CUSTOMORIGIN,nil)
+		ParticleManager:SetParticleControl(self.Burn, 0, vTargetPoint)
+		ParticleManager:SetParticleControl(self.Burn, 1, vTargetPoint)
+		ParticleManager:SetParticleShouldCheckFoW(self.Burn, false)
+	end
 	local projectileTable = {
 		caster = hCaster,
 		source = hCaster,
@@ -73,7 +82,7 @@ function ozy_boat_beam:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	
 	local hCaster = self:GetCaster()
 
-    DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    DoDamage(hCaster, hTarget, self:GetCaster().ozy:GetLevel()* self:GetSpecialValueFor("damage_per_level") + self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 end
 
@@ -82,5 +91,7 @@ function ozy_boat_beam:OnProjectileThink_ExtraData(vLocation)
 	local jopa2 = vLocation+ self.direction * 80
 	ParticleManager:SetParticleControlTransformForward(self.Laser, 1, vLocation, self.direction)
 	ParticleManager:SetParticleControl(self.Laser, 9, self.laserStartPoint)
-	ParticleManager:SetParticleControl(self.Burn, 1, jopa2)
+	if IsNotNull(self.Burn) then
+		ParticleManager:SetParticleControl(self.Burn, 1, jopa2)
+	end
 end

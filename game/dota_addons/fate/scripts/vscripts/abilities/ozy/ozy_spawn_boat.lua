@@ -17,6 +17,10 @@ function ozy_spawn_boat:OnSpellStart()
 		boat:AddNewModifier(hCaster, self, "modifier_ozy_no_healthbar", {duration = life_dur})
 		boat:AddNewModifier(hCaster, self, "modifier_kill", { duration = life_dur })
 		boat:AddNewModifier(hCaster, self, "modifier_ozy_boat_passive", { duration = life_dur })
+		if hCaster.ozySa2Acquired then
+			boat:FindAbilityByName("ozy_boat_sunstrike"):SetLevel(2)
+			boat:FindAbilityByName("ozy_boat_orbital_laser"):SetLevel(2)
+		end
 		--hCaster.Piramid = Piramid
 		boat:AddNewModifier(hCaster, self, "modifier_phased", {duration = life_dur})
 		hCaster.boat = boat

@@ -10,7 +10,7 @@ function ozy_light_pillar:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	local radius = self:GetSpecialValueFor("radius")
 	local delay = self:GetSpecialValueFor("delay")
-	local baseDamage = self:GetSpecialValueFor("damage")
+	local baseDamage = self:GetSpecialValueFor("damage") + caster:GetIntellect() * self:GetSpecialValueFor("damage_per_int")
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	
 
@@ -31,7 +31,10 @@ function ozy_light_pillar:OnSpellStart()
 		for k,v in pairs(targets) do
 			if not v:IsMagicImmune() then				
 		        DoDamage(caster, v, baseDamage, self:GetAbilityDamageType(), 0, self, false)
-		        giveUnitDataDrivenModifier(caster, v, "stunned", stun_duration)
+				if caster.ozySa4Acquired then
+					ApplyStrongDispel(v)
+				end
+		        --giveUnitDataDrivenModifier(caster, v, "stunned", stun_duration)
 			end
 
 
