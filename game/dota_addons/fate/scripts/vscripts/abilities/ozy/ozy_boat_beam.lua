@@ -46,6 +46,7 @@ function ozy_boat_beam:OnSpellStart()
 		ParticleManager:SetParticleControl(self.Burn, 1, vTargetPoint)
 		ParticleManager:SetParticleShouldCheckFoW(self.Burn, false)
 	end
+	vTargetPoint = vTargetPoint + (vTargetPoint-hCaster:GetAbsOrigin()):Normalized() * -50
 	local projectileTable = {
 		caster = hCaster,
 		source = hCaster,

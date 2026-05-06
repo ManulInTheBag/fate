@@ -44,7 +44,7 @@ function modifier_ozy_piramid_passive:GetModifierConstantHealthRegen()
 	if self:GetParent():GetUnitName() ~= "npc_dota_hero_phoenix" then 
 		return self:GetAbility():GetSpecialValueFor("bonus_regen")
 	else
-		return self:GetAbility():GetSpecialValueFor("bonus_regen") * 2
+		return self:GetAbility():GetSpecialValueFor("bonus_regen") * 3
 	end
 end
 
@@ -52,7 +52,7 @@ function modifier_ozy_piramid_passive:GetModifierMagicalResistanceBonus()
 	if self:GetParent():GetUnitName() ~= "npc_dota_hero_phoenix" then 
 		return self:GetAbility():GetSpecialValueFor("bonus_mr")
 	else
-		return self:GetAbility():GetSpecialValueFor("bonus_mr") * 2
+		return self:GetAbility():GetSpecialValueFor("bonus_mr") * 3
 	end
 end
 

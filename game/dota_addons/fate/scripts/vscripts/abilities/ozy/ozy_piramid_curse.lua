@@ -70,6 +70,7 @@ function modifier_ozy_piramid_curse:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
@@ -115,6 +116,9 @@ end
 
 
 function modifier_ozy_piramid_curse:GetModifierBonusStats_Strength()
+	return  -self.debuffSTATValue
+end
+function modifier_ozy_piramid_curse:GetModifierBonusStats_Intellect()
 	return  -self.debuffSTATValue
 end
 function modifier_ozy_piramid_curse:GetModifierBonusStats_Agility()
