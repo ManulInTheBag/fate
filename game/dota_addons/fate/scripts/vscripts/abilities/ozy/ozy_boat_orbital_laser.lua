@@ -7,8 +7,12 @@ function ozy_boat_orbital_laser:OnChannelThink(fInterval)
 	if self:GetCaster():GetMana() < manaSpendPerSec * fInterval then
 		self:GetCaster():Interrupt()
 	end
+
 	if (self.LaserTargetPoint - self.LaserPoint):Length2D() > 10 then
 		self.LaserPoint = self.LaserPoint + (self.LaserTargetPoint - self.LaserPoint):Normalized() * self:GetSpecialValueFor("move_speed")*fInterval
+		if IsNotNull(self.AuraDummy) then
+			self.AuraDummy:SetAbsOrigin(self.LaserPoint)
+		end
 	end
 	self.LaserPoint.z = 0
 	ParticleManager:SetParticleControl(self.particle, 0, self.LaserPoint + Vector(0,0, 2500))
@@ -27,7 +31,10 @@ function ozy_boat_orbital_laser:OnChannelFinish(bInterrupted)
 	ParticleManager:DestroyParticle(self.particle, true)
 	ParticleManager:ReleaseParticleIndex(self.particle)
 	caster:SwapAbilities("ozy_boat_orbital_laser", "ozy_boat_orbital_laser_move", true, false)
+	self.AuraDummy:StopSound("ozy_orbital_laser")
+	self.AuraDummy:RemoveSelf()
 
+	EmitSoundOnLocationWithCaster(self.LaserPoint, "ozy_orbital_laser_end", self:GetCaster())
 end
 
 function ozy_boat_orbital_laser:OnSpellStart()
@@ -39,6 +46,11 @@ function ozy_boat_orbital_laser:OnSpellStart()
 	hCaster:SwapAbilities("ozy_boat_orbital_laser", "ozy_boat_orbital_laser_move", false, true)
 	self.LaserPoint = vTargetPoint
 	self.LaserTargetPoint = vTargetPoint
+	self.AuraDummy = CreateUnitByName("sight_dummy_unit", self.LaserPoint, false, nil, nil, hCaster:GetTeamNumber())
+ 	self.AuraDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+	self.AuraDummy:SetDayTimeVisionRange(0)
+	self.AuraDummy:SetNightTimeVisionRange(0)
+	EmitSoundOn("ozy_orbital_laser", self.AuraDummy)
 	-- local ozymandias = hCaster.ozy
 	-- local boatOrigin = hCaster:GetAbsOrigin()
 	-- local ozyOrigin = ozymandias:GetAbsOrigin()

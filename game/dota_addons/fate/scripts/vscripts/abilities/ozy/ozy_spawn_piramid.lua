@@ -19,7 +19,7 @@ function ozy_spawn_piramid:GetAOERadius()
 end
 
 function ozy_spawn_piramid:CastFilterResultLocation(vLocation)
-	if self:GetCaster():HasModifier("modifier_piramid_alive") then
+	if self:GetCaster():HasModifier("modifier_piramid_alive") or self:GetCaster().PerformingCombo then
 		return UF_FAIL_CUSTOM
 	else	
 		return UF_SUCCESS
@@ -37,7 +37,8 @@ function ozy_spawn_piramid:OnSpellStart()
 	local pyramidHp = self:GetSpecialValueFor("max_health")
 	local fAOE = self:GetAOERadius()
 	local damage_first = self:GetSpecialValueFor("damage_first")
-
+	EmitSoundOnLocationWithCaster(vTargetPoint,"ozy_piramid_spawn", hCaster)
+	EmitGlobalSound("ozymandias_piramid_spawn")
 	if IsNotNull(hCaster.Piramid) then
 		hCaster.Piramid:Kill(nil, hCaster)
 		hCaster.Piramid = nil
@@ -46,7 +47,7 @@ function ozy_spawn_piramid:OnSpellStart()
 	hCaster:AddNewModifier(hCaster, self, "modifier_piramid_alive", { Duration = 3.0})
 
 	AddFOWViewer(hCaster:GetTeamNumber(), vTargetPoint, fAOE, fDelay + 0.5, true)
-    hCaster:EmitSound("Hero_Warlock.Upheaval")
+    --hCaster:EmitSound("Hero_Warlock.Upheaval")
 
 
 	local particle_slow_fx = ParticleManager:CreateParticle("particles/ozy/piramid/ozymandias_piramid_spawn.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -208,12 +209,13 @@ function ozy_spawn_piramid:OnSpellStart()
 			-- 	end
 			-- end
 
-			EmitGlobalSound("ZC.Ravage")
+			--EmitGlobalSound("ZC.Ravage")
+			EmitSoundOnLocationWithCaster(vTargetPoint,"ozy_piramid_spawn_impact", Piramid)
 			
 
 		end
 
-		StopSoundEvent("Hero_Warlock.Upheaval", hCaster)
+		--StopSoundEvent("Hero_Warlock.Upheaval", hCaster)
 	end)
 end
 

@@ -20,6 +20,8 @@ function ozy_teleport_boat:OnSpellStart()
 	local distance  = (vTargetPoint - ozyOrigin):Length2D()
 	local MaxDistance = self:GetSpecialValueFor("max_distance")
 	local delay = self:GetSpecialValueFor("delay")
+	EmitSoundOn("ozy_boat_recall", hCaster)
+	EmitSoundOn("ozy_boat_recall", ozymandias)
 	if distance > MaxDistance then
 		vector = (vTargetPoint - ozyOrigin):Normalized()
 		vTargetPoint = ozyOrigin + vector * MaxDistance
@@ -53,6 +55,11 @@ function ozy_teleport_boat_delay:OnIntervalThink()
 	self:GetCaster():SetAbsOrigin(self.vPoint)
 	self:Destroy()
 
+end
+
+function ozy_teleport_boat_delay:OnDestroy() 
+	StopSoundOn("ozy_boat_recall", self:GetCaster())
+	StopSoundOn("ozy_boat_recall", self:GetCaster().ozy)
 end
 function ozy_teleport_boat_delay:OnTakeDamage(args)
     local caster = self:GetParent()

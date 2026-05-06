@@ -24,6 +24,8 @@
 		"AbilityCastRange"				"1000"
 		"AbilityManaCost"					"100"
 
+		"LinkedAbilities"					"ozy_light_chacram_recast"
+		"LinkedAbilitiesRow"				"2"
 
 		"precache"
 		{
@@ -39,6 +41,7 @@
             "distance"				"1100"
             "duration" 				"0.5 0.62 0.75 0.87 1"
             "damage" 				"200 250 300 350 400"
+            "recast_duration" 		"1"
         }
 	}
 	//=======================================
@@ -183,6 +186,7 @@
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0"
 
 
 		"precache"
@@ -213,8 +217,9 @@
 		"LevelsBetweenUpgrades" 			"26"
 		"AbilityCooldown"				    "0"
 		"AbilityManaCost"					"0"
+		"AbilityCastPoint"					"0"
 		"AbilityCastRange"					"1000"
-
+		"LinkedAbilities"				"ozy_boat_anchor ozy_boat_beam ozy_boat_sunstrike ozy_move_boat ozy_teleport_boat ozy_boat_orbital_laser"
 
 
 		"precache"
@@ -248,6 +253,7 @@
 		"MaxLevel"							"1"
 		"AbilityCooldown"				    "10"
 		"AbilityManaCost"					"100"
+		"AbilityCastPoint"					"0"
 		"AbilityCastRange"					"1300"
 		"precache"
 		{
@@ -261,8 +267,8 @@
 			"damage"							"250"
 			"damage_per_level"					"25"
 			"live_duration"							"10"
-			"aura_radius"						"400"
 			"hit_radius"						"300"
+			"aura_radius"						"400"
 			"slow"								"40"
 			"cast_range"								"1300"
 		}
@@ -282,6 +288,7 @@
 		"MaxLevel"							"1"
 		"AbilityCooldown"				    "10"
 		"AbilityManaCost"					"200"
+		"AbilityCastPoint"					"0"
 		"AbilityCastRange"					"1300"
 
 		"precache"
@@ -297,6 +304,9 @@
 			"damage_per_level"					"25"
 			"max_distance"							"1200"
 			"width"								"200"
+			"lock_duration"						"1.5"
+			"burn_damage"						"100"
+			"burn_damage_per_level"				"10"
 		}
 	}
 	//=====================================
@@ -314,6 +324,7 @@
 		"MaxLevel"							"1"
 		"AbilityCooldown"				    "15"
 		"AbilityManaCost"					"400"
+		"AbilityCastPoint"					"0"
 		"AbilityCastRange"					"1300"
 
 		"precache"
@@ -345,6 +356,7 @@
 		"AbilityCooldown"				    "0.5"
 		"AbilityManaCost"					"0"
 		"AbilityCastRange"					"9999"
+		"AbilityCastPoint"					"0"
 
 
 		"AbilityValues"
@@ -368,6 +380,7 @@
 		"AbilityManaCost"					"0"
 		"AbilityCastRange"					"99999"
 		"AbilityChannelTime"			"3"
+		"AbilityCastPoint"					"0"
 
 
 		"precache"
@@ -403,6 +416,7 @@
 		"AbilityManaCost"				"0"
 		"AbilityChannelTime"			"10"
 
+
 		"precache"
 		{
 			"particle"				"particles/ozy/boat/boat_orbital_laser.vpcf"
@@ -413,8 +427,6 @@
 		"AbilityValues"
         {
             "radius" 									"350"
-            "delay"										"1"
-            "stun_duration" 							"0.8"
             "damage_per_second" 						"50"
             "damage_per_second_per_level" 				"5"
             "mana_drain_per_second" 					"100 80"
@@ -460,12 +472,6 @@
 		"AbilityValues"
         {
             "radius" 									"350"
-            "delay"										"1"
-            "stun_duration" 							"0.8"
-            "damage_per_second" 						"100"
-            "mana_drain_per_second" 					"100"
-            "mana_drain_increase_per_second" 			"100"
-            "damage_per_second_increase" 				"200"
         }
 	}
 	//=====================================
@@ -487,7 +493,8 @@
 		"AbilityCastRange"					"1000"
 		"AbilityCastPoint"					"0.5"
 		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_6"
-
+		"LinkedAbilities"				"ozy_piramid_cage ozy_piramid_barrier ozy_piramid_curse ozy_piramid_aura ozy_piramid_beam"
+		"LinkedAbilitiesRow"			"2"
 
 		"precache"
 		{
@@ -495,6 +502,7 @@
 			"particle"		"particles/ozy/piramid/ozymandias_piramid_spawn.vpcf"
 			"particle"		"particles/ozy/piramid/ozy/piramid/eruption.vpcf"
 			"particle"		"particles/zlodemon/zlodemon_overhead_eye.vpcf"
+			"particle"		"particles/econ/items/zeus/zeus_immortal_2021/zeus_immortal_2021_shard_gold_slow_smoke.vpcf"
 
 			
 		}
@@ -519,7 +527,7 @@
 	{
 		"BaseClass" 					"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_piramid_cage"
-		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"            "custom/ozy/ozy_piramid_cage"
 		"MaxLevel"                      "5"
 		"AbilityCastRange"				"1500"
@@ -549,7 +557,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_piramid_barrier"
 		"MaxLevel"						"5"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"			"custom/ozy/piramid_barrier"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
@@ -582,11 +590,12 @@
 	{
 		"BaseClass" 					"ability_lua"
 		"ScriptFile"					"abilities/ozy/ozy_piramid_aura"
-		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE |DOTA_ABILITY_BEHAVIOR_NO_TARGET |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityTextureName"            "custom/ozy/piramid_aura"
 		"MaxLevel"                      "5"
 		"AbilityCastRange"				"1500"
 
+		"AbilityCooldown"				"1"
 		"AbilityValues"
         {
             "radius" "1500"
@@ -648,6 +657,7 @@
 		"AbilityCooldown"				"30 28 26 24 22"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0"
 
 
 		"precache"
@@ -689,6 +699,7 @@
 		"AbilityCooldown"				"40 38 36 34 32"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0"
 
 
 		"precache"
@@ -709,6 +720,48 @@
         }
 	}
 
+	//=======================================
+	// Piramid combo
+	//=======================================
+	"ozy_combo"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ozy/ozy_combo"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityTextureName"			"custom/ozy/ozy_combo"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+
+		"AbilityCooldown"				"150"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"0"
+
+		"precache"
+		{
+			"particle"				"particles/ozy/ozy_combo_ground_marker.vpcf"
+			"particle"				"particles/ozy/ozy_piramid_statusfx.vpcf"
+			"particle"				"particles/ozy/piramid/ozymandias_piramid_drop_ground.vpcf"
+			"particle"				"particles/ozy/ozy_combo_trail.vpcf"
+
+		}
+
+		"AbilityValues"
+        {
+            "radius" 			"500"
+            "outer_radius" 		"1000"
+            "duration" 			"1"
+            "delay" 			"3"
+            "damage" 			"2000"
+            "damage_big"		"4000"
+            "stun_duration"		"1"
+        }
+	}
+
 	"ozy_sa_1"
 	{
 		// General
@@ -723,6 +776,7 @@
 		"AbilityCooldown"				"9999"
 
 		"AbilityManaCost"				"14"
+		"LinkedAbilities"				"ozy_piramid_auto_defence"
 
 		 
 		"AbilityValues"

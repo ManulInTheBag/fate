@@ -54,6 +54,42 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_END"
+						parent_bone = "bone_new2"
+						relative_origin = [ -92.1518, 89.33875, 0.09921074 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_END1"
+						parent_bone = "bone_new2"
+						relative_origin = [ 92.1518, 89.3388, 0.0992107 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_END2"
+						parent_bone = "bone_new2"
+						relative_origin = [ 92.1518, -89.3388, 0.0992107 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_END3"
+						parent_bone = "bone_new2"
+						relative_origin = [ -92.1518, -89.3388, 0.0992107 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
@@ -279,6 +315,92 @@
 								framerate = 10.0
 								reverse = true
 								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "idle1"
+								children = 
+								[
+									{
+										_class = "AnimForceBonePositionRange"
+										bone = "bone_new2"
+										translation = [ 0.0, 0.0, 0.0 ]
+										rotation = [ 0.0, 0.0, 180.0 ]
+										start_frame = 0
+										peak_frame = 15
+										tail_frame = 0
+										end_frame = 15
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.0
+								fade_out_time = 0.0
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandiasnp/pyramid.fbx"
+								import_bone_scales = false
+								start_frame = 23
+								end_frame = 38
+								framerate = 15.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 0
+										frame_count = 0
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "idle2"
+								children = 
+								[
+									{
+										_class = "AnimForceBonePosition"
+										bone = "bone_new2"
+										translation = [ 0.0, 0.0, 150.0 ]
+										rotation = [ 0.0, 0.0, 180.0 ]
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 1.0
+								fade_out_time = 0.0
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/ozy/ozymandiasnp/pyramid.fbx"
+								import_bone_scales = false
+								start_frame = 23
+								end_frame = 38
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 36
+										frame_count = 150
+									},
+								]
 							},
 						]
 					},

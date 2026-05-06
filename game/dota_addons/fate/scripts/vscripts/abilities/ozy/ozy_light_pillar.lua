@@ -18,7 +18,7 @@ function ozy_light_pillar:OnSpellStart()
 	ParticleManager:SetParticleControl( markFx, 0, targetPoint)
 	EmitSoundOnLocationWithCaster(targetPoint, "Hero_Chen.PenitenceImpact", caster)	
 	ParticleManager:SetParticleShouldCheckFoW(markFx, false)
-
+	EmitSoundOn("ozymandias_light_pillar_cast", caster)
 
 
 
@@ -26,7 +26,7 @@ function ozy_light_pillar:OnSpellStart()
 	Timers:CreateTimer(delay, function()
 		ParticleManager:DestroyParticle(markFx, true)
 		ParticleManager:ReleaseParticleIndex(markFx)
-
+		EmitSoundOnLocationWithCaster(targetPoint, "ozy_light_pillar", caster)	
 		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
 			if not v:IsMagicImmune() then				

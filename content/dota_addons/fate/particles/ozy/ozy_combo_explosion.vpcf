@@ -1,0 +1,74 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf65:version{48e806a9-c210-4cd8-811a-38b5ef63b195} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 8.0, 229.0, 96.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 61
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_HSVShiftToCP"
+			m_DefaultHSVColor = [ 226, 158, 0 ]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosiond.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosionc.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosiona.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosioni.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosionf.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosionl.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosionk.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_combo_explosion_jopa_2.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_jopa_explosion.vpcf"
+		},
+	]
+}

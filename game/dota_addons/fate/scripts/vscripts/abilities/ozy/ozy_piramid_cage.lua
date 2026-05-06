@@ -44,10 +44,14 @@ function modifier_ozy_cage:OnCreated(hTable)
     ParticleManager:SetParticleControl(self.cageParticle, 2, Vector(self.nRadius, 0, 0))
     self:AddParticle(self.cageParticle, true, false, -1, false, false)
     self:StartIntervalThink(0.1)
+    EmitSoundOn("ozy_cage_cast", self.hParent)
      
 end
 function modifier_ozy_cage:OnRefresh(hTable)
     self:OnCreated(hTable)
+end
+function modifier_ozy_cage:OnDestroy()
+   StopSoundOn("ozy_cage_cast", self.hParent)
 end
 
 if IsServer() then

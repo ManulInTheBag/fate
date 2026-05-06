@@ -15,19 +15,25 @@ IsNotNull = function(hScript)
     return false
 end
 function ozy_piramid_barrier:OptionalDestroy(parent)
+    if IsServer() then
+        Timers:CreateTimer(FrameTime() * 2, function() 
+            if not IsNotNull(parent:FindModifierByNameAndCaster("modifier_barrier_new", self:GetCaster())) then
+                parent:RemoveModifierByName("modifier_ozy_piramid_barrier_particle")
+            end
 
-
+        end)
+    end
 end
 function ozy_piramid_barrier:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	local caster = self:GetCaster()
 	local shield_amount = self:GetSpecialValueFor("barrier")
-	
+
 	caster:AddNewModifier(caster, self, "modifier_ozy_piramid_barrier_particle", { Duration =  self:GetSpecialValueFor("duration")})            
 	caster:AddNewModifier(caster, self, "modifier_barrier_new", { Duration =  self:GetSpecialValueFor("duration"), decreaseDamageOnProck = 0, beforeBScroll = true, ShouldEndChannel = true, debuff_immune = true, shield_amount =shield_amount, HasCounter = false })            
     caster:SetHullRadius(550)
     
-
+    EmitSoundOn("ozy_barrier_cast", caster)
 end
 
 function ozy_piramid_barrier:OnChannelFinish()
@@ -42,8 +48,11 @@ end
 modifier_ozy_piramid_barrier_particle = class({})
 
 function modifier_ozy_piramid_barrier_particle:OnCreated(table)
+    if IsServer() then
+        EmitSoundOn("ozy_piramid_barrier", self:GetParent())
+    
     self:StartIntervalThink(0.1)
-
+    end
 
 end
 
@@ -87,4 +96,7 @@ function modifier_ozy_piramid_barrier_particle:GetEffectName()
 end
 function modifier_ozy_piramid_barrier_particle:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
+end
+function modifier_ozy_piramid_barrier_particle:OnDestroy()
+    StopSoundOn("ozy_piramid_barrier", self:GetParent())
 end

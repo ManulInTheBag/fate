@@ -40,9 +40,9 @@ function ozy_piramid_curse:OnSpellStart()
 	end
 	local EruptionPreParticlePiramid = ParticleManager:CreateParticle("particles/ozy/piramid/ozy_scale.vpcf", PATTACH_OVERHEAD_FOLLOW, caster )
 	ParticleManager:SetParticleControl(EruptionPreParticlePiramid, 3, caster:GetAbsOrigin())
-
+	EmitSoundOnLocationWithCaster(targetPoint, "ozy_piramid_curse", caster)	
 	Timers:CreateTimer(1, function() 
-        caster:EmitSound("merlin_illusion")
+        
 		local EruptionParticle = ParticleManager:CreateParticle("particles/ozy/piramid/ozy_piramid_curse_blast.vpcf", PATTACH_WORLDORIGIN, nil )
 		ParticleManager:SetParticleControl(EruptionParticle, 0, targetPoint)
 		ParticleManager:SetParticleControl(EruptionParticle, 1, Vector(radius * 1.2, radius, radius))
@@ -94,6 +94,11 @@ function modifier_ozy_piramid_curse:OnCreated()
 	self.debuffMRValue = self:GetAbility():GetSpecialValueFor("magres_debuff")
 	self.debuffHealthValue = self:GetAbility():GetSpecialValueFor("health_debuff")
     self:StartIntervalThink(0.5)
+	EmitSoundOn("ozy_piramid_curse_loop", self:GetParent())
+end
+function modifier_ozy_piramid_curse:OnDestroy()
+
+	StopSoundOn("ozy_piramid_curse_loop", self:GetParent())
 end
 function modifier_ozy_piramid_curse:OnIntervalThink()
     if(not IsServer() ) then return end

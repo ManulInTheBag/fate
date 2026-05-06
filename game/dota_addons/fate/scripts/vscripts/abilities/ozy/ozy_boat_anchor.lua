@@ -29,6 +29,7 @@ function ozy_boat_anchor:OnSpellStart()
 				ParticleManager:ReleaseParticleIndex(self.particle_ground_fx)
 			end
     end
+	EmitSoundOnLocationWithCaster(vTargetPoint,"ozy_boat_anchor_cast", hCaster)
 		self.particle_ground_fx = ParticleManager:CreateParticle("particles/ozy/boat/ozy_boat_anchor_indicator.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.particle_ground_fx, 0, vTargetPoint)
 	ParticleManager:SetParticleControl(self.particle_ground_fx, 1, Vector(self:GetSpecialValueFor("hit_radius"), 0, 0))

@@ -9,6 +9,15 @@ function ozy_light_chacram:CastFilterResultLocation(hLocation)
     return UF_SUCESS
 end
 
+function ozy_light_chacram:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("ozy_light_chacram_recast"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("ozy_light_chacram_recast"):SetLevel(self:GetLevel())
+    end
+	
+end
+
 function ozy_light_chacram:GetCustomCastErrorLocation(hLocation)
     return "Only one at a timee"
 end
@@ -17,7 +26,9 @@ function ozy_light_chacram:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
     self.casted = true
-
+    
+    
+    EmitSoundOn("ozy_chacram_cast", caster)
     if target == caster:GetAbsOrigin() then
         target = caster:GetAbsOrigin() + caster:GetForwardVector()*100
     end
@@ -74,8 +85,9 @@ function ozy_light_chacram:OnProjectileHit(target, location, tData )
     Timers:CreateTimer(0.033,function()
         ProjectileManager:DestroyLinearProjectile(caster.ChacramProjectile )
     end)
+    EmitSoundOn("ozy_chacram_impact", target)
     caster.OzyChacramTarget = target
-    caster:AddNewModifier(caster, self, "modifier_ozy_chacram_ability_change", {duration = 1})
+    caster:AddNewModifier(caster, self, "modifier_ozy_chacram_ability_change", {duration = self:GetSpecialValueFor("recast_duration")})
     
 
     return true

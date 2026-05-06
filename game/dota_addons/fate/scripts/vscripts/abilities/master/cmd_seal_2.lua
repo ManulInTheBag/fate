@@ -91,6 +91,16 @@ function cmd_seal_2:OnSpellStart()
 	if(hero:GetName() == "npc_dota_hero_phantom_lancer") then
 		hero:FindAbilityByName("cu_chulain_relentless_spear").isRefreshed = 1
 	end
+
+	if(hero:GetName() == "npc_dota_hero_phoenix") then
+		if IsNotNull(hero.boat) then
+			local boat = hero.boat
+			hero.boat:FindAbilityByName("ozy_boat_anchor"):EndCooldown()
+			hero.boat:FindAbilityByName("ozy_boat_beam"):EndCooldown()
+			hero.boat:FindAbilityByName("ozy_boat_sunstrike"):EndCooldown()
+			hero.boat:FindAbilityByName("ozy_boat_orbital_laser"):EndCooldown()
+		end
+	end
 	ResetAbilities(hero)
 	ResetItems(hero)
 	IncrementCharges(hero)

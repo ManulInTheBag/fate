@@ -69,6 +69,7 @@ function ozy_boat_sunstrike:ShootLightPillar(ozymandias,boat, delay, damage, deb
 		ParticleManager:ReleaseParticleIndex(markFx)
 
 		local targets = FindUnitsInRadius(ozymandias:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		EmitSoundOnLocationWithCaster(point, "ozy_light_pillar", boat)	
 		for k,v in pairs(targets) do
 			if not v:IsMagicImmune() then
 				if not v.IsHitByBoatSunstrike then				

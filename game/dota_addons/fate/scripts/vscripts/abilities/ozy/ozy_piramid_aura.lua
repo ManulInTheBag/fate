@@ -10,7 +10,27 @@ function ozy_piramid_aura:GetIntrinsicModifierName()
 	return "modifier_ozy_piramid_passive_aura"
 end
 
+function ozy_piramid_aura:OnSpellStart()
+	local caster = self:GetCaster()
+	if caster.Ozy:GetStrength() >= 29.1 and caster.Ozy:GetAgility() >= 29.1 and caster.Ozy:GetIntellect() >= 29.1 then      
+			if not caster.Ozy:HasModifier("modifier_ozy_combo_cd") then --and caster:FindAbilityByName("ozy_piramid_beam"):IsCooldownReady()  then
+				if caster:GetAbilityByIndex(5):GetName() ~= "ozy_combo"  then
+					caster:SwapAbilities("ozy_combo", "ozy_piramid_beam", true, false)
+				end
 
+				Timers:CreateTimer('ozy_combo_trigger_window',{
+					endTime = 2,
+					callback = function()
+					if caster:GetAbilityByIndex(5):GetName() ~= "ozy_piramid_beam"  then
+						caster:SwapAbilities("ozy_combo", "ozy_piramid_beam", false, true)
+					end
+				end
+				})
+	
+			end
+		end
+
+end
 
 
 function modifier_ozy_piramid_passive:DeclareFunctions()

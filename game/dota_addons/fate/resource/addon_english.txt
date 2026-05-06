@@ -3394,6 +3394,229 @@
 
 		"DOTA_Tooltip_modifier_okada_combo_true_invis"						"Shimatsuken: Calm"
 		"DOTA_Tooltip_modifier_okada_combo_true_invis_Description"			"Invisible and ready to slice!"
+
+
+		//================================================================================================================
+		//	Ozymandias (KING OF DIFF(KINGS))
+		//=================================================================================================================
+		"npc_dota_hero_phoenix"				"Ozymandias"
+		"ozy_piramid"						"Ramesseum Tentyris"
+		"ozy_boat"							"Mesektet"
+
+
+		"DOTA_Tooltip_modifier_ozy_mystic_eyes"						"Mystic eyes"
+		"DOTA_Tooltip_modifier_ozy_mystic_eyes_Description"			"Counter on spellblock."
+
+		"DOTA_Tooltip_modifier_ozy_piramid_curse"						"Curse of Ra"
+		"DOTA_Tooltip_modifier_ozy_piramid_curse_Description"			"Stats decreased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%, health decreased by %dMODIFIER_PROPERTY_HEALTH_BONUS% armor decreased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% MR decreased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
+		"DOTA_Tooltip_modifier_pyramid_cast_slow"						"Ramesseum Tentyris"
+		"DOTA_Tooltip_modifier_pyramid_cast_slow_Description"			"Movement speed decreased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+
+		"DOTA_Tooltip_modifier_ozy_piramid_passive"				"Ramesseum Tentyris"
+		"DOTA_Tooltip_modifier_ozy_piramid_passive_Description"	"Increased MR by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%, health regen increased by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%"
+
+		"DOTA_Tooltip_modifier_ozy_piramid_auto_defence"				"Defencive systems"
+		"DOTA_Tooltip_modifier_ozy_piramid_auto_defence_Description"	"Attack enemies on sight."
+
+		"DOTA_Tooltip_modifier_ozy_stacking_vision_provider"				"Eye of Ra"
+		"DOTA_Tooltip_modifier_ozy_stacking_vision_provider_Description"	"Visible to enemies when stacks reached 100"
+
+		"DOTA_Tooltip_modifier_ozy_combo_cd"				"Combo CD"
+		"DOTA_Tooltip_modifier_ozy_combo_cd_Description"	"Unable to use combo"
+
+
+
+		"DOTA_Tooltip_Ability_ozy_light_chacram"				"Light chacram"
+		"DOTA_Tooltip_ability_ozy_light_chacram_Description"	"Cast Point: <font color='#FFFFF9'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias throws a chacram at the target direction.\nHitting an enemy, it will deal <font color='#58ACFA'>damage</font> and <font color='#9400D3'>dimensionally lock</font>.\nFor a short duration allows to use this ability again as a <font color='#58ACFA'>Light chacram - chain</font>."
+		"DOTA_Tooltip_Ability_ozy_light_chacram_radius"						"Radius:"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_distance"					"Distance:"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_duration"					"Lock duration:"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_damage"						"Damage:"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_recast_duration"			"Recast duration:"
+
+		"DOTA_Tooltip_Ability_ozy_light_chacram_recast"				"Light chacram - chain"
+		"DOTA_Tooltip_ability_ozy_light_chacram_recast_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias chains enemy bound by <font color='#58ACFA'>Light chacram</font> to another enemy or <font color='#58ACFA'>Tri-Hermes</font>, dealing <font color='#58ACFA'>damage</font>, <font color='#FF3399'>pulling</font> and <font color='#FF3399'>stunning</font>"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_recast_radius"						"Radius:"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_recast_distance"					"Distance:"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_recast_duration"					"Stun duration:"
+		"DOTA_Tooltip_Ability_ozy_light_chacram_recast_damage"						"Damage:"
+
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god"				"Protection of the Sun God"
+		"DOTA_Tooltip_ability_ozy_protection_of_sun_god_Description"	"Cast Point: <font color='#FFFFF9'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias applies <font color='#FFFAFA'>all-damage barrier</font> to all allies in radius.\nWhen destroyed, barrier explodes, dealing <font color='#58ACFA'>damage</font> and applying <font color='#9400D3'>slow</font> and <font color='#9400D3'>attack miss</font> to all enemies in radius"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_radius"						"Radius:"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_barrier"					"Barrier:"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_duration"					"Lock duration:"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_damage"						"Damage:"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_blind"					"%Miss:"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_slow_duration"			"Slow duration:"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_slow_percentage"		"%Slow:"
+
+
+		"DOTA_Tooltip_Ability_ozy_light_pillar"				"Ray of the Sun"
+		"DOTA_Tooltip_ability_ozy_light_pillar_Description"	"Cast Point: <font color='#FFFFF9'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias marks the ground point. After a short delay a beam of sun energy will deal <font color='#58ACFA'>damage</font> to all enemies in radius.\nDamage is increased based on Ozymandias's <font color='#1E90FF'>intellect</font>."
+		"DOTA_Tooltip_Ability_ozy_light_pillar_radius"						"Radius:"
+		"DOTA_Tooltip_Ability_ozy_light_pillar_delay"						"Delay:"
+		"DOTA_Tooltip_Ability_ozy_light_pillar_damage_per_int"				"INT to damage:"
+		"DOTA_Tooltip_Ability_ozy_light_pillar_damage"						"Damage:"
+
+		"DOTA_Tooltip_Ability_ozy_mystic_eyes"				"Mystic eyes"
+		"DOTA_Tooltip_ability_ozy_mystic_eyes_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>   |    <font color='#EE5C29'>Unrefreshable</font><br><br>Ozymandias gets a spellblock effect, which will <font color='#FF3399'>stun</font> enemy on prock"
+		"DOTA_Tooltip_Ability_ozy_mystic_eyes_duration"						"Duration:"
+		"DOTA_Tooltip_Ability_ozy_mystic_eyes_stun_duration"				"Stun duration:"		
+
+		"DOTA_Tooltip_Ability_ozy_spawn_boat"				"Summon Mesektet"
+		"DOTA_Tooltip_ability_ozy_spawn_boat_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>   |    <font color='#EE5C29'>Unrefreshable</font><br><br>Ozymandias summons the boat of Sun, Mesektet.\nMesektet has limited <font color='#58ACFA'>manapool</font> and its <font color='#58ACFA'>mana</font> only regenerates while near Ozymandias, based on distance to him.\nBoat is completely invulnerable, provides vision and visible to enemies through fog of war.\nBoat can use it's abilities anytime, but its only possible to move into a position within radius of Ozymandias.\nBoat's abilities dont require turn to be casted, but have delays.\nAll of Mesektet abilities scale from Ozymandias's level.\nMesektet's abilities are refreshed when Ozymandias uses 2ND command seal."
+		"DOTA_Tooltip_Ability_ozy_spawn_boat_mana_regen_max"						"Max mana regen:"
+		"DOTA_Tooltip_Ability_ozy_spawn_boat_mana_regen_min"						"Min mana regen:"
+		"DOTA_Tooltip_Ability_ozy_spawn_boat_mana_regen_distance"					"Max mana regen distance:"	
+
+		"DOTA_Tooltip_Ability_ozy_boat_anchor"				"Tri-hermes"
+		"DOTA_Tooltip_ability_ozy_boat_anchor_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Mesektet deploys <font color='#58ACFA'>Tri-Hermes</font> to the target location, dealing <font color='#58ACFA'>damage</font> after a short delay.\nOzymandias can chain targets with <font color='#58ACFA'>Tri-Hermes</font> using <font color='#58ACFA'>Light chacram - chain</font>."
+		"DOTA_Tooltip_Ability_ozy_boat_anchor_damage"							"Damage:"
+		"DOTA_Tooltip_Ability_ozy_boat_anchor_damage_per_level"					"Damage per level:"
+		"DOTA_Tooltip_Ability_ozy_boat_anchor_live_duration"					"Live duration:"
+		"DOTA_Tooltip_Ability_ozy_boat_anchor_aura_radius"						"SA Aura radius:"
+		"DOTA_Tooltip_Ability_ozy_boat_anchor_hit_radius"						"Hit radius:"
+		"DOTA_Tooltip_Ability_ozy_boat_anchor_slow"								"%SA Slow:"
+
+
+		"DOTA_Tooltip_Ability_ozy_boat_beam"				"Light of Uraeus"
+		"DOTA_Tooltip_ability_ozy_boat_beam_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#29EE32'>Refreshable</font><br><br>VECTOR TARGET\nMesektet shoots laser, dealing <font color='#58ACFA'>damage</font> in line."
+		"DOTA_Tooltip_Ability_ozy_boat_beam_damage"								"Damage:"
+		"DOTA_Tooltip_Ability_ozy_boat_beam_damage_per_level"					"Damage per level:"
+		"DOTA_Tooltip_Ability_ozy_boat_beam_max_distance"						"Max distance:"
+		"DOTA_Tooltip_Ability_ozy_boat_beam_width"								"Width:"		
+		"DOTA_Tooltip_Ability_ozy_boat_beam_burn_damage"						"SA burn damage:"
+		"DOTA_Tooltip_Ability_ozy_boat_beam_burn_damage_per_level"				"SA burn damage per level:"		
+
+		"DOTA_Tooltip_Ability_ozy_boat_sunstrike"				"Rays of the Sun"
+		"DOTA_Tooltip_ability_ozy_boat_sunstrike_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>   |    <font color='#29EE32'>Refreshable</font><br><br>VECTOR TARGET\nMesektet marks the ground points in a line.\nAfter a short delay a beams of sun energy will deal <font color='#58ACFA'>damage</font> to all enemies in radius."
+		"DOTA_Tooltip_Ability_ozy_boat_sunstrike_radius"							"Radius:"
+		"DOTA_Tooltip_Ability_ozy_boat_sunstrike_max_distance"						"Max distance:"
+		"DOTA_Tooltip_Ability_ozy_boat_sunstrike_damage_per_level"					"Damage per level:"
+		"DOTA_Tooltip_Ability_ozy_boat_sunstrike_base_damage"						"Base damage:"
+		"DOTA_Tooltip_Ability_ozy_boat_sunstrike_delay"								"Delay:"
+		"DOTA_Tooltip_Ability_ozy_boat_sunstrike_delay_between_strikes"				"Delay between strikes:"
+
+
+		"DOTA_Tooltip_Ability_ozy_move_boat"				"Move Mesektet"
+		"DOTA_Tooltip_ability_ozy_move_boat_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>   |    <font color='#29EE32'>Refreshable</font><br><br>Move Mesektet towards selected point."
+		"DOTA_Tooltip_Ability_ozy_move_boat_speed"								"Move speed:"
+
+
+		"DOTA_Tooltip_Ability_ozy_teleport_boat"				"Teleport Mesektet"
+		"DOTA_Tooltip_ability_ozy_teleport_boat_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Mesektet teleports to the targetted point near Ozymandias after a delay.\nif Ozymandias takes damage over a threshold will break teleport."
+		"DOTA_Tooltip_Ability_ozy_teleport_boat_delay"								"Delay:"
+		"DOTA_Tooltip_Ability_ozy_teleport_boat_minimum_damage"						"Damage threshold:"
+
+
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser"				"EXTERMINATION SUN LASER"
+		"DOTA_Tooltip_ability_ozy_boat_orbital_laser_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Channeling.\nMesektet shoots a laser right from the sun, dealing <font color='#58ACFA'>damage</font> which increases the more the target suffers <font color='#58ACFA'>damage</font> from it.\nLaser spends Mesektet's <font color='#58ACFA'>mana</font>, <font color='#58ACFA'>manacost</font> increasing with time.\nOzymandias is able to move beam by reusing this ability."
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_radius"										"Delay:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_damage_per_second"								"Base damage per second:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_damage_per_second_per_level"					"Base damage per second per level:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_mana_drain_per_second"							"Mana drain per second:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_mana_drain_increase_per_second"				"Mana drain increase per second:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_damage_per_second_increase"					"Damage per second increase:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_damage_per_second_increase_per_level"			"Damage per second increase per level:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_stacks_duration"								"Stacking damage duration:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_move_speed"									"Laser move speed:"
+
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_move"				"Move laser"
+		"DOTA_Tooltip_ability_ozy_boat_orbital_laser_move_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Move orbital laser towards selected point."
+
+
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid"				"Ramesseum Tentyris"
+		"DOTA_Tooltip_ability_ozy_spawn_piramid_Description"	"Cast Point: <font color='#FFFFF9'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias summons <font color='#58ACFA'>Ramesseum Tentyris</font> at the target location, which will erupt from the ground after a delay.\nWhile summoning, all enemies in the radius will take damage and get <font color='#9400D3'>slow</font> debuff\nAt the time of eruption, all enemies in radius will take <font color='#58ACFA'>damage</font>, <font color='#FF3399'>stun</font> and <font color='#FF3399'>knockback</font>.\nEven allies are <font color='#FF3399'>knocked back</font> \n<font color='#58ACFA'>Ramesseum Tentyris</font> is a structure and will block movement.\nOnly one <font color='#58ACFA'>Ramesseum Tentyris</font> may be alive at a time.\nOzymandias cant summon another <font color='#58ACFA'>Ramesseum Tentyris</font> while the previous one is still erupting.\n<font color='#58ACFA'>Ramesseum Tentyris</font> takes less damage the more damage source is away from it.\nResummoning <font color='#58ACFA'>Ramesseum Tentyris</font> will refresh it's abilities.\n<font color='#58ACFA'>Ramesseum Tentyris</font> is visible to enemies in fog of war from great distance.\nAll abilities of <font color='#58ACFA'>Ramesseum Tentyris</font> are leveled with this ability."
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_damage"				"Eruption damage:"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_radius"				"Radius:"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_summon_delay"				"Summon delay:"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_max_health"				"Max health:"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_damage_first"				"Total damage before eruption:"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_slow_first"				"%Slow before eruption"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_damage_reduction_max"				"%Maximum damage resistance:"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_damage_reduction_distance_max"				"Maximum damage resistance distance:"
+		"DOTA_Tooltip_Ability_ozy_spawn_piramid_damage_reduction_distance_min"				"Minimum distance to apply damage resistance:"
+
+
+		"DOTA_Tooltip_Ability_ozy_piramid_cage"				"Curse of static"
+		"DOTA_Tooltip_ability_ozy_piramid_cage_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Deploys a cage of energy, which will apply <font color='#9400D3'>dimensionally lock</font> and stop most movement abilities used inside."
+		"DOTA_Tooltip_Ability_ozy_piramid_cage_duration"				"Duration:"
+		"DOTA_Tooltip_Ability_ozy_piramid_cage_radius"					"Radius:"
+
+		"DOTA_Tooltip_Ability_ozy_piramid_barrier"				"Protection of the Burning Sands"
+		"DOTA_Tooltip_ability_ozy_piramid_barrier_Description"	"Cast Point:<font color='#7FFF00'>immediate</font>   |    <font color='#EE5C29'>Unrefreshable</font><br><br>Deploys a protective barrier for a duration.\n<font color='#58ACFA'>Auto-defence sistems</font> are disabled while barrier is deployed."
+		"DOTA_Tooltip_Ability_ozy_piramid_barrier_duration"				"Duration:"
+		"DOTA_Tooltip_Ability_ozy_piramid_barrier_barrier"				"Barrier:"
+
+
+		"DOTA_Tooltip_Ability_ozy_piramid_aura"				"Divine Right of the Sun King"
+		"DOTA_Tooltip_ability_ozy_piramid_aura_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Active: combo activator.\nPassive: Grants a defensive aura to all allies in radius.\nOzymandias gets double effect.\nIncreases <font color='#58ACFA'>magic resistance</font> and <font color='#ACFF05'>health regeneraion</font>."
+		"DOTA_Tooltip_Ability_ozy_piramid_aura_radius"				"Duration:"
+		"DOTA_Tooltip_Ability_ozy_piramid_aura_bonus_mr"				"%Bonus magic resistance:"
+		"DOTA_Tooltip_Ability_ozy_piramid_aura_bonus_regen"				"Bonus regeneration:"
+
+
+		"DOTA_Tooltip_Ability_ozy_piramid_auto_defence"				"Auto-defence systems"
+		"DOTA_Tooltip_ability_ozy_piramid_auto_defence_Description"	"<font color='#FFFFF9'>PASSIVE</font><br><br>Aura of active defences, which will find closest targets to the <font color='#58ACFA'>Ramesseum Tentyris</font> and deal <font color='#58ACFA'>damage</font> in the positions they are after a delay.\nTarget search is performed with a delay."
+		"DOTA_Tooltip_Ability_ozy_piramid_auto_defence_radius"					"Radius:"
+		"DOTA_Tooltip_Ability_ozy_piramid_auto_defence_hit_radius"				"Hit radius"
+		"DOTA_Tooltip_Ability_ozy_piramid_auto_defence_damage"					"Damage:"
+		"DOTA_Tooltip_Ability_ozy_piramid_auto_defence_max_targets"				"Max targets:"
+		"DOTA_Tooltip_Ability_ozy_piramid_auto_defence_delay_before_damage"		"Delay before damage:"
+		"DOTA_Tooltip_Ability_ozy_piramid_auto_defence_delay"					"Delay:"
+
+
+		"DOTA_Tooltip_Ability_ozy_piramid_curse"				"Curse of Ra"
+		"DOTA_Tooltip_ability_ozy_piramid_curse_Description"	"Cast Point:<font color='#7FFF00'>immediate</font>   |    <font color='#EE5C29'>Unrefreshable</font><br><br>After a short delay, apply a curse to all enemies in radius.\nCurse decreases all of targeted enemies's <font color='#FFFFFF'>stats</font>, <font color='#ACFF05'>health</font>, <font color='#A72E28'>armor</font> and <font color='#58ACFA'>magic resistance</font> and deals <font color='#58ACFA'>damage</font> over time."
+		"DOTA_Tooltip_Ability_ozy_piramid_curse_duration"				"Duration:"
+		"DOTA_Tooltip_Ability_ozy_piramid_curse_radius"				"Radius:"
+		"DOTA_Tooltip_Ability_ozy_piramid_curse_delay"				"Delay:"
+		"DOTA_Tooltip_Ability_ozy_piramid_curse_damage"				"Damage:"
+		"DOTA_Tooltip_Ability_ozy_piramid_curse_stat_debuff"				"Stat decrease:"
+		"DOTA_Tooltip_Ability_ozy_piramid_health_debuff"				"Health:"
+		"DOTA_Tooltip_Ability_ozy_piramid_armor_debuff"				"Armor:"
+		"DOTA_Tooltip_Ability_ozy_piramid_magres_debuff"				"%Magic resistance:"
+
+
+		"DOTA_Tooltip_Ability_ozy_piramid_beam"				"Light of Dendera"
+		"DOTA_Tooltip_ability_ozy_piramid_beam_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font><br><br>After a delay, shoot a powerful laser at the target point, dealing <font color='#58ACFA'>damage</font> in radius, which is increased based on Ozymandias's <font color='#1E90FF'>intellect</font>."
+		"DOTA_Tooltip_Ability_ozy_piramid_beam_duration"				"Duration:"
+		"DOTA_Tooltip_Ability_ozy_piramid_beam_radius"				"Radius:"
+		"DOTA_Tooltip_Ability_ozy_piramid_beam_delay"				"Delay:"
+		"DOTA_Tooltip_Ability_ozy_piramid_beam_damage"				"Damage:"
+		"DOTA_Tooltip_Ability_ozy_piramid_beam_damage_per_int"		"Damage per int:"
+
+		"DOTA_Tooltip_Ability_ozy_sa_1"				"The Shining Great Temple Complex"
+		"DOTA_Tooltip_Ability_ozy_sa_1_Description"	"Upgrades <font color='#58ACFA'>Ramesseum Tentyris</font>, unlocking <font color='#58ACFA'>Auto-defence systems</font> ability.\nGrants <font color='#58ACFA'>Ramesseum Tentyris</font> a new effect: <font color='#58ACFA'>Eye of Ra</font>:\nWhen enemy is inside search range, apply a stacking debuff, which will grant Ozymandias's team vision over them when it reaches 100 stacks."
+		"DOTA_Tooltip_Ability_ozy_sa_1_vision_radius"					"Search radius:"
+		"DOTA_Tooltip_Ability_ozy_sa_1_vision_activation_duration"		"Duration for vision activation:"
+
+
+		"DOTA_Tooltip_Ability_ozy_sa_2"				"The Solar Ship of the Dark Night"
+		"DOTA_Tooltip_Ability_ozy_sa_2_Description"	"Upgrades all of <font color='#58ACFA'>Mesektet</font>'s abilities:<font color='#58ACFA'>Mesektet</font>:Gain increased <font color='#58ACFA'>mana</font> regeneration\n <font color='#58ACFA'>Tri-hermes</font>:Now applies a slow aura around itself.\n<font color='#58ACFA'>Light of Uraeus</font>:Apply a burning ground effect to the beam.\n<font color='#58ACFA'>Rays of the Sun</font>:Deal increased damage\n<font color='#58ACFA'>EXTERMINATION SUN LASER</font>: Spend less mana."
+		"DOTA_Tooltip_Ability_ozy_sa_2_vision_duration" 	"Vision duration:"
+		"DOTA_Tooltip_Ability_okada_sa_2_vision_radius" 	"Vision radius:"
+
+		"DOTA_Tooltip_Ability_ozy_sa_3"				"Mystic eyes"
+		"DOTA_Tooltip_Ability_ozy_sa_3_Description"	"Unlocks <font color='#58ACFA'>Mystic eyes</font> ability."
+
+		"DOTA_Tooltip_Ability_ozy_sa_4"				"The brilliance of the Sun God"
+		"DOTA_Tooltip_Ability_ozy_sa_4_Description"	"Upgrades <font color='#58ACFA'>Protection of the Sun God</font> by making it always apply its effect to Ozymandias.\nIf Ozymandias was in ability range, it will apply two instances of shield to him.\nUpgrades <font color='#58ACFA'>Ray of the Sun</font> by making it apply strong dispel to enemies hit"
+
+
+		"DOTA_Tooltip_Ability_ozy_combo"				"Combo: Behold my labors and tremble!"
+		"DOTA_Tooltip_Ability_ozy_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence :<font color='#58ACFA'>Ramesseum Tentyris</font> F-R in 2 seconds</font>\nOzymandias lifts <font color='#58ACFA'>Ramesseum Tentyris</font> into the air and slams it into the target location after a delay, dealing <font color='#58ACFA'>damage</font> to all enemies in radius.\nEnemies in the epicenter take more damage and get <font color='#FF3399'>stun</font> debuff."
+		"DOTA_Tooltip_Ability_ozy_combo_Lore"					""
+		"DOTA_Tooltip_Ability_ozy_combo_radius"							"Radius:"
+		"DOTA_Tooltip_Ability_ozy_combo_outer_radius"						"Outer radius:"
+		"DOTA_Tooltip_Ability_ozy_combo_delay"							"Delay:"
+		"DOTA_Tooltip_Ability_ozy_combo_damage"							"Damage:"
+		"DOTA_Tooltip_Ability_ozy_combo_damage_big"						"Full damage:"
+		"DOTA_Tooltip_Ability_ozy_combo_stun_duration"						"Stun duration:"
+
 		
 		//================================================================================================================
 		//	Arash (Babylonia archer)

@@ -41,6 +41,7 @@ function ozy_piramid_beam:OnSpellStart()
 	if cageAbil:GetCooldownTimeRemaining() < 0.5 then
 		cageAbil:StartCooldown(0.5)
 	end
+	EmitSoundOn("ozy_piramid_beam_precast", piramid)
 	
 	self:CreateDelayEffects(piramid, delay, damage_duration, ParticleOrigin)
 	Timers:CreateTimer(delay, function()
@@ -72,6 +73,9 @@ end
 
 
 function ozy_piramid_beam:CreateBeamEnd(piramid, ozy, damage_per_tick, damage_ticks, location, duration, aoe, ParticleOrigin)
+	EmitSoundOn("ozy_piramid_beam_sfx", piramid)
+	EmitSoundOn("ozy_piramid_beam_2", piramid)
+	
 	local particleBeam = ParticleManager:CreateParticle("particles/ozy/piramid/piramid_laser_beam_1.vpcf", PATTACH_WORLDORIGIN, piramid)
 	ParticleManager:SetParticleControl(particleBeam, 1, ParticleOrigin)
 	ParticleManager:SetParticleControl(particleBeam, 2, location)
@@ -122,6 +126,8 @@ function ozy_piramid_beam:CreateBeamEnd(piramid, ozy, damage_per_tick, damage_ti
 			end
 			return duration / damage_ticks
 		else
+			piramid:StopSound("ozy_piramid_beam_2")
+			piramid:StopSound("ozy_piramid_beam_sfx")
 			return
 		end
 	

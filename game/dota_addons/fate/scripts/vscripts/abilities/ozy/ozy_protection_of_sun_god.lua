@@ -33,7 +33,7 @@ function ozy_protection_of_sun_god:Counter(parent)
  		DoDamage(parent, v, self:GetSpecialValueFor("damage"), self:GetAbilityDamageType(), 0, self, false)
 		v:AddNewModifier(self:GetCaster(), self, "modifier_ozy_barrier_prock", { Duration =  self:GetSpecialValueFor("slow_duration")})            
 	end
-
+	EmitSoundOn("ozy_protection_explosion", parent)
 	if IsNotNull(parent:FindModifierByName("modifier_ozy_barrier_particle")) then
 		if not IsNotNull(parent:FindModifierByNameAndCaster("modifier_barrier_new", self:GetCaster())) then
 			parent:RemoveModifierByName("modifier_ozy_barrier_particle")
@@ -52,6 +52,7 @@ function ozy_protection_of_sun_god:OnSpellStart()
 	local shield_amount = self:GetSpecialValueFor("barrier")
 
 	if caster.ozySa4Acquired then
+		 EmitSoundOn("ozy_protection", caster)
 		caster:AddNewModifier(caster, self, "modifier_ozy_barrier_particle", { Duration =  self:GetSpecialValueFor("duration")})            
 		caster:AddNewModifier(caster, self, "modifier_barrier_new", { Duration =  self:GetSpecialValueFor("duration"), decreaseDamageOnProck = 0, beforeBScroll = true, ShouldEndChannel = false, debuff_immune = false, shield_amount =shield_amount, HasCounter = true })            
 	end
@@ -60,6 +61,8 @@ function ozy_protection_of_sun_god:OnSpellStart()
 
 	for k,v in pairs(targets) do
 		v:AddNewModifier(caster, self, "modifier_ozy_barrier_particle", { Duration =  self:GetSpecialValueFor("duration")})            
+		EmitSoundOn("ozy_protection", v)
+		
 		v:AddNewModifier(caster, self, "modifier_barrier_new", { Duration =  self:GetSpecialValueFor("duration"), decreaseDamageOnProck = 0, beforeBScroll = true, ShouldEndChannel = false, debuff_immune = false, shield_amount =shield_amount, HasCounter = true })            
 	end
 

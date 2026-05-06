@@ -388,5 +388,9 @@
 		{
 			m_ChildRef = resource:"particles/ozy/ozy_chacramb.vpcf"
 		},
+		{
+			m_ChildRef = resource:"particles/ozy/ozy_chacram_trail.vpcf"
+			m_bDisableChild = true
+		},
 	]
 }

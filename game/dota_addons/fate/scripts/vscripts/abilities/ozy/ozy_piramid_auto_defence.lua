@@ -63,6 +63,7 @@ function modifier_ozy_piramid_auto_defence:CreateBeam(target)
 	local SphereParticle = ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_sphere_ring.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleShouldCheckFoW(SphereParticle, false)
 	ParticleManager:SetParticleControl(SphereParticle, 0, targetPos + Vector(0,0, 100))
+	
 	----------
 	Timers:CreateTimer(self.delay_before_damage, function()
 		local BeamParticle = ParticleManager:CreateParticle("particles/ozy/piramid/piramid_beam.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -73,6 +74,7 @@ function modifier_ozy_piramid_auto_defence:CreateBeam(target)
 		ParticleManager:ReleaseParticleIndex(BeamParticle)
 		ParticleManager:DestroyParticle(SphereParticle, true)
 		ParticleManager:ReleaseParticleIndex(SphereParticle)
+		target:EmitSound("Hero_Luna.LucentBeam.Target")
 		local tEnemies = FindUnitsInRadius(self.hCaster:GetTeam(), targetPos, nil, self.hit_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(tEnemies) do
 			DoDamage(self.hCaster.Ozy, v, self.damage, DAMAGE_TYPE_MAGICAL, 0, self, false)

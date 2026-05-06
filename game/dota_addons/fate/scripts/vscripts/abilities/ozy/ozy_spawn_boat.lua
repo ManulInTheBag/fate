@@ -6,7 +6,9 @@ function ozy_spawn_boat:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local vTargetPoint = self:GetCursorPosition()
 	local playerId = hCaster:GetPlayerID()
-
+	if (vTargetPoint-hCaster:GetAbsOrigin()):Length2D() > 1000 then
+		vTargetPoint = hCaster:GetAbsOrigin() + (vTargetPoint-hCaster:GetAbsOrigin()):Normalized() * 1000
+	end
 	if IsNotNull(hCaster.boat) then
 		CustomGameEventManager:Send_ServerToPlayer( hCaster:GetPlayerOwner(), "ozy_select_boat", {boat = hCaster.boat:entindex()} )
 	else

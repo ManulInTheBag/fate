@@ -719,7 +719,10 @@ CannotReset = {
 
     "emiya_clairvoyance",
     "atalanta_curse",
-    "caster_5th_item_construction",
+    "ozy_combo",
+    "ozy_teleport_boat",
+    "ozy_mystic_eyes",
+
 }
 
 
@@ -828,6 +831,7 @@ tDivineHeroes = {
     "npc_dota_hero_beastmaster",
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_monkey_king",
+    "npc_dota_hero_phoenix",
 }
 
 tKnightClass = {
@@ -877,6 +881,7 @@ tHorsemanClass = {
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_kentaur",
     "npc_dota_hero_troll_warlord",
+    "npc_dota_hero_phoenix"
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -1526,7 +1531,8 @@ function IsSpellBlocked(target, caster)
         target:RemoveModifierByName("modifier_scathach_wisdom_of_dun_scaith")
         return true
     elseif target:HasModifier("modifier_ozy_mystic_eyes") then
-        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        --EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        EmitSoundWithCooldown("ozy_mystic_eyes", target, 1)
         target:RemoveModifierByName("modifier_ozy_mystic_eyes")
         target:FindAbilityByName("ozy_mystic_eyes"):OnMysticEyesProck(caster)
         return true
@@ -2548,6 +2554,7 @@ local heroNames = {
     ["npc_dota_hero_monkey_king"] = "Scathach",
     ["npc_dota_hero_nevermore"] = "Demon king Nobunaga",
     ["npc_dota_hero_troll_warlord"] = "Okada Izo",
+    ["npc_dota_hero_phoenix"] = "Ozymandias",
 }
 
  
@@ -2617,6 +2624,7 @@ local heroCombos = {
     ["npc_dota_hero_scathach"] = "scathach_gate_of_skye",
     ["npc_dota_hero_demon_king_nobunaga"] = "demon_king_combo",
      ["npc_dota_hero_okada"] = "okada_combo",
+     ["npc_dota_hero_ozy"] = "ozy_combo",
 }
 
 function GetHeroCombo(hero)

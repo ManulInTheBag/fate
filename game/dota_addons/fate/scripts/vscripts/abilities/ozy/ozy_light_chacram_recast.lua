@@ -1,6 +1,14 @@
 ozy_light_chacram_recast = class({})
 
 
+function ozy_light_chacram_recast:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("ozy_light_chacram"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("ozy_light_chacram"):SetLevel(self:GetLevel())
+    end
+	
+end
 
 function ozy_light_chacram_recast:OnSpellStart()
 	local caster = self:GetCaster()
@@ -20,7 +28,7 @@ function ozy_light_chacram_recast:OnSpellStart()
     local radius = self:GetSpecialValueFor("radius")
     local damage  = self:GetSpecialValueFor("damage")
     local stun_duration = self:GetSpecialValueFor("duration")
-    print((StartPoint - EndPoint):Length2D())
+    
 	local enemies = FindUnitsInLine(
                                     caster:GetTeamNumber(),
                                     StartPoint,
@@ -134,6 +142,8 @@ function ozy_light_chacram_recast:PerformRecastEffects(unit1, unit2)
                 giveUnitDataDrivenModifier(caster, unit1, "stunned", self:GetSpecialValueFor("duration"))
             end
             self:CreateChainParticle(unit1, pullOrigin)
+            EmitSoundOn("ozy_chain", unit1)
+            EmitSoundOn("ozymandias_chain_prock", caster)
         else
             if IsKnockbackImmune(unit1) then 
                 pullOrigin = unit1:GetAbsOrigin() + vectorFromU1ToU2:Normalized() * 50
@@ -147,6 +157,8 @@ function ozy_light_chacram_recast:PerformRecastEffects(unit1, unit2)
                     center_z = pullOrigin.z }
                 unit2:AddNewModifier(caster, self, "modifier_knockback", knockback1)
                 self:CreateChainParticle(unit2, pullOrigin)
+                EmitSoundOn("ozy_chain", unit2)
+                EmitSoundOn("ozymandias_chain_prock", caster)
             else
                 pullOrigin = unit2:GetAbsOrigin() + vectorFromU1ToU2 * 0.5
                 DoDamage(caster, unit1, self:GetSpecialValueFor("damage"), self:GetAbilityDamageType(), 0, self, false)
@@ -174,6 +186,9 @@ function ozy_light_chacram_recast:PerformRecastEffects(unit1, unit2)
                     center_z = pullOrigin.z }
                 unit1:AddNewModifier(caster, self, "modifier_knockback", knockback2)
                 self:CreateChainParticleUnits(unit1, unit2)
+                EmitSoundOn("ozy_chain", unit2)
+                EmitSoundOn("ozy_chain", unit1)
+                EmitSoundOn("ozymandias_chain_prock", caster)
             end
             DoDamage(caster, unit2, self:GetSpecialValueFor("damage"), self:GetAbilityDamageType(), 0, self, false)
             if not unit2:IsMagicImmune() then

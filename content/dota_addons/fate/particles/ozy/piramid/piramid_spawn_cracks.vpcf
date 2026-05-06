@@ -10,7 +10,6 @@
 	[
 		{
 			m_name = "preview"
-			m_drivers = [  ]
 		},
 	]
 	m_Emitters = 
@@ -267,7 +266,7 @@
 			{
 				m_nType = "PF_TYPE_COLLECTION_AGE"
 				m_nMapType = "PF_MAP_TYPE_MULT"
-				m_flLiteralValue = 0.0
+				m_flLiteralValue = 500.0
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -315,10 +314,34 @@
 				m_flBiasParameter = 0.0
 				m_Curve = 
 				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
+					m_spline = 
+					[
+						{
+							x = 0.0
+							y = 500.0
+							m_flSlopeIncoming = -400.0
+							m_flSlopeOutgoing = -400.0
+						},
+						{
+							x = 1.0
+							y = 100.0
+							m_flSlopeIncoming = -400.0
+							m_flSlopeOutgoing = -400.0
+						},
+					]
+					m_tangents = 
+					[
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_SPLINE"
+							m_nOutgoingTangent = "CURVE_TANGENT_SPLINE"
+						},
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_SPLINE"
+							m_nOutgoingTangent = "CURVE_TANGENT_SPLINE"
+						},
+					]
+					m_vDomainMins = [ 0.0, 100.0 ]
+					m_vDomainMaxs = [ 1.0, 500.0 ]
 				}
 			}
 		},
