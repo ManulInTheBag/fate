@@ -6,6 +6,10 @@ if not AnimeVectorTargeting then
 
     AnimeVectorTargeting = class({})
 
+    if not PlayerTables:TableExists(sPlayersTableName) then
+        PlayerTables:CreateTable(sPlayersTableName, {}, true)
+    end
+
     AnimeVectorTargeting.UpdateAnimeVectorTargetingAbility = function(self, hAbility, hUnit, hTarget, vPosition, iOrder)
         if IsNotNull(hAbility) and type(hAbility.GetBehavior) == "function" then
             local iBehavior = hAbility:GetBehavior()

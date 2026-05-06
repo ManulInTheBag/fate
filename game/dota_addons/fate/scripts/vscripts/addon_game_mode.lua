@@ -483,6 +483,8 @@ function Precache( context )
     PrecacheResource("particle", "particles/custom/atalanta/rainbow_arrow.vpcf", context)
     PrecacheResource("particle", "particles/custom/atalanta/normal_arrow.vpcf", context)
 
+    PrecacheResource("particle", "particles/ui_mouseactions/range_finder_cone.vpcf", context)
+
     PrecacheResource( "particle_folder", "particles/econ/items/juggernaut", context )
     PrecacheUnitByNameAsync("npc_dota_hero_puck", nil, nil)
     PrecacheResource("particle_folder", "particles/altera", context)
