@@ -13,7 +13,7 @@ function ozy_boat_beam:IsAnimeVectorTargetingIgnoreWidth()
 	return false
 end
 function ozy_boat_beam:GetAnimeVectorTargetingColor()
-    return Vector(156, 210, 212)
+    return Vector(255, 255, 0)
 end
 function ozy_boat_beam:OnSpellStart()
 	local hCaster = self:GetCaster()
