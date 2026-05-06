@@ -54,7 +54,7 @@ function StartDrawAnimeVectorTargeting(iAbilityIndex, hAbilityData, bStopOldTarg
         sParticleName                = "particles/ui_mouseactions/custom_range_finder_cone_dual.vpcf";
     }
 
-    var iAnimeVectorTargetingParticle = Particles.CreateParticle(sParticleName, ParticleAttachment_t.PATTACH_CUSTOMORIGIN, iCasterIndex);
+    var iAnimeVectorTargetingParticle = Particles.CreateParticle(sParticleName, ParticleAttachment_t.PATTACH_ABSORIGIN, iCasterIndex);
                                         Particles.SetParticleControl(iAnimeVectorTargetingParticle, 1, Vector_RaizeZ(vWorldPosition, 100));
                                         Particles.SetParticleControl(iAnimeVectorTargetingParticle, 3, [GetAnimeVectorTargetingEndRadius, GetAnimeVectorTargetingStartRadius, IsAnimeVectorTargetingIgnoreWidth]);
                                         Particles.SetParticleControl(iAnimeVectorTargetingParticle, 4, GetAnimeVectorTargetingColor);
