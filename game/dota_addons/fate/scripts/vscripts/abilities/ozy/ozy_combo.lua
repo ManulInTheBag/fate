@@ -17,8 +17,8 @@ function ozy_combo:OnSpellStart()
 	Timers:CreateTimer(delay, function()
 		hCaster.Ozy.PerformingCombo = false
 	end)
-	if (vTargetPoint-hCaster:GetAbsOrigin()):Length2D() > 3000 then
-		vTargetPoint = hCaster:GetAbsOrigin() + (vTargetPoint-hCaster:GetAbsOrigin()):Normalized() * 3000
+	if (vTargetPoint-hCaster:GetAbsOrigin()):Length2D() > 5000 then
+		vTargetPoint = hCaster:GetAbsOrigin() + (vTargetPoint-hCaster:GetAbsOrigin()):Normalized() * 5000
 	end
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(self:GetCooldown(1))

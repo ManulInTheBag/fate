@@ -46,7 +46,7 @@ function ozy_boat_beam:OnSpellStart()
 		ParticleManager:SetParticleControl(self.Burn, 1, vTargetPoint)
 		ParticleManager:SetParticleShouldCheckFoW(self.Burn, false)
 	end
-	vTargetPoint = vTargetPoint + (vTargetPoint-hCaster:GetAbsOrigin()):Normalized() * -50
+	vTargetPoint = vTargetPoint + direction*-100
 	local projectileTable = {
 		caster = hCaster,
 		source = hCaster,
@@ -55,7 +55,7 @@ function ozy_boat_beam:OnSpellStart()
 	    sourceLoc = vTargetPoint,
 	    direction = direction,
 	    speed = speed,
-	    distance = range,
+	    distance = range+200,
 	    startRadius = width,
 	    endRadius = width,
 	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,

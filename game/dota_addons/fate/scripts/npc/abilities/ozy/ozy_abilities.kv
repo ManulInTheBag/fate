@@ -19,7 +19,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1"
 
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"10"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastRange"				"1000"
 		"AbilityManaCost"					"100"
@@ -40,7 +40,7 @@
             "radius" 				"128"
             "distance"				"1100"
             "duration" 				"0.5 0.62 0.75 0.87 1"
-            "damage" 				"200 250 300 350 400"
+            "damage" 				"100 125 150 175 200"
             "recast_duration" 		"1"
         }
 	}
@@ -101,7 +101,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate" 		"1"
 
-		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityCooldown"				"12"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastRange"				"1000"
 		"AbilityManaCost"					"200"
@@ -120,10 +120,10 @@
             "radius" 				"500"
             "duration" 				"8"
             "barrier" 				"200 250 300 350 400"
-            "damage" 				"200 250 300 350 400"
+            "damage" 				"100"
             "blind" 				"100"
             "slow_duration" 		"2"
-            "slow_percentage" 		"30"
+            "slow_percentage" 		"15"
         }
 	}
 
@@ -145,7 +145,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"1"
 
-		"AbilityCooldown"				"25"
+		"AbilityCooldown"				"18"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastRange"				"1000"
 		"AbilityManaCost"				"400"
@@ -163,7 +163,7 @@
             "radius" 				"350"
             "delay"					"1"
             "stun_duration" 		"0.8"
-            "damage" 				"600 750 900 1050 1200"
+            "damage" 				"500 625 750 875 1000"
             "damage_per_int" 		"1.5"
         }
 	}
@@ -199,7 +199,7 @@
 
 		"AbilityValues"
         {
-            "duration" 				"3"
+            "duration" 				"1.5"
             "stun_duration" 		"1"
         }
 	}
@@ -264,12 +264,12 @@
 
 		"AbilityValues"
 		{
-			"damage"							"250"
-			"damage_per_level"					"25"
-			"live_duration"							"10"
+			"damage"							"400"
+			"damage_per_level"					"12"
+			"live_duration"						"10"
 			"hit_radius"						"300"
 			"aura_radius"						"400"
-			"slow"								"40"
+			"slow"								"20"
 			"cast_range"								"1300"
 		}
 	}
@@ -300,12 +300,12 @@
 
 		"AbilityValues"
 		{
-			"damage"							"250"
-			"damage_per_level"					"25"
-			"max_distance"							"1200"
+			"damage"							"400"
+			"damage_per_level"					"12"
+			"max_distance"						"1200"
 			"width"								"200"
 			"lock_duration"						"1.5"
-			"burn_damage"						"100"
+			"burn_damage"						"200"
 			"burn_damage_per_level"				"10"
 		}
 	}
@@ -322,7 +322,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"							"1"
-		"AbilityCooldown"				    "15"
+		"AbilityCooldown"				    "10"
 		"AbilityManaCost"					"400"
 		"AbilityCastPoint"					"0"
 		"AbilityCastRange"					"1300"
@@ -334,8 +334,8 @@
 		}
 		"AbilityValues"
 		{
-			"base_damage"							"300 500"
-			"damage_per_level"						"30 50"
+			"base_damage"							"500 700"
+			"damage_per_level"						"15 20"
 			"max_distance"							"1900"
 			"radius" 				"350"
             "delay"					"1"
@@ -410,7 +410,7 @@
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"20"
 		"AbilityCastPoint"					"0"
 		"AbilityCastRange"				"1300"
 		"AbilityManaCost"				"0"
@@ -427,11 +427,11 @@
 		"AbilityValues"
         {
             "radius" 									"350"
-            "damage_per_second" 						"50"
-            "damage_per_second_per_level" 				"5"
-            "mana_drain_per_second" 					"100 80"
-            "mana_drain_increase_per_second" 			"50 40"
-            "damage_per_second_increase" 				"100"
+            "damage_per_second" 						"200"
+            "damage_per_second_per_level" 				"10"
+            "mana_drain_per_second" 					"250 200"
+            "mana_drain_increase_per_second" 			"10"
+            "damage_per_second_increase" 				"200"
             "damage_per_second_increase_per_level" 		"10"
             "stacks_duration"							"0.5"
             "move_speed"								"300"
@@ -508,12 +508,12 @@
 		}
 		"AbilityValues"
 		{
-			"damage"							"1000"
+			"damage"							"600 750 900 1050 1200"
 			"radius"							"500"
 			"summon_delay"						"2"
-			"max_health"						"1500"
-			"damage_first"						"500"
-			"slow_first"						"50"
+			"max_health"						"1000 1300 1600 1900 2200"
+			"damage_first"						"300 375 450 525 600"
+			"slow_first"						"30"
 			"damage_reduction_max"				"70"
 			"damage_reduction_distance_max"		"2500"
 			"damage_reduction_distance_min"		"1000"
@@ -578,7 +578,7 @@
 		"AbilityValues"
         {
             "duration" 				"4"
-            "barrier" 				"1000 1500 2000 2500 3000"
+            "barrier" 				"1000 1250 1500 1750 2000"
         }
 	}
 
@@ -599,8 +599,8 @@
 		"AbilityValues"
         {
             "radius" "1500"
-            "bonus_mr" "5 6.25 7.5 8.75 10"
-            "bonus_regen" "40 50 60 70 80"
+            "bonus_mr" "4 5 6 7 8"
+            "bonus_regen" "20 25 30 35 40"
         }
 	}
 
@@ -632,7 +632,7 @@
             "radius" "1500"
             "delay" "1"
             "hit_radius" "150"
-            "damage" "100 125 150 175 200"
+            "damage" "200"
             "max_targets" "3"
             "delay_before_damage" "0.5"
         }
@@ -654,7 +654,7 @@
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 
 
-		"AbilityCooldown"				"30 28 26 24 22"
+		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"1500"
 		"AbilityCastPoint"				"0"
@@ -675,9 +675,9 @@
             "delay" 	"0.5"
             "damage" 	"100 125 150 175 200"
             "stat_debuff" 	"10 12.5 15 17.5 20"
-            "health_debuff"	"200 250 300 350 400"
+            "health_debuff"	"200"
             "armor_debuff" 	"2 2.5 3 3.5 4"
-            "magres_debuff" 	"4 5 6 7 8"
+            "magres_debuff" 	"10 12.5 15 17.5 20"
         }
 	}
 	//=======================================
@@ -696,7 +696,7 @@
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 
 
-		"AbilityCooldown"				"40 38 36 34 32"
+		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"1500"
 		"AbilityCastPoint"				"0"
@@ -715,8 +715,8 @@
             "radius" 			"500"
             "duration" 			"2"
             "delay" 			"1.5"
-            "damage" 			"800 1000 1200 1400 1600"
-            "damage_per_int"	"3"
+            "damage" 			"1000 1250 1500 1750 2000"
+            "damage_per_int"	"5"
         }
 	}
 
@@ -738,7 +738,7 @@
 
 		"AbilityCooldown"				"150"
 		"AbilityManaCost"				"0"
-		"AbilityCastRange"				"3000"
+		"AbilityCastRange"				"5000"
 		"AbilityCastPoint"				"0"
 
 		"precache"
@@ -775,7 +775,7 @@
 		"AbilityTextureName"			"custom/ozy/ozy_spawn_piramid"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"14"
+		"AbilityManaCost"				"12"
 		"LinkedAbilities"				"ozy_piramid_auto_defence"
 
 		 
@@ -798,7 +798,7 @@
 		"AbilityTextureName"			"custom/ozy/ozy_boat"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"13"
+		"AbilityManaCost"				"15"
 
 		 
 		"AbilityValues"
@@ -820,7 +820,7 @@
 		"AbilityTextureName"			"custom/ozy/mystic_eyes"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"8"
 
 		 
 		"AbilityValues"
