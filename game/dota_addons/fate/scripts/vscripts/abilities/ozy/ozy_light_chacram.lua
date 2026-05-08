@@ -87,7 +87,7 @@ function ozy_light_chacram:OnProjectileHit(target, location, tData )
     end)
     EmitSoundOn("ozy_chacram_impact", target)
     caster.OzyChacramTarget = target
-    caster:AddNewModifier(caster, self, "modifier_ozy_chacram_ability_change", {duration = self:GetSpecialValueFor("recast_duration")})
+    caster:AddNewModifier(caster, self, "modifier_ozy_chacram_ability_change", {duration = self:GetSpecialValueFor("jopa_recast_duration")})
     
 
     return true
