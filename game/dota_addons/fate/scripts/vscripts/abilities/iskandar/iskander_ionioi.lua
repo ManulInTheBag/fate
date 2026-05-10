@@ -384,18 +384,7 @@ function iskander_ionioi:EndAOTK(caster)
 	end
 
     local units = FindUnitsInRadius(caster:GetTeam(), aotkCenter, nil, 1800, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
-	local unitsJopa2 = FindUnitsInRadius(caster:GetTeam(), aotkCenter, nil, 4000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
-    local boatUnit = nil
-    for k,v in pairs(unitsJopa2) do
-        if v:GetUnitName() == "ozy_boat" then
-            boatUnit = v
-        end
-    end
-    if IsNotNull(boatUnit) then
-        if not IsInSameRealm( boatUnit:GetAbsOrigin(), Vector(0,0,0)) then
-            boatUnit:SetAbsOrigin(aotkTargetLoc[1]) 
-        end
-    end
+ 
     for i=1, #units do
     	if IsValidEntity(units[i]) and not units[i]:IsNull() then
 			if string.match(units[i]:GetUnitName(),"dummy") then 

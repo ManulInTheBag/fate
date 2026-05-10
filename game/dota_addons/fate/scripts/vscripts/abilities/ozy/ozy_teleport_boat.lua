@@ -11,22 +11,6 @@ function ozy_teleport_boat:OnChannelFinish(interrupted)
 
 
 end
-
-function ozy_teleport_boat:CastFilterResultLocation(vLocation)
-    local hCaster = self:GetCaster()
-
-    if vLocation
-        and hCaster and not hCaster:IsNull() then
-        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
-            return UF_SUCCESS
-        end
-    end
-    return UF_FAIL_CUSTOM
-end
-
-function ozy_teleport_boat:GetCustomCastErrorLocation(vLocation)
-	 return "#Wrong_Target_Location"
-end
 function ozy_teleport_boat:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local vTargetPoint = self:GetCursorPosition()

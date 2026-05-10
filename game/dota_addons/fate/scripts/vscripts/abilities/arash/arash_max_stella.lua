@@ -116,14 +116,11 @@ function arash_max_stella:OnSpellStart()
 				Timers:CreateTimer({
 					endTime = 1,
 					callback = function()
-					if IsTeamWiped(caster) == false  and _G.CurrentGameState == "FATE_ROUND_ONGOING" then					
+					if IsTeamWiped(caster) == false and caster.ArashSelfSacrifice and _G.CurrentGameState == "FATE_ROUND_ONGOING" then					
 						local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 						caster:SetRespawnPosition(pos)
 						caster:RespawnHero(false,false)
 						caster:SetRespawnPosition(caster.RespawnPos)
-						if not caster.ArashSelfSacrifice then
-							caster:SetHealth(10)
-						end
 					end
 				end})
 			end

@@ -3,22 +3,6 @@ LinkLuaModifier("modifier_ozy_combo_cd", "abilities/ozy/ozy_combo", LUA_MODIFIER
 LinkLuaModifier("modifier_ozy_combo_status_fx", "abilities/ozy/ozy_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ozy_no_healthbar", "abilities/ozy/ozy_spawn_piramid", LUA_MODIFIER_MOTION_NONE)
 ozy_combo = class({})
-function ozy_combo:CastFilterResultLocation(vLocation)
-    local hCaster = self:GetCaster()
-
-    if vLocation
-        and hCaster and not hCaster:IsNull() then
-        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
-            return UF_SUCCESS
-        end
-    end
-    return UF_FAIL_CUSTOM
-end
-
-function ozy_combo:GetCustomCastErrorLocation(vLocation)
-	 return "#Wrong_Target_Location"
-end
-
 
 
 function ozy_combo:OnSpellStart()
