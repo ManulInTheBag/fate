@@ -193,7 +193,7 @@ function modifier_aoko_lazers:FireBeamFromThere(pos, forward)
 
 		local circuits = caster:FindAbilityByName("aoko_circuits")
 
-		--damage = damage * (1 + circuits:GetStacks()*amp/100)
+		damage = damage * (1 + circuits:GetStacks()*amp/100)
 
 		local pepega = true
 		local stacks = 0

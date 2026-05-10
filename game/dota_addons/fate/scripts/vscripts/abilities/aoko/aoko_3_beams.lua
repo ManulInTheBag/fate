@@ -303,9 +303,9 @@ function modifier_aoko_3_beams:OnIntervalThink()
         self:StartIntervalThink(FrameTime()*2)
 	end
 
-	--if self.caster.MagicianOfFifthAcquired and self.caster:HasModifier("modifier_aoko_circuits_overload") then
-		--self.caster:AddNewModifier(self.caster, self.circuits, "modifier_aoko_circuits_cc_immune", {duration = self.circuits:GetSpecialValueFor("range_cc_immune_duration")})
-	--end
+	if self.caster.MagicianOfFifthAcquired and self.caster:HasModifier("modifier_aoko_circuits_overload") then
+		self.caster:AddNewModifier(self.caster, self.circuits, "modifier_aoko_circuits_cc_immune", {duration = self.circuits:GetSpecialValueFor("range_cc_immune_duration")})
+	end
 
     local hEnemies =   FindUnitsInLine(
 								        self.caster_team,

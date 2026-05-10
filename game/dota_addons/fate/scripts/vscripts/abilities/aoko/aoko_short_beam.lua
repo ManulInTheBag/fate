@@ -38,7 +38,7 @@ function aoko_short_beam:OnSpellStart()
 	local circuits = caster:FindAbilityByName("aoko_circuits")
 	local stacks = self:GetSpecialValueFor("stack_gain")
 
-	--damage = damage * (1 + circuits:GetStacks()*amp/100)
+	damage = damage * (1 + circuits:GetStacks()*amp/100)
 
 	local pepega = false
 
