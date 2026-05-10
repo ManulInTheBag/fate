@@ -16,6 +16,23 @@ end
 function ozy_boat_sunstrike:GetAnimeVectorTargetingColor()
     return Vector(255, 255, 0)
 end
+
+function ozy_boat_sunstrike:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function ozy_boat_sunstrike:GetCustomCastErrorLocation(vLocation)
+	 return "#Wrong_Target_Location"
+end
+
 function ozy_boat_sunstrike:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()

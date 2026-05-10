@@ -3447,7 +3447,7 @@
 		"DOTA_Tooltip_ability_ozy_protection_of_sun_god_Description"	"Cast Point: <font color='#FFFFF9'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias applies <font color='#FFFAFA'>all-damage barrier</font> to all allies in radius.\nWhen destroyed, barrier explodes, dealing <font color='#58ACFA'>damage</font> and applying <font color='#9400D3'>slow</font> and <font color='#9400D3'>attack miss</font> to all enemies in radius"
 		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_radius"						"Radius:"
 		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_barrier"					"Barrier:"
-		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_duration"					"Lock duration:"
+		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_duration"					"Duration:"
 		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_damage"						"Damage:"
 		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_blind"					"%Miss:"
 		"DOTA_Tooltip_Ability_ozy_protection_of_sun_god_slow_duration"			"Slow duration:"
@@ -3529,7 +3529,7 @@
 
 
 		"DOTA_Tooltip_Ability_ozy_spawn_piramid"				"Ramesseum Tentyris"
-		"DOTA_Tooltip_ability_ozy_spawn_piramid_Description"	"Cast Point: <font color='#FFFFF9'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias summons <font color='#58ACFA'>Ramesseum Tentyris</font> at the target location, which will erupt from the ground after a delay.\nWhile summoning, all enemies in the radius will take damage and get <font color='#9400D3'>slow</font> debuff\nAt the time of eruption, all enemies in radius will take <font color='#58ACFA'>damage</font>, <font color='#FF3399'>stun</font> and <font color='#FF3399'>knockback</font>.\nEven allies are <font color='#FF3399'>knocked back</font> \n<font color='#58ACFA'>Ramesseum Tentyris</font> is a structure and will block movement.\nOnly one <font color='#58ACFA'>Ramesseum Tentyris</font> may be alive at a time.\nOzymandias cant summon another <font color='#58ACFA'>Ramesseum Tentyris</font> while the previous one is still erupting.\n<font color='#58ACFA'>Ramesseum Tentyris</font> takes less damage the more damage source is away from it.\nResummoning <font color='#58ACFA'>Ramesseum Tentyris</font> will refresh it's abilities.\n<font color='#58ACFA'>Ramesseum Tentyris</font> is visible to enemies in fog of war from great distance.\nAll abilities of <font color='#58ACFA'>Ramesseum Tentyris</font> are leveled with this ability."
+		"DOTA_Tooltip_ability_ozy_spawn_piramid_Description"	"Cast Point: <font color='#FFFFF9'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Ozymandias summons <font color='#58ACFA'>Ramesseum Tentyris</font> at the target location, which will erupt from the ground after a delay.\nWhile summoning, all enemies in the radius will take damage and get <font color='#9400D3'>slow</font> debuff\nAt the time of eruption, all enemies in radius will take <font color='#58ACFA'>damage</font>, <font color='#FF3399'>stun</font> and <font color='#FF3399'>knockback</font>.<br>Even allies are <font color='#FF3399'>knocked back</font> <br><font color='#58ACFA'>Ramesseum Tentyris</font> is a structure and will block movement.<br>Only one <font color='#58ACFA'>Ramesseum Tentyris</font> may be alive at a time.<br>Ozymandias cant summon another <font color='#58ACFA'>Ramesseum Tentyris</font> while the previous one is still erupting.<br><font color='#58ACFA'>Ramesseum Tentyris</font> takes less damage the more damage source is away from it.<br>Resummoning <font color='#58ACFA'>Ramesseum Tentyris</font> will refresh it's abilities.<br><font color='#58ACFA'>Ramesseum Tentyris</font> is visible to enemies in fog of war from great distance.<br>All abilities of <font color='#58ACFA'>Ramesseum Tentyris</font> are leveled with this ability."
 		"DOTA_Tooltip_Ability_ozy_spawn_piramid_damage"				"Eruption damage:"
 		"DOTA_Tooltip_Ability_ozy_spawn_piramid_radius"				"Radius:"
 		"DOTA_Tooltip_Ability_ozy_spawn_piramid_summon_delay"				"Summon delay:"
@@ -3747,7 +3747,7 @@
 
 
 		"DOTA_Tooltip_Ability_arash_max_stella"				"Combo: MAX Stella"
-		"DOTA_Tooltip_Ability_arash_max_stella_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after the meteor lands Arash DIES.\nAll enemies are dealt magical damage slowed for 3 seconds on hit.\nDamage dealt decreases with distance from center. Slow power depends on distance from center."
+		"DOTA_Tooltip_Ability_arash_max_stella_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after the meteor lands Arash DIES.\nArash will ressurect with very low health after a delay.\nAll enemies are dealt magical damage slowed for 3 seconds on hit.\nDamage dealt decreases with distance from center. Slow power depends on distance from center."
 		"DOTA_Tooltip_Ability_arash_max_stella_Lore"					""
 		"DOTA_Tooltip_Ability_arash_max_stella_range"									"Range:"
 		"DOTA_Tooltip_Ability_arash_max_stella_damage"									"Damage:"
@@ -3792,7 +3792,7 @@
 		"DOTA_Tooltip_Ability_arash_load_magical_energy_cd_reduction"						"Cooldown reduction:"
 
 		"DOTA_Tooltip_Ability_arash_self_sacrifice"				"Attribute: Self sacrifice"
-		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heals</font> for a fixed amount.\nIf Arash was killed by <font color='#58ACFA'>Max Stella</font>, he will ressurect 1 second after on the same place he died."
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heals</font> for a fixed amount.\nIf Arash was killed by <font color='#58ACFA'>Max Stella</font>, he will ressurect with max health after on the same place he died."
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_Lore"					""
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_buff_duration"					"Buff duration:"
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_ms"								"%Movement speed:"
@@ -8793,7 +8793,7 @@
 		"DOTA_Tooltip_ability_edmon_enfer_radius"				"Radius:"
 
 		"DOTA_Tooltip_ability_edmon_flames_attribute"			"Attribute: Flames of Love and Hate"
-		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Each other damage impact from Dantes stacks Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: ranged attacks use stacks to be nearly instant."
+		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Each other damage impact from Dantes stacks Flames of Hate. Both stack up to 4.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: ranged attacks use stacks to be nearly instant."
 
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute"		"Attribute: Avenger"
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal_base%%  of damage dealt when dealing damage. \nThis lifesteal is additionally increased by %lifesteal%%  if the attacked enemy is marked. \nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
@@ -9957,7 +9957,7 @@
 	 	
 
         "DOTA_Tooltip_ability_muramasa_rush"					"Rush"
-        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nMuramasa rushes to point selected. If muramasa hit someone with rush, he will deal <font color='#58ACFA'>damage</font> and apply a burn debuff.\nBurn deal <font color='#58ACFA'>damage</font> every 0.5 seconds.\n<font color='#F1C40F'>Upgradable by attribute Wicked sword.</font>"
+        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.05</font>\nMuramasa rushes to point selected. If muramasa hit someone with rush, he will deal <font color='#58ACFA'>damage</font> and apply a burn debuff.\nBurn deal <font color='#58ACFA'>damage</font> every 0.5 seconds.\n<font color='#F1C40F'>Upgradable by attribute Wicked sword.</font>"
         "DOTA_Tooltip_ability_muramasa_rush_damage"					"Damage:"
         "DOTA_Tooltip_ability_muramasa_rush_duration"				"Burn duration:"
         "DOTA_Tooltip_ability_muramasa_rush_range"					"Max range:"

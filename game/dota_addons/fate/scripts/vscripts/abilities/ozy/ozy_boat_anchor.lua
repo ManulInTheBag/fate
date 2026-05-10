@@ -2,6 +2,21 @@ LinkLuaModifier("modifier_ozy_anchor_aura_enemy", "abilities/ozy/ozy_boat_anchor
 LinkLuaModifier("modifier_ozy_anchor_enemy", "abilities/ozy/ozy_boat_anchor", LUA_MODIFIER_MOTION_NONE)
 ozy_boat_anchor = class({})
 
+function ozy_boat_anchor:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function ozy_boat_anchor:GetCustomCastErrorLocation(vLocation)
+	 return "#Wrong_Target_Location"
+end
 
 function ozy_boat_anchor:OnSpellStart()
 	local hCaster = self:GetCaster()

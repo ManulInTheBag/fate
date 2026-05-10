@@ -221,7 +221,7 @@ end
 
 function ozy_spawn_piramid:OnOwnerDied()
 	local hCaster = self:GetCaster()
-	if IsNotNull(hCaster.Piramid) and hCaster.Piramid:IsAlive() then
+	if IsNotNull(hCaster.Piramid) and hCaster.Piramid:IsAlive() and not  hCaster.PerformingCombo then
 		hCaster.Piramid:Kill(nil, hCaster)
 	end
 end

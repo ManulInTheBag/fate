@@ -1,5 +1,20 @@
 ozy_move_boat = class({})
 
+function ozy_move_boat:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function ozy_move_boat:GetCustomCastErrorLocation(vLocation)
+	 return "#Wrong_Target_Location"
+end
 
 function ozy_move_boat:OnSpellStart()
 	local hCaster = self:GetCaster()
@@ -18,6 +33,9 @@ function ozy_move_boat:OnSpellStart()
 		vector = (vTargetPoint - ozyOrigin):Normalized()
 		vTargetPoint = ozyOrigin + vector * MaxDistance
 		vector = (vTargetPoint - boatOrigin):Normalized()
+		if not IsInSameRealm(vTargetPoint, hCaster:GetAbsOrigin()) then
+			vTargetPoint = hCaster:GetAbsOrigin()
+		end
 	end
 	
 	Timers:CreateTimer("ozymandias_move_boat", {
