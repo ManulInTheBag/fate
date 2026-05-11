@@ -22,6 +22,7 @@ end
 function ozy_piramid_curse:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	local caster = self:GetCaster()
+	if self:GetCaster().Ozy.PerformingCombo then return end
 	local radius = self:GetSpecialValueFor("radius")
 	if (targetPoint-caster:GetAbsOrigin()):Length2D() > 1500 then
 		targetPoint = caster:GetAbsOrigin() + (targetPoint-caster:GetAbsOrigin()):Normalized() * 1500

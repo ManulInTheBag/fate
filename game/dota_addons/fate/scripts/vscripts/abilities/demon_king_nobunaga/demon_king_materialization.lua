@@ -21,7 +21,7 @@ function demon_king_materialization:OnSpellStart()
     local caster = self:GetCaster()
     caster:EmitSound("nobbus_summon")
     local random  = math.random(0, 100)
-    local nobbusHealth = caster:GetMaxHealth() * 1
+    local nobbusHealth = caster:GetMaxHealth() * 0.7
     local nobbusToSpawn = "maou_nobus_heracles"
     if random > 67 then
         nobbusToSpawn = "maou_nobus_shinsengumi" 
@@ -43,6 +43,7 @@ function demon_king_materialization:OnSpellStart()
    nobbus1.Level = caster:GetLevel()
    nobbus1:SetBaseMaxHealth(nobbusHealth)
    nobbus1:SetHealth(nobbusHealth)
+   nobbus1:Heal(1500, nobbus1)
 
    local knockback1 = { should_stun = true,
                            knockback_duration = 1,
@@ -80,7 +81,7 @@ function demon_king_materialization:SummonNobbus()
    local randomVec = Vector(math.random(), math.random(), math.random())
    local spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
    local nobbus1 = CreateUnitByName("maou_nobus_heracles", spawn_location, true, caster, caster, caster:GetTeamNumber())
-   local nobbusHealth = caster:GetMaxHealth() * 1
+   local nobbusHealth = caster:GetMaxHealth() * 0.7
    nobbus1:SetControllableByPlayer(caster:GetPlayerID(), true)
    nobbus1:SetOwner(caster)
    nobbus1.Caster = caster
@@ -88,7 +89,7 @@ function demon_king_materialization:SummonNobbus()
    nobbus1.Level = caster:GetLevel()
    nobbus1:SetBaseMaxHealth(nobbusHealth)
    nobbus1:SetHealth(nobbusHealth)
-
+   nobbus1:Heal(1500, nobbus1)
    local knockback1 = { should_stun = true,
                            knockback_duration = 1,
                            duration = 1,
@@ -113,7 +114,7 @@ function demon_king_materialization:SummonNobbus()
    nobbus2.Level = caster:GetLevel()
    nobbus2:SetBaseMaxHealth(nobbusHealth)
    nobbus2:SetHealth(nobbusHealth)
-
+   nobbus2:Heal(1500, nobbus2)
        knockback1 = { should_stun = true,
                            knockback_duration = 1,
                            duration = 1,
@@ -138,7 +139,7 @@ function demon_king_materialization:SummonNobbus()
     nobbusHealth = caster:GetMaxHealth()  * 0.8
    nobbus3:SetBaseMaxHealth(nobbusHealth)
    nobbus3:SetHealth(nobbusHealth)
-
+    nobbus3:Heal(1500, nobbus3)
        knockback1 = { should_stun = true,
                            knockback_duration = 1,
                            duration = 1,

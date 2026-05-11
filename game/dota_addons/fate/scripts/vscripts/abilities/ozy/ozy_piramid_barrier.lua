@@ -28,7 +28,7 @@ function ozy_piramid_barrier:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	local caster = self:GetCaster()
 	local shield_amount = self:GetSpecialValueFor("barrier")
-
+    if self:GetCaster().Ozy.PerformingCombo then caster:Interrupt() return end
 	caster:AddNewModifier(caster, self, "modifier_ozy_piramid_barrier_particle", { Duration =  self:GetSpecialValueFor("duration")})            
 	caster:AddNewModifier(caster, self, "modifier_barrier_new", { Duration =  self:GetSpecialValueFor("duration"), decreaseDamageOnProck = 0, beforeBScroll = true, ShouldEndChannel = true, debuff_immune = true, shield_amount =shield_amount, HasCounter = false })            
     caster:SetHullRadius(550)

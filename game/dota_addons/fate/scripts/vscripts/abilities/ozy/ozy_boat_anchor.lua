@@ -18,7 +18,14 @@ function ozy_boat_anchor:OnSpellStart()
 	local targetPointGround  = GetGroundPosition(vTargetPoint, Anchor)  + Vector(0,0,-50)
 	local vectorJopa= -(boatOrigin - vTargetPoint):Normalized()
 
-
+	local beamAbil = hCaster:FindAbilityByName("ozy_boat_beam")
+	if beamAbil:GetCooldownTimeRemaining() < 0.5 then
+		beamAbil:StartCooldown(0.5)
+	end
+	local strikesAbil = hCaster:FindAbilityByName("ozy_boat_sunstrike")
+	if strikesAbil:GetCooldownTimeRemaining() < 0.5 then
+		strikesAbil:StartCooldown(0.5)
+	end
 	if( not self.JopaAnchor or self.JopaAnchor:IsNull()) then
             self.JopaAnchor = Anchor
     else

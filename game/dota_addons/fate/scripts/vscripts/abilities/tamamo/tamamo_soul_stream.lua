@@ -280,7 +280,7 @@ function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss, ss_damage)
 	local hCharmDebuff = "modifier_tamamo_fire_debuff"
 	local hCharmAbility = hCaster:FindAbilityByName("tamamo_fiery_heaven")
 
-	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	local fDamage = hCharmAbility:GetSpecialValueFor("damage") + hCharmAbility:GetSpecialValueFor("int_ratio")*hCaster:GetIntellect()
 
 	if is_ss then
@@ -333,10 +333,12 @@ function tamamo_soul_stream:IceCharmProc(hTarget, vLocation, is_ss, ss_damage)
 		fDamage = fDamage/6 + ss_damage
 	end
 
-	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), hTarget:GetAbsOrigin(), nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), hTarget:GetAbsOrigin(), nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false) 
 	for i = 1, #tEnemies do
 		if not (tEnemies[i]:GetUnitName() == "iskander_infantry") then
-			tEnemies[i]:AddNewModifier(hCaster, hCharmAbility, "modifier_tamamo_ice_debuff", {duration = hCharmAbility:GetSpecialValueFor("duration"), is_ss = is_ss})
+			if not tEnemies[i]:IsMagicImmune() then
+				tEnemies[i]:AddNewModifier(hCaster, hCharmAbility, "modifier_tamamo_ice_debuff", {duration = hCharmAbility:GetSpecialValueFor("duration"), is_ss = is_ss})
+			end
 		end
 		DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_PHYSICAL, 0, hCharmAbility, false)
 	end

@@ -3514,7 +3514,7 @@
 
 		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser"				"EXTERMINATION SUN LASER"
 		"DOTA_Tooltip_ability_ozy_boat_orbital_laser_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Channeling.\nMesektet shoots a laser right from the sun, dealing <font color='#58ACFA'>damage</font> which increases the more the target suffers <font color='#58ACFA'>damage</font> from it.\nLaser spends Mesektet's <font color='#58ACFA'>mana</font>, <font color='#58ACFA'>manacost</font> increasing with time.\nOzymandias is able to move beam by reusing this ability."
-		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_radius"										"Delay:"
+		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_radius"										"Radius:"
 		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_damage_per_second"								"Base damage per second:"
 		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_damage_per_second_per_level"					"Base damage per second per level:"
 		"DOTA_Tooltip_Ability_ozy_boat_orbital_laser_mana_drain_per_second"							"Mana drain per second:"
@@ -3553,7 +3553,7 @@
 
 
 		"DOTA_Tooltip_Ability_ozy_piramid_aura"				"Divine Right of the Sun King"
-		"DOTA_Tooltip_ability_ozy_piramid_aura_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Active: combo activator.\nPassive: Grants a defensive aura to all allies in radius.\nOzymandias gets double effect.\nIncreases <font color='#58ACFA'>magic resistance</font> and <font color='#ACFF05'>health regeneraion</font>."
+		"DOTA_Tooltip_ability_ozy_piramid_aura_Description"	"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Active: combo activator.\nPassive: Grants a defensive aura to all allies in radius.\nOzymandias gets triple effect.\nIncreases <font color='#58ACFA'>magic resistance</font> and <font color='#ACFF05'>health regeneraion</font>."
 		"DOTA_Tooltip_Ability_ozy_piramid_aura_radius"				"Duration:"
 		"DOTA_Tooltip_Ability_ozy_piramid_aura_bonus_mr"				"%Bonus magic resistance:"
 		"DOTA_Tooltip_Ability_ozy_piramid_aura_bonus_regen"				"Bonus regeneration:"
@@ -3597,8 +3597,7 @@
 
 		"DOTA_Tooltip_Ability_ozy_sa_2"				"The Solar Ship of the Dark Night"
 		"DOTA_Tooltip_Ability_ozy_sa_2_Description"	"Upgrades all of <font color='#58ACFA'>Mesektet</font>'s abilities:<font color='#58ACFA'>Mesektet</font>:Gain increased <font color='#58ACFA'>mana</font> regeneration\n <font color='#58ACFA'>Tri-hermes</font>:Now applies a slow aura around itself.\n<font color='#58ACFA'>Light of Uraeus</font>:Apply a burning ground effect to the beam.\n<font color='#58ACFA'>Rays of the Sun</font>:Deal increased damage\n<font color='#58ACFA'>EXTERMINATION SUN LASER</font>: Spend less mana."
-		"DOTA_Tooltip_Ability_ozy_sa_2_vision_duration" 	"Vision duration:"
-		"DOTA_Tooltip_Ability_okada_sa_2_vision_radius" 	"Vision radius:"
+
 
 		"DOTA_Tooltip_Ability_ozy_sa_3"				"Mystic eyes"
 		"DOTA_Tooltip_Ability_ozy_sa_3_Description"	"Unlocks <font color='#58ACFA'>Mystic eyes</font> ability."

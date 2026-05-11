@@ -25,7 +25,15 @@ function ozy_boat_beam:OnSpellStart()
 	direction.z = 0
 	direction = direction:Normalized()
 	self.direction = direction
-
+	self.hitTable = {}
+	local anchorAbil = hCaster:FindAbilityByName("ozy_boat_anchor")
+	if anchorAbil:GetCooldownTimeRemaining() < 0.5 then
+		anchorAbil:StartCooldown(0.5)
+	end
+	local strikesAbil = hCaster:FindAbilityByName("ozy_boat_sunstrike")
+	if strikesAbil:GetCooldownTimeRemaining() < 0.5 then
+		strikesAbil:StartCooldown(0.5)
+	end
 	local width = self:GetSpecialValueFor("width")
 	local range = self:GetAnimeVectorTargetingRange()
 	local speed = 1000
@@ -109,9 +117,12 @@ function ozy_boat_beam:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	end
 	
 	local hCaster = self:GetCaster()
-	giveUnitDataDrivenModifier(hCaster, hTarget, "locked", self:GetSpecialValueFor("lock_duration"))
-    DoDamage(hCaster, hTarget, self:GetCaster().ozy:GetLevel()* self:GetSpecialValueFor("damage_per_level") + self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 
+	if not self.hitTable[hTarget:GetEntityIndex()] then
+        self.hitTable[hTarget:GetEntityIndex()] = true
+		giveUnitDataDrivenModifier(hCaster, hTarget, "locked", self:GetSpecialValueFor("lock_duration"))
+    	DoDamage(hCaster, hTarget, self:GetCaster().ozy:GetLevel()* self:GetSpecialValueFor("damage_per_level") + self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    end
 end
 
 function ozy_boat_beam:OnProjectileThink_ExtraData(vLocation)

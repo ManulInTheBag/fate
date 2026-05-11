@@ -30,7 +30,14 @@ function ozy_boat_sunstrike:OnSpellStart()
 		targetPoint = caster:GetAbsOrigin() + (targetPoint-caster:GetAbsOrigin()):Normalized() * 1300
 		--direction = -(targetPoint - targetPointOld):Normalized()+ direction 
 	end
-	
+	local anchorAbil = caster:FindAbilityByName("ozy_boat_anchor")
+	if anchorAbil:GetCooldownTimeRemaining() < 0.5 then
+		anchorAbil:StartCooldown(0.5)
+	end
+	local beamAbil = caster:FindAbilityByName("ozy_boat_beam")
+	if beamAbil:GetCooldownTimeRemaining() < 0.5 then
+		beamAbil:StartCooldown(0.5)
+	end
 	direction.z = 0
 	direction = direction:Normalized()
 	local vectorRange = self:GetAnimeVectorTargetingRange()
@@ -74,7 +81,7 @@ function ozy_boat_sunstrike:ShootLightPillar(ozymandias,boat, delay, damage, deb
 			if not v:IsMagicImmune() then
 				if not v.IsHitByBoatSunstrike then				
 					DoDamage(ozymandias, v, damage, self:GetAbilityDamageType(), 0, self, false)
-					giveUnitDataDrivenModifier(ozymandias, v, "stunned", debuff_duration)
+					--giveUnitDataDrivenModifier(ozymandias, v, "stunned", debuff_duration)
 					v.IsHitByBoatSunstrike = true
 					Timers:CreateTimer(1.5, function()
 						v.IsHitByBoatSunstrike = false

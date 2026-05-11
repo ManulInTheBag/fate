@@ -14,7 +14,7 @@ function ozy_combo:OnSpellStart()
 
 	EmitGlobalSound("ozymandias_combo")
 	
-	Timers:CreateTimer(delay, function()
+	Timers:CreateTimer(delay +0.5, function()
 		hCaster.Ozy.PerformingCombo = false
 	end)
 	if (vTargetPoint-hCaster:GetAbsOrigin()):Length2D() > 5000 then

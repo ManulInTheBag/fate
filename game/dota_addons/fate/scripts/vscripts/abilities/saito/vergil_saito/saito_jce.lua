@@ -27,7 +27,9 @@ function saito_jce:OnChannelFinish(bInterrupted)
     local duration = self:GetSpecialValueFor("duration")
 
     caster:RemoveModifierByName("modifier_saito_jce_channeling")
-
+    if caster:HasModifier("modifier_saito_cc_immune") then
+        caster:RemoveModifierByName("modifier_saito_cc_immune")
+    end
     if not bInterrupted then
         caster:AddNewModifier(caster, self, "modifier_saito_jce", {duration = duration})
 

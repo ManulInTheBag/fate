@@ -10,6 +10,7 @@ end
 
 function ozy_piramid_cage:OnSpellStart()
 	local caster = self:GetCaster()
+    if self:GetCaster().Ozy.PerformingCombo then return end
     local point = self:GetCursorPosition()
     CreateModifierThinker(caster, self, "modifier_ozy_cage", {duration = self:GetSpecialValueFor("duration") }, point, caster:GetTeamNumber(), false)
 	
