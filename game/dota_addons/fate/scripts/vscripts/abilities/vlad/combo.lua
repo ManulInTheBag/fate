@@ -43,7 +43,12 @@ function vlad_combo:OnSpellStart()
 	self.PI2 = {}
 	self.PI3 = {}
 	giveUnitDataDrivenModifier(caster, caster, "silenced", penalty)
-	EmitGlobalSound("Vlad.Combo")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		EmitGlobalSound("verg_combo")
+	else
+		EmitGlobalSound("Vlad.Combo")
+	end
+
 	Timers:CreateTimer(0.15, function()
 		self:VFX1_SpikesField(caster)
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

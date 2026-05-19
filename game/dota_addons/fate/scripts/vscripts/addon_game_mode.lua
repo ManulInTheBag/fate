@@ -369,6 +369,7 @@ function Precache( context )
     PrecacheResource("model", "models/darkeyed/aemeath/normal/aemeath_normal.vmdl", context)
     PrecacheResource("model", "models/darkeyed/aemeath/mecha/aemeath_mecha.vmdl", context)
     PrecacheResource("model", "models/darkeyed/aemeath/mecha/mecha_weapon.vmdl", context)
+    PrecacheResource("model", "models/vlad/vlad_skin.vmdl", context)
    
     
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)

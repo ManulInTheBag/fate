@@ -149,7 +149,12 @@ function vlad_kazikli_bey:OnSpellStart()
 			--	StartAnimation(caster, {duration=2.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.8})
 			--else
 			if hitcounter == 6 then
-				EmitGlobalSound("Vlad.KB")
+				if caster:HasModifier("modifier_hero_selection_skin") then
+					EmitGlobalSound("verg_ult")
+				else
+					EmitGlobalSound("Vlad.KB")
+				end
+
 			elseif hitcounter == 9 then
 				self.PI1 = {}
 				local targets2 = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, aoe_lastspike, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

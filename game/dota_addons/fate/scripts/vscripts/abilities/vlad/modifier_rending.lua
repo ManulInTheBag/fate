@@ -24,6 +24,15 @@ end
 if IsServer() then
   function modifier_rending:OnRespawn(keys)   
     local parent = self:GetParent()
+    if keys.unit ~= parent then return end
+    if parent:HasModifier("modifier_hero_selection_skin") then
+      print(self.particle == nil)
+      if (self.particle == nil) then
+          self.particle = ParticleManager:CreateParticle("particles/verg/verg_blade.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+          ParticleManager:SetParticleControlEnt(self.particle , 0,parent, PATTACH_POINT_FOLLOW, "attach_lance_tip", Vector(0,0,0), false) 
+          ParticleManager:SetParticleControlEnt(self.particle , 1,parent, PATTACH_POINT_FOLLOW, "attach_lance_tip_3", Vector(0,0,0), false) 
+      end
+    end
     if parent.InnocentMonsterAcquired and not parent:HasModifier("modifier_innocent_monster") then
       parent:AddNewModifier(parent, parent.MasterUnit2:FindAbilityByName("vlad_attribute_innocent_monster"), "modifier_innocent_monster", {})
     end

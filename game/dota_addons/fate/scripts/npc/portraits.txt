@@ -2462,6 +2462,34 @@
 			}
 		}
 	}	
+
+	"models/vlad/vlad_skin.vmdl"
+	{
+		"PortraitLightPosition"		"8.34 -51.72 127.79"
+		"PortraitLightAngles"		"12.96 130.92 0.00"
+		"PortraitLightFOV"		"51"
+		"PortraitLightDistance"		"100"
+		"PortraitLightColor"		"254 210 218"
+ 
+		"PortraitAmbientColor"		"241 165 97"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/verg_fon.vmat"
+ 
+		"PortraitLightScale"		"4.100000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"200.25 55 100.35"
+				"PortraitAngles"		"350.37 195.12 0.00"
+				"PortraitFOV"		"10"
+			}
+		}
+	}	
 	"models/saber/saber.vmdl"
 	{
 		"PortraitLightPosition"		"-33.05 37.77 177.26"
