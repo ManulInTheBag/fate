@@ -100,7 +100,12 @@ function nobu_double_shots:OnSpellStart()
     local vRightVect = hCaster:GetRightVector() 
     facing.z = 0
     if counter%20 == 10 then
-        hCaster:EmitSound("nobu_shoot_1")
+        if hCaster:HasModifier("modifier_hero_selection_skin") then
+            hCaster:EmitSound("lament_2")
+        else
+            hCaster:EmitSound("nobu_shoot_1")
+        end
+        
          
         self:Shoot({
             Origin = origin + facing * 80 + Vector(0,0,100)+ vRightVect * 20,
@@ -110,7 +115,11 @@ function nobu_double_shots:OnSpellStart()
             Range = 1000,
         })
     else
-        hCaster:EmitSound("nobu_shoot_2")
+        if hCaster:HasModifier("modifier_hero_selection_skin") then
+            hCaster:EmitSound("lament_1")
+        else
+            hCaster:EmitSound("nobu_shoot_2")
+        end
          
         self:Shoot({
             Origin =  origin + facing * 80 + Vector(0,0,100) + vRightVect * -20,
@@ -133,8 +142,12 @@ function nobu_double_shots:OnSpellStart()
 end
 
 function nobu_double_shots:Shoot(keys)
+    local Effectname = "particles/nobu/nobu_bullet.vpcf" 
+    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+        Effectname = "particles/gregori/gregori_bullet.vpcf"
+    end
     local projectileTable = {
-        EffectName = "particles/nobu/nobu_bullet.vpcf" ,
+        EffectName = Effectname,
         Ability = self,
         vSpawnOrigin = keys.Origin,
         vVelocity = keys.Facing * keys.Speed,
@@ -162,7 +175,11 @@ function nobu_double_shots:OnProjectileHit(target, location )
     local hCaster = self:GetCaster()
     local damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-    target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+    if hCaster:HasModifier("modifier_hero_selection_skin") then
+        target:EmitSound("lament_3")
+    else
+       target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+    end
     if IsDivineServant(target) and hCaster.UnifyingAcquired then 
         damage= damage*1.2
     end
@@ -190,7 +207,7 @@ function nobu_double_shots:OnProjectileHit(target, location )
             Range = 1000,
         },  gun_spawn )
     end
-    return true 
+    return false 
 end
 
 

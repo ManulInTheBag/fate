@@ -674,8 +674,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -41.13775, -54.18459, -33.82634 ]
-								hitbox_maxs = [ 30.295113, 41.75382, 78.248535 ]
+								hitbox_mins = [ -76.071236, -40.329514, -230.78387 ]
+								hitbox_maxs = [ 77.919235, 63.849514, 98.72423 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1338,6 +1338,21 @@
 								hitbox_maxs = [ 6.511038, 5.63522, 1.384447 ]
 							},
 						]
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 1.6
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
 					},
 				]
 			},

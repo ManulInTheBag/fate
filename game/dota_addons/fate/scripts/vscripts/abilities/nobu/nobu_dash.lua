@@ -153,7 +153,12 @@ function nobu_dash:Shot(keys, position)
 	self.Dummy:SetAbsOrigin(position)
 	self.Dummy:SetForwardVector((  self.target- position ):Normalized())
 
- 	local GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+ 	local GunFx
+    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_gregori"..math.random(1,2)..".vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+    else
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+    end
 	 ParticleManager:SetParticleControl(GunFx, 3, position ) 
      ParticleManager:SetParticleControl(GunFx, 4, self.target- position ) 
     self.Dummy.GunFx = GunFx
@@ -161,14 +166,21 @@ function nobu_dash:Shot(keys, position)
  	Timers:CreateTimer(0.4, function()
         dummy:SetForwardVector((  self.target - position ):Normalized())
         local velocity = dummy:GetForwardVector()
-        dummy:EmitSound("nobu_shoot_1")
+		if self.caster:HasModifier("modifier_hero_selection_skin") then
+            dummy:EmitSound("lament_1")
+        else
+            dummy:EmitSound("nobu_shoot_1")
+        end
         velocity.z = 0
-	
+		local Effectname = "particles/nobu/nobu_bullet.vpcf" 
+        if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+            Effectname = "particles/gregori/gregori_bullet.vpcf"
+        end
         local projectileTable = {
-            EffectName = "particles/nobu/nobu_bullet.vpcf" ,
+            EffectName = Effectname ,
             Ability = self,
             vSpawnOrigin = position + dummy:GetForwardVector()*80,
-            vVelocity =velocity * keys.Speed,
+            vVelocity =velocity * 3000,
             fDistance = keys.Range,
             fStartRadius = keys.AoE,
             fEndRadius = keys.AoE,
@@ -207,7 +219,11 @@ function nobu_dash:OnProjectileHit(target, location )
 	if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
         DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     end
-    target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+		if hCaster:HasModifier("modifier_hero_selection_skin") then
+            target:EmitSound("lament_3")
+        else
+            target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+        end
         local knockback = { should_stun = false,
         knockback_duration = 0.05,
         duration = 0.05,

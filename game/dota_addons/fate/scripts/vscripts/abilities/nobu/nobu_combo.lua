@@ -40,7 +40,11 @@ function nobu_combo:OnSpellStart()
     StartAnimation(hCaster, {duration=1 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.75})
     self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/nobu_combo_smoke_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
      hCaster.target_enemy:AddNewModifier(hCaster, self, "modifier_nobu_combo_mark", {duration = self:GetSpecialValueFor("run_duration")} )
-     EmitGlobalSound("nobu_combo_cast") 
+     if hCaster:HasModifier("modifier_hero_selection_skin") then
+        EmitGlobalSound("gregori_combo_cast") 
+    else
+        EmitGlobalSound("nobu_combo_cast") 
+    end
      self.caster = hCaster
 
 end
@@ -77,6 +81,9 @@ function nobu_combo:AttackEnemy()
         target:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         hCaster:EmitSound("merlin_staff")
+        if hCaster:HasModifier("modifier_hero_selection_skin") then
+            EmitGlobalSound("gregori_combo_hit") 
+        end
         self.target = target:GetAbsOrigin()
         for i=1,25 do 
             local gun_spawn =   PointOnCircle(GetGroundPosition(target:GetAbsOrigin(), caster), 450,i*10)
@@ -100,7 +107,11 @@ function nobu_combo:AttackEnemy()
                     AoE = aoe,
                     Range = 1000,
                 })
-                self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
+                    if hCaster:HasModifier("modifier_hero_selection_skin") then
+                        self.dummies[i]:EmitSound("lament_"..math.random(1,2))
+                    else
+                        self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
+                    end
                 ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
 		        ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
                 self.dummies[i]:RemoveSelf()
@@ -111,7 +122,11 @@ function nobu_combo:AttackEnemy()
    
      Timers:CreateTimer(3,  function()
         StopGlobalSound("nobu_combo_cast") 
-        EmitGlobalSound("nobu_combo_end") 
+        if hCaster:HasModifier("modifier_hero_selection_skin") then
+        else
+            EmitGlobalSound("nobu_combo_end") 
+        end
+        
             if( target:IsAlive()) then
                 FindClearSpaceForUnit(  target,   target:GetAbsOrigin(), true)
                 
@@ -133,7 +148,9 @@ function nobu_combo:CreateGun(position)
 	 self.Dummy:SetForwardVector((  self.target- position ):Normalized())
     --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
     local GunFx
-    if(self.caster.is3000Acquired) then
+    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_gregori"..math.random(1,2)..".vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+    elseif(self.caster.is3000Acquired) then
 	      GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_no_destroy.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
     else
         GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
@@ -151,8 +168,12 @@ end
 
 
 function nobu_combo:Shoot(keys)
+    Effectname= "particles/nobu/nobu_bullet.vpcf" 
+    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+        Effectname = "particles/gregori/gregori_bullet.vpcf"
+    end
     local projectileTable = {
-        EffectName = "particles/nobu/nobu_bullet.vpcf" ,
+        EffectName = Effectname,
         Ability = self,
         vSpawnOrigin = keys.Origin,
         vVelocity = keys.Facing * keys.Speed,

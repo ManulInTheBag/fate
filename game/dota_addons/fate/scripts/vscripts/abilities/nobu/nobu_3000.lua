@@ -24,7 +24,12 @@ function nobu_3000:OnSpellStart()
         self.target = self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*100
     end
     self.target.z = 0
-    self.caster:EmitSound("nobu_ulti_cast")
+
+    if self.caster:HasModifier("modifier_hero_selection_skin") then
+        self.caster:EmitSound("gregori_ult_cast")
+    else
+        self.caster:EmitSound("nobu_ulti_cast")
+    end
     if(self.dummies == nil) then
         self.dummies = {}
     end
@@ -137,8 +142,14 @@ function nobu_3000:OnChannelFinish(bInterrupted)
 	StartAnimation( self.caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
     local aoe = 50
     local position = self:GetCursorPosition()
-    self.caster:StopSound("nobu_ulti_cast")
-    EmitGlobalSound("nobu_ulti_end") 
+    if self.caster:HasModifier("modifier_hero_selection_skin") then
+        self.caster:StopSound("gregori_ult_cast")
+        EmitGlobalSound("gregori_ult_end") 
+    else
+        self.caster:StopSound("nobu_ulti_cast")
+        EmitGlobalSound("nobu_ulti_end") 
+    end
+   
     Timers:CreateTimer(0.3, function()
      
         local facing =  self.caster:GetForwardVector()
@@ -162,9 +173,19 @@ function nobu_3000:OnChannelFinish(bInterrupted)
                 local facing =  self.dummies[i]:GetForwardVector()
                 facing.z = 0
                 if(self.caster.is3000Acquired) then
-                    self.dummies[i]:EmitSound("nobu_shoot_laser")
+                    if self.caster:HasModifier("modifier_hero_selection_skin") then
+                        self.dummies[i]:EmitSound("lament_4")
+                    else
+                        self.dummies[i]:EmitSound("nobu_shoot_laser")
+                    end
+                    
                 else
-                    self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
+                    if self.caster:HasModifier("modifier_hero_selection_skin") then
+                        self.dummies[i]:EmitSound("lament_"..math.random(1,2))
+                    else
+                        self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
+                    end
+
                 end
                
             self:Shoot({
@@ -203,7 +224,9 @@ function nobu_3000:CreateGun(position)
      
     --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
     local GunFx
-    if(self.caster.is3000Acquired) then
+    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_gregori"..math.random(1,2)..".vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+    elseif(self.caster.is3000Acquired) then
 	      GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_no_destroy.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
     else
         GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
@@ -250,7 +273,12 @@ function nobu_3000:Shoot(keys)
                                        		 DOTA_UNIT_TARGET_ALL,
                                      		 DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
                                     	    )
-         local fx = ParticleManager:CreateParticle("particles/nobu/nobu_lasers_nonproj.vpcf", PATTACH_CUSTOMORIGIN, nil)
+
+        local Effectname = "particles/nobu/nobu_lasers_nonproj.vpcf"
+        if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+            Effectname ="particles/nobu/gregori_lasers.vpcf"
+        end
+         local fx = ParticleManager:CreateParticle(Effectname, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Range*keys.Facing)       
         ParticleManager:SetParticleControl(fx, 9,  keys.Origin)           
         for k,v in pairs(targets) do            
@@ -292,8 +320,13 @@ function nobu_3000:Shoot(keys)
         end 
                   
     else
+
+        local Effectname = "particles/nobu/nobu_bullet.vpcf" 
+        if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+            Effectname = "particles/gregori/gregori_bullet.vpcf"
+        end
           projectileTable = {
-            EffectName = "particles/nobu/nobu_bullet.vpcf" ,
+            EffectName =Effectname ,
             Ability = self,
             vSpawnOrigin = keys.Origin,
             vVelocity = keys.Facing * keys.Speed,
@@ -331,7 +364,11 @@ function nobu_3000:OnProjectileHit_ExtraData(target, location, data)
         DoDamage(hCaster, target, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
     else
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+        if hCaster:HasModifier("modifier_hero_selection_skin") then
+            target:EmitSound("lament_3")
+        else
+            target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+        end
     end
     if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
         DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)

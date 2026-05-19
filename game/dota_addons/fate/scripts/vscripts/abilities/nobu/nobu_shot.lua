@@ -43,7 +43,12 @@ function nobu_shot:OnSpellStart()
     else
         local position = self:GetCursorPosition()
         local facing = ForwardVForPointGround(hCaster,position)
-        hCaster:EmitSound("nobu_shoot_1")
+        if hCaster:HasModifier("modifier_hero_selection_skin") then
+            hCaster:EmitSound("lament_1")
+        else
+            hCaster:EmitSound("nobu_shoot_1")
+        end
+        
         Timers:CreateTimer(0.1, function()
             self:Shoot({
                 Origin = origin,
@@ -68,8 +73,12 @@ function nobu_shot:OnSpellStart()
 end
 
 function nobu_shot:Shoot(keys)
+    local Effectname = "particles/nobu/nobu_bullet_q.vpcf" 
+    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+        Effectname = "particles/gregori/gregori_q.vpcf"
+    end
     local projectileTable = {
-        EffectName = "particles/nobu/nobu_bullet_q.vpcf" ,
+        EffectName = Effectname ,
         Ability = self,
         vSpawnOrigin = keys.Origin,
         vVelocity = keys.Facing * keys.Speed,
@@ -100,7 +109,12 @@ function nobu_shot:OnProjectileHit(target, location )
         damage= damage*1.2
     end
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-    target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+    if hCaster:HasModifier("modifier_hero_selection_skin") then
+        target:EmitSound("lament_3")
+    else
+       target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+    end
+    
     target:AddNewModifier(hCaster, self, "modifier_nobu_slow", {Duration = self:GetSpecialValueFor("duration")})  
     if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
         DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
@@ -154,7 +168,9 @@ function nobu_shot:EShot(keys, position)
      if( targets[1] ~= nil) then
         self.target  = targets[1]:GetAbsOrigin()
         self.target_enemy = targets[1]
-     end    
+     else
+        return
+     end  
 
      
 	self.Dummy = CreateUnitByName("dummy_unit", vCasterOrigin, false, nil, nil, self.caster:GetTeamNumber())
@@ -170,8 +186,13 @@ function nobu_shot:EShot(keys, position)
  
 
     --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
+    local GunFx
+    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_gregori"..math.random(1,2)..".vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+    else
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+    end
 
-	local GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
   
 	ParticleManager:SetParticleControl(GunFx, 3, position ) 
     ParticleManager:SetParticleControl(GunFx, 4,   self.target- vCasterOrigin  ) 
@@ -183,11 +204,18 @@ function nobu_shot:EShot(keys, position)
          
         dummy:SetForwardVector((    self.target_enemy:GetAbsOrigin() - position ):Normalized())
         local velocity = dummy:GetForwardVector()
-        dummy:EmitSound("nobu_shoot_1")
+        if self.caster:HasModifier("modifier_hero_selection_skin") then
+            dummy:EmitSound("lament_1")
+        else
+            dummy:EmitSound("nobu_shoot_1")
+        end
         velocity.z = 0
-	
+	    local Effectname = "particles/nobu/nobu_bullet_q.vpcf" 
+        if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+            Effectname = "particles/gregori/gregori_q.vpcf"
+        end
         local projectileTable = {
-            EffectName = "particles/nobu/nobu_bullet.vpcf" ,
+            EffectName = Effectname,
             Ability = self,
             vSpawnOrigin = position + dummy:GetForwardVector()*80,
             vVelocity =velocity * keys.Speed,
