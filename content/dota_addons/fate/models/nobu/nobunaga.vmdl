@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -70,6 +70,7 @@
 						[
 							{
 								_class = "BodyGroupChoice"
+								name = "0"
 								meshes = 
 								[
 									"nobunaga1",
@@ -77,6 +78,7 @@
 							},
 							{
 								_class = "BodyGroupChoice"
+								name = "1"
 								meshes = 
 								[
 									"nobunaga",
@@ -85,6 +87,7 @@
 						]
 						hidden_in_tools = false
 						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 				]
 			},
@@ -114,7 +117,7 @@
 						_class = "Attachment"
 						name = "shot_origin"
 						parent_bone = "Box11"
-						relative_origin = [ -0.642853, -153.929108, 7.064346 ]
+						relative_origin = [ -0.642853, -153.92911, 7.064346 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -123,7 +126,7 @@
 						_class = "Attachment"
 						name = "shot_origin_second"
 						parent_bone = "Box10"
-						relative_origin = [ -69.59137, -130.136292, -76.998634 ]
+						relative_origin = [ -69.59137, -130.13629, -76.998634 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -168,6 +171,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -187,6 +191,7 @@
 								]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -199,16 +204,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 70
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_walk"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -221,16 +229,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 90
 						end_frame = 114
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -243,16 +254,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 131
 						end_frame = 271
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_slash"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -265,16 +279,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 294
 						end_frame = 319
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_anime_slash"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -287,12 +304,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 345
 						end_frame = 345
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -304,6 +323,7 @@
 					{
 						_class = "AnimFile"
 						name = "nobu_attack"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -316,16 +336,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 377
 						end_frame = 417
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_pierce_attack"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -338,16 +361,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 437
 						end_frame = 477
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_attack_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -360,12 +386,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 497
 						end_frame = 537
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -380,10 +408,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -396,12 +426,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 557
 						end_frame = 587
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -413,6 +445,7 @@
 					{
 						_class = "AnimFile"
 						name = "nobu_preapare_to_double"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -425,16 +458,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 607
 						end_frame = 615
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_shooting"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -447,16 +483,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 636
 						end_frame = 663
 						framerate = 7.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_air"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -469,12 +508,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 683
 						end_frame = 698
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -489,10 +530,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -505,12 +548,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 718
 						end_frame = 748
 						framerate = 75.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -522,6 +567,7 @@
 					{
 						_class = "AnimFile"
 						name = "nobu_shiza"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_CHAOS_METEOR_ORB"
 						activity_weight = 1
 						weight_list_name = ""
@@ -534,16 +580,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 768
 						end_frame = 796
 						framerate = 15.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "nobu_combo"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_7"
 						activity_weight = 1
 						weight_list_name = ""
@@ -556,12 +605,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
 						start_frame = 816
 						end_frame = 875
 						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -599,8 +650,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -41.137749, -54.184589, -33.82634 ]
-								hitbox_maxs = [ 30.295113, 41.753819, 78.248535 ]
+								hitbox_mins = [ -41.13775, -54.18459, -33.82634 ]
+								hitbox_maxs = [ 30.295113, 41.75382, 78.248535 ]
 							},
 							{
 								_class = "Hitbox"
@@ -629,7 +680,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -26.979271, -8.942022, -22.018005 ]
+								hitbox_mins = [ -26.97927, -8.942022, -22.018005 ]
 								hitbox_maxs = [ 3.336124, 8.277136, 3.808594 ]
 							},
 							{
@@ -639,7 +690,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -24.950794, -145.163803, -33.595467 ]
+								hitbox_mins = [ -24.950794, -145.1638, -33.595467 ]
 								hitbox_maxs = [ 17.109016, 5.384161, 2.290405 ]
 							},
 							{
@@ -759,8 +810,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.909855, -91.834473, -49.621059 ]
-								hitbox_maxs = [ 86.613892, 18.852104, 7.293732 ]
+								hitbox_mins = [ -6.909855, -91.83447, -49.62106 ]
+								hitbox_maxs = [ 86.61389, 18.852104, 7.293732 ]
 							},
 							{
 								_class = "Hitbox"
@@ -889,8 +940,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -37.63097, -31.554871, -86.252861 ]
-								hitbox_maxs = [ 38.966503, 50.541557, 86.432953 ]
+								hitbox_mins = [ -37.63097, -31.55487, -86.25286 ]
+								hitbox_maxs = [ 38.966503, 50.541557, 86.43295 ]
 							},
 							{
 								_class = "Hitbox"
@@ -899,7 +950,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -32.434849, -9.111263, -26.659561 ]
+								hitbox_mins = [ -32.43485, -9.111263, -26.659561 ]
 								hitbox_maxs = [ 31.994442, 13.778835, 0.5 ]
 							},
 							{
@@ -909,8 +960,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -83.041321, -10.582136, -98.02417 ]
-								hitbox_maxs = [ 70.141792, 59.820396, 1.228149 ]
+								hitbox_mins = [ -83.04132, -10.582136, -98.02417 ]
+								hitbox_maxs = [ 70.14179, 59.820396, 1.228149 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1029,7 +1080,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -20.205921, -2.337709, -19.215469 ]
+								hitbox_mins = [ -20.205921, -2.337709, -19.21547 ]
 								hitbox_maxs = [ 1.455971, 8.963089, 0.5 ]
 							},
 							{
@@ -1079,8 +1130,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -21.866226, -8.339134, -23.594589 ]
-								hitbox_maxs = [ 23.25396, 16.830059, 0.5 ]
+								hitbox_mins = [ -21.866226, -8.339134, -23.59459 ]
+								hitbox_maxs = [ 23.25396, 16.83006, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1100,7 +1151,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -16.066399, -0.5, -20.947014 ]
-								hitbox_maxs = [ 16.057091, 4.424812, 0.5 ]
+								hitbox_maxs = [ 16.05709, 4.424812, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1149,7 +1200,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -19.123421, -7.407452, -20.080956 ]
+								hitbox_mins = [ -19.12342, -7.407452, -20.080956 ]
 								hitbox_maxs = [ 18.821266, 8.388256, 1.023926 ]
 							},
 							{
@@ -1229,7 +1280,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.240126, -17.215679, -11.189339 ]
+								hitbox_mins = [ -6.240126, -17.21568, -11.189339 ]
 								hitbox_maxs = [ 6.685114, 5.873088, 1.041428 ]
 							},
 							{
@@ -1271,5 +1322,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

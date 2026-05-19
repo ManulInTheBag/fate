@@ -1,6 +1,7 @@
 heracles_berserk = class({})
 
 LinkLuaModifier("modifier_heracles_berserk", "abilities/heracles/modifiers/modifier_heracles_berserk", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_heracles_berserk_matthias", "abilities/heracles/modifiers/modifier_heracles_berserk", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_heracles_combo_window", "abilities/heracles/modifiers/modifier_heracles_combo_window", LUA_MODIFIER_MOTION_NONE)
 
 function heracles_berserk:GetBehavior()
@@ -16,6 +17,9 @@ function heracles_berserk:OnSpellStart()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
 			EmitGlobalSound("barbatos_berserk")
+		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+			EmitGlobalSound("matthias_bers")
+			EmitSoundOn("matthias_bers_sfx", caster)
 		else
 			EmitGlobalSound("Berserker.Roar")
 		end
@@ -72,10 +76,22 @@ function heracles_berserk:EnterBerserk(duration)
 	if caster:HasModifier("modifier_mad_enhancement_attribute") then
 		duration = duration + 1
 	end
-
-	caster:AddNewModifier(caster, ability, "modifier_heracles_berserk", { BonusAttSpd = attack_speed, 
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+		caster:AddNewModifier(caster, ability, "modifier_heracles_berserk_matthias", { BonusAttSpd = attack_speed, 
 																		  LockedHealth = hplock,
 																		  Duration = duration })
+		else
+			caster:AddNewModifier(caster, ability, "modifier_heracles_berserk", { BonusAttSpd = attack_speed, 
+																		  LockedHealth = hplock,
+																		  Duration = duration })
+		end
+	else
+		caster:AddNewModifier(caster, ability, "modifier_heracles_berserk", { BonusAttSpd = attack_speed, 
+																		  LockedHealth = hplock,
+																		  Duration = duration })
+	end
+
 	LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
         if playerHero.voice == true then

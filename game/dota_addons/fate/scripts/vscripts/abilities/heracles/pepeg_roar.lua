@@ -74,6 +74,9 @@ function berserker_5th_madmans_roar:OnSpellStart()
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
 			EmitGlobalSound("barbatos_roar")
 			EmitSoundOn("barbatos_bgm", caster)
+		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+			EmitGlobalSound("matthias_roar")
+			EmitSoundOn("matthias_theme", caster)
 		else
 			EmitGlobalSound("berserker_roar_02")
 		end
@@ -157,6 +160,17 @@ function berserker_5th_madmans_roar:OnSpellStart()
 						local screen_fx = ParticleManager:CreateParticleForPlayer("particles/zlodemon/arbuz_combo.vpcf", PATTACH_EYES_FOLLOW, caster, player)
 						ParticleManager:SetParticleShouldCheckFoW(screen_fx, false)
 						ParticleManager:ReleaseParticleIndex(screen_fx)
+					elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+						if math.random(1,100) > 20 then
+							local screen_fx = ParticleManager:CreateParticleForPlayer("particles/zlodemon/matthias_combo.vpcf", PATTACH_EYES_FOLLOW, caster, player)
+							ParticleManager:SetParticleShouldCheckFoW(screen_fx, false)
+							ParticleManager:ReleaseParticleIndex(screen_fx)
+						else
+							local screen_fx = ParticleManager:CreateParticleForPlayer("particles/zlodemon/matthias_secret.vpcf", PATTACH_EYES_FOLLOW, caster, player)
+							ParticleManager:SetParticleShouldCheckFoW(screen_fx, false)
+							ParticleManager:ReleaseParticleIndex(screen_fx)
+
+						end
 					end
 				else
     				local screen_fx = ParticleManager:CreateParticleForPlayer("particles/custom/screen_face_splash.vpcf", PATTACH_EYES_FOLLOW, caster, player)

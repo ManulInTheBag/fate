@@ -34,7 +34,7 @@ function heracles_nine_lives:OnSpellStart()
 	local origin = caster:GetAbsOrigin()
 	local distance = (targetPoint - origin):Length2D()/0.3
 	local forward = (targetPoint - origin):Normalized() * distance
-	local berserked = caster:HasModifier("modifier_heracles_berserk")
+	local berserked = caster:HasModifier("modifier_heracles_berserk") or caster:HasModifier("modifier_heracles_berserk_matthias")
 	local time = 0.3
 	if berserked then
 		time = 0.01
@@ -45,6 +45,7 @@ function heracles_nine_lives:OnSpellStart()
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 3.75) --change to sealdisabled to return revoke here, if you want
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
+
 	EndAnimation(caster)
 	if not berserked then
 		StartAnimation(caster, {duration= 1 , activity=ACT_DOTA_RUN, rate=2.0})

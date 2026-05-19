@@ -22,6 +22,9 @@ function modifier_heracles_nine_lives:OnCreated(args)
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
 				self:GetParent():EmitSound("barbatos_nine_lives")
+			
+			elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+				self:GetParent():EmitSound("matthias_r")
 			else
 				if math.random(1,100) > 10 then
 					self:GetParent():EmitSound("Heracles_NineLives_" .. math.random(1,3))
@@ -44,13 +47,29 @@ end
 
 function modifier_heracles_nine_lives:OnIntervalThink()
 	local caster = self:GetParent()
-	local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
+	local particle_effect = "particles/custom/berserker/nine_lives/hit.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+			particle_effect = "particles/custom/berserker/nine_lives/matthias/matthias_nine.vpcf"
+		end
+	end
+	local particle = ParticleManager:CreateParticle(particle_effect, PATTACH_ABSORIGIN, caster)
 	if self.HitNumber == 8 then
 		StartAnimation(caster, {duration = 0.5, activity=ACT_DOTA_CAST_ABILITY_ROT, rate = 1.3})
 	end
 	if self.HitNumber < 9 then
 		--print("hit " .. self.HitNumber)
-		caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 		
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+				caster:EmitSound("nine_hit_matthias") 		
+			else
+				caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 		
+			end
+		else
+			caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 		
+		end
+		
+		
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.SmallRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
 
 		for k,v in pairs(targets) do
@@ -68,7 +87,16 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 		self.HitNumber = self.HitNumber + 1
 	elseif self.HitNumber == 9 then
 		--print("final hit")
-		caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+				caster:EmitSound("matthias_ninelasthitsfx") 	
+			else
+				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
+			end
+		else
+			caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
+		end
+		
 	 
 		caster:RemoveModifierByName("pause_sealenabled") 
 		ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)			

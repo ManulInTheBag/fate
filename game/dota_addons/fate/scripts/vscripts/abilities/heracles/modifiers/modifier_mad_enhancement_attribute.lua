@@ -22,7 +22,7 @@ function modifier_mad_enhancement_attribute:DeclareFunctions()
 end
 
 function modifier_mad_enhancement_attribute:OnTakeDamage(args)
-	if not self:GetParent():HasModifier("modifier_heracles_berserk") and not self.timeout and (args.damage >= 500) and (self:GetParent():FindAbilityByName("heracles_berserk"):GetCooldownTimeRemaining() > 2) then
+	if (not self:GetParent():HasModifier("modifier_heracles_berserk") or self:GetParent():HasModifier("modifier_heracles_berserk_matthias")) and not self.timeout and (args.damage >= 500) and (self:GetParent():FindAbilityByName("heracles_berserk"):GetCooldownTimeRemaining() > 2) then
 		ReduceCooldown(self:GetParent():FindAbilityByName("heracles_berserk"), 2)
 		self.timeout = true
 		Timers:CreateTimer(2, function()

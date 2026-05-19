@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_pepe_mute", "abilities/heracles/pepeg_jump", LUA_MODIF
 pepeg_jump = class({})
 
 function pepeg_jump:GetBehavior()
-    if self:GetCaster():HasModifier("modifier_heracles_berserk") then
+    if (self:GetCaster():HasModifier("modifier_heracles_berserk") or self:GetCaster():HasModifier("modifier_heracles_berserk_matthias")) then
         return (DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES)
     end
     return (DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE)
@@ -15,8 +15,13 @@ end
 function pepeg_jump:OnSpellStart()
 	local caster = self:GetCaster()
 
-    if caster:HasModifier("modifier_heracles_berserk") then
+    if (caster:HasModifier("modifier_heracles_berserk") or caster:HasModifier("modifier_heracles_berserk_matthias")) then
 	   caster:AddNewModifier(caster, self, "modifier_pepeg_jump_bers", {Berserked = true})
+       if caster:HasModifier("modifier_hero_selection_skin") then
+            if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+                EmitSoundOn("matthias_bers_e", caster)
+            end
+        end
        LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
         if playerHero.zlodemon == true then
@@ -31,6 +36,11 @@ function pepeg_jump:OnSpellStart()
         if targets[2] and not IsKnockbackImmune(targets[2]) then 
            
             targets[2]:AddNewModifier(caster, self, "modifier_pepeg_jump", {Berserked = false})
+             if caster:HasModifier("modifier_hero_selection_skin") then
+                if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+                    EmitSoundOn("matthias_e", caster)
+                end
+            end
             LoopOverPlayers(function(player, playerID, playerHero)
                 --print("looping through " .. playerHero:GetName())
                 if playerHero.zlodemon == true then
@@ -47,7 +57,7 @@ function pepeg_jump:OnSpellStart()
 end
 
 function pepeg_jump:GetAbilityTextureName()
-    if self:GetCaster():HasModifier("modifier_heracles_berserk") then
+    if self:GetCaster():HasModifier("modifier_heracles_berserk") or self:GetCaster():HasModifier("modifier_heracles_berserk_matthias") then
         return "custom/heracles/pepeg_jump_true"
     else
         return "custom/heracles/pepeg_jump"
@@ -56,7 +66,7 @@ end
 
 function pepeg_jump:GetCastRange(vLocation, hTarget)
     local caster = self:GetCaster()
-    if caster:HasModifier("modifier_heracles_berserk") then
+    if caster:HasModifier("modifier_heracles_berserk")  or caster:HasModifier("modifier_heracles_berserk_matthias") then
         return self:GetSpecialValueFor("berserked_range") + caster:GetStrength()*2
     end
     return self:GetSpecialValueFor("range") + caster:GetStrength()*2
@@ -88,7 +98,7 @@ function pepeg_jump:CastFilterResultLocation(hLocation)
         local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
         if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then 
             return UF_FAIL_OUT_OF_WORLD
-        elseif targets[2] == nil and not caster:HasModifier("modifier_heracles_berserk") then
+        elseif targets[2] == nil and not (caster:HasModifier("modifier_heracles_berserk")  or caster:HasModifier("modifier_heracles_berserk_matthias"))then
             return UF_FAIL_CUSTOM
         else
             return UF_SUCESS

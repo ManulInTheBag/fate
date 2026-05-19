@@ -1615,7 +1615,7 @@ RotateVector2D = function(vVector, fAngle, bIsDegreeNotRad)
 end
 
 function IsImmuneToSlow(target)
-    if target:HasModifier("modifier_heracles_berserk") and target:HasModifier("modifier_mad_enhancement_attribute") then
+    if (target:HasModifier("modifier_heracles_berserk") or target:HasModifier("modifier_heracles_berserk_matthias"))and target:HasModifier("modifier_mad_enhancement_attribute") then
         return true 
     elseif target:HasModifier("modifier_forward") then
         return true

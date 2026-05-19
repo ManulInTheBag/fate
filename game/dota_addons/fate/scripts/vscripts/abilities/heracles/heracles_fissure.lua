@@ -5,6 +5,8 @@ function heracles_fissure:OnAbilityPhaseStart()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "barbatos_attack2", caster)
+		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "matthias_q", caster)
 		else
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_q_new_2", caster)
 		end
@@ -33,7 +35,16 @@ function heracles_fissure:OnSpellStart()
 						DOTA_UNIT_TARGET_ALL,
 						0
 	)
-	EmitSoundOnLocationWithCaster(pointEnd, "heracles_q_new_1", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "matthias_q_sfx", caster)
+		else
+			EmitSoundOnLocationWithCaster(pointEnd, "heracles_q_new_1", caster)
+		end
+	else
+		EmitSoundOnLocationWithCaster(pointEnd, "heracles_q_new_1", caster)
+	end
+	
 
 	for _, enemy in pairs(hEnemies) do
 		DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)	

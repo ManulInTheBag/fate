@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_herc_grab_enemy", "abilities/heracles/heracles_grab", 
 --phase start 0.2
 function heracles_grab:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-    if caster:HasModifier("modifier_heracles_berserk") then
+    if caster:HasModifier("modifier_heracles_berserk") or caster:HasModifier("modifier_heracles_berserk_matthias") then
         StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
     else
         StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_SUN_STRIKE, rate=1})

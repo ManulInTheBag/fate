@@ -35,7 +35,7 @@ function heracles_courage:OnSpellStart()
 	for k,v in pairs(targets) do
 		--if not IsFacingUnit(v, caster, 90) then
 			v:AddNewModifier(caster, self, "modifier_courage_enemy_debuff", { Duration = self:GetSpecialValueFor("enemy_duration") })
-			if caster:HasModifier("modifier_heracles_berserk") then
+			if caster:HasModifier("modifier_heracles_berserk") or caster:HasModifier("modifier_heracles_berserk_matthias") then
 				v:AddNewModifier(caster, self, "modifier_disarmed", {duration = 2})
 			end
 		--end
@@ -56,14 +56,17 @@ function heracles_courage:OnSpellStart()
             --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
         end
     end)
-	caster:EmitSound("Hero_Axe.Berserkers_Call")
+	
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
 			caster:EmitSound("barbatos_attack1")
+		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+			caster:EmitSound("matthias_w")
 		else
 			caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
 		end
 	else
+		caster:EmitSound("Hero_Axe.Berserkers_Call")
 		caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
 	end
 	
@@ -77,7 +80,16 @@ function heracles_courage:OnSpellStart()
         DoDamage(caster, v, active_damage, self:GetAbilityDamageType(), 0, self, false)
         v:AddNewModifier(caster, self, "modifier_stunned", {Duration = active_stun, })     
     end 
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_w_slam_sfx", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "matthias_w_sfx", caster)
+		else
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_w_slam_sfx", caster)
+		end
+	else
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_w_slam_sfx", caster)
+	end
+
 	ScreenShake(caster:GetOrigin(), 15, 0.5, 0.5, 2000, 0, true)
  	local particle = ParticleManager:CreateParticle("particles/zlodemon/herc_ground_slam.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 50)

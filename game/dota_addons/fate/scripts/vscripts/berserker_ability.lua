@@ -872,7 +872,15 @@ function OnGodHandDeath(keys)
 		if IsTeamWiped(caster) == false and caster:HasModifier("modifier_god_hand_stock") and _G.CurrentGameState == "FATE_ROUND_ONGOING" then
 		
 			--Timers:CreateTimer(30.0, function() caster.bIsGHReady = true end)
-			EmitGlobalSound("Berserker.Roar") 
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
+					EmitGlobalSound("matthias_res") 
+				else
+					EmitGlobalSound("Berserker.Roar") 
+				end
+			else
+				EmitGlobalSound("Berserker.Roar") 
+			end
 			LoopOverPlayers(function(player, playerID, playerHero)
 				--print("looping through " .. playerHero:GetName())
 				if playerHero.zlodemon == true then
