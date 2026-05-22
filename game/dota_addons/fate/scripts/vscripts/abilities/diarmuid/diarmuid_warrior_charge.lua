@@ -130,7 +130,12 @@ function diarmuid_warrior_charge:OnSpellStart()
 	-- 	caster:FindAbilityByName("diarmuid_new_combo"):ActivateCombo(target)
 	-- end
 	--particle
-	caster:EmitSound("Hero_Huskar.Life_Break")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("lucio_q")
+	else
+		caster:EmitSound("Hero_Huskar.Life_Break")
+	end	   
+	
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())
 	Timers:CreateTimer( 2.0, function()

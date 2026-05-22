@@ -48,8 +48,15 @@ function ryougi_glass_moon:Cast1(target)
 	if (target - ori):Length2D() > range then
 		target = ori + (target - ori):Normalized()*range
 	end
-
-	caster:EmitSound("ryougi_moon_1")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+        if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+          caster:EmitSound("tingtang_dash")
+        else
+         caster:EmitSound("ryougi_moon_1")
+        end
+    else
+      caster:EmitSound("ryougi_moon_1")
+    end
 	FindClearSpaceForUnit(caster, target, true)
 	
 	local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_step_blue.vpcf", PATTACH_WORLDORIGIN, caster )
@@ -67,11 +74,23 @@ function ryougi_glass_moon:Cast2(target)
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
 	local ori = caster:GetAbsOrigin()
 	local range = self:GetSpecialValueFor("leap_range")
-	local direction = (target - ori):Normalized()
+	local direction = (target - ori)
+	if direction:Length2D()<10 then
+		direction = caster:GetForwardVector()
+	end
+	direction = direction:Normalized()
 	direction.z = 0
 	local counter = 0
-
-	EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
+ 	if caster:HasModifier("modifier_hero_selection_skin") then
+        if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+          EmitSoundOn("tingtang_dash_2", caster)
+        else
+         EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
+        end
+    else
+      EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
+    end
+	
 
 	caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon_2", {duration = 0.3})
 
@@ -89,6 +108,7 @@ function ryougi_glass_moon:Cast2(target)
 		counter = counter + 1
 					
 		local origin_t = caster:GetAbsOrigin()
+		
 		caster:SetForwardVector(direction)
 		caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
 
@@ -117,8 +137,13 @@ function ryougi_glass_moon:Cast2(target)
 				    end
 				end
 			end)
-
-			local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+			local particleName  = "particles/ryougi/ryougi_slash_blue.vpcf"
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				particleName = "particles/ryougi/tingtang_slash.vpcf"
+				end
+			end
+			local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(particle, 5, Vector(350, 0, 200)) 
 			ParticleManager:SetParticleControl(particle, 10, Vector(0, 0, 30))

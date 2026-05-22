@@ -43,8 +43,16 @@ function ryougi_knife_recast:StartCombo(combo_enemy)
 	local damage_per_line = self:GetSpecialValueFor("damage_per_line")
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
 	local target = Vector(0, 0, 0)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitGlobalSound("tingtang_r_recast")
+		else
+			EmitGlobalSound("ryougi_nibio")
+		end
+	else
+		EmitGlobalSound("ryougi_nibio")
+	end
 	
-	EmitGlobalSound("ryougi_nibio")
 
 	if caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_recast" then	    		
 		caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", false, true)	
@@ -87,6 +95,11 @@ function ryougi_knife_recast:StartCombo(combo_enemy)
 	ParticleManager:SetParticleControl( fxIndex, 0, combo_enemy:GetAbsOrigin()+random_vector + Vector(0, 0, 300))
 	ParticleManager:SetParticleControl( fxIndex, 1, combo_enemy:GetAbsOrigin()-random_vector)
 	EmitSoundOn("ryougi_hit", combo_enemy)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOn("tingtang_slash_3", combo_enemy)
+		end
+	end
 
 	local particle0 = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_red_big.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle0, 0, caster:GetAbsOrigin())
@@ -120,6 +133,15 @@ function ryougi_knife_recast:StartCombo(combo_enemy)
 			random_vector.z = 0
 			ParticleManager:SetParticleControl( fxIndex, 0, combo_enemy:GetAbsOrigin()+random_vector + Vector(0, 0, 300))
 			ParticleManager:SetParticleControl( fxIndex, 1, combo_enemy:GetAbsOrigin()-random_vector)
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					EmitSoundOn("tingtang_slash", caster)
+				else
+					EmitSoundOn("jtr_slash", caster)
+				end
+			else
+				EmitSoundOn("jtr_slash", caster)
+			end
 			EmitSoundOn("jtr_slash", caster)
 			--combo_enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
 			EmitSoundOn("ryougi_hit", combo_enemy)

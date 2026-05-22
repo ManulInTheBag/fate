@@ -9,9 +9,15 @@ ryougi_mystic_eyes = class({})
 
 function ryougi_mystic_eyes:OnSpellStart()
 	local caster = self:GetCaster()
-
-	caster:EmitSound("ryougi_eyes")
-
+	if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				caster:EmitSound("tingtang_eyes_active")
+			else
+				caster:EmitSound("ryougi_eyes")
+			end
+	else
+		caster:EmitSound("ryougi_eyes")
+	end
 	if caster:HasModifier("modifier_ryougi_pure_knowledge") then
 		caster:AddNewModifier(caster, self, "modifier_item_ward_true_sight", {true_sight_range = self:GetSpecialValueFor("true_sight_range"), duration = self:GetSpecialValueFor("duration")})
 		caster:AddNewModifier(caster, self, "modifier_ryougi_mystic_eyes_vision", {duration = self:GetSpecialValueFor("duration")})

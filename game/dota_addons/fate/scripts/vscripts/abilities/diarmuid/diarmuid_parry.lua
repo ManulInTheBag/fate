@@ -20,7 +20,11 @@ function diarmuid_parry:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_diarmuid_parry_particle", {duration  = self:GetSpecialValueFor("duration")})
 
 	caster:EmitSound("diar_parry_activate")
-	caster:EmitSound("diar_parry_voice")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("lucio_parry_voice")
+	else
+		caster:EmitSound("diar_parry_voice")
+	end
 
 	local particle = ParticleManager:CreateParticle("particles/diarmuid/parry/diar_parry_cast.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
@@ -46,7 +50,15 @@ function diarmuid_parry:Counter()
 	caster:RemoveModifierByName("modifier_diarmuid_parry_particle")
 
 	local aoe_radius = self:GetSpecialValueFor("first_hit_radius")
-	caster:EmitSound("diar_parry_prock")
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("lucio_counter_prock")
+		caster:EmitSound("lucio_combo_attack_1")
+		caster:EmitSound("lucio_combo_attack_2")
+	else
+		caster:EmitSound("diar_parry_prock")
+	end	   
+
+
 
 	HardCleanse(caster)
 	Timers:CreateTimer(FrameTime(), function()

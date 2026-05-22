@@ -17,8 +17,16 @@ function ryougi_knife_fan:OnSpellStart()
     caster:SetForwardVector(dir:Normalized())
 
     local calc_angle = caster:GetLocalAngles()
-
-    EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
+  if caster:HasModifier("modifier_hero_selection_skin") then
+        if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+          EmitSoundOn("tingtang_knifes_throw_"..math.random(1,3), caster)
+        else
+         EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
+        end
+    else
+      EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
+    end
+    
 
     local init_angle = QAngle(0, caster:GetLocalAngles().y, 0)
     caster:SetAbsAngles(0, init_angle.y, 0)

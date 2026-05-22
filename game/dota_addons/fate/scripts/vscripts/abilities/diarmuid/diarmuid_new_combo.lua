@@ -19,7 +19,12 @@ function diarmuid_new_combo:OnAbilityPhaseStart()
 	        	
 	    
    		end)
-		   caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("lucio_combo_1_voice")
+		else
+			caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
+		end	   
+
 
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin()) 
@@ -44,6 +49,9 @@ function diarmuid_new_combo:ActivateCombo(target)
 	        	
 	       
    		end)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("lucio_combo_2_voice")
+	end
 	caster:AddNewModifier(caster, self, "modifier_diar_combo_sequence_controller", {duration = self:GetSpecialValueFor("duration"), htarget = target:entindex()})
 	caster.combo_casted = true
 end
@@ -334,8 +342,17 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 			--target:RemoveModifierByName("modifier_gae_buidhe") 
 			self.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 25})
 		end
+		if self.hCaster:HasModifier("modifier_hero_selection_skin") then
+			self.target:EmitSound("lucio_combo_attack_3")
+			self.hCaster:EmitSound("lucio_combo_3_voice")
+			Timers:CreateTimer(0.3, function()
+				self.hCaster:EmitSound("lucio_combo_voice_4")
+			
+			end)
+		else
+			self.target:EmitSound("diar_new_combo_attack_3")
+		end
 
-		self.target:EmitSound("diar_new_combo_attack_3")
 		local flower = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/flower.vpcf", PATTACH_POINT_FOLLOW, self.target)
 		ParticleManager:SetParticleControl(flower, 0, self.target:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(flower)
@@ -349,7 +366,12 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 	if self.totalTime < 1.05 and self.totalTime / 0.3 > self.soundProckCount then
 
 		self.soundProckCount = self.soundProckCount +1
-		self.target:EmitSound("diar_new_combo_attack_"..math.random(1,2))
+		local particleName  = "particles/zlodemon/diar_combo/gae_dearg_target.vpcf"
+		if self.hCaster:HasModifier("modifier_hero_selection_skin") then
+			self.target:EmitSound("lucio_combo_attack_"..math.random(1,2))
+		else
+			self.target:EmitSound("diar_new_combo_attack_"..math.random(1,2))
+		end
 		local petals = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/petals.vpcf", PATTACH_POINT_FOLLOW, self.target)
 		ParticleManager:SetParticleControl(petals, 0, self.target:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(petals)

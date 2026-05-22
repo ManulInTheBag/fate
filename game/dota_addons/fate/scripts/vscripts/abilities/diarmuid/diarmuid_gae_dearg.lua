@@ -61,7 +61,11 @@ function diarmuid_gae_dearg:OnAbilityPhaseStart()
 	        	
 	    
    		end)
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("lucio_dearg_voice")
+		else
 		   caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
+		end
 
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin()) 
@@ -152,9 +156,19 @@ function diarmuid_gae_dearg:OnSpellStart()
 	        
 	      
    		end)
-		   caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("lucio_dearg_voice_2")
+		else
+		   	caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
+		end
 
-	target:EmitSound("Hero_Lion.Impale")
+
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		target:EmitSound("lucio_dearg")
+	else
+		target:EmitSound("Hero_Lion.Impale")
+	end	   
+	
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=2})
 	self:PlayGaeEffect(target)
 

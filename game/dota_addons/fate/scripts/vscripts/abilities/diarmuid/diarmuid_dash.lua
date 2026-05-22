@@ -57,8 +57,13 @@ function diarmuid_dash:OnSpellStart()
 				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 			end
 		end)
+        if caster:HasModifier("modifier_hero_selection_skin") then
+            caster:EmitSound("lucio_dash_voice")
+        else
+            caster:EmitSound("diar_w_dash")
+        end	   
 
-		caster:EmitSound("diar_w_dash")
+
 		if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 			if caster:FindAbilityByName("diarmuid_new_combo"):IsCooldownReady()  then
 				caster:AddNewModifier(caster, self, "modifier_rampant_warrior_window", { Duration = 4 })
@@ -169,8 +174,12 @@ function modifier_diar_dash_w:OnIntervalThink()
                 if not self.HittedTargets[enemy:entindex()] then
                     self.HittedTargets[enemy:entindex()] = true
 
+                    if self.parent:HasModifier("modifier_hero_selection_skin") then
+                        enemy:EmitSound("lucio_dash")
+                    else
+                        enemy:EmitSound("Hero_PhantomLancer.Attack")
+                    end	   
 
-                                        enemy:EmitSound("Hero_PhantomLancer.Attack")
 
                     DoDamage(self.caster, enemy, self.damage, self.ability:GetAbilityDamageType(), 0, self.ability, false)
 					local cd1 = self.parent:FindAbilityByName("diarmuid_warrior_charge"):GetCooldownTimeRemaining()

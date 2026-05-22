@@ -41,9 +41,27 @@ end
 function ryougi_kimono:OnAbilityPhaseStart()
    	local caster = self:GetCaster()	
 	if self:CheckSequence() == 2 then
-		EmitSoundOn("ryougi_kimono_2", caster)
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				EmitSoundOn("tingtang_r_recast", caster)
+			else
+				EmitSoundOn("ryougi_kimono_2", caster)
+			end
+		else
+			EmitSoundOn("ryougi_kimono_2", caster)
+		end
+
 	else
-		EmitSoundOn("ryougi_kimono_1", caster)
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				EmitSoundOn("tingtang_knife_throw", caster)
+			else
+				EmitSoundOn("ryougi_kimono_1", caster)
+			end
+		else
+			EmitSoundOn("ryougi_kimono_1", caster)
+		end
+		
 	end
     return true
 end
@@ -145,7 +163,16 @@ function ryougi_kimono:Kimono1()
 										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     								)
 
-    EmitSoundOn("jtr_slash", caster)
+									
+    if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOn("tingtang_slash_1", caster)
+		else
+			EmitSoundOn("jtr_slash", caster)
+		end
+	else
+		EmitSoundOn("jtr_slash", caster)
+	end
 
     local valid_enemy = nil
 
@@ -226,7 +253,15 @@ function ryougi_kimono:Kimono2()
 										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     								)
 
-    EmitSoundOn("jtr_slash", caster)
+    if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOn("tingtang_slash_2", caster)
+		else
+			EmitSoundOn("jtr_slash", caster)
+		end
+	else
+		EmitSoundOn("jtr_slash", caster)
+	end
 
     if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 	    for _, enemy in pairs(enemies) do

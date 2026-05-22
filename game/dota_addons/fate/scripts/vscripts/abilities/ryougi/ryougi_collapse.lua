@@ -29,8 +29,13 @@ function ryougi_collapse:OnSpellStart()
     caster:RemoveModifierByName("modifier_ryougi_combo_window")
 
     caster:AddNewModifier(caster, self, "modifier_ryougi_collapse_cd", {duration = self:GetCooldown(1)})
-
-	local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_red_big.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particleName  = "particles/ryougi/ryougi_slash_red_big.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+        if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+          particleName = "particles/ryougi/tingtang_slash_red_big.vpcf"
+		end
+    end
+	local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 5, Vector(self:GetSpecialValueFor("radius") + 50, 0, 70))
 	ParticleManager:SetParticleControl(particle, 10, Vector(0, 180, -60))
@@ -40,8 +45,16 @@ function ryougi_collapse:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(particle)
 	end)
     local combo_enemy = nil
+	if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				EmitGlobalSound("tingtang_combo_cast")
+			else
+				EmitGlobalSound("ryougi_combo_start")
+			end
+	else
+    	EmitGlobalSound("ryougi_combo_start")
+	end
 
-    EmitGlobalSound("ryougi_combo_start")
 
     local affected = false
 
@@ -58,7 +71,15 @@ function ryougi_collapse:OnSpellStart()
 										FIND_CLOSEST
     								)
 
-    EmitSoundOn("jtr_slash", caster)
+    if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					EmitSoundOn("tingtang_slash_combo", caster)
+				else
+					EmitSoundOn("jtr_slash", caster)
+				end
+			else
+				EmitSoundOn("jtr_slash", caster)
+			end
 
     if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 	    for _, enemy in pairs(enemies) do
@@ -73,8 +94,16 @@ function ryougi_collapse:OnSpellStart()
 		    end
 	    end
 	end
-
-	EmitSoundOn("jtr_slash", caster)
+	
+	if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					EmitSoundOn("tingtang_slash_3", caster)
+				else
+					EmitSoundOn("jtr_slash", caster)
+				end
+			else
+				EmitSoundOn("jtr_slash", caster)
+			end
 
 	if not combo_enemy then
 		FindClearSpaceForUnit( caster, target, true )
@@ -139,9 +168,23 @@ function ryougi_collapse:OnSpellStart()
 		        ParticleManager:ReleaseParticleIndex( effect_cast )
 		    end)
 
-			EmitSoundOn("jtr_slash", caster)
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					EmitSoundOn("tingtang_slash_2", caster)
+				else
+					EmitSoundOn("jtr_slash", caster)
+				end
+			else
+				EmitSoundOn("jtr_slash", caster)
+			end
 			combo_enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
-			local particle2 = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_red_big.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+			local particleName  = "particles/ryougi/ryougi_slash_red_big.vpcf"
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				particleName = "particles/ryougi/tingtang_slash_red_big.vpcf"
+				end
+			end
+			local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(particle2, 5, Vector(self:GetSpecialValueFor("radius") + 50, 0, 70))
 			ParticleManager:SetParticleControl(particle2, 10, Vector(0, 180, 120))
@@ -153,7 +196,16 @@ function ryougi_collapse:OnSpellStart()
 		end)
 	end)
 	Timers:CreateTimer(0.5, function()
-		EmitGlobalSound("ryougi_combo")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				EmitGlobalSound("tingtang_combo_voice")
+			else
+				EmitGlobalSound("ryougi_combo")
+			end
+		else
+			EmitGlobalSound("ryougi_combo")
+		end
+		
 	end)
 	Timers:CreateTimer(0.7, function()
 		StartAnimation(caster, {duration=1.1, activity=ACT_DOTA_RAZE_3, rate=1})
@@ -175,10 +227,24 @@ function ryougi_collapse:OnSpellStart()
 		        ParticleManager:DestroyParticle(effect_cast, true)
 		        ParticleManager:ReleaseParticleIndex( effect_cast )
 		    end)
-
-			EmitSoundOn("jtr_slash", caster)
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					EmitSoundOn("tingtang_slash_3", caster)
+				else
+					EmitSoundOn("jtr_slash", caster)
+				end
+			else
+				EmitSoundOn("jtr_slash", caster)
+			end
+			
 			combo_enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
-			local particle3 = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_red_big.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+			local particleName  = "particles/ryougi/ryougi_slash_red_big.vpcf"
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				particleName = "particles/ryougi/tingtang_slash_red_big.vpcf"
+				end
+			end
+			local particle3 = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:SetParticleControl(particle3, 0, caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(particle3, 5, Vector(self:GetSpecialValueFor("radius") + 50, 0, 70))
 			ParticleManager:SetParticleControl(particle3, 10, Vector(0, 180, -60))
@@ -187,7 +253,30 @@ function ryougi_collapse:OnSpellStart()
 				ParticleManager:ReleaseParticleIndex(particle3)
 			end)
 		end)
+		Timers:CreateTimer(0.3, function()
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+
+					EmitSoundOn("tingtang_combo_voice", caster)
+					EmitSoundOn("tingtang_combo_last", combo_enemy)
+					Timers:CreateTimer(0.2, function()
+						EmitSoundOn("tingtang_combo_slashes", combo_enemy)
+
+					end)
+				end
+			end
+		end)
 		Timers:CreateTimer(0.5, function()
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					local fxIndex1 = ParticleManager:CreateParticle( "particles/ryougi/tingtang_combo_ring.vpcf", PATTACH_ABSORIGIN, combo_enemy)
+					ParticleManager:SetParticleControl( fxIndex1, 0, combo_enemy:GetAbsOrigin())
+					ParticleManager:ReleaseParticleIndex(fxIndex1)
+				end
+
+			end
+
+			
 			for i = 1, line_count do
 				Timers:CreateTimer(i*FrameTime()*2, function()
 					DoDamage(caster, combo_enemy, damage/line_count, DAMAGE_TYPE_PURE, 0, self, false)
@@ -198,7 +287,16 @@ function ryougi_collapse:OnSpellStart()
 			        ParticleManager:SetParticleControl( fxIndex, 1, combo_enemy:GetAbsOrigin()-random_vector)
 					--CreateSlashFx(caster, combo_enemy:GetAbsOrigin()+RandomVector(200), combo_enemy:GetAbsOrigin()+RandomVector(200))
 					eyes:CutLine(combo_enemy, "collapse_"..i)
-					EmitSoundOn("ryougi_hit", combo_enemy)
+					
+					if caster:HasModifier("modifier_hero_selection_skin") then
+						if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+							
+						else
+							EmitSoundOn("ryougi_hit", combo_enemy)
+						end
+					else
+						EmitSoundOn("ryougi_hit", combo_enemy)
+					end
 					combo_enemy:RemoveModifierByName("modifier_ryougi_lines")
 					if caster.SelflessKnowledgeAcquired and combo_enemy:GetHealthPercent() < execute and not (combo_enemy:IsMagicImmune() or combo_enemy:HasModifier("modifier_avalon")) then
 						combo_enemy:Execute(self, caster, { bExecution = true })

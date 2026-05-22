@@ -25,7 +25,16 @@ function ryougi_knife_throw:OnSpellStart()
   	local range = self:GetSpecialValueFor("range")
 
 	--EmitSoundOn("ryougi_knife_"..math.random(1,2), caster)
-	EmitGlobalSound("ryougi_mieta")
+	
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitGlobalSound("tingtang_knife_throw")
+		else
+			EmitGlobalSound("ryougi_mieta")
+		end
+	else
+		EmitGlobalSound("ryougi_mieta")
+	end
 
 	local tProjectile = {
 		caster = caster,
@@ -77,6 +86,11 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     eyes:CutLine(hTarget, "knife_throw")
     DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
   	EmitSoundOn("ryougi_hit", hTarget)
+	if hCaster:HasModifier("modifier_hero_selection_skin") then
+		if hCaster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOn("tingtang_slash", hTarget)
+		end
+	end
   	--hTarget:EmitSound("Atalanta.RImpact")
    	--EmitGlobalSound("Atalanta.RImpact2")
     self.hitenemy = true

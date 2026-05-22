@@ -67,8 +67,12 @@ function diarmuid_gae_buidhe:OnAbilityPhaseStart()
 	        	
 	         
    		end)
-	 
-	caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_1")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("lucio_buidhe_voice_1")
+		else
+		   	 caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_1")
+		end
+	
 	local particle = ParticleManager:CreateParticle("particles/custom/diarmuid/diarmuid_gae_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin()) 
 	ParticleManager:SetParticleControl(particle, 2, caster:GetAbsOrigin()) 
@@ -143,8 +147,23 @@ function diarmuid_gae_buidhe:OnSpellStart()
 	        	
 	       
    		end)
-		   caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_2")
-	target:EmitSound("Hero_Lion.Impale")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("lucio_buidhe_voice_2")
+		else
+		   	 caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_2")
+		end
+
+
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		target:EmitSound("lucio_buidhe")
+		Timers:CreateTimer(0.1, function() 
+			target:EmitSound("lucio_combo_attack_1")
+			target:EmitSound("lucio_combo_attack_2")
+		end)
+	
+	else
+		target:EmitSound("Hero_Lion.Impale")
+	end	   
 	
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=2})
 

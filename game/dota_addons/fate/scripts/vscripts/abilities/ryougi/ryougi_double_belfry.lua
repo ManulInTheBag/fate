@@ -133,7 +133,13 @@ function ryougi_double_belfry:Belfry1()
 	local caster = self:GetCaster()
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
 
-	local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_blue_speed_up.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particleName  = "particles/ryougi/ryougi_slash_blue_speed_up.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+        if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+          particleName = "particles/ryougi/tingtang_slash.vpcf"
+		end
+    end
+	local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 5, Vector(self:GetSpecialValueFor("radius") + 50, 0, 70))
 	ParticleManager:SetParticleControl(particle, 10, Vector(0, 180, -90))
@@ -142,8 +148,19 @@ function ryougi_double_belfry:Belfry1()
 		ParticleManager:ReleaseParticleIndex(particle)
 	end)
 
-	EmitSoundOn("jtr_slash", caster)
-	EmitSoundOn("ryougi_one", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOn("tingtang_slash", caster)
+			EmitSoundOn("tingtang_e_voice_1", caster)
+		else
+			EmitSoundOn("jtr_slash", caster)
+			EmitSoundOn("ryougi_one", caster)
+		end
+	else
+		EmitSoundOn("jtr_slash", caster)
+		EmitSoundOn("ryougi_one", caster)
+	end
+	
 
 	local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                                         caster:GetAbsOrigin(),
@@ -176,8 +193,13 @@ function ryougi_double_belfry:Belfry2()
 	local caster = self:GetCaster()
 
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
-
-	local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_blue_speed_up.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particleName  = "particles/ryougi/ryougi_slash_blue_speed_up.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+        if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+          particleName = "particles/ryougi/tingtang_slash.vpcf"
+		end
+    end
+	local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 5, Vector(self:GetSpecialValueFor("radius") + 50, 0, 70)) 
 	ParticleManager:SetParticleControl(particle, 10, Vector(30, -30, 240))
@@ -187,8 +209,19 @@ function ryougi_double_belfry:Belfry2()
 		ParticleManager:ReleaseParticleIndex(particle)
 	end)
 
-	EmitSoundOn("jtr_slash", caster)
-	EmitSoundOn("ryougi_two", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOn("tingtang_slash_2", caster)
+			EmitSoundOn("tingtang_e_voice_2", caster)
+		else
+			EmitSoundOn("jtr_slash", caster)
+			EmitSoundOn("ryougi_two", caster)
+		end
+	else
+		EmitSoundOn("jtr_slash", caster)
+		EmitSoundOn("ryougi_two", caster)
+	end
+	
 
 	local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                                         caster:GetAbsOrigin(),
@@ -220,8 +253,13 @@ function ryougi_double_belfry:Belfry3()
 	local caster = self:GetCaster()
 
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
-
-	local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_blue_speed_up.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particleName  = "particles/ryougi/ryougi_slash_blue_speed_up.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+        if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+          particleName = "particles/ryougi/tingtang_slash.vpcf"
+		end
+    end
+	local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 5, Vector(self:GetSpecialValueFor("radius") + 50, 0, 70)) 
 	ParticleManager:SetParticleControl(particle, 10, Vector(0, 180, -120))
@@ -231,8 +269,19 @@ function ryougi_double_belfry:Belfry3()
 		ParticleManager:ReleaseParticleIndex(particle)
 	end)
 
-	EmitSoundOn("jtr_slash", caster)
-	EmitSoundOn("ryougi_three", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitSoundOn("tingtang_slash_3", caster)
+			EmitSoundOn("tingtang_e_voice_3", caster)
+		else
+			EmitSoundOn("jtr_slash", caster)
+			EmitSoundOn("ryougi_three", caster)
+		end
+	else
+		EmitSoundOn("jtr_slash", caster)
+		EmitSoundOn("ryougi_three", caster)
+	end
+	
 
 	local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                                         caster:GetAbsOrigin(),
