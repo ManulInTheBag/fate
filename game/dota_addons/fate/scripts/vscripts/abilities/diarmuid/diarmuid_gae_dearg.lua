@@ -204,12 +204,19 @@ function diarmuid_gae_dearg:StartRemainingCooldown(flCooldown)
 end
 
 function diarmuid_gae_dearg:PlayGaeEffect(target)
-	local flower = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/flower_red.vpcf", PATTACH_POINT_FOLLOW, target)
-	ParticleManager:SetParticleControl(flower, 0, target:GetAbsOrigin())
-	ParticleManager:ReleaseParticleIndex(flower)
-	local flower2 = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/red_rose.vpcf", PATTACH_POINT_FOLLOW, target)
-	ParticleManager:SetParticleControl(flower2, 0, target:GetAbsOrigin()+ Vector(0,0,150))
-	ParticleManager:ReleaseParticleIndex(flower2)
+
+	if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+		local flower = ParticleManager:CreateParticle("particles/diarmuid/diar_slash_red_skin.vpcf", PATTACH_POINT_FOLLOW, target)
+		ParticleManager:SetParticleControl(flower, 0, target:GetAbsOrigin() + Vector(0,0,50))
+		ParticleManager:ReleaseParticleIndex(flower)
+	else
+		local flower = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/flower_red.vpcf", PATTACH_POINT_FOLLOW, target)
+		ParticleManager:SetParticleControl(flower, 0, target:GetAbsOrigin())
+		ParticleManager:ReleaseParticleIndex(flower)
+		local flower2 = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/red_rose.vpcf", PATTACH_POINT_FOLLOW, target)
+		ParticleManager:SetParticleControl(flower2, 0, target:GetAbsOrigin()+ Vector(0,0,150))
+		ParticleManager:ReleaseParticleIndex(flower2)
+	end
 	local petals = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/petals_red.vpcf", PATTACH_POINT_FOLLOW, target)
 	ParticleManager:SetParticleControl(petals, 0, target:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(petals)

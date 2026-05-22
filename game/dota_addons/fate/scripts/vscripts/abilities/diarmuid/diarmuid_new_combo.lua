@@ -1,6 +1,8 @@
 diarmuid_new_combo = class({})
 
 LinkLuaModifier("modifier_diar_model_swap", "abilities/diarmuid/diarmuid_new_combo", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_diar_model_swap_skin", "abilities/diarmuid/diarmuid_new_combo", LUA_MODIFIER_MOTION_NONE)
+
 LinkLuaModifier("modifier_diar_fw_controller", "abilities/diarmuid/diarmuid_new_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_diar_combo_sequence_controller", "abilities/diarmuid/diarmuid_new_combo", LUA_MODIFIER_MOTION_NONE)
 function diarmuid_new_combo:OnAbilityPhaseStart()
@@ -55,12 +57,20 @@ function diarmuid_new_combo:OnSpellStart()
     local vector = (target - caster:GetAbsOrigin()):Normalized()
     vector.z = 0
 	local recast_time = self:GetSpecialValueFor("recast_timer")
-	caster:AddNewModifier(caster, self, "modifier_diar_model_swap", {duration = self:GetSpecialValueFor("duration")+recast_time + 0.4})
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:AddNewModifier(caster, self, "modifier_diar_model_swap_skin", {duration = self:GetSpecialValueFor("duration")+recast_time + 0.4})
+	else
+		caster:AddNewModifier(caster, self, "modifier_diar_model_swap", {duration = self:GetSpecialValueFor("duration")+recast_time + 0.4})
+	end
 	self.dearg_attach_fx = nil
 	caster.combo_casted = false
     local speed = 3000
+	local projectilename = "particles/zlodemon/diar_combo/gae_dearg_projectile.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		projectilename = "particles/zlodemon/diar_combo/lucio_combo_projectile.vpcf"
+	end
 	local tProjectile = {
-        EffectName = "particles/zlodemon/diar_combo/gae_dearg_projectile.vpcf",
+        EffectName = projectilename,
         Ability = self,
         vSpawnOrigin = caster:GetAbsOrigin() + Vector(0,0,120),
         vVelocity = vector * speed,
@@ -145,7 +155,11 @@ function diarmuid_new_combo:OnProjectileHit(target, location, tData )
 	target:EmitSound("Hero_Lion.Impale")
     giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("recast_timer"))
 	giveUnitDataDrivenModifier(caster,target , "revoked", self:GetSpecialValueFor("recast_timer"))
-	self.dearg_attach_fx = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/gae_dearg_target.vpcf", PATTACH_POINT_FOLLOW, target)
+	local particleName  = "particles/zlodemon/diar_combo/gae_dearg_target.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		particleName = "particles/zlodemon/diar_combo/lucio_sword_target.vpcf"
+	end
+	self.dearg_attach_fx = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(self.dearg_attach_fx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetOrigin() , true)
 	ParticleManager:SetParticleControlForward(self.dearg_attach_fx,1,target:GetForwardVector())
 	
@@ -201,6 +215,46 @@ function modifier_diar_model_swap:CheckState()
     return state
 end
 --========================================--
+
+modifier_diar_model_swap_skin = modifier_diar_model_swap_skin or class({})
+
+function modifier_diar_model_swap_skin:IsHidden()                                                                       return true end
+function modifier_diar_model_swap_skin:IsDebuff()                                                                       return false end
+function modifier_diar_model_swap_skin:IsPurgable()                                                                     return false end
+function modifier_diar_model_swap_skin:IsPurgeException()                                                               return false end
+function modifier_diar_model_swap_skin:RemoveOnDeath()                                                                  return false end
+function modifier_diar_model_swap_skin:IsDimensionException()                                                           return true end
+function modifier_diar_model_swap_skin:AllowIllusionDuplicate()                                                         return true end
+function modifier_diar_model_swap_skin:GetPriority()                                                                    return MODIFIER_PRIORITY_NORMAL end
+function modifier_diar_model_swap_skin:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_diar_model_swap_skin:GetModifierModelChange(keys)
+    return self.sModelName
+end
+function modifier_diar_model_swap_skin:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    if IsServer() then
+        self.sModelName = "models/diarmuid/diar_skin_no_sword.vmdl"
+    end
+end
+function modifier_diar_model_swap_skin:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end
+function modifier_diar_model_swap_skin:CheckState()
+    local state =   { 
+                        [MODIFIER_STATE_DISARMED] = true,
+                    }
+    return state
+end
+--========================================--
+
 
 
 modifier_diar_fw_controller = modifier_diar_fw_controller or class({})

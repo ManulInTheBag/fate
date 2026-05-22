@@ -1,8 +1,8 @@
 LinkLuaModifier("modifier_diarmuid_parry", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_diarmuid_parry_particle", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_diarmuid_parry_marker", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
-
-
+LinkLuaModifier("modifier_diarmuid_parry_marker_effect", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_diarmuid_parry_marker_effect_skin", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
 diarmuid_parry = class({})
 
 function diarmuid_parry:GetAOERadius()
@@ -55,9 +55,11 @@ function diarmuid_parry:Counter()
 
 
 	local damage = self:GetSpecialValueFor("damage")
-	
-	
-	local particle = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/gae_buidhe_slash_counter.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local projectilename = "particles/zlodemon/diar_combo/gae_buidhe_slash_counter.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		projectilename = "particles/zlodemon/diar_combo/gae_buidhe_slash_counter_skin.vpcf"
+	end
+	local particle = ParticleManager:CreateParticle(projectilename, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(), dir)
 	ParticleManager:ReleaseParticleIndex(particle)
 	
@@ -69,6 +71,11 @@ function diarmuid_parry:Counter()
 			giveUnitDataDrivenModifier(caster, v, "disarmed", self:GetSpecialValueFor("disarm_duration"))
 			if caster.IsParryUpgraideAcquired then
 				v:AddNewModifier(caster, self, "modifier_diarmuid_parry_marker", {duration = 5})
+					if caster:HasModifier("modifier_hero_selection_skin") then
+						v:AddNewModifier(caster, self, "modifier_diarmuid_parry_marker_effect_skin", {duration = 5})
+					else
+						v:AddNewModifier(caster, self, "modifier_diarmuid_parry_marker_effect", {duration = 5})
+					end
 			end
 		end
 	end
@@ -202,15 +209,6 @@ function modifier_diarmuid_parry_marker:IsDebuff() return false end
 function modifier_diarmuid_parry_marker:RemoveOnDeath() return true end
 
 
-function modifier_diarmuid_parry_marker:GetEffectName()
-	return "particles/zlodemon/zlodemon_overhead_duel_diarmuid.vpcf"
-end
-
-function modifier_diarmuid_parry_marker:GetEffectAttachType()
-	return PATTACH_OVERHEAD_FOLLOW
-end
-
-
 function modifier_diarmuid_parry_marker:CheckState()
 	return {				[MODIFIER_STATE_INVISIBLE] = false,
                                [MODIFIER_STATE_TRUESIGHT_IMMUNE] = false,}
@@ -224,3 +222,32 @@ function modifier_diarmuid_parry_marker:DeclareFunctions()
         MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
            }
 end
+
+modifier_diarmuid_parry_marker_effect = class({})
+function modifier_diarmuid_parry_marker_effect:IsHidden() return true end
+function modifier_diarmuid_parry_marker_effect:IsDebuff() return false end
+function modifier_diarmuid_parry_marker_effect:RemoveOnDeath() return true end
+
+
+function modifier_diarmuid_parry_marker_effect:GetEffectName()
+	return "particles/zlodemon/zlodemon_overhead_duel_diarmuid.vpcf"
+end
+
+function modifier_diarmuid_parry_marker_effect:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW
+end
+
+modifier_diarmuid_parry_marker_effect_skin = class({})
+function modifier_diarmuid_parry_marker_effect_skin:IsHidden() return true end
+function modifier_diarmuid_parry_marker_effect_skin:IsDebuff() return false end
+function modifier_diarmuid_parry_marker_effect_skin:RemoveOnDeath() return true end
+
+
+function modifier_diarmuid_parry_marker_effect_skin:GetEffectName()
+	return "particles/zlodemon/zlodemon_overhead_duel_diarmuid_skin.vpcf"
+end
+
+function modifier_diarmuid_parry_marker_effect_skin:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW
+end
+
