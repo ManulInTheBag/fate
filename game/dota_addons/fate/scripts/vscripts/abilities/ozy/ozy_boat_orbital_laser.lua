@@ -1,5 +1,20 @@
 ozy_boat_orbital_laser = class({})
 LinkLuaModifier("modifier_ozy_boat_orbital_laser_stacks", "abilities/ozy/ozy_boat_orbital_laser", LUA_MODIFIER_MOTION_NONE)
+function ozy_boat_orbital_laser:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function ozy_boat_orbital_laser:GetCustomCastErrorLocation(vLocation)
+	 return "#Wrong_Target_Location"
+end
 function ozy_boat_orbital_laser:OnChannelThink(fInterval)
     self.ChannelTime = self.ChannelTime + fInterval
     self:GetCaster():FaceTowards(self:GetCursorPosition())
