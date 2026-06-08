@@ -734,7 +734,14 @@
 						import_filter = 
 						{
 							exclude_by_default = false
-							exception_list = [  ]
+							exception_list = 
+							[
+								"Mang__9_",
+								"Mang__8_",
+								"Mang__7_",
+								"Mang__11_",
+								"Mang__10_",
+							]
 						}
 					},
 					{
@@ -798,12 +805,16 @@
 								to = "models/zlodemon/jia/jia_10.vmat"
 							},
 							{
-								from = "new material 1.vmat"
-								to = "new material 1.vmat"
-							},
-							{
 								from = "new material 7.vmat"
 								to = "models/zlodemon/jia/jia_1.vmat"
+							},
+							{
+								from = "jopa1.vmat"
+								to = "models/zlodemon/jia/jia_7.vmat"
+							},
+							{
+								from = "mang.vmat"
+								to = "materials/models/items/dawnbreaker/dawnbreaker_calavera/dawnbreaker_calavera_hair_yellow.vmat"
 							},
 						]
 						use_single_material = false
