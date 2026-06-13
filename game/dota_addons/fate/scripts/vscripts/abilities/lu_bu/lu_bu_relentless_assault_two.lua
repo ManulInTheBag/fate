@@ -21,7 +21,17 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 	local distance = self:GetSpecialValueFor("knockback_distance")
 	local damage = self:GetSpecialValueFor("damage")
 	local damage_debuff_duration = self:GetSpecialValueFor("debuff_duration")
-	caster:EmitSound("lu_bu_relentless_assault_one")
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if jiaQiuSkin then
+		caster:EmitSound("jia_qiu_crit")
+	else
+		caster:EmitSound("lu_bu_relentless_assault_one")
+	end
 
 	-- find units
 	local enemies = FindUnitsInRadius(
@@ -143,6 +153,12 @@ function lu_bu_relentless_assault_two:PlayEffects1( caught, direction )
 	-- Get Resources
 	local particle_cast = "particles/custom/lu_bu/assault_two_normal.vpcf"
 	local sound_cast = "relentless_assault_two"
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			particle_cast = "particles/custom/jia_qiu/assault_two_normal.vpcf"
+		end
+	end
 	if not caught then
 		local sound_cast = "relentless_assault_two"
 	end
@@ -166,6 +182,13 @@ function lu_bu_relentless_assault_two:PlayEffects2( target, origin, direction )
 	-- Get Resources
 	local particle_cast = "particles/custom/lu_bu/assault_two_crit.vpcf"
 	local sound_cast = "relentless_assault_two"
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			particle_cast = "particles/custom/jia_qiu/assault_two_crit.vpcf"
+			sound_cast = "jia_qiu_crit_hit"
+		end
+	end
 
 	-- Create Particle
 	local effect_cast2 = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, target )

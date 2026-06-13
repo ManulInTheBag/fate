@@ -13,7 +13,15 @@ end
 
 function lu_bu_god_force:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	caster:EmitSound("lu_bu_relentless_assault_three")
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if not jiaQiuSkin then
+		caster:EmitSound("lu_bu_relentless_assault_three")
+	end
 
 	return true
 end
@@ -32,6 +40,16 @@ function lu_bu_god_force:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_lu_bu_god_force_mute", { Duration = 2.0 })
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if jiaQiuSkin then
+		caster:EmitSound("jia_qiu_god_force_voice")
+	end
+
 	self:StartGodForce()
 	
 	local origin = caster:GetForwardVector()
@@ -39,7 +57,9 @@ function lu_bu_god_force:OnSpellStart()
 	Timers:CreateTimer(0.05, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
-			caster:EmitSound("lu_bu_god_force_small_hit")
+			if not jiaQiuSkin then
+				caster:EmitSound("lu_bu_god_force_small_hit")
+			end
 		end
 	end)
 	Timers:CreateTimer(0.35, function()
@@ -50,7 +70,9 @@ function lu_bu_god_force:OnSpellStart()
 	Timers:CreateTimer(0.45, function()
 		if caster:IsAlive() then
 			self:PlayEffects3( caught, origin:Normalized() )
-			caster:EmitSound("lu_bu_god_force_small_hit")
+			if not jiaQiuSkin then
+				caster:EmitSound("lu_bu_god_force_small_hit")
+			end
 		end
 	end)
 	Timers:CreateTimer(0.75, function()
@@ -61,7 +83,9 @@ function lu_bu_god_force:OnSpellStart()
 	Timers:CreateTimer(0.85, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
-			caster:EmitSound("lu_bu_god_force_small_hit")
+			if not jiaQiuSkin then
+				caster:EmitSound("lu_bu_god_force_small_hit")
+			end
 		end
 	end)
 	
@@ -73,7 +97,9 @@ function lu_bu_god_force:OnSpellStart()
 	Timers:CreateTimer(1.25, function()
 		if caster:IsAlive() then
 			self:PlayEffects3( caught, origin:Normalized() )
-			caster:EmitSound("lu_bu_god_force_small_hit")
+			if not jiaQiuSkin then
+				caster:EmitSound("lu_bu_god_force_small_hit")
+			end
 		end
 	end)
 	Timers:CreateTimer(1.55, function()
@@ -84,7 +110,9 @@ function lu_bu_god_force:OnSpellStart()
 	Timers:CreateTimer(1.65, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
-			caster:EmitSound("lu_bu_god_force_small_hit")
+			if not jiaQiuSkin then
+				caster:EmitSound("lu_bu_god_force_small_hit")
+			end
 		end
 	end)
 	Timers:CreateTimer(1.8, function()
@@ -94,7 +122,7 @@ function lu_bu_god_force:OnSpellStart()
 	end)
 	Timers:CreateTimer(2.00, function()
 		if caster:IsAlive() then
-			self:PlayEffects2( caught, origin:Normalized() )
+			self:PlayEffects2( caught, origin:Normalized(), true )
 		end
 	end)
 	
@@ -105,7 +133,13 @@ function lu_bu_god_force:OnSpellStart()
 		if caster:IsAlive() then
 			ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 				-- Create Particle
-			local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			local blastFxName = "particles/custom/lu_bu/lu_bu_armistice_impact.vpcf"
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+					blastFxName = "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf"
+				end
+			end
+			local blastFx = ParticleManager:CreateParticle(blastFxName, PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())
 			
 			Timers:CreateTimer( 2.0, function()
@@ -113,7 +147,11 @@ function lu_bu_god_force:OnSpellStart()
 				ParticleManager:ReleaseParticleIndex( blastFx )
 			end)
 			
-			caster:EmitSound("lu_bu_armistice_impact")
+			if blastFxName == "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf" then
+				caster:EmitSound("jia_qiu_armistice")
+			else
+				caster:EmitSound("lu_bu_armistice_impact")
+			end
 			caster:EmitSound("lu_bu_god_force_big_hit")
 		end
 	end)
@@ -162,10 +200,21 @@ function lu_bu_god_force:GodForceHits()
 																 LargeRadius = self:GetSpecialValueFor("radius_lasthit")})
 end
 
-function lu_bu_god_force:PlayEffects2( caught, direction )
+function lu_bu_god_force:PlayEffects2( caught, direction, lastHit )
 	-- Get Resources
 	local particle_cast = "particles/custom/lu_bu/assault_two_ult.vpcf"
 	local sound_cast = "Hero_Mars.Shield.Cast"
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			particle_cast = "particles/custom/jia_qiu/assault_two_ult.vpcf"
+			if lastHit then
+				caster:EmitSound("jia_qiu_assault_sfx")
+			else
+				sound_cast = "jia_qiu_strike"
+			end
+		end
+	end
 	if not caught then
 		local sound_cast = "Hero_Mars.Shield.Cast.Small"
 	end
@@ -188,6 +237,13 @@ function lu_bu_god_force:PlayEffects3( caught, direction )
 	-- Get Resources
 	local particle_cast = "particles/custom/lu_bu/assault_two_ult_reverse.vpcf"
 	local sound_cast = "Hero_Mars.Shield.Cast"
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			particle_cast = "particles/custom/jia_qiu/assault_two_ult_reverse.vpcf"
+			sound_cast = "jia_qiu_strike"
+		end
+	end
 	if not caught then
 		local sound_cast = "Hero_Mars.Shield.Cast.Small"
 	end

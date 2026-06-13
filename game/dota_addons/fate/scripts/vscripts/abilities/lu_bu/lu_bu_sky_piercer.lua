@@ -65,8 +65,21 @@ function lu_bu_sky_piercer:OnSpellStart()
 	ScreenShake(caster:GetOrigin(), 15, 4, 8, 40000, 0, true)
 
 	-- Play cast sound
-	EmitGlobalSound("lu_bu_sky_piercer_cast")
-	EmitGlobalSound("lu_bu_sky_piercer")
+	local jiaQiuUlt = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuUlt = true
+		end
+	end
+	if jiaQiuUlt then
+		EmitGlobalSound("jia_qiu_ult_voice")
+		Timers:CreateTimer(0.5, function()
+			EmitGlobalSound("jia_qiu_ult")
+		end)
+	else
+		EmitGlobalSound("lu_bu_sky_piercer_cast")
+		EmitGlobalSound("lu_bu_sky_piercer")
+	end
 	
 	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_RAZE_1, rate=0.75})
 	
@@ -79,11 +92,17 @@ function lu_bu_sky_piercer:OnSpellStart()
 
 	-- Add start particle effect
 	Timers:CreateTimer(0.4, function()
-		local particle_start_fx_center = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_left = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_right = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_left_ext = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_right_ext = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
+		local explosionFxName = "particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf"
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+				explosionFxName = "particles/custom/jia_qiu/lu_bu_sky_piercer_explosion.vpcf"
+			end
+		end
+		local particle_start_fx_center = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		local particle_start_fx_left = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		local particle_start_fx_right = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		local particle_start_fx_left_ext = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		local particle_start_fx_right_ext = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
 
 		local particle_radius_indicator_right = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)
 		local particle_radius_indicator_left = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)

@@ -59,6 +59,10 @@ function modifier_lu_bu_relentless_assault_three:OnRefresh( kv )
 end
 
 function modifier_lu_bu_relentless_assault_three:OnDestroy( kv )
+	if IsServer() then
+		StopSoundOn( "Hero_Juggernaut.BladeFuryStart", self:GetParent() )
+		StopSoundOn( "jia_qiu_spin", self:GetParent() )
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -80,8 +84,16 @@ function modifier_lu_bu_relentless_assault_three:OnIntervalThink()
 	-- Find enemies in radius
 	
 	local caster = self:GetCaster()
-	
-	caster:EmitSound("relentless_assault_three")
+
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if not jiaQiuSkin then
+		caster:EmitSound("relentless_assault_three")
+	end
 	
 	local enemies = FindUnitsInRadius(
 		self:GetCaster():GetTeamNumber(),	-- int, your team number
@@ -116,12 +128,24 @@ end
 function modifier_lu_bu_relentless_assault_three:PlayEffects()
 		-- Get Resources
 	local particle_cast = "particles/custom/lu_bu/assault_three_spin.vpcf"
+	local jiaQiuSpin = false
+	local parent = self:GetParent()
+	if parent:HasModifier("modifier_hero_selection_skin") then
+		if parent:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			particle_cast = "particles/custom/jia_qiu/assault_three_spin.vpcf"
+			jiaQiuSpin = true
+		end
+	end
 
 	-- Create Particle
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControl( effect_cast, 5, Vector( self.radius, 0, 0 ) )
 	
 	local sound_cast = "relentless_assault_three"
+	if jiaQiuSpin then
+		sound_cast = "jia_qiu_spin"
+		EmitSoundOn( "Hero_Juggernaut.BladeFuryStart", self:GetParent() )
+	end
 
 	-- buff particle
 	self:AddParticle(

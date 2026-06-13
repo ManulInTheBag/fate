@@ -25,10 +25,27 @@ function lu_bu_relentless_assault_one:OnSpellStart()
 		false
 	)
 	
-	local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local blastFxName = "particles/custom/lu_bu/lu_bu_armistice_impact.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			blastFxName = "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf"
+		end
+	end
+	local blastFx = ParticleManager:CreateParticle(blastFxName, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( blastFx, 0, cast_point)
-	caster:EmitSound("relentless_assault_one")
-	caster:EmitSound("lu_bu_relentless_assault")
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if jiaQiuSkin then
+		caster:EmitSound("jia_qiu_assault_sfx")
+		caster:EmitSound("Hero_Mars.Spear.Cast")
+	else
+		caster:EmitSound("relentless_assault_one")
+		caster:EmitSound("lu_bu_relentless_assault")
+	end
 		
 	ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 
@@ -52,8 +69,17 @@ function lu_bu_relentless_assault_one:OnSpellStart()
 			{ duration = slow_duration }
 		)
 		
-		local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_small_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local smallFxName = "particles/custom/lu_bu/lu_bu_small_impact.vpcf"
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+				smallFxName = "particles/custom/jia_qiu/lu_bu_small_impact.vpcf"
+			end
+		end
+		local blastFx = ParticleManager:CreateParticle(smallFxName, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl( blastFx, 0, cast_point)
+		if smallFxName == "particles/custom/jia_qiu/lu_bu_small_impact.vpcf" then
+			caster:EmitSound("jia_qiu_hit_light")
+		end
 		
 		ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 	end
@@ -73,6 +99,11 @@ function lu_bu_relentless_assault_one:PlayEffects()
 	local sound_cast = "Hero_Ursa.Earthshock"
 	local particle_cast = "particles/units/heroes/hero_ursa/ursa_earthshock.vpcf"
 	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			sound_cast = "Hero_EarthShaker.Totem"
+		end
+	end
 	-- get data
 	local slow_radius = self:GetSpecialValueFor("shock_radius")
 	local cast_point = caster:GetAbsOrigin() + caster:GetForwardVector()*200

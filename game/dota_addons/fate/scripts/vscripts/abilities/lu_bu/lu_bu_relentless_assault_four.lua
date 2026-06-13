@@ -10,7 +10,19 @@ function lu_bu_relentless_assault_four:OnSpellStart()
 	projectile_vector.z = 0
 	projectile_vector = projectile_vector:Normalized()
 	
-	caster:EmitSound("lu_bu_relentless_assault_three")
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if jiaQiuSkin then
+		caster:EmitSound("jia_qiu_finisher")
+		caster:EmitSound("Hero_Centaur.HoofStomp")
+		caster:EmitSound("jia_qiu_slam")
+	else
+		caster:EmitSound("lu_bu_relentless_assault_three")
+	end
 
     local projectileTable1 = {
 		Ability = self,
@@ -57,10 +69,22 @@ function lu_bu_relentless_assault_four:OnSpellStart()
 	ScreenShake(caster:GetOrigin(), 7, 4.0, 2, 20000, 0, true)
 
 	-- Create Particle
-	local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_relentless_four.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local fourFxName = "particles/custom/lu_bu/lu_bu_relentless_four.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			fourFxName = "particles/custom/jia_qiu/lu_bu_relentless_four.vpcf"
+		end
+	end
+	local blastFx = ParticleManager:CreateParticle(fourFxName, PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())
 	
-	local blastFxx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local blastFxxName = "particles/custom/lu_bu/lu_bu_armistice_impact.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			blastFxxName = "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf"
+		end
+	end
+	local blastFxx = ParticleManager:CreateParticle(blastFxxName, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( blastFxx, 0, caster:GetAbsOrigin())
 	
 	Timers:CreateTimer( 2.0, function()

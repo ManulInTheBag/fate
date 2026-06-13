@@ -49,7 +49,17 @@ function lu_bu_armistice:OnSpellStart()
 		damage = damage + 100 + (caster:GetStrength()*1)
 	end
 	
-	caster:EmitSound("lu_bu_generic_1")
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if jiaQiuSkin then
+		caster:EmitSound("jia_qiu_armistice")
+	else
+		caster:EmitSound("lu_bu_generic_1")
+	end
 	
 	Timers:CreateTimer(0.75, function()
 		if caster:IsAlive() then
@@ -66,7 +76,13 @@ function lu_bu_armistice:OnSpellStart()
 			end
 			ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
 				-- Create Particle
-			local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			local blastFxName = "particles/custom/lu_bu/lu_bu_armistice_impact.vpcf"
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+					blastFxName = "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf"
+				end
+			end
+			local blastFx = ParticleManager:CreateParticle(blastFxName, PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())
 			
 			Timers:CreateTimer( 2.0, function()
@@ -74,7 +90,11 @@ function lu_bu_armistice:OnSpellStart()
 				ParticleManager:ReleaseParticleIndex( blastFx )
 			end)
 			
-			caster:EmitSound("lu_bu_armistice_impact")
+			if blastFxName == "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf" then
+				caster:EmitSound("Hero_Centaur.HoofStomp")
+			else
+				caster:EmitSound("lu_bu_armistice_impact")
+			end
 		end
 	end)
 

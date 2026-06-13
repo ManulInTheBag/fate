@@ -20,12 +20,25 @@ function lu_bu_rage:OnSpellStart()
 		caster:RemoveModifierByName("modifier_lu_bu_rage")
 		return
 	end
-	caster:EmitSound("lu_bu_rage")
+	local rageSound = "lu_bu_rage"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			rageSound = "jia_qiu_rage"
+			caster:EmitSound("jia_qiu_rage_sfx")
+		end
+	end
+	caster:EmitSound(rageSound)
 	local duration = self:GetSpecialValueFor("active_duration")
 	caster:AddNewModifier(caster,self,"modifier_lu_bu_rage",{duration = 1})
 	caster:AddNewModifier(caster,self,"modifier_lu_bu_rage_passive",{duration = self:GetSpecialValueFor("passive_duration")})
 
-	self.resolutionFx = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local rageFxName = "particles/lu_bu/lu_bu_rage.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			rageFxName = "particles/custom/jia_qiu/jia_qiu_rage.vpcf"
+		end
+	end
+	self.resolutionFx = ParticleManager:CreateParticle(rageFxName, PATTACH_ABSORIGIN_FOLLOW, caster)
    	ParticleManager:SetParticleControl( self.resolutionFx, 4, caster:GetAbsOrigin())
    	ParticleManager:SetParticleControl( self.resolutionFx, 1, Vector(self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("radius")))
 	local relentless_assault = caster:FindModifierByNameAndCaster( "modifier_lu_bu_relentless_assault", caster )

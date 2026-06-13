@@ -103,7 +103,13 @@ function lu_bu_god_strike:OnSpellStart()
 	caster:EmitSound("lu_bu_generic_2")
 	
 	ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
-	local blastFx = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_armistice_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local blastFxName = "particles/custom/lu_bu/lu_bu_armistice_impact.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			blastFxName = "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf"
+		end
+	end
+	local blastFx = ParticleManager:CreateParticle(blastFxName, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())
 	
 	Timers:CreateTimer( 2.0, function()

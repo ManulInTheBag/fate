@@ -20,6 +20,11 @@ function lu_bu_halberd_throw:OnSpellStart()
 
 	-- load data
 	local projectile_name = "particles/custom/lu_bu/lu_bu_spear.vpcf"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			projectile_name = "particles/custom/lu_bu/jia_qiu_spear.vpcf"
+		end
+	end
 	local projectile_distance = self:GetSpecialValueFor("spear_range")-70
 	local projectile_speed = self:GetSpecialValueFor("spear_speed")
 	local projectile_radius = self:GetSpecialValueFor("spear_width")
@@ -63,7 +68,11 @@ function lu_bu_halberd_throw:OnSpellStart()
 	ProjectileManager:CreateLinearProjectile(info)
 
 	-- play effects
-	caster:EmitSound("lu_bu_spear_throw")
+	if projectile_name == "particles/custom/lu_bu/jia_qiu_spear.vpcf" then
+		caster:EmitSound("jia_qiu_halberd_throw")
+	else
+		caster:EmitSound("lu_bu_spear_throw")
+	end
 	
 	local relentless_assault = caster:FindModifierByNameAndCaster( "modifier_lu_bu_relentless_assault", caster )
 	local assault_stack = caster:GetModifierStackCount("modifier_lu_bu_relentless_assault", caster)
@@ -93,7 +102,13 @@ function lu_bu_halberd_throw:OnProjectileHit_ExtraData(target, vLocation, tData)
 	
 	vectorA = Vector(0,0,0)
 	
-	target:EmitSound("lu_bu_spear_throw_impact")
+	local spearImpactSound = "lu_bu_spear_throw_impact"
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			spearImpactSound = "jia_qiu_throw_hit"
+		end
+	end
+	target:EmitSound(spearImpactSound)
 	
 	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
 	

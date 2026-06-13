@@ -17,7 +17,15 @@ function lu_bu_relentless_assault_three:OnSpellStart()
 	local relentless_assault = caster:FindModifierByName("modifier_lu_bu_relentless_assault")
 	relentless_assault:SetStackCount(1)
 	
-	caster:EmitSound("lu_bu_relentless_assault_three")
+	local jiaQiuSkin = false
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
+			jiaQiuSkin = true
+		end
+	end
+	if not jiaQiuSkin then
+		caster:EmitSound("lu_bu_relentless_assault_three")
+	end
 
 	-- Add modifier
 	caster:AddNewModifier(
