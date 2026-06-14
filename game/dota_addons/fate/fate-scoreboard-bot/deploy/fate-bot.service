@@ -1,0 +1,24 @@
+# systemd service so the bot runs 24/7 and restarts on crash/reboot.
+# Put this at /etc/systemd/system/fate-bot.service (edit the two paths/user).
+#
+#   sudo cp deploy/fate-bot.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now fate-bot
+#   systemctl status fate-bot        # check it's running
+#   journalctl -u fate-bot -f        # live logs
+
+[Unit]
+Description=Fate Scoreboard Discord Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/fate-scoreboard-bot
+ExecStart=/home/ubuntu/fate-scoreboard-bot/.venv/bin/python bot.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

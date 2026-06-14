@@ -1,0 +1,9 @@
+discord.py>=2.3
+easyocr>=1.7          # deep-learning OCR (default engine; pulls in torch)
+pytesseract>=0.3.10  # lighter fallback engine (set OCR_ENGINE=tesseract)
+Pillow>=10.0
+opencv-python>=4.8
+numpy>=1.26
+rapidfuzz>=3.5
+openpyxl>=3.1
+python-dotenv>=1.0
