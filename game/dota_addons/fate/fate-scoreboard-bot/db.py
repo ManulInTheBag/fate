@@ -285,7 +285,7 @@ def all_confirmed_players(start_ts=None, end_ts=None, min_id=None, max_id=None):
 
 
 def recent_confirmed_matches(limit=20):
-    """Most recent confirmed matches (id, date, winner, score) for `!matches`."""
+    """Most recent confirmed matches (id, date, winner, score) for `%matches`."""
     with _conn() as c:
         return [dict(r) for r in c.execute(
             """SELECT id, posted_at, winner, score_top, score_bottom

@@ -33,73 +33,83 @@ Fields: `k` kills · `d` deaths · `a` assists · `player` · `hero`.
 
 ---
 
-## Stats — `!export`
+## Stats — `%export`
 Builds an Excel file and posts it in the control channel.
 
 | Command | Gives you |
 |---------|-----------|
-| `!export` | everything, all time |
-| `!export today` / `yesterday` / `week` / `month` | by time |
-| `!export 7d` / `24h` / `90m` | last N days / hours / minutes |
-| `!export last 5` | the last 5 saved games |
-| `!export from 2026-06-01 to 2026-06-10` | a date range |
-| `!export games 10-25` / `game 14` | by game number |
+| `%export` | everything, all time |
+| `%export today` / `yesterday` / `week` / `month` | by time |
+| `%export 7d` / `24h` / `90m` | last N days / hours / minutes |
+| `%export last 5` | the last 5 saved games |
+| `%export from 2026-06-01 to 2026-06-10` | a date range |
+| `%export games 10-25` / `game 14` | by game number |
 
-**`!report N`** — quick: imports the latest games from the channel **and** exports
-the last N in one step (e.g. `!report 10`).
+**`%report N`** — quick: imports the latest games from the channel **and** exports
+the last N in one step (e.g. `%report 10`).
 
 ---
 
 ## Viewing
 | Command | Shows |
 |---------|-------|
-| `!matches` | recent games with their **game numbers** |
-| `!players` | every player with how many games they have |
-| `!help` | short reference in Discord |
+| `%matches` | recent games with their **game numbers** |
+| `%players` | every player with how many games they have |
+| `%help` | short reference in Discord |
 
 ---
 
-## Linking the same player — `!alias` / `!links`
+## Linking the same player — `%alias` / `%links`
 For alt accounts or names spelled differently by OCR — make them count as one.
 
 | Command | Effect |
 |---------|--------|
-| `!alias "AltName" = "MainName"` | count AltName as MainName |
-| `!alias` | list all links |
-| `!unalias "AltName"` | remove a link |
-| `!links` | bot suggests likely-same players |
-| `!links apply` | apply all suggestions |
+| `%alias "ReadName" "RealName"` | count the misread name as the real player |
+| `%alias "ReadName" = "RealName"` | same thing, with `=` (also works) |
+| `%alias` | list all links |
+| `%unalias "ReadName"` | remove a link |
+| `%links` | numbered suggestions of likely-same players |
+| `%links apply` | apply all **high-confidence** suggestions |
+| `%links apply all` | apply every suggestion (high + low) |
+| `%links apply 1 3 5-7` | apply just those numbers (ranges ok) |
+| `%links name 4 "Real Name"` | merge suggestion #4 (both names) onto a real player and learn the name |
 
-`!links` finds look-alike names automatically. Cross-script cases (a Latin name
-read as Cyrillic, or a nickname vs full name) it can't detect — use `!players` to
-spot those and link them with `!alias`.
+Quote names that contain spaces. Example: `%alias "Ъ" "b"` or `%alias "cute Iute" "cute lute"`.
+
+`%links` numbers every suggestion so you can apply several at once. It has two
+tiers: **HIGH** (a stray name that closely matches a known regular, or a near-
+duplicate of a more-frequent name — safe to bulk-apply) and **LOW** (heavily
+garbled cross-script nicks grouped because they look alike and never played in the
+same game — review, then `%links name N "Real"` to label the person). Known
+regulars live in `roster.py`; suggestions aim at that list, so filling it in makes
+linking sharper.
 
 ---
 
 ## Deleting data
-**`!clear`** — delete games by range (two-step; needs `confirm`):
+**`%clear`** — delete games by range (two-step; needs `confirm`):
 
 | Command | Effect |
 |---------|--------|
-| `!clear all` | preview (deletes nothing) |
-| `!clear all confirm` | delete everything |
-| `!clear game 14 confirm` · `!clear games 10-25 confirm` | by number |
-| `!clear today confirm` · `!clear from … to … confirm` | by time |
+| `%clear all` | preview (deletes nothing) |
+| `%clear all confirm` | delete everything |
+| `%clear game 14 confirm` · `%clear games 10-25 confirm` | by number |
+| `%clear today confirm` · `%clear from … to … confirm` | by time |
 
-**`!cleanup`** — remove games that aren't real Fate scoreboards (wrong format /
-mis-read). `!cleanup` previews the count, `!cleanup confirm` deletes them.
+**`%cleanup`** — remove games that aren't real Fate scoreboards (wrong format /
+mis-read). `%cleanup` previews the count, `%cleanup confirm` deletes them.
 
 ---
 
-## Importing old games — `!backfill`
+## Importing old games — `%backfill`
 Reads scoreboards posted **before the bot existed**. Safe to re-run (skips ones
 already imported), keeps each game's original date.
 
 | Command | Effect |
 |---------|--------|
-| `!backfill` | the last 200 messages |
-| `!backfill all` | the entire channel history |
-| `!backfill after 2026-05-01` | everything since a date |
+| `%backfill` | the last 200 messages |
+| `%backfill all` | the entire channel history |
+| `%backfill after 2026-05-01` | everything since a date |
 
 Watch the bot window for live progress. EasyOCR is accurate but slow, so a big
 backfill takes a while.
@@ -111,8 +121,8 @@ backfill takes a while.
 - **Chinese scoreboards** are supported — Chinese hero names map to English.
 - **Wrong formats** (the in-game Tab overlay, memes, chat screenshots) are skipped
   automatically; you'll see `✗ ignored` in the window.
-- **Players** are merged through your `!alias` / `!links`.
+- **Players** are merged through your `%alias` / `%links`.
 
 ## Typical flow
-✅ each game as it's posted → occasionally `!players` to find duplicates →
-`!alias` them → `!export today` (or `!report 10`) for the Excel.
+✅ each game as it's posted → occasionally `%players` to find duplicates →
+`%alias` them → `%export today` (or `%report 10`) for the Excel.

@@ -1,6 +1,6 @@
 """Parse an export command's time/game-range argument into DB filters.
 
-Accepted forms (case-insensitive), e.g. used as `!export <arg>`:
+Accepted forms (case-insensitive), e.g. used as `%export <arg>`:
 
     (empty) / all                  -> everything
     today | yesterday

@@ -62,6 +62,23 @@ def match_player(raw, roster):
     return _match(raw, roster)
 
 
+def best_player(cands, primary, roster):
+    """Pick the player reading that best matches a known roster name across all
+    OCR candidate variants (plain + OTSU + Chinese). This lets a regular like
+    "шешня" be recovered when one variant reads it correctly even if the default
+    read ("пепня") doesn't. Falls back to the primary read when nothing matches."""
+    best_m, best_s = None, 0
+    for c in cands:
+        if not c:
+            continue
+        m, s = _match(c, roster)
+        if s > best_s:
+            best_m, best_s = m, s
+    if best_m is not None and best_s >= config.FUZZY_THRESHOLD:
+        return best_m, best_s
+    return _match(primary, roster)
+
+
 def build_match(extracted, roster):
     rows = extracted["rows"]
     n = len(rows)
@@ -80,6 +97,7 @@ def build_match(extracted, roster):
     for i, row in enumerate(rows):
         team = row.get("team") or ("top" if i < split else "bottom")
         player_raw = row.get("player_raw", "")
+        player_cands = row.get("player_cands") or ([player_raw] if player_raw else [])
         hero, h_conf = match_hero(row.get("hero_raw", ""))
 
         # Overlap case: a long hero name (e.g. "Demon king Nobunaga") overruns the
@@ -90,13 +108,26 @@ def build_match(extracted, roster):
             alt_hero, alt_conf = match_hero(player_raw)
             if alt_conf >= config.FUZZY_THRESHOLD and alt_conf > h_conf:
                 hero, h_conf = alt_hero, alt_conf
-                player_raw = ""
-        player, p_conf = match_player(player_raw, roster)
+                player_raw, player_cands = "", []
+
+        # Image fallback: the name text was unreadable, so identify the hero by its
+        # PORTRAIT icon instead (hero_vision). Accepted only above the similarity
+        # gate; marked so the reviewer knows it came from the picture, not text.
+        hero_by_img = False
+        if h_conf < config.FUZZY_THRESHOLD and config.HERO_VISION and row.get("hero_vec") is not None:
+            import hero_vision
+            vh, vs = hero_vision.match(row["hero_vec"], config.HERO_VISION_GATE)
+            if vh:
+                hero, hero_by_img, h_conf = vh, True, max(h_conf, int(vs * 100))
+
+        player, p_conf = best_player(player_cands, player_raw, roster)
 
         flags = []
         if p_conf < config.FUZZY_THRESHOLD:
             flags.append("player")
-        if h_conf < config.FUZZY_THRESHOLD:
+        # An image-matched hero is resolved (just from the icon, not text), so it's
+        # not a low-confidence cell — it carries its own "img" marker instead.
+        if h_conf < config.FUZZY_THRESHOLD and not hero_by_img:
             flags.append("hero")
         for f in ("kills", "deaths", "assists", "gold"):
             if row.get(f) is None:
@@ -110,6 +141,7 @@ def build_match(extracted, roster):
             "player_conf": p_conf,
             "hero": hero,
             "hero_conf": h_conf,
+            "hero_src": "image" if hero_by_img else "text",
             "kills": row.get("kills"),
             "deaths": row.get("deaths"),
             "assists": row.get("assists"),
@@ -120,7 +152,8 @@ def build_match(extracted, roster):
     # Validity: the OCR layout must have been recognized (extracted["valid"]) AND
     # enough HERO names must match the real Fate roster. A non-scoreboard (chat,
     # meme, other game's stats, random noise) won't produce real hero names.
-    heroes_ok = sum(1 for p in players if p["hero_conf"] >= config.FUZZY_THRESHOLD)
+    heroes_ok = sum(1 for p in players
+                    if p["hero_conf"] >= config.FUZZY_THRESHOLD or p.get("hero_src") == "image")
     need = max(2, round(0.25 * n)) if n else 1
     if not extracted.get("valid", True):
         valid, reason = False, extracted.get("reason", "not a scoreboard")
@@ -154,14 +187,20 @@ def format_table(match):
         def cell(v, key):
             s = "?" if v is None else str(v)
             return s + ("*" if key in p["flags"] else "")
+        # A hero recognised from its portrait (not text) is tagged so you can
+        # double-check it at a glance.
+        hero_cell = cell(p["hero"], "hero")
+        if p.get("hero_src") == "image":
+            hero_cell += "~"
         lines.append(
             f"{p['slot']+1:>2} "
             f"{(cell(p['player'],'player'))[:22]:<22} "
-            f"{(cell(p['hero'],'hero'))[:20]:<20} "
+            f"{hero_cell[:20]:<20} "
             f"{cell(p['kills'],'kills'):>3} {cell(p['deaths'],'deaths'):>3} "
             f"{cell(p['assists'],'assists'):>3}  "
             f"{'Y' if p['won'] else 'N'}"
         )
     lines.append("")
-    lines.append("Cells marked * are low-confidence — fix before confirming.")
+    lines.append("Cells marked * are low-confidence — fix before confirming. "
+                 "Hero marked ~ was read from its portrait icon, not text.")
     return "\n".join(lines)

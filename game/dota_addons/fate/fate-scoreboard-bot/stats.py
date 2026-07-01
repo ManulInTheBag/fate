@@ -30,16 +30,14 @@ def compute(start_ts=None, end_ts=None, min_id=None, max_id=None):
     for r in rows:
         r["player"] = canon[r["player"].lower()]
 
-    # A *player* name that matches a HERO name is the hero cell bleeding into the
-    # player cell (e.g. "Bhan king Nobunaga"). Bucket these as Unknown — but only
-    # for rare names (<=2 games), so a real player named after a servant survives.
-    pcounts = defaultdict(int)
+    # Some player cells are the HERO cell bleeding in ("Demon king Nobunaga
+    # 24-го") or OCR mush with bracket junk ("GOLDEN DUCK! [CEI"). Strip the
+    # servant name + day counter + junk and recover the real regular from the
+    # roster; otherwise bucket as Unknown. Skips ordinary nicks (no bleed signal).
     for r in rows:
-        pcounts[r["player"]] += 1
-    for r in rows:
-        p = r["player"]
-        if pcounts[p] <= 2 and normalize.hero_match_score(p) >= normalize.PLAYER_AS_HERO:
-            r["player"] = normalize.UNKNOWN_PLAYER
+        fixed = normalize.debleed_player(r["player"])   # uses clean file roster
+        if fixed is not None:
+            r["player"] = fixed
 
     # group rows by match
     by_match = defaultdict(list)

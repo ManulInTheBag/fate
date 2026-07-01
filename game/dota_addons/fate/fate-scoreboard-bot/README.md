@@ -13,9 +13,9 @@ It uses **two kinds of channel**, kept strictly separate:
   │ #scoreboards       │              │ #bot-control                │
   │ (people post pics) │   silent     │  • each parse posted here   │
   │                    │ ───────────► │    for review (✅ / ❌ / fix)│
-  │ bot NEVER posts    │   OCR +      │  • !export today / 7d /     │
+  │ bot NEVER posts    │   OCR +      │  • %export today / 7d /     │
   │ or reacts here     │   fuzzy      │    games 10-25 → .xlsx      │
-  └────────────────────┘              │  • !matches                 │
+  └────────────────────┘              │  • %matches                 │
                                       └─────────────────────────────┘
                                                    │
                                               SQLite store
@@ -120,16 +120,16 @@ reads them silently.
 **Commands (control channel):**
 | Command | Result |
 |---------|--------|
-| `!export` | Excel for **all** saved matches |
-| `!export today` / `yesterday` / `week` / `month` | by time |
-| `!export 7d` / `24h` / `90m` | last N days / hours / minutes |
-| `!export last 5` | last 5 saved matches |
-| `!export from 2026-06-01 to 2026-06-10` | inclusive date range |
-| `!export games 10-25` / `game 14` | by game number (range) |
-| `!matches` | list recent matches + their game numbers |
-| `!help` | quick reference |
+| `%export` | Excel for **all** saved matches |
+| `%export today` / `yesterday` / `week` / `month` | by time |
+| `%export 7d` / `24h` / `90m` | last N days / hours / minutes |
+| `%export last 5` | last 5 saved matches |
+| `%export from 2026-06-01 to 2026-06-10` | inclusive date range |
+| `%export games 10-25` / `game 14` | by game number (range) |
+| `%matches` | list recent matches + their game numbers |
+| `%help` | quick reference |
 
-Use `!matches` to see game numbers, then `!export games N-M` for a specific
+Use `%matches` to see game numbers, then `%export games N-M` for a specific
 session.
 
 ---

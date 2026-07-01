@@ -7,23 +7,29 @@ where one is common and the other rare. We pair each rare name with the most
 similar MORE-FREQUENT name — "linking based on how close they look and how often
 they appear" — and propose linking the rare one onto the frequent one.
 
-This only proposes; the user applies via `!links apply` or `!alias`, so two
+This only proposes; the user applies via `%links apply` or `%alias`, so two
 genuinely different people are never merged silently.
 
 Note: cross-script variants (a Latin name OCR'd as Cyrillic, or two slightly
 different CJK spellings) score low on fuzzy matching and won't be suggested —
-those still need a manual `!alias`.
+those still need a manual `%alias`.
 """
 
 from collections import Counter, defaultdict
 from itertools import combinations
 
-from rapidfuzz import fuzz
+from rapidfuzz import fuzz, process
 
 import db
 import normalize
+import roster as roster_mod
 
-MIN_SCORE = 87  # similarity needed to propose a merge
+MIN_SCORE = 87    # similarity to propose merging two ordinary names (high tier)
+ROSTER_SCORE = 85  # similarity to snap a stray name onto a known roster regular
+LOW_SCORE = 72    # looser bar, used ONLY between two garbled non-roster names —
+                  # surfaces OCR-mangled regulars (the "... +" / "Т_mk" / "бтач"
+                  # families). Tuned so families merge without joining two distinct
+                  # regulars; the few 1-game false pairs are caught on review.
 
 # Visual Cyrillic->Latin map: OCR often renders a Latin glyph as its Cyrillic
 # look-alike, so comparing transliterated forms catches those variants.
@@ -65,25 +71,88 @@ def _cooccurring():
     return pairs
 
 
+def _roster_match(name, roster_set):
+    """Best roster regular this name resembles (transliteration-aware), or None."""
+    if not roster_set or name in roster_set:
+        return None
+    cand = list(roster_set)
+    b1 = process.extractOne(name, cand, scorer=fuzz.WRatio, processor=str.lower)
+    tn = _translit(name)
+    b2 = process.extractOne(tn, [(_translit(c)) for c in cand], scorer=fuzz.WRatio)
+    score = max(b1[1] if b1 else 0, b2[1] if b2 else 0)
+    if score >= ROSTER_SCORE and b1:
+        return b1[0], int(score)
+    return None
+
+
 def suggest(min_score=MIN_SCORE):
-    """Return [{alias, alias_count, main, main_count, score}], rare->frequent.
-    Uses transliteration-aware similarity and skips name pairs that ever played
-    together."""
+    """Return link suggestions, each {alias, alias_count, main, main_count, score,
+    tier}. rare -> frequent / roster. Transliteration-aware; never pairs names
+    that ever played together (they can't be one person).
+
+    tier="high":
+      - roster-anchored: a stray name that closely matches a known regular, OR
+      - a near-duplicate of a more-frequent name (>= MIN_SCORE).
+      Safe to bulk-apply.
+    tier="low":
+      - two garbled non-roster names (>= LOW_SCORE) that look alike — recovers
+        OCR-mangled regulars. Review before applying.
+    """
     counts = _resolved_counts()
     cooc = _cooccurring()
-    names = sorted(counts, key=lambda n: (-counts[n], n))  # frequent first
+    # Anchor on the CLEAN file roster, not db.get_roster() — the latter includes
+    # ~600 auto-learned garbage nicks that would swallow the off-roster tier.
+    roster_set = set(roster_mod.PLAYERS)
+    # 1–2 char names fuzz into anything ("z" scores 90 vs "Ezik"/"Matz" because
+    # it's a substring) — exclude them from BOTH sides of every suggestion.
+    names = [n for n in sorted(counts, key=lambda n: (-counts[n], n))
+             if len(n.strip()) >= 3]
     linked = set()
     out = []
+
+    def together(a, b):
+        return tuple(sorted((a, b))) in cooc
+
+    # 1) high tier — snap stray names onto known roster regulars
+    for n in names:
+        if n in linked or n in roster_set:
+            continue
+        m = _roster_match(n, roster_set)
+        if m and len(m[0].strip()) >= 3 and not together(n, m[0]):
+            out.append({"alias": n, "alias_count": counts[n], "main": m[0],
+                        "main_count": counts.get(m[0], 0), "score": m[1],
+                        "tier": "high"})
+            linked.add(n)
+
+    # 2) high tier — near-duplicate of a more-frequent name
     for i, anchor in enumerate(names):
         if anchor in linked:
             continue
-        for other in names[i + 1:]:        # only same-or-rarer names
-            if other in linked or tuple(sorted((anchor, other))) in cooc:
+        for other in names[i + 1:]:
+            if other in linked or together(anchor, other):
                 continue
-            score = _similarity(anchor, other)
-            if score >= min_score:
+            if _similarity(anchor, other) >= min_score:
                 out.append({"alias": other, "alias_count": counts[other],
                             "main": anchor, "main_count": counts[anchor],
-                            "score": int(score)})
+                            "score": int(_similarity(anchor, other)), "tier": "high"})
                 linked.add(other)
+
+    # 3) low tier — garbled-vs-garbled (both off-roster), looser bar
+    off = [n for n in names if n not in roster_set
+           and not _roster_match(n, roster_set)]
+    for i, anchor in enumerate(off):
+        if anchor in linked:
+            continue
+        members = [anchor]            # everyone merged onto this anchor so far
+        for other in off[i + 1:]:
+            if other in linked:
+                continue
+            if any(together(other, m) for m in members):  # can't be the same person
+                continue
+            if _similarity(anchor, other) >= LOW_SCORE:
+                out.append({"alias": other, "alias_count": counts[other],
+                            "main": anchor, "main_count": counts[anchor],
+                            "score": int(_similarity(anchor, other)), "tier": "low"})
+                linked.add(other)
+                members.append(other)
     return out

@@ -116,6 +116,130 @@ def _name_bright(img, name_col, cy, half=0.011):
     return float((gray > 180).mean())
 
 
+def _name_line_bands(img, name_col, cy, pitch):
+    """Find the player line and hero line within a row by their brightness bands,
+    so we split on the REAL gap between them rather than a fixed point. Returns a
+    list of (y0, y1) fractions, top to bottom. Player = upper line, hero = lower."""
+    ry0, ry1 = cy - 0.52 * pitch, cy + 0.52 * pitch
+    region = _crop_frac(img, *name_col, ry0, ry1)
+    if region.size == 0:
+        return []
+    gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
+    rh = gray.shape[0]
+    prof = (gray > 110).mean(axis=1).astype(np.float32)   # text = bright; bg dark
+    k = max(1, int(0.06 * rh))
+    if k > 1:
+        prof = np.convolve(prof, np.ones(k) / k, mode="same")
+    bands, start = [], None
+    for i, on in enumerate(prof > 0.035):
+        if on and start is None:
+            start = i
+        elif not on and start is not None:
+            bands.append((start, i)); start = None
+    if start is not None:
+        bands.append((start, len(prof)))
+    # keep real text lines (drop thin noise), as image fractions
+    out = []
+    for a, b in bands:
+        if (b - a) >= 0.20 * rh:
+            out.append((ry0 + (ry1 - ry0) * a / rh, ry0 + (ry1 - ry0) * b / rh))
+    return out
+
+
+def _split_at_gap(img, name_col, y0, y1):
+    """The player (upper) and hero (lower) lines sometimes merge into one band
+    (close together on Chinese boards). Split at the darkest row between them —
+    the real gap — rather than the geometric middle, which mangles both lines."""
+    region = _crop_frac(img, *name_col, y0, y1)
+    if region.size == 0:
+        return (y0 + y1) / 2
+    gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
+    rh = gray.shape[0]
+    prof = (gray > 110).mean(axis=1).astype(np.float32)
+    lo, hi = int(0.30 * rh), int(0.75 * rh)
+    if hi - lo < 2:
+        return (y0 + y1) / 2
+    gi = lo + int(np.argmin(prof[lo:hi]))
+    return y0 + (y1 - y0) * gi / rh
+
+
+def _easyocr():
+    import easyocr_backend
+    return easyocr_backend
+
+
+def _score_lines(lines, parser_mod, backend):
+    """Annotate each detected name line with its best hero-match score, a player
+    reading, and all candidate texts (for roster snapping)."""
+    scored = []
+    for ln in lines:
+        cands = ln["cands"]
+        hero_txt, hero_s = "", 0
+        for t, _c in cands.values():           # best hero match across readers
+            _h, s = parser_mod.match_hero(t)
+            if s > hero_s:
+                hero_txt, hero_s = t, s
+        scored.append({"y": ln["y"], "hero_txt": hero_txt, "hero_s": hero_s,
+                       "player": backend.pick_player(cands),
+                       "ptexts": [t for t, _c in cands.values() if t]})
+    return scored
+
+
+def _assign_name(scored):
+    """Decide which line is the hero and which is the player. Default: player on
+    top, hero on the bottom line — but a line that *confidently* matches a known
+    hero takes the hero slot (Chinese boards where the hero, with its "24级" level
+    prefix, overruns the player line). Returns (player_line, hero_line) dicts,
+    either of which may be None."""
+    if not scored:
+        return None, None
+    scored.sort(key=lambda s: s["y"])
+    if len(scored) == 1:
+        ln = scored[0]
+        return (None, ln) if ln["hero_s"] >= config.FUZZY_THRESHOLD else (ln, None)
+    hero_line = scored[-1]                    # default: bottom line is the hero
+    best = max(scored, key=lambda s: s["hero_s"])
+    if best["hero_s"] >= config.FUZZY_THRESHOLD and best["hero_s"] > hero_line["hero_s"]:
+        hero_line = best                     # a confident hero elsewhere wins
+    others = [s for s in scored if s is not hero_line]
+    return (others[0] if others else None), hero_line
+
+
+def _read_name(img, cols, cy, pitch, parser_mod, backend):
+    """Read one row's names. EasyOCR detects the name region's physical lines;
+    we assign hero/player by the closed hero list. Returns
+    (player_raw, hero_raw, player_cands) — player_cands are all reading variants,
+    used later to snap to the roster."""
+    if backend is None:
+        p, h = _read_name_bands(img, cols, cy, pitch)
+        return p, h, [p]
+    region = _crop_frac(img, *cols["name"], cy - 0.5 * pitch, cy + 0.5 * pitch)
+    scored = _score_lines(backend.read_name_lines(region), parser_mod, backend)
+    player_line, hero_line = _assign_name(scored)
+    player_raw = player_line["player"] if player_line else ""
+    player_cands = player_line["ptexts"] if player_line else []
+    hero_raw = (hero_line["hero_txt"] or hero_line["player"]) if hero_line else ""
+    return player_raw, hero_raw, player_cands
+
+
+def _read_name_bands(img, cols, cy, pitch):
+    """Brightness-band split (Tesseract fallback path)."""
+    bands = _name_line_bands(img, cols["name"], cy, pitch)
+    pad = 0.04 * pitch
+    if len(bands) >= 2:
+        (py0, py1) = bands[0]; (hy0, hy1) = (bands[1][0], bands[-1][1])
+    elif len(bands) == 1:
+        b0, b1 = bands[0]; bm = _split_at_gap(img, cols["name"], b0, b1)
+        py0, py1, hy0, hy1 = b0, bm, bm, b1
+    else:
+        hh = min(pitch * 0.46, 0.016)
+        py0, py1, hy0, hy1 = cy - hh, cy, cy, cy + hh
+    player = ocr_text(_crop_frac(img, *cols["name"], py0 - pad, py1 + pad), cjk=True)
+    hero = ocr_text(_crop_frac(img, *cols["name"], hy0 - pad, hy1 + pad),
+                    lang="eng", cjk=True)
+    return player, hero
+
+
 def _assign_kda(boxes, cols):
     """boxes: [(cx, value)] for one row. Assign each to the nearest of the
     kills/deaths/assists columns."""
@@ -128,24 +252,70 @@ def _assign_kda(boxes, cols):
     return vals["kills"], vals["deaths"], vals["assists"]
 
 
-def detect_rows(img):
-    """Find rows directly from the detected NUMBER positions (EasyOCR). Each
-    player row is a cluster of K/D/A digit boxes at one height. Returns a list of
-    (cy, kills, deaths, assists). Robust to resolution, team size, and ignores
-    the header (which has no digits)."""
-    import easyocr_backend
-    cols = config.COLUMNS
-    y0f, y1f = config.ROW_SCAN
-    sx0, sx1 = cols["kills"][0], cols["assists"][1]
-    region = _crop_frac(img, sx0, sx1, y0f, y1f)
-    raw = easyocr_backend.detect_digit_boxes(region)
-    boxes = [(sx0 + (sx1 - sx0) * cx, y0f + (y1f - y0f) * cy, val) for (cx, cy, val) in raw]
-    if len(boxes) < 6:
-        return []
+def _calibrate_columns(boxes):
+    """Locate the table's real column positions from the digit grid, so we work
+    on ANY crop/resolution — not just full screenshots. The K/D/A columns are the
+    three densest small-number (0-99) columns; from them we derive a scale+offset
+    that maps the reference layout (config.COLUMNS) onto this image. For a full
+    screenshot the transform is ~identity. Returns (cols_dict, (kc, ac)) or
+    (None, None) if the grid can't be read."""
+    kc_ref = sum(config.COLUMNS["kills"]) / 2
+    dc_ref = sum(config.COLUMNS["deaths"]) / 2
+    ac_ref = sum(config.COLUMNS["assists"]) / 2
 
-    boxes.sort(key=lambda b: b[1])           # by vertical position
-    groups, cur = [], [boxes[0]]
-    for b in boxes[1:]:
+    xs = sorted(cx for (cx, _cy, v) in boxes if v is not None and v <= 99)
+    if len(xs) < 9:
+        return None, None
+    clusters, cur = [], [xs[0]]
+    for x in xs[1:]:
+        if x - cur[-1] <= 0.015:              # same column
+            cur.append(x)
+        else:
+            clusters.append(cur); cur = [x]
+    clusters.append(cur)
+    clusters = [c for c in clusters if len(c) >= 3]   # a column = many rows
+    if len(clusters) < 3:
+        return None, None
+    clusters.sort(key=len, reverse=True)
+    kc, dc, ac = sorted(sum(c) / len(c) for c in clusters[:3])   # K/D/A left->right
+
+    denom = ac_ref - kc_ref
+    if denom <= 0:
+        return None, None
+    s = (ac - kc) / denom                     # scale ref -> image
+    o = kc - s * kc_ref                        # offset
+    if not (0.2 < s < 5.0):                    # implausible -> bail
+        return None, None
+    if abs((s * dc_ref + o) - dc) > 0.02:      # middle anchor must agree
+        return None, None
+
+    def rm(name):
+        a, b = config.COLUMNS[name]
+        return (min(max(s * a + o, 0.0), 1.0), min(max(s * b + o, 0.0), 1.0))
+    # When the transform is essentially identity (a normal full screenshot) keep
+    # the exact reference columns — anchor-detection noise could otherwise nudge a
+    # borderline hero cell and flip a good read into a misread. Only remap when
+    # the layout genuinely differs (a cropped/zoomed table).
+    nm, cfg = rm("name"), config.COLUMNS["name"]
+    if abs(nm[0] - cfg[0]) < 0.02 and abs(nm[1] - cfg[1]) < 0.02:
+        cols = {name: tuple(config.COLUMNS[name]) for name in config.COLUMNS}
+    else:
+        cols = {name: rm(name) for name in config.COLUMNS}
+    return cols, (kc, ac)
+
+
+def _rows_from_boxes(img, boxes, cols, kspan):
+    """Cluster digit boxes (image fractions) lying in the K/D/A span into player
+    rows -> [(cy, k, d, a)]."""
+    kx0, kx1 = kspan
+    m = 0.012
+    kda = [b for b in boxes if b[2] is not None and b[2] <= 99
+           and kx0 - m <= b[0] <= kx1 + m]
+    if len(kda) < 6:
+        return []
+    kda.sort(key=lambda b: b[1])             # by vertical position
+    groups, cur = [], [kda[0]]
+    for b in kda[1:]:
         if b[1] - cur[0][1] < 0.012:          # same row (K/D/A share a height)
             cur.append(b)
         else:
@@ -165,12 +335,39 @@ def detect_rows(img):
     return rows
 
 
+def detect_rows(img):
+    """Find rows directly from the detected NUMBER positions (EasyOCR). Returns
+    (rows, cols) where rows is a list of (cy, kills, deaths, assists) and cols is
+    the column map for this image.
+
+    Fast path: scan only the expected K/D/A strip with the reference columns —
+    cheap, and right for any normal full screenshot. Slow path (crops / unusual
+    layouts): scan the whole image and calibrate the columns from the digit grid.
+    """
+    import easyocr_backend
+    cols = config.COLUMNS
+    sx0, sx1 = cols["kills"][0], cols["assists"][1]
+    y0f, y1f = config.ROW_SCAN
+    strip = _crop_frac(img, sx0, sx1, y0f, y1f)
+    raw = easyocr_backend.detect_digit_boxes(strip, scale=2.0)
+    boxes = [(sx0 + (sx1 - sx0) * cx, y0f + (y1f - y0f) * cy, v) for (cx, cy, v) in raw]
+    rows = _rows_from_boxes(img, boxes, cols, (cols["kills"][0], cols["assists"][1]))
+    if len(rows) >= 6:
+        return rows, cols
+
+    # Fallback: full-image scan + column calibration (cropped/zoomed tables).
+    boxes = easyocr_backend.detect_digit_boxes(img)
+    cols, kspan = _calibrate_columns(boxes)
+    if cols is None:
+        return [], config.COLUMNS
+    return _rows_from_boxes(img, boxes, cols, kspan), cols
+
+
 # ---------- full extraction ----------
 
 def extract(image_bytes: bytes, debug_name=None):
     img = load_bgr(image_bytes)
-    cols = config.COLUMNS
-    rows = detect_rows(img)
+    rows, cols = detect_rows(img)
     found = len(rows) >= 6
 
     if len(rows) >= 2:
@@ -180,16 +377,28 @@ def extract(image_bytes: bytes, debug_name=None):
     hh = min(pitch * 0.46, 0.016)
     split = round(len(rows) / 2)
 
+    import parser as parser_mod   # local parser.py (hero closed-set matcher)
+    backend = _easyocr() if _use_easyocr() else None
+
+    vision = None
+    if config.HERO_VISION:
+        import hero_vision
+        if hero_vision.available():
+            vision = hero_vision
+
     results = []
     for i, (cy, k, d, a) in enumerate(rows):
-        y0, y1 = cy - hh, cy + hh
-        name_cell = _crop_frac(img, *cols["name"], y0, y1)
-        player_cell = _crop_frac(img, *cols["name"], y0, cy)
-        hero_cell = _crop_frac(img, *cols["name"], cy, y1)
+        player_raw, hero_raw, player_cands = _read_name(img, cols, cy, pitch, parser_mod, backend)
+        # Portrait feature for the hero-by-icon fallback (used by parser when the
+        # hero NAME text is unreadable). Kept on the row only until parsing; never
+        # stored (it's a numpy vector).
+        hero_vec = vision.vector(img, cols["name"], cy, pitch) if vision else None
         results.append({
             "team": "top" if i < split else "bottom",
-            "player_raw": ocr_text(player_cell, cjk=True) or ocr_text(name_cell, cjk=True),
-            "hero_raw": ocr_text(hero_cell, lang="eng", cjk=True),
+            "player_raw": player_raw,
+            "player_cands": player_cands,
+            "hero_raw": hero_raw,
+            "hero_vec": hero_vec,
             "kills": k, "deaths": d, "assists": a,
             "gold": None,
         })

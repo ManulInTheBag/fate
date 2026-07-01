@@ -9,10 +9,10 @@ Two roles, kept strictly separate:
                   accepts commands here.
 
 Commands (control channel only):
-  !export [period]   period = today | yesterday | week | month | 7d | 24h |
+  %export [period]   period = today | yesterday | week | month | 7d | 24h |
                               last 5 | from 2026-06-01 to 2026-06-10 | games 10-25
-  !matches           list recent saved matches with their game numbers
-  !help
+  %matches           list recent saved matches with their game numbers
+  %help
 
 Review a posted scoreboard: react ✅ to save (skip if AUTO_CONFIRM), ❌ to delete,
 or reply to it to fix cells, e.g.  row6 k=5   ·   score 12-11
@@ -155,10 +155,10 @@ async def _ingest_silent(message, attachment):
 async def _cmd_backfill(channel, arg):
     """Import scoreboards posted before the bot existed.
 
-    !backfill            last 200 messages, auto-imported
-    !backfill 1000       last 1000 messages
-    !backfill all        entire history
-    !backfill after 2026-05-01   everything since a date
+    %backfill            last 200 messages, auto-imported
+    %backfill 1000       last 1000 messages
+    %backfill all        entire history
+    %backfill after 2026-05-01   everything since a date
     add  review          at the end to post each for ✅ instead of auto-import
     """
     import re
@@ -179,13 +179,13 @@ async def _cmd_backfill(channel, arg):
     elif arg.startswith("after"):
         m = re.search(r"(\d{4}-\d{2}-\d{2})", arg)
         if not m:
-            await channel.send("Use: `!backfill after 2026-05-01`")
+            await channel.send("Use: `%backfill after 2026-05-01`")
             return
         after_dt = datetime.strptime(m.group(1), "%Y-%m-%d").replace(tzinfo=timezone.utc)
         limit, scope = None, f"messages since {m.group(1)}"
     elif arg:
         if not arg.isdigit():
-            await channel.send("Use: `!backfill [N | all | after YYYY-MM-DD] [review]`")
+            await channel.send("Use: `%backfill [N | all | after YYYY-MM-DD] [review]`")
             return
         limit = int(arg)
         scope = f"the last {limit} messages"
@@ -225,7 +225,7 @@ async def _cmd_backfill(channel, arg):
         f"(already saved), ignored **{ignored}** (not scoreboards), "
         f"couldn't read **{failed}**.\n"
         + ("Review the posted scoreboards above." if review else
-           "Run `!export` to see the data. Spot-check the Excel for OCR errors.")
+           "Run `%export` to see the data. Spot-check the Excel for OCR errors.")
     )
 
 async def _cmd_help(channel):
@@ -234,22 +234,23 @@ async def _cmd_help(channel):
         "I silently read scoreboards from the watched channel(s) and post each "
         "one here for review.\n\n"
         "**Review:** ✅ save · ❌ delete · reply to fix (e.g. `row6 k=5`, `score 12-11`)\n"
-        "**`!export [period]`** — build an Excel report. Period examples:\n"
-        "`!export` (all) · `!export today` · `!export week` · `!export 7d` · "
-        "`!export last 5` · `!export from 2026-06-01 to 2026-06-10` · `!export games 10-25`\n"
-        "**`!matches`** — list recent saved matches and their game numbers.\n"
-        "**`!backfill [N|all|after YYYY-MM-DD] [review]`** — import old scoreboards "
+        "**`%export [period]`** — build an Excel report. Period examples:\n"
+        "`%export` (all) · `%export today` · `%export week` · `%export 7d` · "
+        "`%export last 5` · `%export from 2026-06-01 to 2026-06-10` · `%export games 10-25`\n"
+        "**`%matches`** — list recent saved matches and their game numbers.\n"
+        "**`%backfill [N|all|after YYYY-MM-DD] [review]`** — import old scoreboards "
         "already posted in the watched channel.\n"
-        "**`!clear <what> [confirm]`** — delete matches (e.g. `!clear games 10-25`, "
-        "`!clear all confirm`).\n"
-        "**`!cleanup [confirm]`** — remove saved games that aren't Fate scoreboards "
+        "**`%clear <what> [confirm]`** — delete matches (e.g. `%clear games 10-25`, "
+        "`%clear all confirm`).\n"
+        "**`%cleanup [confirm]`** — remove saved games that aren't Fate scoreboards "
         "(wrong format).\n"
-        "**`!report N`** — import the latest games and export the last N (clean).\n"
-        "**`!alias \"Alt\" = \"Main\"`** — link a player's alt account / OCR variant "
-        "to one name (`!alias` lists, `!unalias \"Alt\"` removes).\n"
-        "**`!links`** — auto-suggest likely-same players to link (`!links apply` "
-        "applies them).\n"
-        "**`!players`** — list everyone with game counts (to spot duplicates to `!alias`)."
+        "**`%report N`** — import the latest games and export the last N (clean).\n"
+        "**`%alias \"ReadName\" \"RealName\"`** — link a misread / alt name to the real "
+        "player (`%alias` lists, `%unalias \"ReadName\"` removes).\n"
+        "**`%links`** — numbered suggestions of likely-same players. Apply many at "
+        "once: `%links apply` (all high-confidence), `%links apply 1 3 5-7`, or "
+        "`%links name 4 \"Real Name\"`.\n"
+        "**`%players`** — list everyone with game counts (to spot duplicates to `%alias`)."
     )
 
 
@@ -297,7 +298,7 @@ async def _cmd_clear(channel, arg):
         arg = arg[: -len("confirm")].strip()
     if not arg:
         await channel.send(
-            "Usage: `!clear <what> confirm`\n"
+            "Usage: `%clear <what> confirm`\n"
             "`what` = `all` · `today` · `last 5` · `games 10-25` · `game 14` · "
             "`from 2026-06-01 to 2026-06-10`\n"
             "Without `confirm` I just show how many would be deleted.")
@@ -317,23 +318,25 @@ async def _cmd_clear(channel, arg):
     if not confirm:
         await channel.send(
             f"⚠️ This will **permanently delete {n} match(es)** — **{label}**.\n"
-            f"To confirm, run: `!clear {arg} confirm`")
+            f"To confirm, run: `%clear {arg} confirm`")
         return
     deleted = db.delete_matches(**filters)
     await channel.send(f"🗑️ Deleted **{deleted}** match(es) — **{label}**.")
 
 
 async def _cmd_alias(channel, arg):
-    """Link player names. `!alias <other> = <main>` merges <other> onto <main>
-    in all stats. `!alias` lists them; `!alias remove <other>` unlinks."""
+    """Link player names. `%alias <other> <main>` (or `%alias <other> = <main>`)
+    merges <other> onto <main> in all stats. `%alias` lists them;
+    `%alias remove <other>` unlinks. Quote names that contain spaces."""
+    import shlex
     arg = arg.strip()
     if not arg:
         rows = db.list_aliases()
         if not rows:
             await channel.send("No aliases yet. Add one with "
-                               "`!alias \"Alt Name\" = \"Main Name\"`.")
+                               "`%alias \"Read Name\" \"Real Name\"`.")
             return
-        lines = ["**Linked names** (alt → main):", "```"]
+        lines = ["**Linked names** (read → real):", "```"]
         lines += [f"{a}  →  {c}" for a, c in rows]
         lines.append("```")
         await channel.send("\n".join(lines))
@@ -347,45 +350,148 @@ async def _cmd_alias(channel, arg):
                            f"No alias named **{target}**.")
         return
 
-    if "=" not in arg:
-        await channel.send('Use: `!alias "Alt Name" = "Main Name"`  ·  '
-                           '`!alias` to list  ·  `!alias remove "Alt Name"`')
-        return
-    left, right = arg.split("=", 1)
-    alt = left.strip().strip('"').strip()
-    main = right.strip().strip('"').strip()
+    # accept either  alt = main   or   "alt" "main"  (space-separated)
+    alt = main = None
+    if "=" in arg:
+        left, right = arg.split("=", 1)
+        alt, main = left.strip().strip('"').strip(), right.strip().strip('"').strip()
+    else:
+        try:
+            parts = shlex.split(arg)
+        except ValueError:
+            parts = arg.split()
+        if len(parts) == 2:
+            alt, main = parts[0], parts[1]
     if not alt or not main:
-        await channel.send('Use: `!alias "Alt Name" = "Main Name"`')
+        await channel.send('Use: `%alias "Read Name" "Real Name"`  (or with `=`)  ·  '
+                           '`%alias` to list  ·  `%alias remove "Read Name"`')
         return
     db.add_alias(alt, main)
     await channel.send(f"🔗 Linked **{alt}** → **{main}**. It now counts as "
                        f"{main} in all stats.")
 
 
+def _parse_indices(text, n):
+    """Parse '1 3 5-7' (or commas) into a sorted set of valid 1..n indices."""
+    picked = set()
+    for tok in text.replace(",", " ").split():
+        if "-" in tok[1:]:                       # a range like 5-7
+            lo, _, hi = tok.partition("-")
+            try:
+                lo, hi = int(lo), int(hi)
+            except ValueError:
+                continue
+            for i in range(min(lo, hi), max(lo, hi) + 1):
+                if 1 <= i <= n:
+                    picked.add(i)
+        else:
+            try:
+                i = int(tok)
+            except ValueError:
+                continue
+            if 1 <= i <= n:
+                picked.add(i)
+    return sorted(picked)
+
+
 async def _cmd_links(channel, arg):
-    """Suggest likely-same players (similar name + frequency); apply on request."""
+    """Suggest likely-same players; numbered so you can apply several at once.
+
+      %links                list numbered suggestions
+      %links apply          apply all HIGH-confidence ones
+      %links apply all      apply every suggestion (high + low)
+      %links apply 1 3 5-7  apply just those numbers
+      %links name 4 "Real"  merge suggestion 4 (both names) onto a real player
+    """
     import linking
     suggestions = await asyncio.to_thread(linking.suggest)
     if not suggestions:
-        await channel.send("No likely duplicate players found. (Cross-script "
-                           "variants like Cyrillic/CJC need a manual `!alias`.)")
+        await channel.send("No likely duplicate players found. (Heavily garbled "
+                           "cross-script nicks may still need a manual `%alias`.)")
         return
 
-    if arg.strip().lower() == "apply":
-        for s in suggestions:
+    low = arg.strip().lower()
+
+    # ---- name N "Real": merge a whole suggested pair onto a real player ----
+    if low.startswith("name"):
+        rest = arg.strip()[4:].strip()
+        parts = rest.split(None, 1)
+        if len(parts) != 2 or not parts[0].isdigit():
+            await channel.send('Use: `%links name <number> "Real Name"`')
+            return
+        idx = int(parts[0])
+        if not (1 <= idx <= len(suggestions)):
+            await channel.send(f"No suggestion #{idx} (have 1–{len(suggestions)}).")
+            return
+        real = parts[1].strip().strip('"').strip()
+        s = suggestions[idx - 1]
+        db.add_alias(s["alias"], real)
+        db.add_alias(s["main"], real)
+        db.remember_player(real)
+        await channel.send(f"🔗 #{idx}: **{s['alias']}** and **{s['main']}** now count "
+                           f"as **{real}**. (Add {real} to roster.py to make it stick.)")
+        return
+
+    # ---- apply [all | <numbers>] ----
+    if low.startswith("apply"):
+        sel = arg.strip()[5:].strip()
+        if sel == "" :
+            chosen = [s for s in suggestions if s["tier"] == "high"]
+            label = f"{len(chosen)} high-confidence"
+        elif sel.lower() == "all":
+            chosen = suggestions
+            label = f"all {len(chosen)}"
+        else:
+            idxs = _parse_indices(sel, len(suggestions))
+            if not idxs:
+                await channel.send("No valid numbers. e.g. `%links apply 1 3 5-7`")
+                return
+            chosen = [suggestions[i - 1] for i in idxs]
+            label = f"{len(chosen)} selected (#{', #'.join(map(str, idxs))})"
+        for s in chosen:
             db.add_alias(s["alias"], s["main"])
-        await channel.send(f"🔗 Linked **{len(suggestions)}** name(s) to their main "
-                           f"player. Re-export to see the merged stats.")
+        await channel.send(f"🔗 Linked **{label}** name(s) to their main player. "
+                           f"Re-export to see merged stats.")
         return
 
-    lines = ["**Likely same players** (rare → frequent, by name similarity):", "```"]
-    for s in suggestions:
-        lines.append(f'{s["alias"]} ({s["alias_count"]})  →  '
-                     f'{s["main"]} ({s["main_count"]})   {s["score"]}%')
+    # ---- list (numbered) ----
+    high = [(i, s) for i, s in enumerate(suggestions, 1) if s["tier"] == "high"]
+    lowt = [(i, s) for i, s in enumerate(suggestions, 1) if s["tier"] == "low"]
+    lines = ["**Likely same players** — number, alias → main (similarity):", "```"]
+    if high:
+        lines.append("HIGH confidence (safe to apply all):")
+        for i, s in high:
+            lines.append(f'{i:>3}. {s["alias"]} ({s["alias_count"]}) → '
+                         f'{s["main"]} ({s["main_count"]})  {s["score"]}%')
+    if lowt:
+        lines.append("")
+        lines.append("LOW confidence — garbled nicks, review/name first:")
+        for i, s in lowt:
+            lines.append(f'{i:>3}. {s["alias"]} ({s["alias_count"]}) → '
+                         f'{s["main"]} ({s["main_count"]})  {s["score"]}%')
     lines.append("```")
-    lines.append("Apply all with **`!links apply`**, or link individually with "
-                 "`!alias \"Alt\" = \"Main\"`. Review first — only link real duplicates.")
-    await channel.send("\n".join(lines))
+    lines.append("Apply: **`%links apply`** (all high) · `%links apply all` · "
+                 "`%links apply 1 3 5-7`")
+    lines.append('Name a real player: `%links name 4 \"Real Name\"` '
+                 '(merges that pair and learns the name).')
+    # Discord 2000-char cap: send in chunks if needed
+    msg = "\n".join(lines)
+    if len(msg) <= 1900:
+        await channel.send(msg)
+    else:
+        await _send_chunked(channel, lines)
+
+
+async def _send_chunked(channel, lines):
+    buf, fence = [], "```"
+    size = 0
+    for ln in lines:
+        if size + len(ln) > 1800:
+            await channel.send("\n".join(buf))
+            buf, size = [], 0
+        buf.append(ln); size += len(ln) + 1
+    if buf:
+        await channel.send("\n".join(buf))
 
 
 async def _cmd_cleanup(channel, arg):
@@ -415,13 +521,13 @@ async def _cmd_cleanup(channel, arg):
         n = db.delete_match_ids(bad)
         log(f"cleanup: deleted {n} non-Fate matches")
         await channel.send(f"🗑️ Deleted **{n}** match(es) that weren't Fate "
-                           f"scoreboards. Re-run `!export` for clean stats.")
+                           f"scoreboards. Re-run `%export` for clean stats.")
         return
     await channel.send(
         f"Found **{len(bad)}** saved match(es) that don't look like Fate "
         f"scoreboards (few/no recognized heroes — usually the in-game Tab "
         f"overlay or another format).\n"
-        f"Run **`!cleanup confirm`** to delete them. (Maybe `!export` first as a "
+        f"Run **`%cleanup confirm`** to delete them. (Maybe `%export` first as a "
         f"backup.)")
 
 
@@ -437,7 +543,7 @@ async def _cmd_players(channel):
     lines, chunk = [], []
     for p in rows:
         chunk.append(f"{p['games']:>3}  {p['player']}")
-    body = "Players (games · name) — link duplicates with `!alias \"Alt\" = \"Main\"`:\n```\n" \
+    body = "Players (games · name) — link duplicates with `%alias \"Alt\" = \"Main\"`:\n```\n" \
            + "\n".join(chunk) + "\n```"
     # Discord 2000-char limit: split if needed
     if len(body) <= 1990:
@@ -457,7 +563,7 @@ async def _cmd_report(channel, arg):
     """Quick: import the last N games from the channel, then export just those."""
     n = arg.strip()
     if not n.isdigit():
-        await channel.send("Usage: `!report 10` — backfill the latest games and "
+        await channel.send("Usage: `%report 10` — backfill the latest games and "
                            "export the last 10 (clean).")
         return
     n = int(n)
@@ -526,30 +632,30 @@ async def on_message(message):
                 return
         content = message.content.strip()
         low = content.lower()
-        if low == "!help":
+        if low == "%help":
             await _cmd_help(message.channel)
-        elif low == "!matches":
+        elif low == "%matches":
             await _cmd_matches(message.channel)
-        elif low.startswith("!export"):
-            await _cmd_export(message.channel, content[len("!export"):].strip())
-        elif low.startswith("!backfill"):
-            await _cmd_backfill(message.channel, content[len("!backfill"):].strip())
-        elif low.startswith("!cleanup"):
-            await _cmd_cleanup(message.channel, content[len("!cleanup"):].strip())
-        elif low.startswith("!clear"):
-            await _cmd_clear(message.channel, content[len("!clear"):].strip())
-        elif low.startswith("!report"):
-            await _cmd_report(message.channel, content[len("!report"):].strip())
-        elif low.startswith("!links"):
-            await _cmd_links(message.channel, content[len("!links"):].strip())
-        elif low == "!players":
+        elif low.startswith("%export"):
+            await _cmd_export(message.channel, content[len("%export"):].strip())
+        elif low.startswith("%backfill"):
+            await _cmd_backfill(message.channel, content[len("%backfill"):].strip())
+        elif low.startswith("%cleanup"):
+            await _cmd_cleanup(message.channel, content[len("%cleanup"):].strip())
+        elif low.startswith("%clear"):
+            await _cmd_clear(message.channel, content[len("%clear"):].strip())
+        elif low.startswith("%report"):
+            await _cmd_report(message.channel, content[len("%report"):].strip())
+        elif low.startswith("%links"):
+            await _cmd_links(message.channel, content[len("%links"):].strip())
+        elif low == "%players":
             await _cmd_players(message.channel)
-        elif low == "!aliases":
+        elif low == "%aliases":
             await _cmd_alias(message.channel, "")
-        elif low.startswith("!unalias"):
-            await _cmd_alias(message.channel, "remove " + content[len("!unalias"):].strip())
-        elif low.startswith("!alias"):
-            await _cmd_alias(message.channel, content[len("!alias"):].strip())
+        elif low.startswith("%unalias"):
+            await _cmd_alias(message.channel, "remove " + content[len("%unalias"):].strip())
+        elif low.startswith("%alias"):
+            await _cmd_alias(message.channel, content[len("%alias"):].strip())
         return
 
     # --- watch channels: silent ingestion only ---

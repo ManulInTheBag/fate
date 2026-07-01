@@ -53,6 +53,20 @@ OCR_LANG_CJK = os.getenv("OCR_LANG_CJK", "").strip()
 # easyocr package) or "tesseract" (lighter fallback). EasyOCR ignores OCR_LANG*.
 OCR_ENGINE = os.getenv("OCR_ENGINE", "easyocr").strip().lower()
 
+# Run EasyOCR on the GPU (CUDA) when possible — much faster than CPU. "auto"
+# (default) uses the GPU whenever a CUDA build of torch can see one, and silently
+# falls back to CPU otherwise; "1"/"true" forces it; "0"/"false" disables it.
+# Needs a CUDA build of torch (the default "+cpu" wheel never sees the GPU).
+OCR_GPU = os.getenv("OCR_GPU", "auto").strip().lower()
+
+# When the hero NAME text can't be read, fall back to matching the hero PORTRAIT
+# icon against a learned library (hero_vision / data/hero_portraits.npz, built by
+# build_portraits.py). "1"/"true" (default) on; "0"/"false" off. The match is
+# accepted only above HERO_VISION_GATE (cosine similarity), else the hero stays
+# Unknown for manual review.
+HERO_VISION = os.getenv("HERO_VISION", "true").strip().lower() in ("1", "true", "yes", "on")
+HERO_VISION_GATE = float(os.getenv("HERO_VISION_GATE", "0.60"))
+
 DB_PATH = os.path.join(os.path.dirname(__file__), "data", "scoreboards.db")
 EXPORT_PATH = os.path.join(os.path.dirname(__file__), "data", "fate_stats.xlsx")
 DEBUG_DIR = os.path.join(os.path.dirname(__file__), "data", "debug")
