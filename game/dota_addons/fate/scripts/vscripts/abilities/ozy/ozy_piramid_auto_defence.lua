@@ -42,7 +42,7 @@ function modifier_ozy_piramid_auto_defence:OnIntervalThink()
 	if IsServer() then
 		if self.hCaster:IsAlive() == false then return end
 		if self.hCaster:IsChanneling() then return end
-		if self:GetAbility():GetToggleState() then return end
+		--if self:GetAbility():GetToggleState() then return end
 		local selfPosition = self.hCaster:GetAbsOrigin()
 		local tEnemies = FindUnitsInRadius(self.hCaster.Ozy:GetTeam(), selfPosition, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		local counter = 0

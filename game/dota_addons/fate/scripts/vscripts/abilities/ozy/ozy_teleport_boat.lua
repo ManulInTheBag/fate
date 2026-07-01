@@ -17,7 +17,7 @@ function ozy_teleport_boat:CastFilterResultLocation(vLocation)
 
     if vLocation
         and hCaster and not hCaster:IsNull() then
-        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) or not (IsServer() and  IsInSameRealm(hCaster:GetAbsOrigin(), hCaster.ozy:GetAbsOrigin())) then
             return UF_SUCCESS
         end
     end

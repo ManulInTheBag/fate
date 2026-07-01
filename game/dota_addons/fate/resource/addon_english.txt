@@ -2621,10 +2621,10 @@
 		//"DOTA_Tooltip_ability_cu_chulain_relentless_spear_num_attacks"		"Number of Attacks:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_gae_bolg"						"The Spear of Impaling Barbed Death"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_Description"			"Cu Chulainn pierces the enemy with the cursed spear; Gae Bolg, dealing damage.\nIf this blow would reduce the target's health below a certain threshold, target is <font color='#FF3399'>instantly killed</font>."
+		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_Description"			"Cu Chulainn pierces the enemy with the cursed spear; Gae Bolg, dealing damage.\nYou cannot leave out of range of this ability unless Cu Chulain loses vision over you."
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_Lore"					"I shall claim your heart!"
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_delay"				"Cast Time:"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_heart_break"			"Heartbreak Threshold:"
+		//"DOTA_Tooltip_ability_cu_chulain_gae_bolg_heart_break"			"Heartbreak Threshold:"
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_Note0"				"Heart Break is considered a forced kill, and bypasses most of revival abilities."
 
 		"DOTA_Tooltip_Ability_cu_chulain_gae_bolg_jump"					"The Spear of Striking Death Flight"
@@ -2666,7 +2666,7 @@
 		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_bonus_range"	"Bonus Range:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_heartseeker_attribute"				"Attribute: The Heartseeker"
-		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_Description"	"\nThe Spear of Impaling Barbed Death damage based on Cu Chulain's level. \nIncreases Significantly increases the threshold for Gae Bolg's execution condition.\nOnce Wesen Gae Bolg is activated, regardless of Cu Chulainn's condition, the spear will always strike its target."
+		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_Description"	"\nThe Spear of Impaling Barbed Death damage based on Cu Chulain's level. \nAdds the execution threshold for Gae Bolg before dealing damage.\nOnce Wesen Gae Bolg is activated, regardless of Cu Chulainn's condition, the spear will always strike its target."
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_Lore"			"The heart of his opponent has already been pierced as Cu Chulainn declares. He merely thrust his opponent as an act of formality."
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_damage_per_level"		"Damage per level:"
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_heartbreak_threshold"	"%Heartbreak Threshold:"
@@ -5448,7 +5448,7 @@
         "DOTA_Tooltip_Ability_diarmuid_attribute_golden_rose_damage_per_stack"		"%Damage Per Stack:"
 
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose"          		"Attribute: Crimson Rose of Exorcism"
-        "DOTA_Tooltip_ability_diarmuid_attribute_crimson_rose_Description"		"Gae Dearg revokes the target for duration. Gae Dearg also reduces target's maximum mana temporarily.\nReduces castpoint of Gae Dearg by 0.1."
+        "DOTA_Tooltip_ability_diarmuid_attribute_crimson_rose_Description"		"Gae Dearg stuns the target for 0.1 second.\nGae Dearg also reduces target's maximum mana temporarily.\nReduces castpoint of Gae Dearg by 0.1."
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose_revoke_per_stack"	"Revoke Duration:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose_mana_per_stack"	"Mana Reduction:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose_mana_duration"	"Mana Reduction Duration:"

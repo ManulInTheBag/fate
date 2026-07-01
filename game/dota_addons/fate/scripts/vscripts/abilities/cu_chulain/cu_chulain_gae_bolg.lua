@@ -50,7 +50,7 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local ability = self
 	local damage = self:GetSpecialValueFor("damage")
-	local hbThreshold = self:GetSpecialValueFor("heart_break")
+	local hbThreshold = 0
 	if IsSpellBlocked(target, caster) then 
 		return 
 	end
@@ -87,18 +87,22 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	end)
 
 	giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
-	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+	
 	--target:AddNewModifier(caster, target, "modifier_stunned", {Duration =0.5})
 
 	if target:GetHealth() < hbThreshold and not (target:IsMagicImmune() or target:HasModifier("modifier_avalon")) then
 		local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControl( hb, 0, target:GetAbsOrigin())
 		target:Execute(ability, caster, { bExecution = true })
-		
+		print("execute")
+		print(hbThreshold)
 		Timers:CreateTimer( 3.0, function()
 			ParticleManager:DestroyParticle( hb, false )
 			ParticleManager:ReleaseParticleIndex(hb)
 		end)
+	else
+		DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+		print("dodamage")
 	end
 	
 	--StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=3})

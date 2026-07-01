@@ -126,7 +126,8 @@ function diarmuid_gae_dearg:OnSpellStart()
 	FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )
 
 	if caster.IsCrimsonRoseAcquired and target:IsHero() then
-		giveUnitDataDrivenModifier(caster, target, "revoked", 1.5)
+		--giveUnitDataDrivenModifier(caster, target, "revoked", 1.5)
+		target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
 		if not IsManaLess(target) then
 			target:SetMana(target:GetMana() - 500)
 			target:AddNewModifier(caster, ability, "modifier_gae_dearg", { Duration = self:GetSpecialValueFor("duration") })
