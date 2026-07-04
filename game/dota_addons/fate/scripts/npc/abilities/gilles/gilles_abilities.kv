@@ -357,147 +357,17 @@
 	//=======================================
 	// Gilles De Rais Attribute : Improve Black Magic
 	//=======================================
-	"gille_attribute_improve_black_magic"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_improve_black_magic"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"16"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "curse_damage" "400"
-            "curse_duration" "4.0"
-            "torment_multiplier" "15.0"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnBlackMagicImproved"
-			}
-		}
-	}
 
 	//=======================================
 	// Gilles De Rais Attribute : Mental Pollution
 	//=======================================
-	"gille_attribute_mental_pollution"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_mental_pollution"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"11"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "max_madness" "15"
-            "corpse_cooldown" "2.0"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnMentalPollutionAcquired"
-			}
-		}
-	}
 
 	//=======================================
 	// Gilles De Rais Attribute : Abyssal Connection
 	//=======================================
-	"gille_attribute_abyssal_connection"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_abyssal_connection"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "bonus_damage" "200"
-            "bonus_radius" "200"
-            "high_damage" "110"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnAbyssConnectionAcquired"
-			}
-		}
-	}
 
 	//=======================================
 	// Gilles De Rais Attribute : Abyssal Connection - Tier 2
 	//=======================================
-	"gille_attribute_abyssal_connection_2"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_abyssal_connection_2"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "bonus_health" "30"
-            "bonus_aspd" "50"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnAbyssConnection2Acquired"
-			}
-		}
-	}
 
 }

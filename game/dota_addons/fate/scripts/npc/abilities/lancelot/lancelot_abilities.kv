@@ -992,39 +992,6 @@
 	//=======================================
 	// Lancelot Attribute : Total Assault
 	//=======================================
-	"lancelot_attribute_total_assault"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/lancelot_attribute_total_assault"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"15"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "slow_amount" "90"
-            "crit_rate" "25"
-            "crit_damage" "250"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"lancelot_ability"
-				"Function"		"OnTAAcquired"
-			}
-		}
-	}
 
 	//====================================
 	// Lancelot : Nuke

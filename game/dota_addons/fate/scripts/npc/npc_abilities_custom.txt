@@ -324,45 +324,6 @@
 	//=================================================================================================================
 	// Gawain : Divine Meltdown
 	//=================================================================================================================
-	"gawain_artificial_sun_divine_meltdown"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"custom/gawain_blessing_of_fairy"
-
-		"precache"
-		{
-
-		}
-		
-		"OnSpellStart"
-		{
-		}
-
-		"Modifiers"
-		{
-			"modifier_gawain_revive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}						
-				}
-			}
-		}
-	}
 	//================================================
 	// Ping sign passive
 	//================================================

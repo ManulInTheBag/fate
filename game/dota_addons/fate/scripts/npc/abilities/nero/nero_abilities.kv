@@ -92,24 +92,6 @@
 		}
 	}
 
-	"nero_acquire_casa_di_logistilla"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/astolfo_casa_di_logistilla"
-		
-		"AbilityCastPoint"				"0.0"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnCasaAcquired"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Nero : Golden Rule
 	//=================================================================================================================
@@ -134,29 +116,6 @@
 	//=================================================================================================================
 	// Nero :  Mind's Eye
 	//=================================================================================================================
-	"nero_acquire_minds_eye"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/false_assassin_minds_eye"
-		
-		"AbilityCastPoint"				"0.0"
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnMindEyeAcquired"
-			}
-		}
-
-	}
 	//=================================================================================================================
 	// Nero : Clairvoyance
 	//=================================================================================================================
@@ -187,27 +146,6 @@
 	//=================================================================================================================
 	// Nero : Item Construction
 	//=================================================================================================================
-	"nero_acquire_item_construction"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/caster_5th_item_construction"
-		
-		"AbilityCastPoint"				"0.0"
-		"precache"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnItemConstructionAcquired"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Nero : Martial Arts
 	//=================================================================================================================

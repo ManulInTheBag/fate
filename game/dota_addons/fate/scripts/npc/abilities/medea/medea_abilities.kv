@@ -1255,64 +1255,6 @@
 	//=====================================
 	// Caster : Mana Transfer
 	//=====================================
-	"caster_5th_mana_transfer"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"25"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"keeper_of_the_light_chakra_magic"
-		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
-		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"600"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"0"
-		"AbilityChannelTime"			"5.0"
-        "IsCastableWhileHidden"         "1"
-
-		"precache"
-		{
-			"particle"		"particles/econ/items/puck/puck_alliance_set/puck_dreamcoil_tether_aproset.vpcf"
-		}
-
-		"AbilityValues"
-        {
-            "mana_amount" "40 60 80 100 120"
-            "duration" "5.0"
-        }
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnMTStart"
-				"Duration"			"%duration"
-				"Manatransferred"	"%mana_amount"
-			}
-		}
-		"OnChannelFinish"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnMTEnd"
-			}
-		}
-		"OnChannelInterrupted"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnMTEnd"
-			}
-		}
-	}
 
 	"caster_5th_close_spellbook"
 	{
