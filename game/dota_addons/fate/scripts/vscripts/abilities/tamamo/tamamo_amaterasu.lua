@@ -20,8 +20,6 @@ local spellBooks = {
     "gilles_rlyeh_text_close",
     "nero_heat",
     "mordred_pedigree",
-    "kuro_spellbook_open",
-    "kuro_spellbook_close",
     "atalanta_celestial_arrow",
     "atalanta_priestess_of_the_hunt",
     "nero_imperial_open",

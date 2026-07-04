@@ -30,20 +30,4 @@
 		}
 	}
 
-	"models/kuro/kuro.vmdl"
-	{
-		"attach_attack2"
-		{
-			"models/kuro/kuro_bow.vmdl"
-			{
-				"scale"		"100"
-				"pitch"		"120"
-				"roll"		"0"
-				"ZPos"		"-0.10000000149012"
-				"YPos"		"-0.050000000745058"
-				"yaw"		"92"
-				"XPos"		"0"
-			}
-		}
-	}
 }

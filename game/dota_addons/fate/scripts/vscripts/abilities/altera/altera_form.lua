@@ -26,15 +26,6 @@ local tForms = {
     "attribute_bonus_custom"
 }
 
---[[function altera_form_open:OnUpgrade()
-    local hCaster = self:GetCaster()
-    
-    hCaster:FindAbilityByName("kuro_rho_aias"):SetLevel(self:GetLevel())
-    hCaster:FindAbilityByName("kuro_gae_bolg"):SetLevel(self:GetLevel())
-    hCaster:FindAbilityByName("kuro_excalibur_image"):SetLevel(self:GetLevel())
-    hCaster:FindAbilityByName("kuro_nine_lives"):SetLevel(self:GetLevel())
-    hCaster:FindAbilityByName("kuro_rosa_ichthys"):SetLevel(self:GetLevel())
-end]]
 
 function altera_form_open:OnSpellStart()
 	self:OpenSezame()

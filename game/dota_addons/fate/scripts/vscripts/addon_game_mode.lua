@@ -188,7 +188,6 @@ model_lookup["npc_dota_hero_mirana"] = "models/jeanne/jeanne.vmdl"
 model_lookup["npc_dota_hero_queenofpain"] = "models/astolfo/astolfo.vmdl"
 model_lookup["npc_dota_hero_phantom_assassin"] = "models/semi/semi.vmdl"
 model_lookup["npc_dota_hero_beastmaster"] = "models/karna/karna.vmdl"
-model_lookup["npc_dota_hero_naga_siren"] = "models/kuro/kuro.vmdl"
 model_lookup["npc_dota_hero_dark_willow"] = "models/okita/okita_new.vmdl"
 model_lookup["npc_dota_hero_riki"] = "models/jtr/jtr.vmdl"
 model_lookup["npc_dota_hero_centaur"] = "models/lu_bu/lu_bu.vmdl"
@@ -923,20 +922,7 @@ function FateGameMode:OnPlayerChat(keys)
         dummy:SetForwardVector(hero:GetForwardVector())
     end
 
-    if text == "-kuroilyameme" then
-        if hero:GetName() == "npc_dota_hero_wisp" then
-            --local loc = Vector(-5400, 762, 376)
-            --local dummy = CreateUnitByName("karna_dummy", loc, true, nil, nil, hero:GetTeamNumber())
-            PrecacheUnitByNameAsync("npc_dota_hero_naga_siren", function()
-                local oldHero = PlayerResource:GetSelectedHeroEntity(plyID)
-                oldHero:SetRespawnsDisabled(true)
-
-                PlayerResource:ReplaceHeroWith(plyID, "npc_dota_hero_naga_siren", 3000, 0)
-
-                UTIL_Remove(oldHero)
-            end)
-        end
-    elseif text == "-elfearassassin" then
+    if text == "-elfearassassin" then
         if hero:GetName() == "npc_dota_hero_wisp" then
             --local loc = Vector(-5400, 762, 376)
             --local dummy = CreateUnitByName("karna_dummy", loc, true, nil, nil, hero:GetTeamNumber())
@@ -3157,8 +3143,6 @@ local spellBooks = {
     "gilles_rlyeh_text_close",
     "nero_heat",
     "mordred_pedigree",
-    "kuro_spellbook_open",
-    "kuro_spellbook_close",
     "atalanta_celestial_arrow",
     "atalanta_priestess_of_the_hunt",
     "nero_imperial_open",

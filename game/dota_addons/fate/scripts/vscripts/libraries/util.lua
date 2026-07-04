@@ -463,8 +463,6 @@ donotlevel = {
     "gawain_saint",
     "gawain_blessing_of_fairy",
     "diarmuid_minds_eye",
-    "kuro_gae_bolg",
-    "kuro_excalibur_image",
     "tamamo_castration_fist",
     "angra_mainyu_demon_incarnate_passive",
     "arturia_alter_mana_shroud_attribute_passive",
@@ -573,7 +571,6 @@ CannotReset = {
     "karna_combo_vasavi",
     "karna_discern_poor",
     "jeanne_la_pucelle",
-    "kuro_crane_wings_combo",
     "tamamo_castration_fist",
     "jtr_information_erase",
     "jtr_mental_pollution_passive",
@@ -587,7 +584,6 @@ CannotReset = {
     "jeanne_witch",
     "jeanne_mana",
     "jeanne_lagron_combo",
-    "kuro_hrunting",
     "emiya_hrunting_2",
     "heracles_berserk",
     "jtr_bloody_thirst",
@@ -737,7 +733,6 @@ femaleservant = {
     "npc_dota_hero_windrunner",
     "npc_dota_hero_drow_ranger",
     "npc_dota_hero_phantom_assassin",
-    "npc_dota_hero_naga_siren",
     "npc_dota_hero_riki",
     "npc_dota_hero_dark_willow",
     "npc_dota_hero_abaddon",
@@ -974,7 +969,6 @@ function distance_Point_to_Segment_IsInside(x,y,x1,y1,x2,y2)
     return {d(x,y,x0,y0), b, true};
 end
 
-LinkLuaModifier("modifier_chloe_hrunting_possibility_provider", "abilities/kuro/modifiers/modifier_chloe_hrunting_possibility_provider", LUA_MODIFIER_MOTION_NONE)
 
 function SpawnVisionDummy(owner, location, radius, duration, bTrueSight)
     local visiondummy = CreateUnitByName("sight_dummy_unit", location, false, nil, nil, owner:GetTeamNumber())
@@ -983,9 +977,6 @@ function SpawnVisionDummy(owner, location, radius, duration, bTrueSight)
     local unseen = visiondummy:FindAbilityByName("dummy_unit_passive")
     unseen:SetLevel(1)
 
-    if owner:GetName() == "npc_dota_hero_naga_siren" then
-        visiondummy:AddNewModifier(owner, owner, "modifier_chloe_hrunting_possibility_provider", {radius = radius})
-    end
 
     if bTrueSight then
         visiondummy:AddNewModifier(owner, owner, "modifier_item_ward_true_sight", {true_sight_range = radius}) 
@@ -2530,7 +2521,6 @@ local heroNames = {
     ["npc_dota_hero_tidehunter"] = "Vlad",
     ["npc_dota_hero_phantom_assassin"] = "Shiki Ryougi",
     ["npc_dota_hero_beastmaster"] = "Karna",
-    ["npc_dota_hero_naga_siren"] = "Chloe von Einzbern",
     ["npc_dota_hero_riki"] = "Jack the Ripper",
     ["npc_dota_hero_dark_willow"] = "Okita Souji",
     ["npc_dota_hero_abaddon"] = "Mordred",
@@ -2601,7 +2591,6 @@ local heroCombos = {
     ["npc_dota_hero_tidehunter"] = "vlad_combo",
     ["npc_dota_hero_phantom_assassin"] = "ryougi_collapse",
     ["npc_dota_hero_beastmaster"] = "karna_combo_vasavi",
-    ["npc_dota_hero_naga_siren"] = "kuro_crane_wings_combo",
     ["npc_dota_hero_riki"] = "jtr_whitechapel_murderer",
     ["npc_dota_hero_dark_willow"] = "okita_zekken",
     ["npc_dota_hero_abaddon"] = "mordred_mmb_lightning",
