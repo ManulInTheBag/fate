@@ -1,0 +1,252 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{da6429d4-166f-47ed-8f47-45d5c5f1bd9f} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 100
+	m_nConstantSequenceNumber = 8
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 62
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmissionDuration = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.050000
+			}
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 2000.000000
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.250000
+			}
+			m_nOutputField = 1
+		},
+		
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = 
+			[
+				206,
+				98,
+				39,
+				255,
+			]
+			m_ColorMin = 
+			[
+				206,
+				98,
+				39,
+				255,
+			]
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 24.000000
+			}
+		},
+		
+		{
+			_class = "C_INIT_CreateSequentialPathV2"
+			m_PathParams = 
+			{
+				m_flMidPoint = 0.150000
+				m_nBulgeControl = 1
+				m_flBulge = 0.150000
+				m_nEndControlPointNumber = 1
+			}
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.360784
+				m_flRandomMax = 1.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 7
+		},
+		
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMax = 
+			[
+				0.000000,
+				0.000000,
+				96.000000,
+			]
+			m_OffsetMin = 
+			[
+				0.000000,
+				0.000000,
+				96.000000,
+			]
+			m_TransformInput = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_flInput0 = 0.000000
+				m_flInput1 = 0.050000
+				m_flOutput0 = 8.000000
+				m_flOutput1 = 12.000000
+				m_nMapType = "PF_MAP_TYPE_REMAP"
+				m_nType = "PF_TYPE_PARTICLE_FLOAT"
+				m_nScalarAttribute = 8
+			}
+			m_nOutputField = 4
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		
+		{
+			_class = "C_OP_Decay"
+		},
+		
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = 
+			[
+				89,
+				76,
+				53,
+				255,
+			]
+		},
+		
+		{
+			_class = "C_OP_PercentageBetweenTransforms"
+			m_flOutputMax = 0.000000
+			m_flOutputMin = 1.000000
+			m_nFieldOutput = 16
+			m_flInputMin = 0.875000
+			m_TransformStart = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
+			m_TransformEnd = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
+		},
+		
+		{
+			_class = "C_OP_PercentageBetweenTransforms"
+			m_bRadialCheck = false
+			m_bActiveRange = true
+			m_nFieldOutput = 16
+			m_flInputMax = 0.750000
+			m_TransformStart = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
+			m_TransformEnd = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
+		},
+		
+		{
+			_class = "C_OP_PercentageBetweenTransforms"
+			m_flOpStartFadeOutTime = 0.060000
+			m_flOpEndFadeOutTime = 0.060000
+			m_flOutputMin = 1.000000
+			m_flOutputMax = 4.000000
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
+			m_TransformStart = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
+			m_TransformEnd = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
+		},
+		
+		{
+			_class = "C_OP_RampScalarSplineSimple"
+			m_bEaseOut = true
+			m_Rate = 70.000000
+		},
+		
+		{
+			_class = "C_OP_RampScalarSplineSimple"
+			m_nField = 4
+			m_Rate = 7.000000
+			m_flEndTime = 0.350000
+			m_bEaseOut = true
+		},
+	]
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderSprites"
+			m_nHSVShiftControlPoint = 62
+			m_vecTexturesInput = 
+			[
+				
+				{
+					m_hTexture = resource:"materials/particle/particle_swirl_04c.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+}

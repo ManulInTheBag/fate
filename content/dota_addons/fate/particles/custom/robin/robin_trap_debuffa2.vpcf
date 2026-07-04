@@ -1,0 +1,253 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_flConstantRadius = 250.000000
+	m_flConstantLifespan = 0.100000
+	m_ConstantColor = 
+	[
+		218,
+		165,
+		32,
+		255,
+	]
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 1
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 18
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 19
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 20
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 21
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 22
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_vecCP4Pos = 
+			[
+				88.000000,
+				1.000000,
+				1.000000,
+			]
+			m_vecCP3Pos = 
+			[
+				64.000000,
+				1.000000,
+				1.000000,
+			]
+			m_vecCP2Pos = 
+			[
+				88.000000,
+				1.000000,
+				1.000000,
+			]
+			m_vecCP1Pos = 
+			[
+				112.000000,
+				1.000000,
+				1.000000,
+			]
+			m_bUseWorldLocation = true
+		},
+		
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 5
+			m_vecCP1Pos = 
+			[
+				112.000000,
+				1.000000,
+				1.000000,
+			]
+			m_transformInput = 
+			{
+				m_nType = "PT_TYPE_INVALID"
+			}
+		},
+		
+		{
+			_class = "C_OP_SetParentControlPointsToChildCP"
+			m_nFirstSourcePoint = 1
+			m_nNumControlPoints = 5
+			m_nChildControlPoint = 1
+			m_nChildGroupID = 1
+		},
+		
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_nCP1 = 12
+			m_vecCP1Pos = 
+			[
+				0.000000,
+				0.000000,
+				96.000000,
+			]
+			m_nCP2 = 13
+			m_vecCP2Pos = 
+			[
+				0.000000,
+				0.000000,
+				48.000000,
+			]
+			m_nCP3 = 14
+			m_vecCP3Pos = 
+			[
+				0.000000,
+				0.000000,
+				0.000000,
+			]
+			m_nCP4 = 15
+			m_vecCP4Pos = 
+			[
+				0.000000,
+				0.000000,
+				128.000000,
+			]
+		},
+		
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 16
+			m_vecCP1Pos = 
+			[
+				0.000000,
+				0.000000,
+				64.000000,
+			]
+		},
+		
+		{
+			_class = "C_OP_SetParentControlPointsToChildCP"
+			m_nChildGroupID = 1
+			m_nNumControlPoints = 3
+			m_nFirstSourcePoint = 12
+		},
+	]
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.000000
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_CreateWithinSphereTransform"
+		},
+		
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = 
+			[
+				0.000000,
+				0.000000,
+				120.000000,
+			]
+			m_OffsetMax = 
+			[
+				0.000000,
+				0.000000,
+				120.000000,
+			]
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_PositionLock"
+		},
+		
+		{
+			_class = "C_OP_EndCapTimedDecay"
+			m_flDecayTime = 0.200000
+		},
+		
+		{
+			_class = "C_OP_LerpEndCapScalar"
+			m_flLerpTime = 0.200000
+			m_nFieldOutput = 16
+			m_flOutput = 0.000000
+		},
+	]
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderDeferredLight"
+			m_flAlphaScale = 18.000000
+			m_flStartFalloff = 0.100000
+		},
+	]
+	m_Children = 
+	[
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_debuffa2a.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_debuffa2a.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_debuffa2b.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_debuffa2b.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_debuffa2b.vpcf"
+		},
+	]
+}
