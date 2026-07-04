@@ -108,6 +108,7 @@
 					{
 						_class = "AnimFile"
 						name = "cu_alter"
+						disabled = true
 						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
@@ -153,17 +154,36 @@
 								discard_tx = false
 								discard_ty = false
 								discard_tz = false
-								discard_rx = false
-								discard_ry = false
+								discard_rx = true
+								discard_ry = true
 								discard_rz = true
 								bone_names = 
 								[
 									"waist",
+									"bone_new24",
 								]
+							},
+							{
+								_class = "ExtractMotion"
+								disabled = true
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 1
+								frames_from_end = 5
 							},
 						]
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -179,7 +199,7 @@
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
 						start_frame = 26
-						end_frame = 116
+						end_frame = 117
 						framerate = -1.0
 						reverse = true
 						additional_anim_files = [  ]
@@ -187,8 +207,40 @@
 					{
 						_class = "AnimFile"
 						name = "cu_alter_run"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								disabled = true
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = true
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = "waist"
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 11
+								frames_from_end = 1
+							},
+							{
+								_class = "DiscardMotion"
+								disabled = true
+								discard_tx = false
+								discard_ty = false
+								discard_tz = false
+								discard_rx = false
+								discard_ry = false
+								discard_rz = true
+								bone_names = [  ]
+							},
+						]
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -205,7 +257,7 @@
 						import_bone_scales = false
 						start_frame = 299
 						end_frame = 341
-						framerate = -1.0
+						framerate = 60.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -213,7 +265,7 @@
 						_class = "AnimFile"
 						name = "cu_alter_die"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -228,7 +280,7 @@
 						delete_from_compiled_model = false
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
-						start_frame = 0
+						start_frame = 1082
 						end_frame = 1154
 						framerate = -1.0
 						reverse = false
@@ -238,7 +290,7 @@
 						_class = "AnimFile"
 						name = "cu_alter_attack"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -253,15 +305,15 @@
 						delete_from_compiled_model = false
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
-						start_frame = 0
-						end_frame = 1154
+						start_frame = 117
+						end_frame = 147
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
-						name = "cu_alter5"
+						name = "cu_alter_attack_2"
 						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
@@ -278,15 +330,15 @@
 						delete_from_compiled_model = false
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
-						start_frame = 0
-						end_frame = 1154
+						start_frame = 237
+						end_frame = 282
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
-						name = "cu_alter6"
+						name = "cu_alter_roar"
 						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
@@ -303,15 +355,15 @@
 						delete_from_compiled_model = false
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
-						start_frame = 0
-						end_frame = 1154
+						start_frame = 342
+						end_frame = 403
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
-						name = "cu_alter7"
+						name = "cu_alter_spear_throw"
 						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
@@ -328,15 +380,15 @@
 						delete_from_compiled_model = false
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
-						start_frame = 0
-						end_frame = 1154
+						start_frame = 402
+						end_frame = 440
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
-						name = "cu_alter8"
+						name = "cu_alter_throw_air"
 						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
@@ -353,15 +405,15 @@
 						delete_from_compiled_model = false
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
-						start_frame = 0
-						end_frame = 1154
+						start_frame = 440
+						end_frame = 477
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
-						name = "cu_alter9"
+						name = "cu_alter_poza_seksa"
 						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
@@ -378,7 +430,82 @@
 						delete_from_compiled_model = false
 						source_filename = "models/cu_alter/cu_alter.fbx"
 						import_bone_scales = false
-						start_frame = 0
+						start_frame = 477
+						end_frame = 510
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "cu_alter_dash_iz_seksa"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/cu_alter/cu_alter.fbx"
+						import_bone_scales = false
+						start_frame = 510
+						end_frame = 598
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "cu_alter_attack_LONG"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/cu_alter/cu_alter.fbx"
+						import_bone_scales = false
+						start_frame = 117
+						end_frame = 238
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "ostatok_pod_formy"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/cu_alter/cu_alter.fbx"
+						import_bone_scales = false
+						start_frame = 598
 						end_frame = 1154
 						framerate = -1.0
 						reverse = false
@@ -422,7 +549,6 @@
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
-		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
 		document_sub_type = "ModelDocSubType_None"
 	}
