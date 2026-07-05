@@ -505,30 +505,6 @@ function WardFam(keys)
     EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
 end
 
-function WardOnTakeDamage(keys)
-
-	
-	if keys.unit.dmgcooldown ~= true then
-		keys.unit.dmgcooldown = true
-		local dmg = 2
-		--print("Took Dmg")
-		if keys.attacker:GetClassname() == "npc_dota_base_additive" then
-			dmg = 1
-		end
-		local dmgtable = {
-	        attacker = keys.attacker,
-	        victim = keys.unit,
-	        damage = dmg,
-	        damage_type = DAMAGE_TYPE_PURE,
-	    }
-	    --print(dmgtable.attacker:GetName(), dmgtable.victim:GetName(), dmgtable.damage)
-	    ApplyDamage(dmgtable)
-	    Timers:CreateTimer(0.05, function()
-			keys.unit.dmgcooldown = false
-		end)
-	end
-end
-
 function OnWardDeath(keys)
 	local caster = keys.caster
 
