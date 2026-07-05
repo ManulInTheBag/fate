@@ -721,10 +721,10 @@ function OnLaPucelleTakeDamage(keys)
 			return
 		else
 			caster:SetHealth(caster:GetMaxHealth())
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_pucelle_spirit_form", {})
+			caster:AddNewModifier(caster, ability, "modifier_la_pucelle_spirit_form", { duration = duration + delay })
 			giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", delay)
 			giveUnitDataDrivenModifier(caster, caster, "revoked", duration+delay)
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_pucelle_anim", {})
+			caster:AddNewModifier(caster, ability, "modifier_la_pucelle_anim", { duration = delay })
 
 			-- apply charisma
 			--[[if caster.IsDivineSymbolAcquired then
@@ -745,7 +745,7 @@ function OnLaPucelleTakeDamage(keys)
         		end
     		end
 
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_pucelle_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
+			caster:AddNewModifier(caster, ability, "modifier_la_pucelle_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
 
 			ability:StartCooldown(ability:GetCooldown(1))
 			-- Set master's combo cooldown

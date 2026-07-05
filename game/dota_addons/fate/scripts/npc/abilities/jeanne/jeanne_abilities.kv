@@ -70,47 +70,17 @@
 	//=================================================================================================================
 	"jeanne_identity_discernment"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jeanne/jeanne_identity_discernment"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/jeanne_identity_discernment"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"9999"
-		"precache"
-		{
-		}
-		
+
 		"AbilityValues"
         {
             "saint_vision_duration" "1.5"
         }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"jeanne_ability"
-				"Function"			"OnIDPing"
-				"Duration"			"%saint_vision_duration"
-			}
-		}
-		
-
-		"Modifiers"
-		{
-			"modifier_identity_discernment"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnIDRespawn"
-					}
-				}
-			}
-		}
 	}
 	
 	//=================================================================================================================
@@ -431,7 +401,8 @@
 	//=================================================================================================================
 	"jeanne_combo_la_pucelle"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jeanne/jeanne_combo_la_pucelle"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/jeanne_la_pucelle"
 		"MaxLevel"						"1"
@@ -454,84 +425,6 @@
             "bonus_ms" "50"
             "flame_damage_per_sec" "9"
         }
-		
-		"Modifiers"
-		{
-			"modifier_la_pucelle"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnLaPucelleTakeDamage"
-						"Duration"		"%duration"
-						"Delay"			"%delay"
-					}
-				}
-			}
-			"modifier_la_pucelle_spirit_form"
-			{
-				"EffectName"	"particles/custom/ruler/la_pucelle/ruler_la_pucelle.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"StatusEffectName" 		"particles/status_fx/status_effect_keeper_spirit_form.vpcf" 	   
-				"StatusEffectPriority"  "10"
-				"Duration"	"10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_aspd"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"50"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"99999999"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"1000"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"		"1000"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"100"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"				"0.25"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnLaPucelleThink"
-						"Damage"		"%flame_damage_per_sec"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnLaPucelleDeath"
-					}
-				}
-			}
-			"modifier_la_pucelle_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"modifier_la_pucelle_anim"
-			{
-				"IsHidden"			"1"
-				"Duration"			"%delay"
-				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"1.0"
-				}
-			}
-		}
 	}
 
 	//=======================================
