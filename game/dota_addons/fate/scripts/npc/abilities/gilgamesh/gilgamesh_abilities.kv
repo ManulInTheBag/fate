@@ -231,46 +231,6 @@
 	//=====================================
 	// Gilgamesh : Power of Sumer Arrow Shot
 	//=====================================
-	"gilgamesh_power_of_sumer"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"custom/gilga_gob"
-		"AbilityCastRange"				"9999"
-
-		
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
-		}
-
-		"AbilityValues"
-        {
-            "dmg_ratio" "0.5"
-        }
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"gilg_ability"
-				"Function"			"SumerArrowFire"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"true"
-			"RunScript"
-			{
-				"ScriptFile"    "gilg_ability"
-				"Function"      "OnSumerArrowHit"
-			}
-		}
-	}
 	
 	//=====================================
 	// Gilgamesh : Enuma Elish

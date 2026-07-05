@@ -762,30 +762,6 @@
 		}
 	}
 
-	"stash_blink" 
-	{
-	    "BaseClass"    "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	    "AbilityTextureName"			"custom/antimage_blink"
-	    "AbilityCooldown"				"10"
-	    "AbilityCastRange"				"99999"
-	    "precache"
-	    {
-	    	"particle"	"particles/items_fx/blink_dagger_start.vpcf"
-	    	"particle"	"particles/items_fx/blink_dagger_end.vpcf"
-	    }
-
-
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"StashBlink"
-				"Target"		"POINT"
-			}
-	    }
-	}
 
 
 	//=================================================================================================================
@@ -1648,28 +1624,6 @@
 	//=================================================================================================================
 	// Gain Armor Stat
 	//=================================================================================================================
-	"master_armor"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/stat_armor"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"1"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnArmorGain"
-			}
-		}
-	}
 
 	//=================================================================================================================
 	// Gain Health Regen Stat
@@ -1726,28 +1680,6 @@
 	//=================================================================================================================
 	// Gain Movement Speed Stat
 	//=================================================================================================================
-	"master_movement_speed"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/stat_movement_speed"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"1"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnMovementSpeedGain"
-			}
-		}
-	}
 
 		//=================================================================================================================
 	// C Scroll 

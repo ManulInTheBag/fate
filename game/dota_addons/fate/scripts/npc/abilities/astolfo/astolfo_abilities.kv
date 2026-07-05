@@ -708,34 +708,6 @@
 	//=================================================================================================================
 	// Astolfo : Down with a Touch Passive
 	//=================================================================================================================
-	"astolfo_down_with_a_touch_passive"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			""
-		"MaxLevel"						"1"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"Modifiers"
-		{
-			"modifier_astolfo_down_with_a_touch_passive"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnDownAttackHit"
-					}
-				}
-			}
-		}
-	}
 
 
 
