@@ -1036,13 +1036,15 @@ function SpawnAttachedVisionDummy(owner, target, radius, duration, bTrueSight)
     return visiondummy
 end
 
--- Apply a modifier from item
+-- Apply a generic CC/state modifier (lua modifiers defined in
+-- abilities/general/presence_detection_passive.lua, ex-datadriven container)
 function giveUnitDataDrivenModifier(source, target, modifier,dur)
-    if not source:IsHero() then 
-        source = source:GetPlayerOwner():GetAssignedHero() 
+    if not source:IsHero() then
+        source = source:GetPlayerOwner():GetAssignedHero()
     end
+    if type(dur) == "table" then dur = dur.duration end   -- legacy callers pass {duration=x}
     local dummyAbility = source:FindAbilityByName("presence_detection_passive")
-    dummyAbility:ApplyDataDrivenModifier( source, target, modifier, {duration=dur} )
+    target:AddNewModifier( source, dummyAbility, modifier, {duration=dur} )
 end
 
 function DoCompositeDamage(source, target, dmg, dmg_type, dmg_flag, abil, isLoop)
