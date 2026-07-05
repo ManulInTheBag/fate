@@ -5119,4 +5119,7 @@ end
 
 local status, err = pcall(init_shit)
 
-print("pepegagaming"..err)
+if not status then
+    print("!!!!!!!! ADDON INIT FAILED !!!!!!!!")
+    print(tostring(err))
+end

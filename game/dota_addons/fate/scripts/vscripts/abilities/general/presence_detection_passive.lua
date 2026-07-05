@@ -28,12 +28,16 @@ local function DefineModifier(name, spec)
 		m.GetEffectAttachType = function(self) return spec.attach or PATTACH_ABSORIGIN_FOLLOW end
 	end
 	if spec.funcs then
+		local safe = {}
+		for f, impl in pairs(spec.funcs) do
+			if f ~= nil then safe[f] = impl end
+		end
 		m.DeclareFunctions = function(self)
 			local fs = {}
-			for f in pairs(spec.funcs) do table.insert(fs, f) end
+			for f in pairs(safe) do table.insert(fs, f) end
 			return fs
 		end
-		for f, impl in pairs(spec.funcs) do
+		for f, impl in pairs(safe) do
 			m[impl[1]] = function(self) return impl[2] end
 		end
 	end
@@ -92,8 +96,8 @@ DefineModifier("round_pause", { debuff=true, texture="faceless_void_time_lock",
 DefineModifier("spawn_invulnerable", {
 	states={MODIFIER_STATE_INVULNERABLE, MODIFIER_STATE_NO_HEALTH_BAR},
 	effect="particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf",
-	funcs={ [MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE]   = {"GetModifierPercentageManaRegen", 10},
-	        [MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE] = {"GetModifierHealthRegenPercentage", 10} } })
+	funcs={ [MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE] = {"GetModifierTotalPercentageManaRegen", 10},
+	        [MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE]     = {"GetModifierHealthRegenPercentage", 10} } })
 DefineModifier("gille_attack_speed_boost", { hidden=true,
 	funcs={ [MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT] = {"GetModifierAttackSpeedBonus_Constant", 50} } })
 
