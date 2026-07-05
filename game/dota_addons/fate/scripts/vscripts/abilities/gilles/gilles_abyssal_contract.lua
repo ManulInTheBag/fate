@@ -48,7 +48,7 @@ function gilles_abyssal_contract:OnSpellStart()
 	AddFOWViewer(hCaster:GetTeamNumber(), vTargetPoint, fAOE, fDelay + 0.5, true)
     hCaster:EmitSound("Hero_Warlock.Upheaval")
 
-	local contractFx = ParticleManager:CreateParticle("particles/custom/gilles/abyssal_contract_smoke.vcpf", PATTACH_CUSTOMORIGIN, nil)
+	local contractFx = ParticleManager:CreateParticle("particles/custom/gilles/abyssal_contract_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(contractFx, 0, vTargetPoint)
 	ParticleManager:SetParticleControl(contractFx, 1, Vector(fAOE + 200,0,0))
 	Timers:CreateTimer(2.0, function()
