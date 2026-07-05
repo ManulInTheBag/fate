@@ -8,11 +8,11 @@
 	//=================================================================================================================
 	"saber_charisma"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arturia/saber_charisma"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/saber_charisma"
 		"MaxLevel"						"1"
-		//"DisplayAdditionalHeroes"   	"1"
 		"precache"
 		{
 			"particle"					"particles/items2_fx/rod_of_atos_debuff_glow.vpcf"
@@ -24,45 +24,6 @@
             "Range" "1000"
             "speed_modifier" "10"
         }
-		
-		"Modifiers"
-		{
-			"modifier_charisma_aura"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"Aura"					"modifier_charisma_aura_buff"
-				"Aura_Radius"			"1000"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
-			}
-			
-			"modifier_charisma_aura_buff"
-			{
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/items2_fx/rod_of_atos_debuff_glow.vpcf"
-						"EffectAttachType"	"follow_origin"
-					}
-					
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/items2_fx/rod_of_atos_debuff_ground.vpcf"
-						"EffectAttachType"	"follow_origin"
-					}
-				}
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%speed_modifier"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed_modifier"
-				}
-			}
-		}
 	}
 	
 	//=================================================================================================================

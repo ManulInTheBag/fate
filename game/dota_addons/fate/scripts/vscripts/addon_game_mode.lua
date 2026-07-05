@@ -2395,7 +2395,7 @@ function FateGameMode:OnHeroInGame(hero)
     if hero:GetName() == "npc_dota_hero_wisp" then
         local dummyPause = hero:GetAbilityByIndex(0)
         dummyPause:SetLevel(1)
-        dummyPause:ApplyDataDrivenModifier(hero, hero, "modifier_dummy_pause", {duration=9999})
+        hero:AddNewModifier(hero, dummyPause, "modifier_dummy_pause", {duration=9999})
         return
     end
     if hero:GetName() == "npc_dota_hero_target_dummy" then return end
