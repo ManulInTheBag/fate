@@ -2,7 +2,6 @@ LinkLuaModifier("modifier_imba_pudge_meat_hook_caster_root","abilities/medusa/me
 LinkLuaModifier("modifier_imba_hook_target_enemy","abilities/medusa/medusa_hook", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_hook_target_ally","abilities/medusa/medusa_hook", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
-require('rider_ability')
 
 imba_pudge_meat_hook = class({})
 
@@ -28,8 +27,6 @@ function imba_pudge_meat_hook:OnSpellStart()
 	
 	local vHookOffset = Vector( 0, 0, 96 )
 	local target_position = GetGroundPosition(self:GetCursorPosition() + vHookOffset, self:GetCaster())
-
-	RiderCheckCombo(self:GetCaster(), self)
 
 	-- Preventing projectiles getting stuck in one spot due to potential 0 length vector
 	if target_position == self:GetCaster():GetAbsOrigin() then
