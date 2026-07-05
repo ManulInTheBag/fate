@@ -151,43 +151,6 @@ end
 LinkLuaModifier("modifier_jeanne_vision", "abilities/jeanne/modifiers/modifier_jeanne_vision", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_divine_symbol", "abilities/jeanne/modifiers/modifier_jeanne_divine_symbol", LUA_MODIFIER_MOTION_NONE)
 
-function OnIDPing(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	local duration = 1.5
-	--keys.Duration
-	local delay = 0
-
-	if caster.ServStat.radiantWin <= caster.ServStat.direWin and caster:GetTeam() == DOTA_TEAM_GOODGUYS or caster.ServStat.radiantWin >= caster.ServStat.direWin and caster:GetTeam() == DOTA_TEAM_BADGUYS then
-		duration = 5        	
-		--SpawnAttachedVisionDummy(caster, playerHero, 200, duration, true)
-	end
-
-
-	GameRules:SendCustomMessage("#identity_discernment_alert", 0, 0)
-    LoopOverPlayers(function(player, playerID, playerHero)
-    	--print("looping through " .. playerHero:GetName())
-        if playerHero:GetTeamNumber() ~= caster:GetTeamNumber() and playerHero:IsAlive() then
-        	--print("looping through " .. playerHero:GetName())
-        	delay = delay + 0.15
-        	Timers:CreateTimer(delay, function()
-        		MinimapEvent( caster:GetTeamNumber(), caster, playerHero:GetAbsOrigin().x, playerHero:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 2)
-        	end)
-        	-- Score is updated at end of round in addon_game_mode.lua. Since I'm already tracking score over there, I may as well use it...
-        	
-        	playerHero:AddNewModifier(caster, ability, "modifier_jeanne_vision", { Duration = duration })
-        end
-     end)
-end
-
-function OnIDRespawn(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	-- reset CD
-	ability:EndCooldown()
-	--print("asdasd")
-end
-
 LinkLuaModifier("modifier_charisma_used", "abilities/jeanne/modifiers/modifier_charisma_used", LUA_MODIFIER_MOTION_NONE)
 
 function OnIRStart(keys, fromFlag)
@@ -707,89 +670,6 @@ function OnFlagCleanup(keys)
 	end
 end
 
-function OnLaPucelleTakeDamage(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	local attacker = keys.attacker
-	local pid = caster:GetPlayerID()
-	local duration = keys.Duration
-	local delay = keys.Delay
-	local originalScale = caster:GetModelScale()
-
-	if caster:GetHealth() == 0 and caster:GetStrength() >= 19.1 and caster:GetAgility() >= 19.1 and caster:GetIntellect() >= 19.1 and ability:IsCooldownReady() and IsRevivePossible(caster) then
-		if (_G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7") and IsTeamWiped(caster) then
-			return
-		else
-			caster:SetHealth(caster:GetMaxHealth())
-			caster:AddNewModifier(caster, ability, "modifier_la_pucelle_spirit_form", { duration = duration + delay })
-			giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", delay)
-			giveUnitDataDrivenModifier(caster, caster, "revoked", duration+delay)
-			caster:AddNewModifier(caster, ability, "modifier_la_pucelle_anim", { duration = delay })
-
-			-- apply charisma
-			--[[if caster.IsDivineSymbolAcquired then
-				local newKeys = keys
-				newKeys.ability = caster:FindAbilityByName("jeanne_charisma")
-				newKeys.target = caster
-				newKeys.Radius = newKeys.ability:GetSpecialValueFor("radius_modifier")
-		 		newKeys.Duration = duration
-				OnIRStart(newKeys)
-			end]]
-
-			GameRules:SendCustomMessage("#la_pucelle_alert_1", 0, 0)
-			caster.bIsLaPucelleActivatedThisRound = true
-			caster.LaPucelleKiller = attacker
-			if not caster.LaPucelleKiller:IsHero() then
-                if IsValidEntity(caster.LaPucelleKiller:GetPlayerOwner()) then 
-        	    	caster.LaPucelleKiller = caster.LaPucelleKiller:GetPlayerOwner():GetAssignedHero()
-        		end
-    		end
-
-			caster:AddNewModifier(caster, ability, "modifier_la_pucelle_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
-
-			ability:StartCooldown(ability:GetCooldown(1))
-			-- Set master's combo cooldown
-			local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
-			masterCombo:EndCooldown()
-			masterCombo:StartCooldown(keys.ability:GetCooldown(1))
-
-			caster:EmitSound("mirana_mir_attack_06")
-			EmitGlobalSound("Hero_Phoenix.SuperNova.Explode")
-
-			Timers:CreateTimer(delay, function()
-				caster:EmitSound("Hero_Phoenix.SunRay.Loop")
-				caster:EmitSound("Hero_DoomBringer.ScorchedEarthAura")
-				caster:MoveToPositionAggressive(Vector(0,0,0))
-				caster:SetModelScale(1.5)
-				caster.JeanneOriginalScale = originalScale
-			end)
-		end
-	end
-end
-
--- spread fire
-function OnLaPucelleThink(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	LeaveFireTrail(keys, caster:GetAbsOrigin() + Vector(RandomFloat(0, 400), RandomFloat(0, 400), 0), 2)
-end
-
-function OnLaPucelleDeath(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	caster:SetModelScale(caster.JeanneOriginalScale)
-	caster:StopSound("Hero_DoomBringer.ScorchedEarthAura")
-	caster:StopSound("Hero_Phoenix.SunRay.Loop")
-
-	if _G.CurrentGameState == "FATE_ROUND_ONGOING" or _G.CurrentGameState == "FATE_PRE_GAME" then
-		caster:Execute(ability, PlayerResource:GetSelectedHeroEntity(caster.LaPucelleKiller:GetPlayerID()) )
-		if (_G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7") and not IsTeamWiped(caster) then
-			GameRules:SendCustomMessage("#la_pucelle_alert_2", 0, 0)
-		end
-	end
-	-- announce message
-end
-
 function LeaveFireTrail(keys, location, duration)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -811,18 +691,6 @@ function LeaveFireTrail(keys, location, duration)
 		end
 		return period
 	end)
-end
-
-function OnIDAcquired(keys)
-	local caster = keys.caster
-	local pid = caster:GetPlayerOwnerID()
-	local hero = PlayerResource:GetSelectedHeroEntity(pid)
-	hero.bIsIDAcquired = true
-
-	hero:SwapAbilities("jeanne_saint", "jeanne_identity_discernment", false, true) 
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 end
 
 function OnSaintImproved(keys)
