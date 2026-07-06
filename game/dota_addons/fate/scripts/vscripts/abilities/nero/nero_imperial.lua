@@ -71,11 +71,25 @@ function nero_imperial_close:OnSpellCalled(ability)
     UpdateAbilityLayout(hCaster, tStandardAbilities)
 end
 
+-- re-applies the running imperial buffs with values for the current choice,
+-- so switching the privilege updates the bonuses (and the HUD) immediately
+local function NeroUpdateImperialBuffs(caster)
+    for name, base_only in pairs({ ["modifier_imperial_buff_h"] = true, ["modifier_imperial_buff"] = false }) do
+        local m = caster:FindModifierByName(name)
+        if m and not m:IsNull() then
+            local kv = NeroImperialBonuses(caster, base_only)
+            kv.duration = m:GetRemainingTime()
+            caster:AddNewModifier(caster, m:GetAbility(), name, kv)
+        end
+    end
+end
+
 nero_privilege_damage = class({})
 
 function nero_privilege_damage:OnSpellStart()
     local caster = self:GetCaster()
     caster.ImperialChoose = "nero_privilege_damage"
+    NeroUpdateImperialBuffs(caster)
     UpdateAbilityLayout(caster, tUpdatedAbilities)
 end
 
@@ -84,6 +98,7 @@ nero_privilege_regen = class({})
 function nero_privilege_regen:OnSpellStart()
     local caster = self:GetCaster()
     caster.ImperialChoose = "nero_privilege_regen"
+    NeroUpdateImperialBuffs(caster)
     UpdateAbilityLayout(caster, tUpdatedAbilities)
 end
 
@@ -92,6 +107,7 @@ nero_privilege_defence = class({})
 function nero_privilege_defence:OnSpellStart()
     local caster = self:GetCaster()
     caster.ImperialChoose = "nero_privilege_defence"
+    NeroUpdateImperialBuffs(caster)
     UpdateAbilityLayout(caster, tUpdatedAbilities)
 end
 

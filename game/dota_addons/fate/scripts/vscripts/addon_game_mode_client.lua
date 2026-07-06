@@ -1,5 +1,6 @@
 require('libraries/animations_cl')
 require('modifiers/attributes_cl')
+require('modifiers/cc_modifiers') -- generic CC/state modifiers must be linked on the client too (buff icons/textures)
 -- require('modules/hero_selection/hero_selection')
 -- require('modules/hero_selection/hero_replacer')
 LinkLuaModifier("modifier_sex_scroll_root","items/modifiers/modifier_sex_scroll_root.lua", LUA_MODIFIER_MOTION_NONE)
