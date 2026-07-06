@@ -421,9 +421,6 @@ function iskander_ionioi:EndAOTK(caster)
 			if units[i]:GetName() == "npc_dota_hero_ember_spirit" and units[i]:HasModifier("modifier_unlimited_bladeworks") then
 				units[i]:RemoveModifierByName("modifier_unlimited_bladeworks")
 			end
-			if units[i]:HasModifier("modifier_annihilate_mute") then
-				units[i]:RemoveModifierByName("modifier_annihilate_mute")
-			end
 
 	    	local IsUnitGeneratedInAOTK = true
 	    	if aotkTargets ~= nil then
@@ -491,9 +488,6 @@ function iskander_ionioi:EndAOTK(caster)
 
 						if units[i]:GetName() == "npc_dota_hero_ember_spirit" and units[i]:HasModifier("modifier_unlimited_bladeworks") then
 							units[i]:RemoveModifierByName("modifier_unlimited_bladeworks")
-						end
-						if units[i]:HasModifier("modifier_annihilate_mute") then
-							units[i]:RemoveModifierByName("modifier_annihilate_mute")
 						end
 
 				    	local IsUnitGeneratedInAOTK = true

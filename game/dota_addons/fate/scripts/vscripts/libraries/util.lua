@@ -526,7 +526,6 @@ CannotReset = {
     "diarmuid_double_spear_strike",
     "diarmuid_rampant_warrior",
     "diarmuid_minds_eye",
-    "iskander_annihilate",
     "gille_spellbook_of_prelati",
     "gille_larret_de_mort",
     "nero_fiery_finale",
