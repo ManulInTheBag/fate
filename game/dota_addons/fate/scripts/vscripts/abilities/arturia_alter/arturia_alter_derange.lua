@@ -117,17 +117,30 @@ function modifier_derange:GetModifierPreAttack_BonusDamage()
 	return self:GetAbility():GetSpecialValueFor("dmg") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_3")/100
 end
 
+-- гейт по модификатору атрибутной пассивки, а не по серверному полю
+-- IsManaShroudImproved: модификатор виден и клиенту, иначе клиентская VM
+-- показывала нули в баффе. Бонус атрибута (bonus_armor/bonus_mr из KV
+-- arturia_alter_improve_mana_shroud) складывается с бонусом derange,
+-- оба масштабируются уровнем Q
+function modifier_derange:GetShroudAttributeBonus(valueName)
+	local attr = self:GetParent():FindAbilityByName("arturia_alter_improve_mana_shroud")
+	if attr then
+		return attr:GetLevelSpecialValueFor(valueName, self:GetAbility():GetLevel() - 1)
+	end
+	return 0
+end
+
 function modifier_derange:GetModifierPhysicalArmorBonus()
-	if self:GetParent().IsManaShroudImproved == true then
-		return self:GetAbility():GetSpecialValueFor("armor_bonus")
+	if self:GetParent():HasModifier("modifier_mana_shroud_bonus_mana") then
+		return self:GetAbility():GetSpecialValueFor("armor_bonus") + self:GetShroudAttributeBonus("bonus_armor")
 	else
 		return 0
 	end
 end
 
 function modifier_derange:GetModifierMagicalResistanceBonus()
-	if self:GetParent().IsManaShroudImproved == true then
-		return self:GetAbility():GetSpecialValueFor("mr_bonus")
+	if self:GetParent():HasModifier("modifier_mana_shroud_bonus_mana") then
+		return self:GetAbility():GetSpecialValueFor("mr_bonus") + self:GetShroudAttributeBonus("bonus_mr")
 	else
 		return 0
 	end

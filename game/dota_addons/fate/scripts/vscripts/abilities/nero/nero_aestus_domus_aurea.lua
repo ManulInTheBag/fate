@@ -166,25 +166,6 @@ function nero_aestus_domus_aurea:OnSpellStart()
 	end)
 end
 
---[[function nero_aestus_domus_aurea:ReduceCooldown()
-	local caster = self:GetCaster()
-
-	if caster:FindAbilityByName("nero_tres_fontaine_ardent"):GetCooldownTimeRemaining() > 1 then
-		caster:FindAbilityByName("nero_tres_fontaine_ardent"):EndCooldown()
-		caster:FindAbilityByName("nero_tres_fontaine_ardent"):StartCooldown(1)
-	end
-
-	if caster:FindAbilityByName("nero_gladiusanus_blauserum"):GetCooldownTimeRemaining() > 1 then
-		caster:FindAbilityByName("nero_gladiusanus_blauserum"):EndCooldown()
-		caster:FindAbilityByName("nero_gladiusanus_blauserum"):StartCooldown(1)
-	end
-
-	if caster:FindAbilityByName("nero_rosa_ichthys"):GetCooldownTimeRemaining() > 1 then
-		caster:FindAbilityByName("nero_rosa_ichthys"):EndCooldown()
-		caster:FindAbilityByName("nero_rosa_ichthys"):StartCooldown(1)
-	end
-end]]
-
 function nero_aestus_domus_aurea:DebugPR(string)
 	local table =
     {
@@ -236,24 +217,6 @@ function nero_aestus_domus_aurea:CreateBannerInCircle(handle, center, multiplier
 	self.ColosseumParticle = ParticleManager:CreateParticle("particles/custom/nero/colosseum_ring.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
 	ParticleManager:SetParticleControl(self.ColosseumParticle, 1, Vector(self:GetAOERadius() + 100, 0, 0))
 	ParticleManager:SetParticleControl(self.ColosseumParticle, 2, vCenterLoc)
-end
-
-function nero_aestus_domus_aurea:CheckCombo()
-	local caster = self:GetCaster()
-
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-    	if caster:FindAbilityByName("nero_laus_saint_claudius"):IsCooldownReady() and caster:IsAlive() then
-    		--if not caster:HasModifier("modifier_spellbook_active_tracker") then
-    		caster:SwapAbilities("nero_laus_saint_claudius", "nero_aestus_domus_aurea", true, false)
-    		--end
-
-    		Timers:CreateTimer(3, function()
-    			if caster:GetAbilityByIndex(5):GetName() ~= "nero_aestus_domus_aurea" then
-    				caster:SwapAbilities("nero_laus_saint_claudius", "nero_aestus_domus_aurea", false, true)
-    			end
-    		end)
-    	end
-    end
 end
 
 modifier_nero_aestus_cooldown = class({})

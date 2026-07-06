@@ -2415,9 +2415,6 @@
 		//"DOTA_Tooltip_ability_saber_attribute_chivalry_caliburn_slow_duration"	"CALIBURN SLOW DURATION:"
 		//"DOTA_Tooltip_ability_saber_attribute_chivalry_caliburn_slow"	"CALIBURN SLOW AMOUNT:"
 
-		"DOTA_Tooltip_Ability_arturia_everdistant_utopia_attribute"				"The Everdistant Utopia"
-		"DOTA_Tooltip_Ability_arturia_everdistant_utopia_attribute_Description"	"While Avalon persist. Arturia gains a massive bonus health regeneration as well as disjoints all projectiles."
-		"DOTA_Tooltip_Ability_arturia_everdistant_utopia_attribute_health_regen" "Health Regeneration: "
 
 		"DOTA_Tooltip_Ability_saber_attribute_strike_air"				"Strike Air"
 		"DOTA_Tooltip_ability_saber_attribute_strike_air_Description"	"Enables Strike Air.\n<font color='#58ACFA'>Strike Air : </font>Saber unleashes a destructive gale from her sword, dealing %base_damage% damage plus %bonus_damage% per level of Invisible Air and pushing back all enemies caught within.\nEnemies knocked into a wall takes additional %wall_bonus_damage% damage and are stunned for %wall_stun% seconds."
@@ -6325,13 +6322,6 @@
 		"DOTA_Tooltip_Ability_nero_close_spellbook"				"Close List"
 		"DOTA_Tooltip_ability_nero_close_spellbook_Description"	"Close ability list and return to regular abilities."        
 
-        "DOTA_Tooltip_Ability_nero_tres_fontaine_ardent"     			"Très Fontaine Ardent"
-        "DOTA_Tooltip_ability_nero_tres_fontaine_ardent_Description" 	"Nero marks all nearby targets within an area centered around her, and then proceed to slash every single one of them in rapid succssion from the closest to the furthest. Applies on hit effects and deals bonus magical damage on the attack performed this way."
-        "DOTA_Tooltip_ability_nero_tres_fontaine_ardent_Lore"			"Nero's scarlet long sword is optimized for thrashing a horde of enemies."
-        "DOTA_Tooltip_ability_nero_tres_fontaine_ardent_Note0"			"Nero is invulnerable while slashing this way. Invulnerability follows the same rule as Jumps such as Gae Bolg or Bellerophon."
-        "DOTA_Tooltip_ability_nero_tres_fontaine_ardent_damage"			"Damage:"
-        "DOTA_Tooltip_ability_nero_tres_fontaine_ardent_radius"			"Area of Effect:"
-        "DOTA_Tooltip_ability_nero_tres_fontaine_ardent_interval_slash"	"Interval Per Slash:"
 
         "DOTA_Tooltip_Ability_nero_heat"     							"Flamma Imperatoria"
         "DOTA_Tooltip_ability_nero_heat_Description" 	"Whenever Nero's basic ability hits someone, she can re-cast it in a 3-second window.\nHitting abilities sucessfully increases your <font color='#FFFF00'>Style Rank</font> (not more than one per ability).\n<font color='#FFFF00'>Style Rank</font> has 7 grades: <font color='#FFFF00'>D</font>, <font color='#FFFF00'>C</font>, <font color='#FFFF00'>B</font>, <font color='#FFFF00'>A</font>, <font color='#FFFF00'>S</font>, <font color='#FFFF00'>SS</font>, <font color='#FFFF00'>SSS</font>. Normaly you can only achieve <font color='#FFFF00'>SS</font>, <font color='#FFFF00'>SSS</font> is only available in Aestus Domus Aurea (though you can maintain to keep it after Aestus Domus Aurea ends).\n<font color='#FFFF00'>Style Rank</font> interacts differently with different aspects of Nero's skillset.\n<font color='#FFFF00'>Style Rank</font> decays when Nero does not deal damage to anyone.\nWhen Nero is airborne through her own skills, her basic abilities are turned into their <font color='#FFFF00'>performance</font> versions."
@@ -6364,12 +6354,6 @@
         "DOTA_Tooltip_ability_nero_tres_buffed_distance"		"Distance:"
         "DOTA_Tooltip_ability_nero_tres_buffed_speed"			"Speed:"
 
-        "DOTA_Tooltip_Ability_nero_gladiusanus_blauserum"     			"Gladiusanus Blauserum"
-        "DOTA_Tooltip_ability_nero_gladiusanus_blauserum_Description" 	"When activated, for a short duration boosts Tres Fountaine Ardent and Rosa Ichtys damage by value, based on stack count. When the stack count is dividable by 4, silences the enemy for 1 second and deals 1/2 of Tres Fountaine Ardent bonus damage per stack. When this ability is used while Aestus Domus Aurea and this ability have been active, reset the hit counter to one and deals damage proportional to how many charge it has to all nearby enemies."
-        "DOTA_Tooltip_ability_nero_gladiusanus_blauserum_Lore"			"The soul-shattering blow of Aestus Estus makes the sound even the Muses would bow before."
-        "DOTA_Tooltip_ability_nero_gladiusanus_blauserum_base_damage"	"Tres Fountaine Damage Per Stack:"
-        "DOTA_Tooltip_ability_nero_gladiusanus_blauserum_bonus_damage"	"Rosa Ichtys Damage Per Stack:"
-        "DOTA_Tooltip_ability_nero_gladiusanus_blauserum_duration"		"Duration:"
 
         "DOTA_Tooltip_Ability_nero_gladiusanus_new"     			"Gladiusanus Blauserum"
         "DOTA_Tooltip_ability_nero_gladiusanus_new_Description" 	"Nero strikes enemies at front of her so powerful, that she launches them in the air, rooting them and jumps herself, entering the <font color='#FFFF00'>performance</font> state.\n<font color='#FFFF00'>Performance</font>: Nero lands a devastating blow, throwing her opponents on the ground and stunning them.\n<font color='#FFFF00'>Performance</font> version of this abilities ends <font color='#FFFF00'>Performance</font> immediately."
@@ -6388,14 +6372,6 @@
         "DOTA_Tooltip_ability_nero_gladiusanus_buffed_root_duration"			"Airborne duration:"
         "DOTA_Tooltip_ability_nero_gladiusanus_buffed_stun_duration"			"Stun duration:"
 
-        "DOTA_Tooltip_Ability_nero_rosa_ichthys"     			"Rosa Ichthys"
-        "DOTA_Tooltip_ability_nero_rosa_ichthys_Description" 	"Nero rushes to the target and attacking it for a large amount of magical damage, <font color='#FF3399'>stunning</font> them. Enemies behind the target takes half as much damage as well. Has increased range while under Aestus Domus Aurea."
-        "DOTA_Tooltip_ability_nero_rosa_ichthys_Lore"			"The flower falls upon the victor of Arena, leaving the defeated behind."
-        "DOTA_Tooltip_ability_nero_rosa_ichthys_damage"			"Damage:"
-        "DOTA_Tooltip_ability_nero_rosa_ichthys_stun_duration"	"Stun Duration:"
-        "DOTA_Tooltip_ability_nero_rosa_ichthys_range"			"Range:"
-        "DOTA_Tooltip_ability_nero_rosa_ichthys_aestus_range"	"Aestus Domus Range:"
-        //"DOTA_Tooltip_Ability_nero_rosa_ichthys_Note0"     "Saber may dash only as far as maximum dash radius."
 
         "DOTA_Tooltip_Ability_nero_rosa_new"     			"Rosa Ichthys"
         "DOTA_Tooltip_ability_nero_rosa_new_Description" 	"Nero rushes through the target and attacks it for an amount of magical damage. Enemies behind the target takes half as much damage as well.\nWhen she dashes to an enemy that is airborne (only several abilities count as airborne, such as Vlad's Fortress of Impalement), she enters <font color='#FFFF00'>performance</font> state for the remaining airborne duration.\n<font color='#FFFF00'>Performance</font>: Nero dashes to the nearest target in radius (prioritizing heroes) and then flies with it to the chosen location, slashing the target several times while flying forward with it.\nWhile inside Aestus Domus Aurea, she can target any point inside it and will choose from all enemies inside Aestus Domus Aurea."
@@ -6432,14 +6408,6 @@
         "DOTA_Tooltip_ability_nero_rosa_buffed_damage_scale"	"%Attribute attack damage to damage conversion:"
         "DOTA_Tooltip_ability_nero_rosa_buffed_range"			"Range:"
 
-        "DOTA_Tooltip_Ability_nero_laus_saint_claudius"     			"Combo: Laus Saint Claudius"
-        "DOTA_Tooltip_ability_nero_laus_saint_claudius_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-D while Aestus Domus Aurea is active</font>.\nNero performs her final and ultimate technique. After a 6 seconds all enemies inside Aestus Domus Aurea will be slashed, dealt a massive amount of damage and set on fire for a short duration of time."
-        "DOTA_Tooltip_ability_nero_laus_saint_claudius_Lore"			"The emperor ends her performance with her fiery passion."
-        "DOTA_Tooltip_ability_nero_laus_saint_claudius_damage"			"Damage:"
-        "DOTA_Tooltip_ability_nero_laus_saint_claudius_damage"			"Fire Damage:"
-        "DOTA_Tooltip_ability_nero_laus_saint_claudius_duration"		"Fire Duration:"
-        "DOTA_Tooltip_Ability_nero_laus_saint_claudius_stun_duration"	"Stun Duration:"
-	"DOTA_Tooltip_Ability_nero_laus_saint_claudius_Note0"	"Type -music_true in chat to hear a song after casting this ability."
 
 
         "DOTA_Tooltip_Ability_nero_laus_saint_claudius_new"     			"Combo: Fiery Finale"
@@ -6451,7 +6419,6 @@
         "DOTA_Tooltip_Ability_nero_laus_saint_claudius_new_stun_duration"	"Silence Duration:"
         "DOTA_Tooltip_ability_nero_laus_saint_claudius_new_explosion_damage"	"SSS rank explosion damage:"
         "DOTA_Tooltip_ability_nero_laus_saint_claudius_new_explosion_count"		"SSS rank explosion count:"
-		"DOTA_Tooltip_Ability_nero_laus_saint_claudius_Note0"	"Type -music_true in chat to hear a song after casting this ability."	
 		
 		"DOTA_Tooltip_Ability_nero_rosa_ichthys2"     "Rosa Ichthys II"
         "DOTA_Tooltip_ability_nero_rosa_ichthys2_Description" "Saber rushes towards her initial location and cuts through all enemies in the path, dealing damage and <font color='#FF3399'>stunning</font> them.\n"
@@ -6479,8 +6446,6 @@
         "DOTA_Tooltip_Ability_nero_attribute_pari_tenu_blauserum"          		"Attribute: Pari Tenu Blauserum"
         "DOTA_Tooltip_ability_nero_attribute_pari_tenu_blauserum_Description"   "Activating Flamma Imperatoria with <font color='#FFFF00'>A</font> or higher grade will give you an opportunity to cast empovered versions of your basic abilities.\nTrès Fontaine Ardent: Nero dashes forward, dealing magical damage to enemies on her way and igniting them. She cannot blink, but in other aspects she has full control during the dash.\nGladiusanus Blauserium: Nero strikes enemies around her so powerful, that she launches them in the air and stuns them.\nRosa Ichthys -> Laus Saint Claudius: Nero becomes invulnerable for 1 second and then rushes through the target, attacks it for a huge amounf of magical damage and stuns it. Enemies behind the target takes half as much damage as well.\nSpectaculi Initium: Nero explodes Aestus Estus, blowing back all the enemies around her, dealing damage and removing all debuffs from herself. Can be used while stunned."
 
-        "DOTA_Tooltip_Ability_nero_aestus_estus_attribute"					"Attribute: The Original Flame"
-        "DOTA_Tooltip_Ability_nero_aestus_estus_attribute_Description"		"Permanently causes Nero to say Umu."  
 
         "DOTA_Tooltip_Ability_nero_attribute_improve_imperial_privilege"          "Attribute: Improve Imperial Privilege"
         "DOTA_Tooltip_ability_nero_attribute_improve_imperial_privilege_Description"       "Adds passive effect to Imperial Privelege."    
@@ -6499,8 +6464,6 @@
         "DOTA_Tooltip_Ability_nero_attribute_diabolis_vectis_Description"       "Achieving the next <font color='#FFFF00'>Style Rank</font> grade or hitting your abilities when your rank is <font color='#FFFF00'>SSS</font> will cause Aestus Estus to erupt with fire, dealing magical damage based on the current <font color='#FFFF00'>Style Rank</font> grade to all surrounding enemies."
 
 
-        "DOTA_Tooltip_Ability_nero_aestus_estus_attribute"					"Attribute: The Original Umu"
-        "DOTA_Tooltip_Ability_nero_aestus_estus_attribute_Description"		"Permanently causes Nero to say 'Umu'."
 		
 		"DOTA_Tooltip_Ability_nero_attribute_pavilion"          "Pavilion of Falling Flowers"
         "DOTA_Tooltip_Ability_nero_attribute_pavilion_Description"       "Reduces activation delay of Rosa Ichthys and additionally for 5 seconds after cast allows Saber to cast it again (with no cost) to dash back to location she casted it from with half damage and stun duration.\nIncreases damage of Laus Saint Claudius (Combo) twin slashes."  

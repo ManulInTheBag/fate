@@ -694,7 +694,7 @@ function OnMaxHit(keys)
 	--DoDamage(keys.caster, keys.target, keys.Damage , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 end
 
-LinkLuaModifier("modifier_everdistant_utopia", "abilities/arturia/modifiers/modifier_everdistant_utopia", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_everdistant_utopia", "abilities/artoria/modifiers/modifier_everdistant_utopia", LUA_MODIFIER_MOTION_NONE)
 
 function OnAvalonStart(keys)
 	local caster = keys.caster
@@ -1002,7 +1002,7 @@ function OnImproveInstinctAcquired(keys)
 	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 end
 
-LinkLuaModifier("modifier_chivalry_attribute","abilities/arturia/modifiers/modifier_chivalry_attribute.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chivalry_attribute","abilities/artoria/modifiers/modifier_chivalry_attribute.lua",LUA_MODIFIER_MOTION_NONE)
 
 function OnChivalryAcquired(keys)
 	local caster = keys.caster

@@ -528,6 +528,9 @@ function Precache( context )
     PrecacheResource("particle", "particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf", context) -- salter darklight crit
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts", context) -- emiya Q/W/E (шли через прекеш KV Куро)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context) -- emiya автоатака
+    PrecacheResource("particle", "particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf", context) -- nero tres (шли через прекеш старого tres-блока)
+    PrecacheResource("particle", "particles/items_fx/battlefury_cleave.vpcf", context) -- CreateSlashFx (nero/sasaki/okita и др.)
+    PrecacheResource("particle", "particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf", context)
 
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 

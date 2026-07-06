@@ -23,8 +23,6 @@ softdispellable = {
     "modifier_double_edge",
     "modifier_double_spearsmanship",
     "modifier_gordius_wheel_speed_boost",
-    "nero_gladiusanus_blauserum",
-    "nero_tres_fontaine_ardent",
     "modifier_invigorating_ray_ally",
     "modifier_invigorating_ray_armor_buff",
     "modifier_blade_of_the_devoted",
@@ -71,8 +69,6 @@ strongdispellable = {
     "modifier_murderous_instinct",
     "modifier_double_spearsmanship",
     "modifier_gordius_wheel_speed_boost",
-    "nero_gladiusanus_blauserum",
-    "nero_tres_fontaine_ardent",
     "modifier_invigorating_ray_ally",
     "modifier_invigorating_ray_armor_buff",
     "modifier_blade_of_the_devoted",
@@ -145,8 +141,6 @@ deargdispellable = {
     "modifier_murderous_instinct",
     "modifier_double_spearsmanship",
     "modifier_gordius_wheel_speed_boost",
-    "nero_gladiusanus_blauserum",
-    "nero_tres_fontaine_ardent",
     "modifier_invigorating_ray_ally",
     "modifier_invigorating_ray_armor_buff",
     "modifier_blade_of_the_devoted",
@@ -214,7 +208,6 @@ revokes = {
     --"modifier_command_seal_4",
     "round_pause",
     "modifier_nss_shock",
-    "modifier_tres_fontaine_nero",
 }
 
 --this revokes will not give you to use D seal. If you want to make it unusable in revoke just change the intervention table to check to 'revokes'
@@ -222,7 +215,6 @@ d_seal_locked = {
     "jump_pause",
     "pause_sealdisabled",
     "round_pause",
-    "modifier_tres_fontaine_nero", --idk wtf this is lols
 }
 
 locks = {
@@ -561,7 +553,6 @@ CannotReset = {
     "vlad_protection_of_faith_cd",
     --"phoebus_catastrophe_barrage",
     "lancer_5th_soaring_spear",
-    "nero_laus_saint_claudius",
     "karna_combo_vasavi",
     "karna_discern_poor",
     "tamamo_castration_fist",

@@ -2,8 +2,8 @@
 -- Lua port of the old datadriven saber_charisma (pilot of the DD->lua migration).
 saber_charisma = class({})
 
-LinkLuaModifier("modifier_charisma_aura", "abilities/arturia/saber_charisma", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_charisma_aura_buff", "abilities/arturia/saber_charisma", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_charisma_aura", "abilities/artoria/saber_charisma", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_charisma_aura_buff", "abilities/artoria/saber_charisma", LUA_MODIFIER_MOTION_NONE)
 
 function saber_charisma:GetIntrinsicModifierName()
 	return "modifier_charisma_aura"

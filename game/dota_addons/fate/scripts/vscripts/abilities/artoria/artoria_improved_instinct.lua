@@ -2,7 +2,6 @@ artoria_improved_instinct = class({})
 
 LinkLuaModifier("modifier_artoria_improved_instinct", "abilities/artoria/modifiers/modifier_artoria_improved_instinct", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_artoria_double_strike", "abilities/artoria/modifiers/modifier_artoria_double_strike", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_artoria_ultimate_avalon_window", "abilities/artoria/modifiers/modifier_artoria_ultimate_avalon_window", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_artoria_avalon_cd_checker", "abilities/artoria/modifiers/modifier_artoria_avalon_cd_checker", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_artoria_ultimate_excalibur_window", "abilities/artoria/modifiers/modifier_artoria_ultimate_excalibur_window", LUA_MODIFIER_MOTION_NONE )
 
