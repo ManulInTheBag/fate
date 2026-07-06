@@ -49,10 +49,11 @@ end
 modifier_derange = class({})
 
 function modifier_derange:DeclareFunctions()
+	-- MODFIER_EVENT_ON_RESPAWN (опечатка) = nil разрывал массив:
+	-- всё после дыры (броня, резист) не регистрировалось движком
 	return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-			MODFIER_EVENT_ON_RESPAWN,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
 end
@@ -102,10 +103,6 @@ function modifier_derange:OnDestroy()
             self.ability:ToggleAbility()
         end
     end
-end
-
-function modifier_derange:OnRespawn()
-    self.Destroy()
 end
 
 function modifier_derange:GetModifierAttackSpeedBonus_Constant()
