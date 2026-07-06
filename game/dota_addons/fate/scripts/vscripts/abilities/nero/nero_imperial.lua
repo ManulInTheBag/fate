@@ -130,7 +130,10 @@ end
 
 -- computes the current privilege bonuses on the server; the result is passed
 -- through the AddNewModifier kv table so the client HUD shows real numbers
--- (the old getters were server-only and displayed as zero on the client)
+-- (the old getters were server-only and displayed as zero on the client).
+-- NOTE: the internal ability names lie - per the tooltips nero_health is
+-- "Spearhead of Progress" (attack damage), nero_mana is "Soul of Rome"
+-- (mana AND health regen), nero_defence is "Divine Body" (armor + MR)
 function NeroImperialBonuses(caster, base_only)
     local rank = 0
     local heat = caster:FindModifierByName("modifier_nero_heat")
