@@ -252,7 +252,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gille_larret_de_mort"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -289,69 +290,7 @@
             "damage_per_sec" "10"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnGilleComboStart"
-				"Damage"		"%initial_damage"
-				"KnockupDuration"	"%knockup_duration"
-			}
-		}
 		
-		"Modifiers"
-		{
-			"modifier_larret_de_mort_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"modifier_gille_combo"
-			{
-		        "EffectName"    "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
-		        "EffectAttachType"  "follow_origin"
-				"Duration"		"12"
-				"IsDebuff"		"1"
-				"ThinkInterval"		"1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"gille_ability"
-						"Function"		"OnGilleComboThink"
-						"DPS"			"%damage_per_sec"
-					}
-				}
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"gille_ability"
-						"Function"		"RemoveAllPoisons"
-					}
-				}
-			}
-			"modifier_gigantic_horror_freeze"
-			{
-				"EffectName"				"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
-				"EffectAttachType"			"follow_overhead"
-				"Duration"		"1.5"
-				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"0.5"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}	
 
 	//=======================================

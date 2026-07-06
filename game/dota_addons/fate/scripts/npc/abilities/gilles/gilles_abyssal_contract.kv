@@ -68,7 +68,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/units_abilities/gille_tentacle_hook"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -87,40 +88,7 @@
         {
             "range" "1000"
         }
-		"OnSpellStart"
-		{
-            "RunScript"
-            {
- 			 	"ScriptFile"	"gille_ability"
-			 	"Function"		"OnTentacleHookStart"   
-			 	"Target"		"POINT"        	
-            }		
-			"LinearProjectile"
-			{
-				"Target"      	"POINT"
-			    "EffectName"  	""
-			    "MoveSpeed"   	"1800"
-			    "StartRadius"   "150"
-			    "StartPosition" "attach_origin"
-			    "EndRadius"     "150"
-			    "FixedDistance" "%range"
-			    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_BOTH"
-			    "TargetTypes"   "DOTA_UNIT_TARGET_HERO"
-			    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
-			    "HasFrontalCone"  "0"
-			    "ProvidesVision" "0"
-			}
-		}
 		
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"false"
-            "RunScript"
-            {
- 			 	"ScriptFile"	"gille_ability"
-			 	"Function"		"OnTentacleHookHit"           	
-            }
-		}
 	}
 
 
@@ -131,7 +99,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/units_abilities/gille_tentacle_wrap"
 		"MaxLevel"						"5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -152,36 +121,6 @@
         {
             "root_duration" "1.5 1.75 2.0 2.25 2.5"
         }
-		"OnSpellStart"
-		{
-            "RunScript"
-            {
- 			 	"ScriptFile"	"gille_ability"
-			 	"Function"		"OnTentacleWrapStart"  
-            }		
-            "ApplyModifier"
-            {
-            	"ModifierName"	"modifier_tentacle_wrap"
-            	"Target"		"TARGET"
-            }
-			"FireSound"
-			{
-				"EffectName"		"ZC.Tentacle2"
-				"Target"			"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_tentacle_wrap"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"2.0"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}				
-			}
-		}
 	}
 
 	//===================================================
@@ -191,7 +130,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/units_abilities/gille_subterranean_skewer"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -224,34 +164,6 @@
             "stun_duration" "1.1 1.2 1.3 1.4 1.5"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"gille_ability"
-				"Function"			"OnSubSkewerStart"
-				"Target"			"POINT"
-			}
-			"FireSound"
-			{
-				"EffectName"		"ZC.Tentacle1"
-				"Target"			"CASTER"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"0"
-            "RunScript"
-            {
- 			 	"ScriptFile"	"gille_ability"
-			 	"Function"		"OnSubSkewerHit"    
-			 	"Damage"		"%damage"     
-			 	"StunDuration"	"%stun_duration"  	
-            }
-		}		
-		"Modifiers"
-		{
-		}
 	}
 
 	//===================================================
@@ -259,7 +171,8 @@
 	//===================================================
 	"gilles_squidlordz_integrate_data" 
 	{
-	    "BaseClass"    			"ability_datadriven"
+	    "BaseClass"    			"ability_lua"
+	    "ScriptFile"			"abilities/gilles/units_abilities/gilles_squidlordz_integrate_data"
 	    "MaxLevel"				 "1"
 	    "AbilityTextureName" 	"custom/gille_integrate"
 	    "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -276,67 +189,7 @@
             "health" "500"
         }
 
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnIntegrateStart"
-				"Health"		"%health"
-			}
-	    }
 
-	    "Modifiers"
-	    {
-	    	"modifier_integrate"
-	    	{
-	    		"TextureName" "custom/gille_integrate"
-	    		"EffectName"		"particles/units/heroes/hero_oracle/oracle_purifyingflames_heal.vpcf"
-	    		"EffectAttachType"	"attach_hitloc"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed"
-	    			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attackspeed"
-	    		}
-	    		"OnDeath"
-	    		{
-	    			"RunScript"
-	    			{
-	    				"ScriptFile"	"gille_ability"
-	    				"Function"		"OnIntegrateDeath"
-	    			}
-	    		}
-	    	}
-	    	"modifier_integrate_passive"
-	    	{
-	    		"IsHidden"		"1"
-	    		"Passive"		"1"
-	    	}
-	    	"modifier_integrate_gille"
-	    	{
-	    		"Duration"			"90"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE" 		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP" 	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FLYING" 			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"gille_ability"
-						"Function"		"IntegrateFollow"
-					}				
-				}	
-	    	}
-	    }
 	}
 
 	//================================================
@@ -345,7 +198,8 @@
 	"gille_gigantic_horror_passive"
 	{
 		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/gilles/units_abilities/gille_gigantic_horror_passive"
 		"AbilityTextureName"            "undying_decay"
 		"MaxLevel"                      "5"
 		"precache"
@@ -360,44 +214,6 @@
             "additional_damage" "130"
         }
 
-		"Modifiers"
-		{
-			"modifier_gigantic_horror_passive"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"    
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%health_regen"
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"gille_ability"
-						"Function"		"OnHorrorTakeDamage"
-						"DamageTaken"	"%attack_damage"
-						"Threshold"		"%damage_threshold"
-					}
-				}
-				"OnAttackStart"
-				{
-					"FireSound"
-					{
-						"EffectName"		"Hero_Spectre.Attack"
-						"Target"			"CASTER"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"FireSound"
-					{
-						"EffectName"		"Hero_Centaur.HoofStomp"
-						"Target"			"CASTER"
-					}
-				}
-		  	}
-		}
 	}
 
 	//========================================
