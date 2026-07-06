@@ -215,31 +215,48 @@ function modifier_nero_heat:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 function modifier_nero_heat:UpdateParticle()
-	if not self.particle then
-		self.particle = ParticleManager:CreateParticle("particles/nero/nero.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-	    ParticleManager:SetParticleControl(self.particle, 0, self:GetParent():GetAbsOrigin())
-	    self:StartIntervalThink(FrameTime())
+	if not IsServer() then return end
+	-- recreate the indicator from scratch on every rank change: heals every
+	-- case where the old particle got lost (death/respawn, model swaps,
+	-- round cleanups) - the old code created it once and kept pushing
+	-- control points into a dead index, so the style vanished for good
+	if self.particle then
+		ParticleManager:DestroyParticle(self.particle, false)
+		ParticleManager:ReleaseParticleIndex(self.particle)
 	end
+	self.particle = ParticleManager:CreateParticle("particles/nero/nero.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	ParticleManager:SetParticleControl(self.particle, 0, self:GetParent():GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.particle, 1, Vector(self.rank, 0, 0))
- 
+	self.shown_rank = self.rank
+	if not self.thinking then
+		self.thinking = true
+		self:StartIntervalThink(FrameTime())
+	end
 end
 function modifier_nero_heat:OnIntervalThink()
 	if not self:GetParent():HasModifier("modifier_aestus_domus_aurea_nero") then
-		self.duration_remaining = self.duration_remaining - FrameTime()
+		self.duration_remaining = (self.duration_remaining or 0) - FrameTime()
 	end
-	--print(self.duration_remaining)
-	if self.duration_remaining <= 0 then
+	if self.duration_remaining <= 0 and self.rank ~= 0 then
 		self.rank = 0
-		if(  self:GetParent():HasModifier("modifier_nero_heat_stacks")) then  
+		if(  self:GetParent():HasModifier("modifier_nero_heat_stacks")) then
 			self:GetParent():FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(0)
 		end
 	end
+	if self.rank ~= self.shown_rank then
+		self:UpdateParticle()
+	end
+end
+function modifier_nero_heat:OnRespawn(args)
+	if not IsServer() then return end
+	if args.unit ~= self:GetParent() then return end
+	-- the follow-particle dies with the hero; bring the indicator back
 	self:UpdateParticle()
- 
 end
 function modifier_nero_heat:DeclareFunctions()
     return {
     	--MODIFIER_EVENT_ON_TAKEDAMAGE,
+        MODIFIER_EVENT_ON_RESPAWN,
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
         MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
         MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
