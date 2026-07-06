@@ -526,6 +526,8 @@ function Precache( context )
     PrecacheResource("particle", "particles/units/heroes/hero_enigma/enigma_blackhole_n.vpcf", context) -- salter excalibur vfx
     PrecacheResource("particle", "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ring_d_black.vpcf", context) -- salter excalibur vfx
     PrecacheResource("particle", "particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf", context) -- salter darklight crit
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts", context) -- emiya Q/W/E (шли через прекеш KV Куро)
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context) -- emiya автоатака
 
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
