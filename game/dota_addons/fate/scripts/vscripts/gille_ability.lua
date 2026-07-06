@@ -1,3 +1,13 @@
+-- tentacle attack speed buff (used by the abyssal contract tentacles below)
+gille_attack_speed_boost = class({})
+function gille_attack_speed_boost:IsHidden() return true end
+function gille_attack_speed_boost:IsPurgable() return false end
+function gille_attack_speed_boost:DeclareFunctions()
+	return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT }
+end
+function gille_attack_speed_boost:GetModifierAttackSpeedBonus_Constant() return 50 end
+LinkLuaModifier("gille_attack_speed_boost", "gille_ability", LUA_MODIFIER_MOTION_NONE)
+
 function OnMadnessStart(keys)
 	local caster = keys.caster
 	caster.MadnessStackCount = 0
