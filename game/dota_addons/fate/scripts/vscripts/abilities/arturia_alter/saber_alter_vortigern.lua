@@ -1,17 +1,12 @@
--- Saber Alter's own abilities live in abilities/arturia_alter/.
--- This file only backs lancelot_vortigern (lancelot_abilities.kv RunScript) and
--- dies together with the lancelot DD->lua port.
+saber_alter_vortigern = class({})
 
 LinkLuaModifier("modifier_vortigern_ferocity", "abilities/arturia_alter/modifiers/modifier_vortigern_ferocity", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_merlin_self_pause", "abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 
-vortigernCount = 0
-
-function OnVortigernStart(keys)
-	ArsenalReturnMana(keys.caster)
-	local caster = keys.caster
-	local ability = keys.ability
-	local forward = ( keys.ability:GetCursorPosition() - caster:GetAbsOrigin() ):Normalized()
+function saber_alter_vortigern:OnSpellStart()
+	local caster = self:GetCaster()
+	ArsenalReturnMana(caster)
+	local forward = ( self:GetCursorPosition() - caster:GetAbsOrigin() ):Normalized()
 	local angle = 120
 	local increment_factor = 30
 	local origin = caster:GetAbsOrigin()
@@ -20,21 +15,18 @@ function OnVortigernStart(keys)
 	if (math.abs(destination.x - origin.x) < 0.01) and (math.abs(destination.y - origin.y) < 0.01) then
 		destination = caster:GetForwardVector() + caster:GetAbsOrigin()
 	end
-	keys.caster:AddNewModifier(keys.caster, ability, "modifier_merlin_self_pause", {Duration = 0.70}) -- Beam interval * 9 + 0.44
+	caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.70}) -- Beam interval * 9 + 0.44
 	EmitGlobalSound("Saber_Alter.Vortigern")
-	if keys.caster:GetName() == "npc_dota_hero_sven" then
-		EmitZlodemonTrueSoundEveryone("moskes_lanc_vort")
-	end
 	local vortigernBeam =
 	{
-		Ability = keys.ability,
+		Ability = self,
 		EffectName = "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf",
 		iMoveSpeed = 3000,
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		fDistance = 600,
 		Source = caster,
 		fStartRadius = 75,
-        fEndRadius = 120,
+		fEndRadius = 120,
 		bHasFrontialCone = true,
 		bReplaceExisting = false,
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -50,26 +42,27 @@ function OnVortigernStart(keys)
 			local ferocity_modifier = caster:FindModifierByName("modifier_vortigern_ferocity")
 			local stacks = ferocity_modifier:GetStackCount()
 			if stacks > 1 then
-				ability:EndCooldown()
+				self:EndCooldown()
 				ferocity_modifier:SetStackCount(stacks - 1)
 			else
 				caster:RemoveModifierByName("modifier_vortigern_ferocity")
 			end
 		else
-			local ferocity_modifier = caster:AddNewModifier(caster, ability, "modifier_vortigern_ferocity", { Duration = 3 })
-			ability:EndCooldown()
+			local ferocity_modifier = caster:AddNewModifier(caster, self, "modifier_vortigern_ferocity", { Duration = 3 })
+			self:EndCooldown()
 			ferocity_modifier:SetStackCount(2)
 		end
 	end
 
-	vortigernCount = 0
+	-- 9 beams fired in a fan; damage/stun of each hit scale up with the number
+	-- of beams already out (see OnProjectileHit)
+	self.vortigernCount = 0
 	Timers:CreateTimer( function()
-			-- Finish spell, need to include the last angle as well
 			-- Note that the projectile limit is currently at 9, to increment this, need to create either dummy or thinker to store them
-			if vortigernCount == 9 then return end
+			if self.vortigernCount == 9 then return end
 
 			-- Start rotating
-			local theta = ( angle - vortigernCount * increment_factor ) * math.pi / 180
+			local theta = ( angle - self.vortigernCount * increment_factor ) * math.pi / 180
 			local px = math.cos( theta ) * ( destination.x - origin.x ) - math.sin( theta ) * ( destination.y - origin.y ) + origin.x
 			local py = math.sin( theta ) * ( destination.x - origin.x ) + math.cos( theta ) * ( destination.y - origin.y ) + origin.y
 
@@ -78,8 +71,8 @@ function OnVortigernStart(keys)
 			vortigernBeam.fExpireTime = GameRules:GetGameTime() + 0.4
 
 			-- Fire the projectile
-			local projectile = ProjectileManager:CreateLinearProjectile( vortigernBeam )
-			vortigernCount = vortigernCount + 1
+			ProjectileManager:CreateLinearProjectile( vortigernBeam )
+			self.vortigernCount = self.vortigernCount + 1
 
 			-- Create particles
 			local fxIndex1 = ParticleManager:CreateParticle( "particles/custom/saber_alter/saber_alter_vortigern_line.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -99,12 +92,13 @@ function OnVortigernStart(keys)
 	)
 end
 
-function OnVortigernHit(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local damage = keys.Damage
-	local StunDuration = keys.StunDuration
+function saber_alter_vortigern:OnProjectileHit(hTarget, vLocation)
+	if not hTarget then return end
+	local caster = self:GetCaster()
+	local damage = self:GetSpecialValueFor("damage")
+	local StunDuration = self:GetSpecialValueFor("stun_duration")
 	local vortSwingDamage = 5
+	local vortigernCount = self.vortigernCount or 0
 
 	damage = damage * (80 + vortigernCount * vortSwingDamage) / 100
 
@@ -112,10 +106,10 @@ function OnVortigernHit(keys)
 		StunDuration = StunDuration + 0.2
 	end
 	StunDuration = StunDuration * (80 + vortigernCount * 5)/100
-	if target.IsVortigernHit ~= true then
-		target.IsVortigernHit = true
-		Timers:CreateTimer(0.54, function() target.IsVortigernHit = false return end)
-		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-		target:AddNewModifier(caster, caster, "modifier_stunned", {Duration = StunDuration})
+	if hTarget.IsVortigernHit ~= true then
+		hTarget.IsVortigernHit = true
+		Timers:CreateTimer(0.54, function() hTarget.IsVortigernHit = false return end)
+		DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		hTarget:AddNewModifier(caster, caster, "modifier_stunned", {Duration = StunDuration})
 	end
 end
