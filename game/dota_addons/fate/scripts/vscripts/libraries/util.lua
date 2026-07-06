@@ -565,7 +565,6 @@ CannotReset = {
     "nero_laus_saint_claudius",
     "karna_combo_vasavi",
     "karna_discern_poor",
-    "jeanne_la_pucelle",
     "tamamo_castration_fist",
     "jtr_information_erase",
     "jtr_mental_pollution_passive",

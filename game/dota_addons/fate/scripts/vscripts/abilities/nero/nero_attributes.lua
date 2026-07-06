@@ -74,9 +74,9 @@ function nero_attribute_improve_imperial_privilege:OnSpellStart()
 	hero.IsPrivilegeImproved = true
 
 	hero:FindAbilityByName("nero_imperial_open"):SetLevel(2)
-	hero:FindAbilityByName("nero_health"):SetLevel(2)
-	hero:FindAbilityByName("nero_mana"):SetLevel(2)
-	hero:FindAbilityByName("nero_defence"):SetLevel(2)
+	hero:FindAbilityByName("nero_privilege_damage"):SetLevel(2)
+	hero:FindAbilityByName("nero_privilege_regen"):SetLevel(2)
+	hero:FindAbilityByName("nero_privilege_defence"):SetLevel(2)
 	hero:FindAbilityByName("nero_imperial_close"):SetLevel(2)
 	hero:FindAbilityByName("nero_imperial_activate"):SetLevel(2)
 

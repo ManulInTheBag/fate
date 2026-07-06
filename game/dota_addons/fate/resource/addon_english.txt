@@ -6286,26 +6286,23 @@
         "DOTA_Tooltip_Ability_nero_imperial_activate_Description" 	"Decreases your <font color='#FFFF00'>Style Rank</font> to the minimum point and gives you bonuses based on that."
         "DOTA_Tooltip_Ability_nero_imperial_activate_duration"	"Duration:"
 
-        "DOTA_Tooltip_Ability_nero_health"				"Imperial Privilege: Spearhead of Progress"
-		"DOTA_Tooltip_ability_nero_health_Description"	"Nero will gain additional attack damage."
-		"DOTA_Tooltip_ability_nero_health_base_value"	"Attribute passive damage per rank:"
-		"DOTA_Tooltip_ability_nero_health_bonus_value"	"Damage per rank:"
+        "DOTA_Tooltip_Ability_nero_privilege_damage"				"Imperial Privilege: Spearhead of Progress"
+		"DOTA_Tooltip_ability_nero_privilege_damage_Description"	"Nero will gain additional attack damage."
+		"DOTA_Tooltip_ability_nero_privilege_damage_base_value"	"Attribute passive damage per rank:"
+		"DOTA_Tooltip_ability_nero_privilege_damage_bonus_value"	"Damage per rank:"
 
-		"DOTA_Tooltip_Ability_nero_mana"				"Imperial Privilege: Soul of Rome"
-		"DOTA_Tooltip_ability_nero_mana_Description"	"Nero will instantly replenish health and mana to herself."
-		"DOTA_Tooltip_ability_nero_mana_base_value"		"Attribute passive mana and health regen per rank:"
-		"DOTA_Tooltip_ability_nero_mana_bonus_value"	"Mana and health regen per rank:"
+		"DOTA_Tooltip_Ability_nero_privilege_regen"				"Imperial Privilege: Soul of Rome"
+		"DOTA_Tooltip_ability_nero_privilege_regen_Description"	"Nero will instantly replenish health and mana to herself."
+		"DOTA_Tooltip_ability_nero_privilege_regen_base_value"		"Attribute passive mana and health regen per rank:"
+		"DOTA_Tooltip_ability_nero_privilege_regen_bonus_value"	"Mana and health regen per rank:"
 
-		"DOTA_Tooltip_Ability_nero_tactics"				"Imperial Privilege: Tactical Talents"
-		"DOTA_Tooltip_ability_nero_tactics_Description"	"Nero will reduce cooldown of her basic abilities."
-		"DOTA_Tooltip_ability_nero_tactics_bonus_value"	"Seconds per rank:"
 
-		"DOTA_Tooltip_Ability_nero_defence"				"Imperial Privilege: Divine Body"
-		"DOTA_Tooltip_ability_nero_defence_Description"	"Nero will gain bonus armor and magic resistance."
-		"DOTA_Tooltip_ability_nero_defence_base_mr"	"%Attribute passive magic resistance per rank:"
-		"DOTA_Tooltip_ability_nero_defence_base_armor"	"Attribute passive armor per rank:"
-		"DOTA_Tooltip_ability_nero_defence_bonus_mr"	"%Magic resistance per rank:"
-		"DOTA_Tooltip_ability_nero_defence_bonus_armor"	"Armor per rank:"
+		"DOTA_Tooltip_Ability_nero_privilege_defence"				"Imperial Privilege: Divine Body"
+		"DOTA_Tooltip_ability_nero_privilege_defence_Description"	"Nero will gain bonus armor and magic resistance."
+		"DOTA_Tooltip_ability_nero_privilege_defence_base_mr"	"%Attribute passive magic resistance per rank:"
+		"DOTA_Tooltip_ability_nero_privilege_defence_base_armor"	"Attribute passive armor per rank:"
+		"DOTA_Tooltip_ability_nero_privilege_defence_bonus_mr"	"%Magic resistance per rank:"
+		"DOTA_Tooltip_ability_nero_privilege_defence_bonus_armor"	"Armor per rank:"
 
 		"DOTA_Tooltip_Ability_nero_acquire_divinity"				"Acquire Divinity"
 		"DOTA_Tooltip_ability_nero_acquire_divinity_Description"	"Acquire Divinity, reducing incoming physical and magical damage."
@@ -7112,30 +7109,11 @@
 		"DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle"				"Combo: La Pucelle - Final Act"
         "DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nAfter a short prayer, Jeanne burns herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne and <font color='#FF3399'>stunning</font> them for %stun_duration% seconds."
 
-		"DOTA_Tooltip_Ability_jeanne_flag"		"Luminosite Eternelle"
-        "DOTA_Tooltip_Ability_jeanne_flag_Description"	"Ruler plants her flag into the ground, creating a sacred zone for next 5 seconds that absorbs all damage for allied heroes and cleanses all cleansable debuffs with each tick. Damage accumulated within the flag requires Jeanne to spend mana to keep the flag untorn. If Jeanne runs out of mana, the barrier will disappear.\nJeanne herself needs to be fully concentrated on her Noble Phantasm, so she can't act without dropping the barrier.\nJeanne is invulnerable during the effect."
-		"DOTA_Tooltip_Ability_jeanne_flag_dmg_per_mana"	"Absorbed damage per mana:"
-		"DOTA_Tooltip_Ability_jeanne_flag_radius"	"Barrier radius:"
-
-        "DOTA_Tooltip_Ability_jeanne_la_pucelle"				"Combo: La Pucelle"
-        "DOTA_Tooltip_Ability_jeanne_la_pucelle_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q on self, W -> E</font>\nAfter a brief prayer, Jeanne sacrifices herself, killing all nearby enemies. While praying, all enemies within range are slowed and have their blinks locked. Jeanne's hp is reduced to 1 and she is prevented from healing for 5 seconds."
-        "DOTA_Tooltip_Ability_jeanne_la_pucelle_delay"			"Cast Delay:"
-        "DOTA_Tooltip_Ability_jeanne_la_pucelle_kill_radius"	"Lethal Radius:"
-        "DOTA_Tooltip_Ability_jeanne_la_pucelle_slow"			"%Slow:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note0"	"Jeanne is stunned and revoked when this ability is activated."
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note1"	"Bypasses Invulnerability and magic immunity."
 
 
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle"	"La Pucelle"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : None(triggered by death)</font>\nUpon death, Ruler ascends to a spirit form, unable to cast spells and Command Seals but becoming invulnerable, gaining <font color='#ff9900'>Saint</font> buff and gaining bonus movement and attack speed. While in spirit form, divine flame spreads from her to set nearby enemies ablaze, dealing magic damage based on enemy's current health.\n\nWhen Ruler faces eventual death, she counts as alive at the round timeout when comparing the number of survivors between two teams. La Pucelle does not activate if Ruler is executed or is the last standing hero."
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_delay"		"ASCENSION DELAY:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_duration"		"SPIRIT FORM DURATION:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_bonus_aspd"	"%BONUS ATTACK SPEED:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_bonus_ms"		"%BONUS MOVEMENT SPEED:"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_flame_damage_per_sec"	"%FLAME DAMAGE PER SEC:"
+
         "la_pucelle_alert_1"		"<font color='#ff9900'>Ruler(Apocrypha) has ascended into spirit form!</font>"
         "la_pucelle_alert_2"		"<font color='#ff9900'>Ruler(Apocrypha) has fallen. She counts as alive member at the round timeout.</font>"
-        "DOTA_Tooltip_Ability_jeanne_combo_la_pucelle_Note0"	"Ruler can still use items while ascended."
 
         "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment"		"Attribute: Identity Discernment"
         "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment_Description"		"Enables Identity Discernment, and reduces Presence Resonator's cooldown.\n<font color='#58ACFA'>Identity Discernment:</font> Ruler pings all enemy Servants' locations.\nAlso grants vision briefly when Ruler's team's score is lower or equal to the opposing team."
@@ -7266,10 +7244,6 @@
 	"npc_dota_hero_razor_hype"		""
 	"npc_dota_hero_razor_bio"		""
 
-	"DOTA_Tooltip_Ability_jeanne_flag_swing"       "Dragon's Breath"
-	"DOTA_Tooltip_Ability_jeanne_flag_swing_Description"       "Jeanne swings her flag, attacking enemies in cone in front of her and dealing additional magic damage.\nCastpoint depends on her attack speed."
-	"DOTA_Tooltip_Ability_jeanne_flag_swing_damage"       "Damage:"
-	"DOTA_Tooltip_Ability_jeanne_flag_swing_radius"       "Range:"
 
 	"DOTA_Tooltip_Ability_jeanne_trail"		"Trails of Torment"
 	"DOTA_Tooltip_Ability_jeanne_trail_Description"		"Jeanne hexes the area to torment her enemies. After a brief delay, all enemies inside will take damage and will be rooted. The area will remain cursed for a long duration, burning feet of every fool who'll dare to step there."
