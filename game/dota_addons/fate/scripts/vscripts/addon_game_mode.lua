@@ -518,7 +518,15 @@ function Precache( context )
     PrecacheResource("particle",  "particles/fbt_incident_6.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_7.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_8.vpcf", context)
-    
+
+    -- DD->lua порт: датадривен неявно прекешил EffectName своих Modifiers и soundfile-блоки,
+    -- lua-абилки этого не делают (KV precache-блок у ability_lua не срабатывает) -> грузим глобально
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts", context) -- iskander forward/ionioi/battle_horn, nero
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts", context) -- iskander gordius/hammer_and_anvil, heracles, li_shuwen
+    PrecacheResource("particle", "particles/units/heroes/hero_enigma/enigma_blackhole_n.vpcf", context) -- salter excalibur vfx
+    PrecacheResource("particle", "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ring_d_black.vpcf", context) -- salter excalibur vfx
+    PrecacheResource("particle", "particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf", context) -- salter darklight crit
+
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
 --[[
