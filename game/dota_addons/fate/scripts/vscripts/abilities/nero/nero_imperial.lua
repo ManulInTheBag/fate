@@ -149,12 +149,36 @@ end
 
 modifier_imperial_buff = class({})
 
+-- the AddNewModifier kv table is server-only, so the computed bonuses are
+-- shipped to the client through the custom transmitter data channel -
+-- that is what makes the numbers show up in the HUD in real time
+function modifier_imperial_buff:AddCustomTransmitterData()
+    return {
+        bonus_damage = self.bonus_damage,
+        mana_regen   = self.mana_regen,
+        hp_regen     = self.hp_regen,
+        armor        = self.armor,
+        mr           = self.mr,
+    }
+end
+
+function modifier_imperial_buff:HandleCustomTransmitterData(data)
+    self.bonus_damage = data.bonus_damage
+    self.mana_regen   = data.mana_regen
+    self.hp_regen     = data.hp_regen
+    self.armor        = data.armor
+    self.mr           = data.mr
+end
+
 function modifier_imperial_buff:OnCreated(kv)
-    self.bonus_damage = kv.bonus_damage or 0
-    self.mana_regen   = kv.mana_regen or 0
-    self.hp_regen     = kv.hp_regen or 0
-    self.armor        = kv.armor or 0
-    self.mr           = kv.mr or 0
+    if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
+        self:SetHasCustomTransmitterData(true)
+    end
     if IsServer() then
         self.parent = self:GetParent()
         local caster = self:GetCaster()
@@ -175,13 +199,16 @@ function modifier_imperial_buff:OnCreated(kv)
 end
 
 function modifier_imperial_buff:OnRefresh(kv)
-    self.bonus_damage = kv.bonus_damage or 0
-    self.mana_regen   = kv.mana_regen or 0
-    self.hp_regen     = kv.hp_regen or 0
-    self.armor        = kv.armor or 0
-    self.mr           = kv.mr or 0
     if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
+        if self.SendBuffRefreshToClients then
+            self:SendBuffRefreshToClients()
+        end
     end
 end
 
@@ -228,12 +255,33 @@ end
 
 modifier_imperial_buff_h = class({})
 
+function modifier_imperial_buff_h:AddCustomTransmitterData()
+    return {
+        bonus_damage = self.bonus_damage,
+        mana_regen   = self.mana_regen,
+        hp_regen     = self.hp_regen,
+        armor        = self.armor,
+        mr           = self.mr,
+    }
+end
+
+function modifier_imperial_buff_h:HandleCustomTransmitterData(data)
+    self.bonus_damage = data.bonus_damage
+    self.mana_regen   = data.mana_regen
+    self.hp_regen     = data.hp_regen
+    self.armor        = data.armor
+    self.mr           = data.mr
+end
+
 function modifier_imperial_buff_h:OnCreated(kv)
-    self.bonus_damage = kv.bonus_damage or 0
-    self.mana_regen   = kv.mana_regen or 0
-    self.hp_regen     = kv.hp_regen or 0
-    self.armor        = kv.armor or 0
-    self.mr           = kv.mr or 0
+    if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
+        self:SetHasCustomTransmitterData(true)
+    end
     if IsServer() then
         self.parent = self:GetParent()
         local caster = self:GetCaster()
@@ -243,13 +291,16 @@ function modifier_imperial_buff_h:OnCreated(kv)
 end
 
 function modifier_imperial_buff_h:OnRefresh(kv)
-    self.bonus_damage = kv.bonus_damage or 0
-    self.mana_regen   = kv.mana_regen or 0
-    self.hp_regen     = kv.hp_regen or 0
-    self.armor        = kv.armor or 0
-    self.mr           = kv.mr or 0
     if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
+        if self.SendBuffRefreshToClients then
+            self:SendBuffRefreshToClients()
+        end
     end
 end
 
