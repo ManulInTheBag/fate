@@ -12,8 +12,6 @@ local spellBooks = {
     "caster_5th_close_spellbook",
     "lancelot_knight_of_honor",
     "lancelot_knight_of_honor_close",
-    "nero_imperial_privilege",
-    "nero_close_spellbook",
     "tamamo_armed_up",
     "tamamo_close_spellbook",
     "gilles_rlyeh_text_open",

@@ -530,7 +530,6 @@ CannotReset = {
     "gille_spellbook_of_prelati",
     "gille_larret_de_mort",
     "nero_fiery_finale",
-    "nero_imperial_privilege",
     "gawain_blessing_of_fairy",
     "gawain_divine_meltdown",
     "gawain_supernova",

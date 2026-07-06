@@ -7,188 +7,6 @@
 
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Nero : Imperial Privilege
-	//=================================================================================================================
-	"nero_imperial_privilege"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"			"custom/nero_imperial_privilege"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		"precache"
-		{
-		}
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"nero_ability"
-				"Function"			"OnIPStart"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_imperial_privilege"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"nero_ability"
-						"Function"			"OnIPRespawn"
-					}
-				}
-			}
-			"nero_autoattack_passive"
-			{
-				"Passive" 					"1"
-				"IsHidden"					"1"
-				"OnAttackLanded"
-				{
-					"FireSound"
-					{
-						"EffectName"		"Hero_LegionCommander.Attack"
-						"Target"			"CASTER"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "nero_ability"
-						"Function"      "NeroTakeDamage"
-						"DamageTaken"	"%attack_damage"
-					}
-				}	
-		  	}
-		}
-	}
-
-	"nero_acquire_divinity"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/berserker_5th_divinity"
-		
-		"AbilityCastPoint"				"0.0"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnDivinityAcquired"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Nero : Golden Rule
-	//=================================================================================================================
-	"nero_acquire_golden_rule"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/gilgamesh_golden_rule"
-		
-		"AbilityCastPoint"				"0.0"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnGoldenRuleAcquired"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Nero :  Mind's Eye
-	//=================================================================================================================
-	//=================================================================================================================
-	// Nero : Clairvoyance
-	//=================================================================================================================
-	"nero_acquire_clairvoyance"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/archer_5th_clairvoyance"
-		
-		"AbilityCastPoint"				"0.0"
-		"precache"
-		{
-			"particle"					"particles/custom/archer/archer_clairvoyance_dust.vpcf"
-			"particle"					"particles/custom/archer/archer_clairvoyance_circle.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnClairvoyanceAcquired"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Nero : Item Construction
-	//=================================================================================================================
-	//=================================================================================================================
-	// Nero : Martial Arts
-	//=================================================================================================================
-	"nero_acquire_martial_arts"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/lishuwen_martial_arts"
-		
-		"AbilityCastPoint"				"0.0"
-		"precache"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnMartialArtsAcquired"
-			}
-		}
-	}
-	"nero_close_spellbook"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"silencer_last_word"
-		
-		"AbilityCastPoint"				"0.0"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnIPClose"
-			}
-		}
-	}
-		
 	//=======================================
 	// Nero Attribute : Pari Tenu Blauserum
 	//=======================================
@@ -227,33 +45,14 @@
 	//=======================================
 	"nero_attribute_improve_imperial_privilege"
 	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_attributes"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/nero_attribute_improve_imperial_privilege"
-		
-		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"9"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnPrivilegeImproved"
-			}
-		}
 	}
 
 	//=======================================
@@ -261,36 +60,14 @@
 	//=======================================
 	"nero_attribute_invictus_spiritus"
 	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_attributes"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/nero_attribute_invictus_spiritus"
-		
-		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"9"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "heal_amount" "30"
-            "cooldown" "130"
-            "revoke_duration" "1.5"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"nero_ability"
-				"Function"		"OnISAcquired"
-			}
-		}
 	}
 
 
@@ -299,109 +76,19 @@
 	//=================================================================================================================
 	"nero_invictus_spiritus"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_invictus_spiritus"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityTextureName"			"custom/nero_attribute_invictus_spiritus"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Ability stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
 		"AbilityCastRangeBuffer"		"200"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"130"
 		"AbilityManaCost"				"200"
-		
-		// Ability special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-        }
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"						
-		{
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"nero_ability"
-				"Function"				"OnISStart"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_invictus_spiritus"
-			{
-				"Duration"			"3.0"
-				"IsHidden"			"1"
-				"OverrideAnimation"     "ACT_DOTA_DIE"	
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "CASTER"
-
-						"ControlPointEntities"
-						{
-							"CASTER"	"follow_origin"
-							"CASTER"	"follow_origin"
-						}
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"0.5"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"				"99999"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_UNSELECTABLE" 	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}		
-			}
-			"modifier_invictus_spiritus_cooldown"
-			{
-				"IsDebuff"			"1"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"nero_autoattack_passive"
-			{
-				"Passive" 					"1"
-				"IsHidden"					"1"
-				"OnAttackLanded"
-				{
-					"FireSound"
-					{
-						"EffectName"		"Hero_LegionCommander.Attack"
-						"Target"			"CASTER"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "nero_ability"
-						"Function"      "NeroTakeDamage"
-						"DamageTaken"	"%attack_damage"
-					}
-				}	
-		  	}
-		}
 	}
 
 	//=======================================

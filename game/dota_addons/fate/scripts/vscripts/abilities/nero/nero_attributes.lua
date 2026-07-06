@@ -63,3 +63,43 @@ function nero_attribute_diabolis_vectis:OnSpellStart()
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
+
+nero_attribute_improve_imperial_privilege = class({})
+nero_attribute_invictus_spiritus = class({})
+LinkLuaModifier("modifier_eagle_eye", "abilities/emiya/modifiers/modifier_eagle_eye", LUA_MODIFIER_MOTION_NONE)
+
+function nero_attribute_improve_imperial_privilege:OnSpellStart()
+	local caster = self:GetCaster()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	hero.IsPrivilegeImproved = true
+
+	hero:FindAbilityByName("nero_imperial_open"):SetLevel(2)
+	hero:FindAbilityByName("nero_health"):SetLevel(2)
+	hero:FindAbilityByName("nero_mana"):SetLevel(2)
+	hero:FindAbilityByName("nero_defence"):SetLevel(2)
+	hero:FindAbilityByName("nero_imperial_close"):SetLevel(2)
+	hero:FindAbilityByName("nero_imperial_activate"):SetLevel(2)
+
+	Timers:CreateTimer(function()
+		if hero:IsAlive() then
+			hero:AddNewModifier(hero, self, "modifier_eagle_eye", {})
+			return nil
+		else
+			return 1
+		end
+	end)
+
+	-- Set master 1's mana
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end
+
+function nero_attribute_invictus_spiritus:OnSpellStart()
+	local caster = self:GetCaster()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	hero.IsISAcquired = true
+	hero.IsISOnCooldown = false
+	-- Set master 1's mana
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end
