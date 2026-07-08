@@ -1,0 +1,451 @@
+// Cú Chulainn (Alter) ability voice lines (FGO, VA Canna Nobutoshi).
+// Clips live in sounds/cu_alter/. Emitted from the ability scripts on cast (see cu_alter_*.lua).
+// Blood Frenzy (D): "It's time to kill."
+"cu_alter_vo_warcry"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/S098_Start2.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Wild Beast's Roar (F): "Fear me! Tremble and panic."
+"cu_alter_vo_roar"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/S098_Skill1.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Rending Assault (E): "There won't be a next time."
+"cu_alter_vo_stance"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/S098_Skill2.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Gáe Bolg Alternative (R): "This will be a massacre."
+"cu_alter_vo_sky"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/cu_alter_massacre.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Curruid Coinchenn cast: "Unleashing the curse..."
+"cu_alter_vo_combo_start"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/cu_alter_np_intro.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Curruid Coinchenn final blow: "...Curruid Coinchenn!!"
+"cu_alter_vo_combo_shout"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/cu_alter_np_shout.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Curruid Coinchenn hacking phase : short battle grunts, one random per hit ("Kah!"/"Hmph!"/"There!")
+"cu_alter_vo_hack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/S098_Attack1.vsnd"
+							"value1"	"sounds/cu_alter/S098_Attack2.vsnd"
+							"value2"	"sounds/cu_alter/S098_Attack3.vsnd"
+						}
+					}
+					"volume"	{ "value"	"3.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Wild Beast's Roar (F) : bespoke beast roar (barbatos_roar, pitched down ~12%), layered under the voice.
+"cu_alter_roar_sfx"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/cu_alter/cu_alter_roar_sfx.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_pierce"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/pierce.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_blood"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/blood.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_explosion"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/explosion.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_explosion_w"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/explosion_w.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_pierce2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/pierce_2.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_roar_weak"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/roar_weak.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_slash1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/slash_1.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_slash2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/slash_2.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_buff"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/buff.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// ability SFX
+"cu_alter_sfx_ecast"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/e_cast.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// Wild Beast's Roar (F) : strong roar SFX layered under the voice line.
+"cu_alter_sfx_roar_strong"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"	{ "value" { "value0"	"sounds/cu_alter/sfx/roar_strong.vsnd" } }
+					"volume"	{ "value"	"8.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}

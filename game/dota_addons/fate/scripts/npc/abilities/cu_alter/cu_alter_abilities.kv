@@ -1,0 +1,435 @@
+"DOTAAbilities"
+{
+	//=====================================================================================
+	// Q - Charge  (lunge dash, on collision: stun + short forward push)
+	//=====================================================================================
+	"cu_alter_charge"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_charge"
+		"AbilityTextureName"			"custom/cu_alter/dash"
+		// AUTOCAST is the combo "arm" toggle: with autocast on (and 30 all stats + combo ready),
+		// casting Charge arms the combo (see cu_alter_charge.lua / modifier_cu_alter_combo_switch).
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_AUTOCAST |DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"			"1"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityManaCost"				"100"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"99999"		// unlimited: he never walks up first. Reach ring comes from GetAOERadius=distance.
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		"precache"
+		{
+			"particle"	"particles/cu_alter/cu_alter_pierce.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_dash_trail.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_slark.vsndevts"
+		}
+		"AbilityValues"
+		{
+			"distance"					"600"
+			"speed"						"2400"
+			"radius"					"200"		// collision radius against enemies
+			"damage"					"200 250 300 350 400"
+			"stun_duration"				"0.8 0.9 1.0 1.1 1.2"
+			"push_duration"				"0.2"
+			"post_stun"					"0.2"		// self-stun if the dash ends without hitting
+			"hit_anim_time"				"0.77"		// full length of the stab animation (self-stun while it plays)
+			"aoe_length"				"150"	// rectangular splash reaching behind the hit target (FindUnitsInLine)
+			"aoe_width"				"100"	// half-width of that splash
+		}
+	}
+
+	//=====================================================================================
+	// W - Spear Throw  (charge to aim/empower, release a piercing spear)
+	//     on hit: damage + slow + heal reduction
+	//=====================================================================================
+	"cu_alter_spear_throw"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_spear_throw"
+		"AbilityTextureName"			"custom/cu_alter/spear_throw"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"			"1"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityManaCost"				"200"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		"precache"
+		{
+			"particle"	"particles/muramasa/vector.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
+			"particle"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture_trail.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_spear_proj.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_pierce.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_spears_burst.vpcf"
+			"particle"	"particles/custom/vlad/vlad_im_splash_blood.vpcf"
+			"particle"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"model"		"models/cu_alter/cualter_spear.vmdl"
+			"model"		"models/cu_alter/cualter_spears.vmdl"
+		}
+		"AbilityValues"
+		{
+			"max_channel"				"3.0"		// max charge time
+			"min_range"					"900"		// range at 0 charge
+			"max_range"					"2200"		// range at full charge
+			"speed"						"3400"		// flies fast
+			"radius"					"150"
+			"damage"					"300 375 450 525 600"
+			"slow_pct"					"30"
+			"slow_duration"				"2 2.5 3 3.5 4"
+			"healres_tier"				"2"			// applies modifier_heal_reduction_tier_2
+			"healres_duration"			"3"
+			// attribute Cursed Gáe Bolg - Sealed Fate mark (only with attr 2). Lifetime = healres_duration
+			// (detonates the instant the healing reduction ends).
+			"sf_base_damage"			"200"	// guaranteed delayed strike
+			"sf_heal_pct"				"100"		// + this % of REAL healing (overheal excluded) the target took while marked
+			"sf_heal_dmg_cap"			"800"		// hard cap on the heal-derived part of the strike
+			"sf_execute_pct"			"20"		// strikes early if the target is driven below this % HP
+			"stun_duration"				"0.5"		// brief stun on hit (flavor)
+			"push_duration"				"0.35"
+			"release_delay"				"0.1"	// spear leaves shortly after release (throw anim keeps playing)
+			"aoe_length"				"150"	// rectangular splash reaching behind the hit target (FindUnitsInLine)
+			"aoe_width"				"100"	// half-width of that splash
+			"vision_duration"			"3.0"	// reveal the pierced target to your team for this long
+		}
+	}
+
+	// hidden: released by recasting W while charging
+	"cu_alter_spear_throw_release"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_spear_throw"
+		"AbilityTextureName"			"custom/cu_alter/spear_throw"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+		"MaxLevel"						"5"
+		"AbilityCastPoint"				"0"
+	}
+
+	//=====================================================================================
+	// E - Battle Stance  (stand, draw a ring; after a delay charge through nearest enemy)
+	//=====================================================================================
+	"cu_alter_battle_stance"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_battle_stance"
+		"AbilityTextureName"			"custom/cu_alter/stance"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"			"2"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"24 23 22 21 20"
+		"AbilityManaCost"				"400"
+		"AbilityCastPoint"				"0.2"
+		// no AbilityCastAnimation: the stance animation is driven from OnAbilityPhaseStart (Karna-style)
+
+		"precache"
+		{
+			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_pierce.vpcf"
+			"particle"	"particles/centaur_double_edge_ti9_bloodspray_tgt.vpcf"
+			"particle"	"particles/custom/vlad/vlad_im_splash_blood.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_spears_burst.vpcf"
+			"model"		"models/cu_alter/cualter_spears.vmdl"
+		}
+		"AbilityValues"
+		{
+			"radius"					"500"		// detection ring
+			"delay"						"1.0"		// stance time before the charge
+			"dash_speed"				"1400"
+			"behind_offset"				"200"		// how far past the target he ends up (behind its back)
+			"dash_max"					"900"		// safety cap on the charge distance
+			"dash_radius"				"200"		// who gets hit along the charge
+			"damage_dash"				"200 250 300 350 400"		// dealt while charging through
+			"damage_delayed"			"200 250 300 350 400"		// dealt after the post-dash stun
+			"stun_duration"				"0.8 1 1.2 1.4 1.6"
+			"post_stun"					"0.7"		// self-stun / recovery after the charge (extended)
+			"attr_barrier"				"400"		// attribute Battle Continuation: barrier granted on charge
+			"attr_barrier_duration"		"3"
+		}
+	}
+
+	//=====================================================================================
+	// D - War Cry  (active self-buff: +HP, +regen, barrier on end)
+	//     passive: fixed attack speed, attacks briefly stun + shove the target
+	//=====================================================================================
+	"cu_alter_warcry"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_warcry"
+		"AbilityTextureName"			"custom/cu_alter/d"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"LevelsBetweenUpgrades"			"1"
+		"MaxLevel"						"2"
+		"AbilityCooldown"				"30 20"
+		"AbilityManaCost"				"150"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call.vpcf"
+			"particle"	"particles/status_fx/status_effect_beserkers_call.vpcf"
+		}
+		"AbilityValues"
+		{
+			// active
+			"buff_duration"				"6.0"
+			"bonus_armor"				"3 6"		// bonus physical armor for the duration
+			"bonus_magic_resist"		"15 30"		// % bonus magic resistance for the duration
+			"bonus_health_regen"		"75 150"
+			"barrier_amount"			"200 400"
+			"barrier_duration"			"5"
+			"move_speed_bonus"			"20 30"		// % move speed for the duration
+			// attribute Ríastrad: end-barrier also gains this % of damage taken during the buff (capped)
+			"barrier_dmg_pct"			"50"
+			"barrier_dmg_cap"			"1500"
+			// passive
+			"fixed_attack_rate"			"1.7"		// locked BAT (seconds), unaffected by AS
+			"attack_stun_duration"		"0.2"
+			"attack_push_beyond"		"150"		// shove the target to (attack range + this); 0 push if already past it
+			"attack_push_duration"		"0.2"
+		}
+	}
+
+	//=====================================================================================
+	// F - Roar  (channelled: every tick mini-stuns and drains STR from nearby enemies)
+	//=====================================================================================
+	"cu_alter_roar"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_roar"
+		"AbilityTextureName"			"custom/cu_alter/roar"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"			"1"
+		"MaxLevel"						"2"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"150"
+		"AbilityCastPoint"				"0.2"
+		"AbilityChannelTime"			"1.0"
+		// no AbilityCastAnimation: roar animation is driven from OnAbilityPhaseStart
+
+		"precache"
+		{
+			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_roar_wind.vpcf"
+			"particle"	"particles/units/heroes/hero_beastmaster/beastmaster_primal_roar_shockwave.vpcf"
+			"particle"	"particles/zlodemon/heracles/heracles_puk.vpcf"
+			"particle"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
+		}
+		"AbilityValues"
+		{
+			"radius"					"700"
+			"pulse_damage"				"50 100"	// magical damage dealt to each enemy per pulse
+			"tick_interval"				"0.2"		// roars pulse often
+			"tick_stun_duration"		"0.25"		// > tick_interval so the whole 1s channel is a continuous stun
+			"str_reduction"				"3 6"		// Strength drained PER stack (each pulse adds a stack)
+			"max_stacks"				"5"			// ~5 pulses over the 1s channel
+			"str_debuff_duration"		"6"		// lingers after the last pulse; refreshed each pulse
+			"fear_duration"				"1"		// attribute: fear on enemies who endured the whole roar
+			"push_distance"				"40"		// weak, smooth shove on each pulse
+			"push_duration"				"0.3"		// glides over the whole tick for a smooth push
+		}
+	}
+
+	//=====================================================================================
+	// R - Spear of the Sky  (hurl spear skyward, it crashes down after a delay: dmg + stun)
+	//=====================================================================================
+	"cu_alter_spear_of_the_sky"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_spear_of_the_sky"
+		"AbilityTextureName"			"custom/cu_alter/throw_r"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"			"2"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"800"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastRange"				"2000"
+		// no AbilityCastAnimation: throw animation is driven from OnAbilityPhaseStart
+
+		"precache"
+		{
+			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
+			"particle"	"particles/custom/lancer/lancer_gae_bolg_hit.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_r_explosion.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_spear_proj.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_spears_burst.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
+			"model"		"models/cu_alter/cualter_spear.vmdl"
+			"model"		"models/cu_alter/cualter_spears.vmdl"
+		}
+		"AbilityValues"
+		{
+			"delay"						"2.0"		// airtime before it lands
+			"radius"					"500"
+			"vision_radius"				"450"		// FoW reveal at the landing spot
+			"damage"					"500 625 750 875 1000"
+			"bonus_max_hp_damage_pct"	"15"		// + this % of Cú Chulainn's max health to enemies
+			"stun_duration"				"1.5 1.75 2.0 2.25 2.5"
+			"self_stun_duration"		"2.0"		// self-stun on cast (skipped if under War Cry)
+			"self_damage_pct"			"15"		// non-lethal self damage, % of max health (skipped under War Cry)
+		}
+	}
+
+	//=====================================================================================
+	// Combo (mock for now)
+	//=====================================================================================
+	"cu_alter_combo"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_combo"
+		"AbilityTextureName"			"custom/cu_alter/combo"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"LevelsBetweenUpgrades"			"25"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"600"
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"1200"		// = jump_distance, so the range ring shows the real leap reach (keep in sync)
+
+		"precache"
+		{
+			"particle"	"particles/cu_alter/cu_alter_ground_slam.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_combo_slash.vpcf"
+			"particle"	"particles/okada/okada_combo_blood_mist.vpcf"
+			"particle"	"particles/gilles/new_combo/gilles_combo_kraken_2.vpcf"
+			"particle"	"particles/custom_game/heroes/hisoka/hisoka_bloodlust_release/hisoka_bloodlust_release.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_land_impact.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_dash_trail.vpcf"
+			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
+		}
+		"AbilityValues"
+		{
+			// landing of the leap (frame 100): shakes the ground and stuns
+			"land_radius"			"400"
+			"land_stun"				"0.8"
+			// animation timing (240-frame ACT_DOTA_CAST_ABILITY_ROT). At 30 fps / rate 1.0 the whole
+			// combo takes 8.0s. If the animation looks out of sync, tune combo_fps to its real fps;
+			// anim_rate speeds up / slows down the entire combo (and all its timings) together.
+			"combo_fps"				"30"
+			"anim_rate"				"1.0"
+			// jump phase (frames 50-100)
+			"jump_distance"			"1200"		// forward leap distance (capped by the clicked point); keep = AbilityCastRange
+			"jump_height"			"550"		// arc peak height — makes it read as a real jump
+			"damage_reduction"		"50"		// % less damage taken from the moment he leaps
+			// AoE (in front of him)
+			"forward_offset"		"150"		// AoE centered this far ahead along his facing
+			// hacking phase (frames 100-180)
+			"hack_radius"			"400"
+			"hack_ticks"			"6"			// number of hits over the hacking window
+			"hack_damage"			"200"		// per hack tick
+			"hack_stun"				"0.5"		// mini-stun per tick (> tick spacing = stays locked)
+			// final blow (frame 220)
+			"final_radius"			"450"
+			"final_damage"			"1000"
+			"final_stun"			"1.75"
+		}
+	}
+
+	//=====================================================================================
+	// Attributes (mock placeholders - real effects TBD)
+	//=====================================================================================
+	"cu_alter_attribute_1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_attributes"
+		"AbilityTextureName"			"custom/cu_alter/sa2"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"AbilityValues"		// display only — gameplay values live in cu_alter_warcry
+		{
+			"barrier_dmg_pct"			"50"
+			"barrier_dmg_cap"			"1000"
+		}
+	}
+	"cu_alter_attribute_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_attributes"
+		"AbilityTextureName"			"custom/cu_alter/sa1"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"AbilityValues"		// display only — gameplay values live in cu_alter_spear_throw
+		{
+			"sf_base_damage"			"200"
+			"sf_heal_pct"				"100"
+			"sf_heal_dmg_cap"			"1000"
+			"sf_execute_pct"			"20"
+			"spear_bonus_dmg"			"1.5"
+			"air_bonus_dmg"				"2.5"
+		}
+	}
+	"cu_alter_attribute_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_attributes"
+		"AbilityTextureName"			"custom/cu_alter/sa4"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"8"
+
+		"AbilityValues"		// display only — gameplay value lives in cu_alter_roar
+		{
+			"fear_duration"				"1"
+		}
+	}
+	"cu_alter_attribute_4"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_attributes"
+		"AbilityTextureName"			"custom/cu_alter/sa3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+			"particle"	"particles/cu_alter/cu_alter_spears_burst.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_roar_wind.vpcf"
+			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
+			"model"		"models/cu_alter/cualter_spears.vmdl"
+		}
+		"AbilityValues"
+		{
+			"revive_heal_pct"			"25"		// Battle Continuation heals to this % of max health
+			"cooldown"					"70"		// internal cooldown of Battle Continuation
+			// desperate roar when Battle Continuation saves him: fears nearby enemies
+			"bc_fear_radius"			"350"
+			"bc_fear_duration"			"1.5"
+		}
+	}
+}

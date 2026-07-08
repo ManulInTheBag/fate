@@ -3295,6 +3295,93 @@
 		"DOTA_Tooltip_Ability_maou_nobbus_tank_ram_duration"				"Duration"
 
 
+		//====================================
+		//  Cú Chulainn Alter (Lancer)
+		//====================================
+		"npc_dota_hero_axe"						"Cú Chulainn (Alter)"
+
+		"DOTA_Tooltip_Ability_cu_alter_charge"				"Hound's Charge"
+		"DOTA_Tooltip_Ability_cu_alter_charge_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nCú Chulainn Alter lunges forward with his spear. The first enemy he collides with is <font color='#FF3399'>stunned</font>, shoved a short distance forward and takes <font color='#58ACFA'>damage</font>.\nEnemies in a small box behind the target are also <font color='#58ACFA'>damaged</font> and <font color='#FF3399'>stunned</font>, and everyone struck is <font color='#FFDC60'>dragged together</font> onto the spear."
+		"DOTA_Tooltip_Ability_cu_alter_charge_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_cu_alter_charge_stun_duration"	"Stun duration:"
+		"DOTA_Tooltip_Ability_cu_alter_charge_distance"			"Charge distance:"
+
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw"				"Gáe Bolg"
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nCú Chulainn Alter charges his spear, turning to aim. Recast (or reach full charge) to release a piercing throw. The first enemy hit takes <font color='#58ACFA'>damage</font>, is briefly <font color='#FF3399'>stunned</font>, knocked back and <font color='#9400D3'>slowed by %slow_pct%%%</font>. Charging longer increases range and damage.\nEnemies in a small box behind the pierced target are also <font color='#58ACFA'>damaged</font> and <font color='#9400D3'>slowed</font>, and everyone struck is <font color='#FFDC60'>dragged together</font> onto the spear. The pierced target is <font color='#FFFACD'>revealed</font> for %vision_duration% seconds.\nApplies <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds.\n<font color='#F1C40F'>Upgradable by attribute Cursed Gáe Bolg.</font>"
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_slow_pct"		"%Move speed slow:"
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_slow_duration"	"Slow duration:"
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_max_range"		"Max range:"
+
+		"DOTA_Tooltip_Ability_cu_alter_battle_stance"				"Rending Assault"
+		"DOTA_Tooltip_Ability_cu_alter_battle_stance_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nCú Chulainn Alter takes a stance and draws a ring around himself. After a short delay he performs an uninterruptible charge through the nearest enemy in the ring, <font color='#FF3399'>stunning</font> and <font color='#58ACFA'>damaging</font> everyone in his path. A second burst of <font color='#58ACFA'>damage</font> lands right after the charge ends.\n<font color='#F1C40F'>Upgradable by attributes Battle Continuation and Cursed Gáe Bolg.</font>"
+		"DOTA_Tooltip_Ability_cu_alter_battle_stance_radius"		"Ring radius:"
+		"DOTA_Tooltip_Ability_cu_alter_battle_stance_damage_dash"	"Charge damage:"
+		"DOTA_Tooltip_Ability_cu_alter_battle_stance_damage_delayed"	"Delayed damage:"
+		"DOTA_Tooltip_Ability_cu_alter_battle_stance_stun_duration"	"Stun duration:"
+		"DOTA_Tooltip_Ability_cu_alter_battle_stance_dash_range"	"Charge distance:"
+
+		"DOTA_Tooltip_Ability_cu_alter_warcry"				"Blood Frenzy"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_Description"	"<font color='#FF0000'>Unrefreshable</font>\n<font color='#79C7F0'>Active</font>: Cú Chulainn Alter gains bonus <font color='#58ACFA'>armor</font>, <font color='#58ACFA'>magic resistance</font>, health regeneration and move speed for a short time.\nWhen the buff ends, he gains a <font color='#FFDC60'>barrier</font>.\n<font color='#79C7F0'>Passive</font>: his attack speed is fixed and cannot be increased, but every attack briefly <font color='#FF3399'>stuns</font> the target and shoves it a spear-length forward.\n<font color='#79C7F0'>Autocast</font>: attacks still stun but no longer shove — pin the target in place instead.\n<font color='#F1C40F'>Upgradable by attribute Ríastrad.</font>"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_bonus_armor"			"Bonus armor:"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_bonus_magic_resist"	"%Bonus magic resistance:"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_move_speed_bonus"		"Move speed bonus:"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_bonus_health_regen"	"Bonus health regen:"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_barrier_amount"		"Barrier:"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_buff_duration"		"Buff duration:"
+		"DOTA_Tooltip_Ability_cu_alter_warcry_attack_stun_duration"	"Attack stun:"
+
+		"DOTA_Tooltip_Ability_cu_alter_roar"				"Wild Beast's Roar"
+		"DOTA_Tooltip_Ability_cu_alter_roar_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#FF0000'>Unrefreshable</font>\nCú Chulainn Alter roars over a large radius while channeling. Every pulse deals <font color='#58ACFA'>damage</font>, briefly <font color='#FF3399'>stuns</font> and shoves nearby enemies and <font color='#FF0000'>drains their Strength</font>. The Strength drain stacks with every pulse that hits.\n<font color='#F1C40F'>Upgradable by attribute Roar of the Hound.</font>"
+		"DOTA_Tooltip_Ability_cu_alter_roar_radius"				"Radius:"
+		"DOTA_Tooltip_Ability_cu_alter_roar_pulse_damage"		"Damage per pulse:"
+		"DOTA_Tooltip_Ability_cu_alter_roar_str_reduction"		"Strength drained per stack:"
+		"DOTA_Tooltip_Ability_cu_alter_roar_tick_stun_duration"	"Stun per pulse:"
+		"DOTA_Tooltip_Ability_cu_alter_roar_max_stacks"			"Max stacks:"
+
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky"			"Soaring Spear"
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nCú Chulainn Alter hurls his spear high into the sky. After a delay it crashes down at the targeted point, <font color='#58ACFA'>damaging</font> (plus <font color='#58ACFA'>%bonus_max_hp_damage_pct%%%</font> of his max health) and <font color='#FF3399'>muting</font> all enemies in the impact area.\nCast without <font color='#00A0FF'>Blood Frenzy</font>: Cú Chulainn also <font color='#FF3399'>stuns himself</font> and takes non-lethal self damage equal to <font color='#FF0000'>%self_damage_pct%%%</font> of his max health. Under <font color='#00A0FF'>Blood Frenzy</font> this cost is waived.\n<font color='#F1C40F'>Upgradable by attribute Cursed Gáe Bolg.</font>"
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_bonus_max_hp_damage_pct"	"% Max health as bonus damage:"
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_stun_duration"	"Mute duration:"
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_self_damage_pct"	"Self damage (% max health):"
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_radius"			"Impact radius:"
+		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_delay"			"Impact delay:"
+
+		"DOTA_Tooltip_Ability_cu_alter_combo"				"Curruid Coinchenn"
+		"DOTA_Tooltip_Ability_cu_alter_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast Hound's Charge (Q) - F in 3 seconds</font>\nCú Chulainn Alter dons his armour, roars and leaps to the target point, <font color='#FF3399'>stunning</font> enemies where he lands. He then hacks everything in front of him — <font color='#58ACFA'>damaging</font> and <font color='#FF3399'>stunning</font> repeatedly — before a final piercing blow that deals heavy <font color='#58ACFA'>damage</font> and inflicts the <font color='#FF0000'>Cursed Gáe Bolg</font> (uncleansable <font color='#7F00FF'>healing reduction</font> + <font color='#FF0000'>Sealed Fate</font>) on all enemies hit.\nFrom the moment he leaps he takes <font color='#FFDC60'>%damage_reduction%%%</font> less damage. He cannot act while performing the combo."
+		"DOTA_Tooltip_Ability_cu_alter_combo_hack_damage"		"Damage per hit:"
+		"DOTA_Tooltip_Ability_cu_alter_combo_final_damage"		"Final blow damage:"
+		"DOTA_Tooltip_Ability_cu_alter_combo_land_stun"			"Landing stun:"
+		"DOTA_Tooltip_Ability_cu_alter_combo_final_stun"		"Final stun:"
+		"DOTA_Tooltip_Ability_cu_alter_combo_damage_reduction"	"%Damage reduction:"
+		"DOTA_Tooltip_Ability_cu_alter_combo_final_radius"		"Radius:"
+
+		"DOTA_Tooltip_Ability_cu_alter_attribute_1"				"Ríastrad"
+		"DOTA_Tooltip_Ability_cu_alter_attribute_1_Description"	"Upgrades <font color='#00A0FF'>Blood Frenzy</font> to level 2.\nIts end <font color='#FFDC60'>barrier</font> is increased by <font color='#58ACFA'>%barrier_dmg_pct%%%</font> of all damage taken while Blood Frenzy was active, up to <font color='#58ACFA'>%barrier_dmg_cap%</font>."
+		"DOTA_Tooltip_Ability_cu_alter_attribute_2"				"Cursed Gáe Bolg"
+		"DOTA_Tooltip_Ability_cu_alter_attribute_2_Description"	"<font color='#00A0FF'>Gáe Bolg</font> (and <font color='#00A0FF'>Rending Assault</font>'s second hit) now applies uncleansable <font color='#7F00FF'>healing reduction tier 3</font> instead of tier 2, and marks the target with <font color='#FF0000'>Sealed Fate</font>.\nWhen the healing reduction ends — or early if the target drops below <font color='#FF0000'>%sf_execute_pct%%%</font> health — the wound reaches the heart, dealing <font color='#58ACFA'>%sf_base_damage%</font> plus <font color='#58ACFA'>%sf_heal_pct%%%</font> of all healing (overheal excluded) the target received while marked, up to <font color='#58ACFA'>%sf_heal_dmg_cap%</font>. Marked targets are <font color='#FFFACD'>revealed</font> for the duration.\nIncreases <font color='#00A0FF'>Soaring spear</font> and <font color='#00A0FF'>Gáe Bolg</font> damage based on <font color='#FF0000'>strength</font>."
+		"DOTA_Tooltip_Ability_cu_alter_attribute_2_spear_bonus_dmg"				"Gáe Bolg STR to damage:"
+		"DOTA_Tooltip_Ability_cu_alter_attribute_2_air_bonus_dmg"				"Soaring spear STR to damage:"
+		"DOTA_Tooltip_Ability_cu_alter_attribute_3"				"Roar of the Hound"
+		"DOTA_Tooltip_Ability_cu_alter_attribute_3_Description"	"Upgrades <font color='#00A0FF'>Wild Beast's Roar</font> to level 2.\nEnemies that stay within the roar for its entire duration are <font color='#FF3399'>feared</font> for %fear_duration% seconds when it ends."
+		"DOTA_Tooltip_Ability_cu_alter_attribute_4"				"Battle Continuation"
+		"DOTA_Tooltip_Ability_cu_alter_attribute_4_Description"	"An otherwise lethal blow instead leaves Cú Chulainn Alter alive and heals him to <font color='#58ACFA'>%revive_heal_pct%%%</font> health (once every %cooldown% seconds).\nWhen this happens he lets out a desperate roar that <font color='#FF3399'>fears</font> all enemies within %bc_fear_radius% range for %bc_fear_duration% seconds.\nAlso, taking <font color='#00A0FF'>Rending Assault</font> grants him a <font color='#FFDC60'>barrier</font>."
+
+		"DOTA_Tooltip_modifier_cu_alter_spear_slow"				"Pierced"
+		"DOTA_Tooltip_modifier_cu_alter_spear_slow_Description"	"Slowed by <font color='#9400D3'>%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%</font>."
+		"DOTA_Tooltip_modifier_cu_alter_roar_str_debuff"			"Cowed"
+		"DOTA_Tooltip_modifier_cu_alter_roar_str_debuff_Description"	"Strength drained by the Roar."
+		"DOTA_Tooltip_modifier_cu_alter_sealed_fate"				"Sealed Fate"
+		"DOTA_Tooltip_modifier_cu_alter_sealed_fate_Description"	"The Cursed Gáe Bolg has marked this wound as fatal. It cannot be cleansed. When it ends the wound reaches the heart, dealing damage increased by all healing received while marked. Healing only feeds the killing blow. The marked target is <font color='#FFFACD'>revealed</font> to Cú Chulainn Alter's team for the whole duration."
+		"DOTA_Tooltip_modifier_cu_alter_fear"						"Feared"
+		"DOTA_Tooltip_modifier_cu_alter_fear_Description"			"Overcome with dread, fleeing from Cú Chulainn Alter and unable to act."
+		"DOTA_Tooltip_modifier_cu_alter_battle_cont_cd"				"Battle Continuation"
+		"DOTA_Tooltip_modifier_cu_alter_battle_cont_cd_Description"	"Battle Continuation is on cooldown and cannot save Cú Chulainn Alter again yet."
+		"DOTA_Tooltip_modifier_cu_alter_warcry_buff"			"Blood Frenzy"
+		"DOTA_Tooltip_modifier_cu_alter_warcry_buff_Description"	"Increased max health and health regeneration."
+		"DOTA_Tooltip_modifier_cu_alter_combo_cd"				"Curruid Coinchenn"
+		"DOTA_Tooltip_modifier_cu_alter_combo_cd_Description"	"Curruid Coinchenn is on cooldown."
 
 		 //====================================
 		//  Okada Izo (Assasin)

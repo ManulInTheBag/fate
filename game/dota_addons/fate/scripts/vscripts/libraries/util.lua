@@ -389,7 +389,10 @@ cleansable = {
     "modifier_khsn_grab_target",
     "modifier_demon_king_extermination_burn",
     "modifier_lu_bu_relentless_assault_one",
-    "modifier_aoko_blue_ring_slow"
+    "modifier_aoko_blue_ring_slow",
+    "modifier_cu_alter_spear_slow",
+    "modifier_cu_alter_roar_str_debuff",
+    "modifier_cu_alter_fear"
 }
 
 
@@ -441,6 +444,7 @@ slowmodifier = {
     "modifier_gordius_wheel_thunder_slow",
     "modifier_hijikata_ult_slow",
     "modifier_hijikata_slow",
+    "modifier_cu_alter_spear_slow",
 }
 
 donotlevel = {
@@ -722,6 +726,9 @@ CannotReset = {
     "ozy_combo",
     "ozy_teleport_boat",
     "ozy_mystic_eyes",
+    "cu_alter_combo",
+    "cu_alter_warcry",
+    "cu_alter_roar",
 
 }
 
@@ -832,6 +839,7 @@ tDivineHeroes = {
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_phoenix",
+    "npc_dota_hero_axe",
 }
 
 tKnightClass = {
@@ -881,7 +889,8 @@ tHorsemanClass = {
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_kentaur",
     "npc_dota_hero_troll_warlord",
-    "npc_dota_hero_phoenix"
+    "npc_dota_hero_phoenix",
+    "npc_dota_hero_axe",
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -2555,6 +2564,7 @@ local heroNames = {
     ["npc_dota_hero_nevermore"] = "Demon king Nobunaga",
     ["npc_dota_hero_troll_warlord"] = "Okada Izo",
     ["npc_dota_hero_phoenix"] = "Ozymandias",
+    ["npc_dota_hero_axe"] = "Cú Chulainn (Alter)",
 }
 
  
@@ -2623,8 +2633,9 @@ local heroCombos = {
     ["npc_dota_hero_aoko"] = "aoko_blue",
     ["npc_dota_hero_scathach"] = "scathach_gate_of_skye",
     ["npc_dota_hero_demon_king_nobunaga"] = "demon_king_combo",
-     ["npc_dota_hero_okada"] = "okada_combo",
-     ["npc_dota_hero_ozy"] = "ozy_combo",
+    ["npc_dota_hero_okada"] = "okada_combo",
+    ["npc_dota_hero_ozy"] = "ozy_combo",
+    ["npc_dota_hero_axe"] = "cu_alter_combo",
 }
 
 function GetHeroCombo(hero)

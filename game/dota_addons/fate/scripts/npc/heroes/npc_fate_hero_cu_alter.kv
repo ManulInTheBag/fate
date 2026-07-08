@@ -1,0 +1,67 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//	Lancer (Alter) - Cú Chulainn Alter  (semi-tank / bruiser)
+	//=================================================================================================================
+	"npc_dota_hero_cu_alter"
+	{
+		"override_hero"			"npc_dota_hero_axe"
+		"DisableWearables" 			"1"
+		"Model"					"models/cu_alter/cualter.vmdl"
+		//"Model"					"models/development/invisiblebox.vmdl"
+		"ModelScale"			"1.25"
+		"DrawParticlesWhileHidden" "1"
+
+		"AbilityLayout"				"6"
+		"Ability1"					"cu_alter_charge"					// Q
+		"Ability2"					"cu_alter_spear_throw"				// W
+		"Ability3"					"cu_alter_battle_stance"			// E
+		"Ability4"					"cu_alter_warcry"					// D
+		"Ability5"					"cu_alter_roar"						// F
+		"Ability6"					"cu_alter_spear_of_the_sky"			// R
+		"Ability7"					"cu_alter_combo"					// Combo (mock)
+		"Ability8"					"hero_base_stats_bonus"
+		"Ability9"					"presence_detection_passive"
+		"Ability10"					"attribute_bonus_custom"
+		"Ability11"					"cu_alter_spear_throw_release"		// hidden swap for W
+
+		"Combo"						"cu_alter_combo"
+		"AttributeNumber"			"4"
+		"Attribute1"				"cu_alter_attribute_1"
+		"Attribute2"				"cu_alter_attribute_2"
+		"Attribute3"				"cu_alter_attribute_3"
+		"Attribute4"				"cu_alter_attribute_4"
+
+		// Defensive, tanky base line
+		"StatusHealth"					"1500"
+		"StatusHealthRegen"				"8.0"
+		"StatusMana"					"1000"
+		"StatusManaRegen"				"4.0"
+
+		"ArmorPhysical"					"1"
+		"MagicalResistance"				"30"
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"				"80"
+		"AttackDamageMax"				"80"
+		"AttackRate"					"1.7"
+		"AttackAcquisitionRange"		"600"
+		"AttackRange"					"400"
+		"HealthBarOffset"				"240"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"3.4"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"1.6"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"2.0"
+
+		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"					"370"
+		"MovementTurnRate"				"0.7"
+
+		"VisionDaytimeRange"			"1000"
+		"VisionNighttimeRange"			"1000"
+	}
+}
