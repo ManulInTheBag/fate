@@ -110,8 +110,8 @@ function cu_alter_battle_stance:TryCharge()
 	local target = enemies[1]
 	if not target then
 		-- nobody to charge: give it back to the player
-		self:EndCooldown()
-		caster:GiveMana(self:GetManaCost(self:GetLevel()))
+		--self:EndCooldown()
+		--caster:GiveMana(self:GetManaCost(self:GetLevel()))
 		return
 	end
 

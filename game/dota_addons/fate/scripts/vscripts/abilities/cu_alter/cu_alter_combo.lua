@@ -52,6 +52,7 @@ function cu_alter_combo:OnSpellStart()
 	local total = (FRAME_TOTAL / fps) / rate
 
 	caster:AddNewModifier(caster, self, "modifier_cu_alter_combo", { duration = total })
+	caster:AddNewModifier(caster,self, "modifier_kb_immune", {duration = total})
 	EmitGlobalSound("cu_alter_vo_combo_start")	-- "Unleashing the curse..." (global)
 
 	-- cooldown: mirror it onto the master copy (as other combos do) + a visible icon while hidden
@@ -337,7 +338,7 @@ function modifier_cu_alter_combo:DoFinal()
 	-- duration + Sealed Fate values). This delivers the full attribute-cursed effect regardless of
 	-- whether Cursed Gáe Bolg has been unlocked.
 	local w = caster:FindAbilityByName("cu_alter_spear_throw")
-
+	caster:FindAbilityByName("cu_alter_warcry"):EndCooldown()
 	local enemies = FindUnitsInRadius(
 		caster:GetTeamNumber(),
 		self:FrontCenter(),
