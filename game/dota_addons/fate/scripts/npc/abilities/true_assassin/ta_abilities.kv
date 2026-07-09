@@ -128,7 +128,7 @@
 			"particle"				"particles/custom/ta/zabaniya_projectile.vpcf"
 			"particle"				"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
 			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_loadout.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
 		}
 		
 
@@ -194,7 +194,7 @@
 			"particle"		"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_loadout.vpcf"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
 			"particle" 		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
 		}
 		
 		"AbilityCastRange"				"1500"
@@ -269,7 +269,8 @@
 			"particle"				"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
 			"particle"				"particles/units/heroes/hero_night_stalker/nightstalker_ulti_smoke.vpcf"
 			"particle"				"particles/custom/ta/zabaniya_shadow.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_trail_circle.vpcf"
 		}
 		
 		"AbilityCastPoint"				"0.95"
@@ -382,6 +383,10 @@
 	"true_assassin_protection_from_wind"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/okita/okita_windrun.vpcf"
+		}
 		"ScriptFile"					"abilities/true_assassin/true_assassin_protection_from_wind"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"			"custom/true_assassin_attribute_protection_from_wind"

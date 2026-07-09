@@ -31,6 +31,13 @@
 	"saito_quickslash"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/saito/saito_fdb.vpcf"
+			"particle"		"particles/saito/saito_quickslash_smoke.vpcf"
+			"particle"		"particles/saito/saito_slash_enemy.vpcf"
+			"particle"		"particles/saito/saitoquickslash.vpcf"
+		}
 		"ScriptFile"					"abilities/saito/saito_quickslash"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -57,6 +64,10 @@
 	"saito_clap"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/saito/saito_fdb.vpcf"
+		}
 		"ScriptFile"					"abilities/saito/saito_clap"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -87,6 +98,13 @@
 	"saito_inv_sword"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/saito/saito_fdb.vpcf"
+			"particle"		"particles/saito/saito_inv_sword_explosion.vpcf"
+			"particle"		"particles/saito/saito_inv_sword_explosion_real.vpcf"
+			"particle"		"particles/saito/saito_inv_sword_new.vpcf"
+		}
 		"ScriptFile"					"abilities/saito/saito_inv_sword"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -147,6 +165,12 @@
 	"saito_formlessness"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/saito/saito_fdb.vpcf"
+			"particle"		"particles/saito/saito_formless_slash_last.vpcf"
+			"particle"		"particles/saito/saito_formless_slash_new.vpcf"
+		}
 		"ScriptFile"					"abilities/saito/saito_formlessness"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -186,6 +210,12 @@
 	"saito_undefeatable_style"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/saito/saito_combo.vpcf"
+			"particle"		"particles/saito/saito_combo_smoke.vpcf"
+			"particle"		"particles/saito/saito_fdb.vpcf"
+		}
 		"ScriptFile"					"abilities/saito/saito_undefeatable_style"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -214,6 +244,10 @@
 	"saito_undefeatable_style_active"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/saito/saito_combo_active.vpcf"
+		}
 		"ScriptFile"					"abilities/saito/saito_undefeatable_style_active"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_IMMEDIATE+ DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING "
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"

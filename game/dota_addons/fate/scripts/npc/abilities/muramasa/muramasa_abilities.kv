@@ -310,6 +310,7 @@
 		{
 			"particle"		"particles/muramasa/muramasa_tsumukari_slash.vpcf"
 			"particle"		"particles/muramasa/muramasa_tsumukari_fire.vpcf"
+			"particle"		"particles/muramasa/muramasa_tsumukari_ground.vpcf"
 		}
 		"AbilityValues"
         {
@@ -350,6 +351,7 @@
 			"particle"		"particles/muramasa/muramasa_tsumukari_slash_combo.vpcf"
 			"particle"		"particles/muramasa/muramasa_tsumukari_fire_combo.vpcf"
 			"particle"		"particles/muramasa/muramasa_tsumukari_ground_combo.vpcf"
+			"particle"		"particles/muramasa/muramasa_tsumukari_ground.vpcf"
 		}
 		"AbilityValues"
         {
@@ -537,6 +539,11 @@
 	"muramasa_throw_upgraded"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/muramasa/muramasa_throw_projectile_lvl2.vpcf"
+			"particle"		"particles/muramasa/muramasa_throw_projectile_lvl2_1.vpcf"
+		}
 		"ScriptFile"					"abilities/muramasa/muramasa_throw_upgraded"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
@@ -639,6 +646,10 @@
 	"muramasa_tsumukari"
 	{
 		"BaseClass"						"ability_lua"
+		"precache"
+		{
+			"particle"		"particles/muramasa/muramasa_sword_creation.vpcf"
+		}
 		"ScriptFile"					"abilities/muramasa/muramasa_tsumukari"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"

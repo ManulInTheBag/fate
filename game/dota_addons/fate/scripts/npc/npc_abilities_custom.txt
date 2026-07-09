@@ -336,6 +336,7 @@
 		"precache"
 		{
 
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
 		}
 		
 		"OnSpellStart"
@@ -496,6 +497,7 @@
 			"particle"	"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
 			"particle"	"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
 			"particle"	"particles/generic_gameplay/generic_disarm.vpcf"
+			"particle"		"particles/items_fx/immunity_sphere.vpcf"
 		}
 		
 		"AbilityValues"
@@ -1009,6 +1011,10 @@
 	"cmd_seal_4"
 	{
 		"BaseClass"						"ability_datadriven"
+		"precache"
+		{
+			"particle"		"particles/items_fx/arcane_boots.vpcf"
+		}
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityTextureName"			"custom/cmd_seal_4"
 		"MaxLevel"						"1"
@@ -1874,6 +1880,10 @@
 	"fate_experience_thinker"
 	{
 		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"precache"
+		{
+			"particle"		"particles/items_fx/immunity_sphere.vpcf"
+		}
 		"BaseClass" 					"ability_datadriven"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "3"

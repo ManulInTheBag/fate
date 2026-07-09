@@ -356,6 +356,7 @@
 		"precache"
 		{
 			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_smoke.vpcf"
 		}
 
 		"OnSpellStart"
@@ -493,6 +494,7 @@
 		"precache"
 		{
 			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_smoke.vpcf"
 		}
 
 		"OnSpellStart"
@@ -657,6 +659,9 @@
 		{
 			"particle"				"particles/units/heroes/hero_undying/undying_soul_rip_damage_impact_secondary.vpcf"
 			"particle"				"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+			"particle"		"particles/econ/items/axe/ti9_jungle_axe/ti9_jungle_axe_culling_blade_boost_streak.vpcf"
+			"particle"		"particles/econ/items/axe/ti9_jungle_axe/ti9_jungle_axe_culling_blade_cast_arc.vpcf"
+			"particle"		"particles/econ/items/dragon_knight/dk_immortal_dragon/dragon_knight_dragon_tail_embers_iron_dragon.vpcf"
 		}
 		
 		
@@ -718,6 +723,7 @@
 		{
 			"particle"	"particles/custom/kinghassan/kh_black_flames.vpcf"
 			"particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_attack_black_energy_fleks.vpcf"
+			"particle"		"particles/kinghassan/raze/hassanraze.vpcf"
 		}
 
 		"AbilityValues"
@@ -820,6 +826,7 @@
 		{
 			"particle"	"particles/custom/kinghassan/kh_black_flames.vpcf"
 			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_attack_black_energy_fleks.vpcf"
+			"particle"		"particles/kinghassan/raze/hassanraze.vpcf"
 		}
 
 		"AbilityValues"
@@ -1081,6 +1088,13 @@
 	"kinghassan_combo"
 	{
 		"BaseClass"						"ability_datadriven"
+		"precache"
+		{
+			"particle"		"particles/kinghassan/combo/comboaura.vpcf"
+			"particle"		"particles/econ/events/new_bloom/pig_death_pop.vpcf"
+			"particle"		"particles/kinghassan/combo/comboareadarknew.vpcf"
+			"particle"		"particles/kinghassan/combo/comboslashfromult.vpcf"
+		}
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -1218,6 +1232,13 @@
 	"kinghassan_combo_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
+		"precache"
+		{
+			"particle"		"particles/kinghassan/combo/comboaura.vpcf"
+			"particle"		"particles/econ/events/new_bloom/pig_death_pop.vpcf"
+			"particle"		"particles/kinghassan/combo/comboareadarknew.vpcf"
+			"particle"		"particles/kinghassan/combo/comboslashfromult.vpcf"
+		}
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -1356,6 +1377,11 @@
 	"kinghassan_azrael"
 	{
 		"BaseClass"						"ability_datadriven"
+		"precache"
+		{
+			"particle"		"particles/econ/items/elder_titan/elder_titan_2021/elder_titan_2021_earth_splitter_ground_crack_noise.vpcf"
+			"particle"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze_end_smoke.vpcf"
+		}
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	    "AbilityTextureName"			"custom/kinghassan/azrael"
 		"MaxLevel"						"5"
@@ -1434,6 +1460,11 @@
 	"kinghassan_azrael_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
+		"precache"
+		{
+			"particle"		"particles/econ/items/elder_titan/elder_titan_2021/elder_titan_2021_earth_splitter_ground_crack_noise.vpcf"
+			"particle"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze_end_smoke.vpcf"
+		}
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	    "AbilityTextureName"			"custom/kinghassan/azrael"
 		"MaxLevel"						"5"

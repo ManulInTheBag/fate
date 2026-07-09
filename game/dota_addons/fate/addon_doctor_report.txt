@@ -1,0 +1,858 @@
+
+=== ОШИБКИ: битые ссылки (файл не найден нигде) (145) ===
+../../../content/dota_addons/fate/soundevents/hero_chocolate.vsndevts:107  MISSING  sounds/kuro/chloe_pre_combo.vsnd
+../../../content/dota_addons/fate/soundevents/hero_chocolate.vsndevts:118  MISSING  sounds/kuro/chloe_combo.vsnd
+../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts:603  MISSING  sounds/rider/medusa_kill_7.vsnd
+../../../content/dota_addons/fate/soundevents/hero_scathach.vsndevts:140  MISSING  sounds/cu_chulainn/cu_gae_bolg_explosion.vsnd
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_sven.vsndevts:5990  MISSING  sounds/vo/lancelot/lancelot_lasthit_02.vsnd
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_sven.vsndevts:6056  MISSING  sounds/vo/lancelot/lancelot_lasthit_04.vsnd
+maps/7vs7_common.vpk  MISSING  materials/wall128_composite.vmat
+maps/7vs7_common.vpk  MISSING  models/props/naga_city/darkreef_column_001.vmdl
+maps/7vs7_common.vpk  MISSING  particles/journey_fountain_radiant.vpcf
+maps/7vs7_common.vpk  MISSING  particles/lamp_journey_tintable.vpcf
+maps/7vs7_draft.vpk  MISSING  materials/wall128_composite.vmat
+maps/7vs7_draft.vpk  MISSING  models/props/naga_city/darkreef_column_001.vmdl
+maps/7vs7_draft.vpk  MISSING  particles/journey_fountain_radiant.vpcf
+maps/7vs7_draft.vpk  MISSING  particles/lamp_journey_tintable.vpcf
+maps/7vs7_test.vpk  MISSING  materials/wall128_composite.vmat
+maps/7vs7_test.vpk  MISSING  models/props/naga_city/darkreef_column_001.vmdl
+maps/7vs7_test.vpk  MISSING  particles/journey_fountain_radiant.vpcf
+maps/7vs7_test.vpk  MISSING  particles/lamp_journey_tintable.vpcf
+scripts/addon_hud_textures.txt:7  MISSING  materials/vgui/hud/minimap_treasure_chest.vmat
+scripts/npc/abilities/artoria/artoria_ability_template.kv:32  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
+scripts/npc/abilities/artoria/artoria_instinct.kv:22  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
+scripts/npc/abilities/atalanta/atalanta_abilities.kv:118  MISSING  particles/units/heroes/hero_enchantress/enchantress_natures_attendants_lvl4.vpcf
+scripts/npc/abilities/atalanta/atalanta_abilities.kv:546  MISSING  particles/heroes/anime_hero_tanya/tanya_elinium_projectile.vpcf
+scripts/npc/abilities/atalanta/atalanta_abilities.kv:550  MISSING  soundevents/heroes/anime_hero_tanya.vsndevts
+scripts/npc/abilities/atalanta/atalanta_abilities_unused.kv:180  MISSING  particles/custom/atalanta/r/r_ring.vpcf
+scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1231  MISSING  particles/custom/witchdoctor_voodoo_restoration_aura.vpcf
+scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1238  MISSING  particles/custom/warlock_shadow_word_buff_copy.vpcf
+scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1245  MISSING  particles/custom/witchdoctor_voodoo_restoration.vpcf
+scripts/npc/abilities/jtr/jtr_dagger_throw.kv:27  MISSING  particles/heroes/anime_hero_okita/okita_slash_impact.vpcf
+scripts/npc/abilities/karna/karna_abilities.kv:656  MISSING  particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf
+scripts/npc/abilities/kinghassan/king_hassan_abilities.kv:25  MISSING  particles/custom/kinghassan/ka_spin.vpcf
+scripts/npc/abilities/kinghassan/king_hassan_abilities.kv:724  MISSING  particles/custom/kinghassan/kh_black_flames.vpcf
+scripts/npc/abilities/lancelot/eternal_arms.kv:17  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
+scripts/npc/abilities/lancelot/unused/lancelot_vajra.kv:25  MISSING  soundevents/game_sounds_heroes/game_sounds_zeus.vsndevts
+scripts/npc/abilities/lancelot/unused/unused.kv:348  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
+scripts/npc/abilities/li_shuwen/berserk.kv:17  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
+scripts/npc/abilities/li_shuwen/berserk_data.kv:16  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
+scripts/npc/abilities/li_shuwen/unused_kv_files.kv:16  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
+scripts/npc/abilities/lu_bu/lu_bu_ability_template.kv:32  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
+scripts/npc/abilities/lu_bu/lu_bu_rebellious_spirit.kv:23  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
+scripts/npc/abilities/master/master_abilities.kv:18  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
+scripts/npc/abilities/scathach/scathach_abilities.kv:92  MISSING  soundevents/game_sounds_heroes/game_sounds_crystal_maiden.vsndevts
+scripts/npc/abilities/scathach/scathach_gae_bolg_jump.kv:33  MISSING  particles/custom/cu_chulainn/gae_bolg.vpcf
+scripts/npc/abilities/scathach/scathach_gait_three.kv:25  MISSING  particles/custom/emiya/overedge_swords.vpcf
+scripts/npc/abilities/scathach/scathach_red_wind.kv:29  MISSING  particles/custom/scathach/abilityflash.vpcf
+scripts/npc/abilities/semiramis/semiramis_beam_bombard.kv:18  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
+scripts/npc/abilities/semiramis/semiramis_beam_bombard.kv:19  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard.vpcf
+scripts/npc/abilities/semiramis/semiramis_beam_bombard.kv:20  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard_ground.vpcf
+scripts/npc/abilities/semiramis/semiramis_binding_chains.kv:27  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
+scripts/npc/abilities/semiramis/semiramis_binding_chains.kv:28  MISSING  particles/custom/semiramis/semiramis_chains_body.vpcf
+scripts/npc/abilities/semiramis/semiramis_poisonous_bite.kv:27  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
+scripts/npc/abilities/semiramis/semiramis_poisonous_bite.kv:28  MISSING  particles/custom/semiramis/semiramis_chains_body.vpcf
+scripts/npc/abilities/tamamo/tamamo_abilities.kv:390  MISSING  particles/custom/tamamo/charms_purle.vpcf
+scripts/npc/npc_units_custom.txt:3348  MISSING  models/shirou/shirouanim.vmdl
+scripts/npc/portraits.txt:11834  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
+scripts/npc/portraits.txt:18444  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
+scripts/npc/portraits.txt:19137  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
+scripts/npc/portraits.txt:19285  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
+scripts/npc/portraits.txt:19501  MISSING  models/creeps/nian/nian.vmdl
+scripts/npc/portraits.txt:23455  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
+scripts/npc/portraits.txt:23565  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
+scripts/npc/portraits.txt:23639  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
+scripts/npc/portraits.txt:23898  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
+scripts/npc/portraits.txt:2840  MISSING  models/nero/nero_new.vmdl
+scripts/npc/portraits.txt:4177  MISSING  models/heroes/drow/drow.vmdl
+scripts/npc/portraits.txt:4208  MISSING  models/heroes/drow/drow2.vmdl
+scripts/npc/portraits.txt:5346  MISSING  models/heroes/windrunner/windrunner2.vmdl
+scripts/npc/portraits.txt:5507  MISSING  models/heroes/lina/lina2.vmdl
+scripts/npc/portraits.txt:6286  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
+scripts/npc/portraits.txt:6370  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
+scripts/npc/portraits.txt:7605  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
+scripts/npc/portraits_card.txt:1441  MISSING  models/heroes/drow/drow.vmdl
+scripts/npc/portraits_card.txt:1472  MISSING  models/heroes/drow/drow2.vmdl
+scripts/npc/portraits_card.txt:15676  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
+scripts/npc/portraits_card.txt:16369  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
+scripts/npc/portraits_card.txt:16517  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
+scripts/npc/portraits_card.txt:16733  MISSING  models/creeps/nian/nian.vmdl
+scripts/npc/portraits_card.txt:20687  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
+scripts/npc/portraits_card.txt:20797  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
+scripts/npc/portraits_card.txt:20871  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
+scripts/npc/portraits_card.txt:21130  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
+scripts/npc/portraits_card.txt:2610  MISSING  models/heroes/windrunner/windrunner2.vmdl
+scripts/npc/portraits_card.txt:2771  MISSING  models/heroes/lina/lina2.vmdl
+scripts/npc/portraits_card.txt:3550  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
+scripts/npc/portraits_card.txt:3634  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
+scripts/npc/portraits_card.txt:4869  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
+scripts/npc/portraits_card.txt:9098  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
+scripts/soundscapes_holdout_example.txt:19  MISSING  sounds/ambient/altar_lp.vsnd
+scripts/soundscapes_holdout_example.txt:93  MISSING  sounds/ambient/disquiet01.vsnd
+scripts/soundscapes_holdout_example.txt:94  MISSING  sounds/ambient/disquiet02.vsnd
+scripts/soundscapes_holdout_example.txt:95  MISSING  sounds/ambient/disquiet03.vsnd
+scripts/vscripts/abilities/alter_atalanta/atalanta_curse.lua:122  MISSING  particles/hero/shadow_demon/shadow_demon_demonic_purge.vpcf
+scripts/vscripts/abilities/alter_atalanta/atalanta_jump.lua:157  MISSING  particles/heroes/anime_hero_seth/seth_slam.vpcf
+scripts/vscripts/abilities/alter_atalanta/atalanta_jump.lua:92  MISSING  particles/heroes/anime_hero_uzume/uzume_dash.vpcf
+scripts/vscripts/abilities/arcueid/arcueid_regen.lua:122  MISSING  particles/arcueid/arcueid_barrier.vpcf
+scripts/vscripts/abilities/artoria/modifiers/modifier_artoria_avalon_heal.lua:20  MISSING  particles/custom/kinghassan/kinghassan_protection_of_faith/kinghassan_protection_of_faith.vpcf
+scripts/vscripts/abilities/atalanta/golden_apple.lua:55  MISSING  particles/units/heroes/hero_enchantress/enchantress_natures_attendants_lvl4.vpcf
+scripts/vscripts/abilities/cu_alter/cu_alter_battle_stance.lua:245  MISSING  particles/cu_alter/cu_alter_stance_dash.vpcf
+scripts/vscripts/abilities/cu_alter/cu_alter_roar.lua:117  MISSING  particles/cu_alter/cu_alter_roar_pulse.vpcf
+scripts/vscripts/abilities/cu_alter/cu_alter_spear_throw.lua:98  MISSING  particles/cu_alter/cu_alter_spear_charge.vpcf
+scripts/vscripts/abilities/edmon/edmon_enfer.lua:160  MISSING  particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
+scripts/vscripts/abilities/edmon/edmon_ult.lua:75  MISSING  particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
+scripts/vscripts/abilities/heracles/pepeg_jump.lua:191  MISSING  particles/heroes/anime_hero_uzume/uzume_dash.vpcf
+scripts/vscripts/abilities/heracles/pepeg_jump.lua:258  MISSING  particles/heroes/anime_hero_seth/seth_slam.vpcf
+scripts/vscripts/abilities/jeanne/jeanne_jump.lua:92  MISSING  particles/heroes/anime_hero_uzume/uzume_dash.vpcf
+scripts/vscripts/abilities/jtr/jtr_dagger_throw.lua:126  MISSING  particles/heroes/anime_hero_okita/okita_slash_impact.vpcf
+scripts/vscripts/abilities/karna/karna_new_abilities/karna_combo_vasavi_new.lua:109  MISSING  particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf
+scripts/vscripts/abilities/king_hassan/king_hassan_abilities.lua:268  MISSING  particles/custom/kinghassan/ka_spin.vpcf
+scripts/vscripts/abilities/lancelot/lancelot_f16.lua:475  MISSING  particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf
+scripts/vscripts/abilities/lancelot/lancelot_minigun.lua:182  MISSING  particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf
+scripts/vscripts/abilities/medusa/medusa_hook.lua:86  MISSING  particles/econ/items/pudge/pudge_dragonclaw/pudge_meathook_dragonclaw_imba.vpcf
+scripts/vscripts/abilities/okita/okita_zekken.lua:101  MISSING  particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
+scripts/vscripts/abilities/okita/okita_zekken.lua:86  MISSING  particles/heroes/juggernaut/phantom_sword_dance.vpcf
+scripts/vscripts/abilities/robin/modifiers/modifier_robin_yew_bow.lua:68  MISSING  particles/string/here.vpcf
+scripts/vscripts/abilities/saito/saito_abilities.lua:1730  MISSING  particles/heroes/saito/saito_mind_eye_cast.vpcf
+scripts/vscripts/abilities/scathach/scathach_red_creed_combo.lua:155  MISSING  particles/custom/cu_chulainn/gae_bolg_explosion.vpcf
+scripts/vscripts/abilities/scathach/scathach_red_wind.lua:93  MISSING  particles/units/casteres/caster_zuus/zuus_static_field.vpcf
+scripts/vscripts/abilities/semiramis/hanging_gardens_bombard.lua:39  MISSING  particles/custom/semiramis/beam/semiramis_beam.vpcf
+scripts/vscripts/abilities/semiramis/hanging_gardens_orbital_strike.lua:26  MISSING  particles/custom/semiramis/laser/semiramis_laser.vpcf
+scripts/vscripts/abilities/semiramis/modifiers/modifier_binding_chains.lua:24  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
+scripts/vscripts/abilities/semiramis/modifiers/modifier_binding_chains.lua:27  MISSING  particles/custom/semiramis/semiramis_chains_body.vpcf
+scripts/vscripts/abilities/semiramis/modifiers/modifier_poisonous_bite.lua:48  MISSING  particles/custom/semiramis/semiramis_poison_explosion.vpcf
+scripts/vscripts/abilities/semiramis/semiramis_beam_bombard.lua:21  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
+scripts/vscripts/abilities/semiramis/semiramis_beam_bombard.lua:57  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard.vpcf
+scripts/vscripts/abilities/semiramis/semiramis_beam_bombard.lua:61  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard_ground.vpcf
+scripts/vscripts/abilities/semiramis/semiramis_hanging_gardens.lua:41  MISSING  particles/custom/semiramis/hanghing_gardens_rocks.vpcf
+scripts/vscripts/data/ability_functions.lua:212  MISSING  particles/arena/units/heroes/hero_sara/fragment_of_armor_impact.vpcf
+scripts/vscripts/data/modifiers.lua:61  MISSING  particles/arena/items_fx/desolator2_projectile.vpcf
+scripts/vscripts/data/modifiers.lua:77  MISSING  particles/arena/items_fx/golden_eagle_relic_projectile.vpcf
+scripts/vscripts/data/modifiers.lua:81  MISSING  particles/arena/items_fx/desolator4_projectile.vpcf
+scripts/vscripts/data/modifiers.lua:85  MISSING  particles/arena/items_fx/desolator5_projectile.vpcf
+scripts/vscripts/data/modifiers.lua:89  MISSING  particles/arena/items_fx/desolator6_projectile.vpcf
+scripts/vscripts/jeanne_ability.lua:562  MISSING  particles/custom/reference/luminosite_eternelle/luminosite_eternelle.vpcf
+scripts/vscripts/libraries/vector_target.lua:42  MISSING  particles/vector_target_ring.vpcf
+scripts/vscripts/modules/custom_runes/data.lua:122  MISSING  particles/arena/generic_gameplay/rune_acceleration.vpcf
+scripts/vscripts/modules/custom_runes/data.lua:130  MISSING  particles/arena/generic_gameplay/rune_vibration.vpcf
+scripts/vscripts/modules/custom_runes/data.lua:43  MISSING  particles/arena/generic_gameplay/rune_tripledamage.vpcf
+scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_acceleration.lua:22  MISSING  particles/arena/generic_gameplay/rune_acceleration.vpcf
+scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_soul_steal.lua:68  MISSING  particles/arena/generic_gameplay/rune_soul_steal_owner_effect.vpcf
+scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_tripledamage.lua:14  MISSING  particles/arena/generic_gameplay/rune_tripledamage_owner.vpcf
+scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_vibration.lua:49  MISSING  particles/arena/generic_gameplay/rune_vibration_owner_wave.vpcf
+scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_vibration.lua:8  MISSING  particles/arena/generic_gameplay/rune_vibration.vpcf
+scripts/vscripts/modules/dynamic_wearables/data.lua:11  MISSING  particles/arena/units/heroes/hero_saber/sword_glow2.vpcf
+scripts/vscripts/modules/dynamic_wearables/data.lua:59  MISSING  particles/arena/units/heroes/hero_anakim/attack_wisps.vpcf
+scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/arena/weather/sunlight.vpcf
+
+=== ОШИБКИ: двойные расширения (0) ===
+
+=== ОШИБКИ: битые чилды партиклей [пропущено --fast] (0) ===
+
+=== ПРЕДУПРЕЖДЕНИЯ: регистр путей (422) ===
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/CuChulain_Ally_Emiya.vsnd' vs файл 'sounds/ally_sound/cuchulain_ally_emiya.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Diarmuid_Ally_Arthuria_1.vsnd' vs файл 'sounds/ally_sound/diarmuid_ally_arthuria_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Diarmuid_Ally_Arthuria_2.vsnd' vs файл 'sounds/ally_sound/diarmuid_ally_arthuria_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Diarmuid_Ally_CuChulainn.vsnd' vs файл 'sounds/ally_sound/diarmuid_ally_cuchulainn.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Emiya_Ally_Gilgamesh_CuChulainn.vsnd' vs файл 'sounds/ally_sound/emiya_ally_gilgamesh_cuchulainn.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Gawain_Ally_All.vsnd' vs файл 'sounds/ally_sound/gawain_ally_all.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Gawain_Ally_Lancelot.vsnd' vs файл 'sounds/ally_sound/gawain_ally_lancelot.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Gawain_Ally_Saber.vsnd' vs файл 'sounds/ally_sound/gawain_ally_saber.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Gilgamesh_Ally_Arturia.vsnd' vs файл 'sounds/ally_sound/gilgamesh_ally_arturia.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Gilles_Ally_Arturia.vsnd' vs файл 'sounds/ally_sound/gilles_ally_arturia.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Iskandar_Ally_Arturia.vsnd' vs файл 'sounds/ally_sound/iskandar_ally_arturia.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Iskandar_Ally_Gilgamesh.vsnd' vs файл 'sounds/ally_sound/iskandar_ally_gilgamesh.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Medea_Ally_Arturia.vsnd' vs файл 'sounds/ally_sound/medea_ally_arturia.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Medea_Ally_Heracles.vsnd' vs файл 'sounds/ally_sound/medea_ally_heracles.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Medusa_Ally_Medea.vsnd' vs файл 'sounds/ally_sound/medusa_ally_medea.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Nero_Ally_Tamamo.vsnd' vs файл 'sounds/ally_sound/nero_ally_tamamo.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Saber_Ally_Emiya.vsnd' vs файл 'sounds/ally_sound/saber_ally_emiya.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Saber_Ally_Gawain.vsnd' vs файл 'sounds/ally_sound/saber_ally_gawain.vsnd_c'
+../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Tamamo_Ally_Nero.vsnd' vs файл 'sounds/ally_sound/tamamo_ally_nero.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Battle_Begins_1.vsnd' vs файл 'sounds/announcer/battle_begins_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Battle_Begins_2.vsnd' vs файл 'sounds/announcer/battle_begins_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Battle_Begins_3.vsnd' vs файл 'sounds/announcer/battle_begins_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Game_Draw.vsnd' vs файл 'sounds/announcer/game_draw.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Game_End_1.vsnd' vs файл 'sounds/announcer/game_end_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Game_End_2.vsnd' vs файл 'sounds/announcer/game_end_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Game_End_3.vsnd' vs файл 'sounds/announcer/game_end_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Landslide_1.vsnd' vs файл 'sounds/announcer/landslide_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Landslide_2.vsnd' vs файл 'sounds/announcer/landslide_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Last_Round_1.vsnd' vs файл 'sounds/announcer/last_round_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Last_Round_2.vsnd' vs файл 'sounds/announcer/last_round_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Round_Start_1.vsnd' vs файл 'sounds/announcer/round_start_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Round_Start_2.vsnd' vs файл 'sounds/announcer/round_start_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Battle_Begins_1.vsnd' vs файл 'sounds/announcer/xmas/battle_begins_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Battle_Begins_2.vsnd' vs файл 'sounds/announcer/xmas/battle_begins_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Game_Draw.vsnd' vs файл 'sounds/announcer/xmas/game_draw.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Game_End.vsnd' vs файл 'sounds/announcer/xmas/game_end.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Landslide.vsnd' vs файл 'sounds/announcer/xmas/landslide.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Last_Round.vsnd' vs файл 'sounds/announcer/xmas/last_round.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Round_Start_1.vsnd' vs файл 'sounds/announcer/xmas/round_start_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Round_Start_2.vsnd' vs файл 'sounds/announcer/xmas/round_start_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/announcer.vsndevts  CASE  ссылка 'sounds/announcer/Xmas/Round_Start_3.vsnd' vs файл 'sounds/announcer/xmas/round_start_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Atalanta_Enemy_Jeanne.vsnd' vs файл 'sounds/enemy_sound/atalanta_enemy_jeanne.vsnd_c'
+../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Diarmuid_Enemy_Arthuria.vsnd' vs файл 'sounds/enemy_sound/diarmuid_enemy_arthuria.vsnd_c'
+../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Gawain_Enemy_Saber.vsnd' vs файл 'sounds/enemy_sound/gawain_enemy_saber.vsnd_c'
+../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Gilgamesh_Enemy_Emiya.vsnd' vs файл 'sounds/enemy_sound/gilgamesh_enemy_emiya.vsnd_c'
+../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Gilles_Enemy_Arturia.vsnd' vs файл 'sounds/enemy_sound/gilles_enemy_arturia.vsnd_c'
+../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Gilles_Enemy_Jeanne.vsnd' vs файл 'sounds/enemy_sound/gilles_enemy_jeanne.vsnd_c'
+../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Saber_Enemy_Gawain.vsnd' vs файл 'sounds/enemy_sound/saber_enemy_gawain.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_1.vsnd' vs файл 'sounds/atalanta/atalanta_kill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_2.vsnd' vs файл 'sounds/atalanta/atalanta_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_3.vsnd' vs файл 'sounds/atalanta/atalanta_kill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_4.vsnd' vs файл 'sounds/atalanta/atalanta_kill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_5.vsnd' vs файл 'sounds/atalanta/atalanta_kill_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Laugh.vsnd' vs файл 'sounds/atalanta/atalanta_laugh.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Level_1.vsnd' vs файл 'sounds/atalanta/atalanta_level_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Level_2.vsnd' vs файл 'sounds/atalanta/atalanta_level_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Level_3.vsnd' vs файл 'sounds/atalanta/atalanta_level_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Level_4.vsnd' vs файл 'sounds/atalanta/atalanta_level_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Level_5.vsnd' vs файл 'sounds/atalanta/atalanta_level_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Level_6.vsnd' vs файл 'sounds/atalanta/atalanta_level_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Level_7.vsnd' vs файл 'sounds/atalanta/atalanta_level_7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Tauropolos.vsnd' vs файл 'sounds/atalanta/atalanta_tauropolos.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Thanks_1.vsnd' vs файл 'sounds/atalanta/atalanta_thanks_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Thanks_2.vsnd' vs файл 'sounds/atalanta/atalanta_thanks_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Combo_1.vsnd' vs файл 'sounds/caster/medea_combo_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Rule_Breaker_1.vsnd' vs файл 'sounds/caster/medea_rule_breaker_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Rule_Breaker_2.vsnd' vs файл 'sounds/caster/medea_rule_breaker_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_1.vsnd' vs файл 'sounds/caster/medea_skill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_2.vsnd' vs файл 'sounds/caster/medea_skill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_3.vsnd' vs файл 'sounds/caster/medea_skill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_4.vsnd' vs файл 'sounds/caster/medea_skill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_5.vsnd' vs файл 'sounds/caster/medea_skill_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_6.vsnd' vs файл 'sounds/caster/medea_skill_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_7.vsnd' vs файл 'sounds/caster/medea_skill_7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Skill_8.vsnd' vs файл 'sounds/caster/medea_skill_8.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Steal_1.vsnd' vs файл 'sounds/caster/medea_steal_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Steal_2.vsnd' vs файл 'sounds/caster/medea_steal_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_cu_alter.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Attack1.vsnd' vs файл 'sounds/cu_alter/s098_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_cu_alter.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Attack2.vsnd' vs файл 'sounds/cu_alter/s098_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_cu_alter.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Attack3.vsnd' vs файл 'sounds/cu_alter/s098_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_cu_alter.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Skill1.vsnd' vs файл 'sounds/cu_alter/s098_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_cu_alter.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Skill2.vsnd' vs файл 'sounds/cu_alter/s098_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_cu_alter.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Start2.vsnd' vs файл 'sounds/cu_alter/s098_start2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Counter_Fail_1.vsnd' vs файл 'sounds/fa/sasaki_counter_fail_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Counter_Fail_2.vsnd' vs файл 'sounds/fa/sasaki_counter_fail_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Counter_Success_1.vsnd' vs файл 'sounds/fa/sasaki_counter_success_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Gatekeeper_1.vsnd' vs файл 'sounds/fa/sasaki_gatekeeper_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Quickdraw_1.vsnd' vs файл 'sounds/fa/sasaki_quickdraw_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Quickdraw_2.vsnd' vs файл 'sounds/fa/sasaki_quickdraw_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Windblade_1.vsnd' vs файл 'sounds/fa/sasaki_windblade_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Sasaki_Windblade_2.vsnd' vs файл 'sounds/fa/sasaki_windblade_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Tsubame_Focus.vsnd' vs файл 'sounds/fa/tsubame_focus.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Tsubame_Slash_1.vsnd' vs файл 'sounds/fa/tsubame_slash_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Tsubame_Slash_2.vsnd' vs файл 'sounds/fa/tsubame_slash_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Tsubame_Slash_3.vsnd' vs файл 'sounds/fa/tsubame_slash_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskandar_Chariot_hit.vsnd' vs файл 'sounds/iskander/iskandar_chariot_hit.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Cart_Charge_1.vsnd' vs файл 'sounds/iskander/iskander_cart_charge_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Cart_Charge_2.vsnd' vs файл 'sounds/iskander/iskander_cart_charge_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Cart_Charge_3.vsnd' vs файл 'sounds/iskander/iskander_cart_charge_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Charge_1.vsnd' vs файл 'sounds/iskander/iskander_charge_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Charge_2.vsnd' vs файл 'sounds/iskander/iskander_charge_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Charge_3.vsnd' vs файл 'sounds/iskander/iskander_charge_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Charge_4.vsnd' vs файл 'sounds/iskander/iskander_charge_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Charge_5.vsnd' vs файл 'sounds/iskander/iskander_charge_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Skill_1.vsnd' vs файл 'sounds/iskander/iskander_skill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Skill_2.vsnd' vs файл 'sounds/iskander/iskander_skill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Skill_3.vsnd' vs файл 'sounds/iskander/iskander_skill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Skill_4.vsnd' vs файл 'sounds/iskander/iskander_skill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Wheel_1.vsnd' vs файл 'sounds/iskander/iskander_wheel_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Wheel_2.vsnd' vs файл 'sounds/iskander/iskander_wheel_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Wheel_3.vsnd' vs файл 'sounds/iskander/iskander_wheel_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Waver_NP_1.vsnd' vs файл 'sounds/iskander/waver_np_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Waver_NP_2.vsnd' vs файл 'sounds/iskander/waver_np_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancelot.vsndevts  CASE  ссылка 'sounds/lancelot/HKMP5_Live.vsnd' vs файл 'sounds/lancelot/hkmp5_live.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancelot.vsndevts  CASE  ссылка 'sounds/lancelot/HKMP5_Suppressed.vsnd' vs файл 'sounds/lancelot/hkmp5_suppressed.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancelot.vsndevts  CASE  ссылка 'sounds/lancelot/Lancelot_Level_1.vsnd' vs файл 'sounds/lancelot/lancelot_level_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Battlecont.vsnd' vs файл 'sounds/lancer/cu_battlecont.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Combo_1.vsnd' vs файл 'sounds/lancer/cu_combo_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Combo_2.vsnd' vs файл 'sounds/lancer/cu_combo_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Combo_3.vsnd' vs файл 'sounds/lancer/cu_combo_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Skill_1.vsnd' vs файл 'sounds/lancer/cu_skill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Skill_2.vsnd' vs файл 'sounds/lancer/cu_skill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Skill_3.vsnd' vs файл 'sounds/lancer/cu_skill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lancer.vsndevts  CASE  ссылка 'sounds/lancer/Cu_Skill_4.vsnd' vs файл 'sounds/lancer/cu_skill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/LiShuwen_Attack1.vsnd' vs файл 'sounds/lishuwen/lishuwen_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/LiShuwen_Attack2.vsnd' vs файл 'sounds/lishuwen/lishuwen_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/LiShuwen_Attack3.vsnd' vs файл 'sounds/lishuwen/lishuwen_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/LiShuwen_Attack4.vsnd' vs файл 'sounds/lishuwen/lishuwen_attack4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/LiShuwen_NP1.vsnd' vs файл 'sounds/lishuwen/lishuwen_np1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/Lishuwen_Combo_3_1.vsnd' vs файл 'sounds/lishuwen/lishuwen_combo_3_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/Lishuwen_Combo_3_2.vsnd' vs файл 'sounds/lishuwen/lishuwen_combo_3_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_lishuwen.vsndevts  CASE  ссылка 'sounds/lishuwen/Lishuwen_Combo_3_3.vsnd' vs файл 'sounds/lishuwen/lishuwen_combo_3_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/Hit-2.vsnd' vs файл 'sounds/nanaya/hit-2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-ClaHit2.vsnd' vs файл 'sounds/nanaya/qy-clahit2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-CusBGM2.vsnd' vs файл 'sounds/nanaya/qy-cusbgm2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-D.vsnd' vs файл 'sounds/nanaya/qy-d.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-D2.vsnd' vs файл 'sounds/nanaya/qy-d2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-E12.vsnd' vs файл 'sounds/nanaya/qy-e12.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-F.vsnd' vs файл 'sounds/nanaya/qy-f.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-F3.vsnd' vs файл 'sounds/nanaya/qy-f3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-F32.vsnd' vs файл 'sounds/nanaya/qy-f32.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-FKJ.vsnd' vs файл 'sounds/nanaya/qy-fkj.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-G2.vsnd' vs файл 'sounds/nanaya/qy-g2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-Q3.vsnd' vs файл 'sounds/nanaya/qy-q3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-Q4.vsnd' vs файл 'sounds/nanaya/qy-q4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-Q5.vsnd' vs файл 'sounds/nanaya/qy-q5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-R4.vsnd' vs файл 'sounds/nanaya/qy-r4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-T.vsnd' vs файл 'sounds/nanaya/qy-t.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/QY-T2.vsnd' vs файл 'sounds/nanaya/qy-t2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/YY-F1.vsnd' vs файл 'sounds/nanaya/yy-f1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nanaya.vsndevts  CASE  ссылка 'sounds/nanaya/YY-F2.vsnd' vs файл 'sounds/nanaya/yy-f2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Attack_1.vsnd' vs файл 'sounds/nero/nero_attack_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Attack_2.vsnd' vs файл 'sounds/nero/nero_attack_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Attack_3.vsnd' vs файл 'sounds/nero/nero_attack_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Attack_4.vsnd' vs файл 'sounds/nero/nero_attack_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP1.vsnd' vs файл 'sounds/nero/nero_np1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP1_1.vsnd' vs файл 'sounds/nero/nero_np1_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP1_2.vsnd' vs файл 'sounds/nero/nero_np1_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP1_3.vsnd' vs файл 'sounds/nero/nero_np1_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP2.vsnd' vs файл 'sounds/nero/nero_np2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP2_1.vsnd' vs файл 'sounds/nero/nero_np2_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP3.vsnd' vs файл 'sounds/nero/nero_np3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_NP4.vsnd' vs файл 'sounds/nero/nero_np4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Praise.vsnd' vs файл 'sounds/nero/nero_praise.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Skill1.vsnd' vs файл 'sounds/nero/nero_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Skill2.vsnd' vs файл 'sounds/nero/nero_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Skill_1.vsnd' vs файл 'sounds/nero/nero_skill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Skill_2.vsnd' vs файл 'sounds/nero/nero_skill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Skill_3.vsnd' vs файл 'sounds/nero/nero_skill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nero.vsndevts  CASE  ссылка 'sounds/nero/Nero_Skill_4.vsnd' vs файл 'sounds/nero/nero_skill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Clone.vsnd' vs файл 'sounds/nursery/nursery_rhyme_clone.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Death_1.vsnd' vs файл 'sounds/nursery/nursery_rhyme_death_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Death_2.vsnd' vs файл 'sounds/nursery/nursery_rhyme_death_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Death_3.vsnd' vs файл 'sounds/nursery/nursery_rhyme_death_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Hurt.vsnd' vs файл 'sounds/nursery/nursery_rhyme_hurt.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_1.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_2.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_3.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_4.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_5.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_6.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_7.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Laugh_1.vsnd' vs файл 'sounds/nursery/nursery_rhyme_laugh_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Laugh_2.vsnd' vs файл 'sounds/nursery/nursery_rhyme_laugh_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_1.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_2.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_3.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_4.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_5.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_6.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_7.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Level_8.vsnd' vs файл 'sounds/nursery/nursery_rhyme_level_8.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Summon.vsnd' vs файл 'sounds/nursery/nursery_rhyme_summon.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Thanks_1.vsnd' vs файл 'sounds/nursery/nursery_rhyme_thanks_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_nursery_rhyme.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Thanks_2.vsnd' vs файл 'sounds/nursery/nursery_rhyme_thanks_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts  CASE  ссылка 'sounds/rider/Medusa_Bellerophon.vsnd' vs файл 'sounds/rider/medusa_bellerophon.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts  CASE  ссылка 'sounds/rider/Medusa_Skill1.vsnd' vs файл 'sounds/rider/medusa_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts  CASE  ссылка 'sounds/rider/Medusa_Skill2.vsnd' vs файл 'sounds/rider/medusa_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_ta.vsndevts  CASE  ссылка 'sounds/ta/Hassan_Combo.vsnd' vs файл 'sounds/ta/hassan_combo.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_ta.vsndevts  CASE  ссылка 'sounds/ta/Hassan_Skill1.vsnd' vs файл 'sounds/ta/hassan_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_ta.vsndevts  CASE  ссылка 'sounds/ta/Hassan_Zabaniya.vsnd' vs файл 'sounds/ta/hassan_zabaniya.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_ta.vsndevts  CASE  ссылка 'sounds/ta/Void.vsnd' vs файл 'sounds/ta/void.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Fire_Explosion_Sound.vsnd' vs файл 'sounds/tamamo/fire_explosion_sound.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Ice_Explosion_Sound.vsnd' vs файл 'sounds/tamamo/ice_explosion_sound.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_Combo1.vsnd' vs файл 'sounds/tamamo/tamamo_combo1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_Combo2.vsnd' vs файл 'sounds/tamamo/tamamo_combo2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_Combo_Alt1.vsnd' vs файл 'sounds/tamamo/tamamo_combo_alt1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_Combo_Alt2.vsnd' vs файл 'sounds/tamamo/tamamo_combo_alt2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_Kick_Sfx.vsnd' vs файл 'sounds/tamamo/tamamo_kick_sfx.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_NP1.vsnd' vs файл 'sounds/tamamo/tamamo_np1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_NP2.vsnd' vs файл 'sounds/tamamo/tamamo_np2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_Praise1.vsnd' vs файл 'sounds/tamamo/tamamo_praise1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_tamamo.vsndevts  CASE  ссылка 'sounds/tamamo/Tamamo_Praise2.vsnd' vs файл 'sounds/tamamo/tamamo_praise2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Aaaaaaaa.vsnd' vs файл 'sounds/zc/gilles_aaaaaaaa.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Cthulhu_Cast.vsnd' vs файл 'sounds/zc/gilles_cthulhu_cast.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Cthulhu_Explode.vsnd' vs файл 'sounds/zc/gilles_cthulhu_explode.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Cthulhu_Root.vsnd' vs файл 'sounds/zc/gilles_cthulhu_root.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Greatest_Cool.vsnd' vs файл 'sounds/zc/gilles_greatest_cool.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Grief_Cast.vsnd' vs файл 'sounds/zc/gilles_grief_cast.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Grief_Explode.vsnd' vs файл 'sounds/zc/gilles_grief_explode.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Misery_Cast.vsnd' vs файл 'sounds/zc/gilles_misery_cast.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Smother_Cast.vsnd' vs файл 'sounds/zc/gilles_smother_cast.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Smother_Explode.vsnd' vs файл 'sounds/zc/gilles_smother_explode.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zc.vsndevts  CASE  ссылка 'sounds/zc/Gilles_Torment_Cast.vsnd' vs файл 'sounds/zc/gilles_torment_cast.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_Combo_1.vsnd' vs файл 'sounds/zl/diarmuid_combo_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_Combo_2.vsnd' vs файл 'sounds/zl/diarmuid_combo_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_Combo_3.vsnd' vs файл 'sounds/zl/diarmuid_combo_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeBuidhe_Alt1_1.vsnd' vs файл 'sounds/zl/diarmuid_gaebuidhe_alt1_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeBuidhe_Alt1_2.vsnd' vs файл 'sounds/zl/diarmuid_gaebuidhe_alt1_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeBuidhe_Alt2_1.vsnd' vs файл 'sounds/zl/diarmuid_gaebuidhe_alt2_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeBuidhe_Alt2_2.vsnd' vs файл 'sounds/zl/diarmuid_gaebuidhe_alt2_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt1_1.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt1_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt1_2.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt1_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt2_1.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt2_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt2_2.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt2_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt3_1.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt3_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt3_2.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt3_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_Skill_1.vsnd' vs файл 'sounds/zl/diarmuid_skill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/Master_Yi_01.vsnd' vs файл 'sounds/master_yi_01.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/Master_Yi_02.vsnd' vs файл 'sounds/master_yi_02.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/Nanomachines.vsnd' vs файл 'sounds/nanomachines.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/jtr/Twitch_1.vsnd' vs файл 'sounds/jtr/twitch_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/jtr/Twitch_2.vsnd' vs файл 'sounds/jtr/twitch_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/jtr/Twitch_3.vsnd' vs файл 'sounds/jtr/twitch_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/jtr/Twitch_4.vsnd' vs файл 'sounds/jtr/twitch_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/nero/System_PowerUpA.vsnd' vs файл 'sounds/nero/system_powerupa.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/nero/YY-GHit2.vsnd' vs файл 'sounds/nero/yy-ghit2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Chant_1.vsnd' vs файл 'sounds/saber/saber_max_chant_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Chant_2.vsnd' vs файл 'sounds/saber/saber_max_chant_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Excalibur.vsnd' vs файл 'sounds/saber/saber_max_excalibur.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_cast_ultimate.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_cast_ultimate.vsnd_c'
+../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_cast_ultimate_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_cast_ultimate_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/pepeg_razgovor.vsndevts  CASE  ссылка 'sounds/Doyoulikewhatyousee.vsnd' vs файл 'sounds/doyoulikewhatyousee.vsnd_c'
+../../../content/dota_addons/fate/soundevents/pepeg_razgovor.vsndevts  CASE  ссылка 'sounds/Fistingis300.vsnd' vs файл 'sounds/fistingis300.vsnd_c'
+../../../content/dota_addons/fate/soundevents/pepeg_razgovor.vsndevts  CASE  ссылка 'sounds/Spank2.vsnd' vs файл 'sounds/spank2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/pepeg_razgovor.vsndevts  CASE  ссылка 'sounds/Spank3.vsnd' vs файл 'sounds/spank3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Ascension1.vsnd' vs файл 'sounds/cu_alter/s098_ascension1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Ascension2.vsnd' vs файл 'sounds/cu_alter/s098_ascension2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Ascension3.vsnd' vs файл 'sounds/cu_alter/s098_ascension3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Ascension4.vsnd' vs файл 'sounds/cu_alter/s098_ascension4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Attack1.vsnd' vs файл 'sounds/cu_alter/s098_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Attack2.vsnd' vs файл 'sounds/cu_alter/s098_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Attack3.vsnd' vs файл 'sounds/cu_alter/s098_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Damage1.vsnd' vs файл 'sounds/cu_alter/s098_damage1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_DamageNP1.vsnd' vs файл 'sounds/cu_alter/s098_damagenp1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Defeated1.vsnd' vs файл 'sounds/cu_alter/s098_defeated1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Defeated2.vsnd' vs файл 'sounds/cu_alter/s098_defeated2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Dialogue1.vsnd' vs файл 'sounds/cu_alter/s098_dialogue1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Dialogue2.vsnd' vs файл 'sounds/cu_alter/s098_dialogue2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Dialogue3.vsnd' vs файл 'sounds/cu_alter/s098_dialogue3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Event.vsnd' vs файл 'sounds/cu_alter/s098_event.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_ExtraAttack.vsnd' vs файл 'sounds/cu_alter/s098_extraattack.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Finish1.vsnd' vs файл 'sounds/cu_alter/s098_finish1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Finish2.vsnd' vs файл 'sounds/cu_alter/s098_finish2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Grail.vsnd' vs файл 'sounds/cu_alter/s098_grail.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Hate.vsnd' vs файл 'sounds/cu_alter/s098_hate.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Like.vsnd' vs файл 'sounds/cu_alter/s098_like.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_LvUp.vsnd' vs файл 'sounds/cu_alter/s098_lvup.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_SelectAttack1.vsnd' vs файл 'sounds/cu_alter/s098_selectattack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_SelectAttack2.vsnd' vs файл 'sounds/cu_alter/s098_selectattack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_SelectAttack3.vsnd' vs файл 'sounds/cu_alter/s098_selectattack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_SelectNP.vsnd' vs файл 'sounds/cu_alter/s098_selectnp.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Skill1.vsnd' vs файл 'sounds/cu_alter/s098_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Skill2.vsnd' vs файл 'sounds/cu_alter/s098_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Start1.vsnd' vs файл 'sounds/cu_alter/s098_start1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Start2.vsnd' vs файл 'sounds/cu_alter/s098_start2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_axe.vsndevts  CASE  ссылка 'sounds/cu_alter/S098_Summon.vsnd' vs файл 'sounds/cu_alter/s098_summon.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Battle_Begins.vsnd' vs файл 'sounds/berserker/heracles_battle_begins.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_1.vsnd' vs файл 'sounds/berserker/heracles_death_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_2.vsnd' vs файл 'sounds/berserker/heracles_death_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_3.vsnd' vs файл 'sounds/berserker/heracles_death_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_4.vsnd' vs файл 'sounds/berserker/heracles_death_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_1.vsnd' vs файл 'sounds/berserker/heracles_kill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_2.vsnd' vs файл 'sounds/berserker/heracles_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_3.vsnd' vs файл 'sounds/berserker/heracles_kill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_4.vsnd' vs файл 'sounds/berserker/heracles_kill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_5.vsnd' vs файл 'sounds/berserker/heracles_kill_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_6.vsnd' vs файл 'sounds/berserker/heracles_kill_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_1.vsnd' vs файл 'sounds/atalanta/atalanta_kill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_2.vsnd' vs файл 'sounds/atalanta/atalanta_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_3.vsnd' vs файл 'sounds/atalanta/atalanta_kill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_4.vsnd' vs файл 'sounds/atalanta/atalanta_kill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_5.vsnd' vs файл 'sounds/atalanta/atalanta_kill_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_huskar.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_Summon_1.vsnd' vs файл 'sounds/zl/diarmuid_summon_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_huskar.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_Summon_2.vsnd' vs файл 'sounds/zl/diarmuid_summon_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_lina.vsndevts  CASE  ссылка 'sounds/nero/Nero_Summon_1.vsnd' vs файл 'sounds/nero/nero_summon_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_lina.vsndevts  CASE  ссылка 'sounds/nero/Nero_Summon_2.vsnd' vs файл 'sounds/nero/nero_summon_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_lina.vsndevts  CASE  ссылка 'sounds/nero/Nero_Summon_3.vsnd' vs файл 'sounds/nero/nero_summon_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_FB.vsnd' vs файл 'sounds/vo/khsn/kh_fb.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_ability_on_cd.vsnd' vs файл 'sounds/vo/khsn/kh_ability_on_cd.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_attack_1.vsnd' vs файл 'sounds/vo/khsn/kh_attack_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_attack_2.vsnd' vs файл 'sounds/vo/khsn/kh_attack_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_attack_3.vsnd' vs файл 'sounds/vo/khsn/kh_attack_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_attack_4.vsnd' vs файл 'sounds/vo/khsn/kh_attack_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_attack_5.vsnd' vs файл 'sounds/vo/khsn/kh_attack_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_attack_6.vsnd' vs файл 'sounds/vo/khsn/kh_attack_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_battle_begins_1.vsnd' vs файл 'sounds/vo/khsn/kh_battle_begins_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_battle_begins_2.vsnd' vs файл 'sounds/vo/khsn/kh_battle_begins_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_death_1.vsnd' vs файл 'sounds/vo/khsn/kh_death_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_death_2.vsnd' vs файл 'sounds/vo/khsn/kh_death_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_enemy_kill.vsnd' vs файл 'sounds/vo/khsn/kh_enemy_kill.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_enemy_kill_2.vsnd' vs файл 'sounds/vo/khsn/kh_enemy_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_levelup_1.vsnd' vs файл 'sounds/vo/khsn/kh_levelup_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_levelup_2.vsnd' vs файл 'sounds/vo/khsn/kh_levelup_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_levelup_3.vsnd' vs файл 'sounds/vo/khsn/kh_levelup_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_levelup_4.vsnd' vs файл 'sounds/vo/khsn/kh_levelup_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_levelup_5.vsnd' vs файл 'sounds/vo/khsn/kh_levelup_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_move_1.vsnd' vs файл 'sounds/vo/khsn/kh_move_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_move_2.vsnd' vs файл 'sounds/vo/khsn/kh_move_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_move_4.vsnd' vs файл 'sounds/vo/khsn/kh_move_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_not_enough_mana.vsnd' vs файл 'sounds/vo/khsn/kh_not_enough_mana.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_pain_1.vsnd' vs файл 'sounds/vo/khsn/kh_pain_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_pain_2.vsnd' vs файл 'sounds/vo/khsn/kh_pain_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_respawn_2.vsnd' vs файл 'sounds/vo/khsn/kh_respawn_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_respawn_3.vsnd' vs файл 'sounds/vo/khsn/kh_respawn_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts  CASE  ссылка 'sounds/vo/khsn/KH_ty.vsnd' vs файл 'sounds/vo/khsn/kh_ty.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_attack_1.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_attack_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_attack_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_attack_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_attack_3.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_attack_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_attack_4.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_attack_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_death_1.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_death_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_death_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_death_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_death_3.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_death_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_enemy_kill_1.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_enemy_kill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_enemy_kill_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_enemy_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_levelup_1.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_levelup_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_levelup_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_levelup_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_move_1.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_move_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_move_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_move_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_move_3.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_move_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_move_4.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_move_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_pain_1.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_pain_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_pain_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_pain_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_pain_3.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_pain_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_respawn_1.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_respawn_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_respawn_2.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_respawn_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_respawn_3.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_respawn_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_ursa.vsndevts  CASE  ссылка 'sounds/vo/atlanta/Atalanta_alter_respawn_4.vsnd' vs файл 'sounds/vo/atlanta/atalanta_alter_respawn_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Death_1.vsnd' vs файл 'sounds/nursery/nursery_rhyme_death_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Death_2.vsnd' vs файл 'sounds/nursery/nursery_rhyme_death_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Death_3.vsnd' vs файл 'sounds/nursery/nursery_rhyme_death_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_1.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_2.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_3.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_4.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_5.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_6.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Kill_7.vsnd' vs файл 'sounds/nursery/nursery_rhyme_kill_7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_windrunner.vsndevts  CASE  ссылка 'sounds/nursery/Nursery_Rhyme_Summon.vsnd' vs файл 'sounds/nursery/nursery_rhyme_summon.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/gachi_true/Diar_combo_jopa.vsnd' vs файл 'sounds/gachi_true/diar_combo_jopa.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/D.vsnd' vs файл 'sounds/zlodemon_true/emiya/d.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/E.vsnd' vs файл 'sounds/zlodemon_true/emiya/e.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/F.vsnd' vs файл 'sounds/zlodemon_true/emiya/f.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/Q.vsnd' vs файл 'sounds/zlodemon_true/emiya/q.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/R_1.vsnd' vs файл 'sounds/zlodemon_true/emiya/r_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/R_2.vsnd' vs файл 'sounds/zlodemon_true/emiya/r_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/R_3.vsnd' vs файл 'sounds/zlodemon_true/emiya/r_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/R_4.vsnd' vs файл 'sounds/zlodemon_true/emiya/r_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/R_5.vsnd' vs файл 'sounds/zlodemon_true/emiya/r_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/R_6.vsnd' vs файл 'sounds/zlodemon_true/emiya/r_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/R_7.vsnd' vs файл 'sounds/zlodemon_true/emiya/r_7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/W_1.vsnd' vs файл 'sounds/zlodemon_true/emiya/w_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/emiya/W_2.vsnd' vs файл 'sounds/zlodemon_true/emiya/w_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/gil/E.vsnd' vs файл 'sounds/zlodemon_true/gil/e.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/gil/F.vsnd' vs файл 'sounds/zlodemon_true/gil/f.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/gil/Q.vsnd' vs файл 'sounds/zlodemon_true/gil/q.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/gil/R.vsnd' vs файл 'sounds/zlodemon_true/gil/r.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/gil/W.vsnd' vs файл 'sounds/zlodemon_true/gil/w.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/heracles/E.vsnd' vs файл 'sounds/zlodemon_true/heracles/e.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/heracles/Q.vsnd' vs файл 'sounds/zlodemon_true/heracles/q.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/heracles/R.vsnd' vs файл 'sounds/zlodemon_true/heracles/r.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/heracles/W.vsnd' vs файл 'sounds/zlodemon_true/heracles/w.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/heracles/bersE.vsnd' vs файл 'sounds/zlodemon_true/heracles/berse.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/kh/E.vsnd' vs файл 'sounds/zlodemon_true/kh/e.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/kh/Eback.vsnd' vs файл 'sounds/zlodemon_true/kh/eback.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/kh/Q.vsnd' vs файл 'sounds/zlodemon_true/kh/q.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/kh/R.vsnd' vs файл 'sounds/zlodemon_true/kh/r.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/kh/W.vsnd' vs файл 'sounds/zlodemon_true/kh/w.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotBKB.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotbkb.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotComboRocket.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotcomborocket.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotComboW.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotcombow.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotGae.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotgae.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotNine.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotnine.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotQ.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotq.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotR.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotr.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotR2.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotr2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotR3.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotr3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotRB.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotrb.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotTGCast.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelottgcast.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotTGPrecast.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelottgprecast.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotVortigern.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotvortigern.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_lancelot/LancelotW.vsnd' vs файл 'sounds/zlodemon_true/moskes_lancelot/lancelotw.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenBerserk.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwenberserk.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenCombo.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwencombo.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenCombo2.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwencombo2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenComboBerserk.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwencomboberserk.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenE1.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwene1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenE2.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwene2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenE3.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwene3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenQ.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwenq.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenR.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwenr.vsnd_c'
+../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenW.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwenw.vsnd_c'
+
+=== ПРЕДУПРЕЖДЕНИЯ: партикли без precache (41) ===
+particles/arcueid/arcueid_barrier.vpcf
+        исп.: scripts/vscripts/abilities/arcueid/arcueid_regen.lua:122
+particles/arena/generic_gameplay/rune_soul_steal_owner_effect.vpcf
+        исп.: scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_soul_steal.lua:68
+particles/arena/generic_gameplay/rune_vibration_owner_wave.vpcf
+        исп.: scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_vibration.lua:49
+particles/check_slashes.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_d.lua:143
+particles/cu_alter/cu_alter_roar_pulse.vpcf
+        исп.: scripts/vscripts/abilities/cu_alter/cu_alter_roar.lua:117
+particles/cu_alter/cu_alter_spear_charge.vpcf
+        исп.: scripts/vscripts/abilities/cu_alter/cu_alter_spear_throw.lua:98
+particles/cu_alter/cu_alter_stance_dash.vpcf
+        исп.: scripts/vscripts/abilities/cu_alter/cu_alter_battle_stance.lua:245
+particles/custom/cu_chulainn/gae_bolg_explosion.vpcf
+        исп.: scripts/vscripts/abilities/scathach/scathach_red_creed_combo.lua:155
+particles/custom/gawain/gawain_excalibur_galatine_orb_combo.vpcf
+        исп.: scripts/vscripts/abilities/gawain/excalibur_galatine_combo_old.lua:57; scripts/vscripts/abilities/gawain/unused/excalibur_galatine_combo_old.lua:57
+particles/custom/gawain/gawain_galetine_flametrail_combo_parent.vpcf
+        исп.: scripts/vscripts/abilities/gawain/excalibur_galatine_combo_old.lua:187; scripts/vscripts/abilities/gawain/unused/excalibur_galatine_combo_old.lua:187
+particles/custom/reference/luminosite_eternelle/luminosite_eternelle.vpcf
+        исп.: scripts/vscripts/jeanne_ability.lua:562
+particles/custom/semiramis/beam/semiramis_beam.vpcf
+        исп.: scripts/vscripts/abilities/semiramis/hanging_gardens_bombard.lua:39
+particles/custom/semiramis/hanghing_gardens_rocks.vpcf
+        исп.: scripts/vscripts/abilities/semiramis/semiramis_hanging_gardens.lua:41
+particles/custom/semiramis/laser/semiramis_laser.vpcf
+        исп.: scripts/vscripts/abilities/semiramis/hanging_gardens_orbital_strike.lua:26
+particles/custom/semiramis/semiramis_poison_explosion.vpcf
+        исп.: scripts/vscripts/abilities/semiramis/modifiers/modifier_poisonous_bite.lua:48
+particles/custom/warlock_shadow_word_buff_copy.vpcf
+        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1238
+particles/custom/witchdoctor_voodoo_restoration.vpcf
+        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1245
+particles/custom/witchdoctor_voodoo_restoration_aura.vpcf
+        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1231
+particles/demon_king_nobunaga/demon_king_nobunaga_ignition.vpcf
+        исп.: scripts/vscripts/abilities/demon_king_nobunaga/demon_king_ignition.lua:35
+particles/econ/items/puck/puck_alliance_set/puck_illusory_orb_explode_aproset.vpcf
+        исп.: scripts/vscripts/abilities/arturia_alter/arturia_alter_mana_burst.lua:68
+particles/heroes/anime_hero_seth/seth_slam.vpcf
+        исп.: scripts/vscripts/abilities/alter_atalanta/atalanta_jump.lua:157; scripts/vscripts/abilities/heracles/pepeg_jump.lua:258; scripts/vscripts/abilities/heracles/pepeg_jump.lua:473
+particles/heroes/anime_hero_uzume/uzume_dash.vpcf
+        исп.: scripts/vscripts/abilities/alter_atalanta/atalanta_jump.lua:92; scripts/vscripts/abilities/heracles/pepeg_jump.lua:191; scripts/vscripts/abilities/heracles/pepeg_jump.lua:406
+particles/heroes/juggernaut/phantom_sword_dance.vpcf
+        исп.: scripts/vscripts/abilities/okita/okita_zekken.lua:86
+particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
+        исп.: scripts/vscripts/abilities/edmon/edmon_enfer.lua:160; scripts/vscripts/abilities/edmon/edmon_ult.lua:75; scripts/vscripts/abilities/okita/okita_zekken.lua:101
+particles/nanaya_combo_1hit2_.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_q.lua:176
+particles/nanaya_hit_test22.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_q.lua:170
+particles/nanaya_image.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_q2jump.lua:239; scripts/vscripts/abilities/nanaya/nanaya_r.lua:347; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:196
+particles/nanaya_image_clone2.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya.lua:155
+particles/nanaya_image_clone_attach.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:569
+particles/nanaya_image_clone_back.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:598
+particles/nanaya_image_clone_rework.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_r.lua:41
+particles/ozy/piramid/flashka_na_a.vpcf
+        исп.: scripts/vscripts/abilities/ozy/ozy_piramid_flash.lua:30
+particles/screen_black_splash.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya.lua:193
+particles/screen_spla.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:300; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:301; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:426
+particles/shiki_afterearth2final.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_r.lua:39
+particles/shiki_lost_gate/shiki_lostgate.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_r.lua:152
+particles/test_part5.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_q2jump.lua:210
+particles/test_part_small.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:427; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:611
+particles/test_partcheckfinal.vpcf
+        исп.: scripts/vscripts/abilities/nanaya/nanaya.lua:363; scripts/vscripts/abilities/nanaya/nanaya_new/nanaya_dahsf.lua:59
+particles/units/casteres/caster_zuus/zuus_static_field.vpcf
+        исп.: scripts/vscripts/abilities/scathach/scathach_red_wind.lua:93; scripts/vscripts/abilities/scathach/scathach_red_wind.lua:94
+particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf
+        исп.: scripts/vscripts/abilities/semiramis/semiramis_snek_spit_poison.lua:14
+
+=== ПРЕДУПРЕЖДЕНИЯ: клиент-сервер (значения бафов не видны на клиенте) (118) ===
+scripts/vscripts/abilities/angra_mainyu/angra_mainyu_murderous_instinct.lua  modifier_murderous_instinct_crit:GetModifierPreAttack_CriticalStrike()  читает self.CritDamage (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierAttackSpeedBonus_Constant()  читает self.nMaxASPerMissingHP (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierBaseDamageOutgoing_Percentage()  читает self.nMaxDamagePerMissingHP (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierBonusStats_Intellect()  читает self.nReduceIntPct (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierMoveSpeedBonus_Percentage()  читает self.nMaxMSPerMissingHP (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierPreAttack_CriticalStrike()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierProcAttack_Feedback()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_shield:GetModifierIgnorePhysicalArmor()  читает self.nIgnoreArmor (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_shield:GetModifierPhysicalArmorBase_Percentage()  читает self.nIgnoreArmor (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock()  читает self.tStoreEnemies (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_slow:GetModifierProvidesFOWVision()  читает self.nVision (задаётся только на сервере)
+scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/aoko/aoko_blue.lua  modifier_aoko_blue_shield:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/aoko/aoko_blue.lua  modifier_aoko_blue_shield_decaying:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/aoko/aoko_circuits.lua  modifier_aoko_circuits_overload:GetModifierTotalDamageOutgoing_Percentage()  читает self.dmg_output (задаётся только на сервере)
+scripts/vscripts/abilities/aoko/aoko_facebreaker.lua  modifier_aoko_facebreaker_shield:GetModifierIncomingDamageConstant()  читает self.hCaster (задаётся только на сервере)
+scripts/vscripts/abilities/aoko/aoko_shield.lua  modifier_aoko_shield:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/arash/arash_arrow_construction.lua  modifier_arash_arrow_construction:GetModifierAttackRangeBonus()  читает self.range (задаётся только на сервере)
+scripts/vscripts/abilities/arash/arash_arrow_construction.lua  modifier_arash_arrow_construction:GetModifierProjectileName()  читает self.projectile (задаётся только на сервере)
+scripts/vscripts/abilities/arash/arash_arrow_construction.lua  modifier_arash_arrow_construction:GetModifierProjectileSpeedBonus()  читает self.speed (задаётся только на сервере)
+scripts/vscripts/abilities/arash/arash_toughness.lua  modifier_arash_toughness:GetModifierMagicalResistanceBonus()  читает self.mr (задаётся только на сервере)
+scripts/vscripts/abilities/arash/arash_toughness.lua  modifier_arash_toughness:GetModifierPhysicalArmorBonus()  читает self.armor (задаётся только на сервере)
+scripts/vscripts/abilities/arcueid/arcueid_regen.lua  modifier_arcueid_what_barrier:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/cu_alter/cu_alter_combo.lua  modifier_cu_alter_combo:GetModifierIncomingDamage_Percentage()  читает self.jumpStarted (задаётся только на сервере)
+scripts/vscripts/abilities/cu_chulain/modifiers/modifier_battle_continuation.lua  modifier_cu_battle_continuation:GetModifierAvoidDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/cu_chulain/modifiers/modifier_rune_of_protection.lua  modifier_rune_of_protection:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/diarmuid/diarmuid_new_combo.lua  modifier_diar_model_swap:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
+scripts/vscripts/abilities/diarmuid/diarmuid_new_combo.lua  modifier_diar_model_swap_skin:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
+scripts/vscripts/abilities/diarmuid/diarmuid_parry.lua  modifier_diarmuid_parry:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/diarmuid/modifiers/modifier_diarmuid_minds_eye.lua  modifier_diarmuid_minds_eye:GetModifierEvasion_Constant()  читает self.Evasion (задаётся только на сервере)
+scripts/vscripts/abilities/diarmuid/modifiers/modifier_diarmuid_minds_eye.lua  modifier_diarmuid_minds_eye:GetModifierMagicalResistanceBonus()  читает self.MagicResist (задаётся только на сервере)
+scripts/vscripts/abilities/diarmuid/modifiers/modifier_rampant_warrior.lua  modifier_rampant_warrior:GetModifierAttackSpeedBonus_Constant()  читает self.AttackSpeed (задаётся только на сервере)
+scripts/vscripts/abilities/emiya/emiya_weapon_swap.lua  modifier_emiya_weapon_swap:GetModifierAttackRangeOverride()  читает self.iAttack_range (задаётся только на сервере)
+scripts/vscripts/abilities/emiya/emiya_weapon_swap.lua  modifier_emiya_weapon_swap:GetModifierModelChange()  читает self.__model (задаётся только на сервере)
+scripts/vscripts/abilities/emiya/modifiers/modifier_overedge_charge.lua  modifier_overedge_charge:GetModifierAttackSpeedBonus_Constant()  читает self.ChargeAttackSpeed (задаётся только на сервере)
+scripts/vscripts/abilities/emiya/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierHealthBonus()  читает self.Armor (задаётся только на сервере)
+scripts/vscripts/abilities/emiya/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierMagicalResistanceBonus()  читает self.MagicResist (задаётся только на сервере)
+scripts/vscripts/abilities/emiya/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierPhysicalArmorBonus()  читает self.Armor (задаётся только на сервере)
+scripts/vscripts/abilities/emiya/modifiers/modifier_ubw_chant_count.lua  modifier_ubw_chant_count:GetModifierMoveSpeedBonus_Constant()  читает self.MsBonus (задаётся только на сервере)
+scripts/vscripts/abilities/heracles/modifiers/modifier_courage_enemy_debuff.lua  modifier_courage_enemy_debuff:GetModifierPreAttack_BonusDamage()  читает self.dmg (задаётся только на сервере)
+scripts/vscripts/abilities/hijikata/hijikata_attributes.lua  modifier_hijikata_haori:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
+scripts/vscripts/abilities/hijikata/hijikata_combo.lua  modifier_hijikata_combo_ticker:GetModifierMoveSpeed_Absolute()  читает self.speed (задаётся только на сервере)
+scripts/vscripts/abilities/hijikata/hijikata_demon.lua  modifier_demon_buff_hijikata:GetModifierAttackSpeedBonus_Constant()  читает self.as_value (задаётся только на сервере)
+scripts/vscripts/abilities/hijikata/hijikata_duel.lua  modifier_hijikata_duel_leash:GetModifierMoveSpeed_Limit()  читает self.parent (задаётся только на сервере)
+scripts/vscripts/abilities/hijikata/hijikata_fierce_journey.lua  modifier_hijikata_bc:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/iskandar/iskandar_buc.lua  modifier_iskandar_buc:GetModifierMoveSpeedBonus_Percentage()  читает self.Movespeed (задаётся только на сервере)
+scripts/vscripts/abilities/iskandar/iskandar_gordius_wheel.lua  modifier_gordius_wheel:GetModifierMagicalResistanceBonus()  читает self.mr (задаётся только на сервере)
+scripts/vscripts/abilities/iskandar/iskandar_gordius_wheel.lua  modifier_gordius_wheel:GetModifierMoveSpeedBonus_Percentage()  читает self.Movespeed (задаётся только на сервере)
+scripts/vscripts/abilities/iskandar/iskandar_gordius_wheel.lua  modifier_gordius_wheel:GetModifierPhysicalArmorBonus()  читает self.armor (задаётся только на сервере)
+scripts/vscripts/abilities/jeanne/jeanne_magic_resistance_ex.lua  modifier_jeanne_mrex:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle.lua  modifier_jeanne_luminosite_eternelle_barrier:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle.lua  modifier_jeanne_mrex_allies:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/kinghassan/khsn_ambush.lua  modifier_khsn_ambush_block:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/kinghassan/khsn_bc.lua  modifier_khsn_bc:GetModifierAvoidDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/kinghassan/khsn_bc.lua  modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/kinghassan/khsn_slash.lua  modifier_king_hassan_block:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/kuro/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierBonusStats_Strength()  читает self.Armor (задаётся только на сервере)
+scripts/vscripts/abilities/kuro/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierMagicalResistanceBonus()  читает self.MagicResist (задаётся только на сервере)
+scripts/vscripts/abilities/kuro/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierPhysicalArmorBonus()  читает self.Armor (задаётся только на сервере)
+scripts/vscripts/abilities/kuro/modifiers/modifier_ubw_chant_count.lua  modifier_ubw_chant_count:GetModifierMoveSpeedBonus_Constant()  читает self.MsBonus (задаётся только на сервере)
+scripts/vscripts/abilities/lancelot/lancelot_minigun.lua  modifier_lancelot_minigun:GetModifierMoveSpeed_Absolute()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/lancelot/lancelot_minigun.lua  modifier_lancelot_minigun:GetModifierTurnRate_Percentage()  читает self.fSlowTurning (задаётся только на сервере)
+scripts/vscripts/abilities/lancelot/lancelot_parry.lua  modifier_lancelot_parry:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/leonidas/leonidas_brothers.lua  modifier_leonidas_brother:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/li_shuwen_new_w.lua  modifier_li_shuwen_barrier:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierMagicalResistanceBonus()  читает self.slow_power (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierMoveSpeedBonus_Percentage()  читает self.slow_power (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierPhysicalArmorBonus()  читает self.slow_power (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierTotalDamageOutgoing_Percentage()  читает self.hCaster (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/modifiers/modifier_cosmic_orbit.lua  modifier_cosmic_orbit:GetModifierAttackSpeedBonus_Constant()  читает self.AttackSpeedBonus (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/modifiers/modifier_cosmic_orbit.lua  modifier_cosmic_orbit:GetModifierMoveSpeedBonus_Percentage()  читает self.MovespeedPct (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/modifiers/modifier_pc_invis.lua  modifier_pc_invis:GetModifierHealthRegenPercentage()  читает self.HealthRegenPct (задаётся только на сервере)
+scripts/vscripts/abilities/lishuwen/modifiers/modifier_pc_invis.lua  modifier_pc_invis:GetModifierTotalPercentageManaRegen()  читает self.ManaRegenPct (задаётся только на сервере)
+scripts/vscripts/abilities/lu_bu/modifiers/modifier_lu_bu_armistice.lua  modifier_lu_bu_armistice:GetModifierProcAttack_Feedback()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/medea/medea_argos.lua  modifier_argos_armor:GetModifierPhysicalArmorBonus()  читает self.fArmor (задаётся только на сервере)
+scripts/vscripts/abilities/medea/medea_argos.lua  modifier_argos_shield:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/mordred/mordred_mana_burst.lua  modifier_mordred_mb:GetModifierAttackSpeedBonus_Constant()  читает self.mana (задаётся только на сервере)
+scripts/vscripts/abilities/nero/modifiers/modifier_aestus_domus_aurea_neutral.lua  modifier_aestus_domus_aurea_neutral:GetModifierMoveSpeedBonus_Percentage()  читает self.MovespeedReduc (задаётся только на сервере)
+scripts/vscripts/abilities/nero/modifiers/modifier_aestus_domus_aurea_neutral.lua  modifier_aestus_domus_aurea_neutral:GetModifierPhysicalArmorBonus()  читает self.ArmorReduc (задаётся только на сервере)
+scripts/vscripts/abilities/nero/modifiers/modifier_gladiusanus.lua  modifier_gladiusanus:GetModifierAttackSpeedBonus_Constant()  читает self.AttackSpeed (задаётся только на сервере)
+scripts/vscripts/abilities/nero/modifiers/modifier_rosa_slow.lua  modifier_rosa_slow:GetModifierMoveSpeedBonus_Percentage()  читает self.slowPerc (задаётся только на сервере)
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierConstantHealthRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierConstantManaRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierMagicalResistanceBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierPhysicalArmorBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierPreAttack_BonusDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierConstantHealthRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierConstantManaRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierMagicalResistanceBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierPhysicalArmorBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierPreAttack_BonusDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_fds_active_sdr:GetModifierTotalDamageOutgoing_Percentage()  читает self.nReductionStack (задаётся только на сервере)
+scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_fds_aura_sdr:GetModifierTotalDamageOutgoing_Percentage()  читает self.hCaster (задаётся только на сервере)
+scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_formless_invis:GetModifierEvasion_Constant()  читает self.nEvasion (задаётся только на сервере)
+scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_formless_invis:GetModifierMoveSpeedBonus_Percentage()  читает self.nBonusMS (задаётся только на сервере)
+scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_mind_eye_active:GetModifierConstantHealthRegen()  читает self.nBonusHPRegen (задаётся только на сервере)
+scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_mind_eye_active:GetModifierHealthBonus()  читает self.nBonusHP (задаётся только на сервере)
+scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_mind_eye_shell:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/sasaki/modifiers/modifier_ganryu_armor_shred.lua  modifier_ganryu_armor_shred:GetModifierPhysicalArmorBonus()  читает self.Reduction (задаётся только на сервере)
+scripts/vscripts/abilities/sasaki/modifiers/modifier_gatekeeper.lua  modifier_gatekeeper:GetModifierPreAttack_BonusDamage()  читает self.BonusAttack (задаётся только на сервере)
+scripts/vscripts/abilities/sasaki/modifiers/modifier_heart_of_harmony.lua  modifier_heart_of_harmony:GetModifierConstantManaRegen()  читает self.ManaRegenBonus (задаётся только на сервере)
+scripts/vscripts/abilities/sasaki/modifiers/modifier_heart_of_harmony.lua  modifier_heart_of_harmony:GetModifierIncomingDamage_Percentage()  читает self.DamageReduc (задаётся только на сервере)
+scripts/vscripts/abilities/sasaki/modifiers/modifier_heart_of_harmony_linger.lua  modifier_heart_of_harmony_linger:GetModifierIncomingDamage_Percentage()  читает self.DamageReduc (задаётся только на сервере)
+scripts/vscripts/abilities/true_assassin/modifiers/modifier_dirk_poison_slow.lua  modifier_dirk_poison_slow:GetModifierMoveSpeedBonus_Percentage()  читает self.PoisonSlow (задаётся только на сервере)
+scripts/vscripts/abilities/true_assassin/modifiers/modifier_selfmod_agility.lua  modifier_selfmod_agility:GetModifierPreAttack_BonusDamage()  читает self.AttackBonus (задаётся только на сервере)
+scripts/vscripts/abilities/true_assassin/modifiers/modifier_snatch_strike_bonus_hp.lua  modifier_snatch_strike_bonus_hp:GetModifierExtraHealthBonus()  читает self.BonusHealth (задаётся только на сервере)
+scripts/vscripts/abilities/true_assassin/true_assassin_snatch_strike.lua  modifier_snatch_strike_str_enemy:GetModifierExtraStrengthBonus()  читает self.BonusStrength (задаётся только на сервере)
+scripts/vscripts/abilities/true_assassin/true_assassin_snatch_strike.lua  modifier_snatch_strike_str_hassan:GetModifierExtraStrengthBonus()  читает self.BonusStrength (задаётся только на сервере)
+scripts/vscripts/items/b_scroll.lua  modifier_b_scroll:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/items/modifier_mana_essence.lua  modifier_mana_essence:GetModifierConstantHealthRegen()  читает self.fHealthRegen (задаётся только на сервере)
+scripts/vscripts/items/modifier_mana_essence.lua  modifier_mana_essence:GetModifierConstantManaRegen()  читает self.fManaRegen (задаётся только на сервере)
+scripts/vscripts/items/modifiers/modifier_a_scroll.lua  modifier_a_scroll:GetModifierMagicalResistanceBonus()  читает self.MagicResistance (задаётся только на сервере)
+scripts/vscripts/items/modifiers/modifier_a_scroll.lua  modifier_a_scroll:GetModifierPhysicalArmorBonus()  читает self.Armor (задаётся только на сервере)
+scripts/vscripts/modifiers/modifier_attributes_as.lua  modifier_attributes_as:GetModifierAttackSpeedBonus_Constant()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/modifiers/modifier_attributes_cdr.lua  modifier_attributes_cdr:GetModifierPercentageCooldown()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/modifiers/modifier_attributes_ms.lua  modifier_attributes_ms:GetModifierMoveSpeedOverride()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/modifiers/modifier_barrier_new.lua  modifier_barrier_new:GetModifierIncomingDamageConstant()  читает self.beforeBScroll (задаётся только на сервере)
+scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selection_skin:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
+
+=== СИРОТЫ: compiled без исходника в content ===
+
+[materials] всего 283:
+     53  materials/models
+     25  materials/scathach
+     20  materials/custom_game
+     15  materials/semi
+     12  materials/overviews
+     11  materials/scathach_gate
+     10  materials/tamamo
+      9  materials/kiyohime
+      8  materials/lishuen
+      8  models/zlodemon
+      7  materials/atalanta
+      7  materials/konomama_hassan
+      7  materials/saber
+      6  materials/jeanne
+      6  materials/saber_alter
+      5  materials/atlanta
+      5  materials/effects
+      5  materials/lancelot
+      5  materials/terrain
+      4  materials/avenger
+      4  materials/berserker
+      4  materials/nurseryrhyme
+      3  materials/altera
+      3  materials/archer
+      3  materials/astolfo
+
+[models] всего 4800:
+   4762  models/heroes
+     16  models/custom_game
+      2  models/iskander
+      2  models/kuro
+      2  models/okita
+      1  models/altera
+      1  models/atlanta
+      1  models/berserker
+      1  models/femalehassan
+      1  models/jtr
+      1  models/karna
+      1  models/konomama_hassan
+      1  models/lancelot
+      1  models/rider
+      1  models/rin
+      1  models/saber
+      1  models/semi
+      1  models/shirou
+      1  models/tohsaka
+      1  models/zlojamon
+      1  particles/units
+
+[particles] всего 14929:
+   6961  particles/units
+   3345  particles/custom_game
+   1957  particles/custom
+   1639  particles/econ
+    309  particles/generic_gameplay
+    262  particles/heroes
+    178  particles/status_fx
+     50  particles/kinghassan
+     27  particles/msg_fx
+     26  particles/gawain
+     25  particles/thd2
+     18  particles/artoria
+     13  particles/cu_chulain
+     13  particles/muramasa
+     13  particles/semiramis
+     11  particles/lancelot
+      8  particles/ozy
+      4  particles/ui_mouseactions
+      3  particles/merlin
+      2  particles/nero
+      2  particles/saito
+      1  materials/juggernaut_reference.vpcf_c
+      1  particles/alchemist_electricity.vpcf_c
+      1  particles/edward_electricity1.vpcf_c
+      1  particles/edward_electricity2.vpcf_c

@@ -40,6 +40,7 @@
 		"precache"
 		{
 			"particle"		"particles/okita/okita_shukuchi.vpcf"
+			"particle"		"particles/okita/okita_windrun.vpcf"
 		}
 
 		
@@ -85,6 +86,7 @@
 			"particle"		"particles/okita/okita_blink_slash.vpcf"
 			"particle"		"particles/okita/okita_tennen_second_slash.vpcf"
 			"particle"		"particles/okita/okita_tennen_third_slash.vpcf"
+			"particle"		"particles/okita/okita_windrun.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -117,6 +119,9 @@
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 			"particle"				"particles/okita/okita_counterhelix.vpcf"
+			"particle"		"particles/okita/okita_jet_cast_runes.vpcf"
+			"particle"		"particles/okita/okita_jet_fly.vpcf"
+			"particle"		"particles/okita/okita_windrun.vpcf"
 		}
 
 		"AbilityValues"
@@ -155,6 +160,10 @@
 		"precache"
 		{
 			"particle"				"particles/okita/okita_jce_slash.vpcf"
+			"particle"		"particles/okita/okita_chronosphere.vpcf"
+			"particle"		"particles/okita/okita_jet_cast_runes.vpcf"
+			"particle"		"particles/okita/okita_jet_fly.vpcf"
+			"particle"		"particles/okita/okita_windrun.vpcf"
 		}
 		"AbilityValues"
 		{	
@@ -202,6 +211,10 @@
 			"particle"				"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf"
 			"particle"				"particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf"
 			"particle"				"particles/okita/okita_afterimage_windrunner.vpcf"
+			"particle"		"particles/heroes/anime_hero_zenitsu/zenitsu_flash.vpcf"
+			"particle"		"particles/okita/okita_jet_cast_runes.vpcf"
+			"particle"		"particles/okita/okita_jet_fly.vpcf"
+			"particle"		"particles/okita/okita_windrun.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -510,6 +523,12 @@
 	"okita_jet"
     {
         "BaseClass"                                 "ability_lua"
+        "precache"
+        {
+        	"particle"		"particles/okita/okita_jet_cast_runes.vpcf"
+        	"particle"		"particles/okita/okita_jet_fly.vpcf"
+        	"particle"		"particles/thd2/heroes/marisa/marisa_04_spark_wind_b.vpcf"
+        }
         "ScriptFile"                                "abilities/okita/okita_jet"
         "AbilityBehavior"                           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
         "AbilityTextureName"                        "custom/okita/okita_jet"
