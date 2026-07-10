@@ -35,7 +35,6 @@ function true_assassin_dirk:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 	local ability = self
-	local maxTarget = self:GetSpecialValueFor("max_target")
 	if IsSpellBlocked(target, caster) then
         caster:UseDagger(5)
         self:StartCooldown(self:GetSpecialValueFor("restock_dur") - caster.nextDagger)
@@ -61,23 +60,8 @@ function true_assassin_dirk:OnSpellStart()
         		iMoveSpeed = 1800,
                 iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
         	}
-        	FATE_ProjectileManager:CreateTrackingProjectile(info) 
+        	FATE_ProjectileManager:CreateTrackingProjectile(info)
 
-        	--[[
-        		local targetCount = 1
-        		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, range
-        	            , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
-        		for k,v in pairs(targets) do
-        			--if v:CanEntityBeSeenByMyTeam(caster) then
-        			if v ~= target then
-        				targetCount = targetCount + 1
-        		        info.Target = v
-        		        ProjectileManager:CreateTrackingProjectile(info)
-        		    end 
-
-        	        if targetCount == maxTarget then return end
-        	    end
-            ]]
             return 0.1
         end
     end)
@@ -91,33 +75,12 @@ function true_assassin_dirk:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     local hCaster = self:GetCaster()
     local fDamage = self:GetSpecialValueFor("damage") 
     local fPoisonDamage = self:GetSpecialValueFor("poison_dot")
-    
-   -- if IsSpellBlocked(hTarget) or hTarget:IsMagicImmune() then return end
- 
 
-    --if not hCaster.IsWeakeningVenomAcquired then
-    	fDamage = fDamage + (hCaster:GetAverageTrueAttackDamage(hCaster) * self:GetSpecialValueFor("atk_ratio")/100)
-        if hCaster:HasModifier("modifier_selfmod_agility") then
-            local Damage = math.floor(self:GetCaster():GetAgility() * self:GetSpecialValueFor("agi_mult"))
-            DoDamage(hCaster, hTarget, Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-        end
-    --else
-    	--fDamage = fDamage + (hCaster:GetAverageTrueAttackDamage(hCaster) * 2.5)
-    --end
-
-    local stacks = 0
-    --[[if hTarget:HasModifier("modifier_weakening_venom") then 
-        stacks = hTarget:GetModifierStackCount("modifier_weakening_venom", ability)
-    end     
-
-    hTarget:RemoveModifierByName("modifier_weakening_venom") 
-    hTarget:AddNewModifier(hCaster, ability, "modifier_weakening_venom", { duration = 12 }) 
-
-    if hCaster.IsWeakeningVenomAcquired then
-        hTarget:SetModifierStackCount("modifier_weakening_venom", ability, stacks + self:GetSpecialValueFor("venom_stacks"))
-    else
-        hTarget:SetModifierStackCount("modifier_weakening_venom", ability, stacks + 1)
-    end]]
+    fDamage = fDamage + (hCaster:GetAverageTrueAttackDamage(hCaster) * self:GetSpecialValueFor("atk_ratio")/100)
+    if hCaster:HasModifier("modifier_selfmod_agility") then
+        local Damage = math.floor(self:GetCaster():GetAgility() * self:GetSpecialValueFor("agi_mult"))
+        DoDamage(hCaster, hTarget, Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+    end
 
     hTarget:AddNewModifier(hCaster, ability, "modifier_dirk_poison", {	Duration = self:GetSpecialValueFor("duration"),
 																		PoisonDamage = fPoisonDamage,
@@ -129,8 +92,7 @@ function true_assassin_dirk:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     end
     hTarget:RemoveModifierByName("modifier_dirk_poison_slow")
     if not IsImmuneToSlow(hTarget) then
-        hTarget:AddNewModifier(hCaster, ability, "modifier_dirk_poison_slow", { PoisonSlow = self:GetSpecialValueFor("poison_slow"),
-                                                                                Duration = self:GetSpecialValueFor("duration") })
+        hTarget:AddNewModifier(hCaster, ability, "modifier_dirk_poison_slow", { Duration = self:GetSpecialValueFor("duration") })
     end
     hTarget:SetModifierStackCount("modifier_dirk_poison_slow", ability, poison_stacks + 1)
 

@@ -461,7 +461,7 @@ function modifier_hijikata_duel_leash:DeclareFunctions()
 end
 
 function modifier_hijikata_duel_leash:GetModifierMoveSpeed_Limit( params )
-	if not IsServer() then return end
+	if not IsServer() then return 0 end -- 0 = без лимита; nil на клиенте ломал отображение МС
 
 	-- get data
 	local parent_vector = self.parent:GetOrigin()-self.center

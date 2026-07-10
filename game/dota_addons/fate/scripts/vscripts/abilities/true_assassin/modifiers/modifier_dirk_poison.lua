@@ -3,11 +3,6 @@ modifier_dirk_poison = class({})
 LinkLuaModifier("modifier_weakening_venom", "abilities/true_assassin/modifiers/modifier_weakening_venom", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dirk_poison_slow", "abilities/true_assassin/modifiers/modifier_dirk_poison_slow", LUA_MODIFIER_MOTION_NONE)
 
-function modifier_dirk_poison:DeclareFunctions()
-	local func = { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS}
-	return func
-end
-
 function modifier_dirk_poison:OnCreated(table)
 	if IsServer() then
 		self.PoisonDamage = table.PoisonDamage * 0.5
@@ -15,8 +10,7 @@ function modifier_dirk_poison:OnCreated(table)
 
 		local target = self:GetParent()
 		if not IsImmuneToSlow(target) then
-			target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_dirk_poison_slow", { PoisonSlow = self.PoisonSlow,
-																									  Duration = self:GetDuration() })
+			target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_dirk_poison_slow", { Duration = self:GetDuration() })
 		end
 
 		self:StartIntervalThink(0.5)
@@ -66,12 +60,4 @@ end
 
 function modifier_dirk_poison:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
-end
-
-function modifier_dirk_poison:GetModifierPhysicalArmorBonus()
-	if self:GetCaster().IsWeakeningVenomAcquired then
-    	return self:GetParent():GetModifierStackCount("modifier_weakening_venom", self:GetAbility()) * -1*0
-    else
-    	return 0
-    end
 end

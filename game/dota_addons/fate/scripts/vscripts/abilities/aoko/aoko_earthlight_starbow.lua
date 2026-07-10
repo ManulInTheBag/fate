@@ -512,8 +512,9 @@ function modifier_aoko_earthlight_enemy:OnIntervalThink()
 			local mod = self.caster:FindModifierByName("modifier_aoko_earthlight_caster")
 			if (mod.point - self.parent:GetAbsOrigin()):Length2D() > self.ability:GetSpecialValueFor("succ_radius") then
 				self:Destroy()
+				return
 			end
-			
+
 			self.duration = self.duration - FrameTime()
 
 			if self.duration <= 0 then

@@ -68,28 +68,16 @@
 							</Button>
 						</Panel>
 						<Panel class="Row">
-							<Button class="RuneButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( SpawnRuneDoubleDamagePressed )" onmouseover="MouseOverRune( &apos;RuneEmoticonDoubleDamage&apos;, &apos;#DOTA_HUD_Rune_DoubleDamage&apos; )" onmouseout="MouseOutRune( &apos;RuneEmoticonDoubleDamage&apos; )">
-								<DOTAEmoticon id="RuneEmoticonDoubleDamage" alias="doubledamage" animating="false" />
+							<ToggleButton id="AllVisionButton" class="DemoToggleButton" acceptsjoyfocus="true" onactivate="ToggleAllVision()">
+								<Label text="All Vision" />
+							</ToggleButton>
+						</Panel>
+						<Panel class="Row">
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="UnpauseAll()">
+								<Label text="-unpause" />
 							</Button>
-							<Panel class="FillWidth" />
-							<Button class="RuneButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( SpawnRuneHastePressed )" onmouseover="MouseOverRune( &apos;RuneEmoticonHaste&apos;, &apos;#DOTA_HUD_Rune_Haste&apos; )" onmouseout="MouseOutRune( &apos;RuneEmoticonHaste&apos; )">
-								<DOTAEmoticon id="RuneEmoticonHaste" alias="haste" animating="false" />
-							</Button>
-							<Panel class="FillWidth" />
-							<Button class="RuneButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( SpawnRuneIllusionPressed )" onmouseover="MouseOverRune( &apos;RuneEmoticonIllusion&apos;, &apos;#DOTA_HUD_Rune_Illusion&apos; )" onmouseout="MouseOutRune( &apos;RuneEmoticonIllusion&apos; )">
-								<DOTAEmoticon id="RuneEmoticonIllusion" alias="illusion" animating="false" />
-							</Button>
-							<Panel class="FillWidth" />
-							<Button class="RuneButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( SpawnRuneInvisibilityPressed )" onmouseover="MouseOverRune( &apos;RuneEmoticonInvisibility&apos;, &apos;#DOTA_HUD_Rune_Invisibility&apos; )" onmouseout="MouseOutRune( &apos;RuneEmoticonInvisibility&apos; )">
-								<DOTAEmoticon id="RuneEmoticonInvisibility" alias="invisibility" animating="false" />
-							</Button>
-							<Panel class="FillWidth" />
-							<Button class="RuneButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( SpawnRuneRegenerationPressed )" onmouseover="MouseOverRune( &apos;RuneEmoticonRegeneration&apos;, &apos;#DOTA_HUD_Rune_Regeneration&apos; )" onmouseout="MouseOutRune( &apos;RuneEmoticonRegeneration&apos; )">
-								<DOTAEmoticon id="RuneEmoticonRegeneration" alias="regeneration" animating="false" />
-							</Button>
-							<Panel class="FillWidth" />
-							<Button class="RuneButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( SpawnRuneArcanePressed )" onmouseover="MouseOverRune( &apos;RuneEmoticonArcane&apos;, &apos;#DOTA_HUD_Rune_Arcane&apos; )" onmouseout="MouseOutRune( &apos;RuneEmoticonArcane&apos; )">
-								<DOTAEmoticon id="RuneEmoticonArcane" alias="arcane_rune" animating="false" />
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="KillSelectedHeroes()">
+								<Label text="-kill" />
 							</Button>
 						</Panel>
 					</Panel>

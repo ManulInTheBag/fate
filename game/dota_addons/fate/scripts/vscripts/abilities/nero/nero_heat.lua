@@ -1,3 +1,7 @@
+-- NeroImperialBonuses lives in nero_imperial.lua; ability scripts load lazily,
+-- so pull it in explicitly or the global may not exist yet when heat is gained
+require("abilities/nero/nero_imperial")
+
 LinkLuaModifier("modifier_nero_heat", "abilities/nero/nero_heat", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_laus_saint_ready_checker", "abilities/nero/modifiers/modifier_laus_saint_ready_checker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imperial_buff_h", "abilities/nero/nero_imperial", LUA_MODIFIER_MOTION_NONE)
@@ -78,16 +82,20 @@ function nero_heat:IncreaseHeat(caster)
 	end
 	]]--Ended bad, no D cd in arena after reaching SSS
 
-	caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", {duration = 5})
-	
+	local kv = NeroImperialBonuses(caster, true)
+	kv.duration = 5
+	caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", kv)
+
 end
 
 function nero_heat:RefreshHeatDuration(caster)
 	local caster = self:GetCaster()
 	local modifier = caster:FindModifierByName("modifier_nero_heat")
 
-	caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", {duration = 5})
-	
+	local kv = NeroImperialBonuses(caster, true)
+	kv.duration = 5
+	caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", kv)
+
 
 	modifier.duration_remaining = self:GetSpecialValueFor("duration")
 end

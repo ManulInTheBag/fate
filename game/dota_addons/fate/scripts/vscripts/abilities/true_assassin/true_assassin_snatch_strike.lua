@@ -1,6 +1,5 @@
 true_assassin_snatch_strike = class({})
 
-LinkLuaModifier("modifier_snatch_strike_bonus_hp", "abilities/true_assassin/modifiers/modifier_snatch_strike_bonus_hp", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_snatch_strike_str_hassan", "abilities/true_assassin/true_assassin_snatch_strike", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_snatch_strike_str_enemy", "abilities/true_assassin/true_assassin_snatch_strike", LUA_MODIFIER_MOTION_NONE)
 
@@ -32,44 +31,20 @@ function true_assassin_snatch_strike:OnSpellStart()
 	end)
 
 	if caster.ShaytanArmAcquired then
-		local casterStr = math.floor(caster:GetStrength() + 0.5) 
 		local casterAgi = math.floor(caster:GetAgility() + 0.5)
-		local casterInt = math.floor(caster:GetIntellect() + 0.5)
+		local shaytanArm = IsNotNull(caster.MasterUnit2) and caster.MasterUnit2:FindAbilityByName("true_assassin_attribute_shaytan_arm")
+		local agiRatio = shaytanArm and shaytanArm:GetSpecialValueFor("snatch_agi_dmg") or 1.5
 
-		--if (casterStr >= casterAgi and casterStr > casterInt)   then
-			--print("Strength")
-		--	DoDamage(caster, target, casterStr * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
-		--	totalDamage = totalDamage + casterStr * 3
-		--elseif casterAgi > casterStr and casterAgi >= casterInt then
-			--print("Agility")
-		--	DoDamage(caster, target, casterAgi * 2, DAMAGE_TYPE_PURE, 0, ability, false)
-		--	totalDamage = totalDamage + casterAgi * 2
-		--elseif casterInt > casterStr and casterInt > casterAgi then
-			--print("Intelligence")
-		--	DoDamage(caster, target, casterInt * 5, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-		--	totalDamage = totalDamage + casterInt * 5
-		--else
-			--[[DoDamage(caster, target, casterStr * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
-			totalDamage = totalDamage + casterStr * 3]]
+		caster:AddNewModifier(caster, ability, "modifier_snatch_strike_str_hassan", { Duration = self:GetSpecialValueFor("duration"),
+																				BonusStrength = strength})
 
-
-			caster:AddNewModifier(caster, ability, "modifier_snatch_strike_str_hassan", { Duration = self:GetSpecialValueFor("duration"),
-																					BonusStrength = strength})
-
-			target:AddNewModifier(caster, ability, "modifier_snatch_strike_str_enemy", { Duration = self:GetSpecialValueFor("duration"),
-																					BonusStrength = strength})
-			DoDamage(caster, target, casterAgi * 1.5, DAMAGE_TYPE_PURE, 0, ability, false)
-		--	totalDamage = totalDamage + casterAgi * 2
-
-			--[[DoDamage(caster, target, casterInt * 5, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-			totalDamage = totalDamage + casterInt * 5]]
-		--end
+		target:AddNewModifier(caster, ability, "modifier_snatch_strike_str_enemy", { Duration = self:GetSpecialValueFor("duration"),
+																				BonusStrength = strength})
+		DoDamage(caster, target, casterAgi * agiRatio, DAMAGE_TYPE_PURE, 0, ability, false)
 	end
-	
-	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)	
 
-	--caster:AddNewModifier(caster, ability, "modifier_snatch_strike_bonus_hp", { Duration = self:GetSpecialValueFor("duration"),
-																	--			BonusHealth = totalDamage / 2})
+	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+
 	caster:Heal(totalDamage / 2, caster)
 end
 

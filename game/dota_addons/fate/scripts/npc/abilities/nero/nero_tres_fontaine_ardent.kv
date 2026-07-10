@@ -486,7 +486,7 @@
             "RequiredLevel"                                 "1"
             "LevelsBetweenUpgrades"                         "1"
 
-            "LinkedAbilities"								"nero_health nero_mana nero_defence"
+            "LinkedAbilities"								"nero_privilege_damage nero_privilege_regen nero_privilege_defence"
 
             "AbilityValues"
         {
@@ -525,7 +525,7 @@
             "duration" "6"
         }
     }
-    "nero_health"
+    "nero_privilege_damage"
     {
     	    "BaseClass"                                     "ability_lua"
     	    "ScriptFile"                                    "abilities/nero/nero_imperial"
@@ -543,7 +543,7 @@
             "bonus_value" "15"
         }
     }
-    "nero_mana"
+    "nero_privilege_regen"
     {
     	    "BaseClass"                                     "ability_lua"
     	    "ScriptFile"                                    "abilities/nero/nero_imperial"
@@ -561,25 +561,7 @@
             "bonus_value" "10"
         }
     }
-    "nero_tactics"
-    {
-    	    "BaseClass"                                     "ability_lua"
-    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
-    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    	    "AbilityTextureName"                            "custom/nero/nero_defence"
-
-            "AbilityCastPoint"                              "0.0"
-            "AbilityCooldown"                               "0"
-            "AbilityManaCost"                               "0"
-
-            "MaxLevel"                                      "2"
-            "AbilityValues"
-        {
-            "base_value" "0 0"
-            "bonus_value" "0.7 1.4"
-        }
-    }
-    "nero_defence"
+    "nero_privilege_defence"
     {
     	    "BaseClass"                                     "ability_lua"
     	    "ScriptFile"                                    "abilities/nero/nero_imperial"

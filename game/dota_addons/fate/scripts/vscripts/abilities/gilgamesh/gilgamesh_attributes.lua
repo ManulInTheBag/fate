@@ -1,5 +1,4 @@
 gilgamesh_attribute_rain_of_swords = class({})
-gilgamesh_combo_proxy = class({})
 
 function gilgamesh_attribute_rain_of_swords:OnSpellStart()
 	local caster = self:GetCaster()

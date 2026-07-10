@@ -2,11 +2,9 @@
 	<scripts>
 		<!--                                                                            -->
 		<include src="s2r://panorama/scripts/custom_game/fateanother_shop.vjs_c" />
-		<include src="s2r://panorama/scripts/libraries/lodash.min.vjs_c" />
 		<include src="s2r://panorama/scripts/libraries/playertables_base.vjs_c" />
 		<include src="s2r://panorama/scripts/arena_util.vjs_c" />
 		<include src="s2r://panorama/scripts/options.vjs_c" />
-		<include src="s2r://panorama/scripts/hotkey_tracker.vjs_c" />
 		<include src="s2r://panorama/scripts/custom_ui_manifest.vjs_c" />
 
 	</scripts>

@@ -75,10 +75,16 @@ function modifier_cu_alter_combo:RemoveOnDeath() return true end
 
 -- Locked in place and unable to act for the whole combo (still killable = the risk).
 function modifier_cu_alter_combo:CheckState()
-	return {
+	local state = {
 		[MODIFIER_STATE_STUNNED]  = true,
 		[MODIFIER_STATE_DISARMED] = true,
 	}
+	-- no collision while airborne: otherwise the per-frame SetAbsOrigin makes the engine
+	-- physically shove units on the flight path aside, ignoring knockback immunity
+	if self.jumpStarted and not self.jumpDone then
+		state[MODIFIER_STATE_NO_UNIT_COLLISION] = true
+	end
+	return state
 end
 
 function modifier_cu_alter_combo:DeclareFunctions()

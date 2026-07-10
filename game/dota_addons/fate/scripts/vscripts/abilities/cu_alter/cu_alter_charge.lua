@@ -157,10 +157,13 @@ function modifier_cu_alter_charge_motion:IsPurgable()      return false end
 function modifier_cu_alter_charge_motion:RemoveOnDeath()   return true end
 
 -- Self-stun during the dash: no turning, no casting, uninterruptible movement.
+-- NO_UNIT_COLLISION: without it the per-frame SetAbsOrigin makes the engine physically shove
+-- units on the path aside — a pseudo-knockback that ignores knockback immunity.
 function modifier_cu_alter_charge_motion:CheckState()
 	return {
 		[MODIFIER_STATE_STUNNED]  = true,
 		[MODIFIER_STATE_DISARMED] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
 end
 

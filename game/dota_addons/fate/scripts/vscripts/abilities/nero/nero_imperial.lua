@@ -26,9 +26,9 @@ local tUpdatedAbilities = {
 }
 
 local tProjections = {
-    "nero_health",
-    "nero_mana",
-    "nero_defence",
+    "nero_privilege_damage",
+    "nero_privilege_regen",
+    "nero_privilege_defence",
     "fate_empty1",
     "nero_imperial_close",
     "nero_spectaculi_initium",
@@ -38,17 +38,16 @@ local tProjections = {
 function nero_imperial_open:OnUpgrade()
     local hCaster = self:GetCaster()
     
-    hCaster:FindAbilityByName("nero_health"):SetLevel(self:GetLevel())
-    hCaster:FindAbilityByName("nero_mana"):SetLevel(self:GetLevel())
-    --hCaster:FindAbilityByName("nero_tactics"):SetLevel(self:GetLevel())
-    hCaster:FindAbilityByName("nero_defence"):SetLevel(self:GetLevel())
+    hCaster:FindAbilityByName("nero_privilege_damage"):SetLevel(self:GetLevel())
+    hCaster:FindAbilityByName("nero_privilege_regen"):SetLevel(self:GetLevel())
+    hCaster:FindAbilityByName("nero_privilege_defence"):SetLevel(self:GetLevel())
     hCaster:FindAbilityByName("nero_imperial_close"):SetLevel(self:GetLevel())
 end
 
 function nero_imperial_open:OnSpellStart()
     local hCaster = self:GetCaster()
 
-    hCaster.ImperialChoose = "nero_health"
+    hCaster.ImperialChoose = "nero_privilege_damage"
 
     hCaster:RemoveModifierByName("modifier_laus_saint_checker")
     
@@ -72,35 +71,43 @@ function nero_imperial_close:OnSpellCalled(ability)
     UpdateAbilityLayout(hCaster, tStandardAbilities)
 end
 
-nero_health = class({})
+-- re-applies the running imperial buffs with values for the current choice,
+-- so switching the privilege updates the bonuses (and the HUD) immediately
+local function NeroUpdateImperialBuffs(caster)
+    for name, base_only in pairs({ ["modifier_imperial_buff_h"] = true, ["modifier_imperial_buff"] = false }) do
+        local m = caster:FindModifierByName(name)
+        if m and not m:IsNull() then
+            local kv = NeroImperialBonuses(caster, base_only)
+            kv.duration = m:GetRemainingTime()
+            caster:AddNewModifier(caster, m:GetAbility(), name, kv)
+        end
+    end
+end
 
-function nero_health:OnSpellStart()
+nero_privilege_damage = class({})
+
+function nero_privilege_damage:OnSpellStart()
     local caster = self:GetCaster()
-    caster.ImperialChoose = "nero_health"
+    caster.ImperialChoose = "nero_privilege_damage"
+    NeroUpdateImperialBuffs(caster)
     UpdateAbilityLayout(caster, tUpdatedAbilities)
 end
 
-nero_mana = class({})
+nero_privilege_regen = class({})
 
-function nero_mana:OnSpellStart()
+function nero_privilege_regen:OnSpellStart()
     local caster = self:GetCaster()
-    caster.ImperialChoose = "nero_mana"
+    caster.ImperialChoose = "nero_privilege_regen"
+    NeroUpdateImperialBuffs(caster)
     UpdateAbilityLayout(caster, tUpdatedAbilities)
 end
 
-nero_tactics = class({})
+nero_privilege_defence = class({})
 
-function nero_tactics:OnSpellStart()
+function nero_privilege_defence:OnSpellStart()
     local caster = self:GetCaster()
-    caster.ImperialChoose = "nero_tactics"
-    UpdateAbilityLayout(caster, tUpdatedAbilities)
-end
-
-nero_defence = class({})
-
-function nero_defence:OnSpellStart()
-    local caster = self:GetCaster()
-    caster.ImperialChoose = "nero_defence"
+    caster.ImperialChoose = "nero_privilege_defence"
+    NeroUpdateImperialBuffs(caster)
     UpdateAbilityLayout(caster, tUpdatedAbilities)
 end
 
@@ -123,12 +130,71 @@ function nero_imperial_activate:OnSpellStart()
     elseif caster:FindModifierByName("modifier_nero_heat").rank == 0 then
         return
     end
-    caster:AddNewModifier(caster, self, "modifier_imperial_buff", {duration = self:GetSpecialValueFor("duration")})
+    local kv = NeroImperialBonuses(caster, false)
+    kv.duration = self:GetSpecialValueFor("duration")
+    caster:AddNewModifier(caster, self, "modifier_imperial_buff", kv)
+end
+
+-- computes the current privilege bonuses on the server; the result is passed
+-- through the AddNewModifier kv table so the client HUD shows real numbers
+-- (the old getters were server-only and displayed as zero on the client).
+-- NOTE: the internal ability names lie - per the tooltips nero_privilege_damage is
+-- "Spearhead of Progress" (attack damage), nero_privilege_regen is "Soul of Rome"
+-- (mana AND health regen), nero_privilege_defence is "Divine Body" (armor + MR)
+function NeroImperialBonuses(caster, base_only)
+    local rank = 0
+    local heat = caster:FindModifierByName("modifier_nero_heat")
+    if heat and heat.rank then rank = heat.rank end
+    local choose = caster.ImperialChoose
+    local function v(abil, key)
+        local a = caster:FindAbilityByName(abil)
+        return a and a:GetSpecialValueFor(key) * rank or 0
+    end
+    local t = { bonus_damage = 0, mana_regen = 0, hp_regen = 0, armor = 0, mr = 0 }
+    if choose == "nero_privilege_damage" then
+        t.bonus_damage = v("nero_privilege_damage", "base_value") + (base_only and 0 or v("nero_privilege_damage", "bonus_value"))
+    elseif choose == "nero_privilege_regen" then
+        local regen = v("nero_privilege_regen", "base_value") + (base_only and 0 or v("nero_privilege_regen", "bonus_value"))
+        t.mana_regen, t.hp_regen = regen, regen
+    elseif choose == "nero_privilege_defence" then
+        t.armor = v("nero_privilege_defence", "base_armor") + (base_only and 0 or v("nero_privilege_defence", "bonus_armor"))
+        t.mr    = v("nero_privilege_defence", "base_mr")    + (base_only and 0 or v("nero_privilege_defence", "bonus_mr"))
+    end
+    return t
 end
 
 modifier_imperial_buff = class({})
 
-function modifier_imperial_buff:OnCreated()
+-- the AddNewModifier kv table is server-only, so the computed bonuses are
+-- shipped to the client through the custom transmitter data channel -
+-- that is what makes the numbers show up in the HUD in real time
+function modifier_imperial_buff:AddCustomTransmitterData()
+    return {
+        bonus_damage = self.bonus_damage,
+        mana_regen   = self.mana_regen,
+        hp_regen     = self.hp_regen,
+        armor        = self.armor,
+        mr           = self.mr,
+    }
+end
+
+function modifier_imperial_buff:HandleCustomTransmitterData(data)
+    self.bonus_damage = data.bonus_damage
+    self.mana_regen   = data.mana_regen
+    self.hp_regen     = data.hp_regen
+    self.armor        = data.armor
+    self.mr           = data.mr
+end
+
+function modifier_imperial_buff:OnCreated(kv)
+    if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
+        self:SetHasCustomTransmitterData(true)
+    end
     if IsServer() then
         self.parent = self:GetParent()
         local caster = self:GetCaster()
@@ -145,33 +211,20 @@ function modifier_imperial_buff:OnCreated()
                 self:GetParent():FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(0)
             end
         end
-        if self.parent.ImperialChoose == "nero_tactics" then
-            local cooldown = self.rank*self.parent:FindAbilityByName("nero_tactics"):GetSpecialValueFor("bonus_value")
-            local tresFontCD = caster:FindAbilityByName("nero_tres_new"):GetCooldownTimeRemaining()
-            caster:FindAbilityByName("nero_tres_new"):EndCooldown()
-            if tresFontCD - cooldown > 0 then
-                caster:FindAbilityByName("nero_tres_new"):StartCooldown(tresFontCD - cooldown)
-            end 
-
-            local glaudiusCD = caster:FindAbilityByName("nero_gladiusanus_new"):GetCooldownTimeRemaining()
-            caster:FindAbilityByName("nero_gladiusanus_new"):EndCooldown()
-            if glaudiusCD - cooldown > 0 then
-                caster:FindAbilityByName("nero_gladiusanus_new"):StartCooldown(glaudiusCD - cooldown)
-            end 
-
-            local rosaCD = caster:FindAbilityByName("nero_rosa_new"):GetCooldownTimeRemaining()
-            caster:FindAbilityByName("nero_rosa_new"):EndCooldown()
-            if rosaCD - cooldown > 0 then
-                caster:FindAbilityByName("nero_rosa_new"):StartCooldown(rosaCD - cooldown)
-            end
-            self:Destroy()
-        end
     end
 end
 
-function modifier_imperial_buff:OnRefresh()
+function modifier_imperial_buff:OnRefresh(kv)
     if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
+        if self.SendBuffRefreshToClients then
+            self:SendBuffRefreshToClients()
+        end
     end
 end
 
@@ -189,43 +242,23 @@ function modifier_imperial_buff:DeclareFunctions()
 end
 
 function modifier_imperial_buff:GetModifierPreAttack_BonusDamage()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_health" then return 0 end
-        local resistance = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_value")*self.rank + self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("bonus_value")*self.rank)
-        return resistance
-    end
+    return self.bonus_damage or 0
 end
 
 function modifier_imperial_buff:GetModifierMagicalResistanceBonus()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_defence" then return 0 end
-        local resistance = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_mr")*self.rank + self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("bonus_mr")*self.rank)
-        return resistance
-    end
+    return self.mr or 0
 end
 
 function modifier_imperial_buff:GetModifierConstantManaRegen()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_mana" then return 0 end
-        local regen = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_value")*self.rank + self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("bonus_value")*self.rank)
-        return regen
-    end
+    return self.mana_regen or 0
 end
 
 function modifier_imperial_buff:GetModifierConstantHealthRegen()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_mana" then return 0 end
-        local regen = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_value")*self.rank + self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("bonus_value")*self.rank)
-        return regen
-    end
+    return self.hp_regen or 0
 end
 
 function modifier_imperial_buff:GetModifierPhysicalArmorBonus()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_defence" then return 0 end
-        local bonus_armor = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_armor")*self.rank + self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("bonus_armor")*self.rank)
-        return bonus_armor
-    end
+    return self.armor or 0
 end
 
 function modifier_imperial_buff:GetEffectName()
@@ -238,39 +271,52 @@ end
 
 modifier_imperial_buff_h = class({})
 
-function modifier_imperial_buff_h:OnCreated()
+function modifier_imperial_buff_h:AddCustomTransmitterData()
+    return {
+        bonus_damage = self.bonus_damage,
+        mana_regen   = self.mana_regen,
+        hp_regen     = self.hp_regen,
+        armor        = self.armor,
+        mr           = self.mr,
+    }
+end
+
+function modifier_imperial_buff_h:HandleCustomTransmitterData(data)
+    self.bonus_damage = data.bonus_damage
+    self.mana_regen   = data.mana_regen
+    self.hp_regen     = data.hp_regen
+    self.armor        = data.armor
+    self.mr           = data.mr
+end
+
+function modifier_imperial_buff_h:OnCreated(kv)
+    if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
+        self:SetHasCustomTransmitterData(true)
+    end
     if IsServer() then
         self.parent = self:GetParent()
         local caster = self:GetCaster()
         --print(self.parent.ImperialChoose)
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
-        if self.parent.ImperialChoose == "nero_tactics" then
-            local cooldown = self.rank*self.parent:FindAbilityByName("nero_tactics"):GetSpecialValueFor("bonus_value")
-            local tresFontCD = caster:FindAbilityByName("nero_tres_new"):GetCooldownTimeRemaining()
-            caster:FindAbilityByName("nero_tres_new"):EndCooldown()
-            if tresFontCD - cooldown > 0 then
-                caster:FindAbilityByName("nero_tres_new"):StartCooldown(tresFontCD - cooldown)
-            end 
-
-            local glaudiusCD = caster:FindAbilityByName("nero_gladiusanus_new"):GetCooldownTimeRemaining()
-            caster:FindAbilityByName("nero_gladiusanus_new"):EndCooldown()
-            if glaudiusCD - cooldown > 0 then
-                caster:FindAbilityByName("nero_gladiusanus_new"):StartCooldown(glaudiusCD - cooldown)
-            end 
-
-            local rosaCD = caster:FindAbilityByName("nero_rosa_new"):GetCooldownTimeRemaining()
-            caster:FindAbilityByName("nero_rosa_new"):EndCooldown()
-            if rosaCD - cooldown > 0 then
-                caster:FindAbilityByName("nero_rosa_new"):StartCooldown(rosaCD - cooldown)
-            end
-            self:Destroy()
-        end
     end
 end
 
-function modifier_imperial_buff_h:OnRefresh()
+function modifier_imperial_buff_h:OnRefresh(kv)
     if IsServer() then
+        self.bonus_damage = kv.bonus_damage or 0
+        self.mana_regen   = kv.mana_regen or 0
+        self.hp_regen     = kv.hp_regen or 0
+        self.armor        = kv.armor or 0
+        self.mr           = kv.mr or 0
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
+        if self.SendBuffRefreshToClients then
+            self:SendBuffRefreshToClients()
+        end
     end
 end
 
@@ -288,41 +334,21 @@ function modifier_imperial_buff_h:DeclareFunctions()
 end
 
 function modifier_imperial_buff_h:GetModifierPreAttack_BonusDamage()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_health" then return 0 end
-        local resistance = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_value")*self.rank)
-        return resistance
-    end
+    return self.bonus_damage or 0
 end
 
 function modifier_imperial_buff_h:GetModifierMagicalResistanceBonus()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_defence" then return 0 end
-        local resistance = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_mr")*self.rank)
-        return resistance
-    end
+    return self.mr or 0
 end
 
 function modifier_imperial_buff_h:GetModifierConstantManaRegen()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_mana" then return 0 end
-        local regen = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_value")*self.rank)
-        return regen
-    end
+    return self.mana_regen or 0
 end
 
 function modifier_imperial_buff_h:GetModifierConstantHealthRegen()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_mana" then return 0 end
-        local regen = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_value")*self.rank)
-        return regen
-    end
+    return self.hp_regen or 0
 end
 
 function modifier_imperial_buff_h:GetModifierPhysicalArmorBonus()
-    if IsServer() then
-        if self:GetParent().ImperialChoose ~= "nero_defence" then return 0 end
-        local bonus_armor = (self:GetParent():FindAbilityByName(self:GetParent().ImperialChoose):GetSpecialValueFor("base_armor")*self.rank)
-        return bonus_armor
-    end
+    return self.armor or 0
 end

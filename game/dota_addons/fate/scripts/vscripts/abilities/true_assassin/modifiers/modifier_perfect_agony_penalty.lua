@@ -14,30 +14,23 @@ function modifier_perfect_agony_penalty:OnAttackLanded(args)
 		local caster = self:GetParent()
 		local target = args.target
 
-		if caster:GetMana() > 25 then
-			local stacks = 0
-			if target:HasModifier("modifier_weakening_venom") then 
-				stacks = target:GetModifierStackCount("modifier_weakening_venom", ability)
-			end		
+		local stacks = 0
+		if target:HasModifier("modifier_weakening_venom") then
+			stacks = target:GetModifierStackCount("modifier_weakening_venom", ability)
+		end
 
-			local dirkAbility = caster:FindAbilityByName("true_assassin_dirk")
-			local fPoisonDamage = dirkAbility:GetSpecialValueFor("poison_dot")
-				
-			target:RemoveModifierByName("modifier_weakening_venom") 
-			target:AddNewModifier(caster, dirkAbility, "modifier_weakening_venom", { duration = 12 })
-			target:SetModifierStackCount("modifier_weakening_venom", dirkAbility, stacks + 1)
+		local dirkAbility = caster:FindAbilityByName("true_assassin_dirk")
 
-			--[[local modifier = target:AddNewModifier(caster, dirkAbility, "modifier_dirk_poison", {	Duration = dirkAbility:GetSpecialValueFor("duration"),
-																		PoisonDamage = fPoisonDamage,
-																		PoisonSlow = dirkAbility:GetSpecialValueFor("poison_slow") })]]
+		target:RemoveModifierByName("modifier_weakening_venom")
+		target:AddNewModifier(caster, dirkAbility, "modifier_weakening_venom", { duration = 12 })
+		target:SetModifierStackCount("modifier_weakening_venom", dirkAbility, stacks + 1)
 
-			if not dirkAbility:IsCooldownReady() then
-				local dirkCooldown = dirkAbility:GetCooldownTimeRemaining()
-				dirkAbility:EndCooldown()
+		if not dirkAbility:IsCooldownReady() then
+			local dirkCooldown = dirkAbility:GetCooldownTimeRemaining()
+			dirkAbility:EndCooldown()
 
-				if dirkCooldown > 1 then
-					dirkAbility:StartCooldown(dirkCooldown - 1)
-				end
+			if dirkCooldown > 1 then
+				dirkAbility:StartCooldown(dirkCooldown - 1)
 			end
 		end
 	end

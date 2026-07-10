@@ -320,7 +320,11 @@ function SendVotes( )
 	} else if ($( "#RoundButton2" ).checked == true) {
 		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
 			g_GameConfig.bIsBGMOn = false;
-			StopBGM();
+			// StopBGM lives in fateanother_bgm.js (different script context),
+			// reachable only through the shared UI root
+			if (g_GameConfig.StopBGM) {
+				g_GameConfig.StopBGM();
+			}
 		}
 	};
 	$.Msg("selected mode : " + killsVoted)

@@ -158,7 +158,8 @@ function modifier_demon_buff_hijikata:OnCreated(args)
 end
 
 function modifier_demon_buff_hijikata:GetModifierAttackSpeedBonus_Constant()
-	return self.as_value
+	-- значение из спешлов способности: доступно и на клиенте (self.as_value серверное)
+	return self:GetAbility():GetSpecialValueFor("as_value")
 end
 
 function modifier_demon_buff_hijikata:DeclareFunctions()

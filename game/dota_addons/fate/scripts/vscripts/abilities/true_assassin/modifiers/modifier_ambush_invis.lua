@@ -1,38 +1,27 @@
 modifier_ambush_invis = class({})
-modifier_ambush_attack_speed = class({})
-
-LinkLuaModifier("modifier_ambush_attack_speed", "abilities/true_assassin/modifiers/modifier_ambush_invis", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_ambush_invis:DeclareFunctions()
     local funcs = {}
     if self:GetParent().IsPCImproved then
         funcs = { MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
                  MODIFIER_EVENT_ON_ATTACK,
-                 --MODIFIER_EVENT_ON_ATTACK_LANDED,
                  MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-                 --MODIFIER_EVENT_ON_TAKEDAMAGE
                   }
     else
         funcs = {MODIFIER_EVENT_ON_ATTACK,
-                 --MODIFIER_EVENT_ON_ATTACK_LANDED,
                  MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-                 --MODIFIER_EVENT_ON_TAKEDAMAGE
                   }
     end
     return funcs
 end
 if IsServer() then
-    function modifier_ambush_invis:OnCreated(table)     
+    function modifier_ambush_invis:OnCreated(table)
         self.fixedMoveSpeed = 0
         CustomNetTables:SetTableValue("sync","ambush_movement", {movespeed_bonus = self.fixedMoveSpeed})
-        self.bonusDamage = table.bonusDamage
         self.Faded = false
         self.radius = self:GetAbility():GetSpecialValueFor("invis_radius")
         self.immune_radius = self:GetAbility():GetSpecialValueFor("immune_radius")
         self:StartIntervalThink(table.fadeDelay)
-        local k = 0
-        --self:GetParent():AddDagger(self:GetAbility():GetSpecialValueFor("recover_dagger"))
-        --self:GetParent():FindAbilityByName("true_assassin_dirk"):EndCooldown()
     end
 
     function modifier_ambush_invis:OnIntervalThink()
@@ -68,17 +57,12 @@ if IsServer() then
     					   [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,
     					 }
             self:StartIntervalThink(0.2)
-            --[[Timers:CreateTimer(0.2, function()
-                self.state = { [MODIFIER_STATE_INVISIBLE] = true,
-                           [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                           [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,}
-                         end)]]
     	end
-        
+
         self.Faded = true
     end
 
-    function modifier_ambush_invis:OnAttackLanded(args)	
+    function modifier_ambush_invis:OnAttackLanded(args)
         local caster = self:GetParent()
         if args.attacker ~= self:GetParent() then return end
         if not self.Faded then return end
@@ -86,8 +70,6 @@ if IsServer() then
         local target = args.target
         if caster == target then return end
 
-        --DoDamage(caster, target, self.bonusDamage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        --target:EmitSound("Hero_TemplarAssassin.Meld.Attack")
         self:Destroy()
     end
 
@@ -119,19 +101,16 @@ if IsServer() then
             ParticleManager:ReleaseParticleIndex(self.fx)
             self.fx = nil
         end
-
-        local hCaster = self:GetParent()
-        hCaster:AddNewModifier(hCaster, self:GetAbility(), "modifier_ambush_attack_speed", { Duration = 1.5 })
     end
 end
 
 function modifier_ambush_invis:GetModifierMoveSpeed_Absolute()
     if IsServer() then
-        CustomNetTables:SetTableValue("sync","ambush_movement", {movespeed_bonus = self.fixedMoveSpeed})       
+        CustomNetTables:SetTableValue("sync","ambush_movement", {movespeed_bonus = self.fixedMoveSpeed})
         return self.fixedMoveSpeed
     elseif IsClient() then
         local ambush_movement = CustomNetTables:GetTableValue("sync","ambush_movement").movespeed_bonus
-        return ambush_movement 
+        return ambush_movement
     end
 end
 
@@ -144,7 +123,7 @@ function modifier_ambush_invis:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_ambush_invis:GetAttributes() 
+function modifier_ambush_invis:GetAttributes()
     return MODIFIER_ATTRIBUTE_NONE
 end
 
@@ -162,13 +141,4 @@ end
 
 function modifier_ambush_invis:GetTexture()
     return "custom/true_assassin_ambush"
-end
------------------------------------------------------------------------------------
-
-function modifier_ambush_attack_speed:DeclareFunctions()
-    return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT }
-end
-
-function modifier_ambush_attack_speed:GetModifierAttackSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("attack_speed")
 end

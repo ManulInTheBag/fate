@@ -217,10 +217,18 @@ end
 function nero_aestus_domus_aurea:DestroyFx()
 	local caster = self:GetCaster()
 
-	ParticleManager:DestroyParticle(self.TheatreRingFx, false)
-	ParticleManager:ReleaseParticleIndex(self.TheatreRingFx)
-	ParticleManager:DestroyParticle(self.ColosseumParticle, false)
-	ParticleManager:ReleaseParticleIndex(self.ColosseumParticle)
+	-- the fx handles only exist once the ult has actually been cast; OnOwnerDied
+	-- calls this unconditionally, so guard against dying without an active arena
+	if self.TheatreRingFx then
+		ParticleManager:DestroyParticle(self.TheatreRingFx, false)
+		ParticleManager:ReleaseParticleIndex(self.TheatreRingFx)
+		self.TheatreRingFx = nil
+	end
+	if self.ColosseumParticle then
+		ParticleManager:DestroyParticle(self.ColosseumParticle, false)
+		ParticleManager:ReleaseParticleIndex(self.ColosseumParticle)
+		self.ColosseumParticle = nil
+	end
 	--FxDestroyer(caster.TheatreRingFx, false)
 
 	if IsValidEntity(caster.CircleDummy) then

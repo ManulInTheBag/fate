@@ -807,10 +807,6 @@ function OnPrivilegeImproved(keys)
 
     hero:FindAbilityByName("nero_imperial_open"):SetLevel(2)
 
-    hero:FindAbilityByName("nero_health"):SetLevel(2)
-    hero:FindAbilityByName("nero_mana"):SetLevel(2)
-    --hero:FindAbilityByName("nero_tactics"):SetLevel(2)
-    hero:FindAbilityByName("nero_defence"):SetLevel(2)
     hero:FindAbilityByName("nero_imperial_close"):SetLevel(2)
     hero:FindAbilityByName("nero_imperial_activate"):SetLevel(2)
 

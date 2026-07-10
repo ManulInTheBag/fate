@@ -1,5 +1,5 @@
 var g_GameConfig = FindCustomUIRoot($.GetContextPanel());
-//g_GameConfig.curBGMentindex = 0;
+g_GameConfig.curBGMentindex = 0;
 g_GameConfig.curBGMIndex = 1;
 g_GameConfig.nextBGMIndex = 1;
 g_GameConfig.BGMSchedule = 0;
@@ -35,6 +35,9 @@ function OnDropDownChanged()
 
 function PlayBGM()
 {
+    if (g_GameConfig.bIsBGMOn !== true) {
+        return;
+    }
     if (g_GameConfig.curBGMentindex != 0) {
         Game.StopSound(g_GameConfig.curBGMentindex);
     }
@@ -83,15 +86,23 @@ function OnIntro(index)
     if (g_GameConfig.BGMSchedule != 0) {
         $.CancelScheduled(g_GameConfig.BGMSchedule, {});
     };
-    Game.EmitSound("melty_game_start");
     if (g_GameConfig.curBGMentindex != 0) {
         Game.StopSound(g_GameConfig.curBGMentindex);
     }
+    if (g_GameConfig.bIsBGMOn !== true) {
+        return;
+    }
+    Game.EmitSound("melty_game_start");
     $.Schedule(9.0, function(){
         PlayBGM();
     })
     //$.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
 }
+
+// Expose BGM controls on the shared UI root so other layouts (team_select etc.)
+// can call them despite living in a separate script context
+g_GameConfig.StopBGM = StopBGM;
+g_GameConfig.PlayBGM = PlayBGM;
 
 (function() {
     if (!Game.IsInToolsMode()){

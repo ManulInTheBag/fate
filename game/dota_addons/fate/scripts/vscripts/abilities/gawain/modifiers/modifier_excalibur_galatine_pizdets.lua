@@ -6,17 +6,31 @@ function modifier_excalibur_galatine_pizdets:DeclareFunctions()
 end
 
 function modifier_excalibur_galatine_pizdets:OnCreated(args)
-	local hero_armor = self:GetParent():GetPhysicalArmorValue(false)
-	self.armor_debuff = (0.01 * args.armor_debuff) * hero_armor * -1
-	self.magic_debuff = -1 * args.magic_debuff
+	if IsServer() then
+		local hero_armor = self:GetParent():GetPhysicalArmorValue(false)
+		self.armor_debuff = (0.01 * args.armor_debuff) * hero_armor * -1
+		self.magic_debuff = -1 * args.magic_debuff
+		self:SetHasCustomTransmitterData(true)
+	end
 end
 
-function modifier_excalibur_galatine_pizdets:GetModifierPhysicalArmorBonus() 
-    return self.armor_debuff
+-- args зависят от дистанции при наложении, поэтому значения шлём клиенту
+-- через transmitter data (kv-таблица на клиенте пустая)
+function modifier_excalibur_galatine_pizdets:AddCustomTransmitterData()
+	return { armor_debuff = self.armor_debuff, magic_debuff = self.magic_debuff }
+end
+
+function modifier_excalibur_galatine_pizdets:HandleCustomTransmitterData(data)
+	self.armor_debuff = data.armor_debuff
+	self.magic_debuff = data.magic_debuff
+end
+
+function modifier_excalibur_galatine_pizdets:GetModifierPhysicalArmorBonus()
+    return self.armor_debuff or 0
 end
 
 function modifier_excalibur_galatine_pizdets:GetModifierMagicalResistanceBonus()
-	return self.magic_debuff
+	return self.magic_debuff or 0
 end
 
 function modifier_excalibur_galatine_pizdets:GetModifierProvidesFOWVision()

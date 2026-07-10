@@ -77,6 +77,12 @@ function HeroDemo:Init()
 
     CustomGameEventManager:RegisterListener( "ToggleDayNight", function(...) return self:OnToggleDayNight( ... ) end )
 
+    CustomGameEventManager:RegisterListener( "AllVisionButtonPressed", function(...) return self:OnAllVisionButtonPressed( ... ) end )
+    CustomGameEventManager:RegisterListener( "UnpauseButtonPressed", function(...) return self:OnUnpauseButtonPressed( ... ) end )
+    CustomGameEventManager:RegisterListener( "KillHeroButtonPressed", function(...) return self:OnKillHeroButtonPressed( ... ) end )
+    -- customization board (attributes/combo/etc) opened while another hero is selected
+    CustomGameEventManager:RegisterListener( "demo_request_customization", function(...) return self:OnDemoRequestCustomization( ... ) end )
+
 
     if Convars:GetInt("dota_hero_demo_spawn_creeps_enabled") == 1 then
 		print("Starting demo mode with creeps spawning")
@@ -523,6 +529,73 @@ function HeroDemo:OnResetHero( eventSourceIndex, data )
 		PlayerResource:ReplaceHeroWithNoTransfer( hHero:GetPlayerOwnerID(), hHero:GetUnitName(), -1, 0 )
 		GameRules:SetSpeechUseSpawnInsteadOfRespawnConcept( false )
 	end
+end
+
+--------------------------------------------------------------------------------
+-- ButtonEvent: AllVisionButtonPressed ("1" = on, "0" = off)
+--------------------------------------------------------------------------------
+function HeroDemo:OnAllVisionButtonPressed( eventSourceIndex, data )
+	local bEnable = ( data.str == "1" )
+	print( "OnAllVisionButtonPressed: " .. tostring( bEnable ) )
+	SendToServerConsole( "dota_all_vision " .. ( bEnable and "1" or "0" ) )
+end
+
+--------------------------------------------------------------------------------
+-- ButtonEvent: UnpauseButtonPressed - same effect as the -unpause chat command:
+-- strips the round_pause modifier from every hero on the map
+--------------------------------------------------------------------------------
+function HeroDemo:OnUnpauseButtonPressed( eventSourceIndex, data )
+	for _, hHero in pairs( HeroList:GetAllHeroes() ) do
+		if IsNotNull( hHero ) then
+			hHero:RemoveModifierByName( "round_pause" )
+		end
+	end
+end
+
+--------------------------------------------------------------------------------
+-- ButtonEvent: KillHeroButtonPressed - kills the selected hero
+--------------------------------------------------------------------------------
+function HeroDemo:OnKillHeroButtonPressed( eventSourceIndex, data )
+	local nEntIndex = tonumber( data.str )
+	if nEntIndex == nil then
+		return
+	end
+	local hUnit = EntIndexToHScript( nEntIndex )
+	if IsNotNull( hUnit ) and hUnit.ForceKill and hUnit:IsAlive() then
+		print( 'OnKillHeroButtonPressed! - killing unit with ent index = ' .. nEntIndex )
+		hUnit:ForceKill( false )
+	end
+end
+
+--------------------------------------------------------------------------------
+-- demo_request_customization: the customization board (attributes/combo/etc)
+-- was opened; if the player has some other fate hero selected, resend the
+-- board contents for THAT hero. Falls back to the player's own hero.
+--------------------------------------------------------------------------------
+function HeroDemo:OnDemoRequestCustomization( eventSourceIndex, data )
+	local hPlayer = PlayerResource:GetPlayer( data.PlayerID )
+	if hPlayer == nil then
+		return
+	end
+
+	local nEntIndex = tonumber( data.unit )
+	local hUnit = nEntIndex and EntIndexToHScript( nEntIndex ) or nil
+
+	-- only initialised fate heroes carry the master units the board is built from
+	if not ( IsNotNull( hUnit ) and IsNotNull( hUnit.MasterUnit ) and IsNotNull( hUnit.MasterUnit2 ) ) then
+		hUnit = PlayerResource:GetSelectedHeroEntity( data.PlayerID )
+	end
+	if not ( IsNotNull( hUnit ) and IsNotNull( hUnit.MasterUnit ) and IsNotNull( hUnit.MasterUnit2 ) ) then
+		return
+	end
+
+	-- dedicated event: player_selected_hero is also consumed by the masterbar /
+	-- portrait / hotkey scripts and re-sending it duplicates their panels
+	CustomGameEventManager:Send_ServerToPlayer( hPlayer, "demo_customization_data", {
+		masterUnit = hUnit.MasterUnit2:entindex(),
+		shardUnit  = hUnit.MasterUnit:entindex(),
+		hero       = hUnit:entindex(),
+	} )
 end
 
 

@@ -458,8 +458,6 @@ donotlevel = {
     "berserker_5th_berserk_attribute_passive",
     --"berserker_5th_god_hand",
     "false_assassin_presence_concealment",
-    "true_assassin_weakening_venom_passive",
-    --"true_assassin_protection_from_wind",
     "avenger_overdrive",
     "berserker_5th_reincarnation",    
     "cu_chulain_protection_from_arrows",  
@@ -582,7 +580,6 @@ CannotReset = {
     "jtr_information_erase",
     "jtr_mental_pollution_passive",
     "jtr_whitechapel_murderer",
-    "gilgamesh_combo_final_hour",
     "lancelot_combo_arondite_overload",
     "nursery_rhyme_queens_glass_game_activate",
     "khsn_combo",
@@ -770,8 +767,6 @@ tCannotDetect = {
 }
 
 tDangerousBuffs = {
-    "modifier_gae_buidhe",
-    "modifier_zabaniya_curse",
     "modifier_gae_buidhe",
 }
 

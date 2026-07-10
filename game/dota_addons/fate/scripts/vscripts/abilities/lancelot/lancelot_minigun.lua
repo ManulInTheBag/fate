@@ -145,9 +145,7 @@ function modifier_lancelot_minigun:GetModifierProvidesFOWVision(keys)
     return 1
 end
 function modifier_lancelot_minigun:GetModifierMoveSpeed_Absolute(keys)
-    if IsServer() then
-        return 1
-    end
+    return 1
 end
 function modifier_lancelot_minigun:OnCreated(hTable)
     self.hCaster  = self:GetCaster()

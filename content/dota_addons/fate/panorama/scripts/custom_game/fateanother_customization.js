@@ -21,6 +21,14 @@ function OnCustomizeButtonPressed()
 
     customizePanel.visible = !customizePanel.visible;
 	customizePanelLabel.visible = customizePanel.visible;
+
+	// Test lobby: opening the board with another hero selected shows THAT hero's
+	// upgrades. The server listener only exists in cheat mode (demo_core.lua), so
+	// in a normal game this event goes nowhere and the board stays as-is.
+	if (customizePanel.visible) {
+		var selected = Players.GetLocalPlayerPortraitUnit();
+		GameEvents.SendCustomGameEventToServer("demo_request_customization", { unit: selected });
+	}
 }
 
 function CreateFateTalentButton(){
@@ -69,6 +77,14 @@ function UpdateAttributeList(data)
 	//$.Msg("panels present. linking abilities...")
 	var queryUnit = data.masterUnit; //Players.GetLocalPlayerPortraitUnit();
 	var queryUnit2 = data.shardUnit;
+
+	// the event can arrive more than once (initial pick resends it, and the test
+	// lobby rebuilds the board for the selected hero) - clear the old panels first
+	attributePanel.RemoveAndDeleteChildren();
+	statPanel.RemoveAndDeleteChildren();
+	shardPanel.RemoveAndDeleteChildren();
+	if (cooldownPanel)
+		cooldownPanel.RemoveAndDeleteChildren();
 
 	for(i=0; i<5; i++) {
 		CreateAbilityPanel(attributePanel, queryUnit, i, true);
@@ -194,6 +210,8 @@ function CreateErrorMessage(msg){
 	//GameEvents.Subscribe( "dota_hero_ability_points_changed", UpdateAbilityList );
 	GameUI.SetCameraDistance(1900);
 	GameEvents.Subscribe( "player_selected_hero", UpdateAttributeList);
+	// test lobby: board contents for the currently selected hero (see demo_core.lua)
+	GameEvents.Subscribe( "demo_customization_data", UpdateAttributeList);
 	GameEvents.Subscribe( "servant_stats_updated", UpdateStatPanel );
 	GameEvents.Subscribe( "error_message_fired", CreateErrorMessage)
 	GameEvents.Subscribe( "player_chat_lua", PrintToClient );

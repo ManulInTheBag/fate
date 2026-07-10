@@ -370,18 +370,44 @@ function ToggleHeroActive()
 	$.Msg( 'ToggleHeroActive()' )
 }
 
-function MouseOverRune( strRuneID, strRuneTooltip )
+function ToggleAllVision()
 {
-	var runePanel = $( '#' + strRuneID );
-	runePanel.StartAnimating();
-	$.DispatchEvent( 'UIShowTextTooltip', runePanel, strRuneTooltip );
+	Game.EmitSound( "UI.Button.Pressed" );
+	// ToggleButton has already flipped its state by the time onactivate fires
+	var bEnabled = $( '#AllVisionButton' ).checked;
+	$.DispatchEvent( 'FireCustomGameEvent_Str', 'AllVisionButtonPressed', bEnabled ? "1" : "0" );
 }
 
-function MouseOutRune( strRuneID )
+function UnpauseAll()
 {
-	var runePanel = $( '#' + strRuneID );
-	runePanel.StopAnimating();
-	$.DispatchEvent( 'UIHideTextTooltip', runePanel );
+	Game.EmitSound( "UI.Button.Pressed" );
+	$.DispatchEvent( 'FireCustomGameEvent_Str', 'UnpauseButtonPressed', "1" );
+}
+
+function KillSelectedHeroes()
+{
+	var entities = Players.GetSelectedEntities( Players.GetLocalPlayer() );
+	var numEntities = Object.keys( entities ).length;
+
+	var bKillAttempted = false;
+	for ( var i = 0; i < numEntities; i++ )
+	{
+		var entindex = entities[ i ];
+		if ( entindex == -1 )
+			continue;
+
+		bKillAttempted = true;
+		$.DispatchEvent( 'FireCustomGameEvent_Str', 'KillHeroButtonPressed', String( entindex ) );
+	}
+
+	if ( bKillAttempted )
+	{
+		Game.EmitSound( "UI.Button.Pressed" );
+	}
+	else
+	{
+		Game.EmitSound( "General.Cancel" );
+	}
 }
 
 function SlideThumbActivate()

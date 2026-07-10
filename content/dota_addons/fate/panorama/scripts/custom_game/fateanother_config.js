@@ -381,8 +381,8 @@ function PlayerChat(event)
             //$.Msg("BGM off by " + playerID)
         }
         if (txt == "-bgmon" && !g_GameConfig.bIsBGMOn) {
-            PlayBGM();
             g_GameConfig.bIsBGMOn = true;
+            PlayBGM();
             //$.Msg("BGM on by " + playerID)
         }
     }
@@ -397,9 +397,8 @@ function TurnBGMOff(event)
 
 function TurnBGMOn(event)
 {
-   
-    PlayBGM();
     g_GameConfig.bIsBGMOn = true;
+    PlayBGM();
 }
 
 function CheckTransportSelection(data)

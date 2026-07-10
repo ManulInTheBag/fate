@@ -67,8 +67,10 @@ end
 ----on refresh does not execute OnCreated and OnDestroyed, so i need to just remember values  
 ----
 function modifier_muramasa_eye_of_karma:OnRefresh(args)
+   if not IsServer() then return end
    self.atkstacks = args.atkstacks
    self.visionenabled = args.visionenabled
+   self:SetStackCount(self.atkstacks or 0)
 end
  
 
@@ -79,9 +81,8 @@ end
 
  
 function modifier_muramasa_eye_of_karma:GetModifierMagicalResistanceBonus()
-    if( IsServer()) then 
-	    return  -1*self:GetAbility():GetSpecialValueFor("mr_reduction_per_attack")*self.atkstacks 
-    end
+    -- стаки сетевые через SetStackCount — работает и на клиенте
+    return -1*self:GetAbility():GetSpecialValueFor("mr_reduction_per_attack")*self:GetStackCount()
 end
 
  
@@ -98,6 +99,7 @@ end
     --increasing mr reduction and providing debuff extension 
     -------------------------------------------------------
     self.atkstacks = self.atkstacks +1
+    self:SetStackCount(self.atkstacks)
     -------------------------------------------------------
  
     local debufduration  = self:GetDuration()  + 0.75 - (self:GetDuration() - self:GetRemainingTime())

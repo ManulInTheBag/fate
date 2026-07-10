@@ -2,9 +2,7 @@
 
 //Libraries
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
-var _ = GameUI.CustomUIConfig()._;
 var Options = GameUI.CustomUIConfig().Options;
-var RegisterKeyBind = GameUI.CustomUIConfig().RegisterKeyBind;
 var CustomHooks = GameUI.CustomUIConfig().CustomHooks;
 
 var console = {
