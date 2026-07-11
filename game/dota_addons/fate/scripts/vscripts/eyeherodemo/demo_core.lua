@@ -581,6 +581,23 @@ function HeroDemo:OnDemoRequestCustomization( eventSourceIndex, data )
 	local nEntIndex = tonumber( data.unit )
 	local hUnit = nEntIndex and EntIndexToHScript( nEntIndex ) or nil
 
+	-- Whitelist which heroes may open on your screen. Only two are safe:
+	--   * YOUR OWN hero
+	--   * a BOT's hero (fake client) - the point of inspecting in tools/cheats
+	-- Anything else falls back to your own hero. This deliberately covers real
+	-- players AND leavers: a disconnected/abandoned player's hero is still a real
+	-- client's hero (unreadable -> empty blocks), and if Dota clears its owner to
+	-- -1 on disconnect that also fails the whitelist. Ownerless demo units (-1)
+	-- likewise fall back, which is fine - they don't carry the master units below.
+	if IsNotNull( hUnit ) and hUnit.GetPlayerOwnerID then
+		local nOwnerID = hUnit:GetPlayerOwnerID()
+		local bIsOwn = ( nOwnerID == data.PlayerID )
+		local bIsBot = ( nOwnerID >= 0 and PlayerResource:IsFakeClient( nOwnerID ) )
+		if not ( bIsOwn or bIsBot ) then
+			hUnit = nil
+		end
+	end
+
 	-- only initialised fate heroes carry the master units the board is built from
 	if not ( IsNotNull( hUnit ) and IsNotNull( hUnit.MasterUnit ) and IsNotNull( hUnit.MasterUnit2 ) ) then
 		hUnit = PlayerResource:GetSelectedHeroEntity( data.PlayerID )

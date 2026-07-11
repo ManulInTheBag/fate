@@ -116,6 +116,45 @@ function CreateSubSkillPanel(panel, row, position, length, isAttribute)
 	abilityPanel.style["height"] = height + "px;"
 	return abilityPanel
 }
+function FormatStatNumber(value)
+{
+	var num = Number(value);
+	if (isNaN(num)) return "" + value;
+	return "" + (Math.round(num * 10) / 10);
+}
+
+function UpdateHeroStatsPanel(parentPanel, herostats)
+{
+	var statsPanel = parentPanel.FindChildInLayoutFile("FatepediaHeroStatsPanel");
+	if (!statsPanel) return;
+
+	var strLabel = parentPanel.FindChildInLayoutFile("FatepediaStatStr");
+	var agiLabel = parentPanel.FindChildInLayoutFile("FatepediaStatAgi");
+	var intLabel = parentPanel.FindChildInLayoutFile("FatepediaStatInt");
+
+	strLabel.text = FormatStatNumber(herostats.attribute_base_0) + " (+" + FormatStatNumber(herostats.attribute_gain_0) + ")";
+	agiLabel.text = FormatStatNumber(herostats.attribute_base_1) + " (+" + FormatStatNumber(herostats.attribute_gain_1) + ")";
+	intLabel.text = FormatStatNumber(herostats.attribute_base_2) + " (+" + FormatStatNumber(herostats.attribute_gain_2) + ")";
+
+	// 0 = str, 1 = agi, 2 = int, 3 = universal
+	var primary = Number(herostats.attribute_primary);
+	var isUniversal = (primary == 3);
+	strLabel.SetHasClass("FatepediaStatPrimary", primary == 0 || isUniversal);
+	agiLabel.SetHasClass("FatepediaStatPrimary", primary == 1 || isUniversal);
+	intLabel.SetHasClass("FatepediaStatPrimary", primary == 2 || isUniversal);
+	parentPanel.FindChildInLayoutFile("FatepediaStatUniversalItem").visible = isUniversal;
+
+	parentPanel.FindChildInLayoutFile("FatepediaStatDmg").text = FormatStatNumber(herostats.damage_min) + " - " + FormatStatNumber(herostats.damage_max);
+	parentPanel.FindChildInLayoutFile("FatepediaStatBAT").text = FormatStatNumber(herostats.attackrate);
+	parentPanel.FindChildInLayoutFile("FatepediaStatRange").text = FormatStatNumber(herostats.attack_range);
+	parentPanel.FindChildInLayoutFile("FatepediaStatMS").text = FormatStatNumber(herostats.movespeed);
+
+	parentPanel.FindChildInLayoutFile("FatepediaStatHP").text = FormatStatNumber(herostats.base_health);
+	parentPanel.FindChildInLayoutFile("FatepediaStatMP").text = FormatStatNumber(herostats.base_mana);
+	parentPanel.FindChildInLayoutFile("FatepediaStatArmor").text = FormatStatNumber(herostats.armor);
+	parentPanel.FindChildInLayoutFile("FatepediaStatMR").text = FormatStatNumber(herostats.mr) + "%";
+}
+
 function OnHeroButtonPressed() {
 
     var name = $.GetContextPanel().GetAttributeString("heroname", "");
@@ -182,6 +221,9 @@ function OnHeroButtonPressed() {
     }
 
     var herostats = heroesdata["attributes"]
+    if (herostats) {
+    	UpdateHeroStatsPanel(parentPanel, herostats);
+    }
     //$.Msg(herostats)
     //CreateContextAbilityPanel(skillPanel, comboes[curIndex]);
     // attributes 

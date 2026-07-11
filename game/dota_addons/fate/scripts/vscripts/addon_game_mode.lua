@@ -2138,6 +2138,7 @@ function OnPlayerCustomQuickBuy(iSource, args)
             end
         end
         CustomGameEventManager:Send_ServerToPlayer(ply, "PlayVoiceSound", { SoundEvent = "General.Buy" })
+        CustomGameEventManager:Send_ServerToPlayer(ply, "fate_quick_buy_sound", { SoundEvent = "General.Buy" })
         CheckItemCombination(hHero)
         CheckItemCombinationInStash(hHero)
         SaveStashState(hHero)
@@ -2146,6 +2147,7 @@ function OnPlayerCustomQuickBuy(iSource, args)
         new_item = CreateItem(sItem_Name, hHero, hHero)
         hHero:AddItem(new_item)
         CustomGameEventManager:Send_ServerToPlayer(ply, "PlayVoiceSound", { SoundEvent = "General.Buy" })
+        CustomGameEventManager:Send_ServerToPlayer(ply, "fate_quick_buy_sound", { SoundEvent = "General.Buy" })
         CheckItemCombination(hHero)
         CheckItemCombinationInStash(hHero)
         SaveStashState(hHero)
@@ -2157,7 +2159,23 @@ function OnPlayerCustomQuickBuy(iSource, args)
 
 end
 
-function OnPlayerCastSeal1(index, keys) 
+-- The hotkey panel may be created after the pick-time "player_selected_hero"
+-- event has already fired (the options screen builds it lazily), so it can ask
+-- for the master unit again; reuses the same event, so the master bar also syncs.
+function OnPlayerRequestMasterUnit(iSource, args)
+    local ply = PlayerResource:GetPlayer(args.PlayerID)
+    if not ply then return end
+    local hero = ply:GetAssignedHero()
+    if not hero or not hero.MasterUnit or hero.MasterUnit:IsNull() then return end
+    if not hero.MasterUnit2 or hero.MasterUnit2:IsNull() then return end
+
+    CustomGameEventManager:Send_ServerToPlayer(ply, "player_selected_hero", {
+        masterUnit = hero.MasterUnit2:entindex(),
+        shardUnit = hero.MasterUnit:entindex()
+    })
+end
+
+function OnPlayerCastSeal1(index, keys)
     local playerID = EntIndexToHScript(keys.player)
     local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
     local master = hero.MasterUnit
@@ -3800,13 +3818,23 @@ end
 function OnServantCustomizeActivated(Index, keys)
     local caster = EntIndexToHScript(keys.unitEntIndex)
     local ability = EntIndexToHScript(keys.abilEntIndex)
-    local hero = caster:GetPlayerOwner():GetAssignedHero()
+    -- HeroUnit is the servant this master belongs to; it is set for every master
+    -- unit (see hero summon) and works whether it's your own hero or, in cheat/
+    -- demo mode, an inspected unit whose player owner may be nil.
+    local hero = caster.HeroUnit
+    if not IsNotNull(hero) then
+        local owner = caster:GetPlayerOwner()
+        hero = owner and owner:GetAssignedHero() or nil
+    end
+    if not IsNotNull(hero) then return end
+    -- whoever opened the board (the event sender) is who should see the refresh
+    local viewer = PlayerResource:GetPlayer(keys.PlayerID) or hero:GetPlayerOwner()
     local behav_string = tostring(ability:GetBehavior())
     if behav_string ~= "6293508" then
         return
     end
     if ability:GetManaCost(1) > caster:GetMana() then
-        SendErrorMessage(hero:GetPlayerOwnerID(), "#Not_Enough_Master_Mana")
+        SendErrorMessage(keys.PlayerID, "#Not_Enough_Master_Mana")
         return
     end
     if ability:IsCooldownReady() == false then
@@ -3814,7 +3842,7 @@ function OnServantCustomizeActivated(Index, keys)
     end
     caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
     local statTable = CreateTemporaryStatTable(hero)
-    CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
+    CustomGameEventManager:Send_ServerToPlayer( viewer, "servant_stats_updated", statTable ) -- Send the current stat info to JS
 
     hero:EmitSound("Item.DropGemWorld")
     local tomeFx = ParticleManager:CreateParticle("particles/units/heroes/hero_silencer/silencer_global_silence_sparks.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
@@ -4007,7 +4035,8 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener( "player_alt_click", OnPlayerAltClick )
     CustomGameEventManager:RegisterListener("player_remove_buff", OnPlayerRemoveBuff )
     CustomGameEventManager:RegisterListener("player_cast_seal", OnPlayerCastSeal )
-    CustomGameEventManager:RegisterListener("player_quick_buy_custom", OnPlayerCustomQuickBuy ) 
+    CustomGameEventManager:RegisterListener("player_quick_buy_custom", OnPlayerCustomQuickBuy )
+    CustomGameEventManager:RegisterListener("player_request_master_unit", OnPlayerRequestMasterUnit )
     CustomGameEventManager:RegisterListener("player_seal_1", OnPlayerCastSeal1 )
     CustomGameEventManager:RegisterListener("player_seal_2", OnPlayerCastSeal2 )
     CustomGameEventManager:RegisterListener("player_seal_3", OnPlayerCastSeal3 )

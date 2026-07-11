@@ -23,7 +23,7 @@ function RecieveMessage(data) {
 			var SenderHero = GetPlayerHeroName(playerId);
 			var playerColor = GetHEXPlayerColor(playerId);
 			if (SenderHero && SenderHero !== 'npc_dota_hero_target_dummy')
-				html = '<img src="' + TransformTextureToPath(SenderHero) + '" class="HeroIcon" style="vertical-align: top;"/> ';
+				html = '<img src="file://{images}/custom_game/portrait/' + SenderHero + '.png" class="HeroIcon" style="vertical-align: top;"/> ';
 			html += data.teamonly === 1 ? '<font color="lime">[T]</font>' : '<font color="darkred">[A]</font>';
 			html += " <font color='" + playerColor + "'>" + Players.GetPlayerName(playerId) + '</font>: ';
 		}

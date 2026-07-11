@@ -6,7 +6,13 @@ g_GameConfig.BGMSchedule = 0;
 g_GameConfig.duration = [481,187,327,219,142,183,143,233,212,247,241,280,224,288,187,318,270,344,255,375,292,184,202,142,162,215,140,126,249,133,185,238,237,184,212,174,176];
 //g_GameConfig.duration = [5,5,5,5,5,5,5,5];
 g_GameConfig.bRepeat = false;
-g_GameConfig.bIsBGMOn = true;
+// Do NOT clobber an existing choice. The pick screen ("BGM OFF" radio in
+// team_select.js) writes g_GameConfig.bIsBGMOn on the shared CustomUIRoot
+// BEFORE this Hud script loads; overwriting it here re-enabled the music and
+// made the toggle appear broken. Only default to ON when nothing set it yet.
+if (typeof g_GameConfig.bIsBGMOn === "undefined") {
+    g_GameConfig.bIsBGMOn = true;
+}
 g_GameConfig.bIsAutoChange = false;
 g_GameConfig.InitialIndex = 0;
 

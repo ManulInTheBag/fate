@@ -612,34 +612,37 @@ function SpiritLink(keys)
 
 	local targets = keys.target_entities
 	hero.ServStat:useLink()
-	--local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+	local maxLinkTargets = ability:GetSpecialValueFor("max_link_targets")
+	if maxLinkTargets <= 0 then maxLinkTargets = 5 end
 	local linkTargets = {}
 	caster:EmitSound("Hero_Warlock.FatalBonds" )
 	-- set up table for link
 	for i=1,#targets do
+		if #linkTargets >= maxLinkTargets then break end
 		if targets[i]:GetUnitName() ~= "pseudo_illusion" then
-			linkTargets[i] = targets[i]
-			--print("Added hero to link table : " .. targets[i]:GetName())
+			table.insert(linkTargets, targets[i])
 			RemoveHeroFromLinkTables(targets[i])
 
 			-- particle
 	    	local pulseFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_warlock/warlock_fatal_bonds_pulse.vpcf", PATTACH_CUSTOMORIGIN, caster )
 		    ParticleManager:SetParticleControl( pulseFx, 0, caster:GetAbsOrigin() + Vector(0,0,100))
 		    ParticleManager:SetParticleControl( pulseFx, 1, targets[i]:GetAbsOrigin() + Vector(0,0,100))
+		    ParticleManager:ReleaseParticleIndex(pulseFx)
 		end
 	end
 
 	-- add list of linked targets to hero table
-	for i=1,#targets do
-		targets[i].linkTable = linkTargets
-		--print("Table Contents " .. i .. " : " .. targets[i]:GetName())
-		keys.ability:ApplyDataDrivenModifier(caster, targets[i], "modifier_share_damage", {})
+	for i=1,#linkTargets do
+		linkTargets[i].linkTable = linkTargets
+		keys.ability:ApplyDataDrivenModifier(caster, linkTargets[i], "modifier_share_damage", {})
 	end
 end
 
 function OnLinkDestroyed(keys)
-	local caster = keys.caster
 	local target = keys.target
+	if IsValidEntity(target) then
+		RemoveHeroFromLinkTables(target)
+	end
 end
 
 function GemOfResonance(keys)

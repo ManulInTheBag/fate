@@ -91,6 +91,95 @@
     height: 100%;
     flow-children: down;
 }
+
+#FatepediaHeroStatsPanel
+{
+    horizontal-align: center;
+    flow-children: down;
+    margin-top: 8px;
+}
+
+.FatepediaStatRow
+{
+    horizontal-align: center;
+    flow-children: right;
+}
+
+.FatepediaStatItem
+{
+    flow-children: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.FatepediaStatIcon
+{
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.FatepediaStatChip
+{
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 6px;
+    border: 1px solid #00000088;
+}
+
+.FatepediaChipHP
+{
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #6cc26c ), to( #2f7a2f ) );
+}
+
+.FatepediaChipMP
+{
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #5c9ee0 ), to( #275e9e ) );
+}
+
+.FatepediaStatText
+{
+    font-size: 19px;
+    font-weight: bold;
+    color: #c3cacc;
+    text-shadow: 2px 2px 2px #000000;
+    vertical-align: middle;
+}
+
+.FatepediaStatStrColor
+{
+    color: #f0705a;
+}
+
+.FatepediaStatAgiColor
+{
+    color: #6adb70;
+}
+
+.FatepediaStatIntColor
+{
+    color: #5cb3e8;
+}
+
+.FatepediaStatHPColor
+{
+    color: #7bc47b;
+}
+
+.FatepediaStatMPColor
+{
+    color: #6a9be0;
+}
+
+.FatepediaStatPrimary
+{
+    text-decoration: underline;
+    brightness: 1.4;
+}
 #FatepediaHeroesPanel
 {
     width: 95%;

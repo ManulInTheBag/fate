@@ -1941,40 +1941,29 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         -- if target is linked, distribute damages 
         if target:HasModifier("modifier_share_damage")
           and not isLoop
-          and not (abil:GetName() == "avenger_verg_avesta" and source:GetTeam() == target:GetTeam())
+          and not (abil ~= nil and abil:GetName() == "avenger_verg_avesta" and source:GetTeam() == target:GetTeam())
           and not target:HasModifier("modifier_leonidas_pride_counter")
          --Queens glass game attribute fix
-          and not (target:HasModifier("modifier_queens_glass_game_check_link") and not target:HasModifier("modifier_qgg_oracle")) 
-          and target.linkTable ~= nil
+          and not (target:HasModifier("modifier_queens_glass_game_check_link") and not target:HasModifier("modifier_qgg_oracle"))
+          and target.linkTable ~= nil and #target.linkTable > 0
         then
             -- Calculate the damage to secondary targets separately, in order to prevent MR from being twice as effective on primary target.
-            local damageToAllies =  dmgtable.damage
-            damageToAllies = damageToAllies/#target.linkTable -- * (1 + 0.1 * #target.linkTable - (#target.linkTable == 1 and 1 or 0) * 0.1) --damage/person is now 100/60/43.3/35/30 after instead of 100/50/33.3/25/20
-            dmgtable.damage = dmgtable.damage/#target.linkTable -- * (1 + 0.1 * #target.linkTable - (#target.linkTable == 1 and 1 or 0) * 0.1)
+            local damageToAllies = dmgtable.damage/#target.linkTable
+            dmgtable.damage = dmgtable.damage/#target.linkTable
             -- Loop through linked heroes
             for i=#target.linkTable,1,-1 do
                 local hLinkTarget = target.linkTable[i]
                 -- do ApplyDamage if it's primary target since the shield processing is already done
-                if target.linkTable[i] == target then
+                if hLinkTarget == target then
                     ApplyDamage(dmgtable)
-                -- for other linked targets, we need DoDamage
-                else
-                    if target.linkTable[i] ~= nil then
-                        local curhealth = hLinkTarget:GetHealth() 
-                        --local damage = CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget)
-                        if curhealth >= damageToAllies then
-                            DoDamage(source, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT + DOTA_DAMAGE_FLAG_NON_LETHAL, abil, true)
-                            --DoDamage(target, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 128, abil, true)
-                            --hLinkTarget:SetHealth(curhealth - damage)
-                        else
-                            if hLinkTarget:IsAlive() then
-                                hLinkTarget:SetHealth(1)
-                            end
-                                hLinkTarget:RemoveModifierByName("modifier_share_damage")
-                                RemoveHeroFromLinkTables(hLinkTarget)
-                            
-                        end
-                    end 
+                -- for other linked targets, we need DoDamage; shared damage keeps the original damage type
+                elseif hLinkTarget ~= nil then
+                    DoDamage(source, hLinkTarget, damageToAllies, dmg_type, DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT + DOTA_DAMAGE_FLAG_NON_LETHAL, abil, true)
+                    -- NON_LETHAL leaves the ally at 1 HP instead of killing; drop them from the link at that point
+                    if hLinkTarget:IsAlive() and hLinkTarget:GetHealth() <= 1 then
+                        hLinkTarget:RemoveModifierByName("modifier_share_damage")
+                        RemoveHeroFromLinkTables(hLinkTarget)
+                    end
                 end
             end
         -- if target is not linked, apply damage normally
@@ -2393,7 +2382,8 @@ end
 function RemoveHeroFromLinkTables(targethero)
     LoopOverHeroes(function(hero)
         if hero.linkTable ~= nil then
-            for i=1, #hero.linkTable do
+            -- iterate backwards: table.remove in a forward loop skips the element after the removed one
+            for i=#hero.linkTable, 1, -1 do
                 if hero.linkTable[i] == targethero then
                     --print("Removed " .. hero.linkTable[i]:GetName() .. "from", hero:GetName(), " from table")
                     table.remove(hero.linkTable, i)

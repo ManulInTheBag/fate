@@ -13,6 +13,61 @@
 				<Panel id="FatepediaHeroIntroPanel" hittest="false">
 					<Panel id="FatepediaHeroIntroImage" hittest="false" />
 					<Label id="FatepediaHeroName" hittest="false" />
+					<Panel id="FatepediaHeroStatsPanel" hittest="false">
+						<Panel class="FatepediaStatRow" hittest="false">
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image id="FatepediaStatStrIcon" class="FatepediaStatIcon" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatStr" class="FatepediaStatText FatepediaStatStrColor" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image id="FatepediaStatAgiIcon" class="FatepediaStatIcon" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatAgi" class="FatepediaStatText FatepediaStatAgiColor" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image id="FatepediaStatIntIcon" class="FatepediaStatIcon" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatInt" class="FatepediaStatText FatepediaStatIntColor" hittest="false" />
+							</Panel>
+							<Panel id="FatepediaStatUniversalItem" class="FatepediaStatItem" hittest="false">
+								<Image class="FatepediaStatIcon" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_all_psd.vtex" hittest="false" />
+							</Panel>
+						</Panel>
+						<Panel class="FatepediaStatRow" hittest="false">
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image class="FatepediaStatIcon" src="s2r://panorama/images/hud/reborn/icon_damage_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatDmg" class="FatepediaStatText" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image class="FatepediaStatIcon" src="s2r://panorama/images/hud/reborn/icon_attack_speed_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatBAT" class="FatepediaStatText" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image class="FatepediaStatIcon" src="s2r://panorama/images/hud/reborn/icon_attack_range_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatRange" class="FatepediaStatText" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image class="FatepediaStatIcon" src="s2r://panorama/images/hud/reborn/icon_speed_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatMS" class="FatepediaStatText" hittest="false" />
+							</Panel>
+						</Panel>
+						<Panel class="FatepediaStatRow" hittest="false">
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Panel class="FatepediaStatChip FatepediaChipHP" hittest="false" />
+								<Label id="FatepediaStatHP" class="FatepediaStatText FatepediaStatHPColor" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Panel class="FatepediaStatChip FatepediaChipMP" hittest="false" />
+								<Label id="FatepediaStatMP" class="FatepediaStatText FatepediaStatMPColor" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image class="FatepediaStatIcon" src="s2r://panorama/images/hud/reborn/icon_armor_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatArmor" class="FatepediaStatText" hittest="false" />
+							</Panel>
+							<Panel class="FatepediaStatItem" hittest="false">
+								<Image class="FatepediaStatIcon" src="s2r://panorama/images/hud/reborn/icon_magic_resist_psd.vtex" hittest="false" />
+								<Label id="FatepediaStatMR" class="FatepediaStatText" hittest="false" />
+							</Panel>
+						</Panel>
+					</Panel>
 				</Panel>
 				<!--<Label id="InnateText" class="FatepediaSkillContextText" contentheight="200px" text="Innates" hittest="true" /> -->
 				<Label id="QWERText" class="FatepediaSkillContextText" text="Abilities" hittest="true" />

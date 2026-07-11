@@ -91,12 +91,29 @@
 {
 	width: 128px;
 	height: 20px;
-	background-image: url("s2r://panorama/images/custom_game/top_arrow_png.vtex");
-	background-img-opacity: 0.1;
-	background-size: 100%;
-	background-repeat: no-repeat;
+	background-color: #2b2b30;
+	border: 1px solid #D4D48C;
 	vertical-align: top;
 	horizontal-align: left;
+	transition-property: background-color;
+	transition-duration: 0.1s;
+}
+
+.ItemArrow:hover
+{
+	background-color: #4a4a30;
+}
+
+.ItemArrowLabel
+{
+	width: 100%;
+	font-size: 13px;
+	font-weight: bold;
+	color: #D4D48C;
+	text-align: center;
+	vertical-align: center;
+	horizontal-align: center;
+	text-transform: uppercase;
 }
 
 #ItemListContainer
@@ -110,6 +127,7 @@
 	background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326 ), to( #1c1d20 ) );
 	border: 2px solid #32383677;
 	flow-children: right-wrap;
+	overflow: clip scroll;
 }
 
 .ItemOptionPortrait
@@ -139,12 +157,29 @@
 
 .SealTipContainer
 {
-	width: 400px;
+	width: 520px;
 	height: 70%;
 	margin-left: 5px;
 	vertical-align: center;
 	horizontal-align: right;
 	z-index: 0;
+}
+
+.TipLabel
+{
+	width: 100%;
+	font-size: 16px;
+	color: #939da0;
+	text-align: right;
+	vertical-align: center;
+	horizontal-align: right;
+}
+
+.QuickcastToggle
+{
+	vertical-align: center;
+	horizontal-align: left;
+	margin-left: 40px;
 }
 
 .SealApplyButton
@@ -153,9 +188,53 @@
 	height: 70%;
 	margin-left: 5px;
 	border: 2px solid #D4D48C;
+	background-color: #00000000;
 	vertical-align: center;
 	horizontal-align: right;
 	z-index: 0;
+	transition-property: background-color, border-color, box-shadow;
+	transition-duration: 0.12s;
+	transition-timing-function: ease-out;
+}
+
+.SealApplyButton:hover
+{
+	border-color: white;
+	background-color: #ffffff11;
+	box-shadow: 0px 0px 8px 0px #d4d48c88;
+}
+
+/* Pressed state (held down). */
+.SealApplyButton:active
+{
+	background-color: #ffffff33;
+	border-color: white;
+}
+
+/* Persistent state after a successful Apply so the user can see it took. */
+.SealApplyButton.ApplyActive
+{
+	border-color: #6ec06e;
+}
+
+.SealApplyButton.ApplyActive .SealApplyLabel
+{
+	color: #8fe08f;
+}
+
+/* One-shot green flash played on each Apply. */
+@keyframes 'ApplyFlashAnim'
+{
+	0%   { background-color: #8fe08faa; }
+	100% { background-color: #00000000; }
+}
+
+.SealApplyButton.ApplyFlash
+{
+	animation-name: ApplyFlashAnim;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
 }
 
 .SectionHeaderLabel
@@ -168,9 +247,11 @@
 
 .SealApplyLabel
 {
+	width: 100%;
 	font-size: 25px;
 	font-weight: normal;
 	color: #939da0;
+	text-align: center;
 	vertical-align: center;
 	horizontal-align: center;
 	text-transform: uppercase;
@@ -191,19 +272,35 @@
 
 .SealHotkeyLabel
 {
-	font-size: 55px;
+	width: 100%;
+	font-size: 34px;
 	font-weight: bold;
 	color: white;
 	text-transform: uppercase;
+	text-align: center;
 	vertical-align: center;
 	horizontal-align: center;
+	text-shadow: 0px 0px 4px 2.0 #000000ff;
+	z-index: 2;
 }
 
-#HotkeyEntry
+/* Engine-resolved item icon (same widget the inventory uses). Fills the slot,
+   sits under the hotkey label. */
+.ItemIconImage
 {
-	width: 100px;
-	height: 60px;
-	font-size: 35px;
+	width: 100%;
+	height: 100%;
+	horizontal-align: center;
+	vertical-align: center;
+	z-index: 0;
+}
+
+.HotkeyEntryField
+{
+	width: 90px;
+	height: 64px;
+	font-size: 44px;
+	font-weight: bold;
 	color: black;
 	text-align: center;
 	horizontal-align: center;
@@ -211,17 +308,87 @@
 	border-color: black;
 	background-color: white;
 	border-width: 2px;
+	margin-bottom: 12px;
 }
 
 .HotkeyEntryPanel
 {
-	width: 300px;
-	height: 100px;
-	background-color: grey;
+	width: 260px;
+	height: fit-children;
+	padding: 14px;
+	background-color: #1c1d20ee;
 	margin-left: 5px;
 	border: 2px solid #D4D48C;
 	vertical-align: center;
 	horizontal-align: center;
+	flow-children: down;
 	z-index: 20;
+}
+
+.EntryTitle
+{
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+	color: #D4D48C;
+	text-align: center;
+	horizontal-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.EntryModRow
+{
+	width: fit-children;
+	horizontal-align: center;
+	flow-children: right;
+	margin-bottom: 12px;
+}
+
+.EntryMod
+{
+	horizontal-align: center;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.EntryButtonRow
+{
+	width: fit-children;
+	horizontal-align: center;
+	flow-children: right;
+}
+
+.EntryOk,.EntryClear
+{
+	width: 92px;
+	height: 46px;
+	border: 2px solid #D4D48C;
+	background-color: #2b2b30;
+	margin-left: 6px;
+	margin-right: 6px;
+	transition-property: background-color;
+	transition-duration: 0.1s;
+}
+
+.EntryOk:hover
+{
+	background-color: #4a4a30;
+}
+
+.EntryClear:hover
+{
+	background-color: #4a3030;
+}
+
+.EntryBtnLabel
+{
+	width: 100%;
+	font-size: 22px;
+	font-weight: bold;
+	color: #D4D48C;
+	text-align: center;
+	vertical-align: center;
+	horizontal-align: center;
 }
 

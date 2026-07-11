@@ -76,6 +76,8 @@ function HeroSelection:ExtractHeroStats(heroTable)
 		attributes.attribute_primary = 0
 	elseif attributes.attribute_primary == "DOTA_ATTRIBUTE_AGILITY" then
 		attributes.attribute_primary = 1
+	elseif attributes.attribute_primary == "DOTA_ATTRIBUTE_ALL" then
+		attributes.attribute_primary = 3
 	else
 		attributes.attribute_primary = 2
 	end

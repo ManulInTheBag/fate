@@ -17,14 +17,19 @@
 		</snippet>
 		<snippet name="QuickBuyContainerSnippet">
 			<Panel class="ItemContainer" hittest="false">
-				<Panel class="ItemArrow" hittest="true" />
+				<Panel class="ItemArrow" hittest="true">
+					<Label class="ItemArrowLabel" text="▼ CHANGE" hittest="false" />
+				</Panel>
 				<Panel class="ItemPortrait" hittest="true">
 					<Label id="QuickBuyLabel" text="" class="SealHotkeyLabel" />
+					<DOTAItemImage id="QuickBuyItemIcon" class="ItemIconImage" hittest="false" />
 				</Panel>
 			</Panel>
 		</snippet>
 		<snippet name="ItemListContainerSnippet">
-			<Panel class="ItemOptionPortrait" hittest="true" />
+			<Panel class="ItemOptionPortrait" hittest="true">
+				<DOTAItemImage id="ItemOptionIcon" class="ItemIconImage" hittest="false" />
+			</Panel>
 		</snippet>
 	</snippets>
 	<Panel class="HotkeyRoot" hittest="false">
@@ -34,11 +39,9 @@
 			</Panel>
 			<Panel id="SealContainer" class="SealContainer" hittest="false" />
 			<Panel id="SealOptionContainer" class="SealOptionContainer" hittest="false">
-				<ToggleButton id="AltButton" class="ALTCTRL" checked="false" text="#AltButton" onactivate="OnAltButtonToggle()" />
-				<ToggleButton id="CtrlButton" class="ALTCTRL" checked="false" text="#CtrlButton" onactivate="OnCtrlButtonToggle()" />
-				<ToggleButton id="FButton" class="ALTCTRL" checked="false" text="#FButton" onactivate="OnFButtonToggle()" />
+				<ToggleButton id="QuickcastToggle" class="QuickcastToggle" checked="true" text="Quickcast on unbound keys" onactivate="OnQuickcastToggle()" />
 				<Panel id="SealTipContainer" class="SealTipContainer" hittest="false">
-					<Label id="SealTipLabel" text="#SealHotKeyTip" class="SealApplyLabel" hittest="false" />
+					<Label id="SealTipLabel" text="UNBIND: click a slot, press CLEAR, then APPLY. Freed ability keys (Q W E D F R) go back to casting your spells." class="TipLabel" hittest="false" />
 				</Panel>
 			</Panel>
 		</Panel>
@@ -48,16 +51,26 @@
 			</Panel>
 			<Panel id="QuickBuyContainer" class="SealContainer" hittest="false" />
 			<Panel id="QuickBuyOptionContainer" class="SealOptionContainer" hittest="false">
-				<ToggleButton id="AltButtonBuy" class="ALTCTRL" checked="false" text="#AltButton" onactivate="OnAltButtonBuyToggle()" />
-				<ToggleButton id="CtrlButtonBuy" class="ALTCTRL" checked="false" text="#CtrlButton" onactivate="OnCtrlButtonBuyToggle()" />
-				<ToggleButton id="FButtonBuy" class="ALTCTRL" checked="false" text="#FButton" onactivate="OnFButtonBuyToggle()" />
 				<Panel id="SealApplyButton" class="SealApplyButton" hittest="true" onmouseactivate="SealButtonApply()">
 					<Label id="SealApplyLabel" text="Apply" class="SealApplyLabel" hittest="false" />
 				</Panel>
 			</Panel>
 		</Panel>
-		<Panel id="HotkeyEntryPanel" class="HotkeyEntryPanel" hittest="false">
-			<TextEntry id="HotkeyEntry" maxchars="1" placeholder="" oninputsubmit="OnHotkeySubmitted()" />
+		<Panel id="HotkeyEntryPanel" class="HotkeyEntryPanel" hittest="true">
+			<Label class="EntryTitle" text="BIND KEY" hittest="false" />
+			<TextEntry id="HotkeyEntry" class="HotkeyEntryField" maxchars="1" placeholder="" oninputsubmit="OnHotkeySubmitted()" />
+			<Panel class="EntryModRow" hittest="false">
+				<ToggleButton id="EntryAltButton" class="EntryMod" checked="false" text="ALT" onactivate="OnEntryAltToggle()" />
+				<ToggleButton id="EntryFButton" class="EntryMod" checked="false" text="F-key" onactivate="OnEntryFToggle()" />
+			</Panel>
+			<Panel class="EntryButtonRow" hittest="false">
+				<Panel id="EntryOkButton" class="EntryOk" hittest="true" onmouseactivate="OnHotkeySubmitted()">
+					<Label class="EntryBtnLabel" text="OK" hittest="false" />
+				</Panel>
+				<Panel id="EntryClearButton" class="EntryClear" hittest="true" onmouseactivate="OnHotkeyClear()">
+					<Label class="EntryBtnLabel" text="CLEAR" hittest="false" />
+				</Panel>
+			</Panel>
 		</Panel>
 		<Panel id="ItemListContainer" hittest="true" />
 	</Panel>
