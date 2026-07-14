@@ -94,19 +94,19 @@
 							</Button>
 						</Panel>
 						<Panel class="Row">
-							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="ScepterSelectedHeroes()">
-								<Label text="#ScepterSelectedHeroes_Button" />
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="AntiMagicShardSelectedHeroes()">
+								<Label text="#AntiMagicShard_Button" />
 							</Button>
-							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="ShardSelectedHeroes()">
-								<Label text="#ShardSelectedHeroes_Button" />
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="ReplenishShardSelectedHeroes()">
+								<Label text="#ReplenishShard_Button" />
 							</Button>
 						</Panel>
 						<Panel class="Row">
-							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="InvulnerableOn()">
-								<Label text="#InvulnOn_Button" />
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="EndCurrentRound()">
+								<Label text="#EndRound_Button" />
 							</Button>
-							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="InvulnerableOff()">
-								<Label text="#InvulnOff_Button" />
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="MakeRoundInfinite()">
+								<Label text="#InfiniteRound_Button" />
 							</Button>
 						</Panel>
 						<Panel class="Row">

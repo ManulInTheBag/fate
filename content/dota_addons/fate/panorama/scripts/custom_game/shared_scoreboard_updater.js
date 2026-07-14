@@ -2,6 +2,14 @@
 
 //=============================================================================
 //=============================================================================
+function _ScoreboardUpdater_IsElimMap()
+{
+	var mapName = Game.GetMapInfo().map_display_name;
+	return mapName == "fate_elim_6v6" || mapName == "fate_elim_7v7" || mapName == "anime_fate_7vs7_beta" || mapName == "7vs7_common" || mapName == "7vs7_draft";
+}
+
+//=============================================================================
+//=============================================================================
 function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
 {
 	if ( panel === null )
@@ -92,10 +100,24 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		}
 		goldValue = playerInfo.player_gold;
 		
-		playerPanel.SetHasClass( "player_dead", ( playerInfo.player_respawn_seconds >= 0 ) );
+		var isDeadNow = ( playerInfo.player_respawn_seconds >= 0 );
+		playerPanel.SetHasClass( "player_dead", isDeadNow );
 		playerPanel.SetHasClass( "local_player_teammate", isTeammate && ( playerId != Game.GetLocalPlayerID() ) );
 
-		_ScoreboardUpdater_SetTextSafe( playerPanel, "RespawnTimer", ( playerInfo.player_respawn_seconds + 1 ) ); // value is rounded down so just add one for rounded-up
+		// on elimination maps the respawn countdown is meaningless - show DEAD, or
+		// REVIVED while the hero is walking around on Aoko's borrowed time
+		if ( _ScoreboardUpdater_IsElimMap() )
+		{
+			var ptLibResp = GameUI.CustomUIConfig().PlayerTables;
+			var statusResp = ptLibResp ? ptLibResp.GetAllTableValues( "scoreboard_status" ) : null;
+			var isRevived = !isDeadNow && !!( statusResp && statusResp.revived && statusResp.revived[ playerId ] );
+			playerPanel.SetHasClass( "player_revived", isRevived );
+			_ScoreboardUpdater_SetTextSafe( playerPanel, "RespawnTimer", isRevived ? "REVIVED" : "DEAD" );
+		}
+		else
+		{
+			_ScoreboardUpdater_SetTextSafe( playerPanel, "RespawnTimer", ( playerInfo.player_respawn_seconds + 1 ) ); // value is rounded down so just add one for rounded-up
+		}
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "PlayerName", playerInfo.player_name );
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Level", playerInfo.player_level );
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Kills", playerInfo.player_kills );
@@ -200,22 +222,40 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 				playerGoldPanel.text = "";
 			}
 		}
+		// repurposed as an ally combo-readiness indicator, fed by the server
+		// "scoreboard_status" table (bright = ready, gray = on cooldown,
+		// hidden = combo not available / enemy row)
 		if ( playerSealPanel !== null)
 		{
-			if (playerTeam == Players.GetTeam(Players.GetLocalPlayer()))
+			var comboState = null;
+			var comboName = null;
+			var ptLibPlayer = GameUI.CustomUIConfig().PlayerTables;
+			var statusTablePlayer = ptLibPlayer ? ptLibPlayer.GetAllTableValues( "scoreboard_status" ) : null;
+			if ( statusTablePlayer && statusTablePlayer.combo != null )
 			{
-				var bIsRevoked = ScoreboardUpdater_IsRevoked(Players.GetPlayerHeroEntityIndex(playerID));
-				if (bIsRevoked)
-				{
-					playerSealPanel.SetImage("file://{images}/spellicons/cmd_seal_4_disabled.png") ;
-				}
-				else
-				{
-					playerSealPanel.SetImage("file://{images}/spellicons/cmd_seal_4.png") ;
-				}
-
+				comboState = statusTablePlayer.combo[ playerID ];
 			}
-			//playerSealPanel = 0;
+			if ( statusTablePlayer && statusTablePlayer.combo_names != null )
+			{
+				comboName = statusTablePlayer.combo_names[ playerID ];
+			}
+
+			var isAllyRow = ( playerTeam == Players.GetTeam( Players.GetLocalPlayer() ) );
+			if ( !isAllyRow || comboState == null || !comboName )
+			{
+				playerSealPanel.style.visibility = "collapse";
+			}
+			else
+			{
+				playerSealPanel.style.visibility = "visible";
+				if ( playerSealPanel.abilityname != comboName )
+				{
+					playerSealPanel.abilityname = comboName;
+				}
+				playerSealPanel.SetHasClass( "combo_unavailable", comboState == -1 );
+				playerSealPanel.SetHasClass( "combo_ready", comboState == 0 );
+				playerSealPanel.SetHasClass( "combo_cooldown", comboState == 1 );
+			}
 		}
 
 
@@ -324,10 +364,81 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 			_ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId )
 		}
 	}
-	
+
+	// team color swatch: fate factions are Red (Radiant) vs Black (Dire); custom teams use the config palette
+	var swatchPanel = teamPanel.FindChildInLayoutFile( "TeamColorSwatch" );
+	if ( swatchPanel !== null && !teamPanel.swatchColored )
+	{
+		teamPanel.swatchColored = true;
+		var swatchColor = "#777777";
+		if ( teamId == 2 )
+		{
+			swatchColor = "#d92b2b";
+		}
+		else if ( teamId == 3 )
+		{
+			swatchColor = "#1a1a1a";
+		}
+		else if ( GameUI.CustomUIConfig().team_colors && GameUI.CustomUIConfig().team_colors[ teamId ] )
+		{
+			swatchColor = GameUI.CustomUIConfig().team_colors[ teamId ].replace( ";", "" );
+		}
+		swatchPanel.style.backgroundColor = swatchColor;
+	}
+
+	// alive/resurrected/avarice come from the server "scoreboard_status" table, which
+	// counts alive by the round-end rule (Aoko-revived heroes are listed separately);
+	// fall back to the portrait-graying test if the table has not arrived yet
+	var ptLib = GameUI.CustomUIConfig().PlayerTables;
+	var statusTable = ptLib ? ptLib.GetAllTableValues( "scoreboard_status" ) : null;
+
+	var aliveCount = null;
+	var revivedCount = 0;
+	if ( statusTable && statusTable.alive && statusTable.alive[ teamId ] != null )
+	{
+		aliveCount = statusTable.alive[ teamId ];
+		if ( statusTable.res && statusTable.res[ teamId ] != null )
+		{
+			revivedCount = statusTable.res[ teamId ];
+		}
+	}
+	else
+	{
+		aliveCount = 0;
+		for ( var playerId of teamPlayers )
+		{
+			var playerInfo = Game.GetPlayerInfo( playerId );
+			if ( playerInfo && playerInfo.player_respawn_seconds < 0 )
+			{
+				aliveCount++;
+			}
+		}
+	}
+	teamsInfo.alive_counts[ teamId ] = aliveCount;
+	_ScoreboardUpdater_SetTextSafe( teamPanel, "TeamAliveCount", aliveCount );
+
+	var revivedNote = teamPanel.FindChildInLayoutFile( "TeamRevivedNote" );
+	if ( revivedNote !== null )
+	{
+		revivedNote.visible = ( revivedCount > 0 );
+		revivedNote.text = "+" + revivedCount + " REVIVED";
+	}
+
+	var avariceCount = ( statusTable && statusTable.avarice && statusTable.avarice[ teamId ] != null ) ? statusTable.avarice[ teamId ] : 0;
+	_ScoreboardUpdater_SetTextSafe( teamPanel, "TeamAvariceCount", avariceCount );
+
 
 	teamPanel.SetHasClass( "no_players", (teamPlayers.length == 0) )
 	teamPanel.SetHasClass( "one_player", (teamPlayers.length == 1) )
+
+	// keep the local-team glow hugging the portraits row (players start at 80px
+	// because of the info column; each player wrapper is 64px + 2px of borders)
+	var localOverlay = teamPanel.FindChildInLayoutFile( "LocalTeamOverlay" );
+	if ( localOverlay !== null && teamPlayers.length > 0 )
+	{
+		localOverlay.style.marginLeft = "80px";
+		localOverlay.style.width = ( 66 * teamPlayers.length ) + "px";
+	}
 	
 	if ( teamsInfo.max_team_players < teamPlayers.length )
 	{
@@ -473,7 +584,7 @@ function _ScoreboardUpdater_UpdateAllTeamsAndPlayers( scoreboardConfig, teamsCon
 	}
 
 	// update/create team panels
-	var teamsInfo = { max_team_players: 0 };
+	var teamsInfo = { max_team_players: 0, alive_counts: {} };
 	var panelsByTeam = [];
 	for ( var i = 0; i < teamsList.length; ++i )
 	{
@@ -481,6 +592,56 @@ function _ScoreboardUpdater_UpdateAllTeamsAndPlayers( scoreboardConfig, teamsCon
 		if ( teamPanel )
 		{
 			panelsByTeam[ teamsList[i].team_id ] = teamPanel;
+		}
+	}
+
+	// flag every team that has fewer heroes standing than the leading one
+	var maxAlive = 0;
+	for ( var teamId in teamsInfo.alive_counts )
+	{
+		if ( teamsInfo.alive_counts[ teamId ] > maxAlive )
+		{
+			maxAlive = teamsInfo.alive_counts[ teamId ];
+		}
+	}
+	for ( var teamId in teamsInfo.alive_counts )
+	{
+		var teamPanel = panelsByTeam[ teamId ];
+		if ( teamPanel )
+		{
+			teamPanel.SetHasClass( "team_fewer_alive", teamsInfo.alive_counts[ teamId ] < maxAlive );
+		}
+	}
+
+	// gold glow on the round score of the team that is currently ahead
+	var isFateElim = _ScoreboardUpdater_IsElimMap();
+	var radiantScore = ( typeof g_RadiantScore !== "undefined" ) ? g_RadiantScore : 0;
+	var direScore = ( typeof g_DireScore !== "undefined" ) ? g_DireScore : 0;
+	var scoresByTeam = {};
+	var maxScore = null;
+	var minScore = null;
+	for ( var i = 0; i < teamsList.length; ++i )
+	{
+		var scoreTeamId = teamsList[i].team_id;
+		var teamScore;
+		if ( isFateElim )
+		{
+			teamScore = ( scoreTeamId == 2 ) ? radiantScore : direScore;
+		}
+		else
+		{
+			teamScore = teamsList[i].team_score;
+		}
+		scoresByTeam[ scoreTeamId ] = teamScore;
+		if ( maxScore === null || teamScore > maxScore ) maxScore = teamScore;
+		if ( minScore === null || teamScore < minScore ) minScore = teamScore;
+	}
+	for ( var teamId in scoresByTeam )
+	{
+		var teamPanel = panelsByTeam[ teamId ];
+		if ( teamPanel )
+		{
+			teamPanel.SetHasClass( "team_score_leading", scoresByTeam[ teamId ] == maxScore && maxScore != minScore );
 		}
 	}
 

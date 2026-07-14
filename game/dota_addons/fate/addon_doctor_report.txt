@@ -109,7 +109,7 @@ scripts/vscripts/abilities/jtr/jtr_dagger_throw.lua:126  MISSING  particles/hero
 scripts/vscripts/abilities/karna/karna_new_abilities/karna_combo_vasavi_new.lua:109  MISSING  particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf
 scripts/vscripts/abilities/king_hassan/king_hassan_abilities.lua:268  MISSING  particles/custom/kinghassan/ka_spin.vpcf
 scripts/vscripts/abilities/lancelot/lancelot_f16.lua:475  MISSING  particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf
-scripts/vscripts/abilities/lancelot/lancelot_minigun.lua:182  MISSING  particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf
+scripts/vscripts/abilities/lancelot/lancelot_minigun.lua:180  MISSING  particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf
 scripts/vscripts/abilities/medusa/medusa_hook.lua:86  MISSING  particles/econ/items/pudge/pudge_dragonclaw/pudge_meathook_dragonclaw_imba.vpcf
 scripts/vscripts/abilities/okita/okita_zekken.lua:101  MISSING  particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
 scripts/vscripts/abilities/okita/okita_zekken.lua:86  MISSING  particles/heroes/juggernaut/phantom_sword_dance.vpcf
@@ -658,124 +658,30 @@ particles/units/casteres/caster_zuus/zuus_static_field.vpcf
 particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf
         исп.: scripts/vscripts/abilities/semiramis/semiramis_snek_spit_poison.lua:14
 
-=== ПРЕДУПРЕЖДЕНИЯ: клиент-сервер (значения бафов не видны на клиенте) (118) ===
+=== ПРЕДУПРЕЖДЕНИЯ: клиент-сервер (значения бафов не видны на клиенте) (24) ===
 scripts/vscripts/abilities/angra_mainyu/angra_mainyu_murderous_instinct.lua  modifier_murderous_instinct_crit:GetModifierPreAttack_CriticalStrike()  читает self.CritDamage (задаётся только на сервере)
-scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierAttackSpeedBonus_Constant()  читает self.nMaxASPerMissingHP (задаётся только на сервере)
-scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierBaseDamageOutgoing_Percentage()  читает self.nMaxDamagePerMissingHP (задаётся только на сервере)
-scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierBonusStats_Intellect()  читает self.nReduceIntPct (задаётся только на сервере)
-scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierMoveSpeedBonus_Percentage()  читает self.nMaxMSPerMissingHP (задаётся только на сервере)
 scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierPreAttack_CriticalStrike()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
 scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierProcAttack_Feedback()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_shield:GetModifierIgnorePhysicalArmor()  читает self.nIgnoreArmor (задаётся только на сервере)
-scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_shield:GetModifierPhysicalArmorBase_Percentage()  читает self.nIgnoreArmor (задаётся только на сервере)
-scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock()  читает self.tStoreEnemies (задаётся только на сервере)
 scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_enomotia_slow:GetModifierProvidesFOWVision()  читает self.nVision (задаётся только на сервере)
 scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/aoko/aoko_blue.lua  modifier_aoko_blue_shield:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/aoko/aoko_blue.lua  modifier_aoko_blue_shield_decaying:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
 scripts/vscripts/abilities/aoko/aoko_circuits.lua  modifier_aoko_circuits_overload:GetModifierTotalDamageOutgoing_Percentage()  читает self.dmg_output (задаётся только на сервере)
-scripts/vscripts/abilities/aoko/aoko_facebreaker.lua  modifier_aoko_facebreaker_shield:GetModifierIncomingDamageConstant()  читает self.hCaster (задаётся только на сервере)
-scripts/vscripts/abilities/aoko/aoko_shield.lua  modifier_aoko_shield:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
 scripts/vscripts/abilities/arash/arash_arrow_construction.lua  modifier_arash_arrow_construction:GetModifierAttackRangeBonus()  читает self.range (задаётся только на сервере)
 scripts/vscripts/abilities/arash/arash_arrow_construction.lua  modifier_arash_arrow_construction:GetModifierProjectileName()  читает self.projectile (задаётся только на сервере)
 scripts/vscripts/abilities/arash/arash_arrow_construction.lua  modifier_arash_arrow_construction:GetModifierProjectileSpeedBonus()  читает self.speed (задаётся только на сервере)
-scripts/vscripts/abilities/arash/arash_toughness.lua  modifier_arash_toughness:GetModifierMagicalResistanceBonus()  читает self.mr (задаётся только на сервере)
-scripts/vscripts/abilities/arash/arash_toughness.lua  modifier_arash_toughness:GetModifierPhysicalArmorBonus()  читает self.armor (задаётся только на сервере)
-scripts/vscripts/abilities/arcueid/arcueid_regen.lua  modifier_arcueid_what_barrier:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
 scripts/vscripts/abilities/cu_alter/cu_alter_combo.lua  modifier_cu_alter_combo:GetModifierIncomingDamage_Percentage()  читает self.jumpStarted (задаётся только на сервере)
 scripts/vscripts/abilities/cu_chulain/modifiers/modifier_battle_continuation.lua  modifier_cu_battle_continuation:GetModifierAvoidDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/cu_chulain/modifiers/modifier_rune_of_protection.lua  modifier_rune_of_protection:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
 scripts/vscripts/abilities/diarmuid/diarmuid_new_combo.lua  modifier_diar_model_swap:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
 scripts/vscripts/abilities/diarmuid/diarmuid_new_combo.lua  modifier_diar_model_swap_skin:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
-scripts/vscripts/abilities/diarmuid/diarmuid_parry.lua  modifier_diarmuid_parry:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/diarmuid/modifiers/modifier_diarmuid_minds_eye.lua  modifier_diarmuid_minds_eye:GetModifierEvasion_Constant()  читает self.Evasion (задаётся только на сервере)
-scripts/vscripts/abilities/diarmuid/modifiers/modifier_diarmuid_minds_eye.lua  modifier_diarmuid_minds_eye:GetModifierMagicalResistanceBonus()  читает self.MagicResist (задаётся только на сервере)
-scripts/vscripts/abilities/diarmuid/modifiers/modifier_rampant_warrior.lua  modifier_rampant_warrior:GetModifierAttackSpeedBonus_Constant()  читает self.AttackSpeed (задаётся только на сервере)
 scripts/vscripts/abilities/emiya/emiya_weapon_swap.lua  modifier_emiya_weapon_swap:GetModifierAttackRangeOverride()  читает self.iAttack_range (задаётся только на сервере)
 scripts/vscripts/abilities/emiya/emiya_weapon_swap.lua  modifier_emiya_weapon_swap:GetModifierModelChange()  читает self.__model (задаётся только на сервере)
-scripts/vscripts/abilities/emiya/modifiers/modifier_overedge_charge.lua  modifier_overedge_charge:GetModifierAttackSpeedBonus_Constant()  читает self.ChargeAttackSpeed (задаётся только на сервере)
-scripts/vscripts/abilities/emiya/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierHealthBonus()  читает self.Armor (задаётся только на сервере)
-scripts/vscripts/abilities/emiya/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierMagicalResistanceBonus()  читает self.MagicResist (задаётся только на сервере)
-scripts/vscripts/abilities/emiya/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierPhysicalArmorBonus()  читает self.Armor (задаётся только на сервере)
-scripts/vscripts/abilities/emiya/modifiers/modifier_ubw_chant_count.lua  modifier_ubw_chant_count:GetModifierMoveSpeedBonus_Constant()  читает self.MsBonus (задаётся только на сервере)
-scripts/vscripts/abilities/heracles/modifiers/modifier_courage_enemy_debuff.lua  modifier_courage_enemy_debuff:GetModifierPreAttack_BonusDamage()  читает self.dmg (задаётся только на сервере)
 scripts/vscripts/abilities/hijikata/hijikata_attributes.lua  modifier_hijikata_haori:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
-scripts/vscripts/abilities/hijikata/hijikata_combo.lua  modifier_hijikata_combo_ticker:GetModifierMoveSpeed_Absolute()  читает self.speed (задаётся только на сервере)
-scripts/vscripts/abilities/hijikata/hijikata_demon.lua  modifier_demon_buff_hijikata:GetModifierAttackSpeedBonus_Constant()  читает self.as_value (задаётся только на сервере)
-scripts/vscripts/abilities/hijikata/hijikata_duel.lua  modifier_hijikata_duel_leash:GetModifierMoveSpeed_Limit()  читает self.parent (задаётся только на сервере)
 scripts/vscripts/abilities/hijikata/hijikata_fierce_journey.lua  modifier_hijikata_bc:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/iskandar/iskandar_buc.lua  modifier_iskandar_buc:GetModifierMoveSpeedBonus_Percentage()  читает self.Movespeed (задаётся только на сервере)
-scripts/vscripts/abilities/iskandar/iskandar_gordius_wheel.lua  modifier_gordius_wheel:GetModifierMagicalResistanceBonus()  читает self.mr (задаётся только на сервере)
-scripts/vscripts/abilities/iskandar/iskandar_gordius_wheel.lua  modifier_gordius_wheel:GetModifierMoveSpeedBonus_Percentage()  читает self.Movespeed (задаётся только на сервере)
-scripts/vscripts/abilities/iskandar/iskandar_gordius_wheel.lua  modifier_gordius_wheel:GetModifierPhysicalArmorBonus()  читает self.armor (задаётся только на сервере)
-scripts/vscripts/abilities/jeanne/jeanne_magic_resistance_ex.lua  modifier_jeanne_mrex:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle.lua  modifier_jeanne_luminosite_eternelle_barrier:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle.lua  modifier_jeanne_mrex_allies:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/kinghassan/khsn_ambush.lua  modifier_khsn_ambush_block:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
+scripts/vscripts/abilities/iskandar/iskander_ionioi.lua  modifier_iskander_units_bonus_dmg:GetModifierBaseAttack_BonusDamage()  читает self.bonusdmg (задаётся только на сервере)
+scripts/vscripts/abilities/iskandar/iskander_ionioi.lua  modifier_iskander_units_bonus_dmg_clickable:GetModifierBaseAttack_BonusDamage()  читает self.bonusdmg (задаётся только на сервере)
 scripts/vscripts/abilities/kinghassan/khsn_bc.lua  modifier_khsn_bc:GetModifierAvoidDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
 scripts/vscripts/abilities/kinghassan/khsn_bc.lua  modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/kinghassan/khsn_slash.lua  modifier_king_hassan_block:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/kuro/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierBonusStats_Strength()  читает self.Armor (задаётся только на сервере)
-scripts/vscripts/abilities/kuro/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierMagicalResistanceBonus()  читает self.MagicResist (задаётся только на сервере)
-scripts/vscripts/abilities/kuro/modifiers/modifier_shroud_of_martin.lua  modifier_shroud_of_martin:GetModifierPhysicalArmorBonus()  читает self.Armor (задаётся только на сервере)
-scripts/vscripts/abilities/kuro/modifiers/modifier_ubw_chant_count.lua  modifier_ubw_chant_count:GetModifierMoveSpeedBonus_Constant()  читает self.MsBonus (задаётся только на сервере)
-scripts/vscripts/abilities/lancelot/lancelot_minigun.lua  modifier_lancelot_minigun:GetModifierMoveSpeed_Absolute()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/lancelot/lancelot_minigun.lua  modifier_lancelot_minigun:GetModifierTurnRate_Percentage()  читает self.fSlowTurning (задаётся только на сервере)
-scripts/vscripts/abilities/lancelot/lancelot_parry.lua  modifier_lancelot_parry:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/leonidas/leonidas_brothers.lua  modifier_leonidas_brother:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/li_shuwen_new_w.lua  modifier_li_shuwen_barrier:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierMagicalResistanceBonus()  читает self.slow_power (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierMoveSpeedBonus_Percentage()  читает self.slow_power (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierPhysicalArmorBonus()  читает self.slow_power (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/lishuwen_no_second_strike.lua  modifier_nss_shock_stackable:GetModifierTotalDamageOutgoing_Percentage()  читает self.hCaster (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/modifiers/modifier_cosmic_orbit.lua  modifier_cosmic_orbit:GetModifierAttackSpeedBonus_Constant()  читает self.AttackSpeedBonus (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/modifiers/modifier_cosmic_orbit.lua  modifier_cosmic_orbit:GetModifierMoveSpeedBonus_Percentage()  читает self.MovespeedPct (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/modifiers/modifier_pc_invis.lua  modifier_pc_invis:GetModifierHealthRegenPercentage()  читает self.HealthRegenPct (задаётся только на сервере)
-scripts/vscripts/abilities/lishuwen/modifiers/modifier_pc_invis.lua  modifier_pc_invis:GetModifierTotalPercentageManaRegen()  читает self.ManaRegenPct (задаётся только на сервере)
 scripts/vscripts/abilities/lu_bu/modifiers/modifier_lu_bu_armistice.lua  modifier_lu_bu_armistice:GetModifierProcAttack_Feedback()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/medea/medea_argos.lua  modifier_argos_armor:GetModifierPhysicalArmorBonus()  читает self.fArmor (задаётся только на сервере)
-scripts/vscripts/abilities/medea/medea_argos.lua  modifier_argos_shield:GetModifierIncomingDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/abilities/mordred/mordred_mana_burst.lua  modifier_mordred_mb:GetModifierAttackSpeedBonus_Constant()  читает self.mana (задаётся только на сервере)
-scripts/vscripts/abilities/nero/modifiers/modifier_aestus_domus_aurea_neutral.lua  modifier_aestus_domus_aurea_neutral:GetModifierMoveSpeedBonus_Percentage()  читает self.MovespeedReduc (задаётся только на сервере)
-scripts/vscripts/abilities/nero/modifiers/modifier_aestus_domus_aurea_neutral.lua  modifier_aestus_domus_aurea_neutral:GetModifierPhysicalArmorBonus()  читает self.ArmorReduc (задаётся только на сервере)
-scripts/vscripts/abilities/nero/modifiers/modifier_gladiusanus.lua  modifier_gladiusanus:GetModifierAttackSpeedBonus_Constant()  читает self.AttackSpeed (задаётся только на сервере)
-scripts/vscripts/abilities/nero/modifiers/modifier_rosa_slow.lua  modifier_rosa_slow:GetModifierMoveSpeedBonus_Percentage()  читает self.slowPerc (задаётся только на сервере)
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierConstantHealthRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierConstantManaRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierMagicalResistanceBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierPhysicalArmorBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff:GetModifierPreAttack_BonusDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierConstantHealthRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierConstantManaRegen()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierMagicalResistanceBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierPhysicalArmorBonus()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/nero/nero_imperial.lua  modifier_imperial_buff_h:GetModifierPreAttack_BonusDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_fds_active_sdr:GetModifierTotalDamageOutgoing_Percentage()  читает self.nReductionStack (задаётся только на сервере)
-scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_fds_aura_sdr:GetModifierTotalDamageOutgoing_Percentage()  читает self.hCaster (задаётся только на сервере)
-scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_formless_invis:GetModifierEvasion_Constant()  читает self.nEvasion (задаётся только на сервере)
-scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_formless_invis:GetModifierMoveSpeedBonus_Percentage()  читает self.nBonusMS (задаётся только на сервере)
-scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_mind_eye_active:GetModifierConstantHealthRegen()  читает self.nBonusHPRegen (задаётся только на сервере)
-scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_mind_eye_active:GetModifierHealthBonus()  читает self.nBonusHP (задаётся только на сервере)
 scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_mind_eye_shell:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/abilities/sasaki/modifiers/modifier_ganryu_armor_shred.lua  modifier_ganryu_armor_shred:GetModifierPhysicalArmorBonus()  читает self.Reduction (задаётся только на сервере)
-scripts/vscripts/abilities/sasaki/modifiers/modifier_gatekeeper.lua  modifier_gatekeeper:GetModifierPreAttack_BonusDamage()  читает self.BonusAttack (задаётся только на сервере)
-scripts/vscripts/abilities/sasaki/modifiers/modifier_heart_of_harmony.lua  modifier_heart_of_harmony:GetModifierConstantManaRegen()  читает self.ManaRegenBonus (задаётся только на сервере)
-scripts/vscripts/abilities/sasaki/modifiers/modifier_heart_of_harmony.lua  modifier_heart_of_harmony:GetModifierIncomingDamage_Percentage()  читает self.DamageReduc (задаётся только на сервере)
-scripts/vscripts/abilities/sasaki/modifiers/modifier_heart_of_harmony_linger.lua  modifier_heart_of_harmony_linger:GetModifierIncomingDamage_Percentage()  читает self.DamageReduc (задаётся только на сервере)
-scripts/vscripts/abilities/true_assassin/modifiers/modifier_dirk_poison_slow.lua  modifier_dirk_poison_slow:GetModifierMoveSpeedBonus_Percentage()  читает self.PoisonSlow (задаётся только на сервере)
-scripts/vscripts/abilities/true_assassin/modifiers/modifier_selfmod_agility.lua  modifier_selfmod_agility:GetModifierPreAttack_BonusDamage()  читает self.AttackBonus (задаётся только на сервере)
-scripts/vscripts/abilities/true_assassin/modifiers/modifier_snatch_strike_bonus_hp.lua  modifier_snatch_strike_bonus_hp:GetModifierExtraHealthBonus()  читает self.BonusHealth (задаётся только на сервере)
-scripts/vscripts/abilities/true_assassin/true_assassin_snatch_strike.lua  modifier_snatch_strike_str_enemy:GetModifierExtraStrengthBonus()  читает self.BonusStrength (задаётся только на сервере)
-scripts/vscripts/abilities/true_assassin/true_assassin_snatch_strike.lua  modifier_snatch_strike_str_hassan:GetModifierExtraStrengthBonus()  читает self.BonusStrength (задаётся только на сервере)
-scripts/vscripts/items/b_scroll.lua  modifier_b_scroll:GetModifierIncomingSpellDamageConstant()  читает self.fBarrierBlock (задаётся только на сервере)
-scripts/vscripts/items/modifier_mana_essence.lua  modifier_mana_essence:GetModifierConstantHealthRegen()  читает self.fHealthRegen (задаётся только на сервере)
-scripts/vscripts/items/modifier_mana_essence.lua  modifier_mana_essence:GetModifierConstantManaRegen()  читает self.fManaRegen (задаётся только на сервере)
-scripts/vscripts/items/modifiers/modifier_a_scroll.lua  modifier_a_scroll:GetModifierMagicalResistanceBonus()  читает self.MagicResistance (задаётся только на сервере)
-scripts/vscripts/items/modifiers/modifier_a_scroll.lua  modifier_a_scroll:GetModifierPhysicalArmorBonus()  читает self.Armor (задаётся только на сервере)
-scripts/vscripts/modifiers/modifier_attributes_as.lua  modifier_attributes_as:GetModifierAttackSpeedBonus_Constant()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/modifiers/modifier_attributes_cdr.lua  modifier_attributes_cdr:GetModifierPercentageCooldown()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/modifiers/modifier_attributes_ms.lua  modifier_attributes_ms:GetModifierMoveSpeedOverride()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
-scripts/vscripts/modifiers/modifier_barrier_new.lua  modifier_barrier_new:GetModifierIncomingDamageConstant()  читает self.beforeBScroll (задаётся только на сервере)
 scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selection_skin:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
 
 === СИРОТЫ: compiled без исходника в content ===

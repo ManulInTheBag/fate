@@ -50,7 +50,7 @@ ModuleLinkLuaModifier(..., "modifier_hero_selection_transformation")
 
 Events:Register("activate", function ()
 	if IsInToolsMode() then
-		HERO_SELECTION_PICK_TIME = 3
+		HERO_SELECTION_PICK_TIME = 10
 		HERO_SELECTION_BANNING_TIME = 0
 	end
 	if _G.GameMap == "7vs7_draft" then

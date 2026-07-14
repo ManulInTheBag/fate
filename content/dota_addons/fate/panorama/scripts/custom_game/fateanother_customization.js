@@ -5,6 +5,15 @@ g_GameConfig.bIsConfig2On = false;
 g_GameConfig.bIsConfig3On = false;
 g_GameConfig.bIsConfig4On = false;
 
+// badges on the customize button: unspent grail shards / enough master mana to buy stats
+var MASTER_MANA_INDICATOR_THRESHOLD = 20;
+var g_MasterManaUnit = -1;
+var g_UnclaimedShards = 0;
+var g_GrailIndicator = null;
+var g_GrailIndicatorCount = null;
+var g_ManaIndicator = null;
+var g_IndicatorPulseOn = false;
+
 function GetTalentButton()
 {
 	var root = GetHUDRootUI();
@@ -21,6 +30,7 @@ function OnCustomizeButtonPressed()
 
     customizePanel.visible = !customizePanel.visible;
 	customizePanelLabel.visible = customizePanel.visible;
+	UpdateCustomizeIndicators();
 
 	// Test lobby: opening the board with another hero selected shows THAT hero's
 	// upgrades. The server listener only exists in cheat mode (demo_core.lua), so
@@ -54,6 +64,82 @@ function CreateFateTalentButton(){
     fateButtonOverlay.style.backgroundImage = "url(\"file://{images}/misc/customize_active.png\")";
     fateButtonOverlay.style.opacity = "0";
     fateButtonOverlay.style.transition = "opacity 0.3s ease-in-out 0.0s";
+
+    CreateCustomizeIndicators(fateButton);
+}
+
+function CreateCustomizeIndicators(fateButton)
+{
+    g_GrailIndicator = $.CreatePanel("Panel", fateButton, "FateGrailIndicator");
+    g_GrailIndicator.hittest = false;
+    g_GrailIndicator.style.width = "26px";
+    g_GrailIndicator.style.height = "26px";
+    g_GrailIndicator.style.horizontalAlign = "right";
+    g_GrailIndicator.style.verticalAlign = "top";
+    g_GrailIndicator.style.marginTop = "1px";
+    g_GrailIndicator.style.marginRight = "1px";
+    g_GrailIndicator.style.backgroundImage = "url(\"file://{images}/spellicons/shard_of_holy_grail.png\")";
+    g_GrailIndicator.style.backgroundSize = "100% 100%";
+    g_GrailIndicator.style.border = "1px solid #c8a24b";
+    g_GrailIndicator.style.borderRadius = "4px";
+    g_GrailIndicator.style.boxShadow = "0px 0px 8px 2px #c8a24b88";
+    g_GrailIndicator.style.transition = "opacity 0.9s ease-in-out 0.0s";
+    g_GrailIndicator.style.visibility = "collapse";
+
+    g_GrailIndicatorCount = $.CreatePanel("Label", g_GrailIndicator, "FateGrailIndicatorCount");
+    g_GrailIndicatorCount.hittest = false;
+    g_GrailIndicatorCount.style.horizontalAlign = "right";
+    g_GrailIndicatorCount.style.verticalAlign = "bottom";
+    g_GrailIndicatorCount.style.marginBottom = "-4px";
+    g_GrailIndicatorCount.style.fontSize = "15px";
+    g_GrailIndicatorCount.style.fontWeight = "bold";
+    g_GrailIndicatorCount.style.color = "#ffffff";
+    g_GrailIndicatorCount.style.textShadow = "1px 1px 2px 3 #000000";
+
+    g_ManaIndicator = $.CreatePanel("Panel", fateButton, "FateManaIndicator");
+    g_ManaIndicator.hittest = false;
+    g_ManaIndicator.style.width = "14px";
+    g_ManaIndicator.style.height = "14px";
+    g_ManaIndicator.style.horizontalAlign = "left";
+    g_ManaIndicator.style.verticalAlign = "top";
+    g_ManaIndicator.style.marginTop = "1px";
+    g_ManaIndicator.style.marginLeft = "1px";
+    g_ManaIndicator.style.backgroundColor = "#59c1ff";
+    g_ManaIndicator.style.border = "1px solid #dff2ff";
+    g_ManaIndicator.style.borderRadius = "50%";
+    g_ManaIndicator.style.boxShadow = "0px 0px 10px 3px #59c1ffcc";
+    g_ManaIndicator.style.transition = "opacity 0.9s ease-in-out 0.0s";
+    g_ManaIndicator.style.visibility = "collapse";
+
+    CustomizeIndicatorThink();
+}
+
+function UpdateCustomizeIndicators()
+{
+    if (!g_GrailIndicator || !g_ManaIndicator)
+        return;
+    // the badges are a nudge to open the board; once it is open they said their piece
+    var customizePanel = $("#CustomizationBoard");
+    var boardOpen = customizePanel && customizePanel.visible;
+
+    var showGrail = !boardOpen && g_UnclaimedShards > 0;
+    g_GrailIndicator.style.visibility = showGrail ? "visible" : "collapse";
+    g_GrailIndicatorCount.text = String(g_UnclaimedShards);
+
+    var showMana = !boardOpen && g_MasterManaUnit != -1 &&
+        Entities.GetMana(g_MasterManaUnit) > MASTER_MANA_INDICATOR_THRESHOLD;
+    g_ManaIndicator.style.visibility = showMana ? "visible" : "collapse";
+}
+
+function CustomizeIndicatorThink()
+{
+    $.Schedule(0.9, CustomizeIndicatorThink);
+    UpdateCustomizeIndicators();
+    // slow breathing so the badges catch the eye without flashing
+    g_IndicatorPulseOn = !g_IndicatorPulseOn;
+    var opacity = g_IndicatorPulseOn ? "1.0" : "0.55";
+    g_GrailIndicator.style.opacity = opacity;
+    g_ManaIndicator.style.opacity = opacity;
 }
 
 function RemoveChilds(panel)
@@ -119,6 +205,8 @@ function UpdateStatPanel(data)
 	$("#MPREGAmount").text = (data.MPREG || 0) +  " / 30";
 	//$("#MSAmount").text = (data.MS || 0) +  " / 30";
 	$("#CustomizationShardNumber").text = (data.ShardAmount || 0);
+	g_UnclaimedShards = data.ShardAmount || 0;
+	UpdateCustomizeIndicators();
 }
 
 function OnCustomizeButtonShowTooltip()
@@ -210,6 +298,11 @@ function CreateErrorMessage(msg){
 	//GameEvents.Subscribe( "dota_hero_ability_points_changed", UpdateAbilityList );
 	GameUI.SetCameraDistance(1900);
 	GameEvents.Subscribe( "player_selected_hero", UpdateAttributeList);
+	// mana badge watches our own master (MasterUnit carries the stat-upgrade mana pool);
+	// deliberately not demo_customization_data, which may point at someone else's master
+	GameEvents.Subscribe( "player_selected_hero", function(data) {
+		g_MasterManaUnit = data.shardUnit;
+	});
 	// test lobby: board contents for the currently selected hero (see demo_core.lua)
 	GameEvents.Subscribe( "demo_customization_data", UpdateAttributeList);
 	GameEvents.Subscribe( "servant_stats_updated", UpdateStatPanel );

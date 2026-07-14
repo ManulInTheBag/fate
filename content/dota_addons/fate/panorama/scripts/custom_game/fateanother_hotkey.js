@@ -66,6 +66,7 @@ function OnHotkeySubmitted()
 		CMD.currentpanel.SetHasClass("GrowBorder", false);
 	}
 	$("#HotkeyEntry").text = "";
+	BlurHotkeyEntry();
 }
 
 function OnEntryAltToggle()
@@ -106,16 +107,30 @@ function OnHotkeyClear()
 		CMD.currentpanel.SetHasClass("GrowBorder", false);
 	}
 	$("#HotkeyEntry").text = "";
+	BlurHotkeyEntry();
 	var altButton = CMD.container.FindChildTraverse("EntryAltButton");
 	var fButton = CMD.container.FindChildTraverse("EntryFButton");
 	if (altButton) { altButton.checked = false; }
 	if (fButton) { fButton.checked = false; }
 }
 
+// Скрытая панель сохраняет input focus, а осиротевший фокус движок отдаёт
+// полю чата — поэтому фокус ОБЯЗАН сниматься на каждом пути закрытия попапа.
+function BlurHotkeyEntry()
+{
+	var entry = $("#HotkeyEntry");
+	if (entry != null && entry.IsValid()) {
+		$.DispatchEvent("DropInputFocus", entry);
+	}
+}
+
 function FocusHotkeyEntry()
 {
 	var entry = $("#HotkeyEntry");
 	$.Schedule(0.0, function () {
+		if (entry == null || !entry.IsValid()) { return; }
+		// Попап могли успеть закрыть до отложенного вызова.
+		if (CMD.entryContainer == null || CMD.entryContainer.visible !== true) { return; }
 		entry.SetFocus();
 	});
 }
@@ -748,6 +763,7 @@ SealHotkeyConfig.prototype.HotKeyBoxOpen = function(panel, ability_name, iButton
 		    	//$.Msg('already open ');
 		    	CMD.currentpanel.SetHasClass("GrowBorder", false)
 		    	CMD.entryContainer.visible = false;
+		    	BlurHotkeyEntry();
 		    	return;
 		    }
 		    if (CMD.itemListContainer.visible == true) {

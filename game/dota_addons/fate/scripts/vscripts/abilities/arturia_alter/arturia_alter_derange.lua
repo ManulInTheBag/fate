@@ -52,7 +52,6 @@ function modifier_derange:DeclareFunctions()
 	return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-			MODFIER_EVENT_ON_RESPAWN,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
 end
@@ -121,7 +120,9 @@ function modifier_derange:GetModifierPreAttack_BonusDamage()
 end
 
 function modifier_derange:GetModifierPhysicalArmorBonus()
-	if self:GetParent().IsManaShroudImproved == true then
+	-- ability level is networked to the client, the IsManaShroudImproved lua field is not
+	local shroud = self:GetParent():FindAbilityByName("arturia_alter_mana_shroud_attribute_passive")
+	if shroud and shroud:GetLevel() > 0 then
 		return self:GetAbility():GetSpecialValueFor("armor_bonus")
 	else
 		return 0
@@ -129,7 +130,8 @@ function modifier_derange:GetModifierPhysicalArmorBonus()
 end
 
 function modifier_derange:GetModifierMagicalResistanceBonus()
-	if self:GetParent().IsManaShroudImproved == true then
+	local shroud = self:GetParent():FindAbilityByName("arturia_alter_mana_shroud_attribute_passive")
+	if shroud and shroud:GetLevel() > 0 then
 		return self:GetAbility():GetSpecialValueFor("mr_bonus")
 	else
 		return 0

@@ -21,6 +21,8 @@
 		<!--                                                                                                             -->
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_buff_bar.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_combatevent.vxml_c" />
+		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_chat_icons.vxml_c" />
+
 		<!--                                                                                                             -->
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/statcollection.vxml_c" />
 		<CustomUIElement type="GameSetup" layoutfile="s2r://panorama/layout/custom_game/team_select.vxml_c" />

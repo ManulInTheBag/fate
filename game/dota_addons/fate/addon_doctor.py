@@ -279,27 +279,57 @@ def main():
                 for fname, body in fd.items():
                     assigns = re.finditer(r'self\.([A-Za-z_]\w*)\s*=\s*([^\n]+)', body)
                     in_created = fname in ('OnCreated', 'OnRefresh')
-                    guarded = 'IsServer()' in body
+                    gate = body.find('IsServer()')
+                    kvarg = re.match(r'\s*\(?\s*(\w+)', fd.get('OnCreated', ''))
                     for a in assigns:
                         var, rhs = a.group(1), a.group(2)
-                        if in_created and (guarded or re.search(r'\bkv\.', rhs)):
+                        # из kv-таблицы — серверное всегда; иначе серверное только
+                        # если присваивание стоит после строки if IsServer()
+                        from_kv = re.search(r'\b(kv|args|tTable|params|keys)\s*\.', rhs)
+                        gated = gate != -1 and a.start() > gate
+                        if in_created and (from_kv or gated):
                             server_vars.add(var)
-                        elif not guarded:
+                        elif not (gate != -1 and a.start() > gate):
                             safe_vars.add(var)
                 server_only = server_vars - safe_vars
+                # уже обработанные паттерны синхронизации
+                has_transmitter = any('CustomTransmitterData' in b for b in fd.values())
                 for fname, body in fd.items():
                     if not CLIENT_FUNC.match(fname):
                         continue
-                    # (А) весь геттер под IsServer()
+                    # хендлится: net-таблицы, transmitter data
+                    if 'CustomNetTables' in body or has_transmitter:
+                        continue
+                    # (А) весь геттер под IsServer(): все return внутри гейта
+                    # (return с отступом <= отступа if — вне гейта, напр. паттерн
+                    #  "if IsServer() then SetStackCount(..) end; return GetStackCount()")
                     code = re.sub(r'--[^\n]*', '', body)
                     first = next((l.strip() for l in code.splitlines() if l.strip()), '')
                     if first.startswith('if IsServer()') and 'else' not in code:
-                        cs_issues.append(
-                            f"{relf}  {cls}:{fname}()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil")
-                        continue
+                        if_indent = None
+                        guarded = True
+                        for l in code.splitlines():
+                            s = l.strip()
+                            if if_indent is None and s.startswith('if IsServer()'):
+                                if_indent = len(l) - len(l.lstrip())
+                                continue
+                            if if_indent is not None and re.match(r'return\b', s):
+                                if len(l) - len(l.lstrip()) <= if_indent:
+                                    guarded = False
+                                    break
+                        if guarded:
+                            cs_issues.append(
+                                f"{relf}  {cls}:{fname}()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil")
+                            continue
                     # (Б) читает server-only self.X
+                    # (кроме stack-паттерна: значение уходит клиенту через SetStackCount)
+                    if 'GetStackCount' in body:
+                        continue
+                    # ранний guard "if not IsServer() then return <val>" — клиент получает значение
+                    if re.match(r'\s*if\s+not\s+IsServer\(\)\s*then\s*return\s+\S', code):
+                        continue
                     for var in server_only:
-                        if re.search(r'self\.' + re.escape(var) + r'\b', body):
+                        if re.search(r'self\.' + re.escape(var) + r'\b', code):
                             cs_issues.append(
                                 f"{relf}  {cls}:{fname}()  читает self.{var} (задаётся только на сервере)")
                             break

@@ -2858,8 +2858,28 @@ function FateGameMode:PlayTeamPickSound(hero)
 end
 
 -- This is for swapping hero models in
-function FateGameMode:OnHeroSpawned( keys )
+-- Fallback for broken "DisableWearables" KV flag: dota update made the engine
+-- ignore it and spawn default hero wearables. Custom fate wearables are
+-- npc_arena_wearable units, not dota_item_wearable, so they are not affected.
+function StripDotaWearables(unit)
+    if not IsValidEntity(unit) then return end
+    for _, child in ipairs(unit:GetChildren()) do
+        if child:GetClassname() == "dota_item_wearable" then
+            UTIL_Remove(child)
+        end
+    end
+end
 
+function FateGameMode:OnHeroSpawned( keys )
+    local unit = EntIndexToHScript(keys.entindex)
+    if not unit or not unit.IsHero or not unit:IsHero() then return end
+    -- wearables can attach noticeably later than npc_spawned, so sweep several times
+    StripDotaWearables(unit)
+    for _, delay in ipairs({0.1, 0.5, 1.5, 3}) do
+        Timers:CreateTimer(delay, function()
+            StripDotaWearables(unit)
+        end)
+    end
 end
 
 -- An entity somewhere has been hurt. This event fires very often with many units so don't do too many expensive
@@ -3902,6 +3922,62 @@ function OnHeroClicked(Index, keys)
     end
 end
 
+local function ScoreboardStatusSerialize(t)
+    local parts = {}
+    for k, v in pairs(t) do
+        parts[#parts + 1] = tostring(k) .. "=" .. tostring(v)
+    end
+    table.sort(parts)
+    return table.concat(parts, ";")
+end
+
+-- Feeds the top scoreboard: per-team alive/resurrected/avarice counts and
+-- per-player combo readiness. Alive follows the round-end rule (a hero revived
+-- by Aoko's Blue does not keep a round going, so it is counted separately).
+function FateGameMode:StartScoreboardStatusUpdater()
+    local cache = {}
+    Timers:CreateTimer(1.0, function()
+        local alive, res, avarice, combo, comboNames, revived = {}, {}, {}, {}, {}, {}
+        for pid = 0, 13 do
+            local ply = PlayerResource:GetPlayer(pid)
+            local hero = ply and ply:GetAssignedHero()
+            if hero ~= nil and not hero:IsNull() then
+                local team = hero:GetTeamNumber()
+                alive[team] = alive[team] or 0
+                res[team] = res[team] or 0
+                avarice[team] = (avarice[team] or 0) + (hero.AvariceCount or 0)
+                if hero:IsAlive() then
+                    if hero:HasModifier("modifier_aoko_blue_ally") then
+                        res[team] = res[team] + 1
+                        revived[pid] = 1
+                    else
+                        alive[team] = alive[team] + 1
+                    end
+                end
+                local ok, state = pcall(GetComboAvailability, hero)
+                if not ok or state == nil then
+                    state = -1
+                end
+                if state > 0 then
+                    state = 1
+                end
+                combo[pid] = state
+                local okName, comboName = pcall(GetHeroCombo, hero)
+                comboNames[pid] = (okName and comboName) or ""
+            end
+        end
+        local data = {alive = alive, res = res, avarice = avarice, combo = combo, combo_names = comboNames, revived = revived}
+        for key, value in pairs(data) do
+            local serialized = ScoreboardStatusSerialize(value)
+            if cache[key] ~= serialized then
+                cache[key] = serialized
+                PlayerTables:SetTableValue("scoreboard_status", key, value)
+            end
+        end
+        return 0.5
+    end)
+end
+
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function FateGameMode:InitGameMode()
@@ -4058,6 +4134,8 @@ function FateGameMode:InitGameMode()
     PlayerTables:CreateTable("gold", {}, AllPlayersInterval)
     PlayerTables:CreateTable("weather", {}, AllPlayersInterval)
     PlayerTables:CreateTable("disable_help_data", {[0] = {}, [1] = {}, [2] = {}, [3] = {}, [4] = {}, [5] = {}, [6] = {}, [7] = {}, [8] = {}, [9] = {}, [10] = {}, [11] = {}, [12] = {}, [13] = {}, [14] = {}, [15] = {}, [16] = {}, [17] = {}, [18] = {}, [19] = {}, [20] = {}, [21] = {}, [22] = {}, [23] = {}}, AllPlayersInterval)
+    PlayerTables:CreateTable("scoreboard_status", {alive = {}, res = {}, avarice = {}, combo = {}, combo_names = {}, revived = {}}, AllPlayersInterval)
+    self:StartScoreboardStatusUpdater()
 
 
     -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI

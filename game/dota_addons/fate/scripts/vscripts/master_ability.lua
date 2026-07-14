@@ -890,13 +890,14 @@ function OnAvariceAcquired(keys)
 	end
 
 	-- distribute gold
+	-- (do NOT overwrite "hero" here: it is the buyer, and the stat update below must go to them)
 	local teamTable = {}
 	for i=0, 13 do
 		local player = PlayerResource:GetPlayer(i)
-		if player ~= nil then 
-			hero = PlayerResource:GetPlayer(i):GetAssignedHero()
-			if hero:GetTeam() == caster:GetTeam() then
-				table.insert(teamTable, hero)
+		if player ~= nil then
+			local teamHero = player:GetAssignedHero()
+			if teamHero ~= nil and teamHero:GetTeam() == caster:GetTeam() then
+				table.insert(teamTable, teamHero)
 			end
 		end
 	end

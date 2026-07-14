@@ -144,13 +144,12 @@
 
 #TeamScore
 {
-    vertical-align: bottom;
+    vertical-align: center;
     horizontal-align: left;
     color: white;
     font-size: 24px;
     font-weight: bold;
     text-shadow: 4px 4px 4px black;
-    margin-bottom: -2px;
     text-overflow: clip;
 }
 
@@ -158,7 +157,148 @@
 {
     width: 100%;
     height: 42px;
-    background-color: gradient( linear, 25px 0%, 40px 0%, from( black ), to( transparent ) );
+    background-color: gradient( linear, 78px 0%, 96px 0%, from( black ), to( transparent ) );
+}
+
+#TeamInfoColumn
+{
+    horizontal-align: left;
+    vertical-align: top;
+    margin-left: 26px;
+    width: 52px;
+    flow-children: down;
+    background-color: #000000C8;
+    border-right: 1px solid #000000;
+    padding-bottom: 3px;
+    overflow: noclip;
+}
+
+#TeamColorSwatch
+{
+    width: 100%;
+    height: 7px;
+    border: 1px solid #cfd6dc99;
+}
+
+#TeamAliveStatus
+{
+    horizontal-align: center;
+    margin-top: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    flow-children: down;
+    border-bottom: 2px solid transparent;
+}
+
+#TeamAliveLabel
+{
+    horizontal-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #8a9ba8;
+    text-shadow: 1px 1px 2px black;
+}
+
+#TeamAliveCount
+{
+    horizontal-align: center;
+    margin-top: -3px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+#TeamRevivedNote
+{
+    horizontal-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #8fd0ff;
+    text-shadow: 1px 1px 2px black;
+}
+
+#TeamAvariceStatus
+{
+    horizontal-align: center;
+    margin-top: 2px;
+    flow-children: right;
+}
+
+#TeamAvariceIcon
+{
+    width: 16px;
+    height: 16px;
+    vertical-align: center;
+    border: 1px solid #00000000;
+}
+
+#TeamAvariceCount
+{
+    vertical-align: center;
+    margin-left: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffd86e;
+    text-shadow: 1px 1px 2px black;
+}
+
+.ScoreboardTeamWrapper.team_fewer_alive #TeamAliveStatus
+{
+    border-bottom: 2px solid #ff4d4d;
+}
+
+.ScoreboardTeamWrapper.team_fewer_alive #TeamAliveLabel
+{
+    color: #ff9a9a;
+}
+
+.ScoreboardTeamWrapper.team_fewer_alive #TeamAliveCount
+{
+    color: #ff4d4d;
+}
+
+/* combo states: ready = full color + glow, cooldown = bright grayscale,
+   unavailable (stats not reached) = nearly black */
+#SealIndicator.combo_cooldown
+{
+    saturation: 0;
+    brightness: 1.1;
+}
+
+#SealIndicator.combo_unavailable
+{
+    saturation: 0;
+    brightness: .2;
+}
+
+.ScoreboardTeamWrapper.team_score_leading #TeamScore
+{
+    color: #e5a800;
+    text-shadow: 0px 0px 8px 3 #ffcc00cc;
+}
+
+.ScoreboardPlayerWrapper.player_revived #RespawnIndicator
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.ScoreboardPlayerWrapper.player_revived #RespawnTimer
+{
+    color: #8fd0ff;
+    font-size: 10px;
+}
+
+.ScoreboardPlayerWrapper.player_dead #RespawnTimer
+{
+    text-overflow: shrink;
+}
+
+#SealIndicator.combo_ready
+{
+    saturation: 1;
+    box-shadow: 0px 0px 6px 1px #ffd86e88;
 }
 
 #TeamStatus
@@ -169,7 +309,7 @@
 
 #PlayersContainer
 {
-    padding-left: 24px;
+    padding-left: 80px;
     flow-children: right;
 }
 
@@ -181,6 +321,7 @@
 {
     width: 100%;
     height: 48px;
+    overflow: noclip;
 }
 
 .ScoreboardTeamWrapper.local_player_team #TeamOverlayBar

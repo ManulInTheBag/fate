@@ -17,6 +17,18 @@
                     <Panel hittest="false" id="TeamLogo" />
                     <Label hittest="false" id="TeamScore" text="0"/>
                 </Panel>
+                <Panel hittest="false" id="TeamInfoColumn">
+                    <Panel hittest="false" id="TeamColorSwatch" />
+                    <Panel hittest="false" id="TeamAliveStatus">
+                        <Label hittest="false" id="TeamAliveLabel" text="ALIVE" />
+                        <Label hittest="false" id="TeamAliveCount" text="" />
+                    </Panel>
+                    <Label hittest="false" id="TeamRevivedNote" text="" />
+                    <Panel hittest="false" id="TeamAvariceStatus">
+                        <Image hittest="false" id="TeamAvariceIcon" src="s2r://panorama/images/spellicons/shard_of_avarice_png.vtex" />
+                        <Label hittest="false" id="TeamAvariceCount" text="0" />
+                    </Panel>
+                </Panel>
             </Panel>
         </Panel>
         <Panel hittest="false" id="TeamOverlayXMLFile" />

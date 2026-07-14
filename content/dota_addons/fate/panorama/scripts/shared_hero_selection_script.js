@@ -2,6 +2,7 @@ var HeroesData = {},
 	SelectedHeroName = '',
 	BannedHeroes = [],
 	LocalPlayerStatus = {};
+	ChosenSkins = {}; // heroName -> skin index picked this session, so browsing other heroes doesn't reset it
 	EmptyStateData = {};
 	EmptyStateData.hero = 'npc_dota_hero_abaddon';
 	EmptyStateData.status = 'hover';
@@ -188,32 +189,36 @@ function ChooseHeroUpdatePanels() {
 	FillSkinUI($('#HeroSkinSelection'), selectedHeroData.skins);
 }
 
+function GetRememberedSkin(heroName) {
+	var skin = ChosenSkins[heroName] || 0;
+	var heroData = HeroesData[heroName];
+	if (!heroData || !heroData.skins || !heroData.skins['skin_' + skin]) return 0;
+	return skin;
+}
+
 function FillSkinUI(rootPanel, skins) {
-	rootPanel.FindChildTraverse('SkinName').text = $.Localize('#' + skins.skin_0.loc_name);
+	var max_skins = Object.keys(skins).length;
+	var skin_number = GetRememberedSkin(SelectedHeroName);
 
-	var selectedHeroData = HeroesData[SelectedHeroName];
-	var max_skins = Object.keys(selectedHeroData.skins).length;
-
-	rootPanel.FindChildTraverse('SkinPanelText').text = 'Skin ' + 1 + '/' + max_skins;
+	rootPanel.SetHasClass('MultipleSkins', max_skins > 1);
+	rootPanel.FindChildTraverse('SkinName').text = $.Localize('#' + skins['skin_' + skin_number].loc_name);
+	rootPanel.FindChildTraverse('SkinPanelText').text = 'Skin ' + (skin_number + 1) + '/' + max_skins;
 }
 
 function ChooseSkinUpdatePanels(number) {
-	rootPanel = $('#HeroSkinSelection')
+	var rootPanel = $('#HeroSkinSelection');
 	var selectedHeroSkinData = HeroesData[SelectedHeroName].skins;
-	var name = 'skin_' + number;
+	var max_skins = Object.keys(selectedHeroSkinData).length;
 
-	var skin_number = number + 1;
+	ChosenSkins[SelectedHeroName] = number;
 
-	var selectedHeroData = HeroesData[SelectedHeroName];
-	var max_skins = Object.keys(selectedHeroData.skins).length;
-
+	rootPanel.SetHasClass('MultipleSkins', max_skins > 1);
 	rootPanel.FindChildTraverse('SkinName').text = $.Localize('#' + selectedHeroSkinData['skin_' + number].loc_name);
-	rootPanel.FindChildTraverse('SkinPanelText').text = 'Skin ' + skin_number + '/' + max_skins;
+	rootPanel.FindChildTraverse('SkinPanelText').text = 'Skin ' + (number + 1) + '/' + max_skins;
 }
 
 function SwitchSkinsUp() {
-	var tableData = PlayerTables.GetTableValue('hero_selection', Players.GetTeam(Game.GetLocalPlayerID()));
-	var skin_number = tableData[Game.GetLocalPlayerID()].skin;
+	var skin_number = GetRememberedSkin(SelectedHeroName);
 
 	var selectedHeroData = HeroesData[SelectedHeroName];
 	var max_skins = Object.keys(selectedHeroData.skins).length;
@@ -226,8 +231,7 @@ function SwitchSkinsUp() {
 }
 
 function SwitchSkinsDown() {
-	var tableData = PlayerTables.GetTableValue('hero_selection', Players.GetTeam(Game.GetLocalPlayerID()));
-	var skin_number = tableData[Game.GetLocalPlayerID()].skin;
+	var skin_number = GetRememberedSkin(SelectedHeroName);
 
 	var selectedHeroData = HeroesData[SelectedHeroName];
 	var max_skins = Object.keys(selectedHeroData.skins).length;

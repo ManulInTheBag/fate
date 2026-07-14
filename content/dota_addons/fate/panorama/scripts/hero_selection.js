@@ -40,7 +40,7 @@ function ChooseHeroPanelHero() {
 		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
 			GameEvents.SendCustomGameEventToServer('hero_selection_player_hover', {
 				hero: SelectedHeroName,
-				skin_number: 0
+				skin_number: GetRememberedSkin(SelectedHeroName)
 			});
 			//Game.EmitSound('melty_lock');
 		}
@@ -48,16 +48,16 @@ function ChooseHeroPanelHero() {
 }
 
 function UpdateHeroSkin(skinNumber) {
+	// after pick/lock the server refuses skin updates, so don't pretend the switch worked
+	if (IsLocalHeroLockedOrPicked()) return;
 	ChooseSkinUpdatePanels(skinNumber);
-	if (!IsLocalHeroLockedOrPicked()) {
-		var localPlayerId = Game.GetLocalPlayerID();
-		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
-			GameEvents.SendCustomGameEventToServer('hero_selection_player_hover', {
-				hero: SelectedHeroName,
-				skin_number: skinNumber
-			});
-			//Game.EmitSound('melty_lock');
-		}
+	var localPlayerId = Game.GetLocalPlayerID();
+	if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
+		GameEvents.SendCustomGameEventToServer('hero_selection_player_hover', {
+			hero: SelectedHeroName,
+			skin_number: skinNumber
+		});
+		//Game.EmitSound('melty_lock');
 	}
 }
 

@@ -46,8 +46,10 @@ function HeroDemo:Init()
 
     CustomGameEventManager:RegisterListener( "LevelUpHero", function(...) return self:OnLevelUpHero( ... ) end )
     CustomGameEventManager:RegisterListener( "MaxLevelUpHero", function(...) return self:OnMaxLevelUpHero( ... ) end )
-    CustomGameEventManager:RegisterListener( "ScepterHero", function(...) return self:OnScepterHero( ... ) end )
-    CustomGameEventManager:RegisterListener( "ShardHero", function(...) return self:OnShardHero( ... ) end )
+    CustomGameEventManager:RegisterListener( "AntiMagicShardHero", function(...) return self:OnAntiMagicShardHero( ... ) end )
+    CustomGameEventManager:RegisterListener( "ReplenishShardHero", function(...) return self:OnReplenishShardHero( ... ) end )
+    CustomGameEventManager:RegisterListener( "EndRoundButtonPressed", function(...) return self:OnEndRoundButtonPressed( ... ) end )
+    CustomGameEventManager:RegisterListener( "InfiniteRoundButtonPressed", function(...) return self:OnInfiniteRoundButtonPressed( ... ) end )
     CustomGameEventManager:RegisterListener( "ResetHero", function(...) return self:OnResetHero( ... ) end )
     CustomGameEventManager:RegisterListener( "ToggleInvulnerabilityHero", function(...) return self:OnSetInvulnerabilityHero( nil, ... ) end )
     CustomGameEventManager:RegisterListener( "InvulnOnHero", function(...) return self:OnSetInvulnerabilityHero( true, ... ) end )
@@ -489,31 +491,69 @@ function HeroDemo:OnMaxLevelUpHero( eventSourceIndex, data )
 end
 
 --------------------------------------------------------------------------------
--- ButtonEvent: ScepterHero
+-- ButtonEvent: AntiMagicShardHero - gives the fate Shard of Anti Magic item
 --------------------------------------------------------------------------------
-function HeroDemo:OnScepterHero( eventSourceIndex, data )
+function HeroDemo:OnAntiMagicShardHero( eventSourceIndex, data )
 	local nHeroEntIndex = tonumber( data.str )
 	local hHero = EntIndexToHScript( nHeroEntIndex )
-	if ( hHero ~= nil and hHero:IsNull() == false ) then
-		print( 'OnScepterHero! - found hero with ent index = ' .. nHeroEntIndex )
-		
-		if not hHero:FindModifierByName( "modifier_item_ultimate_scepter_consumed" ) then
-			hHero:AddItemByName( "item_ultimate_scepter_2" )
-		end
+	if IsNotNull(hHero) then
+		print( 'OnAntiMagicShardHero! - found hero with ent index = ' .. nHeroEntIndex )
+		hHero:AddItemByName( "item_shard_of_anti_magic" )
 	end
 end
 
 --------------------------------------------------------------------------------
--- ButtonEvent: ShardHero
+-- ButtonEvent: ReplenishShardHero - gives the fate Shard of Replenishment item
 --------------------------------------------------------------------------------
-function HeroDemo:OnShardHero( eventSourceIndex, data )
+function HeroDemo:OnReplenishShardHero( eventSourceIndex, data )
 	local nHeroEntIndex = tonumber( data.str )
 	local hHero = EntIndexToHScript( nHeroEntIndex )
 	if IsNotNull(hHero) then
-		print( 'OnShardHero! - found hero with ent index = ' .. nHeroEntIndex )
-		if not hHero:FindModifierByName( "modifier_item_aghanims_shard" ) then
-			hHero:AddItemByName( "item_aghanims_shard" )
-		end
+		print( 'OnReplenishShardHero! - found hero with ent index = ' .. nHeroEntIndex )
+		hHero:AddItemByName( "item_shard_of_replenishment" )
+	end
+end
+
+--------------------------------------------------------------------------------
+-- ButtonEvent: EndRoundButtonPressed - fast-forwards the pending 'round_timer'
+-- so the stock timeout handler in addon_game_mode.lua ends the round on the
+-- next Timers think; the round logic itself is untouched
+--------------------------------------------------------------------------------
+function HeroDemo:OnEndRoundButtonPressed( eventSourceIndex, data )
+	if _G.CurrentGameState ~= "FATE_ROUND_ONGOING" then
+		return
+	end
+	local roundTimer = Timers.timers['round_timer']
+	if roundTimer == nil then
+		return
+	end
+	print( 'OnEndRoundButtonPressed! - expiring round_timer' )
+	Timers:RemoveTimer( 'round_30sec_alert' )
+	Timers:RemoveTimer( 'round_10sec_alert' )
+	roundTimer.endTime = GameRules:GetGameTime()
+end
+
+--------------------------------------------------------------------------------
+-- ButtonEvent: InfiniteRoundButtonPressed - pushes the pending 'round_timer'
+-- far into the future, so the current round can only end by team wipe (or by
+-- the End Round button, which still finds the timer and expires it)
+--------------------------------------------------------------------------------
+function HeroDemo:OnInfiniteRoundButtonPressed( eventSourceIndex, data )
+	if _G.CurrentGameState ~= "FATE_ROUND_ONGOING" then
+		return
+	end
+	local roundTimer = Timers.timers['round_timer']
+	if roundTimer == nil then
+		return
+	end
+	print( 'OnInfiniteRoundButtonPressed! - postponing round_timer' )
+	Timers:RemoveTimer( 'round_30sec_alert' )
+	Timers:RemoveTimer( 'round_10sec_alert' )
+	roundTimer.endTime = GameRules:GetGameTime() + 999999
+	-- stop the on-screen countdown the same way FinishRound does
+	local hGameMode = GameRules.AddonTemplate
+	if hGameMode ~= nil and hGameMode.nCurrentRound ~= nil then
+		CreateUITimer( ("Round " .. hGameMode.nCurrentRound), 0, "round_timer" .. hGameMode.nCurrentRound )
 	end
 end
 

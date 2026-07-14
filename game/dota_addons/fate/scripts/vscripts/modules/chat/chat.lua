@@ -10,6 +10,11 @@ Events:Register("activate", function ()
 	ListenToGameEvent("player_chat", function(keys)
 		Chat:Send(keys.playerid, keys.teamonly == 1, {text = keys.text})
 	end, nil)
+
+	-- GameRules:SendCustomMessage работает нативно: дефолтный чат сам
+	-- рисует html-цвета. Кастомный слой (fateanother_chat_icons) больше
+	-- не пересоздаёт строки — он только подменяет иконки героев in-place,
+	-- поэтому перехват у источника не нужен.
 end)
 
 function Chat:SendSystemMessage(data, team)
@@ -19,6 +24,10 @@ end
 
 function Chat:Send(playerId, teamonly, data)
 	if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsBanned(playerId) then return end
+
+	-- /roll и /flip дота обрабатывает сама и НЕ шлёт их в player_chat —
+	-- перехватить нельзя. Их нативные строки нормально доживают до кражи
+	-- зеркалом (результат досоздаётся за ADOPT_DELAY), фильтровать нечего.
 
 	if Chat:ApplyCommand(playerId, teamonly, data.text) then return end
 	local heroName

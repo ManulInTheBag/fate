@@ -2623,9 +2623,25 @@ local heroCombos = {
     ["npc_dota_hero_axe"] = "cu_alter_combo",
 }
 
+local slotToCombo
 function GetHeroCombo(hero)
     local name = hero:GetName()
-    return heroCombos[name] or ""
+    -- old-style heroes: the KV entry is keyed by the dota slot GetName() returns
+    local combo = GetKeyValue(name, "Combo")
+    if combo then
+        return combo
+    end
+    -- new-style heroes: GetName() returns the overridden dota hero, while the KV
+    -- entry carrying "Combo" is keyed by the custom name - build a reverse map once
+    if not slotToCombo then
+        slotToCombo = {}
+        for heroKey, kv in pairs(NPC_HEROES_CUSTOM or {}) do
+            if type(kv) == "table" and kv.override_hero and kv.Combo then
+                slotToCombo[kv.override_hero] = kv.Combo
+            end
+        end
+    end
+    return slotToCombo[name] or heroCombos[name] or ""
 end
 
 -- returns -1 if combo is not available
@@ -2633,21 +2649,16 @@ end
 -- otherwise returns cooldown remaning on combo
 function GetComboAvailability(hero)
     local heroName = hero:GetName()
-    if heroName == "npc_dota_hero_juggernaut" then
-        if hero:GetStrength() < 24.1 or hero:GetAgility() < 24.1 then
+    -- combos unlock at 30 in each stat (abilities check >= 29.1);
+    -- Sasaki (juggernaut) and Heracles (doom) have no INT requirement
+    if heroName == "npc_dota_hero_juggernaut" or heroName == "npc_dota_hero_doom_bringer" then
+        if hero:GetStrength() < 29.1 or hero:GetAgility() < 29.1 then
             return -1
         end
     else
-        local statreq = 19.1
-        if heroName == "npc_dota_hero_sven" then
-            local ability = hero:FindAbilityByName("lancelot_arondite")
-            if hero:HasModifier("modifier_arondite") then
-                statreq = statreq + ability:GetLevelSpecialValueFor("bonus_allstat", ability:GetLevel() - 1)
-            end
-        end
-        if hero:GetStrength() < statreq
-            or hero:GetAgility() < statreq
-            or hero:GetIntellect() < statreq
+        if hero:GetStrength() < 29.1
+            or hero:GetAgility() < 29.1
+            or hero:GetIntellect() < 29.1
         then
             return -1
         end
@@ -2656,11 +2667,38 @@ function GetComboAvailability(hero)
     if comboName == "" then
         return -1
     end
-    local combo = hero:FindAbilityByName(comboName)
-    if combo == nil then
-        return -1
+    -- Aoko (ogre_magi slot) has two combos behind one gate: both must be off cooldown
+    if heroName == "npc_dota_hero_ogre_magi" then
+        local cooldown = 0
+        local blue = hero:FindAbilityByName("aoko_blue")
+        local earthlight = hero:FindAbilityByName("aoko_earthlight_starbow")
+        if blue ~= nil and blue:GetCooldownTimeRemaining() > cooldown then
+            cooldown = blue:GetCooldownTimeRemaining()
+        end
+        if earthlight ~= nil and earthlight:GetCooldownTimeRemaining() > cooldown then
+            cooldown = earthlight:GetCooldownTimeRemaining()
+        end
+        return cooldown
     end
-    return combo:GetCooldownTimeRemaining()
+    local combo = hero:FindAbilityByName(comboName)
+    if combo ~= nil then
+        return combo:GetCooldownTimeRemaining()
+    end
+    -- proxy combos (KV "Combo" points at an ability the hero never carries) live on
+    -- the second master; its copy is parked at 9999cd until the first cast re-arms
+    -- it with the real cooldown (see LoopThroughAttr / masterCombo:StartCooldown)
+    local master = hero.MasterUnit2
+    if master ~= nil and not master:IsNull() then
+        combo = master:FindAbilityByName(comboName)
+        if combo ~= nil then
+            local cooldown = combo:GetCooldownTimeRemaining()
+            if cooldown > 3600 then
+                return 0
+            end
+            return cooldown
+        end
+    end
+    return -1
 end
 
 --Function records EMPIRICAL damage and also PRE-REDUCTION right click damage, PRE-REDUCTION skill damage is handled at line 906 to 910.

@@ -204,50 +204,16 @@ function ToggleInvulnerability()
 	}
 }
 
-function InvulnerableOn()
+function EndCurrentRound()
 {
-	var entities = Players.GetSelectedEntities( 0 );
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-	for ( var i = 0; i < numEntities; i++ )
-	{
-		var entindex = entities[i];
-		if ( entindex == -1 )
-			continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'InvulnOnHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+	Game.EmitSound( "UI.Button.Pressed" );
+	$.DispatchEvent( 'FireCustomGameEvent_Str', 'EndRoundButtonPressed', "1" );
 }
 
-function InvulnerableOff()
+function MakeRoundInfinite()
 {
-	var entities = Players.GetSelectedEntities( 0 );
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-	for ( var i = 0; i < numEntities; i++ )
-	{
-		var entindex = entities[i];
-		if ( entindex == -1 )
-			continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'InvulnOffHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+	Game.EmitSound( "UI.Button.Pressed" );
+	$.DispatchEvent( 'FireCustomGameEvent_Str', 'InfiniteRoundButtonPressed', "1" );
 }
 
 function LevelUpSelectedHeroes()
@@ -319,7 +285,7 @@ function ResetSelectedHeroes()
 	}
 }
 
-function ShardSelectedHeroes()
+function ReplenishShardSelectedHeroes()
 {
 	var entities = Players.GetSelectedEntities( 0 );
 	$.Msg( "Entities = " + entities );
@@ -333,7 +299,7 @@ function ShardSelectedHeroes()
         if ( entindex == -1 )
             continue;
 
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'ShardHero', String( entindex ) );
+		$.DispatchEvent( 'FireCustomGameEvent_Str', 'ReplenishShardHero', String( entindex ) );
 	}
 
 	if ( numEntities > 0 )
@@ -342,7 +308,7 @@ function ShardSelectedHeroes()
 	}
 }
 
-function ScepterSelectedHeroes()
+function AntiMagicShardSelectedHeroes()
 {
 	var entities = Players.GetSelectedEntities( 0 );
 	$.Msg( "Entities = " + entities );
@@ -356,7 +322,7 @@ function ScepterSelectedHeroes()
         if ( entindex == -1 )
             continue;
 
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'ScepterHero', String( entindex ) );
+		$.DispatchEvent( 'FireCustomGameEvent_Str', 'AntiMagicShardHero', String( entindex ) );
 	}
 
 	if ( numEntities > 0 )

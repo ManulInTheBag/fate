@@ -14,6 +14,12 @@ function ToggleOptionsPanel(panel){
     else{
         pBackground.visible = false;
         Game.EmitSound("ui_settings_slide_out");
+        // Скрытая панель сохраняет input focus; уводим его с поля ввода
+        // хоткея, иначе клавиатура остаётся захваченной невидимым TextEntry.
+        var pEntry = pContext.FindChildTraverse("HotkeyEntry");
+        if (pEntry != null) {
+            $.DispatchEvent("DropInputFocus", pEntry);
+        }
     }
 };
 
@@ -99,6 +105,13 @@ Tab.prototype.Hover = function(){
     pOptionsContainer.bHidden = true;
     pContext.cActiveTab = null;
     pBackground.visible = false;
+
+    // Фокус-гард: движок отдаёт «упавший» input focus полю чата по
+    // умолчанию (см. коммент в team_select.js про SetAcceptsFocus) — из-за
+    // этого у игроков посреди боя клавиатуру захватывал невидимый чат
+    // («фейковый чат»: способности не жмутся, Enter шлёт накопленный текст).
+    // Всегда живой фокусируемый узел HUD перехватывает эту роль у чата.
+    pContext.SetAcceptsFocus(true);
 
     bOptionsButton.SetPanelEvent("onmouseover", function(){
         $.DispatchEvent("DOTAShowTextTooltip", bOptionsButton, "#FA_Options_tooltip");

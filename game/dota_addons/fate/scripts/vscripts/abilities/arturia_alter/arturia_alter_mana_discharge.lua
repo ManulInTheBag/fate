@@ -10,7 +10,7 @@ function arturia_alter_mana_discharge:OnSpellStart()
 
 			self.mana_drain = self:GetCaster():GetMaxMana()*0.05
 			self:GetCaster():RemoveModifierByName("modifier_derange")
-			self:GetCaster():AddNewModifier(caster, self, "modifier_derange_discharge", {})
+			self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_derange_discharge", {})
 
 			self.cast = ParticleManager:CreateParticle("particles/custom/saber_alter/god_is_great/boom_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 
@@ -42,7 +42,6 @@ function modifier_derange_discharge:DeclareFunctions()
 	return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-			MODFIER_EVENT_ON_RESPAWN,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
 end
@@ -103,21 +102,28 @@ function modifier_derange_discharge:OnIntervalThink()
 end
 
 function modifier_derange_discharge:OnDestroy()
-ParticleManager:DestroyParticle(self:GetAbility().cast, true)
-ParticleManager:ReleaseParticleIndex(self:GetAbility().cast)
-self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_derange_discharge_2", {duration = 2.5})
+	if not IsServer() then return end
+	local ability = self:GetAbility()
+	if ability.cast then
+		ParticleManager:DestroyParticle(ability.cast, true)
+		ParticleManager:ReleaseParticleIndex(ability.cast)
+		ability.cast = nil
+	end
+	self:GetParent():AddNewModifier(self:GetCaster(), ability, "modifier_derange_discharge_2", {duration = 2.5})
 end
 
+-- read as/ms/dmg from this ability's own KV (duplicated from derange, level is synced in derange:OnUpgrade):
+-- GetAbilityByIndex does not exist on the client, entity methods here must work in both VMs
 function modifier_derange_discharge:GetModifierAttackSpeedBonus_Constant()
-	return self:GetParent():GetAbilityByIndex(0):GetSpecialValueFor("as") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_1")/100
+	return self:GetAbility():GetSpecialValueFor("as") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_1")/100
 end
 
 function modifier_derange_discharge:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetParent():GetAbilityByIndex(0):GetSpecialValueFor("ms") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_2")/100
+	return self:GetAbility():GetSpecialValueFor("ms") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_2")/100
 end
 
 function modifier_derange_discharge:GetModifierPreAttack_BonusDamage()
-	return self:GetParent():GetAbilityByIndex(0):GetSpecialValueFor("dmg") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_3")/100
+	return self:GetAbility():GetSpecialValueFor("dmg") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_3")/100
 end
 
 function modifier_derange_discharge:GetModifierPhysicalArmorBonus()
@@ -142,7 +148,6 @@ function modifier_derange_discharge_2:DeclareFunctions()
 	return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-			MODFIER_EVENT_ON_RESPAWN,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
 end
@@ -152,15 +157,15 @@ function modifier_derange_discharge_2:IsDebuff() return false end
 function modifier_derange_discharge_2:RemoveOnDeath() return true end
 
 function modifier_derange_discharge_2:GetModifierAttackSpeedBonus_Constant()
-	return self:GetParent():GetAbilityByIndex(0):GetSpecialValueFor("as") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_1")/100
+	return self:GetAbility():GetSpecialValueFor("as") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_1")/100
 end
 
 function modifier_derange_discharge_2:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetParent():GetAbilityByIndex(0):GetSpecialValueFor("ms") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_2")/100
+	return self:GetAbility():GetSpecialValueFor("ms") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_2")/100
 end
 
 function modifier_derange_discharge_2:GetModifierPreAttack_BonusDamage()
-	return self:GetParent():GetAbilityByIndex(0):GetSpecialValueFor("dmg") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_3")/100
+	return self:GetAbility():GetSpecialValueFor("dmg") + self:GetParent():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_drain_percentage_3")/100
 end
 
 function modifier_derange_discharge_2:GetModifierPhysicalArmorBonus()

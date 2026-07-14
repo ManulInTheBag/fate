@@ -1,0 +1,13 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/fateanother_chat_icons.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/arena_util.vjs_c" />
+		<include src="s2r://panorama/scripts/fateanother_chat_icons.vjs_c" />
+	</scripts>
+	<!-- Скрипт работает по чужому дереву (HudChat); своя панель нужна только
+	     как контекст и вешалка для прогрева текстур портретов. -->
+	<Panel class="ChatIconsRoot" hittest="false" hittestchildren="false" />
+</root>

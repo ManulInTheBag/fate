@@ -314,6 +314,9 @@ function HeroSelection:PreformPlayerRandom(old_data)
 			not HeroSelection:IsHeroDisabledInRanked(hero) then
 				local data = old_data
 				data.hero = hero
+				-- randoming skips the client hover that normally syncs the skin,
+				-- so a skin picked for a previously hovered hero must not leak in
+				HeroSelection:UpdateStatusForPlayer(data.PlayerID, nil, nil, true, 0)
 				HeroSelection:OnHeroSelectHero(data)
 			--HeroSelection:UpdateStatusForPlayer(playerId, "picked", hero)
 			--[[Chat:SendSystemMessage({
