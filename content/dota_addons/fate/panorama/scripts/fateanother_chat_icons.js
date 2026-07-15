@@ -48,6 +48,11 @@ function FindLineOwner(lineText) {
 
 function FindFirstImage(p) {
 	if (p.paneltype === 'Image') return p;
+	// В строку колеса чата дота встраивает виджет DOTAChatWheelMessage, а в
+	// нём — SprayImage (спрей/картинка фразы). Иконка героя лежит ВНЕ этого
+	// виджета (отдельным InlineImage), поэтому в него не заходим — иначе
+	// подменили бы спрей, а иконка героя осталась бы дотовской.
+	if (p.paneltype === 'DOTAChatWheelMessage') return null;
 	for (var i = 0; i < p.GetChildCount(); i++) {
 		var c = p.GetChild(i);
 		if (c != null) {

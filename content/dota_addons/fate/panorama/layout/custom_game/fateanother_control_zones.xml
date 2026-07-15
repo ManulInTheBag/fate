@@ -1,0 +1,52 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="s2r://panorama/styles/custom_game/fateanother_control_zones.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="s2r://panorama/scripts/custom_game/fateanother_control_zones.vjs_c" />
+    </scripts>
+
+    <Panel class="ControlZonesScreen" hittest="false">
+
+        <!-- Победная зона: верх-центр, ниже ряда таймеров -->
+        <Panel id="VictoryZonePanel" class="VictoryZone" hittest="false">
+            <Panel class="VZHeader" hittest="false">
+                <Label id="VZTitle" class="VZTitle" text="CONTROL ZONE" />
+                <Label id="VZStatus" class="VZStatus" text="" />
+            </Panel>
+            <Panel id="VZBars" class="VZBars" hittest="false">
+                <Panel class="VZTeamRow" hittest="false">
+                    <Label id="VZCountRed" class="VZCount VZRed" text="0" />
+                    <Panel class="VZBarBG" hittest="false">
+                        <Panel id="VZBarRed" class="VZBarFill VZRedFill" hittest="false" />
+                    </Panel>
+                </Panel>
+                <Panel class="VZTeamRow" hittest="false">
+                    <Label id="VZCountBlack" class="VZCount VZBlack" text="0" />
+                    <Panel class="VZBarBG" hittest="false">
+                        <Panel id="VZBarBlack" class="VZBarFill VZBlackFill" hittest="false" />
+                    </Panel>
+                </Panel>
+            </Panel>
+        </Panel>
+
+        <!-- Бафф-зоны: компактные иконки у правого края,
+             скрываются тумблером в Fate settings -->
+        <Panel id="BuffZonesPanel" class="BuffZones" hittest="false">
+            <Panel id="BuffZone1" class="BuffZoneRow" hittest="false">
+                <Image id="BuffIcon1" class="BuffIcon" src="" />
+                <Panel class="BuffBarBG" hittest="false">
+                    <Panel id="BuffBar1" class="BuffBarFill" hittest="false" />
+                </Panel>
+            </Panel>
+            <Panel id="BuffZone2" class="BuffZoneRow" hittest="false">
+                <Image id="BuffIcon2" class="BuffIcon" src="" />
+                <Panel class="BuffBarBG" hittest="false">
+                    <Panel id="BuffBar2" class="BuffBarFill" hittest="false" />
+                </Panel>
+            </Panel>
+        </Panel>
+
+    </Panel>
+</root>

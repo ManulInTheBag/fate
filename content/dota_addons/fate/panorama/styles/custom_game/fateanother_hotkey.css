@@ -36,7 +36,7 @@
 
 .SealContainer
 {
-	width: 90%;
+	width: 96%;
 	height: 50%;
 	padding-top: 5px;
 	vertical-align: top;
@@ -70,7 +70,9 @@
 	height: 118px;
 	vertical-align: center;
 	horizontal-align: left;
-	margin-left: 40px;
+	/* Tightened from 40px so all 8 quick-buy items stay on one row on narrower
+	   aspect ratios (16:10 laptops) instead of wrapping and overlapping. */
+	margin-left: 18px;
 }
 
 .ItemPortrait
@@ -243,6 +245,55 @@
 	font-weight: thin;
 	color: #939da0;
 	text-transform: uppercase;
+}
+
+/* Emote-wheel keybind control (in the bottom option row, left of Apply). */
+.EmoteBindRow
+{
+	width: fit-children;
+	height: 100%;
+	vertical-align: center;
+	horizontal-align: left;
+	margin-left: 40px;
+	flow-children: right;
+}
+
+.EmoteBindCaption
+{
+	vertical-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	color: #939da0;
+	text-transform: uppercase;
+	margin-right: 12px;
+}
+
+.EmoteBindSlot
+{
+	width: 70px;
+	height: 46px;
+	vertical-align: center;
+	border: 2px solid #6a9ec0;
+	background-color: #00000044;
+	z-index: 0;
+}
+
+.EmoteBindSlot.GrowBorder
+{
+	border: 2px solid white;
+}
+
+.EmoteBindSlot .SealHotkeyLabel
+{
+	font-size: 26px;
+}
+
+.EmoteBindHint
+{
+	vertical-align: center;
+	margin-left: 12px;
+	font-size: 14px;
+	color: #6c757a;
 }
 
 .SealApplyLabel

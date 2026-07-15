@@ -517,6 +517,7 @@ function Precache( context )
     PrecacheResource("particle", "particles/custom/atalanta/normal_arrow.vpcf", context)
 
     PrecacheResource("particle", "particles/ui_mouseactions/range_finder_cone.vpcf", context)
+    if ControlZones and ControlZones.Precache then ControlZones:Precache(context) end
 
     PrecacheResource( "particle_folder", "particles/econ/items/juggernaut", context )
     PrecacheUnitByNameAsync("npc_dota_hero_puck", nil, nil)
@@ -911,6 +912,127 @@ function SendChatToPanorama(string)
     CustomGameEventManager:Send_ServerToAllClients( "player_chat_lua", table )
 end
 
+-- ============================================================================
+-- Emote wheel: server-side gate + anti-spam.
+-- Emotes are the fbt_incident_1..8 particles that pop above the hero. Both the
+-- "#N" chat command and the emote wheel route through TriggerEmote, so the rate
+-- limit and the spam punishment apply no matter how the emote was requested.
+-- ============================================================================
+local EMOTE_MAX          = 8    -- fbt_incident_1..8
+local EMOTE_COOLDOWN     = 2    -- seconds between emotes
+local EMOTE_RATE_MAX     = 3    -- at most this many sent emotes...
+local EMOTE_RATE_WINDOW  = 10   -- ...within this window; extras are silently dropped
+local EMOTE_SPAM_COUNT   = 15   -- this many *attempts* (incl. dropped ones)...
+local EMOTE_SPAM_WINDOW  = 30   -- ...within this window -> punishment
+local EMOTE_PUNISH_TIME  = 120  -- punishment lock, seconds
+local EMOTE_STATE = {}          -- [playerID] = { last, sent = {t..}, attempts = {t..}, punishUntil }
+
+-- Drops timestamps older than `window` seconds from a list (in place).
+local function PruneWindow(list, now, window)
+    for i = #list, 1, -1 do
+        if now - list[i] > window then
+            table.remove(list, i)
+        end
+    end
+end
+
+-- Pushes the current gate state to a player's client so the wheel can show its
+-- cooldown / rate-limit / punishment state instead of guessing.
+local function SendEmoteState(plyID, state)
+    local ply = PlayerResource:GetPlayer(plyID)
+    if not ply then return end
+    -- rateUntil: when the rate window frees a slot (oldest of the capped sends
+    -- ages out). 0 while under the cap. This is the "up to 10s" cooldown.
+    local rateUntil = 0
+    if state.sent then
+        PruneWindow(state.sent, GameRules:GetGameTime(), EMOTE_RATE_WINDOW)
+        if #state.sent >= EMOTE_RATE_MAX then
+            rateUntil = state.sent[1] + EMOTE_RATE_WINDOW
+        end
+    end
+    CustomGameEventManager:Send_ServerToPlayer(ply, "fate_emote_state", {
+        cooldownUntil = state.last and (state.last + EMOTE_COOLDOWN) or 0,
+        rateUntil     = rateUntil,
+        punishUntil   = state.punishUntil or 0,
+    })
+end
+
+-- Fires emote `num` above the player's hero. Three tiers of anti-spam:
+--   1) 1s cooldown between emotes;
+--   2) at most EMOTE_RATE_MAX sent per EMOTE_RATE_WINDOW s (extras silently dropped);
+--   3) EMOTE_SPAM_COUNT *attempts* (including dropped ones) per EMOTE_SPAM_WINDOW s
+--      locks the wheel for EMOTE_PUNISH_TIME s with the punishment message.
+-- Returns true only if the emote was actually spawned.
+function FateGameMode:TriggerEmote(plyID, num)
+    num = tonumber(num)
+    if not num or num % 1 ~= 0 or num < 1 or num > EMOTE_MAX then return false end
+
+    local ply = PlayerResource:GetPlayer(plyID)
+    if not ply then return false end
+    local hero = ply:GetAssignedHero()
+    if not hero or hero:IsNull() or not hero:IsAlive() then return false end
+
+    local state = EMOTE_STATE[plyID]
+    if not state then
+        state = { last = nil, sent = {}, attempts = {}, punishUntil = 0 }
+        EMOTE_STATE[plyID] = state
+    end
+
+    local now = GameRules:GetGameTime()
+
+    -- Already punished: reject and keep the client's countdown in sync.
+    if now < (state.punishUntil or 0) then
+        SendEmoteState(plyID, state)
+        return false
+    end
+
+    -- Count this attempt (any request, even one about to be dropped).
+    table.insert(state.attempts, now)
+    PruneWindow(state.attempts, now, EMOTE_SPAM_WINDOW)
+
+    -- Tier 3: too many attempts -> lock the wheel with the punishment message.
+    if #state.attempts >= EMOTE_SPAM_COUNT then
+        state.punishUntil = now + EMOTE_PUNISH_TIME
+        state.attempts = {}
+        state.sent = {}
+        CustomGameEventManager:Send_ServerToPlayer(ply, "fate_emote_punished", { duration = EMOTE_PUNISH_TIME })
+        SendEmoteState(plyID, state)
+        return false
+    end
+
+    -- Tier 1: cooldown between emotes.
+    if state.last and (now - state.last) < EMOTE_COOLDOWN then
+        SendEmoteState(plyID, state)
+        return false
+    end
+
+    -- Tier 2: rate cap over a sliding window -> silently drop the extras, but
+    -- tell the client so the hub can show the (up to 10s) rate cooldown.
+    PruneWindow(state.sent, now, EMOTE_RATE_WINDOW)
+    if #state.sent >= EMOTE_RATE_MAX then
+        SendEmoteState(plyID, state)
+        return false
+    end
+
+    -- Accepted: spawn the particle and release it shortly after so it doesn't leak.
+    local fx = ParticleManager:CreateParticle(
+        string.format("particles/fbt_incident_%d.vpcf", num), PATTACH_ABSORIGIN_FOLLOW, hero)
+    ParticleManager:SetParticleControl(fx, 0, hero:GetAbsOrigin())
+    Timers:CreateTimer(3.0, function() ParticleManager:ReleaseParticleIndex(fx) end)
+
+    state.last = now
+    table.insert(state.sent, now)
+
+    SendEmoteState(plyID, state)
+    return true
+end
+
+-- Emote wheel -> server. PlayerID is engine-injected (trusted); the client's
+-- own claim is ignored.
+function OnPlayerSendEmote(iSource, args)
+    FateGameMode:TriggerEmote(args.PlayerID, args.emote)
+end
+
 function FateGameMode:OnPlayerChat(keys)
    -- print ('[BAREBONES] PlayerSay')
     if keys == nil then print("empty keys") end
@@ -1003,14 +1125,9 @@ function FateGameMode:OnPlayerChat(keys)
     end
 
 
-    local alexeiEbaniy = string.match(text, "^#(%d+)")
-    if tonumber(alexeiEbaniy) ~= nil then 
-
-
-        local emotion = ParticleManager:CreateParticle(string.format("particles/FBT_incident_%s.vpcf", alexeiEbaniy), PATTACH_ABSORIGIN_FOLLOW, hero)
-            ParticleManager:SetParticleControl(emotion, 0, hero:GetAbsOrigin())
-
-   end
+    -- Emotes are now triggered only through the emote wheel (player_send_emote),
+    -- so the "#N" chat command is disabled. Re-enable by routing it back through
+    -- self:TriggerEmote(plyID, tonumber(...)) if the wheel is ever removed.
 
 
     if text == "-inven" then
@@ -3774,9 +3891,8 @@ function FateGameMode:OnEntityKilled( keys )
                     --print("All Radiant heroes eliminated, removing existing timers and declaring winner...")
 
                     Timers:RemoveTimer('round_timer')
-                    Timers:RemoveTimer('alertmsg')
-                    Timers:RemoveTimer('alertmsg2')
-                    Timers:RemoveTimer('timeoutmsg')
+                    Timers:RemoveTimer('round_30sec_alert')
+                    Timers:RemoveTimer('round_10sec_alert')
                     Timers:RemoveTimer('presence_alert')
                     --SendChatToPanorama("OEC18")
                     self:FinishRound(false, 1)
@@ -3784,9 +3900,8 @@ function FateGameMode:OnEntityKilled( keys )
                     --print("All Dire heroes eliminated, removing existing timers and declaring winner...")
 
                     Timers:RemoveTimer('round_timer')
-                    Timers:RemoveTimer('alertmsg')
-                    Timers:RemoveTimer('alertmsg2')
-                    Timers:RemoveTimer('timeoutmsg')
+                    Timers:RemoveTimer('round_30sec_alert')
+                    Timers:RemoveTimer('round_10sec_alert')
                     Timers:RemoveTimer('presence_alert')
                     --SendChatToPanorama("OEC18")
                     self:FinishRound(false, 0)
@@ -4119,6 +4234,7 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("player_seal_4", OnPlayerCastSeal4 )
     CustomGameEventManager:RegisterListener("player_seal_5", OnPlayerCastSeal5 )
     CustomGameEventManager:RegisterListener("player_seal_6", OnPlayerCastSeal6 )
+    CustomGameEventManager:RegisterListener("player_send_emote", OnPlayerSendEmote )
     -- LUA modifiers
     LinkLuaModifier("modifier_ms_cap", "modifiers/modifier_ms_cap", LUA_MODIFIER_MOTION_NONE)
 
@@ -4438,6 +4554,8 @@ function FateGameMode:InitializeRound()
     _G.LaPucelleActivated = false
     _G.FIRST_BLOOD_TRIGGERED = false
 
+    if ControlZones then ControlZones:OnPreRound(self.nCurrentRound, self.nRadiantScore, self.nDireScore, self) end
+
     --SendChatToPanorama("IR1")
     CreateUITimer("Pre-Round", PRE_ROUND_DURATION, "pregame_timer")
     --FireGameEvent('cgm_timer_display', { timerMsg = "Pre-Round", timerSeconds = 16, timerEnd = true, timerPosition = 0})
@@ -4563,6 +4681,7 @@ function FateGameMode:InitializeRound()
             _G.CurrentGameState = "FATE_ROUND_ONGOING"
             _G.IsPreRound = false
             _G.RoundStartTime = GameRules:GetGameTime()
+            if ControlZones then ControlZones:OnRoundStart() end
             CreateUITimer(("Round " .. self.nCurrentRound), ROUND_DURATION, "round_timer" .. self.nCurrentRound)
             --SendChatToPanorama("IRT2")
             --FireGameEvent('cgm_timer_display', { timerMsg = ("Round " .. self.nCurrentRound), timerSeconds = 151, timerEnd = true, timerPosition = 0})
@@ -4654,26 +4773,26 @@ function FateGameMode:InitializeRound()
         callback = function()
             print("[FateGameMode]Round timeout.")
             FireGameEvent("show_center_message",timeoutmsg)
-            local nRadiantAlive = 0
-            local nDireAlive = 0
-            -- Check how many people are alive in each team
-            self:LoopOverPlayers(function(player, playerID, playerHero)
-                if playerHero:HasModifier("modifier_aoko_blue_ally") then
-                    playerHero:RemoveModifierByName("modifier_aoko_blue_ally")
-                end
-                if playerHero:IsAlive() then
-                    if playerHero:GetTeam() == DOTA_TEAM_GOODGUYS then
-                        nRadiantAlive = nRadiantAlive + 1
-                    else
-                        nDireAlive = nDireAlive + 1
-                    end                
-                end
-            end)
+            local function ResolveTimeout()
+                local nRadiantAlive = 0
+                local nDireAlive = 0
+                -- Check how many people are alive in each team
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                    if playerHero:HasModifier("modifier_aoko_blue_ally") then
+                        playerHero:RemoveModifierByName("modifier_aoko_blue_ally")
+                    end
+                    if playerHero:IsAlive() then
+                        if playerHero:GetTeam() == DOTA_TEAM_GOODGUYS then
+                            nRadiantAlive = nRadiantAlive + 1
+                        else
+                            nDireAlive = nDireAlive + 1
+                        end
+                    end
+                end)
 
-            if not _G.LaPucelleActivated then
-            -- if nRadiantAlive > 6 then nRadiantAlive = 6 end
-            -- if nDireAlive > 6 then nDireAlive = 6 end
-            -- if remaining players are equal
+                -- if nRadiantAlive > 6 then nRadiantAlive = 6 end
+                -- if nDireAlive > 6 then nDireAlive = 6 end
+                -- if remaining players are equal
                 if nRadiantAlive == nDireAlive then
                     -- Default Radiant Win
                     if self.nRadiantScore + 0 < self.nDireScore
@@ -4684,7 +4803,7 @@ function FateGameMode:InitializeRound()
                     -- Draw
                     else
                         --if self.nRadiantScore == self.nDireScore
-                        --then 
+                        --then
                         self:FinishRound(true, 2)
                     end
                 -- if remaining players are not equal
@@ -4693,6 +4812,13 @@ function FateGameMode:InitializeRound()
                 elseif nRadiantAlive < nDireAlive then
                     self:FinishRound(true, 1)
                 end
+            end
+
+            if not _G.LaPucelleActivated then
+                -- если победную зону прямо сейчас захватывают — овертайм;
+                -- старые правила таймаута применит ResolveTimeout по его окончании
+                if ControlZones and ControlZones:TryStartOvertime(ResolveTimeout) then return end
+                ResolveTimeout()
             end
         end
     })
@@ -4708,8 +4834,10 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
     print("[FATE] Winner decided")
     --UTIL_RemoveImmediate( roundQuest ) -- Stop round timer
     print(self.nRadiantScore)
-    _G.CurrentGameState = "FATE_POST_ROUND"    
-    
+    _G.CurrentGameState = "FATE_POST_ROUND"
+
+    if ControlZones then ControlZones:OnRoundEnd() end
+
     CreateUITimer(("Round " .. self.nCurrentRound), 0, "round_timer" .. self.nCurrentRound)
     CreateUITimer("Pre-Round", 0, "pregame_timer")
 

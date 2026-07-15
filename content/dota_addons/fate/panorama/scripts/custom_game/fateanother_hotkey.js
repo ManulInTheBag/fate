@@ -38,6 +38,29 @@ function OnHotkeySubmitted()
 		return;
 	}
 
+	// Emote-wheel slot: not part of the seal/quickbuy index scheme, handle it here.
+	if (ibutton === "emote") {
+		var hotkeyE = $("#HotkeyEntry").text;
+		var altE = CMD.container.FindChildTraverse("EntryAltButton");
+		var fE = CMD.container.FindChildTraverse("EntryFButton");
+		var prefixE = "";
+		if (hotkeyE == "" || hotkeyE == " ") {
+			hotkeyE = "";
+		} else if (altE && altE.checked == true) {
+			prefixE = "ALT+";
+		} else if (fE && fE.checked == true) {
+			prefixE = "F";
+		}
+		var elabel = CMD.container.FindChildTraverse("EmoteWheelBindLabel");
+		if (elabel) { elabel.text = prefixE + hotkeyE; }
+		MarkApplyDirty();
+		CMD.entryContainer.visible = false;
+		if (CMD.currentpanel) { CMD.currentpanel.SetHasClass("GrowBorder", false); }
+		$("#HotkeyEntry").text = "";
+		BlurHotkeyEntry();
+		return;
+	}
+
 	var button = CMD.sealContainer.FindChild(ibutton);
 	if (ibutton >= 6) {
 		button = CMD.quickbuyContainer.FindChild(ibutton - 6).GetChild(1);
@@ -92,6 +115,20 @@ function OnEntryFToggle()
 function OnHotkeyClear()
 {
 	var ibutton = CMD.currentButton;
+	if (ibutton === "emote") {
+		var elabel = CMD.container.FindChildTraverse("EmoteWheelBindLabel");
+		if (elabel) { elabel.text = ""; }
+		MarkApplyDirty();
+		CMD.entryContainer.visible = false;
+		if (CMD.currentpanel) { CMD.currentpanel.SetHasClass("GrowBorder", false); }
+		$("#HotkeyEntry").text = "";
+		BlurHotkeyEntry();
+		var altC = CMD.container.FindChildTraverse("EntryAltButton");
+		var fC = CMD.container.FindChildTraverse("EntryFButton");
+		if (altC) { altC.checked = false; }
+		if (fC) { fC.checked = false; }
+		return;
+	}
 	if (ibutton != null && ibutton >= 0) {
 		var button = CMD.sealContainer.FindChild(ibutton);
 		if (ibutton >= 6) {
@@ -268,6 +305,8 @@ function SealButtonApply()
         }
     }
 
+    ApplyEmoteBind();
+
     GameEvents.SendCustomGameEventToServer("player_regist_fate_hotkey", {sHotkey: CMD.hotkeylist});
 
     // Visual feedback: flash the button, then mark the system as active.
@@ -281,6 +320,58 @@ function SealButtonApply()
     if (applyLabel) {
         applyLabel.text = "ACTIVE ✓";
     }
+}
+
+// Opens/releases the emote wheel, which lives in its own panorama context
+// (fateanother_emote_wheel). CustomUIConfig is the shared object between panels.
+function EmoteWheelOpen()
+{
+	var api = GameUI.CustomUIConfig().fate_emote_wheel;
+	if (api && api.open) { api.open(); }
+}
+
+function EmoteWheelRelease()
+{
+	var api = GameUI.CustomUIConfig().fate_emote_wheel;
+	if (api && api.release) { api.release(); }
+}
+
+// Binds the emote-wheel key on Apply. Uses a dedicated +/- command pair (unlike
+// the seal dispatcher, which only fires on press) so hold-to-open / release-to-send
+// works. There is no RemoveCustomKeyBind, so a changed key is released to the noop.
+function ApplyEmoteBind()
+{
+	var elabel = CMD.container.FindChildTraverse("EmoteWheelBindLabel");
+	if (!elabel) { return; }
+
+	var keyText = elabel.text;
+	var chord = "";
+	if (keyText && keyText !== "") {
+		if (keyText.indexOf("ALT+") === 0) {
+			chord = "ALT+" + keyText.substring(4).toUpperCase();
+		} else {
+			chord = keyText.toUpperCase();
+		}
+	}
+
+	// Register the command pair once per panel instance (names carry instanceId).
+	if (!CMD.emoteCmd) {
+		var base = "ACT_EMOTE_" + CMD.instanceId;
+		Game.AddCommand("+" + base, EmoteWheelOpen, "", 512);
+		Game.AddCommand("-" + base, EmoteWheelRelease, "", 512);
+		CMD.emoteCmd = "+" + base;
+	}
+
+	// Release the previously bound key if it changed or was cleared.
+	if (CMD.emoteBoundKey && CMD.emoteBoundKey !== chord) {
+		Game.CreateCustomKeyBind(CMD.emoteBoundKey, EnsureNoopCommand());
+		CMD.emoteBoundKey = null;
+	}
+
+	if (chord !== "") {
+		Game.CreateCustomKeyBind(chord, CMD.emoteCmd);
+		CMD.emoteBoundKey = chord;
+	}
 }
 
 function AddHotkey(Seal, Hotkey)
@@ -658,6 +749,10 @@ function SealHotkeyConfig() {
 	this.instanceId = Math.floor(Math.random() * 1000000)
 	// Restored ability keys quick-cast by default; the Quickcast checkbox flips this.
 	this.quickcast = true
+	// Emote-wheel bind: dedicated +/- command pair (hold-to-open / release-to-send)
+	// and the key it is currently bound to (for releasing a stale bind on rebind).
+	this.emoteCmd = null
+	this.emoteBoundKey = null
 
 	this.Construct();
 	this.entryContainer.visible = false;
@@ -742,6 +837,13 @@ SealHotkeyConfig.prototype.Construct = function() {
 			item_option.FindChildTraverse("ItemOptionIcon").itemname = item;
 			this.ChangeItemList(item_option, item, );
 		}
+	}
+
+	// Emote-wheel bind slot reuses the same key-entry popup as the seals; it is
+	// marked with the "emote" button id and handled specially on submit/clear/apply.
+	var emoteSlot = this.container.FindChildTraverse("EmoteWheelBindSlot");
+	if (emoteSlot) {
+		this.HotKeyBoxOpen(emoteSlot, "emote", "emote");
 	}
 }
 

@@ -74,3 +74,11 @@ var SealButton = (function () {
 }());
 
 var masterBar = new MasterBar($.GetContextPanel());
+
+// Фокус-гард (дублирует приём из team_select.js и fateanother_options.js):
+// мастербар — всегда живой боевой HUD-элемент. Делаем его допустимым
+// держателем input focus, чтобы «осиротевший» фокус не сваливался по
+// умолчанию в поле нативного чата (баг «фейкового чата»: клавиши уходят в
+// чат, Enter отправляет). Чем больше всегда-живых узлов с acceptsfocus в
+// HUD, тем надёжнее чат перехватывается на роли fallback-приёмника.
+$.GetContextPanel().SetAcceptsFocus(true);

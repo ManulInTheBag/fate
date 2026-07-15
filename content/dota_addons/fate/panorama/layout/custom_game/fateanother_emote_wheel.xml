@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/fateanother_emote_wheel.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/fateanother_emote_wheel.vjs_c" />
+	</scripts>
+	<Panel class="EmoteWheelRoot" hittest="false">
+		<Panel id="EmoteWheelBackdrop" class="EmoteWheelBackdrop" hittest="false" />
+		<Panel id="EmoteWheelContainer" class="EmoteWheelContainer" hittest="false">
+			<Panel id="EmoteWheelHub" class="EmoteWheelHub" hittest="false">
+				<Label id="EmoteWheelHubLabel" class="EmoteWheelHubLabel" text="" hittest="false" />
+			</Panel>
+		</Panel>
+		<Panel id="EmotePunishPanel" class="EmotePunishPanel" hittest="false">
+			<Label id="EmotePunishLabel" class="EmotePunishLabel" text="" hittest="false" />
+			<Label id="EmotePunishSub" class="EmotePunishSub" text="" hittest="false" />
+		</Panel>
+	</Panel>
+</root>

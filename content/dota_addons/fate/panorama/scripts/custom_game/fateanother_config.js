@@ -104,6 +104,17 @@ function OnConfig7Toggle(){
     panel.ToggleClass("Hidden");
 }
 
+// Показ/скрытие компактных индикаторов бафф-зон у правого края экрана.
+// checked = показывать (по умолчанию), unchecked = скрыть.
+function OnConfigZoneUIToggle(){
+    var configPanel = $.GetContextPanel();
+    var toggle = configPanel.FindChildTraverse("optionZoneUI");
+    var panel = GetHUDRootUI().FindChildTraverse("BuffZonesPanel");
+    if (panel) {
+        panel.SetHasClass("ZoneUIHidden", !toggle.checked);
+    }
+}
+
 function OnConfig9Toggle()
 {
     g_GameConfig.bIsConfig9On = !g_GameConfig.bIsConfig9On;

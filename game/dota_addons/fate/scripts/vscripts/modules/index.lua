@@ -1,5 +1,6 @@
 require("modules/events/events")
 require("modules/teams/teams")
+require("modules/control_zones/control_zones")
 --require("modules/bosses/bosses")
 --require("modules/custom_abilities/custom_abilities")
 --require("modules/custom_runes/custom_runes")

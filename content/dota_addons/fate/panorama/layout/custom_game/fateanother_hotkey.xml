@@ -51,6 +51,13 @@
 			</Panel>
 			<Panel id="QuickBuyContainer" class="SealContainer" hittest="false" />
 			<Panel id="QuickBuyOptionContainer" class="SealOptionContainer" hittest="false">
+				<Panel id="EmoteBindRow" class="EmoteBindRow" hittest="false">
+					<Label class="EmoteBindCaption" text="EMOTE WHEEL" hittest="false" />
+					<Panel id="EmoteWheelBindSlot" class="EmoteBindSlot" hittest="true">
+						<Label id="EmoteWheelBindLabel" text="" class="SealHotkeyLabel" hittest="false" />
+					</Panel>
+					<Label class="EmoteBindHint" text="hold to open · pick with cursor · release to send" hittest="false" />
+				</Panel>
 				<Panel id="SealApplyButton" class="SealApplyButton" hittest="true" onmouseactivate="SealButtonApply()">
 					<Label id="SealApplyLabel" text="Apply" class="SealApplyLabel" hittest="false" />
 				</Panel>

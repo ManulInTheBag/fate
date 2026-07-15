@@ -717,6 +717,48 @@
 
 	}
 
+	// Маркеры зон контроля: невидимые юниты, существуют только ради иконки
+	// на миникарте (спавнятся парой — по одному на команду; см. control_zones.lua)
+	"npc_zone_marker_victory"
+	{
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/development/invisiblebox.vmdl"
+		"Level"						"0"
+		"Ability1"					"zone_marker_passive"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0"
+		"StatusHealth"				"999999"
+		"StatusMana"				"0"
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
+		"MinimapIcon"				"minimap_sword"
+		"MinimapIconSize"			"500"
+	}
+
+	"npc_zone_marker_buff"
+	{
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/development/invisiblebox.vmdl"
+		"Level"						"0"
+		"Ability1"					"zone_marker_passive"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0"
+		"StatusHealth"				"999999"
+		"StatusMana"				"0"
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
+		"MinimapIcon"				"minimap_ward_obs"
+		"MinimapIconSize"			"350"
+	}
+
 	"dummy_unit"
 	{
 		// General

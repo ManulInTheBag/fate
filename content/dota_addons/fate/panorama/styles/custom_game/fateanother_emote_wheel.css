@@ -1,0 +1,130 @@
+/* Emote wheel — radial picker for the fbt_incident_1..8 emotes.
+   Hold-to-open / release-to-send; selection is driven by cursor angle. */
+
+.EmoteWheelRoot {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.08s;
+    transition-timing-function: ease-out;
+}
+
+/* Toggled on while the wheel is open. */
+.EmoteWheelRoot.EmoteWheelOpen {
+    opacity: 1;
+}
+
+.EmoteWheelBackdrop {
+    width: 100%;
+    height: 100%;
+    background-color: gradient( radial, 50% 50%, 0% 0%, 42% 42%, from( #00000000 ), to( #000000b0 ) );
+}
+
+.EmoteWheelContainer {
+    width: 360px;
+    height: 360px;
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+/* Central hub / dead-zone marker; also shows the cooldown countdown. */
+.EmoteWheelHub {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    horizontal-align: center;
+    vertical-align: center;
+    background-color: #10151cd0;
+    border: 2px solid #3a4757ff;
+    transition-property: background-color, border-color;
+    transition-duration: 0.1s;
+}
+
+/* On cooldown: hub turns red and shows the remaining seconds. */
+.EmoteWheelHub.EmoteHubCooldown {
+    background-color: #2a0f0fee;
+    border: 2px solid #c0392bff;
+}
+
+.EmoteWheelHubLabel {
+    width: 100%;
+    horizontal-align: center;
+    vertical-align: center;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff8a7aff;
+    text-shadow: 0px 2px 3px #000000ff;
+}
+
+/* One segment per emote; JS positions each around the circle and sets the
+   emote image as its background. */
+.EmoteSegment {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background-color: #00000000;
+    background-size: cover;
+    border: 2px solid #46566aff;
+    box-shadow: 0px 2px 6px 0px #000000c0;
+    transition-property: transform, border-color, box-shadow;
+    transition-duration: 0.06s;
+    transition-timing-function: ease-out;
+}
+
+.EmoteSegment.EmoteSegmentActive {
+    border: 3px solid #7fc4ffff;
+    transform: scale3d( 1.2, 1.2, 1.0 );
+    box-shadow: 0px 0px 16px 3px #2b6db0ff;
+}
+
+/* Small number badge overlaid on the emote image (top of the segment).
+   No fixed height: the label hugs the digit so it stays vertically centred
+   inside the pill (a fixed height top-aligns the text and looks off). */
+.EmoteSegmentBadge {
+    horizontal-align: center;
+    vertical-align: top;
+    /* margin-top is set per-segment in JS so badge 7 can be nudged up. */
+    padding: 3px 7px 4px 7px;
+    background-color: #0b0f14ee;
+    border: 1px solid #46566aff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 16px;
+    color: #dfe8f2ff;
+    text-align: center;
+}
+
+/* Punishment overlay — replaces the wheel for the spammer. */
+.EmotePunishPanel {
+    width: 620px;
+    horizontal-align: center;
+    vertical-align: center;
+    padding: 26px;
+    border-radius: 10px;
+    background-color: #1a0606ee;
+    border: 3px solid #c0392bff;
+    box-shadow: 0px 0px 24px 4px #c0392b80;
+    flow-children: down;
+}
+
+.EmotePunishLabel {
+    width: 100%;
+    text-align: center;
+    horizontal-align: center;
+    font-size: 46px;
+    font-weight: bold;
+    color: #ff5a4dff;
+    text-shadow: 0px 2px 5px #000000ff;
+}
+
+.EmotePunishSub {
+    width: 100%;
+    text-align: center;
+    horizontal-align: center;
+    margin-top: 12px;
+    font-size: 20px;
+    color: #e8b0aaff;
+}

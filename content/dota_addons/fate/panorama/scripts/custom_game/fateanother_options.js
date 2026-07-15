@@ -112,6 +112,9 @@ Tab.prototype.Hover = function(){
     // («фейковый чат»: способности не жмутся, Enter шлёт накопленный текст).
     // Всегда живой фокусируемый узел HUD перехватывает эту роль у чата.
     pContext.SetAcceptsFocus(true);
+    // Маркер загрузки: если этой строки нет в консоли — запущена старая
+    // сборка без фикса (кэш/непересобранный аддон), тест недействителен.
+    $.Msg("[FateFocusFix] v1 loaded");
 
     bOptionsButton.SetPanelEvent("onmouseover", function(){
         $.DispatchEvent("DOTAShowTextTooltip", bOptionsButton, "#FA_Options_tooltip");

@@ -70,7 +70,10 @@ function OnHeroKilled(data)
 	//killerPortrait.AddClass('KillerOverlay');
 
 	$.Schedule(8, function(){
-		if (popup) {popup.DeleteAsync(0);}
+		// if (popup) недостаточно: JS-обёртка жива, даже когда C++-панель под
+		// ней уже удалена (сброс popupCount>5 / смена раунда) — DeleteAsync по
+		// такой обёртке кидает "Underlying panel is deleted!".
+		if (popup && popup.IsValid()) {popup.DeleteAsync(0);}
 	});
 }
 
@@ -155,7 +158,10 @@ function OnGoldSent(data)
 	senderPortrait.hittest = false;
 
 	$.Schedule(8, function(){
-		if (popup) {popup.DeleteAsync(0);}
+		// if (popup) недостаточно: JS-обёртка жива, даже когда C++-панель под
+		// ней уже удалена (сброс popupCount>5 / смена раунда) — DeleteAsync по
+		// такой обёртке кидает "Underlying panel is deleted!".
+		if (popup && popup.IsValid()) {popup.DeleteAsync(0);}
 	});
 }
 

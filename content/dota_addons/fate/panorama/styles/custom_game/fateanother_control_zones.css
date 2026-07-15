@@ -1,0 +1,217 @@
+/* HUD зон контроля.
+   Победная зона — узкая панель под рядом таймеров (не перекрывает их).
+   Бафф-зоны — компактные иконки у правого края, скрываются через Fate settings. */
+
+@keyframes 'ZonePulse'
+{
+    0%   { opacity: 1; }
+    50%  { opacity: 0.35; }
+    100% { opacity: 1; }
+}
+
+.ControlZonesScreen
+{
+    width: 100%;
+    height: 100%;
+}
+
+/* ===================== Победная зона ===================== */
+
+/* Ряд таймеров доты стоит вверху по центру; сажаем панель заметно ниже,
+   чтобы не налезать на "Next Holy Grail's Blessing" и счётчики команд. */
+.VictoryZone
+{
+    horizontal-align: center;
+    vertical-align: top;
+    margin-top: 130px;
+    flow-children: down;
+    width: 320px;
+    padding: 5px 10px 6px 10px;
+    background-color: gradient(linear, 0% 0%, 0% 100%, from(#000000cc), to(#00000088));
+    border: 1px solid #ffffff30;
+    border-radius: 4px;
+}
+
+.VZHeader
+{
+    width: 100%;
+    flow-children: right;
+}
+
+.VZTitle
+{
+    color: #e8e8e8;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0px 0px 4px 2 #000000;
+}
+
+.VZStatus
+{
+    horizontal-align: right;
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0px 0px 4px 2 #000000;
+}
+
+.VZStatus.Contested
+{
+    color: #ffc83c;
+    animation-name: ZonePulse;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.VZStatus.Overtime
+{
+    color: #ff4a4a;
+    animation-name: ZonePulse;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.VZStatus.Captured
+{
+    color: #7cff6e;
+}
+
+.VZBars
+{
+    width: 100%;
+    flow-children: down;
+    margin-top: 4px;
+}
+
+.VZTeamRow
+{
+    width: 100%;
+    flow-children: right;
+    margin-bottom: 3px;
+}
+
+.VZCount
+{
+    width: 24px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0px 0px 4px 2 #000000;
+    vertical-align: middle;
+}
+
+.VZRed   { color: #ff5c5c; }
+.VZBlack { color: #c8c8d4; }
+
+.VZBarBG
+{
+    width: 272px;
+    height: 11px;
+    background-color: #00000099;
+    border: 1px solid #ffffff28;
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+.VZBarFill
+{
+    width: 0%;
+    height: 100%;
+    transition-property: width;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+}
+
+.VZRedFill
+{
+    background-color: gradient(linear, 0% 0%, 0% 100%, from(#e04545), to(#8f1f1f));
+}
+
+.VZBlackFill
+{
+    background-color: gradient(linear, 0% 0%, 0% 100%, from(#8a8a9a), to(#3c3c46));
+}
+
+/* ===================== Бафф-зоны (правый край) ===================== */
+
+.BuffZones
+{
+    horizontal-align: right;
+    vertical-align: middle;
+    margin-right: 8px;
+    flow-children: down;
+}
+
+/* Тумблер в Fate settings вешает этот класс на #BuffZonesPanel */
+.BuffZones.ZoneUIHidden
+{
+    visibility: collapse;
+}
+
+.BuffZoneRow
+{
+    horizontal-align: right;
+    flow-children: down;
+    width: 40px;
+    margin-bottom: 8px;
+    visibility: collapse;
+}
+
+.BuffZoneRow.BuffVisible
+{
+    visibility: visible;
+}
+
+.BuffIcon
+{
+    width: 40px;
+    height: 40px;
+    horizontal-align: center;
+    border: 2px solid #666666;
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px 2px #000000cc;
+    saturation: 0.25;
+    brightness: 0.7;
+}
+
+/* Владелец подсвечивает рамку и делает иконку цветной */
+.BuffZoneRow.OwnerRed .BuffIcon
+{
+    border: 2px solid #ff4a4a;
+    saturation: 1.0;
+    brightness: 1.0;
+}
+
+.BuffZoneRow.OwnerBlack .BuffIcon
+{
+    border: 2px solid #c8c8d4;
+    saturation: 1.0;
+    brightness: 1.0;
+}
+
+.BuffBarBG
+{
+    width: 40px;
+    height: 4px;
+    margin-top: 2px;
+    horizontal-align: center;
+    background-color: #00000099;
+    border-radius: 2px;
+}
+
+.BuffBarFill
+{
+    width: 0%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: #ffc83c;
+    transition-property: width;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+}
+
+.BuffBarFill.CapRed   { background-color: #ff4a4a; }
+.BuffBarFill.CapBlack { background-color: #c8c8d4; }

@@ -59,7 +59,12 @@ function SetHeroPickerVisible( bVisible )
 		if ( !bVisible )
 		{
 			$( '#SelectHeroContainer' ).RemoveClass( 'HeroPickerVisible' );
-			$( "#SelectHeroContainer" ).FindChildTraverse( "HeroSearchTextEntry" ).text = "";
+			var entry = $( "#SelectHeroContainer" ).FindChildTraverse( "HeroSearchTextEntry" );
+			entry.text = "";
+			// Отдаём input focus: скрытие панели его не снимает, а
+			// осиротевший фокус движок отдаёт полю чата. Тот же баг-паттерн,
+			// что был в панели хоткеев. См. [[fake-chat-focus-bug]].
+			$.DispatchEvent( 'DropInputFocus', entry );
 		}
 	}
 	else
