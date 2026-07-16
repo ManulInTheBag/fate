@@ -223,6 +223,17 @@
     text-shadow: 1px 1px 2px black;
 }
 
+/* бейдж владения зоной контроля: +3 к живым на таймауте */
+#TeamZoneBonus
+{
+    horizontal-align: center;
+    margin-top: -2px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffd76e;
+    text-shadow: 1px 1px 2px black;
+}
+
 #TeamAvariceStatus
 {
     horizontal-align: center;

@@ -5,7 +5,7 @@ function cu_chulain_gae_bolg:CastFilterResultTarget(hTarget)
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())
 
 	if(filter == UF_SUCCESS) then
-		if hTarget:GetName() == "npc_dota_ward_base" or caster:IsDisarmed() then 
+		if hTarget:GetName() == "npc_dota_ward_base" then 
 			return UF_FAIL_CUSTOM 		
 		else
 			return UF_SUCCESS
@@ -18,8 +18,6 @@ end
 function cu_chulain_gae_bolg:GetCustomCastErrorTarget(hTarget)
 	if hTarget:GetName() == "npc_dota_ward_base" then
 		return "#Invalid_Target"
-	elseif self:GetCaster():IsDisarmed() then
-		return "#Disarmed"
 	else
 		return "#Cannot_Cast"
 	end

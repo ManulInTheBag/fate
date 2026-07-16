@@ -76,6 +76,14 @@
 			<ToggleButton id="option7" checked="false" class="FateConfigOpenText" text="#FA_Config_Option7" onactivate="OnConfig7Toggle()" />
 			<!-- optionZoneUI (power zone indicators) временно убран — фича отложена, см. память control-zones -->
 			<!--<ToggleButton id="option8" checked="false" class="FateConfigOpenText" text="#FA_Config_Option8" onmouseover="Config8ShowTooltip()" onmouseout="Config8HideTooltip()" onactivate="OnConfig8Toggle()" /> -->
+			<Panel id="ConfigZonePosRow">
+				<Label class="FateConfigOpenText" text="#FA_Config_ZonePos" hittest="false" />
+				<DropDown id="FateConfigZonePos" oninputsubmit="OnZonePosChanged()">
+					<Label text="#FA_Config_ZonePos_Center" id="zp_center" checked="true" />
+					<Label text="#FA_Config_ZonePos_Right" id="zp_right" />
+					<Label text="#FA_Config_ZonePos_Left" id="zp_left" />
+				</DropDown>
+			</Panel>
 			<ToggleButton id="option9" checked="false" class="FateConfigOpenText" text="#FA_Config_Option9" onactivate="OnConfig9Toggle()" />
 		</Panel>
 		<Panel id="ConfigCmdSection" class="ConfigSection" hittest="false">

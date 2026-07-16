@@ -21,7 +21,7 @@
     color: #939da0;
     text-transform: uppercase;
 }
-
+
 #ConfigCameraDist
 {	margin-top: 5px;
     flow-children: down-wrap;
@@ -63,4 +63,16 @@
 {
     text-overflow: clip;
     color: white;
+}
+
+#ConfigZonePosRow
+{
+    flow-children: down;
+    margin-top: 8px;
+}
+
+#FateConfigZonePos
+{
+    margin-left: 8px;
+    margin-top: 4px;
 }

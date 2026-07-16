@@ -990,7 +990,7 @@
 		"DOTA_Tooltip_modifier_weakening_venom_Description"		"Vulnerable to poison damage"
 
 		"DOTA_Tooltip_modifier_blade_devoted_self"					"Blade of the Devoted"
-		"DOTA_Tooltip_modifier_blade_devoted_self_Description"		"Deals bonus damage and stuns"
+		"DOTA_Tooltip_modifier_blade_devoted_self_Description"		"Deals bonus damage and locks"
 
 		"DOTA_Tooltip_modifier_gawain_heat"							"Heat"
 		"DOTA_Tooltip_modifier_gawain_heat_Description"				"Deals damage to all nearby enemies. Attacks deal additional damage"
@@ -6596,7 +6596,7 @@
         "DOTA_Tooltip_ability_gawain_heat_radius"			"Area of Effect:"
 
 		"DOTA_Tooltip_ability_gawain_blade_of_the_devoted"					"Blade of the Devoted"
-        "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain enchants his blade. On his next attack, it deals bonus <font color='#58ACFA'>damage</font>, <font color='#FF3399'>stuns</font> the target for a duration and creates an <font color='#FDB813'>Artificial sun</font> above target's head.\nGawain has increased <font color='#ff9900'>movement speed</font> and <font color='#A72E28'>damage</font> while this effect persist."
+        "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain enchants his blade. On his next attack, it deals bonus <font color='#58ACFA'>damage</font>, <font color='#FF3399'>locks</font> the target for a duration and creates an <font color='#FDB813'>Artificial sun</font> above target's head.\nGawain has increased <font color='#ff9900'>movement speed</font> and <font color='#A72E28'>damage</font> while this effect persist."
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Lore"				""
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_damage"			"Damage:"
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_sub_damage"		"Bonus Damage:"
@@ -7394,7 +7394,7 @@
  		 "astolfo_1"             "Trifas Astolfo"
  		  "astolfo_2"             "Swimsuit Astolfo"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla"       "Casa Di Logistilla"
-        "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Description"   "PASSIVE: Astolfo's mysterious spellbook grants him magic resistance.\nACTIVE: Temporarily boosts bonus magic resistance. Passive effect is disabled during cooldown.\nACTIVE effect only usable with <font color='#F1C40F'>Evaporation of sanity</font> attribute."
+        "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Description"   "PASSIVE: Astolfo's mysterious spellbook grants him magic resistance.\nACTIVE: Temporarily boosts bonus magic resistance. Passive effect is disabled during cooldown.\nLa black Luna cannot be interrupted while this is active.\nACTIVE effect only usable with <font color='#F1C40F'>Evaporation of sanity</font> attribute."
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_passive_mr"	"%PASSIVE MAGIC RESISTANCE:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_active_mr"		"%ACTIVE MAGIC RESISTANCE:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_active_duration"	"ACTIVE DURATION:"
@@ -9867,7 +9867,7 @@
         "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
 
          "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"Leader of innovation"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font>\n\nOda Nobunaga gains an aura for %duration% seconds.\nEach time Oda Nobunaga deals damage, all allies in radius are <font color='#ACFF05'>healed</font> and gain a movement speed buff for %ms_duration% seconds.\nEach time an ally deals damage, Oda Nobunaga <font color='#ACFF05'>heals</font> herself. Can only occur once in 1 second.\nHeal amount scales with Oda Nobunaga's level and <font color='#FF0000'>strength</font>."
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Cast Point: <font color='#7FFF00'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font>\n\nOda Nobunaga gains an aura for %duration% seconds.\nEach time Oda Nobunaga deals damage, all allies in radius are <font color='#ACFF05'>healed</font> and gain a movement speed buff for %ms_duration% seconds with 0.3 seconds cooldown.\nEach time an ally deals damage, Oda Nobunaga <font color='#ACFF05'>heals</font> herself. Can only occur once in 1 second.\nHeal amount scales with Oda Nobunaga's level and <font color='#FF0000'>strength</font>."
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"Aura radius:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"Base heal:"

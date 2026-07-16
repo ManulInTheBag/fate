@@ -417,6 +417,20 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 	teamsInfo.alive_counts[ teamId ] = aliveCount;
 	_ScoreboardUpdater_SetTextSafe( teamPanel, "TeamAliveCount", aliveCount );
 
+	// зона контроля: владелец полной полоски получает +N к живым на
+	// таймауте — показываем бейдж под счётчиком живых (nettable "zones")
+	var zoneBonusLabel = teamPanel.FindChildInLayoutFile( "TeamZoneBonus" );
+	if ( zoneBonusLabel !== null )
+	{
+		var zoneVictory = CustomNetTables.GetTableValue( "zones", "victory" );
+		var ownsZone = zoneVictory && zoneVictory.enabled === 1 && zoneVictory.owner === teamId;
+		zoneBonusLabel.visible = !!ownsZone;
+		if ( ownsZone )
+		{
+			zoneBonusLabel.text = "+" + ( zoneVictory.bonus_points || 3 ) + " ZONE";
+		}
+	}
+
 	var revivedNote = teamPanel.FindChildInLayoutFile( "TeamRevivedNote" );
 	if ( revivedNote !== null )
 	{

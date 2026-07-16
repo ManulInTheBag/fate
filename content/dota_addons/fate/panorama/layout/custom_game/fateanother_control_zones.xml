@@ -15,18 +15,17 @@
                 <Label id="VZTitle" class="VZTitle" text="CONTROL ZONE" />
                 <Label id="VZStatus" class="VZStatus" text="" />
             </Panel>
+            <!-- Одна общая полоска, цвета относительно смотрящего (как стены):
+                 союзники синие и растут слева, враги красные и растут справа;
+                 заполнена целиком = владение (+3) -->
             <Panel id="VZBars" class="VZBars" hittest="false">
                 <Panel class="VZTeamRow" hittest="false">
-                    <Label id="VZCountRed" class="VZCount VZRed" text="0" />
-                    <Panel class="VZBarBG" hittest="false">
-                        <Panel id="VZBarRed" class="VZBarFill VZRedFill" hittest="false" />
+                    <Label id="VZCountAlly" class="VZCount VZAlly" text="0" />
+                    <Panel id="VZBarBG" class="VZBarBG" hittest="false">
+                        <Panel id="VZBarAlly" class="VZBarFill VZAllyFill" hittest="false" />
+                        <Panel id="VZBarEnemy" class="VZBarFill VZEnemyFill VZFillRight" hittest="false" />
                     </Panel>
-                </Panel>
-                <Panel class="VZTeamRow" hittest="false">
-                    <Label id="VZCountBlack" class="VZCount VZBlack" text="0" />
-                    <Panel class="VZBarBG" hittest="false">
-                        <Panel id="VZBarBlack" class="VZBarFill VZBlackFill" hittest="false" />
-                    </Panel>
+                    <Label id="VZCountEnemy" class="VZCount VZEnemy" text="0" />
                 </Panel>
             </Panel>
         </Panel>

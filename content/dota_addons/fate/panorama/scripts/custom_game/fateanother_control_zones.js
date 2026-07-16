@@ -33,11 +33,21 @@ function RenderVictory()
     }
     panel.visible = true;
 
+    // всё в панели рисуется ОТНОСИТЕЛЬНО смотрящего, как стены зоны:
+    // союзники синие (слева), враги красные (справа); спектатору
+    // «союзники» = Red Faction
+    var localTeam = Players.GetTeam(Game.GetLocalPlayerID());
+    var allyTeam = (localTeam === TEAM_RED || localTeam === TEAM_BLACK) ? localTeam : TEAM_RED;
+    var enemyTeam = (allyTeam === TEAM_RED) ? TEAM_BLACK : TEAM_RED;
+
     var status = $("#VZStatus");
     var bars = $("#VZBars");
     status.SetHasClass("Contested", false);
     status.SetHasClass("Overtime", false);
     status.SetHasClass("Captured", false);
+    status.SetHasClass("EnemyHold", false);
+    panel.SetHasClass("OwnedAlly", v.owner === allyTeam);
+    panel.SetHasClass("OwnedEnemy", v.owner === enemyTeam);
 
     if (v.phase === "preround")
     {
@@ -54,37 +64,73 @@ function RenderVictory()
         return;
     }
 
-    // active / captured: показываем бары и счётчики
+    // active: одна общая полоска — союзное влияние слева, вражеское справа
     bars.visible = true;
-    $("#VZCountRed").text = v.count_red;
-    $("#VZCountBlack").text = v.count_black;
+    var allyCount = (allyTeam === TEAM_RED) ? v.count_red : v.count_black;
+    var enemyCount = (allyTeam === TEAM_RED) ? v.count_black : v.count_red;
+    $("#VZCountAlly").text = allyCount;
+    $("#VZCountEnemy").text = enemyCount;
 
     var capTime = v.capture_time > 0 ? v.capture_time : 1;
-    $("#VZBarRed").style.width = Math.min(100, v.progress_red / capTime * 100) + "%";
-    $("#VZBarBlack").style.width = Math.min(100, v.progress_black / capTime * 100) + "%";
+    var inf = v.influence || 0; // >0 = Red Faction
+    var allyInf = (allyTeam === TEAM_RED) ? inf : -inf;
+    $("#VZBarAlly").style.width = (allyInf > 0 ? Math.min(100, allyInf / capTime * 100) : 0) + "%";
+    $("#VZBarEnemy").style.width = (allyInf < 0 ? Math.min(100, -allyInf / capTime * 100) : 0) + "%";
 
-    if (v.phase === "captured")
+    var bonus = "+" + (v.bonus_points || 3);
+
+    if (v.overtime === 1)
     {
-        status.text = "CAPTURED!";
-        status.SetHasClass("Captured", true);
-    }
-    else if (v.overtime === 1)
-    {
-        status.text = "OVERTIME!";
+        // отсчёты рисуем локальным тикером по таймстемпам с сервера
+        var now = Game.GetGameTime();
+        if (v.leave_end > 0)
+        {
+            status.text = "RETURN TO ZONE " + Math.max(0, v.leave_end - now).toFixed(1);
+        }
+        else
+        {
+            status.text = "OVERTIME " + Math.max(0, Math.ceil(v.overtime_end - now)) + "s";
+        }
         status.SetHasClass("Overtime", true);
     }
-    else if (v.count_red > 0 && v.count_red === v.count_black)
+    else if (allyCount > 0 && enemyCount > 0)
     {
         status.text = "CONTESTED";
         status.SetHasClass("Contested", true);
     }
-    else if (v.count_red > v.count_black)
+    else if (allyCount > 0)
     {
-        status.text = "RED CAPTURING";
+        if (v.owner === allyTeam)
+        {
+            status.text = "ALLIES CONTROLLING";
+            status.SetHasClass("Captured", true);
+        }
+        else
+        {
+            status.text = "ALLIES CAPTURING";
+        }
     }
-    else if (v.count_black > v.count_red)
+    else if (enemyCount > 0)
     {
-        status.text = "BLACK CAPTURING";
+        if (v.owner === enemyTeam)
+        {
+            status.text = "ENEMIES CONTROLLING";
+            status.SetHasClass("EnemyHold", true);
+        }
+        else
+        {
+            status.text = "ENEMIES CAPTURING";
+        }
+    }
+    else if (v.owner === allyTeam)
+    {
+        status.text = "ALLIES HOLD " + bonus;
+        status.SetHasClass("Captured", true);
+    }
+    else if (v.owner === enemyTeam)
+    {
+        status.text = "ENEMIES HOLD " + bonus;
+        status.SetHasClass("EnemyHold", true);
     }
     else
     {
@@ -138,10 +184,11 @@ function OnZonesChanged(tableName, key, data)
     else if (key === "buff_2") UpdateBuff(2, data);
 }
 
-// локальный тикер для обратного отсчёта грейса (сервер в грейсе молчит)
+// локальный тикер: обратный отсчёт грейса и таймеров овертайма
+// (сервер шлёт только таймстемпы, сами секунды тикают на клиенте)
 function GraceTick()
 {
-    if (g_victory && g_victory.phase === "grace")
+    if (g_victory && (g_victory.phase === "grace" || g_victory.overtime === 1))
     {
         RenderVictory();
     }

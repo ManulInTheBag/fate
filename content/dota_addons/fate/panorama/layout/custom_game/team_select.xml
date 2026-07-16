@@ -23,7 +23,12 @@
 						<RadioButton group="GameKills" checked="true" id="RoundButton1" text="BGM ON" />
 						<RadioButton group="GameKills" id="RoundButton2" text="BGM OFF"/>
 					</Panel>
-					
+
+					<Panel id="VoteGroupZones" >
+						<Label id="VoteGroupZonesTitle" text="BATTLE ZONES" />
+						<RadioButton group="BattleZones" checked="true" id="ZoneButton1" text="ENABLED" />
+						<RadioButton group="BattleZones" id="ZoneButton2" text="DISABLED"/>
+					</Panel>
 
 				</Panel>
 			</Panel>

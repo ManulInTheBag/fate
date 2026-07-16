@@ -18,6 +18,14 @@ function Init()
 		//$( '#TowersEnabledButton' ).SetSelected( UiDefaults["TowersEnabled"] );
     }
 
+	// тумблер зон: стартовое состояние из неттейбла (nil = система включена)
+	var zoneVictory = CustomNetTables.GetTableValue( "zones", "victory" );
+	var zonesToggle = $( '#ZonesEnabledButton' );
+	if ( zonesToggle )
+	{
+		zonesToggle.SetSelected( !zoneVictory || zoneVictory.enabled === 1 );
+	}
+
 	$.DispatchEvent( 'FireCustomGameEvent_Str', 'RequestInitialSpawnHeroID', null );
 
 	$.Msg($.GetContextPanel());
@@ -402,4 +410,21 @@ function SlideThumbActivate()
 function SpawnToTeam(iTeamNumber)
 {
 	$.DispatchEvent( 'FireCustomGameEvent_Str', 'SpawnToTeamButtonPressed', String(iTeamNumber) );
+}
+
+// ==================== Control Zones ====================
+// Кнопки маппятся на серверные чат-команды -zone* (тот же чит-гейт)
+
+function ZoneCheat( cmd )
+{
+	Game.EmitSound( "UI.Button.Pressed" );
+	$.DispatchEvent( 'FireCustomGameEvent_Str', 'ZoneCheatButtonPressed', cmd );
+}
+
+function ZoneToggle()
+{
+	Game.EmitSound( "UI.Button.Pressed" );
+	// ToggleButton уже переключился к моменту onactivate
+	var bEnabled = $( '#ZonesEnabledButton' ).checked;
+	$.DispatchEvent( 'FireCustomGameEvent_Str', 'ZoneCheatButtonPressed', bEnabled ? "on" : "off" );
 }

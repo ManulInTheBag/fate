@@ -115,6 +115,20 @@ function OnConfigZoneUIToggle(){
     }
 }
 
+// Позиция панели боевой зоны: верх-центр (дефолт) / верх-право / лево-середина.
+// Классы ставятся абсолютно по выбранному пункту — рассинхрон с дропдауном
+// невозможен (дефолт дропдауна = дефолт панели без классов).
+function OnZonePosChanged(){
+    var configPanel = $.GetContextPanel();
+    var dd = configPanel.FindChildTraverse("FateConfigZonePos");
+    var panel = GetHUDRootUI().FindChildTraverse("VictoryZonePanel");
+    if (!dd || !panel) return;
+    var sel = dd.GetSelected();
+    var id = sel ? sel.id : "zp_center";
+    panel.SetHasClass("PosTopRight", id === "zp_right");
+    panel.SetHasClass("PosLeftMiddle", id === "zp_left");
+}
+
 function OnConfig9Toggle()
 {
     g_GameConfig.bIsConfig9On = !g_GameConfig.bIsConfig9On;

@@ -77,28 +77,32 @@ function modifier_nobu_innovation:IsDebuff() return false end
 
  
 
-function modifier_nobu_innovation:OnTakeDamage(args)
-    local parent =self:GetParent()
-    local caster = self:GetCaster()
-    if(  args.attacker == caster   )then
-		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("aura_radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		for k,v in pairs(targets) do
-			v:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_innovation_ms", { Duration = self:GetAbility():GetSpecialValueFor("ms_duration") })
-			v:Heal(self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength() + caster:GetLevel()*self:GetAbility():GetSpecialValueFor("health_per_level"), self:GetAbility()) 
-			--v:SetHealth(v:GetHealth() + self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength())
-		end
-	 
-		 
-		return 
-	end
-	if(  args.attacker:GetTeamNumber() == caster:GetTeamNumber() and caster.IsReadyToHeal)then
-		caster.IsReadyToHeal = false
-		caster:Heal(self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength()+ caster:GetLevel()*self:GetAbility():GetSpecialValueFor("health_per_level"), self:GetAbility())
-		--caster:SetHealth(caster:GetHealth() + self:GetAbility():GetSpecialValueFor("health_base") + caster:GetStrength())
-		Timers:CreateTimer(1, function()
-		caster.IsReadyToHeal = true
-		end)
+function modifier_nobu_innovation:DeclareFunctions()
+	return {
+				MODIFIER_EVENT_ON_TAKEDAMAGE,
 
+				}
+end
+
+function modifier_nobu_innovation:OnTakeDamage(args)
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	-- аура висит на каждом союзнике, но эффект считает только инстанс на владельце способности
+	if self:GetParent() ~= caster then return end
+	if args.attacker ~= caster then return end
+	if not caster.IsReadyToHeal then return end
+
+	local ability = self:GetAbility()
+	caster.IsReadyToHeal = false
+	Timers:CreateTimer(ability:GetSpecialValueFor("trigger_interval"), function()
+		caster.IsReadyToHeal = true
+	end)
+
+	local heal = ability:GetSpecialValueFor("health_base") + caster:GetStrength() + caster:GetLevel()*ability:GetSpecialValueFor("health_per_level")
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, ability:GetSpecialValueFor("aura_radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	for k,v in pairs(targets) do
+		v:AddNewModifier(caster, ability, "modifier_nobu_innovation_ms", { Duration = ability:GetSpecialValueFor("ms_duration") })
+		v:Heal(heal, ability)
 	end
 end
 

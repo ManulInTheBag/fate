@@ -4886,6 +4886,19 @@ function FateGameMode:InitializeRound()
                     end
                 end)
 
+                -- полностью захваченная зона контроля = +3 к счёту живых
+                -- команды-владельца (ControlZones:GetAliveBonus, безопасно
+                -- возвращает 0,0 при выключенной системе)
+                if ControlZones then
+                    local okBonus, bonusRad, bonusDire = pcall(function()
+                        return ControlZones:GetAliveBonus()
+                    end)
+                    if okBonus and bonusRad then
+                        nRadiantAlive = nRadiantAlive + bonusRad
+                        nDireAlive = nDireAlive + bonusDire
+                    end
+                end
+
                 -- if nRadiantAlive > 6 then nRadiantAlive = 6 end
                 -- if nDireAlive > 6 then nDireAlive = 6 end
                 -- if remaining players are equal

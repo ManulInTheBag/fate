@@ -44,7 +44,7 @@ if IsServer() then
 					end
 					if self.FirstHit then
 						if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
-							target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
+							giveUnitDataDrivenModifier(caster, target, "locked", self.StunDuration)
 						end
 					end
 	        	end
@@ -60,7 +60,7 @@ if IsServer() then
 
 		if self.FirstHit then
 			if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
-				target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
+				giveUnitDataDrivenModifier(caster, target, "locked", self.StunDuration)
 			end
 			local soundQueue = math.random(1,3)
 			target:EmitSound("Hero_Invoker.ColdSnap")

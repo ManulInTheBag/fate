@@ -32,6 +32,25 @@
     border-radius: 4px;
 }
 
+/* Альтернативные позиции панели (Fate settings → Battle zone panel position).
+   Классы вешает OnZonePosChanged() в fateanother_config.js; без классов —
+   дефолт «верх-центр». Состояние ставится абсолютно (SetHasClass), дефолт
+   дропдауна совпадает с дефолтом панели — рассинхрона на старте нет. */
+.VictoryZone.PosTopRight
+{
+    horizontal-align: right;
+    margin-right: 12px;
+    margin-top: 165px;
+}
+
+.VictoryZone.PosLeftMiddle
+{
+    horizontal-align: left;
+    vertical-align: middle;
+    margin-left: 12px;
+    margin-top: 0px;
+}
+
 .VZHeader
 {
     width: 100%;
@@ -79,6 +98,12 @@
     color: #7cff6e;
 }
 
+/* враг контролирует/держит зону — статичный тревожный красный */
+.VZStatus.EnemyHold
+{
+    color: #ff6a6a;
+}
+
 .VZBars
 {
     width: 100%;
@@ -103,18 +128,23 @@
     vertical-align: middle;
 }
 
-.VZRed   { color: #ff5c5c; }
-.VZBlack { color: #c8c8d4; }
+/* цвета относительно смотрящего — совпадают со стенами зоны */
+.VZAlly  { color: #6ea8ff; }
+.VZEnemy { color: #ff5c5c; }
 
 .VZBarBG
 {
-    width: 272px;
-    height: 11px;
+    width: 248px;
+    height: 13px;
     background-color: #00000099;
     border: 1px solid #ffffff28;
     border-radius: 2px;
     vertical-align: middle;
 }
+
+/* Владелец полной полоски подсвечивает рамку бара своим цветом */
+.VictoryZone.OwnedAlly .VZBarBG  { border: 1px solid #6ea8ff; }
+.VictoryZone.OwnedEnemy .VZBarBG { border: 1px solid #ff5c5c; }
 
 .VZBarFill
 {
@@ -125,14 +155,20 @@
     transition-timing-function: linear;
 }
 
-.VZRedFill
+/* вражеский прогресс растёт с правого края той же полоски */
+.VZFillRight
 {
-    background-color: gradient(linear, 0% 0%, 0% 100%, from(#e04545), to(#8f1f1f));
+    horizontal-align: right;
 }
 
-.VZBlackFill
+.VZAllyFill
 {
-    background-color: gradient(linear, 0% 0%, 0% 100%, from(#8a8a9a), to(#3c3c46));
+    background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a86e8), to(#1f3f8f));
+}
+
+.VZEnemyFill
+{
+    background-color: gradient(linear, 0% 0%, 0% 100%, from(#e04545), to(#8f1f1f));
 }
 
 /* ===================== Бафф-зоны (правый край) ===================== */

@@ -22,6 +22,7 @@
                     <Panel hittest="false" id="TeamAliveStatus">
                         <Label hittest="false" id="TeamAliveLabel" text="ALIVE" />
                         <Label hittest="false" id="TeamAliveCount" text="" />
+                        <Label hittest="false" id="TeamZoneBonus" text="" />
                     </Panel>
                     <Label hittest="false" id="TeamRevivedNote" text="" />
                     <Panel hittest="false" id="TeamAvariceStatus">

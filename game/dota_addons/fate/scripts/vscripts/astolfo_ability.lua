@@ -243,6 +243,7 @@ function OnHornCast(keys)
 	--StartAnimation(caster, {duration=0.55, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=1.0})
 end
 LinkLuaModifier("modifier_protection_from_arrows_active", "abilities/cu_chulain/modifiers/modifier_protection_from_arrows_active", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_la_black_luna_unstoppable", "abilities/astolfo/modifiers/modifier_la_black_luna_unstoppable", LUA_MODIFIER_MOTION_NONE)
 function OnHornStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -260,6 +261,7 @@ function OnHornStart(keys)
 	AstolfoCheckCombo(caster, ability)
 	caster.currentHornManaCost = ability:GetManaCost(ability:GetLevel())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_black_luna", {})
+	caster:AddNewModifier(caster, ability, "modifier_la_black_luna_unstoppable", {})
 
 	local silenceTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, silenceRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(silenceTargets) do
@@ -368,6 +370,7 @@ function OnHornInterrupted(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	caster:RemoveModifierByName("modifier_protection_from_arrows_active")
+	caster:RemoveModifierByName("modifier_la_black_luna_unstoppable")
 	if caster.rape_count == 5 and not keys.caster.AstolfoSimpleFix  then
 		local rapeTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(rapeTargets) do

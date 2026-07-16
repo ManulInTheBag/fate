@@ -328,9 +328,17 @@ function SendVotes( )
 		}
 	};
 	$.Msg("selected mode : " + killsVoted)
-	
+
 	if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
 		GameEvents.SendCustomGameEventToServer("vote_finished", {player: Players.GetLocalPlayer(), killsVoted: killsVoted})
+
+		// голос за боевые зоны (default: enabled)
+		var zonesEnabled = 1;
+		var zoneOffBtn = $("#ZoneButton2");
+		if (zoneOffBtn && zoneOffBtn.checked === true) {
+			zonesEnabled = 0;
+		}
+		GameEvents.SendCustomGameEventToServer("zones_vote_finished", {player: Players.GetLocalPlayer(), enabled: zonesEnabled})
 	}
 }
 

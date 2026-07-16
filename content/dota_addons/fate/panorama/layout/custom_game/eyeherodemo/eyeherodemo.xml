@@ -153,6 +153,46 @@
 					</Panel>
 				</Panel>
 				
+				<Panel id="ZonesCategory" class="Category">
+					<Label class="CategoryHeader" text="Control Zones" />
+					<Panel class="CategoryButtonContainer">
+						<Panel class="Row">
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="ZoneCheat('show')" onmouseover="UIShowTextTooltip( 'Show all candidate spots for 10s (grey=center, orange=tier1, red=tier2)' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Show Spots" />
+							</Button>
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="ZoneCheat('pos')" onmouseover="UIShowTextTooltip( 'Print my position as a ready Vector(...) config line' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Get Pos" />
+							</Button>
+						</Panel>
+						<Panel class="Row">
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="ZoneCheat('here')" onmouseover="UIShowTextTooltip( 'Move the victory zone to my hero' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Zone Here" />
+							</Button>
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="ZoneCheat('grace')" onmouseover="UIShowTextTooltip( 'Skip the 15s activation grace' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Skip Grace" />
+							</Button>
+						</Panel>
+						<Panel class="Row">
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="ZoneCheat('capfull')" onmouseover="UIShowTextTooltip( 'Give MY team full capture (+3 alive at timeout)' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Capture +3" />
+							</Button>
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="ZoneCheat('capzero')" onmouseover="UIShowTextTooltip( 'Reset the bar to neutral' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Neutralize" />
+							</Button>
+						</Panel>
+						<Panel class="Row">
+							<Button class="DemoButton" acceptsjoyfocus="true" onactivate="ZoneCheat('info')" onmouseover="UIShowTextTooltip( 'Print phase / influence / owner / players in zone' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Zone Info" />
+							</Button>
+						</Panel>
+						<Panel class="Row">
+							<ToggleButton id="ZonesEnabledButton" class="DemoToggleButton" acceptsjoyfocus="true" onactivate="ZoneToggle()" onmouseover="UIShowTextTooltip( 'OFF clears zones instantly, ON returns them next round' )" onmouseout="UIHideTextTooltip()">
+								<Label text="Zones Enabled" />
+							</ToggleButton>
+						</Panel>
+					</Panel>
+				</Panel>
+
 				<Panel id="Footer">
 					
 					<TextButton class="DemoButton LeftButton PauseButton" acceptsjoyfocus="true" text="#PauseDemo_Button" onactivate="FireCustomGameEvent_Str( PauseButtonPressed )" />
