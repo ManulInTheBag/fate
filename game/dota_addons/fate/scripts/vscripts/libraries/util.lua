@@ -392,7 +392,8 @@ cleansable = {
     "modifier_aoko_blue_ring_slow",
     "modifier_cu_alter_spear_slow",
     "modifier_cu_alter_roar_str_debuff",
-    "modifier_cu_alter_fear"
+    "modifier_cu_alter_fear",
+    "modifier_muted"
 }
 
 

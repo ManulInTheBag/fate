@@ -58,8 +58,16 @@
 					</Panel>
 					<Label class="EmoteBindHint" text="hold to open · pick with cursor · release to send" hittest="false" />
 				</Panel>
-				<Panel id="SealApplyButton" class="SealApplyButton" hittest="true" onmouseactivate="SealButtonApply()">
-					<Label id="SealApplyLabel" text="Apply" class="SealApplyLabel" hittest="false" />
+				<Panel id="HotkeyActionRow" class="HotkeyActionRow" hittest="false">
+					<Panel id="ServerSaveButton" class="ServerButton" hittest="true" onmouseactivate="OnSaveToServer()">
+						<Label id="ServerSaveLabel" text="SAVE TO SERVER" class="ServerButtonLabel" hittest="false" />
+					</Panel>
+					<Panel id="ServerLoadButton" class="ServerButton" hittest="true" onmouseactivate="OnLoadFromServer()">
+						<Label id="ServerLoadLabel" text="LOAD FROM SERVER" class="ServerButtonLabel" hittest="false" />
+					</Panel>
+					<Panel id="SealApplyButton" class="SealApplyButton" hittest="true" onmouseactivate="SealButtonApply()">
+						<Label id="SealApplyLabel" text="Apply" class="SealApplyLabel" hittest="false" />
+					</Panel>
 				</Panel>
 			</Panel>
 		</Panel>

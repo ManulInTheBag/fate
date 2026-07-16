@@ -1033,6 +1033,100 @@ function OnPlayerSendEmote(iSource, args)
     FateGameMode:TriggerEmote(args.PlayerID, args.emote)
 end
 
+-- ============================================================================
+-- Bind profiles: save/load to external server (Cloudflare Worker + D1).
+-- The panorama binds panel sends an opaque JSON string (args.data); the server
+-- keys it by SteamAccountID (engine-provided, trusted) and stores it verbatim.
+-- HTTP runs on the game server via CreateHTTPRequestScriptVM, like statcollection.
+--
+-- FATE_BINDS_HOST / FATE_API_KEY вынесены в fate_secrets.lua (в .gitignore).
+-- ВАЖНО: этот файл всё равно уходит в клиентский VPK — вынос НЕ защищает от
+-- вскрытия .vpk, а только от утечки в публичный git + удобная ротация ключа.
+-- pcall: если fate_secrets.lua отсутствует (свежий клон), игра не падает.
+-- ============================================================================
+pcall(require, "fate_secrets")
+FATE_BINDS_HOST = FATE_BINDS_HOST or "http://localhost:8787"
+FATE_API_KEY = FATE_API_KEY or ""
+
+-- Не отправляем НИЧЕГО на сервер из тестовых/чит-лобби (tools-режим или
+-- включённые читы) — чтобы не засорять прод-БД тестами и не давать
+-- манипулировать статой через читы. Бинды и статистика идут только из
+-- «настоящих» лобби без читов.
+function FateServerDisabled()
+    -- Ручной override для отладки: выставить FATE_ALLOW_TOOLS_SEND=true (в консоли
+    -- через script_reload/фейл-файл или временно в fate_secrets.lua), чтобы
+    -- осознанно разрешить отправку из tools/чит-лобби во время тестов.
+    if FATE_ALLOW_TOOLS_SEND then return false end
+    if IsInToolsMode and IsInToolsMode() then return true end
+    if GameRules and GameRules:IsCheatMode() then return true end
+    return false
+end
+
+-- Пер-игрок гейт на запросы к серверу биндов: не больше FATE_BINDS_REQ_MAX за
+-- FATE_BINDS_REQ_WINDOW секунд. Клиентский лок обходится хакнутым клиентом —
+-- ЭТО доверенная защита (сервер, а не клиент). Лишнее тихо дропаем.
+FATE_BINDS_REQ_MAX = 3
+FATE_BINDS_REQ_WINDOW = 300
+FATE_BINDS_MAX_PROFILE = 65536
+FATE_BINDS_REQLOG = {}
+
+function FateBindsAllowRequest(playerID)
+    local now = Time()
+    local log = FATE_BINDS_REQLOG[playerID] or {}
+    local kept = {}
+    for _, t in ipairs(log) do
+        if (now - t) < FATE_BINDS_REQ_WINDOW then kept[#kept + 1] = t end
+    end
+    FATE_BINDS_REQLOG[playerID] = kept
+    if #kept >= FATE_BINDS_REQ_MAX then return false end
+    kept[#kept + 1] = now
+    return true
+end
+
+function OnPlayerSaveBinds(iSource, args)
+    if FateServerDisabled() then return end
+    local playerID = args.PlayerID
+    if playerID == nil then return end
+    local profile = args.data
+    if type(profile) ~= "string" or profile == "" or #profile > FATE_BINDS_MAX_PROFILE then return end
+    if not FateBindsAllowRequest(playerID) then return end
+
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    local req = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/binds")
+    req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
+    req:SetHTTPRequestGetOrPostParameter("steamid", steamid)
+    req:SetHTTPRequestGetOrPostParameter("profile", profile)
+    req:Send(function(res)
+        local ply = PlayerResource:GetPlayer(playerID)
+        if not ply then return end
+        local ok = (res.StatusCode == 200) and 1 or 0
+        CustomGameEventManager:Send_ServerToPlayer(ply, "fate_binds_save_result",
+            { ok = ok, status = res.StatusCode or 0 })
+    end)
+end
+
+function OnPlayerLoadBinds(iSource, args)
+    if FateServerDisabled() then return end
+    local playerID = args.PlayerID
+    if playerID == nil then return end
+    if not FateBindsAllowRequest(playerID) then return end
+
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    local req = CreateHTTPRequestScriptVM("GET", FATE_BINDS_HOST .. "/binds?steamid=" .. steamid)
+    req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
+    req:Send(function(res)
+        local ply = PlayerResource:GetPlayer(playerID)
+        if not ply then return end
+        if res.StatusCode == 200 and res.Body and res.Body ~= "" then
+            CustomGameEventManager:Send_ServerToPlayer(ply, "fate_binds_loaded",
+                { ok = 1, data = res.Body })
+        else
+            CustomGameEventManager:Send_ServerToPlayer(ply, "fate_binds_loaded",
+                { ok = 0, status = res.StatusCode or 0 })
+        end
+    end)
+end
+
 function FateGameMode:OnPlayerChat(keys)
    -- print ('[BAREBONES] PlayerSay')
     if keys == nil then print("empty keys") end
@@ -4235,6 +4329,8 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("player_seal_5", OnPlayerCastSeal5 )
     CustomGameEventManager:RegisterListener("player_seal_6", OnPlayerCastSeal6 )
     CustomGameEventManager:RegisterListener("player_send_emote", OnPlayerSendEmote )
+    CustomGameEventManager:RegisterListener("player_save_binds", OnPlayerSaveBinds )
+    CustomGameEventManager:RegisterListener("player_load_binds", OnPlayerLoadBinds )
     -- LUA modifiers
     LinkLuaModifier("modifier_ms_cap", "modifiers/modifier_ms_cap", LUA_MODIFIER_MOTION_NONE)
 
@@ -5137,7 +5233,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             hero.ServStat:printconsole()
         end)
         GameRules:SendCustomMessage("Red Faction Victory!",0,0)
-        my_http_post()
+        my_http_post(DOTA_TEAM_GOODGUYS)
         GameRules:SetSafeToLeave( true )
         GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
         return
@@ -5152,7 +5248,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             hero.ServStat:printconsole()
         end)
         GameRules:SendCustomMessage("Black Faction Victory!",0,0)
-        my_http_post()
+        my_http_post(DOTA_TEAM_BADGUYS)
         GameRules:SetSafeToLeave( true )
         GameRules:SetGameWinner( DOTA_TEAM_BADGUYS )
         return
@@ -5352,27 +5448,79 @@ function FateGameMode:MakeDraw()
     self:FinishRound(false,2)
 end
 
-function my_http_post()
-    SendChatToPanorama("Work in Progress")
-    local matchData = {}
-    LoopOverPlayers(function(player, playerID, playerHero)
-        local hero = playerHero
-        local playerData = {GetSystemDate(), GetSystemTime(), GetMapName(), math.ceil(GameRules:GetGameTime()), hero.ServStat.playerName, hero.ServStat.steamId, hero.ServStat.heroName, hero.ServStat.lvl,
-        hero.ServStat.round, hero.ServStat.radiantWin, hero.ServStat.direWin, hero.ServStat.winGame, hero.ServStat.kill, hero.ServStat.death, 
-        hero.ServStat.assist, hero.ServStat.tkill, hero.ServStat.itemValue + hero.ServStat.goldWasted, hero.ServStat.itemValue, hero.ServStat.goldWasted,
-        hero.ServStat.damageDealt, hero.ServStat.damageDealtBR, hero.ServStat.damageTaken, hero.ServStat.damageTakenBR, hero.ServStat.qseal, hero.ServStat.wseal,
-        hero.ServStat.eseal, hero.ServStat.rseal, hero.ServStat.cScroll, hero.ServStat.bScroll, hero.ServStat.aScroll, hero.ServStat.sScroll, hero.ServStat.exScroll,
-        hero.ServStat.ward, hero.ServStat.familiar, hero.ServStat.link, hero.ServStat.str, hero.ServStat.agi, hero.ServStat.int, hero.ServStat.atk, hero.ServStat.armor, 
-        hero.ServStat.hpregen, hero.ServStat.mpregen, hero.ServStat.ms, hero.ServStat.shard1, hero.ServStat.shard2, hero.ServStat.shard3, hero.ServStat.shard4}
-        table.insert(matchData, playerData)
-    end)
-    --[[for k,v in pairs(matchData) do
-        for a,b in pairs(v) do
-            SendChatToPanorama(b)
+-- Выгрузка статистики матча на сервер (Cloudflare Worker + D1). Вызывается один
+-- раз при окончании матча (в FinishRound, до SetGameWinner). Данные уже собраны
+-- в hero.ServStat во время игры. json на сервере Lua нет, поэтому шлём
+-- form-параметрами: 1 запрос на мету матча + по 1 на каждого игрока (upsert).
+function my_http_post(winnerTeam)
+    -- Из tools/чит-лобби статистику не выгружаем (тесты/читы не должны попадать в прод-БД).
+    if FateServerDisabled() then
+        print("[FateStats] tools/cheat lobby -> upload skipped")
+        return
+    end
+    -- Всё в pcall: выгрузка статы НЕ должна ронять завершение матча (my_http_post
+    -- зовётся до SetGameWinner). Любая ошибка внутри -> просто лог, игра идёт дальше.
+    local ok, err = pcall(function()
+        -- У GameRules в этой сборке нет GetMatchID (метод = nil) -> синтезируем
+        -- уникальный id из системного времени; иначе tools-режим падает.
+        local matchId = nil
+        if GameRules.GetMatchID ~= nil then
+            matchId = tostring(GameRules:GetMatchID())
         end
-    end]]
-    --json encode
-    --http post
+        if matchId == nil or matchId == "" or matchId == "0" then
+            matchId = string.gsub(tostring(GetSystemDate()) .. "-" .. tostring(GetSystemTime()) .. "-" .. tostring(RandomInt(1000, 9999)), "[^%w]", "")
+        end
+        local duration = math.ceil(GameRules:GetGameTime())
+
+        local mreq = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/matches")
+        mreq:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
+        mreq:SetHTTPRequestGetOrPostParameter("match_id", matchId)
+        mreq:SetHTTPRequestGetOrPostParameter("winner_team", tostring(winnerTeam or 0))
+        mreq:SetHTTPRequestGetOrPostParameter("duration", tostring(duration))
+        mreq:Send(function(res)
+            print("[FateStats] match meta (" .. matchId .. ") -> " .. tostring(res.StatusCode))
+        end)
+
+        LoopOverPlayers(function(player, playerID, playerHero)
+            local hero = playerHero
+            if not hero or not hero.ServStat then return end
+            -- Пропускаем ботов (fake clients): SteamAccountID=0, все схлопнулись бы
+            -- в одну строку steamid=0 и засоряли бы статистику.
+            if PlayerResource:IsFakeClient(playerID) then return end
+            local s = hero.ServStat
+            local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+            if steamid == "0" then return end
+
+            local req = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/matches/player")
+            req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
+            req:SetHTTPRequestGetOrPostParameter("match_id", matchId)
+            req:SetHTTPRequestGetOrPostParameter("steamid", steamid)
+            req:SetHTTPRequestGetOrPostParameter("hero", tostring(s.heroName))
+            req:SetHTTPRequestGetOrPostParameter("team", tostring(hero:GetTeam()))
+            req:SetHTTPRequestGetOrPostParameter("kills", tostring(s.kill))
+            req:SetHTTPRequestGetOrPostParameter("deaths", tostring(s.death))
+            req:SetHTTPRequestGetOrPostParameter("assists", tostring(s.assist))
+            req:SetHTTPRequestGetOrPostParameter("dmg_dealt_pre", tostring(math.floor(s.damageDealtBR)))
+            req:SetHTTPRequestGetOrPostParameter("dmg_dealt_post", tostring(math.floor(s.damageDealt)))
+            req:SetHTTPRequestGetOrPostParameter("dmg_taken_pre", tostring(math.floor(s.damageTakenBR)))
+            req:SetHTTPRequestGetOrPostParameter("dmg_taken_post", tostring(math.floor(s.damageTaken)))
+            req:SetHTTPRequestGetOrPostParameter("grail_avarice", tostring(s.shard1))
+            req:SetHTTPRequestGetOrPostParameter("grail_antimagic", tostring(s.shard2))
+            req:SetHTTPRequestGetOrPostParameter("grail_replenishment", tostring(s.shard3))
+            req:SetHTTPRequestGetOrPostParameter("grail_prosperity", tostring(s.shard4))
+            req:SetHTTPRequestGetOrPostParameter("seals_q", tostring(s.qseal))
+            req:SetHTTPRequestGetOrPostParameter("seals_w", tostring(s.wseal))
+            req:SetHTTPRequestGetOrPostParameter("seals_e", tostring(s.eseal))
+            req:SetHTTPRequestGetOrPostParameter("seals_r", tostring(s.rseal))
+            req:SetHTTPRequestGetOrPostParameter("wards", tostring(s.ward))
+            req:Send(function(res)
+                print("[FateStats] player " .. steamid .. " -> " .. tostring(res.StatusCode))
+            end)
+        end)
+    end)
+    if not ok then
+        print("[FateStats] upload error: " .. tostring(err))
+    end
 end
 
 

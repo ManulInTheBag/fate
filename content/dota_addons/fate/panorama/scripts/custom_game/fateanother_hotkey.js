@@ -780,6 +780,9 @@ function SealHotkeyConfig() {
 	GameEvents.Subscribe("fate_quick_buy_sound", function (data) {
         Game.EmitSound(data.SoundEvent ? data.SoundEvent : "General.Buy");
     });
+	// Server-side bind profile: results of save / load round-trips.
+	GameEvents.Subscribe("fate_binds_save_result", OnBindsSaveResult);
+	GameEvents.Subscribe("fate_binds_loaded", OnBindsLoaded);
 	//GameEvents.Subscribe( "fate_serv_statistic_sort_all", UpdateDataAll);
 }
 
@@ -935,6 +938,257 @@ SealHotkeyConfig.prototype.ChangeItemList = function(panel, item_name) {
 			MarkApplyDirty();
 		}
 	);
+}
+
+// ============================================================================
+// Save / load bind profile to the external server.
+//
+// The whole editable state of the panel is serialized to a JSON string and sent
+// to the game server (which forwards it to the REST API keyed by SteamID). The
+// server side never parses it — it's an opaque blob to everything but this file.
+// ============================================================================
+
+// Reads the current panel state into a plain object (the source of truth is the
+// UI labels/icons, same as SealButtonApply uses).
+function CollectBindProfile()
+{
+	var seals = [];
+	for (var i = 0; i < 6; i++) {
+		var sb = CMD.sealContainer.GetChild(i);
+		seals.push(sb ? sb.GetChild(0).text : "");
+	}
+
+	var items = [];
+	var itemKeys = [];
+	for (var k = 0; k < CMD.item_list.length; k++) {
+		items.push(CMD.item_list[k]);
+		var ib = CMD.quickbuyContainer.GetChild(k);
+		itemKeys.push(ib ? ib.GetChild(1).GetChild(0).text : "");
+	}
+
+	var elabel = CMD.container.FindChildTraverse("EmoteWheelBindLabel");
+
+	return {
+		v: 1,
+		seals: seals,
+		items: items,
+		itemKeys: itemKeys,
+		emote: elabel ? elabel.text : "",
+		quickcast: CMD.quickcast ? 1 : 0
+	};
+}
+
+// Writes a loaded profile back into the panel. Does NOT apply the binds — it
+// mirrors the manual-edit flow, so the user still presses Apply afterwards.
+function ApplyBindProfile(profile)
+{
+	if (!profile) { return; }
+
+	if (profile.seals) {
+		for (var i = 0; i < 6; i++) {
+			var sb = CMD.sealContainer.GetChild(i);
+			if (sb) { sb.GetChild(0).text = profile.seals[i] || ""; }
+		}
+	}
+
+	if (profile.items) {
+		for (var k = 0; k < CMD.item_list.length && k < profile.items.length; k++) {
+			var itemName = profile.items[k];
+			if (itemName) {
+				CMD.item_list[k] = itemName;
+				var ib = CMD.quickbuyContainer.GetChild(k);
+				if (ib) {
+					var icon = ib.GetChild(1).FindChildTraverse("QuickBuyItemIcon");
+					if (icon) { icon.itemname = itemName; }
+				}
+			}
+		}
+	}
+
+	if (profile.itemKeys) {
+		for (var m = 0; m < CMD.item_list.length && m < profile.itemKeys.length; m++) {
+			var ib2 = CMD.quickbuyContainer.GetChild(m);
+			if (ib2) { ib2.GetChild(1).GetChild(0).text = profile.itemKeys[m] || ""; }
+		}
+	}
+
+	var elabel = CMD.container.FindChildTraverse("EmoteWheelBindLabel");
+	if (elabel) { elabel.text = profile.emote || ""; }
+
+	CMD.quickcast = (profile.quickcast == 1 || profile.quickcast === true);
+	var qc = CMD.container.FindChildTraverse("QuickcastToggle");
+	if (qc) { qc.checked = CMD.quickcast; }
+
+	MarkApplyDirty();
+}
+
+// ---- Client-side guards for save/load: idempotency + a shared 3-per-5-min lock.
+// State lives in CustomUIConfig so it survives the panel being recreated when the
+// options screen reopens (see the top-of-file CustomUIConfig note). This is UX /
+// politeness only — a hacked client can bypass it, so the real per-player limit is
+// enforced server-side in addon_game_mode.lua (OnPlayerSaveBinds/OnPlayerLoadBinds).
+var BINDS_RATE_MAX = 3;
+var BINDS_RATE_WINDOW_MS = 5 * 60 * 1000;
+var BINDS_REQUEST_TIMEOUT = 6.0; // s: clear the in-flight flag if no server reply
+
+function BindsNet()
+{
+	var c = GameUI.CustomUIConfig();
+	if (!c.fate_binds_net) {
+		c.fate_binds_net = { reqTimes: [], lastSavedProfile: null, saveInFlight: false, loadInFlight: false, pendingSave: null };
+	}
+	return c.fate_binds_net;
+}
+
+// Drops timestamps outside the window (and any stale "future" ones left from a
+// previous match, since Date.now() is wall-clock but state persists across matches).
+function BindsPrune(net)
+{
+	var now = Date.now();
+	var kept = [];
+	for (var i = 0; i < net.reqTimes.length; i++) {
+		var t = net.reqTimes[i];
+		if (t <= now && (now - t) < BINDS_RATE_WINDOW_MS) { kept.push(t); }
+	}
+	net.reqTimes = kept;
+	return kept;
+}
+
+function BindsRateAllowed(net) { return BindsPrune(net).length < BINDS_RATE_MAX; }
+
+// Seconds until a slot frees up, for the "WAIT Ns" hint.
+function BindsRateWait(net)
+{
+	var kept = BindsPrune(net);
+	if (kept.length < BINDS_RATE_MAX) { return 0; }
+	var oldest = kept[0];
+	for (var i = 1; i < kept.length; i++) { if (kept[i] < oldest) { oldest = kept[i]; } }
+	return Math.ceil((BINDS_RATE_WINDOW_MS - (Date.now() - oldest)) / 1000);
+}
+
+function OnSaveToServer()
+{
+	var pid = Game.GetLocalPlayerID();
+	if (Players.IsSpectator(pid)) { return; }
+
+	var net = BindsNet();
+	var json = JSON.stringify(CollectBindProfile());
+
+	// Idempotency: unchanged since the last successful save -> don't send.
+	if (net.lastSavedProfile !== null && net.lastSavedProfile === json) {
+		SetServerLabel("ServerSaveLabel", "NO CHANGES", "SAVE TO SERVER");
+		return;
+	}
+	if (net.saveInFlight) { return; } // one in flight already
+	if (!BindsRateAllowed(net)) {
+		SetServerLabel("ServerSaveLabel", "WAIT " + BindsRateWait(net) + "s", "SAVE TO SERVER");
+		return;
+	}
+
+	net.reqTimes.push(Date.now());
+	net.saveInFlight = true;
+	net.pendingSave = json;
+	GameEvents.SendCustomGameEventToServer("player_save_binds", { data: json });
+
+	var lbl = CMD.container.FindChildTraverse("ServerSaveLabel");
+	if (lbl) { lbl.text = "SAVING…"; }
+
+	// Watchdog: if the server never replies (e.g. dropped by the server gate),
+	// don't leave the button stuck on "SAVING…".
+	$.Schedule(BINDS_REQUEST_TIMEOUT, function () {
+		if (net.saveInFlight) {
+			net.saveInFlight = false;
+			SetServerLabel("ServerSaveLabel", "TIMED OUT", "SAVE TO SERVER");
+		}
+	});
+}
+
+function OnLoadFromServer()
+{
+	var pid = Game.GetLocalPlayerID();
+	if (Players.IsSpectator(pid)) { return; }
+
+	var net = BindsNet();
+	if (net.loadInFlight) { return; }
+	if (!BindsRateAllowed(net)) {
+		SetServerLabel("ServerLoadLabel", "WAIT " + BindsRateWait(net) + "s", "LOAD FROM SERVER");
+		return;
+	}
+
+	net.reqTimes.push(Date.now());
+	net.loadInFlight = true;
+	GameEvents.SendCustomGameEventToServer("player_load_binds", {});
+
+	var lbl = CMD.container.FindChildTraverse("ServerLoadLabel");
+	if (lbl) { lbl.text = "LOADING…"; }
+
+	$.Schedule(BINDS_REQUEST_TIMEOUT, function () {
+		if (net.loadInFlight) {
+			net.loadInFlight = false;
+			SetServerLabel("ServerLoadLabel", "TIMED OUT", "LOAD FROM SERVER");
+		}
+	});
+}
+
+function OnBindsSaveResult(data)
+{
+	var net = BindsNet();
+	net.saveInFlight = false;
+	var ok = data && data.ok == 1;
+	if (ok) {
+		// Remember exactly what we saved so an immediate re-press is a no-op.
+		net.lastSavedProfile = net.pendingSave;
+	}
+	var btn = CMD.container.FindChildTraverse("ServerSaveButton");
+	FlashServerButton(btn, ok);
+	SetServerLabel("ServerSaveLabel", ok ? "SAVED ✓" : "SAVE FAILED", "SAVE TO SERVER");
+}
+
+function OnBindsLoaded(data)
+{
+	var net = BindsNet();
+	net.loadInFlight = false;
+	var btn = CMD.container.FindChildTraverse("ServerLoadButton");
+
+	if (data && data.ok == 1 && data.data) {
+		var profile = null;
+		try { profile = JSON.parse(data.data); } catch (e) { profile = null; }
+		if (profile) {
+			ApplyBindProfile(profile);
+			// Panel now matches the server, so a following save is a no-op until
+			// the user edits something. Store the re-serialized form (not data.data)
+			// so it compares equal to what OnSaveToServer computes.
+			net.lastSavedProfile = JSON.stringify(CollectBindProfile());
+			FlashServerButton(btn, true);
+			SetServerLabel("ServerLoadLabel", "LOADED ✓ — press Apply", "LOAD FROM SERVER");
+			return;
+		}
+	}
+
+	FlashServerButton(btn, false);
+	var msg = (data && data.status == 404) ? "NO SAVE YET" : "LOAD FAILED";
+	SetServerLabel("ServerLoadLabel", msg, "LOAD FROM SERVER");
+}
+
+// One-shot green/red flash on the button to signal success/failure.
+function FlashServerButton(btn, ok)
+{
+	if (!btn) { return; }
+	btn.RemoveClass("ServerOkFlash");
+	btn.RemoveClass("ServerFailFlash");
+	var cls = ok ? "ServerOkFlash" : "ServerFailFlash";
+	$.Schedule(0.0, function () { btn.AddClass(cls); });
+}
+
+// Sets a result label, then restores the default caption after a few seconds.
+function SetServerLabel(labelId, text, defaultText)
+{
+	var lbl = CMD.container.FindChildTraverse(labelId);
+	if (!lbl) { return; }
+	lbl.text = text;
+	$.Schedule(3.0, function () {
+		if (lbl && lbl.IsValid()) { lbl.text = defaultText; }
+	});
 }
 
 var CMD = new SealHotkeyConfig();
