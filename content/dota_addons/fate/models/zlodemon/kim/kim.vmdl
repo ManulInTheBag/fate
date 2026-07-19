@@ -111,6 +111,15 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "attach_eye"
+						parent_bone = "Point18_end"
+						relative_origin = [ 3.7180724, -26.773396, 8.708801 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
@@ -518,6 +527,31 @@
 							{
 								_class = "AnimFile"
 								name = "asn_idle"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										disabled = true
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 0
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/zlodemon/kim/kim_eye_glow.vpcf"
+											detach_from_owner = false
+											always_run = false
+											aggregate = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_eye"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+								]
 								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_IDLE"
 								activity_weight = 1

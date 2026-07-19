@@ -276,6 +276,8 @@ function Precache( context )
 	PrecacheResource("particle", "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_shadow_demon/shadow_demon_shadow_poison_projectile.vpcf", context)
 	PrecacheResource("particle", "particles/zlodemon/patrick_spawn.vpcf", context)
+	PrecacheResource("particle", "particles/zlodemon/kim/kim_eye_glow.vpcf", context)
+	PrecacheResource("particle", "particles/zlodemon/kim/kim_dark_ambient.vpcf", context)
 	PrecacheResource("particle", "particles/zlojamon.vpcf", context)
     print("Starting precache")
     --PrecacheUnitByNameSync("npc_precache_everything", context)
@@ -382,7 +384,8 @@ function Precache( context )
     PrecacheResource("model", "models/astolfo/extella/astolfo_swimsuit.vmdl", context)
     PrecacheResource("model", "models/gilles/gilles_pope.vmdl", context)
     PrecacheResource("model", "models/scathach/scathach_swimsuit.vmdl", context)    
-    PrecacheResource("model", "models/zlodemon/sasaki_skin/sasaki_skin_patrick.vmdl", context)  
+    PrecacheResource("model", "models/zlodemon/sasaki_skin/sasaki_skin_patrick.vmdl", context)
+    PrecacheResource("model", "models/zlodemon/kim/kim.vmdl", context)
     PrecacheResource("model", "models/merlin/merlin_skin.vmdl", context)  
     PrecacheResource("model", "models/zlodemon/grail/grail_model.vmdl", context)  
     PrecacheResource("model", "models/zlodemon/nanaya_skin/nanaya_panda.vmdl", context)  
@@ -715,10 +718,35 @@ This function is called once and only once when the game completely begins (abou
     gold will begin to go up in ticks if configured, creeps will spawn, towers will become damageable etc. This function
         is useful for starting any game logic timers/thinkers, beginning the first round, etc.
         ]]
+-- ВРЕМЕННАЯ ДИАГНОСТИКА (2026-07-17): хлебные крошки старта игры в чат.
+-- В реальном лобби серверная консоль не видна, а игра дважды умирала на
+-- старте без раундов/таймеров/сообщений — крошки покажут точный шаг смерти.
+-- Убрать после поимки: FATE_STARTUP_BREADCRUMBS = false.
+-- На валвовских дедикейт-серверах библиотека debug может отсутствовать
+-- (в tools есть) — НИКОГДА не передавать debug.traceback аргументом в
+-- xpcall напрямую, только через этот ленивый хелпер
+function FateSafeTraceback(msg)
+    if type(debug) == "table" and type(debug.traceback) == "function" then
+        return debug.traceback(tostring(msg), 2)
+    end
+    return tostring(msg)
+end
+
+FATE_STARTUP_BREADCRUMBS = false
+function FateCrumb(step)
+    if not FATE_STARTUP_BREADCRUMBS then return end
+    print("[Fate-dbg] " .. step)
+    pcall(function()
+        GameRules:SendCustomMessage("<font color='#888888'>[dbg] " .. step .. "</font>", 0, 0)
+    end)
+end
+
 function FateGameMode:OnGameInProgress()
     print("[FATE] The game has officially begun")
+    FateCrumb("A: game in progress, scheduling round 1")
 
     Timers:CreateTimer(5.0, function()
+        FateCrumb("B: 5s timer fired, map=" .. tostring(_G.GameMap))
        -- Set a think function for timer
         local CENTER_POSITION = Vector(0,0,0)
         local SHARD_DROP_PERIOD = 0
@@ -3091,6 +3119,52 @@ function FateGameMode:OnHeroSpawned( keys )
             StripDotaWearables(unit)
         end)
     end
+    AttachKimEyeGlow(unit)
+end
+
+--- Persistent cosmetic fx for the Bamboo-hatted Kim skin (skin 2 over false_assassin):
+--- a glowing eye on attach_eye and a faint dark ambient mist on the body.
+--- Re-created on every spawn; the attach point only exists once the kim model is applied,
+--- so give the model-change modifier a beat to settle before parenting the particles.
+function AttachKimEyeGlow(unit)
+    -- sasaki overrides juggernaut, so GetUnitName() returns the base hero, not "false_assassin"
+    if not IsValidEntity(unit) or unit:GetUnitName() ~= "npc_dota_hero_juggernaut" then return end
+
+    -- clear last life's fx so this spawn re-attaches (each index is destroyed + released,
+    -- which also tears down that system's m_Children)
+    if unit.kimEyeFx then
+        ParticleManager:DestroyParticle(unit.kimEyeFx, true)
+        ParticleManager:ReleaseParticleIndex(unit.kimEyeFx)
+        unit.kimEyeFx = nil
+    end
+    if unit.kimFx then
+        for _, idx in ipairs(unit.kimFx) do
+            ParticleManager:DestroyParticle(idx, true)
+            ParticleManager:ReleaseParticleIndex(idx)
+        end
+    end
+    unit.kimFx = {}
+
+    -- on the first spawn the skin modifier is applied asynchronously by the replacer,
+    -- so it may not exist yet at npc_spawned; poll a few times before giving up
+    for _, delay in ipairs({0.2, 0.5, 1.0, 2.0, 3.5}) do
+        Timers:CreateTimer(delay, function()
+            if not IsValidEntity(unit) or not unit:IsAlive() then return end
+            if unit.kimEyeFx then return end -- already attached this life
+            local skin = unit:FindModifierByName("modifier_hero_selection_skin")
+            if not skin or skin.skinNumber ~= 2 then return end
+
+            local eye = ParticleManager:CreateParticle("particles/zlodemon/kim/kim_eye_glow.vpcf", PATTACH_POINT_FOLLOW, unit)
+            ParticleManager:SetParticleControlEnt(eye, 0, unit, PATTACH_POINT_FOLLOW, "attach_eye", unit:GetAbsOrigin(), true)
+            unit.kimEyeFx = eye
+
+            -- CreateOnModel needs the particle bound to the entity itself; a point/ground
+            -- attach leaves it no mesh and the smoke drops to the feet
+            local mist = ParticleManager:CreateParticle("particles/zlodemon/kim/kim_dark_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+            ParticleManager:SetParticleControlEnt(mist, 0, unit, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
+            table.insert(unit.kimFx, mist)
+        end)
+    end
 end
 
 -- An entity somewhere has been hurt. This event fires very often with many units so don't do too many expensive
@@ -3165,11 +3239,23 @@ end
 function FateGameMode:OnPlayerReconnect(keys)
   --  print ( '[BAREBONES] OnPlayerReconnect' )
     --PrintTable(keys)
-    Timers:CreateTimer(3.0, function()
-        print("reinitiating the UI")
-        local userid = keys.PlayerID
+    -- player_reconnected прилетает, когда клиент только НАЧАЛ подключаться;
+    -- загрузка аддона занимает десятки секунд, так что ждём появления героя
+    -- ретраями, иначе UI-данные уйдут в пустоту и интерфейс останется мёртвым.
+    -- У абандонов Мастера удалены (RemoveAllOwnedUnits) — им слать нечего.
+    local attempts = 0
+    Timers:CreateTimer("reconnect_ui_" .. keys.PlayerID, {
+        endTime = 3.0,
+        callback = function()
         local ply = PlayerResource:GetPlayer(keys.PlayerID)
-        local hero = ply:GetAssignedHero()
+        local hero = ply and ply:GetAssignedHero()
+        if ply == nil or hero == nil
+            or not IsValidEntity(hero.MasterUnit) or not IsValidEntity(hero.MasterUnit2) then
+            attempts = attempts + 1
+            if attempts < 60 then return 3.0 end
+            return
+        end
+        print("reinitiating the UI")
 
         local playerData = {
             masterUnit = hero.MasterUnit2:entindex(),
@@ -3179,7 +3265,7 @@ function FateGameMode:OnPlayerReconnect(keys)
         --CustomGameEventManager:Send_ServerToAllClients( "victory_condition_set", victoryConditionData ) -- Send the winner to Javascript
 
         self:InitialiseMissingPanoramaData(ply)
-    end)
+    end})
 end
 
 function FateGameMode:InitialiseMissingPanoramaData(ply)
@@ -4650,7 +4736,9 @@ function FateGameMode:InitializeRound()
     _G.LaPucelleActivated = false
     _G.FIRST_BLOOD_TRIGGERED = false
 
+    FateCrumb("C: InitializeRound " .. tostring(self.nCurrentRound) .. " entered")
     if ControlZones then ControlZones:OnPreRound(self.nCurrentRound, self.nRadiantScore, self.nDireScore, self) end
+    FateCrumb("D: zones hook done")
 
     --SendChatToPanorama("IR1")
     CreateUITimer("Pre-Round", PRE_ROUND_DURATION, "pregame_timer")
@@ -4684,7 +4772,13 @@ function FateGameMode:InitializeRound()
         local hero = playerHero
 
         if hero:GetName() == "npc_dota_hero_target_dummy" then return end
-        if hero:GetName() == "npc_dota_hero_doom_bringer" then 
+
+        -- Подготовка героя под защитой: один кривой герой (например, без
+        -- MasterUnit из-за упавшего спавн-обработчика) раньше ронял ВЕСЬ
+        -- InitializeRound — ни таймеров, ни раундов (игровой отказ
+        -- 2026-07-16). Теперь он репортится в чат и пропускается.
+        local okSetup, errSetup = xpcall(function()
+        if hero:GetName() == "npc_dota_hero_doom_bringer" then
             if not hero:HasModifier("modifier_god_hand_stock") then
                 hero:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(hero, hero, "modifier_god_hand_stock", {}) 
             end
@@ -4764,15 +4858,29 @@ function FateGameMode:InitializeRound()
             end
         end
         --SendChatToPanorama("IRL6"..plyID)
+        end, FateSafeTraceback)
+        if not okSetup then
+            print("[FateGameMode] InitializeRound: hero setup FAILED for player "
+                .. plyID .. ":\n" .. tostring(errSetup))
+            -- серверная консоль в реальном лобби недоступна — суть в чат
+            pcall(function()
+                local brief = tostring(errSetup):sub(1, 160):gsub("%s+", " ")
+                GameRules:SendCustomMessage(string.format(
+                    "<font color='#FF4444'>[Fate] Round setup error for %s (player %d): %s</font>",
+                    hero:GetName(), plyID, brief), 0, 0)
+            end)
+        end
     end)
 
     --SendChatToPanorama("IR3")
 
+    FateCrumb("E: hero setup loop done, arming beginround")
 
     Timers:CreateTimer('beginround', {
         endTime = PRE_ROUND_DURATION,
         callback = function()
             print("[FateGameMode]Round started.")
+            FateCrumb("F: beginround fired")
             --SendChatToPanorama("IRT1")
             _G.CurrentGameState = "FATE_ROUND_ONGOING"
             _G.IsPreRound = false
@@ -4931,6 +5039,7 @@ function FateGameMode:InitializeRound()
             end
         end
     })
+    FateCrumb("G: InitializeRound complete")
 end
 
 --[[

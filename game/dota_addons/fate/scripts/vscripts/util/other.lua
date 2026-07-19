@@ -481,9 +481,8 @@ function GetConnectionState(playerId)
 end
 
 function DebugCallFunction(fun)
-	local status, nextCall = xpcall(fun, function (msg)
-		return msg..'\n'..debug.traceback()..'\n'
-	end)
+	-- на дедикейте debug=nil, инлайн debug.traceback в хендлере сам падает
+	local status, nextCall = xpcall(fun, FateSafeTraceback)
 	if not status then
 		Timers:HandleEventError(nil, nil, nextCall)
 	end

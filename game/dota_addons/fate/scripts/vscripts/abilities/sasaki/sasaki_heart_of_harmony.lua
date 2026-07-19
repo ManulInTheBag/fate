@@ -10,7 +10,11 @@ function sasaki_heart_of_harmony:OnSpellStart()
 	local caster = self:GetCaster()	
 	local stun_mana = self:GetSpecialValueFor("stun_threshold")
 
-	caster:EmitSound("Hero_Abaddon.AphoticShield.Cast")
+	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+		caster:EmitSound("kim_sfx_heart_cast")
+	else
+		caster:EmitSound("Hero_Abaddon.AphoticShield.Cast")
+	end
 	caster:AddNewModifier(caster, self, "modifier_heart_of_harmony", { Duration = self:GetSpecialValueFor("duration"),
 																	   DamageReduc = self:GetSpecialValueFor("damage_reduc"),
 																	   ManaRegenBonus = self:GetSpecialValueFor("focus_regen"),

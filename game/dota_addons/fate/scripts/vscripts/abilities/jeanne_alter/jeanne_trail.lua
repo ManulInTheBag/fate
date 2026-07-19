@@ -209,8 +209,7 @@ function modifier_jeanne_trail:OnIntervalThink()
             if self.caster.CursedGroundAcquired then
                 if enemy:HasModifier("modifier_jeanne_curse_active") then
                     local modifier = enemy:FindModifierByName("modifier_jeanne_curse_active")
-                    local modifier2 = enemy:AddNewModifier(self.caster, self.caster:FindAbilityByName("jeanne_curse"), "modifier_jeanne_curse_active", {duration = modifier.duration_remaining + 0.25})
-                    modifier2.duration_remaining = modifier2.duration_remaining + 0.25
+                    modifier:SetDuration(modifier:GetRemainingTime() + 0.25, true)
                 else
                     if enemy:IsHero() then
                         self.caster:FindAbilityByName("jeanne_curse"):WeakCurse(enemy)
@@ -237,7 +236,7 @@ function modifier_jeanne_trail:Explode()
         for _, enemy in pairs(enemies2) do
             DoDamage(self.caster, enemy, self.ability:GetSpecialValueFor("initial_damage"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
             EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Gilles_Cthulhu_Root", self.caster)
-            enemy:AddNewModifier(self.caster, self, "modifier_jeanne_trail_debuff", {Duration = self.ability:GetSpecialValueFor("stun_duration")})
+            enemy:AddNewModifier(self.caster, self.ability, "modifier_jeanne_trail_debuff", {Duration = self.ability:GetSpecialValueFor("stun_duration")})
             --enemy:EmitSound("jtr_slash")
         end
     end
@@ -262,7 +261,7 @@ function modifier_jeanne_trail:ReExplode()
             for _, enemy in pairs(enemies2) do
                 DoDamage(self.caster, enemy, self.ability:GetSpecialValueFor("initial_damage"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
                 EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Gilles_Cthulhu_Root", self.caster)
-                enemy:AddNewModifier(self.caster, enemy, "modifier_jeanne_trail_debuff", {Duration = self.ability:GetSpecialValueFor("stun_duration")})
+                enemy:AddNewModifier(self.caster, self.ability, "modifier_jeanne_trail_debuff", {Duration = self.ability:GetSpecialValueFor("stun_duration")})
                 --enemy:EmitSound("jtr_slash")
             end
         end)

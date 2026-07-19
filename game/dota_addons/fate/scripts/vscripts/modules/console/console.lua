@@ -26,9 +26,7 @@ function Console:SetStack(playerId, stack)
 end
 
 function Console:EvaluateLua(code)
-	local _, nextCall = xpcall(loadstring(code), function (msg)
-		return msg .. '\n' .. debug.traceback() .. '\n'
-	end)
+	local _, nextCall = xpcall(loadstring(code), FateSafeTraceback)
 	return nextCall or "<no return value>"
 end
 

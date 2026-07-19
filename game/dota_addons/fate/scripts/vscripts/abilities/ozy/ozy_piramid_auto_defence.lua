@@ -77,7 +77,7 @@ function modifier_ozy_piramid_auto_defence:CreateBeam(target)
 		target:EmitSound("Hero_Luna.LucentBeam.Target")
 		local tEnemies = FindUnitsInRadius(self.hCaster:GetTeam(), targetPos, nil, self.hit_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(tEnemies) do
-			DoDamage(self.hCaster.Ozy, v, self.damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			DoDamage(self.hCaster.Ozy, v, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 		end
 	
 	end)

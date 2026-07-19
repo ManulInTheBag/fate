@@ -92,13 +92,19 @@ end
 
 function ResetMasterAbilities(hero)
 	local masterUnit = hero.MasterUnit
-	
-	masterUnit:FindAbilityByName("cmd_seal_1"):EndCooldown()
-	masterUnit:FindAbilityByName("cmd_seal_2"):EndCooldown()
-	masterUnit:FindAbilityByName("cmd_seal_3"):EndCooldown()
-	masterUnit:FindAbilityByName("cmd_seal_4"):EndCooldown()
-	masterUnit:FindAbilityByName("master_presence_resonator"):EndCooldown()
-	masterUnit:FindAbilityByName("master_intervention"):EndCooldown()
+
+	-- У героя может не оказаться мастера (упал его спавн-обработчик,
+	-- игрок влетел криво): раньше цепочка вызовов без проверок роняла
+	-- ВЕСЬ InitializeRound -> ни таймеров, ни раундов
+	if not IsNotNull(masterUnit) then
+		print("[Fate] WARNING: ResetMasterAbilities - no MasterUnit for " .. hero:GetName())
+		return
+	end
+	for _, abilityName in pairs({ "cmd_seal_1", "cmd_seal_2", "cmd_seal_3",
+		"cmd_seal_4", "master_presence_resonator", "master_intervention" }) do
+		local ability = masterUnit:FindAbilityByName(abilityName)
+		if ability then ability:EndCooldown() end
+	end
 
 	--[[for i=0, 14 do
 		local item = hero:GetItemInSlot(i) 

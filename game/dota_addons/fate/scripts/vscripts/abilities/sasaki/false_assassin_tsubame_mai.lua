@@ -93,6 +93,13 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 	ApplyAirborne(caster, target, 1.5)
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 2.3)
 	caster:RemoveModifierByName("modifier_tsubame_mai")
+
+	local isKim = caster:HasModifier("modifier_hero_selection_skin")
+				  and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2
+
+	if isKim then
+		EmitGlobalSound("kim_combo_press")
+	end
 	--EmitGlobalSound("FA.Owarida")
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
@@ -103,7 +110,9 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
 			if caster:HasModifier("modifier_hero_selection_skin") then
-				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_owarida"})
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim says his line on the tsubame strikes instead
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_owarida"})
+				end
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.Owarida"})
 			end
@@ -111,7 +120,11 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 		end
 
 	end)
-	EmitGlobalSound("FA.Quickdraw")
+	if isKim then
+		caster:EmitSound("kim_sfx_slash_" .. math.random(1,3))
+	else
+		EmitGlobalSound("FA.Quickdraw")
+	end
 	CreateSlashFx(caster, target:GetAbsOrigin()+Vector(300, 300, 0), target:GetAbsOrigin()+Vector(-300,-300,0))
 
 	local tsubame = caster:FindAbilityByName("sasaki_tsubame_gaeshi")
@@ -119,18 +132,23 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 
 	local slashCounter = 0
 	Timers:CreateTimer(0.4, function()
-		if slashCounter == 0 then caster:SetModel("models/development/invisiblebox.vmdl") end
-		if slashCounter == 3 or not caster:IsAlive() then caster:SetModel("models/assassin/asn.vmdl") return end
+		if slashCounter == 0 then caster:AddNoDraw() end
+		if slashCounter == 3 or not caster:IsAlive() then caster:RemoveNoDraw() return end
 		caster:PerformAttack( target, true, true, true, true, false, false, false )
 		CreateSlashFx(caster, target:GetAbsOrigin()+RandomVector(400), target:GetAbsOrigin()+RandomVector(400))
 		caster:SetAbsOrigin(target:GetAbsOrigin()+RandomVector(400))
-		EmitGlobalSound("FA.Quickdraw") 
+		if isKim then
+			caster:EmitSound("kim_sfx_slash_" .. math.random(1,3))
+		else
+			EmitGlobalSound("FA.Quickdraw")
+		end
 
 		slashCounter = slashCounter + 1
 		return 0.2-slashCounter*0.05
 	end)
 
 	Timers:CreateTimer(1.0, function()
+		caster:RemoveNoDraw() --if the slash timer bailed out early this keeps the hero from staying invisible
 		if caster:IsAlive() and target:IsAlive() then
 			caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,target:GetAbsOrigin().z))
 			--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai_tg_cast_anim", {})
@@ -145,7 +163,9 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 				else
 					if caster:HasModifier("modifier_hero_selection_skin") then
-						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_hiken"})
+						if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim stays silent on the windup
+							CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_hiken"})
+						end
 					else
 						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
 					end

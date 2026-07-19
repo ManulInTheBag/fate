@@ -1,7 +1,6 @@
 modifier_jeanne_luminosite_eternelle = class({})
 
 LinkLuaModifier("modifier_jeanne_luminosite_eternelle_slow", "abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle_slow", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_jeanne_luminosite_eternelle_barrier", "abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_mrex_allies", "abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_regen_allies", "abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_mana_regen_allies", "abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle", LUA_MODIFIER_MOTION_NONE)
@@ -22,8 +21,6 @@ function modifier_jeanne_luminosite_eternelle:OnCreated()
 	
 	--self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
 
-	self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_jeanne_luminosite_eternelle_barrier", {duration = self:GetAbility():GetSpecialValueFor("channel_duration")})
-	
 	local targets = DOTA_UNIT_TARGET_HERO
 
 	--[[local sacredZoneFx = ParticleManager:CreateParticle("particles/custom/ruler/luminosite_eternelle/sacred_zone.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -109,15 +106,12 @@ function modifier_jeanne_luminosite_eternelle:OnRefresh()
 		self.hp_heal = self.hp_heal + 3  *  self:GetCaster():GetIntellect()
 	end
 
-	self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_jeanne_luminosite_eternelle_barrier", {duration = self:GetAbility():GetSpecialValueFor("channel_duration")})
-	
 	self:StartIntervalThink(1.0)
 end
 
-function modifier_jeanne_luminosite_eternelle:OnDestroy()
-	if IsServer() then
-		self:GetParent():RemoveModifierByName("modifier_jeanne_luminosite_eternelle_barrier")
-	end
+-- The channel only holds while Jeanne's Magic Resistance: EX barrier is still up.
+function modifier_jeanne_luminosite_eternelle:CheckState()
+	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = self:GetParent():HasModifier("modifier_jeanne_mrex")}
 end
 
 function modifier_jeanne_luminosite_eternelle:OnIntervalThink()
@@ -239,94 +233,6 @@ function modifier_jeanne_luminosite_eternelle:PlayEffects()
 end
 
 
-
-modifier_jeanne_luminosite_eternelle_barrier = class({})
-
-function modifier_jeanne_luminosite_eternelle_barrier:IsHidden() return false end
-function modifier_jeanne_luminosite_eternelle_barrier:IsDebuff() return false end
-
-function modifier_jeanne_luminosite_eternelle_barrier:OnCreated()
-
-end
-
-function modifier_jeanne_luminosite_eternelle_barrier:DeclareFunctions()
-	local hFunc = 	{	
-						--MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK,
-						MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT
-					}
-	return hFunc
-end
-function modifier_jeanne_luminosite_eternelle_barrier:CheckState()
-	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = true}
-end
-function modifier_jeanne_luminosite_eternelle_barrier:GetModifierIncomingSpellDamageConstant(keys)
-	if IsServer() then
-        if keys.damage > 0 then
-            local block_now   = self:GetStackCount()
-            local block_check = block_now - keys.original_damage
-            local blocked = 0
-            if block_check > 0 then
-            	blocked = keys.original_damage
-                self:SetStackCount(block_check)
-                self.fBarrierBlock = block_check
-            else
-            	blocked = keys.original_damage--block_now
-            	local damage = keys.original_damage - block_now
-            	local dmgtable = {
-		            attacker = keys.attacker,
-		            victim = keys.target,
-		            damage = damage,
-		            damage_type = keys.damage_type,
-		            damage_flags = keys.damage_flags,
-		            ability = keys.inflictor
-		        }
-                self:Destroy()
-                ApplyDamage(dmgtable)
-            end
-
-            return -1*blocked
-        end
-	else
-        return self:GetStackCount()
-    end
-end
---[[function modifier_jeanne_luminosite_eternelle_barrier:GetModifierMagical_ConstantBlock(keys)
-	if IsServer() then
-        if keys.damage > 0 then
-            local block_now   = self:GetStackCount()
-            local block_check = block_now - keys.damage
-            if block_check > 0 then
-                self:SetStackCount(block_check)
-            else
-                self:Destroy()
-            end
-
-            return block_now
-        end
-	end
-end]]
-
-function modifier_jeanne_luminosite_eternelle_barrier:OnCreated(hTable)
-	self.hCaster  = self:GetCaster()
-	self.hParent  = self:GetParent()
-	self.hAbility = self:GetAbility()
-
-	self.fBarrierBlock = self.hAbility:GetSpecialValueFor("shield_amount")
-    
-    if not self.iShieldPFX then
-	    self.iShieldPFX = ParticleManager:CreateParticle( "particles/custom/jeanne/jeanne_luminosite_eternelle_barrier.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent ) 
-	    ParticleManager:SetParticleControl( self.iShieldPFX, 0, self.hCaster:GetAbsOrigin() )
-
-	    self:AddParticle(self.iShieldPFX, false, false, -1, false, false)
-	end
-
-	if IsServer() then
-		self:SetStackCount(self.fBarrierBlock)
-	end
-end
-function modifier_jeanne_luminosite_eternelle_barrier:OnRefresh(hTable)
-	self:OnCreated(hTable)
-end
 
 modifier_jeanne_mrex_allies = class({})
 

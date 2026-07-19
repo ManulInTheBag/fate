@@ -190,9 +190,7 @@ function StatsClient:OnGameEnd(winner)
 				PlayerTables:CreateTable("stats_game_result", clientData, AllPlayersInterval)
 			end
 		end, math.huge, nil, true)
-	end, function(msg)
-		return msg..'\n'..debug.traceback()..'\n'
-	end)
+	end, FateSafeTraceback)
 	if not status then
 		PlayerTables:CreateTable("stats_game_result", {error = nextCall}, AllPlayersInterval)
 	end

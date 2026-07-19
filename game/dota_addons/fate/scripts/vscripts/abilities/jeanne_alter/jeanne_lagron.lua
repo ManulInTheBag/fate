@@ -125,7 +125,7 @@ function jeanne_lagron:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     local targets = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, fRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for k,v in pairs(targets) do
         if IsNotNull(v) then
-            v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = fStun})
+            v:AddNewModifier(hCaster, self, "modifier_stunned", {Duration = fStun})
             DoDamage(hCaster, v, fTargetDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
             
             ApplyAirborneOnly(v, 3000, 0.2, 1500)

@@ -122,14 +122,18 @@ function modifier_gatekeeper:RemoveParticlesAndDummy()
 		ParticleManager:DestroyParticle(self.CircleFx, true)
 	    ParticleManager:ReleaseParticleIndex(self.CircleFx)
 		self.CircleDummy:RemoveSelf()
-		if caster.IsEyeOfSerenityAcquired then
+		if self.visiondummy and not self.visiondummy:IsNull() then --SpawnVisionDummy despawns it at duration/2, so by OnDestroy it is usually already gone
 			self.visiondummy:RemoveSelf()
 		end
 
 		if math.abs((caster:GetAbsOrigin() - self.Anchor):Length2D()) > self.LeashDistance then
 			
 			if caster:HasModifier("modifier_hero_selection_skin") then
-				caster:EmitSound("patrick_gatekeeper_1")
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					caster:EmitSound("kim_gatekeeper_1")
+				else
+					caster:EmitSound("patrick_gatekeeper_1")
+				end
 			else
 				caster:EmitSound("Sasaki_Gatekeeper_1")
 			end

@@ -1,4 +1,17 @@
 
+-- локальная копия IsNotNull: глобальная есть не во всех VM (клиентская VM
+-- модификаторов не грузит libraries/util), а OnDestroy исполняется в обеих
+local function Barrier_IsNotNull(hScript)
+	local sType = type(hScript)
+	if sType ~= "nil" then
+		if sType == "table" and type(hScript.IsNull) == "function" then
+			return not hScript:IsNull()
+		end
+		return true
+	end
+	return false
+end
+
 modifier_barrier_new = class({})
 function modifier_barrier_new:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
 function modifier_barrier_new:IsHidden() return false end
@@ -8,6 +21,7 @@ function modifier_barrier_new:GetPriority() return MODIFIER_PRIORITY_ULTRA end
 
 function modifier_barrier_new:OnCreated(args)
 	self.state = {}
+	self.bBroken = false
 
 	self.decreaseDamageOnProck = args.decreaseDamageOnProck
 	self.beforeBScroll = args.beforeBScroll
@@ -31,7 +45,10 @@ function modifier_barrier_new:OnCreated(args)
 	end
 end
 function modifier_barrier_new:OnDestroy()
-	self.hAbility:OptionalDestroy(self:GetParent())
+	if not IsServer() then return end
+	if Barrier_IsNotNull(self.hAbility) and type(self.hAbility.OptionalDestroy) == "function" then
+		self.hAbility:OptionalDestroy(self:GetParent())
+	end
 end
 
 function modifier_barrier_new:DeclareFunctions()
@@ -47,6 +64,11 @@ end
 function modifier_barrier_new:GetModifierIncomingDamageConstant(keys)
 	if IsServer() then
         if keys.damage > 0 then
+            -- барьер пробит в этом же кадре, отложенный Destroy ещё не сработал:
+            -- урон проходит без блока
+            if self.bBroken then
+                return 0
+            end
             local block_now   = self:GetStackCount()
             local block_check = block_now - keys.original_damage
             local blocked = 0
@@ -57,22 +79,24 @@ function modifier_barrier_new:GetModifierIncomingDamageConstant(keys)
             else
             	blocked = keys.original_damage--block_now
             	local damage = keys.original_damage - block_now
+				local bRemoveBScroll = false
 				if self.beforeBScroll then
             		local IsBScrollIgnored = false
 					if keys.damage_type == DAMAGE_TYPE_MAGICAL then
 						if keys.inflictor then
-							if BIgnoreCheck(keys.inflictor) then
+							-- inflictor не всегда ability (бывает модификатор) — у него нет GetAbilityName
+							if type(keys.inflictor.GetAbilityName) == "function" and BIgnoreCheck(keys.inflictor) then
 								IsBScrollIgnored = true
 							end
 
 
-							if IsBScrollIgnored == false and keys.target:HasModifier("modifier_b_scroll") then 
+							if IsBScrollIgnored == false and keys.target:HasModifier("modifier_b_scroll") then
 								local originalDamage = damage - keys.target.BShieldAmount
 								keys.target.BShieldAmount = keys.target.BShieldAmount - damage
 								if keys.target.BShieldAmount <= 0 then
 									damage = originalDamage
-									keys.target:RemoveModifierByName("modifier_b_scroll")
-								else 
+									bRemoveBScroll = true
+								else
 									damage = 0
 								end
 							end
@@ -80,9 +104,21 @@ function modifier_barrier_new:GetModifierIncomingDamageConstant(keys)
 					end
 				end
 				damage = damage - self.decreaseDamageOnProck
-				self:ActivateCounter()
+				self.bBroken = true
+				self:SetStackCount(0)
+				self.fBarrierBlock = 0
+				-- Каунтер, снятие канала, Destroy, снятие B-скролла и добивающий
+				-- ApplyDamage нельзя вызывать из этого колбэка: движок в этот момент
+				-- итерирует модификаторы юнита для текущего события урона, и
+				-- вложенный пайплайн урона / удаление модификаторов под итерацией
+				-- роняет сервер. Всё откладывается на следующий тик таймера.
+				local hAbility         = self.hAbility
+				local hParent          = self:GetParent()
+				local bHasCounter      = (self.HasCounter == 1)
+				local bShouldEndChannel = self.ShouldEndChannel
+				local dmgtable = nil
 				if damage > 0 then
-					local dmgtable = {
+					dmgtable = {
 						attacker = keys.attacker,
 						victim = keys.target,
 						damage = damage,
@@ -90,9 +126,24 @@ function modifier_barrier_new:GetModifierIncomingDamageConstant(keys)
 						damage_flags = keys.damage_flags,
 						ability = keys.inflictor
 					}
-					self:Destroy()
-					ApplyDamage(dmgtable)
 				end
+				Timers:CreateTimer(0, function()
+					if bRemoveBScroll and Barrier_IsNotNull(hParent) then
+						hParent:RemoveModifierByName("modifier_b_scroll")
+					end
+					if bShouldEndChannel and Barrier_IsNotNull(hAbility) then
+						hAbility:EndChannel(false)
+					end
+					if bHasCounter and Barrier_IsNotNull(hAbility) and Barrier_IsNotNull(hParent) then
+						hAbility:Counter(hParent)
+					end
+					if Barrier_IsNotNull(self) then
+						self:Destroy()
+					end
+					if dmgtable and Barrier_IsNotNull(dmgtable.victim) and dmgtable.victim:IsAlive() and Barrier_IsNotNull(dmgtable.attacker) then
+						ApplyDamage(dmgtable)
+					end
+				end)
             end
 
             return -1*blocked
@@ -107,13 +158,3 @@ function modifier_barrier_new:OnRefresh(hTable)
 	self:OnCreated(hTable)
 end
 
-function modifier_barrier_new:ActivateCounter()
-	if IsServer() then 
-		if self.ShouldEndChannel then
-			self.hAbility:EndChannel(false)
-		end
-		if self.HasCounter == 1 then
-			self.hAbility:Counter(self:GetParent())
-		end
-	end
-end

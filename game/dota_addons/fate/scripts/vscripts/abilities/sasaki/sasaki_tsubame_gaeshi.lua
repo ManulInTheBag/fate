@@ -43,6 +43,13 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 	if caster:FindAbilityByName("sasaki_heart_of_harmony"):GetAutoCastState() then
 		caster:RemoveModifierByName("modifier_heart_of_harmony")
 	end
+
+	--kim names the strike on the windup; the combo skips this phase entirely, so it stays silent there
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+			EmitGlobalSound("kim_tg")
+		end
+	end
 	--EmitGlobalSound("FA.TGReady")
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
@@ -53,7 +60,9 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
 			if caster:HasModifier("modifier_hero_selection_skin") then
-				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_hiken"})
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim stays silent on the windup
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_hiken"})
+				end
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
 			end
@@ -106,7 +115,9 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 	--caster:SetMana(0)
 	
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		EmitGlobalSound("patrick_tg")
+		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim already named the strike on the windup
+			EmitGlobalSound("patrick_tg")
+		end
 	else
 		EmitGlobalSound("FA.TG")
 	end
@@ -118,7 +129,9 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
 			if caster:HasModifier("modifier_hero_selection_skin") then
-				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_tg"})
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim already named the strike on the windup
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_tg"})
+				end
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TG"})
 			end
@@ -126,7 +139,11 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 		end
 
 	end)
-	EmitGlobalSound("FA.CHOP")
+	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+		EmitGlobalSound("kim_sfx_chop")
+	else
+		EmitGlobalSound("FA.CHOP")
+	end
 	StartAnimation(caster, {duration=delay + delay_per_slash * 2, activity= ACT_DOTA_CAST_ABILITY_4 , rate=2.5})
 
 	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.0})
@@ -136,11 +153,17 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 	local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()) 
 
-	Timers:CreateTimer(delay, function()  
-		if caster:IsAlive() and target:IsAlive() then			
+	Timers:CreateTimer(delay, function()
+		if caster:IsAlive() and target:IsAlive() then
 			if caster.IsGanryuAcquired then
-				--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)	
-			end	
+				--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
+			end
+
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+					EmitGlobalSound("kim_owarida")
+				end
+			end
 
 			--if enhanced then
 			--	self:PerformSlash(caster, target, 1, 3)
@@ -168,9 +191,9 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 
 	delay = delay + delay_per_slash
 
-	Timers:CreateTimer(delay, function()  
+	Timers:CreateTimer(delay, function()
 		if caster:IsAlive() and target:IsAlive() then
-			--if enhanced then				
+			--if enhanced then
 			--	self:PerformSlashk(caster, target, combined_damage, 1)
 			--	target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1.5 })
 			--else
@@ -200,12 +223,19 @@ function sasaki_tsubame_gaeshi:PerformSlash(caster, target, damage, soundQueue, 
 		flag = DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY
 	end
 
-	if soundQueue == 1 then 
+	local isKim = caster:HasModifier("modifier_hero_selection_skin")
+				  and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2
+
+	if soundQueue == 1 then
 		target:EmitSound("Tsubame_Focus")
 		target:RemoveModifierByName("modifier_master_intervention")
 	elseif soundQueue == 2 then
 		target:RemoveModifierByName("modifier_master_intervention")
-		target:EmitSound("Tsubame_Slash_" .. math.random(1,3))
+		if isKim then
+			target:EmitSound("kim_sfx_slash_" .. math.random(1,3))
+		else
+			target:EmitSound("Tsubame_Slash_" .. math.random(1,3))
+		end
 	else
 		target:EmitSound("Hero_Juggernaut.PreAttack")
 	end

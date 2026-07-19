@@ -50,7 +50,9 @@ function jeanne_lagron_combo:OnSpellStart()
 	end)
 	Timers:CreateTimer(delay, function()
 	   	if caster:IsAlive() then
-	   		local damage = math.min(self:GetSpecialValueFor("damage") + caster:FindModifierByName("modifier_jeanne_lagron_combo_block").stored_damage, self:GetSpecialValueFor("max_damage"))
+	   		local blockModifier = caster:FindModifierByName("modifier_jeanne_lagron_combo_block")
+	   		local stored_damage = blockModifier and blockModifier.stored_damage or 0
+	   		local damage = math.min(self:GetSpecialValueFor("damage") + stored_damage, self:GetSpecialValueFor("max_damage"))
 	   		--StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=4})
 			   StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_7, rate=1})
 	   		EmitGlobalSound("lagron")
@@ -181,6 +183,11 @@ function modifier_lagron_combo_ally:OnTakeDamage(args)
     if IsServer() then
         if args.unit ~= self:GetParent() then return end
 		if args.attacker == self:GetParent() then return end
+        -- Жанна могла умереть в окно комбо (её блок-модификатор RemoveOnDeath) —
+        -- тогда копить урон некуда и перенос не работает
+        if not IsNotNull(self:GetCaster()) then return end
+        local blockModifier = self:GetCaster():FindModifierByName("modifier_jeanne_lagron_combo_block")
+        if blockModifier == nil then return end
         hTarget = self:GetParent()
         previousHealth = self.hp
         local return_percentage = (self.ability:GetSpecialValueFor("return_percentage") + (self:GetCaster().AvengerAcquired and 10 or 0))/100
@@ -188,7 +195,7 @@ function modifier_lagron_combo_ally:OnTakeDamage(args)
         if (previousHealth - damagePostReduction*(1 - return_percentage) > 0) then
             hTarget:SetHealth(previousHealth - args.damage*(1 - return_percentage))
         end
-        self:GetCaster():FindModifierByName("modifier_jeanne_lagron_combo_block").stored_damage = self:GetCaster():FindModifierByName("modifier_jeanne_lagron_combo_block").stored_damage + args.damage*return_percentage
+        blockModifier.stored_damage = blockModifier.stored_damage + args.damage*return_percentage
         --self.stored_damage = self.stored_damage + args.damage*return_percentage
     end
 end

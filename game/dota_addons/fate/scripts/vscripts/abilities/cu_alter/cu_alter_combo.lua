@@ -19,7 +19,7 @@ cu_alter_combo = cu_alter_combo or class({})
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_alter_combo",    "abilities/cu_alter/cu_alter_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_alter_combo_cd", "abilities/cu_alter/cu_alter_combo", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 -- Frame breakpoints of the ROT animation (tied to the animation, not balance knobs).
 local FRAME_ROAR_END = 50
 local FRAME_JUMP_END = 80	-- lands at frame 80 (matches the animation's touchdown)
@@ -238,7 +238,7 @@ function modifier_cu_alter_combo:Land()
 
 	-- radius ring at the strike zone, sized to the actual hack radius (where the repeated blows connect).
 	-- Destroyed the instant the final blow lands (see DoFinal), so it doesn't linger past the hits.
-	self.ringFx = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
+	self.ringFx = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle_cu_alter_addition.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.ringFx, 0, self:FrontCenter())
 	ParticleManager:SetParticleControl(self.ringFx, 1, Vector(1, 0.1, 0.1))
 	ParticleManager:SetParticleControl(self.ringFx, 2, Vector(ability:GetSpecialValueFor("hack_radius"), 5.0, 0))
@@ -295,6 +295,7 @@ function modifier_cu_alter_combo:DoHack()
 			DoDamage(caster, enemy, ability:GetSpecialValueFor("hack_damage"), DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			enemy:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("hack_stun") })
 			enemy:AddNewModifier(caster,ability, "modifier_kb_immune", {duration = 0.5})
+			enemy:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", { duration = ability:GetSpecialValueFor("hack_stun") })
 			-- juicy blood spray on every hit (okada combo blood, not identical spot each time)
 			local blood = ParticleManager:CreateParticle("particles/okada/okada_combo_blood_mist.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
 			ParticleManager:SetParticleControlForward(blood, 0, self.fwd)

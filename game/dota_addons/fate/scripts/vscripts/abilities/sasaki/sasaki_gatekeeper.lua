@@ -9,7 +9,11 @@ end
 function sasaki_gatekeeper:OnSpellStart()
 	local caster = self:GetCaster()
 
-	caster:EmitSound("Hero_TemplarAssassin.Refraction")
+	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+		caster:EmitSound("kim_sfx_gatekeeper")
+	else
+		caster:EmitSound("Hero_TemplarAssassin.Refraction")
+	end
 	caster:RemoveModifierByName("modifier_gatekeeper")		
 
 	local radius = self:GetSpecialValueFor("leash_range")

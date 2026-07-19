@@ -1,0 +1,65 @@
+<!doctype html><html lang='ru'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Zlodemon — fate stats</title><style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#12141c;color:#dfe3ee;font:14px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
+a{color:#8ab4ff;text-decoration:none}
+a:hover{text-decoration:underline}
+header{background:#1b1e2b;border-bottom:1px solid #2a2f45;padding:14px 22px;
+ display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;z-index:5}
+header h1{font-size:17px;margin:0;color:#fff}
+header nav a{margin-right:16px;font-weight:500}
+.wrap{max-width:1100px;margin:0 auto;padding:22px}
+h2{font-size:16px;color:#fff;margin:26px 0 10px;border-left:3px solid #5b7cff;padding-left:9px}
+table{width:100%;border-collapse:collapse;background:#181b28;border:1px solid #262b40;border-radius:8px;overflow:hidden}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #232840}
+th{background:#20243550;color:#9aa3bd;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#1d2132}
+.badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;font-weight:600}
+.win{background:#1c3a24;color:#6ee7a0}
+.loss{background:#3a1c1c;color:#f08a8a}
+.radiant{color:#6ee7a0}.dire{color:#f0a06e}
+.muted{color:#7f88a3}
+.btn{display:inline-block;background:#3a4bd0;color:#fff;padding:7px 14px;border-radius:6px;
+ border:none;cursor:pointer;font-size:13px;font-weight:600}
+.btn:hover{background:#4a5bf0;text-decoration:none}
+.btn.gray{background:#2a3050}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 4px}
+.card{background:#181b28;border:1px solid #262b40;border-radius:8px;padding:14px 18px;min-width:150px}
+.card .n{font-size:26px;font-weight:700;color:#fff}
+.card .l{color:#9aa3bd;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+pre{background:#0e1016;border:1px solid #262b40;border-radius:8px;padding:14px;overflow:auto;color:#c8d0e6}
+.small{font-size:12px}
+</style></head><body><header><h1>⚔ fate stats</h1><nav><a href='/'>Игроки</a><a href='/matches'>Матчи</a><a href='/heroes'>Герои</a></nav><form method='post' action='/refresh' style='margin-left:auto'><button class='btn' title='Скачать свежую копию БД с сервера'>⟳ Обновить БД</button></form><form method='post' action='/refresh-names'><button class='btn gray' title='Подтянуть ники с Steam'>Обновить ники</button></form></header><div class='wrap'><h2>Zlodemon</h2><p class='muted'>SteamAccountID: 311532152 · <a href='https://steamcommunity.com/profiles/76561198271797880' target='_blank'>профиль Steam ↗</a></p><div class='cards'><div class='card'><div class='n'>7</div><div class='l'>Матчей</div></div><div class='card'><div class='n'>43% (3/7)</div><div class='l'>Винрейт</div></div><div class='card'><div class='n'>45 / 70 / 127</div><div class='l'>Σ K / D / A</div></div></div><h2>По героям</h2><table><tr><th>Герой</th><th>Игр</th><th>Винрейт</th><th>Σ K / D / A</th></tr><tr><td>Axe</td><td>3</td><td>33% (1/3)</td><td>26 / 38 / 81</td></tr><tr><td>Abaddon</td><td>2</td><td>100% (2/2)</td><td>2 / 1 / 0</td></tr><tr><td>Juggernaut</td><td>1</td><td>0% (0/1)</td><td>10 / 16 / 4</td></tr><tr><td>Chen</td><td>1</td><td>0% (0/1)</td><td>7 / 15 / 42</td></tr></table><h2>Матчи игрока</h2><table><tr><th>Матч</th><th>Итог</th><th>Герой</th><th>Команда</th><th>K / D / A</th><th>Урон нанесён</th><th>Урон получен</th><th>Печати Q/W/E/R</th><th>Когда</th></tr><tr><td><a href='/match?id=0717262248303117'>0717262248303117</a></td><td><span class='badge loss'>L</span></td><td>Juggernaut</td><td>Radiant (Свет)</td><td>10 / 16 / 4</td><td>46066</td><td>45575</td><td class='small muted'>7/15/14/0</td><td class='muted'>2026-07-18 01:48</td></tr><tr><td><a href='/match?id=0717262203267549'>0717262203267549</a></td><td><span class='badge loss'>L</span></td><td>Axe</td><td>Dire (Тьма)</td><td>7 / 15 / 18</td><td>43066</td><td>75271</td><td class='small muted'>11/18/13/17</td><td class='muted'>2026-07-18 01:03</td></tr><tr><td><a href='/match?id=0716262346274939'>0716262346274939</a></td><td><span class='badge loss'>L</span></td><td>Axe</td><td>Dire (Тьма)</td><td>7 / 16 / 26</td><td>50208</td><td>117666</td><td class='small muted'>11/20/24/14</td><td class='muted'>2026-07-17 02:46</td></tr><tr><td><a href='/match?id=0716262242132201'>0716262242132201</a></td><td><span class='badge win'>W</span></td><td>Axe</td><td>Dire (Тьма)</td><td>12 / 7 / 37</td><td>43585</td><td>73241</td><td class='small muted'>8/15/19/8</td><td class='muted'>2026-07-17 01:42</td></tr><tr><td><a href='/match?id=0716262158128306'>0716262158128306</a></td><td><span class='badge loss'>L</span></td><td>Chen</td><td>Dire (Тьма)</td><td>7 / 15 / 42</td><td>98326</td><td>96921</td><td class='small muted'>15/21/19/17</td><td class='muted'>2026-07-17 00:58</td></tr><tr><td><a href='/match?id=0716260337498692'>0716260337498692</a></td><td><span class='badge win'>W</span></td><td>Abaddon</td><td>Radiant (Свет)</td><td>2 / 1 / 0</td><td>4115</td><td>3105</td><td class='small muted'>1/2/3/0</td><td class='muted'>2026-07-16 03:37</td></tr><tr><td><a href='/match?id=0716260313275034'>0716260313275034</a></td><td><span class='badge win'>W</span></td><td>Abaddon</td><td>Radiant (Свет)</td><td>0 / 0 / 0</td><td>2135</td><td>1031</td><td class='small muted'>0/0/0/0</td><td class='muted'>2026-07-16 03:13</td></tr></table><h2>Бинды / профиль</h2><pre>{
+  &quot;v&quot;: 1,
+  &quot;seals&quot;: [
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;
+  ],
+  &quot;items&quot;: [
+    &quot;item_mana_essence&quot;,
+    &quot;item_c_scroll&quot;,
+    &quot;item_healing_scroll&quot;,
+    &quot;item_a_plus_scroll&quot;,
+    &quot;item_gem_of_speed&quot;,
+    &quot;item_ward_familiar&quot;,
+    &quot;item_sentry_familiar&quot;,
+    &quot;item_relic_of_the_king&quot;
+  ],
+  &quot;itemKeys&quot;: [
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;,
+    &quot;&quot;
+  ],
+  &quot;emote&quot;: &quot;Y&quot;,
+  &quot;quickcast&quot;: 1
+}</pre></div></body></html>

@@ -355,11 +355,11 @@ function modifier_ozy_stacking_vision_provider:OnCreated(args)
 end
 
 function modifier_ozy_stacking_vision_provider:OnRefresh(args)
-	
+	if not IsServer() then return end
     self:SetStackCount(self:GetStackCount() + 3)
 	if self:GetStackCount() >= 100 then
 		self:SetStackCount(100)
-		self:GetParent():AddNewModifier(caster, self:GetAbility(), "modifier_vision_provider", {duration = 0.5})
+		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_vision_provider", {duration = 0.5})
 		self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
 		ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,1,0.1 ) )
 		ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 0.5,0,0 ) )

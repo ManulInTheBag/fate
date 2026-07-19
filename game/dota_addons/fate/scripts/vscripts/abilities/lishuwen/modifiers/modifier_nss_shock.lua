@@ -2,18 +2,18 @@ modifier_nss_shock = class({})
 
 function modifier_nss_shock:OnCreated(keys)
 	self.ShockDamage = keys.ShockDamage
+	self.StackDamage = keys.StackDamage
 end
 
 function modifier_nss_shock:OnDestroy()
 	if IsServer() then
+		local caster = self:GetCaster()
 		local target = self:GetParent()
-		
+		local damage = self.ShockDamage + (caster.bIsCirculatoryShockAcquired and 0.2*(target:GetMaxHealth()-target:GetHealth()) or 0)
+		local damageType = caster:HasModifier("modifier_berserk") and DAMAGE_TYPE_PHYSICAL or DAMAGE_TYPE_PURE
+
 		target:EmitSound("Hero_Oracle.FalsePromise.Damaged")
-		if self:GetCaster():HasModifier("modifier_berserk") then
-			DoDamage(self:GetCaster(), target, self.ShockDamage + (self:GetCaster().bIsCirculatoryShockAcquired and 0.2*(target:GetMaxHealth()-target:GetHealth()) or 0), DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
-		else
-			DoDamage(self:GetCaster(), target, self.ShockDamage + (self:GetCaster().bIsCirculatoryShockAcquired and 0.2*(target:GetMaxHealth()-target:GetHealth()) or 0), DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
-		end
+		DoDamageThroughIntervention(caster, target, damage, self.StackDamage, damageType, 0, self:GetAbility(), false)
 	end
 end
 
@@ -50,20 +50,20 @@ modifier_nss_shock_no_revoke = class({})
 
 function modifier_nss_shock_no_revoke:OnCreated(keys)
 	self.ShockDamage = keys.ShockDamage
+	self.StackDamage = keys.StackDamage
 end
 
 
 
 function modifier_nss_shock_no_revoke:OnDestroy()
 	if IsServer() then
+		local caster = self:GetCaster()
 		local target = self:GetParent()
-		
+		local damage = self.ShockDamage + (caster.bIsCirculatoryShockAcquired and 0.2*(target:GetMaxHealth()-target:GetHealth()) or 0)
+		local damageType = caster:HasModifier("modifier_berserk") and DAMAGE_TYPE_PHYSICAL or DAMAGE_TYPE_PURE
+
 		target:EmitSound("Hero_Oracle.FalsePromise.Damaged")
-		if self:GetCaster():HasModifier("modifier_berserk") then
-			DoDamage(self:GetCaster(), target, self.ShockDamage + (self:GetCaster().bIsCirculatoryShockAcquired and 0.2*(target:GetMaxHealth()-target:GetHealth()) or 0), DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
-		else
-			DoDamage(self:GetCaster(), target, self.ShockDamage + (self:GetCaster().bIsCirculatoryShockAcquired and 0.2*(target:GetMaxHealth()-target:GetHealth()) or 0), DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
-		end
+		DoDamageThroughIntervention(caster, target, damage, self.StackDamage, damageType, 0, self:GetAbility(), false)
 	end
 end
 

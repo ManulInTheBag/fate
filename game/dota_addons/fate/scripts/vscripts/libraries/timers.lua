@@ -60,6 +60,17 @@ if Timers == nil then
   Timers.__index = Timers
 end
 
+-- Ленивый безопасный трейсбек: на валвовских дедикейт-серверах библиотека
+-- debug ОТСУТСТВУЕТ (в tools есть) — старый инлайн-хендлер
+-- `msg..debug.traceback()` сам падал, и любая ошибка таймера превращалась
+-- в бесполезное "error in error handling" без текста настоящей ошибки
+local function TimersErrorHandler(msg)
+  if type(debug) == "table" and type(debug.traceback) == "function" then
+    return tostring(msg) .. '\n' .. debug.traceback() .. '\n'
+  end
+  return tostring(msg)
+end
+
 function Timers:new( o )
   o = o or {}
   setmetatable( o, Timers )
@@ -70,11 +81,7 @@ function Timers:_xpcall (f, ...)
   print(f)
   print({...})
   PrintTable({...})
-  local result = xpcall (function () return f(unpack(arg)) end,
-    function (msg)
-      -- build the error message
-      return msg..'\n'..debug.traceback()..'\n'
-    end)
+  local result = xpcall (function () return f(unpack(arg)) end, TimersErrorHandler)
 
   print(result)
   PrintTable(result)
@@ -103,8 +110,24 @@ function Timers:Think()
   -- Track game time, since the dt passed in to think is actually wall-clock time not simulation time.
   local now = GameRules:GetGameTime()
 
-  -- Process timers
-  for k,v in pairs(Timers.timers) do
+  -- КРИТИЧЕСКОЕ УКРЕПЛЕНИЕ (2026-07-17): любая непойманная ошибка в этом
+  -- think убивает ВСЕ таймеры мода навсегда (SetThink не перевзводится) —
+  -- умирают раунды, чат-сообщения, UI-таймеры. Две закрытые дыры:
+  --   1) обход pairs() по живой таблице, в которую колбэки добавляют новые
+  --      таймеры (неопределённое поведение Lua) — теперь снимок ключей;
+  --   2) арифметика endTime + nextCall вне xpcall — колбэк, вернувший
+  --      не-число (true/строку), ронял think — теперь проверка типа.
+
+  -- Process timers (по снимку ключей; созданные колбэками таймеры
+  -- обработаются со следующего тика)
+  local keys = {}
+  for k in pairs(Timers.timers) do
+    keys[#keys + 1] = k
+  end
+
+  for _, k in ipairs(keys) do
+    local v = Timers.timers[k]
+    if v then
     local bUseGameTime = true
     if v.useGameTime ~= nil and v.useGameTime == false then
       bUseGameTime = false
@@ -126,32 +149,33 @@ function Timers:Think()
     if now >= v.endTime then
       -- Remove from timers list
       Timers.timers[k] = nil
-      
+
       -- Run the callback
       local status, nextCall
       if v.context then
-        status, nextCall = xpcall(function() return v.callback(v.context, v) end, function (msg)
-                                    return msg..'\n'..debug.traceback()..'\n'
-                                  end)
+        status, nextCall = xpcall(function() return v.callback(v.context, v) end, TimersErrorHandler)
       else
-        status, nextCall = xpcall(function() return v.callback(v) end, function (msg)
-                                    return msg..'\n'..debug.traceback()..'\n'
-                                  end)
+        status, nextCall = xpcall(function() return v.callback(v) end, TimersErrorHandler)
       end
 
       -- Make sure it worked
       if status then
         -- Check if it needs to loop
         if nextCall then
-          -- Change its end time
+          if type(nextCall) == "number" then
+            -- Change its end time
+            if bOldStyle then
+              v.endTime = v.endTime + nextCall - now
+            else
+              v.endTime = v.endTime + nextCall
+            end
 
-          if bOldStyle then
-            v.endTime = v.endTime + nextCall - now
+            Timers.timers[k] = v
           else
-            v.endTime = v.endTime + nextCall
+            -- не-числовой возврат раньше ронял весь think на арифметике
+            Timers:HandleEventError('Timer', k,
+              "callback returned non-number value: " .. tostring(nextCall))
           end
-
-          Timers.timers[k] = v
         end
 
         -- Update timer data
@@ -160,6 +184,7 @@ function Timers:Think()
         -- Nope, handle the error
         Timers:HandleEventError('Timer', k, nextCall)
       end
+    end
     end
   end
 
@@ -173,6 +198,17 @@ function Timers:HandleEventError(name, event, err)
   name = tostring(name or 'unknown')
   event = tostring(event or 'unknown')
   err = tostring(err or 'unknown')
+
+  -- Серверная консоль в реальном лобби недоступна — первые ошибки таймеров
+  -- дублируем в чат, иначе их никто никогда не увидит (кап от спама)
+  self.errorsReported = (self.errorsReported or 0) + 1
+  if self.errorsReported <= 5 then
+    pcall(function()
+      local brief = err:sub(1, 180):gsub("%s+", " ")
+      GameRules:SendCustomMessage("<font color='#FF4444'>[Timers] error in '"
+        .. event .. "': " .. brief .. "</font>", 0, 0)
+    end)
+  end
 
   -- Tell everyone there was an error
   --Say(nil, name .. ' threw an error on event '..event, false)
@@ -234,13 +270,9 @@ function Timers:RemoveTimerWithCallbackTest(name)
 
   local status, nextCall
       if v.context then
-        status, nextCall = xpcall(function() return v.callback(v.context, v) end, function (msg)
-                                    return msg..'\n'..debug.traceback()..'\n'
-                                  end)
+        status, nextCall = xpcall(function() return v.callback(v.context, v) end, TimersErrorHandler)
       else
-        status, nextCall = xpcall(function() return v.callback(v) end, function (msg)
-                                    return msg..'\n'..debug.traceback()..'\n'
-                                  end)
+        status, nextCall = xpcall(function() return v.callback(v) end, TimersErrorHandler)
       end
 
       -- Make sure it worked

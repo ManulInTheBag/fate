@@ -37,7 +37,11 @@ function sasaki_quickdraw:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_quickdraw_empowered_tracker", { Duration = 2 })
 		
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("patrick_quickdraw_" .. math.random(1,2))
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				caster:EmitSound("kim_quickdraw_1")
+			else
+				caster:EmitSound("patrick_quickdraw_" .. math.random(1,2))
+			end
 		else
 			caster:EmitSound("Sasaki_Quickdraw_" .. math.random(1,2))
 		end
@@ -59,7 +63,11 @@ function sasaki_quickdraw:OnSpellStart()
 
 	local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 0.7)
-	caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 
+	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+		caster:EmitSound("kim_sfx_quickdraw")
+	else
+		caster:EmitSound("Hero_PhantomLancer.Doppelwalk")
+	end
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*1500)

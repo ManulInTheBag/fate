@@ -406,6 +406,10 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 	if hTarget:HasModifier("modifier_nss_shock_stackable") then
 		stacks = hTarget:FindModifierByName("modifier_nss_shock_stackable"):GetStackCount()
 	end
+	-- Stack damage is tracked apart from the flat shock damage: it has to land in full through
+	-- the master's Intervention, see DoDamageThroughIntervention() in util.lua.
+	local stackDamage = stacks * self:GetSpecialValueFor("damage_per_nss_stack")
+
 	if caster.bIsCirculatoryShockAcquired  then
 		--[[if (target:GetName() ~= "npc_dota_hero_juggernaut" and target:GetName() ~= "npc_dota_hero_shadow_shaman") and target:IsHero() then
 			target:SetMana(target:GetMana()/5)
@@ -413,25 +417,26 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 			DoDamage(caster, target, mana_shock_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end]]
 
-		damage = damage + 0.2*(hTarget:GetMaxHealth()-hTarget:GetHealth()) --+
-		-- stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))
+		stackDamage = stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))
+		damage = damage + 0.2*(hTarget:GetMaxHealth()-hTarget:GetHealth())
 		--stunDuration = self:GetSpecialValueFor("attribute_stun_duration")
 		if not self.firsthit then
 			hTarget:AddNewModifier(caster, self, "modifier_nss_shock", { Duration = self:GetSpecialValueFor("revoke_duration"),
-																		ShockDamage = self:GetSpecialValueFor("shock_damage") + 
-																		stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))})
-			self.firsthit = true		
+																		ShockDamage = self:GetSpecialValueFor("shock_damage") + stackDamage,
+																		StackDamage = stackDamage})
+			self.firsthit = true
 		else
 			hTarget:AddNewModifier(caster, self, "modifier_nss_shock_no_revoke", { Duration = self:GetSpecialValueFor("revoke_duration"),
-																		ShockDamage = self:GetSpecialValueFor("shock_damage") + 	stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))})
-																	
+																		ShockDamage = self:GetSpecialValueFor("shock_damage") + stackDamage,
+																		StackDamage = stackDamage})
+
 		end
 	else
 		if not self.firsthit then
 			hTarget:AddNewModifier(caster, self, "modifier_nss_shock", { Duration = self:GetSpecialValueFor("revoke_duration"),
-																	  ShockDamage = self:GetSpecialValueFor("shock_damage") + 
-																	stacks * self:GetSpecialValueFor("damage_per_nss_stack")})
-			self.firsthit = true	
+																	  ShockDamage = self:GetSpecialValueFor("shock_damage") + stackDamage,
+																	  StackDamage = stackDamage})
+			self.firsthit = true
 		end
 	end
 	hTarget:RemoveModifierByName("modifier_nss_shock_stackable")

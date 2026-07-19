@@ -97,7 +97,11 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
             --if caster:GetMana() > self.ManaThreshold then
                
                 if caster:HasModifier("modifier_hero_selection_skin") then
-                     target:EmitSound("patrick_counter_success_1")
+                    if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+                        target:EmitSound("kim_counter_success_1")
+                    else
+                        target:EmitSound("patrick_counter_success_1")
+                    end
                 else
                     target:EmitSound("Sasaki_Counter_Success_" .. math.random(1,2))
                 end
@@ -137,7 +141,11 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
                 return 0.05
             end)
             
-            EmitGlobalSound("FA.Quickdraw")
+            if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+                caster:EmitSound("kim_sfx_slash_" .. math.random(1,3))
+            else
+                EmitGlobalSound("FA.Quickdraw")
+            end
 
             self:Destroy()
         end

@@ -152,15 +152,18 @@ function modifier_tauropolos_alter:OnIntervalThink()
                                         0, 
                                         false)
 
+            local curseAbility = self.caster:FindAbilityByName("atalanta_curse")
 		    for _,unit in pairs(units) do
                 if not unit:HasModifier("modifier_protection_from_arrows_active") then
-    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 30 or 0), self:GetAbility():GetAbilityDamageType(), 0, self.ability, false)
-    		      	for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + (self.caster.CursedMoonAcquired and 5 or 0)) do
-    		           	self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
+    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 30 or 0), self.ability:GetAbilityDamageType(), 0, self.ability, false)
+                    if curseAbility then
+    		      	for i = 1,(self.ability:GetSpecialValueFor("curse_stacks") + (self.caster.CursedMoonAcquired and 5 or 0)) do
+    		           	curseAbility:Curse(unit)
                         --[[if self.caster.CursedMoonAcquired then
                             self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
                         end]]
     		 	    end
+                    end
                 end
 		    end
 		end)

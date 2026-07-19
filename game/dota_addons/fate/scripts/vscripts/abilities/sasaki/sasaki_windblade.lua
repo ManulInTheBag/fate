@@ -9,9 +9,13 @@ end
 
 function sasaki_windblade:OnSpellStart()
 
-	EmitGlobalSound("FA.Windblade")
-
 	local caster = self:GetCaster()
+
+	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+		caster:EmitSound("kim_sfx_windblade")
+	else
+		EmitGlobalSound("FA.Windblade")
+	end
 	local casterInitOrigin = caster:GetAbsOrigin() 
 	local empowered = false
 	local number_of_slash = self:GetSpecialValueFor("base_slashes")
@@ -28,7 +32,11 @@ function sasaki_windblade:OnSpellStart()
 	--else
 		
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("patrick_windblade_1")
+			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
+				caster:EmitSound("kim_windblade_1")
+			else
+				caster:EmitSound("patrick_windblade_1")
+			end
 		else
 			caster:EmitSound("Sasaki_Windblade_1")
 		end

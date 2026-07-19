@@ -97,7 +97,6 @@ strongdispellable = {
     "modifier_rho_aias",
     "modifier_aoko_facebreaker_shield",
     "modifier_king_hassan_block",
-    "modifier_jeanne_luminosite_eternelle_barrier",
     "modifier_li_shuwen_barrier",
     "modifier_nero_spectaculi_shield",
     "modifier_barrier_new",
@@ -177,7 +176,6 @@ deargdispellable = {
     "modifier_li_shuwen_barrier",
     "modifier_nero_spectaculi_shield",
     "modifier_protection_from_arrows_active",
-    "modifier_jeanne_luminosite_eternelle_barrier",
     "modifier_jeanne_mrex_allies",
     "modifier_jeanne_regen_allies",
     "modifier_jeanne_mana_regen_allies",
@@ -1968,15 +1966,26 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                 end
             end
         -- if target is not linked, apply damage normally
-        else 
+        else
             dmgtable.victim = target
             ApplyDamage(dmgtable)
-        end        
+        end
     end
 
 end
 
--- Check if anyone on this hero's team is still alive. 
+-- Same as DoDamage, except that piercing_dmg points out of dmg are not reduced by
+-- modifier_master_intervention. The flag is only alive for the duration of the damage
+-- instance, since ApplyDamage runs the whole pipeline synchronously.
+function DoDamageThroughIntervention(source, target, dmg, piercing_dmg, dmg_type, dmg_flag, abil, isLoop)
+    if not IsValidEntity(source) or not IsValidEntity(target) then return end
+
+    source.fInterventionPiercingDamage = piercing_dmg
+    DoDamage(source, target, dmg, dmg_type, dmg_flag, abil, isLoop)
+    source.fInterventionPiercingDamage = nil
+end
+
+-- Check if anyone on this hero's team is still alive.
 function IsTeamWiped(hero)
     if _G.GameMap == "fate_ffa" or _G.GameMap == "fate_trio_rumble_3v3v3v3" then return false end
 

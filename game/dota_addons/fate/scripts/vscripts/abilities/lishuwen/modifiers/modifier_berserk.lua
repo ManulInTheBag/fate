@@ -14,6 +14,7 @@ if IsServer() then
 		if keys.CCImmuneDuration > 0 then
 			self:StartIntervalThink(0.3)
 			Timers:CreateTimer(2, function()
+				if self:IsNull() then return end
 				self.State = {}
 				self:StartIntervalThink(-1)
 				end)

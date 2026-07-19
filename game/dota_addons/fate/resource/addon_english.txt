@@ -3324,7 +3324,7 @@
 		"DOTA_Tooltip_Ability_cu_alter_spear_of_the_sky_delay"			"Impact delay:"
 
 		"DOTA_Tooltip_Ability_cu_alter_combo"				"Curruid Coinchenn"
-		"DOTA_Tooltip_Ability_cu_alter_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast Hound's Charge (Q) - F in 3 seconds</font>\nCú Chulainn Alter dons his armour, roars and leaps to the target point, <font color='#FF3399'>stunning</font> enemies where he lands. He then hacks everything in front of him — <font color='#58ACFA'>damaging</font> and <font color='#FF3399'>stunning</font> repeatedly — before a final piercing blow that deals heavy <font color='#58ACFA'>damage</font> and inflicts the <font color='#FF0000'>Cursed Gáe Bolg</font> (uncleansable <font color='#7F00FF'>healing reduction</font> + <font color='#FF0000'>Sealed Fate</font>) on all enemies hit.\nFrom the moment he leaps he takes <font color='#FFDC60'>%damage_reduction%%%</font> less damage. He cannot act while performing the combo.\nRefreshes cooldown of <font color='#00A0FF'>Blood Frenzy</font> upon skill end."
+		"DOTA_Tooltip_Ability_cu_alter_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : autocast Hound's Charge (Q) - F in 3 seconds</font>\nCú Chulainn Alter dons his armour, roars and leaps to the target point, <font color='#FF3399'>stunning</font> enemies where he lands. He then hacks everything in front of him — <font color='#58ACFA'>damaging</font> and <font color='#FF3399'>stunning</font> repeatedly and applying <font color='#7F00FF'>healing reduction tier 2</font> — before a final piercing blow that deals heavy <font color='#58ACFA'>damage</font> and inflicts the <font color='#FF0000'>Cursed Gáe Bolg</font> (uncleansable <font color='#7F00FF'>healing reduction</font> + <font color='#FF0000'>Sealed Fate</font>) on all enemies hit.\nFrom the moment he leaps he takes <font color='#FFDC60'>%damage_reduction%%%</font> less damage. He cannot act while performing the combo.\nRefreshes cooldown of <font color='#00A0FF'>Blood Frenzy</font> upon skill end."
 		"DOTA_Tooltip_Ability_cu_alter_combo_hack_damage"		"Damage per hit:"
 		"DOTA_Tooltip_Ability_cu_alter_combo_final_damage"		"Final blow damage:"
 		"DOTA_Tooltip_Ability_cu_alter_combo_land_stun"			"Landing stun:"
@@ -4375,6 +4375,7 @@
 		//=================================================================================================================
 		"npc_dota_hero_juggernaut"			"Sasaki Kojiro"
 		"sasaki_1"             "Uchiha Patrick"
+		"sasaki_2"             "Bamboo-hatted Kim"
 		"npc_dota_hero_juggernaut_hype"		""
 		"npc_dota_hero_juggernaut_bio"		""
 		
@@ -6981,7 +6982,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike"						"No Second Strike"
-        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Passive</font>: All of Li Shuwen's abilities apply <font color='#FF0000'>Circulatory shock</font> effect on enemy.\n<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nDashes forward, hitting all enemies on the way, inflicting <font color='#D1A951'>pure damage</font> and <font color='#FF3399'>stunning</font>. First target also gets   <font color='#FF3399'>revoked</font>  for a short duration. \n\nAfter a short duration, the main target takes extra <font color='#D1A951'>pure damage</font>.\nShock deals additional damage based on <font color='#FF0000'>Circulatory shock</font> stacks on the enemy.\n<font color='#F1C40F'>Upgradable by attributes: Circulatory shock and Shock paralysis</font>."
+        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Passive</font>: All of Li Shuwen's abilities apply <font color='#FF0000'>Circulatory shock</font> effect on enemy.\n<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nDashes forward, hitting all enemies on the way, inflicting <font color='#D1A951'>pure damage</font> and <font color='#FF3399'>stunning</font>. First target also gets   <font color='#FF3399'>revoked</font>  for a short duration. \n\nAfter a short duration, the main target takes extra <font color='#D1A951'>pure damage</font>.\nShock deals additional damage based on <font color='#FF0000'>Circulatory shock</font> stacks on the enemy. The stack damage is not reduced by <font color='#58ACFA'>Intervention</font>.\n<font color='#F1C40F'>Upgradable by attributes: Circulatory shock and Shock paralysis</font>."
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Lore"					"The swirl of Chi shatters its victim's inner system, bringing them sure death regardless of physical prowess."
         //"DOTA_Tooltip_Ability_lishuwen_no_second_strike_cast_delay"				"Cast Delay:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_initial_damage"			"Initial Damage:"
@@ -7084,10 +7085,7 @@
 		"DOTA_Tooltip_modifier_jeanne_saint_Description"	"Gains health regeneration"
 
 		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle"	"Luminosite Eternelle"
-		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle_Description"	"Heals teammates and slows enemies around Jeanne"
-
-		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle_barrier"	"Luminosite Eternelle barrier"
-		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle_barrier_Description"	"Provides crowd control immunity until broken"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle_Description"	"Heals teammates and slows enemies around Jeanne. Cannot be interrupted while the Magic Resistance: EX barrier holds."
 
 		"DOTA_Tooltip_modifier_jeanne_crimson_saint_cooldown"	"Combo: La Pucelle - The Crimson Holy Maiden"
 		"DOTA_Tooltip_modifier_jeanne_crimson_saint_cooldown_Description"	"Is on cooldown."
@@ -7129,7 +7127,7 @@
 
 
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle"		"Luminosité Eternelle"
-        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration</font>:  <font color='#7FFF00'>%channel_duration%</font>\nJeanne starts channeling a protective barrier, gaining %shield_amount% <font color='#58ACFA'>magical barrier</font> and becoming <font color='#ff9900'>immune to crowd control effects</font> until the barrier is broken.\nWhile channeling, Jeanne <font color='#ACFF05'>heals</font> allies for %heal_per_second% and <font color='#9400D3'>slows</font> enemies for %slow_amount%%  in %radius% radius around her each second.\nIf channel was not interrupted, final impact will <font color='#ACFF05'>heal</font> her allies for an increased value of %final_burst_heal%."
+        "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration</font>:  <font color='#7FFF00'>%channel_duration%</font>\nJeanne starts channeling a protective light. While her <font color='#58ACFA'>Magic Resistance: EX</font> barrier holds, she is <font color='#ff9900'>immune to crowd control effects</font> and the channel cannot be interrupted.\nWhile channeling, Jeanne <font color='#ACFF05'>heals</font> allies for %heal_per_second% and <font color='#9400D3'>slows</font> enemies for %slow_amount%%  in %radius% radius around her each second.\nIf channel was not interrupted, final impact will <font color='#ACFF05'>heal</font> her allies for an increased value of %final_burst_heal%."
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Lore"				""
 
         "DOTA_Tooltip_Ability_jeanne_crimson_saint"				"Combo: La Pucelle - The Crimson Holy Maiden"

@@ -10,7 +10,7 @@
 		"AbilityTextureName"			"custom/cu_alter/dash"
 		// AUTOCAST is the combo "arm" toggle: with autocast on (and 30 all stats + combo ready),
 		// casting Charge arms the combo (see cu_alter_charge.lua / modifier_cu_alter_combo_switch).
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_AUTOCAST |DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -79,7 +79,7 @@
 		"AbilityValues"
 		{
 			"max_channel"				"3.0"		// max charge time
-			"min_range"					"900"		// range at 0 charge
+			"min_range"					"1200"		// range at 0 charge
 			"max_range"					"2200"		// range at full charge
 			"speed"						"3400"		// flies fast
 			"radius"					"150"
@@ -144,7 +144,7 @@
 		}
 		"AbilityValues"
 		{
-			"radius"					"500"		// detection ring
+			"radius"					"600"		// detection ring
 			"delay"						"1.0"		// stance time before the charge
 			"dash_speed"				"1400"
 			"behind_offset"				"200"		// how far past the target he ends up (behind its back)
@@ -172,7 +172,7 @@
 		"LevelsBetweenUpgrades"			"1"
 		"MaxLevel"						"2"
 		"AbilityCooldown"				"30 20"
-		"AbilityManaCost"				"150"
+		"AbilityManaCost"				"0"
 		"AbilityCastPoint"				"0"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
@@ -218,7 +218,7 @@
 		"MaxLevel"						"2"
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"150"
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"1.0"
 		// no AbilityCastAnimation: roar animation is driven from OnAbilityPhaseStart
 
@@ -303,7 +303,7 @@
 		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"600"
 		"AbilityCastPoint"				"0"
-		"AbilityCastRange"				"1200"		// = jump_distance, so the range ring shows the real leap reach (keep in sync)
+		"AbilityCastRange"				"1400"		// = jump_distance, so the range ring shows the real leap reach (keep in sync)
 
 		"precache"
 		{
@@ -314,12 +314,12 @@
 			"particle"	"particles/custom_game/heroes/hisoka/hisoka_bloodlust_release/hisoka_bloodlust_release.vpcf"
 			"particle"	"particles/cu_alter/cu_alter_land_impact.vpcf"
 			"particle"	"particles/cu_alter/cu_alter_dash_trail.vpcf"
-			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
+			"particle"	"particles/zlodemon/zlodemon_basic_circle_cu_alter_addition.vpcf"
 		}
 		"AbilityValues"
 		{
 			// landing of the leap (frame 100): shakes the ground and stuns
-			"land_radius"			"400"
+			"land_radius"			"600"
 			"land_stun"				"0.8"
 			// animation timing (240-frame ACT_DOTA_CAST_ABILITY_ROT). At 30 fps / rate 1.0 the whole
 			// combo takes 8.0s. If the animation looks out of sync, tune combo_fps to its real fps;
@@ -327,19 +327,19 @@
 			"combo_fps"				"30"
 			"anim_rate"				"1.0"
 			// jump phase (frames 50-100)
-			"jump_distance"			"1200"		// forward leap distance (capped by the clicked point); keep = AbilityCastRange
+			"jump_distance"			"1400"		// forward leap distance (capped by the clicked point); keep = AbilityCastRange
 			"jump_height"			"550"		// arc peak height — makes it read as a real jump
 			"damage_reduction"		"50"		// % less damage taken from the moment he leaps
 			// AoE (in front of him)
 			"forward_offset"		"150"		// AoE centered this far ahead along his facing
 			// hacking phase (frames 100-180)
-			"hack_radius"			"400"
+			"hack_radius"			"600"
 			"hack_ticks"			"6"			// number of hits over the hacking window
 			"hack_damage"			"200"		// per hack tick
 			"hack_stun"				"0.5"		// mini-stun per tick (> tick spacing = stays locked)
 			// final blow (frame 220)
-			"final_radius"			"450"
-			"final_damage"			"1000"
+			"final_radius"			"600"
+			"final_damage"			"1500"
 			"final_stun"			"1.75"
 		}
 	}

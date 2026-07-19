@@ -94,6 +94,18 @@ function ControlZones:SetRuntimeEnabled(enable)
     end
 end
 
+-- КОРЕНЬ ИГРОВОГО ОТКАЗА 2026-07-16/17: на валвовских дедикейт-серверах
+-- библиотека debug ОТСУТСТВУЕТ (в tools есть!). Прямое `xpcall(fn,
+-- debug.traceback)` вычисляет debug.traceback в момент вызова -> индексация
+-- nil -> необработанный краш при КАЖДОМ вызове GuardCall -> смерть
+-- InitializeRound. Поэтому трейсбек берём лениво и с проверкой.
+local function SafeTraceback(msg)
+    if type(debug) == "table" and type(debug.traceback) == "function" then
+        return debug.traceback(tostring(msg), 2)
+    end
+    return tostring(msg)
+end
+
 -- Страховка: любая внутренняя ошибка зон НЕ должна ломать цикл раундов
 -- (необработанная ошибка в InitializeRound убивает весь старт раунда).
 -- При ошибке модуль чистится и выключается до ручного -zoneon.
@@ -102,7 +114,11 @@ local function DisableOnError(where, err)
     ControlZones.runtimeDisabled = true
     pcall(function() ControlZones:Cleanup() end)
     pcall(function()
-        GameRules:SendCustomMessage("[Zones] internal error, control zones disabled (see console; -zoneon to re-enable)", 0, 0)
+        -- в реальном лобби серверная консоль недоступна — шлём начало
+        -- трейсбека прямо в чат, иначе причину не узнать
+        local brief = tostring(err):sub(1, 220):gsub("%s+", " ")
+        GameRules:SendCustomMessage("[Zones] internal error in " .. where
+            .. ", zones disabled (-zoneon to re-enable): " .. brief, 0, 0)
     end)
 end
 
@@ -111,7 +127,7 @@ local function GuardCall(self, fnName, ...)
     local args = { ... }
     local ok, err = xpcall(function()
         return self[fnName](self, unpack(args, 1, n))
-    end, debug.traceback)
+    end, SafeTraceback)
     if not ok then DisableOnError(fnName, err) end
     return ok
 end
@@ -455,6 +471,14 @@ end
 -- Голос из team_select (клиент шлёт zones_vote_finished по одному разу
 -- при переходе из экрана выбора команд)
 function ControlZones:OnZonesVote(keys)
+    -- ошибка обработки голоса не должна ничего ломать — только лог
+    local ok, err = xpcall(function() self:_OnZonesVote(keys) end, SafeTraceback)
+    if not ok then
+        print("[ControlZones] zones vote error: " .. tostring(err))
+    end
+end
+
+function ControlZones:_OnZonesVote(keys)
     if self.voteResolved then return end
     local pid = tonumber(keys.PlayerID or keys.player)
     if pid then
@@ -504,10 +528,19 @@ function ControlZones:ResolveVote()
     end
 end
 
+-- ВЕСЬ хук под GuardCall, включая ResolveVote/IsEnabled: OnPreRound —
+-- первая строка InitializeRound, который для раунда 1 вызывается из
+-- колбэка OnGameInProgress; непойманная ошибка здесь убивает не только
+-- раунд, но и таймеры грааля и OnGameTimerThink (наблюдалось в игре
+-- 2026-07-16: ни одного таймера, ни зон)
 function ControlZones:OnPreRound(round, radiantScore, direScore, gameMode)
+    GuardCall(self, "_PreRoundHook", round, radiantScore, direScore, gameMode)
+end
+
+function ControlZones:_PreRoundHook(round, radiantScore, direScore, gameMode)
     self:ResolveVote()
     if not self:IsEnabled() then return end
-    GuardCall(self, "_OnPreRound", round, radiantScore, direScore, gameMode)
+    self:_OnPreRound(round, radiantScore, direScore, gameMode)
 end
 
 function ControlZones:_OnPreRound(round, radiantScore, direScore, gameMode)
@@ -553,9 +586,15 @@ function ControlZones:_OnPreRound(round, radiantScore, direScore, gameMode)
     self:PushState(true)
 end
 
+-- Тоже целиком под защитой: вызывается строкой ПЕРЕД созданием
+-- UI-таймера раунда в колбэке beginround
 function ControlZones:OnRoundStart()
+    GuardCall(self, "_RoundStartHook")
+end
+
+function ControlZones:_RoundStartHook()
     if not self:IsEnabled() then return end
-    GuardCall(self, "_OnRoundStart")
+    self:_OnRoundStart()
 end
 
 function ControlZones:_OnRoundStart()
@@ -597,8 +636,12 @@ function ControlZones:_OnRoundStart()
 end
 
 function ControlZones:OnRoundEnd()
+    GuardCall(self, "_RoundEndHook")
+end
+
+function ControlZones:_RoundEndHook()
     if not self:IsEnabled() then return end
-    GuardCall(self, "Cleanup")
+    self:Cleanup()
 end
 
 function ControlZones:Cleanup()
@@ -853,7 +896,7 @@ function ControlZones:TryStartOvertime(resolveFn)
     if not self:IsEnabled() then return false end
     local ok, started = xpcall(function()
         return self:_TryStartOvertime(resolveFn)
-    end, debug.traceback)
+    end, SafeTraceback)
     if not ok then
         DisableOnError("TryStartOvertime", started)
         return false
@@ -1020,7 +1063,7 @@ end
 
 function ControlZones:OnPlayerChat(keys)
     -- ошибки чат-команд только логируются, систему не выключают
-    local ok, err = xpcall(function() self:_OnPlayerChat(keys) end, debug.traceback)
+    local ok, err = xpcall(function() self:_OnPlayerChat(keys) end, SafeTraceback)
     if not ok then
         print("[ControlZones] chat command error: " .. tostring(err))
     end
@@ -1111,6 +1154,33 @@ function ControlZones:_OnPlayerChat(keys)
     if text == "-zonegrace" and self.vz and self.vz.phase == "grace" then
         self.vz.graceEnd = GameRules:GetGameTime()
         GameRules:SendCustomMessage("[Zones] grace period skipped", 0, 0)
+        return
+    end
+
+    -- Репро игрового пути голосования в tools (краш 2026-07-16 был в
+    -- реальной игре, где team_select шлёт голоса): сбрасывает состояние и
+    -- прогоняет голос КАЖДОГО подключённого игрока через настоящий
+    -- OnZonesVote (свой голос заденет ветку оверрайда по steamid), затем
+    -- тот же ResolveVote, что зовёт OnPreRound. "-zonevotesim off" —
+    -- голоса «против» (ветка отключения; вернуть потом -zoneon).
+    local simVote = string.match(text, "^%-zonevotesim%s*(%a*)")
+    if simVote then
+        local enabled = simVote == "off" and 0 or 1
+        self.voteResolved = nil
+        self.votedPlayers = {}
+        self.voteEnable, self.voteDisable = 0, 0
+        self.voteOverride = nil
+        local fed = 0
+        for pid = 0, 23 do
+            if PlayerResource:IsValidPlayerID(pid) then
+                self:OnZonesVote({ PlayerID = pid, enabled = enabled })
+                fed = fed + 1
+            end
+        end
+        self:ResolveVote()
+        GameRules:SendCustomMessage(string.format(
+            "[Zones] vote sim: fed %d votes (enabled=%d), override=%s — check console for [ControlZones] errors",
+            fed, enabled, tostring(self.voteOverride)), 0, 0)
         return
     end
 

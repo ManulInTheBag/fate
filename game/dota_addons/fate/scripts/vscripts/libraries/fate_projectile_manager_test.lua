@@ -12,6 +12,16 @@ FATE_PROJECTILE_TARGET_TEAM_BOTH = 3
 
 FATE_AREA_TYPE_SLOWING = 1
 
+-- На валв-дедикейте библиотеки debug нет (в tools есть) — обращение к
+-- debug.traceback внутри хендлера xpcall само падает, и ошибка колбэка
+-- превращается в error-in-error-handler. Только через этот ленивый хелпер.
+local function FPMErrorHandler(msg)
+	if type(debug) == "table" and type(debug.traceback) == "function" then
+		return tostring(msg)..'\n'..debug.traceback()..'\n'
+	end
+	return tostring(msg)
+end
+
 ------- Init
 
 if FATE_ProjectileManager == nil then
@@ -565,9 +575,7 @@ function FATE_ProjectileManager:Think_TRACKING(k, v)
 	v.currentLoc = v.currentLoc + distance*direction
 
 	if v.thinkCallback then
-		local thinkStatus, thinkNextCall = xpcall(function() return v.thinkCallback(v.ability, v.currentLoc, v.ExtraData) end, function (msg)
-			                                    return msg..'\n'..debug.traceback()..'\n'
-	                                  end)
+		local thinkStatus, thinkNextCall = xpcall(function() return v.thinkCallback(v.ability, v.currentLoc, v.ExtraData) end, FPMErrorHandler)
 		--[[if not thinkStatus then
 			print(thinkNextCall)
 		end]]
@@ -577,9 +585,7 @@ function FATE_ProjectileManager:Think_TRACKING(k, v)
 		--print("FPMSUCCESS"..k)
 		self.ActiveProjectiles[k] = nil
 		if v.callback then
-			local status, nextCall = xpcall(function() return v.callback(v.ability, v.target, v.currentLoc, v.ExtraData) end, function (msg)
-                                    return msg..'\n'..debug.traceback()..'\n'
-                                  end)
+			local status, nextCall = xpcall(function() return v.callback(v.ability, v.target, v.currentLoc, v.ExtraData) end, FPMErrorHandler)
 		end
 		if v.projFX then
 			ParticleManager:DestroyParticle(v.projFX, false)
@@ -638,9 +644,7 @@ function FATE_ProjectileManager:Think_LINEAR(k, v)
 	v.curr_distance = v.curr_distance + distance
 
 	if v.thinkCallback then
-		local thinkStatus, thinkNextCall = xpcall(function() return v.thinkCallback(v.ability, v.currentLoc, v.ExtraData) end, function (msg)
-			                                    return msg..'\n'..debug.traceback()..'\n'
-	                                  end)
+		local thinkStatus, thinkNextCall = xpcall(function() return v.thinkCallback(v.ability, v.currentLoc, v.ExtraData) end, FPMErrorHandler)
 	end
 
 	local targets = {}
@@ -664,16 +668,12 @@ function FATE_ProjectileManager:Think_LINEAR(k, v)
 
 	if v.callback then
 			for kt, vt in pairs(targets) do
-				local status, nextCall = xpcall(function() return v.callback(v.ability, EntIndexToHScript(kt), v.currentLoc, v.ExtraData) end, function (msg)
-	                            return msg..'\n'..debug.traceback()..'\n'
-	                        end)
+				local status, nextCall = xpcall(function() return v.callback(v.ability, EntIndexToHScript(kt), v.currentLoc, v.ExtraData) end, FPMErrorHandler)
 		end
 	end
 
 	if hit or lastframe or (v.expires and GameRules:GetGameTime() >= v.expireTime) then
-		local status, nextCall = xpcall(function() return v.callback(v.ability, nil, v.currentLoc, v.ExtraData) end, function (msg)
-	                            return msg..'\n'..debug.traceback()..'\n'
-	                        end)
+		local status, nextCall = xpcall(function() return v.callback(v.ability, nil, v.currentLoc, v.ExtraData) end, FPMErrorHandler)
 		--print("FPMSUCCESS"..k)
 		self.ActiveProjectiles[k] = nil
 		if v.projFX then

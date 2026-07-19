@@ -231,11 +231,13 @@ function modifier_aoko_circuits_passive:RaiseStackCount(count)
 			self:StartOverload()
 		end
 		Timers:CreateTimer("aoko_circuits", {
-			endTime = self:GetAbility():GetSpecialValueFor("stacks_duration"), 
+			endTime = self:GetAbility():GetSpecialValueFor("stacks_duration"),
 			callback = function()
+				if self:IsNull() then return end
 				self:SetStackCount(0)
-				self.parent:FindModifierByName("modifier_aoko_3_beams_stacks"):SetStackCount(0)
-				ParticleManager:DestroyParticle(self.aoko, true)
+				local beamStacks = self.parent:FindModifierByName("modifier_aoko_3_beams_stacks")
+				if beamStacks then beamStacks:SetStackCount(0) end
+				if self.aoko then ParticleManager:DestroyParticle(self.aoko, true) end
 			end})
 	end
 end
@@ -257,11 +259,13 @@ function modifier_aoko_circuits_passive:StartOverload()
 		self:SetStackCount(self:GetMaxStackCount())
 		Timers:RemoveTimer("aoko_circuits")
 		Timers:CreateTimer("aoko_circuits", {
-			endTime = self:GetAbility():GetSpecialValueFor("overload_duration"), 
+			endTime = self:GetAbility():GetSpecialValueFor("overload_duration"),
 			callback = function()
+				if self:IsNull() then return end
 				self:SetStackCount(0)
-				self.parent:FindModifierByName("modifier_aoko_3_beams_stacks"):SetStackCount(0)
-				ParticleManager:DestroyParticle(self.aoko, true)
+				local beamStacks = self.parent:FindModifierByName("modifier_aoko_3_beams_stacks")
+				if beamStacks then beamStacks:SetStackCount(0) end
+				if self.aoko then ParticleManager:DestroyParticle(self.aoko, true) end
 			end})
 	end
 end

@@ -36,6 +36,13 @@ HERO_DIRS = {
     ],
 }
 
+# Stubbed even though something references them: these are default wearables of a
+# base hero, so leaving them intact makes them spawn on the override hero (MK's staff
+# clipped through Scathach). The only refs are unused copies of stock particles.
+FORCE_STUB = {
+    'models/heroes/monkey_king/monkey_king_base_weapon.vmdl',
+}
+
 def read_cstr(buf, off):
     end = buf.index(b'\x00', off)
     return buf[off:end].decode('utf-8', 'replace'), end + 1
@@ -113,7 +120,7 @@ def main():
         if pl in existing:
             skipped_exist += 1
             continue
-        if pl[:-2] in refs:  # .vmdl_c -> .vmdl
+        if pl[:-2] in refs and pl[:-2] not in FORCE_STUB:  # .vmdl_c -> .vmdl
             skipped_ref.append(pl)
             continue
         todo.append(pl)
