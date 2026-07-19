@@ -5599,6 +5599,10 @@ function my_http_post(winnerTeam)
         mreq:SetHTTPRequestGetOrPostParameter("match_id", matchId)
         mreq:SetHTTPRequestGetOrPostParameter("winner_team", tostring(winnerTeam or 0))
         mreq:SetHTTPRequestGetOrPostParameter("duration", tostring(duration))
+        -- Финальный счёт: winnerEventData.* заполняются nRadiantScore/nDireScore
+        -- прямо перед вызовом my_http_post (см. проверку победы выше).
+        mreq:SetHTTPRequestGetOrPostParameter("radiant_score", tostring(winnerEventData.radiantScore or 0))
+        mreq:SetHTTPRequestGetOrPostParameter("dire_score", tostring(winnerEventData.direScore or 0))
         mreq:Send(function(res)
             print("[FateStats] match meta (" .. matchId .. ") -> " .. tostring(res.StatusCode))
         end)
