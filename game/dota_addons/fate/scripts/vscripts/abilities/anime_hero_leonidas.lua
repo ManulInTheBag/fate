@@ -833,7 +833,9 @@ function leonidas_kick:OnSpellStart()
                             v:FaceTowards(hCaster:GetAbsOrigin())
                             v:SetForwardVector(direction_brother)
                             Timers:CreateTimer(0.2, function()
-                                v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+                                if not IsNotNull(v) or not IsNotNull(hTarget) then return end
+                                local hBrotherMod = v:FindModifierByName("modifier_leonidas_brother")
+                                if hBrotherMod then hBrotherMod:ShareBarriers() end
                                 if (hTarget:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() > 300 then return end
 
 
@@ -943,7 +945,9 @@ function leonidas_kick:OnSpellStart()
                             v:FaceTowards(hCaster:GetAbsOrigin())
                             v:SetForwardVector(direction_brother)
                             Timers:CreateTimer(0.2, function()
-                                v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+                                if not IsNotNull(v) or not IsNotNull(hTarget) then return end
+                                local hBrotherMod = v:FindModifierByName("modifier_leonidas_brother")
+                                if hBrotherMod then hBrotherMod:ShareBarriers() end
                                 if (hTarget:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() > 300 then return end
 
 
@@ -3025,7 +3029,7 @@ function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
                             --print("before remove")
                             --print(v:GetStackCount())
 
-                            v:Destroy()
+                            if IsNotNull(v) then v:Destroy() end
                         end
                         removeTable = {}
                     end)

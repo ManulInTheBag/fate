@@ -112,6 +112,13 @@ function emiya_unlimited_bladeworks:StartUBW()
                 return 0.03
             end
         end)
+        -- the ring anchor dummy + its particle were never cleaned (2 leak per UBW cast);
+        -- the ring finishes growing in ~2s, so release both at 3s (guarded per stale-handle rule)
+        Timers:CreateTimer(3.0, function()
+            ParticleManager:DestroyParticle(particle, false)
+            ParticleManager:ReleaseParticleIndex(particle)
+            if IsNotNull(dummy) then dummy:RemoveSelf() end
+        end)
     end
 end
 

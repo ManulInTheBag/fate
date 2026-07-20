@@ -168,6 +168,9 @@ function scathach_gae_bolg_jump:OnGaeBolgHit(position, projectile_scathach)
 			ParticleManager:DestroyParticle( crack, false )
 			ParticleManager:DestroyParticle( fire, false )
 			ParticleManager:DestroyParticle( explodeFx1, false )
+			-- projectile_scathach also anchors the explosion fx above; remove it here
+			-- so the invisible dummy does not linger forever (guarded per stale-handle rule)
+			if IsNotNull( projectile_scathach ) then projectile_scathach:RemoveSelf() end
 		end)
 	end)
 

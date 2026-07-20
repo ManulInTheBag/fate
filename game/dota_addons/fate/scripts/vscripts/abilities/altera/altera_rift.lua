@@ -32,7 +32,7 @@ function altera_rift:OnSpellStart()
 			self.AuraDummy:RemoveModifierByName("modifier_altera_rift")
 			local pepe = self.AuraDummy
 			Timers:CreateTimer(1, function()
-				if pepe then
+				if IsNotNull(pepe) then
 					pepe:RemoveSelf()
 				end
 			end)

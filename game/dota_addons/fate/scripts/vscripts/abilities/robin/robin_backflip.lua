@@ -144,6 +144,9 @@ function robin_backflip:OnFlashArrowHit(position, projectile)
 	    Timers:CreateTimer( 3.0, function()
 			ParticleManager:DestroyParticle( crack, false )
 			ParticleManager:DestroyParticle( explodeFx1, false )
+			-- the projectile dummy also anchors the explosion fx above; remove it here
+			-- so it does not linger on the map forever (guarded per stale-handle rule)
+			if IsNotNull( projectile ) then projectile:RemoveSelf() end
 		end)
 	end)
 end

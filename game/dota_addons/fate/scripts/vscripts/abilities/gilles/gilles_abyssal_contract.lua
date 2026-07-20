@@ -5,6 +5,7 @@ modifier_squidlord_alive = class({})
 LinkLuaModifier("modifier_squidlord_death_checker", "abilities/gilles/gilles_abyssal_contract", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_squidlord_alive", "abilities/gilles/gilles_abyssal_contract", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_gilles_combo_window", "abilities/gilles/modifiers/modifier_gilles_combo_window", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_fate_flying_vision", "modifiers/modifier_fate_flying_vision.lua", LUA_MODIFIER_MOTION_NONE)
 
 function gilles_abyssal_contract:GetManaCost(iLevel)
 	return self:GetCaster():GetMaxMana() * 0.8
@@ -89,6 +90,8 @@ function gilles_abyssal_contract:OnSpellStart()
 			hSquidLordz:SetControllableByPlayer(hCaster:GetPlayerID(), true)
 			hSquidLordz:SetOwner(hCaster)
 			FindClearSpaceForUnit(hSquidLordz, hSquidLordz:GetAbsOrigin(), true)
+			-- MODIFIER_STATE_FLYING no longer grants vision (2026-07-18 build); roll a FOW viewer
+			hSquidLordz:AddNewModifier(hCaster, self, "modifier_fate_flying_vision", {})
 			
 			-- Level abilities
 			hSquidLordz:FindAbilityByName("gille_tentacle_wrap"):SetLevel(self:GetLevel())

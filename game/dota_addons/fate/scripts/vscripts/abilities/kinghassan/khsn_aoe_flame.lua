@@ -118,6 +118,17 @@ function khsn_aoe_flame:OnSpellStart()
 						local flame_fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_flame_kappa.vpcf", PATTACH_ABSORIGIN, projectile)
 						ParticleManager:SetParticleControl(flame_fx, 0, point)
 						ParticleManager:SetParticleControl(flame_fx, 1, Vector(0, 0, 1000))
+
+						-- the projectile dummy anchors burn_fx/flame_fx and was never cleaned up,
+						-- leaving an invisible unit on the map forever per cast; release both the
+						-- particles and the dummy once the flame effect is done
+						Timers:CreateTimer(3.0, function()
+							ParticleManager:DestroyParticle(burn_fx, false)
+							ParticleManager:ReleaseParticleIndex(burn_fx)
+							ParticleManager:DestroyParticle(flame_fx, false)
+							ParticleManager:ReleaseParticleIndex(flame_fx)
+							if IsNotNull(projectile) then projectile:RemoveSelf() end
+						end)
 					end
 				end
 				hitcounter = hitcounter + 1

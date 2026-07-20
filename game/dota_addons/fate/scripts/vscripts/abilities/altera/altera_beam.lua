@@ -195,8 +195,15 @@ function modifier_altera_beam_slow:DeclareFunctions()
 	return funcs
 end
 
+function modifier_altera_beam_slow:OnCreated()
+	local abil = self:GetAbility()
+	self.slow = abil and abil:GetSpecialValueFor("str_slow") or 0
+end
+
 function modifier_altera_beam_slow:GetModifierMoveSpeedBonus_Percentage()
-	return -self:GetAbility():GetSpecialValueFor("str_slow")
+	if self.slow then return -self.slow end
+	local abil = self:GetAbility()
+	return abil and -abil:GetSpecialValueFor("str_slow") or 0
 end
 
 function modifier_altera_beam_slow:IsHidden()

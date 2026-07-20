@@ -873,6 +873,9 @@ function OnScatGBAOEHit(caster, ability, targetPoint, projectile)
 			ParticleManager:DestroyParticle( crack, false )
 			ParticleManager:DestroyParticle( fire, false )
 			ParticleManager:DestroyParticle( explodeFx1, false )
+			-- this 'projectile' is the particle-anchor dummy (NOT the tracking-projectile
+			-- source ability.Dummy below); remove it so it does not linger forever
+			if IsNotNull( projectile ) then projectile:RemoveSelf() end
 		end)
 	end)
 	if not caster.IsBranchTonelicoAcquired then

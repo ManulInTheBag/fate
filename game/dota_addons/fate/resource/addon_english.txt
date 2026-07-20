@@ -3020,7 +3020,7 @@
 		"DOTA_Tooltip_Ability_medusa_breaker_break_damage"			"%Petrification max health break damage:"
 
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength"			"Monstrous Strength"
-		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Description"	"Allows Medusa to deal %base_damage% + twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
+		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Description"	"<font color='#FFFAFA'>Cast point </font>:  <font color='#7FFF00'>%AbilityCastPoint%</font> | <font color='#EE5C29'>Unrefreshable</font>\nAllows Medusa to deal %base_damage% + twice her <font color='#FF0000'>strength</font> as <font color='#58ACFA'>magic damage</font>, as well as providing her bonus <font color='#ff9900'>attack speed</font> and <font color='#FF0000'>strength </font>for a duaration.\n Each attack while under the effect of Monstrous Strength <font color='#9400D3'>disarms </font>the target.\n This ability seal the usage of <font color='#FFFAFA'>Bellerophon </font>and <font color='#FFFAFA'>Bellerophon II</font> for its duration."
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Lore"			"The longer she uses this power, the more she turns into a legendary monster, Gorgon."
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_duration"			"Duration:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_disarm_duration"			"Disarm duration:"

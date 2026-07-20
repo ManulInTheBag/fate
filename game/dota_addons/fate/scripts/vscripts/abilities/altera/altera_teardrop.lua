@@ -164,7 +164,7 @@ function altera_teardrop_release:OnSpellStart()
 																			, target, caster:GetTeamNumber(), false)
 
 	   	Timers:CreateTimer(1.5, function()
-			dummy:RemoveSelf()
+			if IsNotNull(dummy) then dummy:RemoveSelf() end
 		end)
 
 		print("zuzup")

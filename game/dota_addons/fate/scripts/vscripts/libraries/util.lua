@@ -986,6 +986,12 @@ function SpawnVisionDummy(owner, location, radius, duration, bTrueSight)
     local unseen = visiondummy:FindAbilityByName("dummy_unit_passive")
     unseen:SetLevel(1)
 
+    -- The dummy carries MODIFIER_STATE_FLYING for unobstructed (clairvoyance) vision,
+    -- but the 2026-07-18 Dota client build stopped granting flying vision from that state.
+    -- The dummy is stationary, so a single unobstructed FOW viewer for the same lifetime
+    -- restores the reveal with zero per-frame cost (the engine expires it on its own).
+    AddFOWViewer(owner:GetTeamNumber(), visiondummy:GetAbsOrigin(), radius, duration, false)
+
     if owner:GetName() == "npc_dota_hero_naga_siren" then
         visiondummy:AddNewModifier(owner, owner, "modifier_chloe_hrunting_possibility_provider", {radius = radius})
     end
