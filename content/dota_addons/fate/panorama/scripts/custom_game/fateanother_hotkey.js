@@ -374,6 +374,133 @@ function ApplyEmoteBind()
 	}
 }
 
+// ============================================================================
+// Emote-wheel layout editor.
+//
+// The wheel has 8 slots; each can hold any of the 14 emotes. The loadout lives
+// in CustomUIConfig().fate_emote_wheel_loadout (shared with the emote-wheel
+// panel, which reads it on open) and travels inside the bind profile so it saves
+// to / loads from the server with everything else.
+// ============================================================================
+var EMOTE_SLOTS = 8;
+var EMOTE_TOTAL = 14;
+
+function EmoteDefaultLoadout() { return [1, 2, 3, 4, 5, 6, 7, 8]; }
+
+function EmoteLoadout()
+{
+	var c = GameUI.CustomUIConfig();
+	var lo = c.fate_emote_wheel_loadout;
+	if (!lo || lo.length !== EMOTE_SLOTS) {
+		lo = EmoteDefaultLoadout();
+		c.fate_emote_wheel_loadout = lo;
+	}
+	return lo;
+}
+
+function EmoteIconUrl(num)
+{
+	return "url('s2r://panorama/images/custom_game/emotes/emote_" + num + ".vtex')";
+}
+
+// Builds the 8 slot panels and the 14-emote palette once (lazily on first open).
+function BuildEmoteConfig()
+{
+	if (CMD.emoteConfigBuilt) { return; }
+	var slots = CMD.container.FindChildTraverse("EmoteConfigSlots");
+	var palette = CMD.container.FindChildTraverse("EmoteConfigPalette");
+	if (!slots || !palette) { return; }
+
+	for (var i = 0; i < EMOTE_SLOTS; i++) {
+		(function (idx) {
+			var slot = $.CreatePanel("Panel", slots, "EmoteCfgSlot" + idx);
+			slot.AddClass("EmoteCfgSlot");
+			slot.style.backgroundSize = "cover";
+			var badge = $.CreatePanel("Label", slot, "");
+			badge.AddClass("EmoteCfgSlotNum");
+			badge.text = "" + (idx + 1);
+			slot.SetPanelEvent("onmouseactivate", function () { OnEmoteSlotClick(idx); });
+		})(i);
+	}
+
+	for (var n = 1; n <= EMOTE_TOTAL; n++) {
+		(function (num) {
+			var cell = $.CreatePanel("Panel", palette, "EmoteCfgPal" + num);
+			cell.AddClass("EmoteCfgCell");
+			cell.style.backgroundImage = EmoteIconUrl(num);
+			cell.style.backgroundSize = "cover";
+			var lbl = $.CreatePanel("Label", cell, "");
+			lbl.AddClass("EmoteCfgCellNum");
+			lbl.text = "" + num;
+			cell.SetPanelEvent("onmouseactivate", function () { OnEmotePaletteClick(num); });
+		})(n);
+	}
+
+	CMD.emoteConfigBuilt = true;
+}
+
+// Repaints slot icons from the current loadout and marks the selected slot.
+function RefreshEmoteConfigSlots()
+{
+	var slots = CMD.container.FindChildTraverse("EmoteConfigSlots");
+	if (!slots) { return; }
+	var lo = EmoteLoadout();
+	for (var i = 0; i < EMOTE_SLOTS; i++) {
+		var slot = slots.GetChild(i);
+		if (!slot) { continue; }
+		var num = lo[i] || (i + 1);
+		slot.style.backgroundImage = EmoteIconUrl(num);
+		slot.SetHasClass("EmoteCfgSlotSel", i === CMD.emoteSelSlot);
+	}
+}
+
+// Selecting a slot (click again to deselect).
+function OnEmoteSlotClick(i)
+{
+	CMD.emoteSelSlot = (CMD.emoteSelSlot === i) ? -1 : i;
+	RefreshEmoteConfigSlots();
+}
+
+// Clicking an emote assigns it to the selected slot (or slot 0 if none picked).
+function OnEmotePaletteClick(num)
+{
+	if (CMD.emoteSelSlot < 0) { CMD.emoteSelSlot = 0; }
+	var lo = EmoteLoadout();
+	lo[CMD.emoteSelSlot] = num;
+	GameUI.CustomUIConfig().fate_emote_wheel_loadout = lo;
+	RefreshEmoteConfigSlots();
+	MarkApplyDirty(); // fold into the profile; user still presses SAVE TO SERVER
+}
+
+function OpenEmoteConfig()
+{
+	if (Players.IsSpectator(Game.GetLocalPlayerID())) { return; }
+	BuildEmoteConfig();
+	CMD.emoteSelSlot = -1;
+	RefreshEmoteConfigSlots();
+	var p = CMD.container.FindChildTraverse("EmoteConfigPanel");
+	if (p) { p.visible = true; }
+}
+
+function CloseEmoteConfig()
+{
+	var p = CMD.container.FindChildTraverse("EmoteConfigPanel");
+	if (p) { p.visible = false; }
+}
+
+// Validates a loadout array from a loaded profile: exactly 8 ints in 1..14.
+function SanitizeEmoteLoadout(arr)
+{
+	if (!arr || arr.length !== EMOTE_SLOTS) { return null; }
+	var out = [];
+	for (var i = 0; i < EMOTE_SLOTS; i++) {
+		var n = parseInt(arr[i], 10);
+		if (!(n >= 1 && n <= EMOTE_TOTAL)) { return null; }
+		out.push(n);
+	}
+	return out;
+}
+
 function AddHotkey(Seal, Hotkey)
 {
     // var panel = GetHUDRootUI().FindChildTraverse("MasterBar").FindChildTraverse("MasterBarSeals");
@@ -753,10 +880,16 @@ function SealHotkeyConfig() {
 	// and the key it is currently bound to (for releasing a stale bind on rebind).
 	this.emoteCmd = null
 	this.emoteBoundKey = null
+	// Emote-wheel layout editor: which slot is selected, and whether the slot/
+	// palette panels have been built yet (done lazily on first open).
+	this.emoteSelSlot = -1
+	this.emoteConfigBuilt = false
 
 	this.Construct();
 	this.entryContainer.visible = false;
 	this.itemListContainer.visible = false;
+	var emoteCfgPanel = this.container.FindChildTraverse("EmoteConfigPanel");
+	if (emoteCfgPanel) { emoteCfgPanel.visible = false; }
 	var qcToggle = this.container.FindChildTraverse("QuickcastToggle");
 	if (qcToggle) {
 		qcToggle.checked = this.quickcast;
@@ -974,6 +1107,7 @@ function CollectBindProfile()
 		items: items,
 		itemKeys: itemKeys,
 		emote: elabel ? elabel.text : "",
+		emoteLoadout: EmoteLoadout().slice(),
 		quickcast: CMD.quickcast ? 1 : 0
 	};
 }
@@ -1014,6 +1148,12 @@ function ApplyBindProfile(profile)
 
 	var elabel = CMD.container.FindChildTraverse("EmoteWheelBindLabel");
 	if (elabel) { elabel.text = profile.emote || ""; }
+
+	var lo = SanitizeEmoteLoadout(profile.emoteLoadout);
+	if (lo) {
+		GameUI.CustomUIConfig().fate_emote_wheel_loadout = lo;
+		if (CMD.emoteConfigBuilt) { RefreshEmoteConfigSlots(); }
+	}
 
 	CMD.quickcast = (profile.quickcast == 1 || profile.quickcast === true);
 	var qc = CMD.container.FindChildTraverse("QuickcastToggle");

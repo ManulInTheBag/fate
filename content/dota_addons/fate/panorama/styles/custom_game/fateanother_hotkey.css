@@ -515,3 +515,175 @@
 	horizontal-align: center;
 }
 
+/* ---- Emote wheel: "configure" button in the emote bind row. ---- */
+.EmoteConfigButton
+{
+	height: 46px;
+	padding: 0px 14px;
+	margin-left: 16px;
+	vertical-align: center;
+	border: 2px solid #6a9ec0;
+	background-color: #00000044;
+	transition-property: background-color, border-color, box-shadow;
+	transition-duration: 0.12s;
+	transition-timing-function: ease-out;
+}
+
+.EmoteConfigButton:hover
+{
+	border-color: white;
+	background-color: #ffffff11;
+	box-shadow: 0px 0px 8px 0px #6a9ec088;
+}
+
+.EmoteConfigButtonLabel
+{
+	font-size: 16px;
+	font-weight: normal;
+	color: #9fc4dc;
+	text-align: center;
+	vertical-align: center;
+	text-transform: uppercase;
+}
+
+/* ---- Emote wheel layout editor overlay. ---- */
+.EmoteConfigPanel
+{
+	width: 520px;
+	height: fit-children;
+	padding: 20px;
+	background-color: #16171af5;
+	border: 2px solid #6a9ec0;
+	horizontal-align: center;
+	vertical-align: center;
+	flow-children: down;
+	z-index: 50;
+}
+
+.EmoteConfigTitle
+{
+	width: 100%;
+	font-size: 22px;
+	font-weight: bold;
+	color: #cfe3f0;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 6px;
+}
+
+.EmoteConfigHelp
+{
+	width: 100%;
+	font-size: 15px;
+	color: #8a969c;
+	text-align: center;
+	margin-bottom: 14px;
+}
+
+.EmoteConfigSub
+{
+	width: 100%;
+	font-size: 15px;
+	font-weight: bold;
+	color: #939da0;
+	text-transform: uppercase;
+	margin-top: 16px;
+	margin-bottom: 8px;
+}
+
+.EmoteConfigSlots
+{
+	width: 100%;
+	flow-children: right;
+	horizontal-align: center;
+}
+
+.EmoteCfgSlot
+{
+	width: 54px;
+	height: 54px;
+	margin: 3px;
+	border: 2px solid #4c6070;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition-property: border-color, box-shadow;
+	transition-duration: 0.1s;
+}
+
+.EmoteCfgSlot:hover
+{
+	border-color: #9fc4dc;
+}
+
+.EmoteCfgSlot.EmoteCfgSlotSel
+{
+	border-color: #ffd15c;
+	box-shadow: 0px 0px 10px 0px #ffd15caa;
+}
+
+.EmoteCfgSlotNum
+{
+	horizontal-align: left;
+	vertical-align: top;
+	margin-left: 2px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffd15c;
+	text-shadow: 0px 0px 3px 2.0 #000000;
+}
+
+.EmoteConfigPalette
+{
+	width: 100%;
+	flow-children: right-wrap;
+	horizontal-align: center;
+}
+
+.EmoteCfgCell
+{
+	width: 60px;
+	height: 60px;
+	margin: 3px;
+	border: 2px solid #3a4750;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition-property: border-color, box-shadow;
+	transition-duration: 0.1s;
+}
+
+.EmoteCfgCell:hover
+{
+	border-color: white;
+	box-shadow: 0px 0px 8px 0px #6a9ec088;
+}
+
+.EmoteCfgCellNum
+{
+	horizontal-align: left;
+	vertical-align: bottom;
+	margin-left: 2px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 0px 0px 3px 2.0 #000000;
+}
+
+.EmoteConfigClose
+{
+	width: 120px;
+	height: 44px;
+	margin-top: 18px;
+	horizontal-align: center;
+	border: 2px solid #D4D48C;
+	background-color: #2b2b30;
+	transition-property: background-color;
+	transition-duration: 0.1s;
+}
+
+.EmoteConfigClose:hover
+{
+	background-color: #3a3a20;
+}
+

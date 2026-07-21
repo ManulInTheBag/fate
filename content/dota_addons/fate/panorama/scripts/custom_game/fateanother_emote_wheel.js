@@ -1,4 +1,4 @@
-// Emote wheel: a radial picker for the fbt_incident_1..8 emotes (the ones you
+// Emote wheel: a radial picker for the fbt_incident_1..14 emotes (the ones you
 // normally trigger by typing "#N" in chat). The hotkey panel binds a key whose
 // +command opens the wheel and whose -command releases it, so this is a
 // hold-to-open / release-to-send control like Dota's message wheel.
@@ -10,10 +10,25 @@
 // fate_emote_punished so the wheel can reflect it.
 
 (function () {
-    var SEG_COUNT = 8;          // fbt_incident_1..8
+    var SEG_COUNT = 8;          // wheel has 8 slots...
+    var TOTAL_EMOTES = 14;      // ...chosen from fbt_incident_1..14
     var RADIUS = 130;           // segment placement radius, container CSS px
     var DEADZONE_RATIO = 0.16;  // fraction of container size = "cancel" (center)
     var COOLDOWN = 2;           // client-optimistic cooldown, seconds (matches server)
+
+    // The wheel loadout maps each of the 8 slots to an emote number (1..14). It
+    // is shared with the hotkey config panel via CustomUIConfig, so editing it
+    // there takes effect here the next time the wheel is opened. Default = 1..8.
+    function DefaultLoadout() { return [1, 2, 3, 4, 5, 6, 7, 8]; }
+    function GetLoadout() {
+        var c = GameUI.CustomUIConfig();
+        var lo = c.fate_emote_wheel_loadout;
+        if (!lo || lo.length !== SEG_COUNT) {
+            lo = DefaultLoadout();
+            c.fate_emote_wheel_loadout = lo;
+        }
+        return lo;
+    }
 
     var ctx = $.GetContextPanel();
     var backdrop = ctx.FindChildTraverse("EmoteWheelBackdrop");
@@ -32,7 +47,9 @@
     var cooldownUntil = 0;      // game seconds (2s between emotes)
     var rateUntil = 0;          // game seconds (up to 10s rate-limit window)
 
-    // --- Build the 8 segments once, arranged clockwise from the top. -----------
+    // --- Build the 8 segment panels once, arranged clockwise from the top. -----
+    // Icons/badges are filled in by RefreshSegments() from the current loadout,
+    // so re-opening the wheel reflects any changes made in the config panel.
     function BuildSegments() {
         var half = 360 / 2; // container is 360x360 in CSS px
         var segHalf = 84 / 2;
@@ -44,19 +61,22 @@
             var seg = $.CreatePanel("Panel", container, "EmoteSeg" + i);
             seg.AddClass("EmoteSegment");
             seg.style.position = x.toFixed(1) + "px " + y.toFixed(1) + "px 0px";
-            seg.style.backgroundImage = "url('s2r://panorama/images/custom_game/emotes/emote_" + (i + 1) + ".vtex')";
             seg.style.backgroundSize = "cover";
             seg.style.backgroundRepeat = "no-repeat";
             seg.style.backgroundPosition = "center";
 
-            var badge = $.CreatePanel("Label", seg, "");
-            badge.AddClass("EmoteSegmentBadge");
-            badge.text = "" + (i + 1);
-            // Sit the badge just over the top of the circle; badge 7 (left) reads
-            // low against its image, so nudge it up a bit more.
-            badge.style.marginTop = (i === 6) ? "-16px" : "-9px";
-
             segments.push(seg);
+        }
+        RefreshSegments();
+    }
+
+    // Points each segment at its loadout emote's icon.
+    function RefreshSegments() {
+        var lo = GetLoadout();
+        for (var i = 0; i < SEG_COUNT; i++) {
+            var num = lo[i] || (i + 1);
+            segments[i].style.backgroundImage =
+                "url('s2r://panorama/images/custom_game/emotes/emote_" + num + ".vtex')";
         }
     }
 
@@ -144,6 +164,7 @@
         punishPanel.visible = false;
         backdrop.visible = true;
         container.visible = true;
+        RefreshSegments(); // pick up any loadout change from the config panel
         Highlight(-1);
         UpdateHub();
         pollToken++;
@@ -172,7 +193,7 @@
         // the 3/10s rate limit AND the spam punishment. If the client suppressed
         // sends during cooldown/rate-limit, those presses would never reach the
         // server and the "too many presses" block would never trigger.
-        var num = pick + 1;
+        var num = GetLoadout()[pick] || (pick + 1);
         GameEvents.SendCustomGameEventToServer("player_send_emote", { emote: num });
         // Optimistic local cooldown for the hub; the server confirms via fate_emote_state.
         if (Game.GetGameTime() >= BlockUntil()) {

@@ -546,6 +546,12 @@ function Precache( context )
     PrecacheResource("particle",  "particles/fbt_incident_6.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_7.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_8.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_9.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_10.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_11.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_12.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_13.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_14.vpcf", context)
     
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
@@ -942,11 +948,11 @@ end
 
 -- ============================================================================
 -- Emote wheel: server-side gate + anti-spam.
--- Emotes are the fbt_incident_1..8 particles that pop above the hero. Both the
+-- Emotes are the fbt_incident_1..14 particles that pop above the hero. Both the
 -- "#N" chat command and the emote wheel route through TriggerEmote, so the rate
 -- limit and the spam punishment apply no matter how the emote was requested.
 -- ============================================================================
-local EMOTE_MAX          = 8    -- fbt_incident_1..8
+local EMOTE_MAX          = 14   -- fbt_incident_1..14 (9..14 added 2026-07-21)
 local EMOTE_COOLDOWN     = 2    -- seconds between emotes
 local EMOTE_RATE_MAX     = 3    -- at most this many sent emotes...
 local EMOTE_RATE_WINDOW  = 10   -- ...within this window; extras are silently dropped

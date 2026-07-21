@@ -57,6 +57,9 @@
 						<Label id="EmoteWheelBindLabel" text="" class="SealHotkeyLabel" hittest="false" />
 					</Panel>
 					<Label class="EmoteBindHint" text="hold to open · pick with cursor · release to send" hittest="false" />
+					<Panel id="EmoteConfigButton" class="EmoteConfigButton" hittest="true" onmouseactivate="OpenEmoteConfig()">
+						<Label class="EmoteConfigButtonLabel" text="CONFIGURE WHEEL" hittest="false" />
+					</Panel>
 				</Panel>
 				<Panel id="HotkeyActionRow" class="HotkeyActionRow" hittest="false">
 					<Panel id="ServerSaveButton" class="ServerButton" hittest="true" onmouseactivate="OnSaveToServer()">
@@ -88,5 +91,15 @@
 			</Panel>
 		</Panel>
 		<Panel id="ItemListContainer" hittest="true" />
+		<Panel id="EmoteConfigPanel" class="EmoteConfigPanel" hittest="true">
+			<Label class="EmoteConfigTitle" text="EMOTE WHEEL LAYOUT" hittest="false" />
+			<Label class="EmoteConfigHelp" text="Click a wheel slot, then click an emote to place it there." hittest="false" />
+			<Panel id="EmoteConfigSlots" class="EmoteConfigSlots" hittest="false" />
+			<Label class="EmoteConfigSub" text="EMOTES" hittest="false" />
+			<Panel id="EmoteConfigPalette" class="EmoteConfigPalette" hittest="false" />
+			<Panel id="EmoteConfigClose" class="EmoteConfigClose" hittest="true" onmouseactivate="CloseEmoteConfig()">
+				<Label class="EntryBtnLabel" text="DONE" hittest="false" />
+			</Panel>
+		</Panel>
 	</Panel>
 </root>
