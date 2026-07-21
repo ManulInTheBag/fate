@@ -166,7 +166,7 @@ function ryougi_kimono:Kimono1()
 									
     if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitSoundOn("tingtang_slash_1", caster)
+			EmitSoundOn("tingtang_slash", caster)
 		else
 			EmitSoundOn("jtr_slash", caster)
 		end
