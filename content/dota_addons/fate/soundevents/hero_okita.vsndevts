@@ -1,0 +1,80 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Okita.Mumyo = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/okita/okita_mumyo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Okita.Sandanzuki = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/okita/okita_sandanzuki.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Okita.Precombo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/okita/okita_precombo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Okita.Zekken = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/okita/okita_zekken.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Okita.Cough = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/okita/okita_hurt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Okita.Shukuchi = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/okita/okita_shukuchi.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Okita_Ally_FA = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ally_sound/okita_ally_fa.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+}

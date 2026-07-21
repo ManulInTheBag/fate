@@ -1,0 +1,710 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Saber.Entry1 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Entry2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Entry3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry3.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Saber.Entry4 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry4.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Saber.Caliburn = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_caliburn.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Excalibur_Ready = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_excalibur_ready.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Excalibur = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_excalibur.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Avalon = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Avalon_Shout = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon_shout.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Avalon_Counter1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon_yukuzo.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.Avalon_Counter2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon_kurae.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.StrikeAir_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_air_kazeyo.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.StrikeAir_Release1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_air_arekurue.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber.StrikeAir_Release2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_air_hoeagare.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	saber_air_arekurue = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_air_arekurue.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_air_hoeagare = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_air_hoeagare.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_air_kazeyo = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_air_kazeyo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_avalon = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_avalon_kurae = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon_kurae.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_avalon_shout = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon_shout.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_avalon_yukuzo = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_avalon_yukuzo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_avalon_excalibur = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/Excalibur_Short.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_caliburn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_caliburn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_entry1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_entry2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_entry3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_entry4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_entry_diarmuid = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry_diarmuid.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_entry_kojiro = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_entry_kojiro.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_excalibur = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_excalibur.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_excalibur_ready = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_excalibur_ready.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_other_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_other_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_owaridesu = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_owaridesu.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_victory = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_victory.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_battle_begins.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_thanks = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_thanks.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	Saber_Ex = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/Saber_Ex.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+		soundlevel = "91.000000"
+	}
+	Saber_Kalibar = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/Saber_Kalibar.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+		soundlevel = "91.000000"
+	}
+	Saber_Max_Chant_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/Saber_Max_Chant_1.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+		soundlevel = "91.000000"
+	}
+	Saber_Max_Chant_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/Saber_Max_Chant_2.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+		soundlevel = "91.000000"
+	}
+	Saber_Max_Ex = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/Saber_Max_Ex.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+		soundlevel = "91.000000"
+	}
+	Saber_Max_Kalibar = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/Saber_Max_Kalibar.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+		soundlevel = "91.000000"
+	}
+	Saber_Max_Excalibur = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/Saber_Max_Excalibur.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+		soundlevel = "91.000000"
+	}
+	saber_oath = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_oath.vsnd",
+		]
+		volume = "0.800000"
+		pitch = "1.000000"
+	}
+	saber_effect = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_effect.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+}

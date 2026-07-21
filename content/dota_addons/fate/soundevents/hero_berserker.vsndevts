@@ -1,0 +1,364 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Berserker.Roar = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_roar.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	berserker_battle_start = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_death_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_death_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_roar = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_roar.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_roar_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_roar_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_roar_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_roar_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_roar_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_roar_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	berserker_skill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/berserker_skill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Combo_Easter_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Combo_Easter_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+	Heracles_Combo_Easter_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Combo_Easter_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+	Heracles_Combo_Easter_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Combo_Easter_3.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+	Heracles_NineLives_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_NineLives_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_NineLives_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_NineLives_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_NineLives_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_NineLives_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Roar_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Roar_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Roar_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Roar_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Roar_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Roar_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Roar_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Roar_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Roar_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Roar_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Roar_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Roar_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Death_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Death_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Death_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Death_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Kill_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Kill_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Kill_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Kill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Kill_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Heracles_Battle_Begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Heracles_Battle_Begins.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	Shiro_Onegai = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/berserker/Shiro_Onegai.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+}

@@ -1,0 +1,58 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	aemis_human_q = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/aemis/Slash1.vsnd",
+		]
+		volume = "30.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.400208
+	}
+	aemis_human_q2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/aemis/Slash3.vsnd",
+		]
+		volume = "20.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.900292
+	}
+	aemis_human_w = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/aemis/Slash2.vsnd",
+		]
+		volume = "20.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.50025
+	}
+	aemis_human_e1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/aemis/HumanE.vsnd",
+		]
+		volume = "20.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.779833
+	}
+	aemis_human_e2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/aemis/HumanE2.vsnd",
+		]
+		volume = "20.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.639917
+	}
+}

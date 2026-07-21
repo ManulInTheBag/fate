@@ -1,0 +1,492 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Saber_Alter.Derange = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_derange.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber_Alter.Unleashed = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_unleashed.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber_Alter.ManaBurst = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_mana_burst.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber_Alter.Excalibur = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_excalibur.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber_Alter.Vortigern = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_vortigern.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber_Alter.MMB = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_mmb.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Saber_Alter.MMBAfter = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_mmb_after.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	saber_alter_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_battle_begin = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_battle_begin.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_derange = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_derange.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_excalibur = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_excalibur.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_excalibur_fgo = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_excalibur_fgo.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_excalibur_original = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_excalibur_original.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_mana_burst = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_mana_burst.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_mmb = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_mmb.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_mmb_after = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_mmb_after.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_other_04.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_other_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_other_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_unleashed = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_unleashed.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_vortigern = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_vortigern.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	saber_alter_hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	Excalibur_Morgan = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saberalter/Excalibur_Morgan.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Excalibur_Morgan_Precast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/saberalter/Excalibur_Morgan_Precast.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	alter_battle_begins_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_battle_begins_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_battle_begins_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_battle_begins_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_8.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	alter_thanks = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_thanks.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+}

@@ -1,0 +1,823 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Archer.BPHit = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/crack.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.RhoAias = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_rho.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.UBW = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_ubw.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Archer.UBWAmbient = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_ubw_ambient.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.NineLives = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_ninelives.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.NineFinish = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_nine_finish.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.Bladeoff = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_bladeoff.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.Yuke = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_yuke.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.Hrunting_Fireoff = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/mirana/arrow.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.Combo = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_combo.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Archer.HruntHit = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_hrunt_hit.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	archer_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_battle_start_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_battle_start_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_battle_start_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_battle_start_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_bladeoff = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_bladeoff.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_combo = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_combo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_death_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_death_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_hrunt_hit = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_hrunt_hit.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_hurt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_hurt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_hurt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_hurt_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_kill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_kill_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_ninelives = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_ninelives.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_nine_finish = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_nine_finish.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_rho = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_rho.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_skill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_skill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_traceon = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_traceon.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_ubw = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_ubw.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_ubw_ambient = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_ubw_ambient.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_ubw_fgo = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_ubw_fgo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	archer_yuke = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/archer_yuke.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	emiya_ubw1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_ubw1.vsnd",
+		]
+		volume = "0.600000"
+		pitch = "1.000000"
+	}
+	emiya_ubw2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_ubw2.vsnd",
+		]
+		volume = "0.600000"
+		pitch = "1.000000"
+	}
+	emiya_ubw3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_ubw3.vsnd",
+		]
+		volume = "0.600000"
+		pitch = "1.000000"
+	}
+	emiya_ubw4 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_ubw4.vsnd",
+		]
+		volume = "0.600000"
+		pitch = "1.000000"
+	}
+	emiya_ubw5 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_ubw5.vsnd",
+		]
+		volume = "0.600000"
+		pitch = "1.000000"
+	}
+	emiya_ubw6 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_ubw6.vsnd",
+		]
+		volume = "0.600000"
+		pitch = "1.000000"
+	}
+	emiya_ubw7 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_ubw7.vsnd",
+		]
+		volume = "0.600000"
+		pitch = "1.000000"
+	}
+	Emiya_Crane1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Crane1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+	Emiya_Crane2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Crane2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+	Emiya_Crane3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Crane3.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+	Emiya_Hrunt1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Hrunt1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	Emiya_Hrunt2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Hrunt2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	Emiya_Rho_Aias_Alt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Rho_Aias_Alt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Emiya_Caladbolg_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Caladbolg_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Emiya_Caladbolg_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/Emiya_Caladbolg_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_battle_begins.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_death.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_gae_bolg = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_gae_bolg.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+	emiya_kanshou_byakuya_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_kanshou_byakuya_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_kanshou_byakuya_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_kanshou_byakuya_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_thanks = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_thanks.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_owarida = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_owarida.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_final_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_final_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+	emiya_final_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_final_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_final_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_final_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_final_4 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_final_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	emiya_final_5 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/archer/emiya_final_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+}

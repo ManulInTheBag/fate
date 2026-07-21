@@ -1912,6 +1912,7 @@
 		"precache"
 		{
 			"particle"		"particles/items_fx/immunity_sphere.vpcf"
+			"particle"				"particles/heroes/saito/saito_mind_eye_linken_release.vpcf"
 		}
 		"BaseClass" 					"ability_datadriven"
 		"AbilityTextureName"            "rubick_empty1"

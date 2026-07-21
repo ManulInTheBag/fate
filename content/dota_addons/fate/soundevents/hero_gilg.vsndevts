@@ -1,0 +1,527 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Gilgamesh.Enkidu = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_enkidu.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Gilgamesh.GOB = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_gob.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Gilgamesh.Enuma = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_enuma_elish.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Gilgamesh.Enuma2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_enuma_elish_short.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	gilg_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_enkidu = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_enkidu.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_enuma_elish = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_enuma_elish.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilg_gob = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_gob.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_hurt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_laugh = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_np_command = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_np_command.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilg_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enkidu_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enkidu_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enkidu_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enkidu_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enuma_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enuma_1.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enuma_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enuma_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enuma_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enuma_3.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enuma_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enuma_4.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enuma_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enuma_5.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_enuma_elish = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_enuma_elish.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_kill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_kill_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_laugh_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_laugh_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_thanks_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_thanks_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_thanks_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gilgamesh_thanks_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_thanks_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Gilgamesh_Alt_Combo_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gilg/Gilgamesh_Alt_Combo_1.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	Gilgamesh_Alt_Combo_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gilg/Gilgamesh_Alt_Combo_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+	Gilgamesh_Alt_Combo_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gilg/Gilgamesh_Alt_Combo_3.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+}

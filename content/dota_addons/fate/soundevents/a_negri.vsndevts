@@ -1,0 +1,25 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	a_negri = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/a_negri.vsnd",
+		]
+		volume = "5"
+		pitch = "1.000000"
+		vsnd_duration = 3.645533
+	}
+	lyonya_stol = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lyonya_stol.vsnd",
+		]
+		volume = "5"
+		pitch = "1.000000"
+		vsnd_duration = 5.01
+	}
+}

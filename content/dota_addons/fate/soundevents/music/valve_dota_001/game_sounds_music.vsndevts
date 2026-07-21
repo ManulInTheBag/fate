@@ -1,0 +1,28 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_SoundEvents = 
+	[
+		{
+			m_SoundName = resource:"Sound_Name"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_src1_3d"
+	vsnd_files = 
+	[
+		"sounds/null.vsnd",
+	]
+	volume_min = "0.200000"
+	volume_max = "0.200000"
+	pitch_min = "0.950000"
+	pitch_max = "1.050000"
+	chan_type = "6"
+	memory_type = "0"
+	soundlevel_min = "100.000000"
+	soundlevel_max = "100.000000"
+}
+"""
+		},
+	]
+}

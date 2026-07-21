@@ -1,0 +1,417 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Gawain.Galatine = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_galatine_old.vsnd",
+		]
+		volume = "1.300000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	gawain_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_galatine = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_galatine.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_galatine_old = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_galatine_old.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_np = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_np.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_skill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_skill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_spawn_temp = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_spawn_temp.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+	gawain_galatine_combo_cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_combo_start.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+	gawain_galatine_combo_activate = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_combo_activate.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+	Gawain_Attack1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Attack1.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+	}
+	Gawain_Attack2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Attack2.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+	}
+	Gawain_Attack3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Attack3.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+	}
+	Gawain_Skill1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Skill1.vsnd",
+		]
+		volume = "8.000000"
+		pitch = "1.000000"
+	}
+	Gawain_Trigger1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Trigger1.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+	Gawain_Trigger2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Trigger2.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+	gawain_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_battle_begins.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_death.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_move = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_move.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	gawain_thanks = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gawain/gawain_thanks.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	Gawain_Galatine_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Galatine_1.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Gawain_Galatine_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Galatine_2.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Gawain_Sun_Explode = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/gawain/Gawain_Sun_Explode.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+}

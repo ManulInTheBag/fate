@@ -1,0 +1,240 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	robin_attack_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 1.021678
+	}
+	robin_attack_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.626939
+	}
+	robin_attack_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 1.509297
+	}
+	robin_silence = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/silence.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	robin_attacked_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.580499
+	}
+	robin_attacked_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	robin_death_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 3.227574
+	}
+	robin_may_king = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_may_king.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 2.577415
+	}
+	robin_pitfall = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_pitfall.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 3.877733
+	}
+	robin_select_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.870748
+	}
+	robin_select_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.859138
+	}
+	robin_smoke = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_smoke.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 1.948163
+	}
+	robin_summon = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 4.99229
+	}
+	robin_wolfs_bane = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_wolfs_bane.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 1.393197
+	}
+	robin_yew_bow = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_yew_bow.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 2.139161
+	}
+	robin_yew_bow_launch = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_yew_bow_launch.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 2.702417
+	}
+	robin_yew_bow_impact = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_yew_bow_impact.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 1.868625
+	}
+	robin_yew_bow_poison = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_yew_bow_poison.vsnd",
+		]
+		volume = "0.500000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 3.414059
+	}
+	robin_yew_bow_combo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_yew_bow_combo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 3.984354
+	}
+	robin_levelup = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+}

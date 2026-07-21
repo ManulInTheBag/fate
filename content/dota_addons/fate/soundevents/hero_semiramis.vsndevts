@@ -1,0 +1,646 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_SoundEvents = 
+	[
+		{
+			m_SoundName = resource:"semiramis_summon"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_summon.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_attack_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_attack_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_attack_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_attack_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_attack_3"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_attack_3.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_attack_4"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_attack_4.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_damaged_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_damaged_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_damaged_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_damaged_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_death_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_death_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_death_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_death_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_death_3"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_death_3.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_hanginggardens_cast_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_hanginggardens_cast_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_hanginggardens_cast_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_hanginggardens_cast_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_hanginggardens_complete_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_hanginggardens_complete_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_kill_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_kill_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_kill_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_kill_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_kill_3"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_kill_3.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_kill_4"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_kill_4.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_kill_5"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_kill_5.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_laugh"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_laugh.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_levelup_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_levelup_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_levelup_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_levelup_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_levelup_3"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_levelup_3.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_levelup_4"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_levelup_4.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_levelup_5"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_levelup_5.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_levelup_6"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_levelup_6.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_move_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_move_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_move_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_move_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_move_3"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_move_3.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_move_4"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_move_4.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_respawn_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_respawn_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_skill_1"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_skill_1.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_skill_2"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_skill_2.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_skill_3"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_skill_3.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_skill_4"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_skill_4.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_skill_5"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_skill_5.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_skill_6"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_update_vo_switch"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_skill_6.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"spawn_skeleton"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_src1_3d"
+	vsnd_files = 
+	[
+		"sounds/semiramis/Spawn_Skeleton.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_beam"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_src1_3d"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_beam.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_poisonous_air"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_src1_3d"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_poisonous_air.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+		{
+			m_SoundName = resource:"semiramis_poisonous_bite"
+			m_GameData = resource:""
+			m_OperatorsKV = resource:"""
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "dota_src1_3d"
+	vsnd_files = 
+	[
+		"sounds/semiramis/semiramis_poisonous_bite.vsnd",
+	]
+	volume = "1.000000"
+	pitch = "1.000000"
+}
+"""
+		},
+	]
+}

@@ -1,0 +1,3977 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	sniper_snip_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_spawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_begin_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_begin_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_22 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_23 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_24 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_25 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_26 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_27 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_28 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_29 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_30 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_31 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_32 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_33 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_34 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_35 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_36 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_move_37 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_select_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.021678
+	}
+	sniper_snip_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 0.626939
+	}
+	sniper_snip_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.021678
+	}
+	sniper_snip_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 0.626939
+	}
+	sniper_snip_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.021678
+	}
+	sniper_snip_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 0.626939
+	}
+	sniper_snip_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.021678
+	}
+	sniper_snip_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 0.626939
+	}
+	sniper_snip_attack_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_attack_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.021678
+	}
+	sniper_snip_attack_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 0.626939
+	}
+	sniper_snip_attack_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_attack_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 1.021678
+	}
+	sniper_snip_attack_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 0.626939
+	}
+	sniper_snip_attack_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_attack_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_attack_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_earthbind_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_poof_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_22 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_23 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_24 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_25 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_26 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_27 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_28 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_divided_29 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_failure_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_failure_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_failure_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_levelup_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_22 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_23 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_kill_24 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rival_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_ally_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_ally_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_ally_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_ally_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_ally_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_ally_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lasthit_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_death_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_respawn_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 4.99229
+	}
+	sniper_snip_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_purch_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_purch_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_scepter_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_scepter_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_scepter_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_scepter_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_items_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_items_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_items_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_items_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_items_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_items_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_items_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lane_missing_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lane_missing_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lane_missing_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_deny_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lose_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lose_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_lose_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_win_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_win_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_immort_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_drop_common = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_drop_medium = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_drop_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_drop_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_thanks_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_thanks_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_underattack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_underattack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_underattack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_underattack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_underattack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_underattack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/robin/robin_attacked_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+	sniper_snip_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_inthebag_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_shiwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_rare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+}
