@@ -345,6 +345,37 @@
 	}
 
 	//=====================================================================================
+	// Battle Continuation (attribute 4) - hidden always-on passive.
+	// Levelled at spawn by LevelAllAbility, so its intrinsic modifier is always present; the
+	// attribute only flips hero.CuAlterAttr4Acquired, which turns the effect on.
+	//=====================================================================================
+	"cu_alter_battle_continuation"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_alter/cu_alter_battle_continuation"
+		"AbilityTextureName"			"custom/cu_alter/sa3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"precache"
+		{
+			"particle"	"particles/cu_alter/cu_alter_spears_burst.vpcf"
+			"particle"	"particles/cu_alter/cu_alter_roar_wind.vpcf"
+			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
+			"model"		"models/cu_alter/cualter_spears.vmdl"
+		}
+		"AbilityValues"
+		{
+			"revive_heal_pct"			"25"		// Battle Continuation heals to this % of max health
+			"cooldown"					"70"		// internal cooldown of Battle Continuation
+			// desperate roar when Battle Continuation saves him: fears nearby enemies
+			"bc_fear_radius"			"350"
+			"bc_fear_duration"			"1.5"
+		}
+	}
+
+	//=====================================================================================
 	// Attributes (mock placeholders - real effects TBD)
 	//=====================================================================================
 	"cu_alter_attribute_1"
@@ -423,11 +454,10 @@
 			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
 			"model"		"models/cu_alter/cualter_spears.vmdl"
 		}
-		"AbilityValues"
+		"AbilityValues"		// display only — gameplay values live in cu_alter_battle_continuation
 		{
-			"revive_heal_pct"			"25"		// Battle Continuation heals to this % of max health
-			"cooldown"					"70"		// internal cooldown of Battle Continuation
-			// desperate roar when Battle Continuation saves him: fears nearby enemies
+			"revive_heal_pct"			"25"
+			"cooldown"					"70"
 			"bc_fear_radius"			"350"
 			"bc_fear_duration"			"1.5"
 		}
