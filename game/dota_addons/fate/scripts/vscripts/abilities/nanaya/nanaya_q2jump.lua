@@ -266,6 +266,8 @@ end
 
 
 function modifier_q2jump:OnDestroy()
+	-- OnDestroy идёт в обеих VM, а поля заведены в OnCreated под IsServer
+	if not IsServer() then return end
 	if IsServer() then
         self.parent:InterruptMotionControllers(true)
         	if self.hit ~= nil then

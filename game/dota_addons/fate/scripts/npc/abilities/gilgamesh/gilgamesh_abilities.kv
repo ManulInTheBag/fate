@@ -8,7 +8,8 @@
 	//=================================================================================================================
 	"gilgamesh_golden_rule"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gilgamesh/gilgamesh_golden_rule"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/gilgamesh_golden_rule"
 		"MaxLevel"						"2"
@@ -20,23 +21,6 @@
             "gold_gain" "15 30"
         }
 		
-		"Modifiers"
-		{
-			"modifier_golden_rule"
-			{
-				"Passive"		"1"
-	            "ThinkInterval"		"1.0"
-	            "OnIntervalThink"
-	         	{
-					"RunScript"
-					{
-						"ScriptFile"		"gilg_ability"
-						"Function"			"OnGoldenRuleThink"
-						"GoldGain"			"%gold_gain"
-					}
-				}
-			}
-		}
 	}		
 
 	//=====================================
@@ -270,7 +254,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gilgamesh/gilgamesh_max_enuma_elish"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -313,53 +298,9 @@
             "speed" "2800"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"gilg_ability"
-			 	"Function"		"OnMaxEnumaStart"
-			 	"Target"		"POINT"
-			 	"StartRadius"	"%start_radius"
-			 	"EndRadius"		"%end_radius"
-			 	"Speed"			"%speed"
-			 	"Range"			"%radius"
-			}
-		}
 		
 		
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"false"
-			"RunScript"
-			{
-			 	"ScriptFile"	"gilg_ability"
-			 	"Function"		"OnMaxEnumaHit"
-			 	"Damage"		"%damage"
-			}
-			"FireEffect"
-			{
-				"EffectName"        "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf"
-				"EffectAttachType"  "follow_origin"
-				"Target"            "TARGET"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_max_enuma_elish_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-
-			"max_enuma_elish_anim"
-			{
-				"Duration"	"6.0"
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_6"
-			}
-		}
 	}
 
 	//=======================================
@@ -368,7 +309,8 @@
 	"gilgamesh_attribute_improve_golden_rule"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gilgamesh/gilgamesh_attribute_improve_golden_rule"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/gilgamesh_attribute_improve_golden_rule"
@@ -387,14 +329,6 @@
             "bounty_bonus" "50"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gilg_ability"
-				"Function"		"OnImproveGoldenRuleAcquired"
-			}
-		}
 	}
 	//=======================================
 	// Gilgamesh Attribute : Power of Sumer
@@ -402,7 +336,8 @@
 	"gilgamesh_attribute_power_of_sumer"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gilgamesh/gilgamesh_attribute_power_of_sumer"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/gilgamesh_attribute_power_of_sumer"
@@ -424,14 +359,6 @@
             "dmg_ratio_q" "25"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gilg_ability"
-				"Function"		"OnPowerOfSumerAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -517,7 +444,8 @@
 	"gilgamesh_attribute_sword_of_creation"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gilgamesh/gilgamesh_attribute_sword_of_creation"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/gilgamesh_attribute_sword_of_creation"
@@ -539,13 +467,5 @@
             "max_enuma_radius" "750"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gilg_ability"
-				"Function"		"OnSwordOfCreationAcquired"
-			}
-		}
 	}
 }

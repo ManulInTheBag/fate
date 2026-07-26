@@ -1,8 +1,6 @@
 #base "emiya_arrow_rain.kv"
-#base "emiya_barrage_confine.kv"
 #base "emiya_barrage_moonwalk.kv"
 #base "emiya_barrage_rain.kv"
-#base "emiya_broken_phantasm.kv"
 #base "emiya_clairvoyance.kv"
 #base "emiya_crane_wings.kv"
 #base "emiya_gae_bolg.kv"
@@ -53,35 +51,6 @@
 	//=======================================
 	// Archer Attribute : Hrunting
 	//=======================================
-	"emiya_attribute_hrunting"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/emiya/emiya_attributes"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/archer_5th_attribute_hrunting"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"15"
-
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt.vpcf"
-		}
-
-		"AbilityValues"
-        {
-            "cast_delay" "2.0"
-            "cast_range" "4000"
-            "mana_used" "20"
-            "damage" "250"
-            "bp_damage" "100"
-        }
-	}
 	//=======================================
 	// Archer Attribute : Shroud of Martin
 	//=======================================

@@ -134,16 +134,8 @@ if IsServer() then
 		-- 	DoDamage(self:GetCaster(), v, 1000, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 		-- end
 
-		EmitSoundOnLocationWithCaster(spawn_loc, "Gilles_Cthulhu_Explode", self:GetCaster())
-
-		local particleIndex = ParticleManager:CreateParticle("particles/custom/gilles/cthulhu_favour_splash.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	 	ParticleManager:SetParticleControl(particleIndex, 3, spawn_loc) 
-
-		Timers:CreateTimer( 1.5, function()
-			ParticleManager:DestroyParticle( particleIndex, true )
-			ParticleManager:ReleaseParticleIndex( particleIndex )
-			return nil
-		end)
+		-- spawn_loc объявлялся в закомментированном выше блоке: звук и партикл
+		-- получали nil и роняли OnIntervalThink каждые 0.2 с (баг был и до чистки)
 
 		-- local tentacle = CreateUnitByName("gilles_cthulhu_tentacle", spawn_loc, true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())
 		-- local tentacle_damage = self:GetAbility():GetSpecialValueFor("spawn_damage")-- + (self:GetCaster():HasModifier("modifier_sunken_city_attribute") and self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) or 0)

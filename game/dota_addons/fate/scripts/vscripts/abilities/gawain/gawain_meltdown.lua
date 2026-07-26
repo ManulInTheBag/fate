@@ -52,6 +52,8 @@ function modifier_meltdown:OnCreated()
 end 
 
 function modifier_meltdown:OnDestroy()
+	-- RemoveSelf серверный: на клиенте это «Tried to destroy a networked entity»
+	if not IsServer() then return end
     self.sun:RemoveSelf()
 end 
 

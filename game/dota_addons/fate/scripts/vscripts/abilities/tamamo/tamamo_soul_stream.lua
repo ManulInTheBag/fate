@@ -707,7 +707,7 @@ function modifier_tamamo_charm_pepeg:OnCreated()
 	self.parent = self:GetParent()
 	self.ability = self.parent:FindAbilityByName("tamamo_frigid_heaven")
 
-	self.ability:ApplyDataDrivenModifier(self.parent, self.parent, "modifier_frigid_heaven_indicator", {})
+	self.parent:AddNewModifier(self.parent, self.ability, "modifier_frigid_heaven_indicator", {})
 end
 
 function modifier_tamamo_charm_pepeg:IsHidden()

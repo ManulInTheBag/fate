@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_jeanne_flag_swing_vfx", "abilities/jeanne_alter/jeanne_trail", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_trail", "abilities/jeanne_alter/jeanne_trail", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_trail_debuff", "abilities/jeanne_alter/jeanne_trail", LUA_MODIFIER_MOTION_NONE)
 
@@ -304,4 +305,29 @@ function modifier_jeanne_trail_debuff:OnCreated(keys)
     self.parent = self:GetParent()
     local burn_fx = ParticleManager:CreateParticle("particles/jeanne_alter/underlord_pitofmalice_stun_round.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)    
     self:AddParticle(burn_fx, false, false, -1, false, false)
+end
+
+-- modifier_jeanne_flag_swing_vfx ← удалённый abilities/jeanne_alter/jeanne_flag_swing.lua
+-- (применяется отсюда и из abilities/angra_mainyu/angra_puddle.lua)
+modifier_jeanne_flag_swing_vfx = class({})
+
+function modifier_jeanne_flag_swing_vfx:IsHidden()            return true end
+function modifier_jeanne_flag_swing_vfx:IsDebuff()            return false end
+function modifier_jeanne_flag_swing_vfx:IsPurgable()          return false end
+function modifier_jeanne_flag_swing_vfx:IsPurgeException()    return false end
+function modifier_jeanne_flag_swing_vfx:RemoveOnDeath()       return false end
+function modifier_jeanne_flag_swing_vfx:OnCreated(hTable)
+    if IsServer() then
+        self.parent  = self:GetParent()
+        self.swing_fx = ParticleManager:CreateParticle("particles/jeanne_alter/noire_slash_cast.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
+        local swing = self.swing_fx
+
+        ParticleManager:SetParticleControlEnt(self.swing_fx, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_attack1", self.parent:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControlEnt(self.swing_fx, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_attack1", self.parent:GetAbsOrigin(), true)
+
+        Timers:CreateTimer(0.5, function()
+            ParticleManager:DestroyParticle(swing, false)
+            ParticleManager:ReleaseParticleIndex(swing)
+        end)
+    end
 end

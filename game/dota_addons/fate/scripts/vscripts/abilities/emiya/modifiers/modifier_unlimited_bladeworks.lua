@@ -2,10 +2,14 @@ modifier_unlimited_bladeworks = class({})
 
 function modifier_unlimited_bladeworks:OnDestroy()
 	if IsServer() then
-		local ability = self:GetAbility()
-		if not self:GetParent().IsUBWActive then return end
-		self:GetParent().IsUBWActive = false
+		-- на смерти/зачистке раунда хэндлы родителя и способности могут быть уже мертвы
+		local parent = self:GetParent()
+		if not IsNotNull(parent) then return end
+		if not parent.IsUBWActive then return end
+		-- сброс флага делает сам EndUBW: он же гасит повторный вызов из OnOwnerDied
 
+		local ability = self:GetAbility()
+		if not IsNotNull(ability) then return end
 		ability:EndUBW()
 	end
 end

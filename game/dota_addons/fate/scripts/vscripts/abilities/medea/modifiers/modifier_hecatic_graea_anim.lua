@@ -7,10 +7,16 @@ function modifier_hecatic_graea_anim:RemoveOnDeath()
 	return true 
 end
 function modifier_hecatic_graea_anim:OnCreated()
+	-- SetBodygroup существует только в серверной VM: на клиенте это был
+	-- «attempt to call method (a nil value)», т.е. метода нет, а не кастера
+	if not IsServer() then return end
 	self:GetCaster():SetBodygroup(0,2)
 end
 
 function modifier_hecatic_graea_anim:OnDestroy()
+	-- SetBodygroup существует только в серверной VM: на клиенте это был
+	-- «attempt to call method (a nil value)», т.е. метода нет, а не кастера
+	if not IsServer() then return end
 	self:GetCaster():SetBodygroup(0,0)
 end
 function modifier_hecatic_graea_anim:DeclareFunctions()

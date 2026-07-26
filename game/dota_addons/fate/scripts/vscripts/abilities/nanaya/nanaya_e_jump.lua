@@ -116,6 +116,8 @@ end
 
 
 function modifier_nanaya_e_jump:OnDestroy()
+	-- OnDestroy идёт в обеих VM, а поля заведены в OnCreated под IsServer
+	if not IsServer() then return end
 	
 	if IsServer() then
         self.parent:InterruptMotionControllers(true)

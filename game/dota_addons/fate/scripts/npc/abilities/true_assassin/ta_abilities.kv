@@ -1,8 +1,8 @@
 #base "true_assassin_ambush.kv"
 #base "true_assassin_dirk.kv"
 #base "true_assassin_selfmod.kv"
-#base "true_assassin_snatch_strike.kv"
 #base "true_assassin_zabaniya.kv"
+#base "true_assassin_snatch_strike.kv"
 
 "DOTAAbilities"
 {
@@ -11,7 +11,8 @@
 	//========================================
 	"true_assassin_combo"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_combo"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/true_assassin_combo"
 		"MaxLevel"						"1"
@@ -44,23 +45,6 @@
             "bonus_damage" "25"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"ta_ability"
-				"Function"			"OnDIStart"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_delusional_illusion_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-
-		}
 	}
 
 	//=====================================
@@ -69,7 +53,8 @@
 	"true_assassin_combo_zab"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_combo_zab"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -104,23 +89,6 @@
         {
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"ta_ability"
-				"Function"			"OnDIZabStart"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"true"
-			"RunScript"
-			{
-				"ScriptFile"    "ta_ability"
-				"Function"      "OnDIZabHit"
-			}
-		}
 	}
 	
 	//=================================================================================================================
@@ -154,7 +122,8 @@
 	"true_assassin_attribute_improve_presence_concealment"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_attribute_improve_presence_concealment"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/true_assassin_attribute_improve_presence_concealment"
@@ -168,14 +137,6 @@
 		{
 		}
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"ta_ability"
-				"Function"		"OnImprovePresenceConcealmentAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -184,7 +145,8 @@
 	"true_assassin_attribute_weakening_venom"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_attribute_weakening_venom"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/true_assassin_attribute_weakening_venom"
@@ -198,14 +160,6 @@
 		{
 		}
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"ta_ability"
-				"Function"		"OnWeakeningVenomAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -214,7 +168,8 @@
 	"true_assassin_attribute_shadow_strike"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_attribute_shadow_strike"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/true_assassin_attribute_shadow_strike"
@@ -236,14 +191,6 @@
             "zab_bonus_damage" "50"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"ta_ability"
-				"Function"		"OnShadowStrikeAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -252,7 +199,8 @@
 	"true_assassin_attribute_shaytan_arm"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_attribute_shaytan_arm"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/true_assassin_shaytan_arm"
@@ -271,14 +219,6 @@
             "snatch_agi_dmg" "1.5"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"ta_ability"
-				"Function"		"OnShaytanArmAcquired"
-			}
-		}
 	}
 	//=======================================
 	// TA Attribute : Desert Nomad

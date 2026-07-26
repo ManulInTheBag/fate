@@ -80,7 +80,7 @@ function OnFireCharmLoaded(keys)
 	end
 	-- Apply stacks
 	--local chargeAmount = caster:FindAbilityByName("tamamo_armed_up"):GetLevelSpecialValueFor("charge", 0)
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_fiery_heaven_indicator", {}) 
+	caster:AddNewModifier(caster, keys.ability, "modifier_fiery_heaven_indicator", {}) 
 	--caster:SetModifierStackCount("modifier_fiery_heaven_indicator", keys.ability, chargeAmount)
 end
 
@@ -118,7 +118,7 @@ function OnFreezeCharmLoaded(keys)
 	end
 	-- Apply stacks
 	--local chargeAmount = caster:FindAbilityByName("tamamo_armed_up"):GetLevelSpecialValueFor("charge", 0)
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_frigid_heaven_indicator", {}) 
+	caster:AddNewModifier(caster, keys.ability, "modifier_frigid_heaven_indicator", {}) 
 	--caster:SetModifierStackCount("modifier_frigid_heaven_indicator", keys.ability, chargeAmount)
 end
 
@@ -155,44 +155,7 @@ function OnGustCharmLoaded(keys)
 	end
 	-- Apply stacks
 	--local chargeAmount = caster:FindAbilityByName("tamamo_armed_up"):GetLevelSpecialValueFor("charge", 0)
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_gust_heaven_indicator", {}) 
-	--caster:SetModifierStackCount("modifier_gust_heaven_indicator", keys.ability, chargeAmount)
-end
-
-function OnVoidCharmLoaded(keys)
-	local caster = keys.caster
-	CharmHandle = keys.ability
-	CurrentCharmName = "modifier_gust_heaven_indicator"
-	local fieryHeaven = caster:FindAbilityByName("tamamo_fiery_heaven")
-	local frigidHeaven = caster:FindAbilityByName("tamamo_frigid_heaven")
-	local gustHeaven = caster:FindAbilityByName("tamamo_gust_heaven")
-	local voidHeaven = caster:FindAbilityByName("tamamo_void_heaven")
-	fieryHeaven:StartCooldown(5)
-	frigidHeaven:StartCooldown(5)
-	gustHeaven:StartCooldown(5)
-	voidHeaven:StartCooldown(5)
-	CloseCharmList(keys)
-	if caster.IsWitchcraftAcquired then
-		local armedUp = caster:FindAbilityByName("tamamo_armed_up")
-		armedUp:EndCooldown()
-		--armedUp:StartCooldown(15)
-		fieryHeaven:EndCooldown()
-		--fieryHeaven:StartCooldown(15)
-		frigidHeaven:EndCooldown()
-		--frigidHeaven:StartCooldown(15)
-		gustHeaven:EndCooldown()
-		--gustHeaven:StartCooldown(15)
-		voidHeaven:EndCooldown()
-	end
-
-	for i=1, #CharmModifierList do
-		if caster:HasModifier(CharmModifierList[i]) then
-			caster:RemoveModifierByName(CharmModifierList[i])
-		end
-	end
-	-- Apply stacks
-	--local chargeAmount = caster:FindAbilityByName("tamamo_armed_up"):GetLevelSpecialValueFor("charge", 0)
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_void_heaven_indicator", {}) 
+	caster:AddNewModifier(caster, keys.ability, "modifier_gust_heaven_indicator", {}) 
 	--caster:SetModifierStackCount("modifier_gust_heaven_indicator", keys.ability, chargeAmount)
 end
 
@@ -256,10 +219,10 @@ function OnCharmAttacked(keys)
 			target:RemoveModifierByName("modifier_frigid_heaven_indicator_enemy")
 			target:AddNewModifier(caster, target, "modifier_stunned", {Duration = StackStunDuration})
 
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_frigid_heaven_stun_fx", {})
+			target:AddNewModifier(caster, ability, "modifier_frigid_heaven_stun_fx", {})
 			target:EmitSound("Ability.FrostBlast")
 		else
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_frigid_heaven_slow", {})
+			target:AddNewModifier(caster, ability, "modifier_frigid_heaven_slow", {})
 			target:AddNewModifier(caster, target, "modifier_disarmed", {Duration = ccDuration})
 			local explosionFx = ParticleManager:CreateParticle("particles/custom/tamamo/tamamo_soulstream_explosion_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControl(explosionFx, 0, target:GetAbsOrigin())
@@ -268,10 +231,10 @@ function OnCharmAttacked(keys)
 		DeduceCharmStack(caster, "modifier_gust_heaven_indicator")
 		if IncrementCharmStack(caster, target, ability, "modifier_gust_heaven_indicator_enemy") == 5 then
 			target:RemoveModifierByName("modifier_gust_heaven_indicator_enemy")
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_gust_heaven_purge", {}) 
+			target:AddNewModifier(caster, ability, "modifier_gust_heaven_purge", {}) 
 			ApplyStrongDispel(target)
-			if not IsImmuneToSlow(target) then ability:ApplyDataDrivenModifier(caster, target, "modifier_gust_heaven_purge_slow_tier1", {}) end
-			if not IsImmuneToSlow(target) then ability:ApplyDataDrivenModifier(caster, target, "modifier_gust_heaven_purge_slow_tier2", {}) end
+			if not IsImmuneToSlow(target) then target:AddNewModifier(caster, ability, "modifier_gust_heaven_purge_slow_tier1", {}) end
+			if not IsImmuneToSlow(target) then target:AddNewModifier(caster, ability, "modifier_gust_heaven_purge_slow_tier2", {}) end
 			target:EmitSound("DOTA_Item.DiffusalBlade.Activate")
 		else
 			target:AddNewModifier(caster, target, "modifier_silence", {Duration = 0.1})
@@ -283,180 +246,6 @@ function OnCharmAttacked(keys)
 	target:EmitSound("Hero_Wisp.Spirits.Target")
 end
 
-function OnSoulstreamStart(keys)
-	local caster = keys.caster
-	local targetPoint = keys.ability:GetCursorPosition()
-	local frontward = caster:GetForwardVector()
-	local ability = keys.ability
-
-	-- Get the stack amount
-	local currentStack = caster:GetModifierStackCount("modifier_soulstream_stack", ability)
-	caster.CurrentSoulstreamStack = currentStack
-	-- Check if caster has sufficient mana
-	local additionalManaCost = 100*currentStack
-	if caster:GetMana() < additionalManaCost then
-		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Not Enough Mana" } )
-		caster:SetMana(caster:GetMana() + 100) 
-		keys.ability:EndCooldown() 
-		return
-	else
-		caster:SetMana(caster:GetMana() - additionalManaCost)
-	end
-	-- Increment Soulstream stack
-	if currentStack == 0 and caster:HasModifier("modifier_soulstream_stack") then currentStack = 1 end
-	caster:RemoveModifierByName("modifier_soulstream_stack")
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_soulstream_stack", {}) 
-	caster:SetModifierStackCount("modifier_soulstream_stack", ability, currentStack + 1)
-
-
-	local count = 0
-	Timers:CreateTimer(function()
-		if count == 5 then return end
-		local projectile = CreateUnitByName("tamamo_charm_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeam())
-
-		local particleName, particleExpName = 0
-		-- Deduce Charm stack if caster has it
-		for i=1, #CharmModifierList do
-			if caster:HasModifier(CharmModifierList[i]) then
-				DeduceCharmStack(caster, CurrentCharmName)
-				projectile.IsCharmLoaded = true
-				projectile.LoadedCharm = CurrentCharmName
-				projectile.LoadedCharmHandle = CharmHandle
-				if CurrentCharmName == "modifier_fiery_heaven_indicator" then
-					particleName = "particles/custom/tamamo/tamamo_soulstream_red_.vpcf"
-					particleExpName = "particles/custom/tamamo/tamamo_soulstream_explosion_red.vpcf"
-				elseif CurrentCharmName == "modifier_frigid_heaven_indicator" then 
-					particleName = "particles/custom/tamamo/tamamo_soulstream_blue_.vpcf"
-					particleExpName = "particles/custom/tamamo/tamamo_soulstream_explosion_blue.vpcf"
-				elseif CurrentCharmName == "modifier_gust_heaven_indicator" then
-					particleName = "particles/custom/tamamo/tamamo_soulstream_green_.vpcf"
-					particleExpName = "particles/custom/tamamo/tamamo_soulstream_explosion_green.vpcf"
-				end
-				break
-			end
-			projectile.IsCharmLoaded = false
-			particleName = "particles/units/heroes/hero_wisp/wisp_guardian_.vpcf"
-			particleExpName = "particles/units/heroes/hero_wisp/wisp_guardian_explosion.vpcf"
-		end
-		-- Create particle FX
-		local spiritFx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, projectile)
-		projectile.spiritParticle = spiritFx
-		projectile.spiritExpParticleName = particleExpName
-		local LRVec = Vector(0,0,0)
-	    if math.random(2) == 1 then 
-	    	LRVec = caster:GetAbsOrigin() + Vector(-frontward.y, frontward.x, 0) * math.random(500) - frontward*math.random(250)
-	    else
-	    	LRVec = caster:GetAbsOrigin() + Vector(frontward.y, -frontward.x, 0) * math.random(500) - frontward*math.random(250)
-	    end
-	    projectile.destination = LRVec
-	    ability:ApplyDataDrivenModifier(caster, projectile, "modifier_soulstream_projectile", {})
-	    Timers:CreateTimer(0.5, function()
-	    	projectile.destination = targetPoint + (targetPoint - projectile:GetAbsOrigin()):Normalized() * math.random(500)
-	    	return nil
-	    end)
-	    count = count+1
-	    return 0.1
-	end)
-
-	--SpinInCircle(projectile, LRvec, 300)
-	caster:EmitSound("Hero_Wisp.Spirits.Cast")
-end
-
-
-function OnSoulstreamProjectileTick(keys)
-	local caster = keys.caster
-	local radius = keys.Radius
-	local target = keys.target 
-	local casterLoc = target:GetAbsOrigin()
-	local ability = keys.ability
-	local damage = keys.Damage
-	if caster.IsSpiritTheftAcquired then damage = damage+caster:GetIntellect()*0.5 end
-	damage = damage + damage*caster.CurrentSoulstreamStack*keys.StackBonus/100
-
-	if target:IsAlive() then
-		local charmDamage, stackDamage, ccDuration, StackStunDuration, mrReduction = 0
-		-- Is Charm loaded for current projectile?
-		if target.IsCharmLoaded then
-			if target.LoadedCharm == "modifier_fiery_heaven_indicator" then
-				charmDamage = target.LoadedCharmHandle:GetLevelSpecialValueFor("damage", 0)
-				stackDamage = target.LoadedCharmHandle:GetLevelSpecialValueFor("stack_damage", 0)
-			elseif target.LoadedCharm == "modifier_frigid_heaven_indicator" then
-				ccDuration = target.LoadedCharmHandle:GetLevelSpecialValueFor("duration", 0)
-				StackStunDuration = target.LoadedCharmHandle:GetLevelSpecialValueFor("stack_stun_duration", 0)
-			elseif target.LoadedCharm == "modifier_gust_heaven_indicator" then
-				mrReduction = target.LoadedCharmHandle:GetLevelSpecialValueFor("mr_reduction", 0)
-			end
-		end
-		-- Move the charm
-		local diff = target.destination - casterLoc
-		target:SetAbsOrigin(target:GetAbsOrigin()+diff/10)
-		-- If target is found, remove projectile and do damage
-		local targets = FindUnitsInRadius(caster:GetTeam(), casterLoc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-		if #targets ~= 0 then
-			for k,v in pairs(targets) do
-				if target.LoadedCharm == "modifier_fiery_heaven_indicator" then
-					-- 6 stacks
-					if IncrementCharmStack(target, v, target.LoadedCharmHandle, "modifier_fiery_heaven_indicator_enemy") == 5 then
-						v:RemoveModifierByName("modifier_fiery_heaven_indicator_enemy")
-						DoDamage(caster, v, (v:GetMaxHealth()-v:GetHealth())*stackDamage/100, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-
-						local explodeFx = ParticleManager:CreateParticle("particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf", PATTACH_ABSORIGIN_FOLLOW, v )
-						ParticleManager:SetParticleControl( explodeFx, 0, v:GetAbsOrigin())
-						v:EmitSound("Ability.LightStrikeArray")
-					else
-						DoDamage(caster, v, v:GetHealth()*charmDamage/100, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-					end
-				elseif target.LoadedCharm == "modifier_frigid_heaven_indicator" then
-					-- 6 stacks
-					if IncrementCharmStack(target, v, target.LoadedCharmHandle, "modifier_frigid_heaven_indicator_enemy") == 5 then
-						v:RemoveModifierByName("modifier_frigid_heaven_indicator_enemy")
-						v:AddNewModifier(caster, v, "modifier_stunned", {Duration = StackStunDuration})
-
-						target.LoadedCharmHandle:ApplyDataDrivenModifier(caster, v, "modifier_frigid_heaven_stun_fx", {})
-						v:EmitSound("Ability.FrostBlast")
-					else
-						v:AddNewModifier(caster, v, "modifier_disarmed", {Duration = ccDuration})
-						
-						if not IsImmuneToSlow(v) then
-							target.LoadedCharmHandle:ApplyDataDrivenModifier(caster, v, "modifier_frigid_heaven_slow", {})
-						end
-					end
-				elseif target.LoadedCharm == "modifier_gust_heaven_indicator" then
-					-- 6 stacks
-					if IncrementCharmStack(target, v, target.LoadedCharmHandle, "modifier_gust_heaven_indicator_enemy") == 5 then
-						v:RemoveModifierByName("modifier_gust_heaven_indicator_enemy")
-						target.LoadedCharmHandle:ApplyDataDrivenModifier(caster, v, "modifier_gust_heaven_purge", {}) 
-						ApplyStrongDispel(v)
-						print("applied dispel")
-						if not IsImmuneToSlow(v) then target.LoadedCharmHandle:ApplyDataDrivenModifier(caster, v, "modifier_gust_heaven_purge_slow_tier1", {}) end
-						if not IsImmuneToSlow(v) then target.LoadedCharmHandle:ApplyDataDrivenModifier(caster, v, "modifier_gust_heaven_purge_slow_tier2", {}) end
-						v:EmitSound("DOTA_Item.DiffusalBlade.Activate")
-
-					else
-						v:AddNewModifier(caster, v, "modifier_silence", {Duration = 0.1})
-					end 
-				end	
-
-				if v:GetUnitName() == "gille_gigantic_horror" then  
-					DoDamage(caster, v, damage*1.75, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				else 
-					DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				end
-				if caster.IsSpiritTheftAcquired then 
-					v:SetMana(v:GetMana()-25)
-					caster:SetMana(caster:GetMana()+25)
-				end
-			end
-
-
-			target:EmitSound("Hero_Wisp.Spirits.Target")
-			local explosionFx = ParticleManager:CreateParticle(target.spiritExpParticleName, PATTACH_ABSORIGIN_FOLLOW, target)
-			ParticleManager:SetParticleControl(explosionFx, 0, target:GetAbsOrigin())
-			OnSoulstreamProjectileEnd(keys)
-		end
-	end
-end
-
 function IncrementCharmStack(caster, target, handle, modifierName)
 	local currentStack = target:GetModifierStackCount(modifierName, handle)
 	if currentStack == 0 and target:HasModifier(modifierName) then currentStack = 1 end
@@ -466,15 +255,6 @@ function IncrementCharmStack(caster, target, handle, modifierName)
 	return currentStack+1
 end
 
-function OnSoulstreamProjectileEnd(keys)
-	local caster = keys.caster
-	local target = keys.target
-
-	ParticleManager:DestroyParticle( target.spiritParticle, false )
-	ParticleManager:ReleaseParticleIndex( target.spiritParticle )
-	--target:ForceKill(false)
-	target:RemoveSelf() 
-end
 --[[
 	local LRvec = Vector(0,0,0)
     if math.random(2) == 1 then 
@@ -577,7 +357,7 @@ function OnMantraStart(keys)
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
 		modifierName = "modifier_mantra_ally"
 		if caster.IsSeveredFateAcquired then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_mr_buff", {})
+			target:AddNewModifier(caster, ability, "modifier_mantra_mr_buff", {})
 		end
 	else
 		if IsSpellBlocked(keys.target) then return end
@@ -621,7 +401,7 @@ function OnMantraStart(keys)
 	end
 	target:SetModifierStackCount(modifierName, ability, orbAmount)
 	target:RemoveAllModifiersOfName("modifier_mantra_vfx")
-	for i=1, orbAmount do ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_vfx", {}) end
+	for i=1, orbAmount do target:AddNewModifier(caster, ability, "modifier_mantra_vfx", {}) end
 end
 
 function OnShackleThink(keys)
@@ -656,17 +436,12 @@ function OnShackleStart(keys)
 		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Too Far From Initial Castpoint" } ) 
 		return
 	end
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mystic_shackle_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_shackle", {})
+	caster:AddNewModifier(caster, ability, "modifier_mystic_shackle_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
+	target:AddNewModifier(caster, ability, "modifier_mystic_shackle", {})
 	giveUnitDataDrivenModifier(caster, caster, "locked", 3.0)
 	if caster:GetTeamNumber() ~= target:GetTeamNumber() then
 		giveUnitDataDrivenModifier(caster, target, "locked", 3.0)
 	end
-end
-
-function OnShackleEnd(keys)
-	local caster = keys.caster
-	local ability = keys.ability
 end
 
 function OnMantraTakeDamage(keys)
@@ -1053,7 +828,7 @@ function OnKickStart(keys)
 		local masterCombo = caster.MasterUnit2:FindAbilityByName(keys.ability:GetAbilityName())
 		masterCombo:EndCooldown()
 		masterCombo:StartCooldown(keys.ability:GetCooldown(1))
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_polygamist_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
+		caster:AddNewModifier(caster, ability, "modifier_polygamist_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
 	end
 
 	if caster.IsEscapeAcquired then
@@ -1066,9 +841,9 @@ function OnKickStart(keys)
 		lungeDelay = lungeDelay / 2
 		damage = damage / 2
 		expDamageRatio = expDamageRatio / 2
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_polygamist_shorter", {}) 
+		caster:AddNewModifier(caster, ability, "modifier_polygamist_shorter", {}) 
 	else 
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_polygamist", {}) 
+		caster:AddNewModifier(caster, ability, "modifier_polygamist", {}) 
 		EmitGlobalSound("Tamamo.Kick")
 			
 	end
@@ -1210,20 +985,6 @@ function OnWitchcraftAcquired(keys)
     -- Set master 1's mana 
     local master = hero.MasterUnit
     master:SetMana(caster:GetMana())
-end
-
-function TamamoCheckCombo(caster, ability)
-	if caster:GetStrength() >= 19.1 and caster:GetAgility() >= 19.1 and caster:GetIntellect() >= 19.1 and not caster.IsEscapeAcquired then
-		if ability == caster:FindAbilityByName("tamamo_subterranean_grasp") and caster:FindAbilityByName("tamamo_polygamist_castration_fist"):IsCooldownReady()  then
-			caster:SwapAbilities("fate_empty1", "tamamo_polygamist_castration_fist", false, true) 
-			Timers:CreateTimer({
-				endTime = 3,
-				callback = function()
-				caster:SwapAbilities("fate_empty1", "tamamo_polygamist_castration_fist", true, false) 
-			end
-			})
-		end
-	end
 end
 
 --[[

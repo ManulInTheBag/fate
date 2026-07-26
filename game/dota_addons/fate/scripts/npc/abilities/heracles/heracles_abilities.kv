@@ -57,49 +57,6 @@
 	// Berserker - Grab(W)
 	//=======================================
 
-	"heracles_grab"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/heracles/heracles_grab"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/berserker_5th_fissure_strike"
-		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
-		"AnimationPlaybackRate" 		"1"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"300"
-		"AbilityCastPoint"				"0.2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
-		//"AbilityDamage"					"300 350 400 450 500"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200"
-		"precache"
-		{
-			"particle"		"particles/zlodemon/heracles/heracles_fissure.vpcf"
-		}
-		
-
-		"AbilityValues"
-        {
-            "width" "125"
-            "grab_damage" "250 300 350 400 450"
-            "range" "900"
-            "stun_duration" "0.5 0.65 0.8 0.95 1.1"
-        }		
-	}
 
 	//=======================================
 	// Berserker - Tiny Airlanes
@@ -191,98 +148,6 @@
 	//===================================================
 	// Berserker : Fissure Strike
 	//===================================================
-	"berserker_5th_fissure_strike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/berserker_5th_fissure_strike"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate" 		"2.0"
-		
-		"precache"
-		{
-			"particle"		"particles/custom/berserker/fissure_strike/shockwave.vpcf"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.5"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 12 11 11 10"
-		//"AbilityDamage"					"300 350 400 450 500"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		
-		"AbilityValues"
-        {
-            "radius" "250"
-            "damage" "200 225 250 275 300"
-            "range" "500 550 600 650 700"
-            "slow_amount" "-20 -25 -30 -35 -40"
-            "duration" "2.0"
-            "collide_duration" "0.5 0.65 0.8 0.95 1.1"
-            "knockback" "200 250 300 350 400"
-            "proj_speed" "1500"
-            "collide_damage" "20 40 60 80 100"
-            "reduced_cd" "6 6 5 5 4"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"berserker_ability"
-				"Function"			"OnFissureStart"
-				"Target"			"POINT"
-				"Width"				"%radius"
-				"Range"				"%range"
-				"Speed"				"%proj_speed"
-			}
-			"FireSound"
-			{
-				"EffectName"		"Hero_Magnataur.ShockWave.Cast"
-				"Target"			"CASTER"
-			}
-		}
-
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"false"
-			"RunScript"
-			{
-				"ScriptFile"		"berserker_ability"
-				"Function"			"OnFissureHit"
-				"Damage"			"%damage"
-				"CollideDamage"		"%collide_damage"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_fissure_strike_slow"
-			{
-				"Duration"	"%duration"
-				"IsDebuff"	"1"
-			    "Properties"
-			    {
-			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_amount"
-			    }
-			}
-		}
-	}
 
 	
 
@@ -336,7 +201,8 @@
 	//========================================
 	"berserker_5th_berserk_attribute_passive"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/heracles/berserker_5th_berserk_attribute_passive"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/berserker_5th_berserk_attribute_passive"
 		"MaxLevel"						"1"
@@ -346,141 +212,20 @@
 		}
 
 		
-		"OnSpellStart"
-		{
-		}
 
-		"Modifiers"
-		{
-			"modifier_berserk_eternal_rage_passive"
-			{
-				"Passive"				"1"
-				"OnAttackLanded"
-				{
-					"Random"
-					{
-						"Chance"		"100"
-						"OnSuccess"
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"berserker_ability"
-								"Function"		"OnBerserkProc"
-							}
-						}						
-					}
-				}
-			}
-			"modifier_eternal_rage_slow"
-			{
-				"IsDebuff"			"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
-				}
-			}
-		}
 	}
 
 	//===================================================
 	// Berserker : Nine Lives
 	//===================================================
-	"berserker_5th_nine_lives"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/berserker_5th_nine_lives"
-		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
-		"AOERadius"						"%radius"
-		
-		"precache"
-		{
-			"particle"		"particles/custom/berserker/nine_lives/hit.vpcf"
-			"particle"		"particles/custom/berserker/nine_lives/last_hit.vpcf"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"800"
-		
-		"AbilityValues"
-        {
-            "radius" "350"
-            "damage" "70 80 90 100 110"
-            "radius_lasthit" "500"
-            "damage_lasthit" "450 625 800 1025 1250"
-            "stun_duration" "1.5"
-            "range" "700"
-        }
-
-		"OnAbilityPhaseStart"
-		{
-		
-			"RunScript"
-			{
-				"ScriptFile"	"berserker_ability"
-				"Function"		"OnNineCast"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"berserker_ability"
-				"Function"			"OnNineStart"
-				"Target"			"POINT"
-			}
-		}
-		
-		"Modifiers"
-		{
-
-			"modifier_dash_anim"
-			{
-				"IsHidden"				"1"
-				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_5"
-				"Duration"				"0.9"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"0.5"
-				}
-			}
-
-			"modifier_nine_anim"
-			{
-				"IsHidden"			"1"
-				"Duration"			"3.0"
-				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_6"
-			}
-		}
-	}
 
 	//========================================
 	// Berserker : God Hand
 	//========================================
 	"berserker_5th_god_hand"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/heracles/berserker_5th_god_hand"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/berserker_5th_god_hand"
 		"MaxLevel"						"1"
@@ -492,50 +237,15 @@
 		}
 
 		
-		"OnSpellStart"
-		{
-		}
 
-		"Modifiers"
-		{
-			"modifier_berserk_god_hand"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"berserker_ability"
-						"Function"		"OnGodHandDeath"
-					}
-				}
-			}
-			"modifier_god_hand_stock"
-			{
-				"IsHidden"		"0"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_PERMANENT"
-			}			
-			"modifier_god_hand_debuff"
-			{
-				"Duration"		"7"
-				"IsDebuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"-50"
-				}
-
-				"EffectName"		"particles/custom/berserker/god_hand/debuff.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-		}
 	}
 	//========================================
 	// Berserker : Reincarnation
 	//========================================
 	"berserker_5th_reincarnation"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/heracles/berserker_5th_reincarnation"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/berserker_5th_attribute_reincarnation"
 		"MaxLevel"						"1"
@@ -560,50 +270,7 @@
 		}
 
 		
-		"OnSpellStart"
-		{
-		}
 
-		"Modifiers"
-		{
-			"modifier_reincarnation"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"berserker_ability"
-						"Function"			"OnReincarnationDamageTaken"
-						"DamageTaken"		"%attack_damage"
-					}
-				}
-			}
-			"modifier_reincarnation_stack"
-			{
-				"Duration"		"10"
-				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"18"
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"berserker_ability"
-						"Function"		"OnReincarnationBuffEnded"
-					}
-				}
-			}
-			"modifier_reincarnation_progress"
-			{
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-		}
 	}
 	//=======================================
 	// Berserker Attribute : Improve Divinity
@@ -611,7 +278,8 @@
 	"berserker_5th_attribute_improve_divinity"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/heracles/berserker_5th_attribute_improve_divinity"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/berserker_5th_attribute_improve_divinity"
@@ -631,14 +299,6 @@
             "bonus_armor" "0"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"berserker_ability"
-				"Function"		"OnImproveDivinityAcquired"
-			}
-		}
 	}
 	//=======================================
 	// Berserker Attribute : Eternal Rage
@@ -646,7 +306,8 @@
 	"berserker_5th_attribute_berserk"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/heracles/berserker_5th_attribute_berserk"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/berserker_5th_attribute_berserk"
@@ -669,14 +330,6 @@
             "mana_convert_ratio" "0.2"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"berserker_ability"
-				"Function"		"OnBerserkAcquired"
-			}
-		}
 	}
 	//=======================================
 	// Berserker Attribute : God Hand
@@ -684,7 +337,8 @@
 	"berserker_5th_attribute_god_hand"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/heracles/berserker_5th_attribute_god_hand"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/berserker_5th_attribute_god_hand"
@@ -705,14 +359,6 @@
             "health_for_life" "100000"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"berserker_ability"
-				"Function"		"OnGodHandAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -721,7 +367,8 @@
 	"berserker_5th_attribute_reincarnation"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/heracles/berserker_5th_attribute_reincarnation"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/berserker_5th_attribute_reincarnation"
@@ -744,14 +391,6 @@
             "bonus_count_percentage" "300"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"berserker_ability"
-				"Function"		"OnReincarnationAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -796,4 +435,6 @@
 		{
 		}
 	}
+
+	// [restored] возвращён после ошибочной чистки
 }

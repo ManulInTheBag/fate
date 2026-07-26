@@ -29,12 +29,13 @@ function maou_nobbus_herc_slam:OnSpellStart()
 						center_z = self:GetCursorPosition().z }
 	caster:RemoveModifierByName("modifier_knockback")
 	caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)
-	local damage = self:GetSpecialValueFor("damage")  + caster.Level * self:GetSpecialValueFor("damage_per_caster_level")
+	local damage = self:GetSpecialValueFor("damage")  + (caster.Level or 0) * self:GetSpecialValueFor("damage_per_caster_level")
 	local range = self:GetSpecialValueFor("range")
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	local width = self:GetSpecialValueFor("width")
 	local vec = (self:GetCursorPosition() - caster:GetAbsOrigin() ):Normalized()
 	Timers:CreateTimer(0.5, function()
+		if not IsNotNull(caster) then return end
 		local point = caster:GetAbsOrigin()
 
 		local pointEnd =point + range * vec
@@ -50,16 +51,20 @@ function maou_nobbus_herc_slam:OnSpellStart()
 		)
 		EmitSoundOnLocationWithCaster(pointEnd, "heracles_q_new_1", caster)
 
+		-- владелец мог умереть/развидеться раньше нобуса — тогда бьём от самого нобуса
+		local hDamageSource = IsNotNull(caster.Caster) and caster.Caster or caster
+		local hDamageAbility = IsNotNull(caster.Ability) and caster.Ability or self
 		for _, enemy in pairs(hEnemies) do
-			 DoDamage(caster.Caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, caster.Ability, false)
+			 DoDamage(hDamageSource, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, hDamageAbility, false)
 
 			giveUnitDataDrivenModifier(caster,enemy , "stunned", stun_duration)
 		end
 		local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_fissure_nobbus.vpcf", PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin()+caster:GetForwardVector() * 100, caster:GetForwardVector())
 		ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+caster:GetForwardVector() * 100,  caster:GetForwardVector())
-		ParticleManager:SetParticleControlTransformForward(particle, 3, Vector(range, 0, 0))
-	
+		-- CP3 в heracles_fissure_nobbus.vpcf (и во всех его детях) не используется:
+		-- вызов был лишним и падал на нехватке аргументов
+		ParticleManager:ReleaseParticleIndex(particle)
 	end)
 	
 end

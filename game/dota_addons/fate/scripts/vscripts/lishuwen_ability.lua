@@ -24,30 +24,6 @@ function OnMartialStart(keys)
 	target:EmitSound("Hero_Nightstalker.Void")
 end
 
-function OnMartialAttackStart(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local chance = keys.Chance
-	local ability = keys.ability
-	if not target:HasModifier("modifier_mark_of_fatality") then return end
-	local stacks = target:FindModifierByName("modifier_mark_of_fatality"):GetStackCount()
-	chance = stacks * chance
-	local roll = math.random(100)
-	if roll < chance then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_martial_arts_crit_hit", {})
-	end
-end
-
-function OnMartialAttackLanded(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	if ability:GetLevel() == 2 and target:HasModifier("modifier_mark_of_fatality") then
-		DoDamage(caster, target, target:GetMaxHealth() * 3.5/100, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	end
-
-end
-
 function ApplyMarkOfFatality(caster,target)
 	local abil = caster:FindAbilityByName("lishuwen_martial_arts")
 
@@ -56,7 +32,7 @@ function ApplyMarkOfFatality(caster,target)
 	-- add new stack
 	local currentStack = target:GetModifierStackCount("modifier_mark_of_fatality", abil)
 	target:RemoveModifierByName("modifier_mark_of_fatality") 
-	abil:ApplyDataDrivenModifier(caster, target, "modifier_mark_of_fatality", {}) 
+	target:AddNewModifier(caster, abil, "modifier_mark_of_fatality", {}) 
 	target:SetModifierStackCount("modifier_mark_of_fatality", abil, currentStack + 1)
 end
 
@@ -65,7 +41,7 @@ function GrantFuriousChainBuff(caster)
 	-- add new stack
 	local currentStack = caster:GetModifierStackCount("modifier_furious_chain_buff", abil)
 	caster:RemoveModifierByName("modifier_furious_chain_buff") 
-	abil:ApplyDataDrivenModifier(caster, caster, "modifier_furious_chain_buff", {}) 
+	caster:AddNewModifier(caster, abil, "modifier_furious_chain_buff", {}) 
 	caster:SetModifierStackCount("modifier_furious_chain_buff", abil, currentStack + 1)
 end
 
@@ -108,26 +84,6 @@ function OnBerserkStart(keys)
 end
 
 
-function OnConcealmentStart(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	GrantCosmicOrbitResist(caster)
-	LishuwenCheckCombo(caster, ability)
-	local stopOrder = {
-		UnitIndex = keys.caster:entindex(),
-		OrderType = DOTA_UNIT_ORDER_HOLD_POSITION
-	}
-	ExecuteOrderFromTable(stopOrder) 
-	-- grant invisibility and regen modifier
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lishuwen_concealment", {})
-	caster:EmitSound("Hero_PhantomLancer.Doppelwalk")
-end
-
-function OnConcealmentBroken(keys)
-	local caster = keys.caster
-	if caster:HasModifier("modifier_lishuwen_concealment") then caster:RemoveModifierByName("modifier_lishuwen_concealment") end
-end
-
 function OnCosmicOrbitStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -155,171 +111,6 @@ function OnCosmicOrbitAttackLanded(keys)
 	else
 		caster.nBaseAttackCount = caster.nBaseAttackCount + 1
 	end
-end
-
-function OnTigerStrikeLevelUp(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-
-	local t2 = caster:FindAbilityByName("lishuwen_fierce_tiger_strike_2")
-	t2:SetLevel(ability:GetLevel())
-
-
-	local t3 = caster:FindAbilityByName("lishuwen_fierce_tiger_strike_3")
-	t3:SetLevel(ability:GetLevel())
-end
-
-function TigerStrikeCheckTarget(caster, target, ability)
-	if target ~= caster.tigerStrikeTarget then
-		caster:GiveMana(ability:GetManaCost(-1))
-		ability:EndCooldown()
-		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Be_Cast_Now")
-		return true
-	end
-	return false
-end
-
-function OnTigerStrike1Start(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	if IsSpellBlocked(keys.target, caster) then return end
-
-	GrantCosmicOrbitResist(caster)
-	if caster.bIsMartialArtsImproved then
-		ApplyMarkOfFatality(caster, target)
-	end
-
-	local trailFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, target )
-	ParticleManager:SetParticleControl( trailFx, 1, caster:GetAbsOrigin() )
-	-- do damage and apply CC
-	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-	caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100)
-	FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )
-	ParticleManager:SetParticleControl( trailFx, 0, target:GetAbsOrigin() )
-
-	if caster.bIsFuriousChainAcquired then
-		keys.Damage = keys.Damage + caster:GetAgility() * ATTR_AGI_RATIO
-		GrantFuriousChainBuff(caster) 
-		if target:HasModifier("modifier_mark_of_fatality") then
-			caster:SetMana(caster:GetMana()+ATTR_MANA_REFUND)
-		end
-	end
-	DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-	if not IsImmuneToSlow(target) then ability:ApplyDataDrivenModifier(caster, target, "modifier_fierce_tiger_strike_1_slow", {}) end
-	-- switch strike 1 with 2
-	caster:SwapAbilities("lishuwen_tiger_strike", "lishuwen_fierce_tiger_strike_2", false, true) 
-	caster.bIsCurrentTSCycleFinished = false
-	-- start a timer to revert layout back after set time(4 sec)
-    Timers:CreateTimer('fierce_tiger_timer', {
-        endTime = 4,
-        callback = function()
-		local currentAbil = caster:GetAbilityByIndex(2)
-		if currentAbil:GetAbilityName() ~= "lishuwen_tiger_strike" or not caster.bIsTSCycleFinished then
-			caster:SwapAbilities("lishuwen_tiger_strike",currentAbil:GetAbilityName() , true, false) 
-		end
-	end})
-	-- if ability index 3 is not lishuwen_tiger_strike, swap current index 3 with lishuwen_tiger_strike
-	caster:EmitSound("Hero_EarthShaker.Attack")
-    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
-    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
-    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_first_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
-	ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
-    --ParticleManager:SetParticleControlOrientation(groundFx, 0, RandomVector(300), Vector(0,1,0), Vector(1,0,0))
-
-	-- HAX
-	caster.tigerStrikeTarget = target
-end
-
-
-function OnTigerStrike2Start(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	
-	if TigerStrikeCheckTarget(caster, target, ability) then return end
-	if IsSpellBlocked(keys.target, caster) then return end
-
-	GrantCosmicOrbitResist(caster)
-	if caster.bIsMartialArtsImproved then
-		ApplyMarkOfFatality(caster, target)
-	end
-	if caster.bIsFuriousChainAcquired then
-		keys.Damage = keys.Damage + caster:GetAgility() * ATTR_AGI_RATIO
-		GrantFuriousChainBuff(caster)
-		if target:HasModifier("modifier_mark_of_fatality") then
-			caster:SetMana(caster:GetMana()+ATTR_MANA_REFUND)
-		end
-	end
-	-- do damage and apply CC
-	DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-	keys.target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 0.1})
-
-	local modifierKnockback =
-	{
-		center_x = caster:GetAbsOrigin().x,
-		center_y = caster:GetAbsOrigin().y,
-		center_z = caster:GetAbsOrigin().z,
-		duration = 0.1,
-		knockback_duration = 0.1,
-		knockback_distance = 30,
-		knockback_height = 0,
-	}
-	target:AddNewModifier(target, nil, "modifier_knockback", modifierKnockback )
-	--caster:SetAbsOrigin(target:GetAbsOrigin() - target:GetForwardVector():Normalized()*100)
-
-	caster:SetAbsOrigin(target:GetAbsOrigin()-(caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()*130)
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_second_strike_turnrate", {})
-	-- switch strike 1 with 2
-	caster:SwapAbilities("lishuwen_fierce_tiger_strike_2", "lishuwen_fierce_tiger_strike_3", false, true)
-	caster:EmitSound("Hero_EarthShaker.Fissure")
-	local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
-	ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
-	local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_second_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
-	ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
-end
-
-function OnTigerStrike3Start(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-
-	if TigerStrikeCheckTarget(caster, target, ability) then return end
-	if IsSpellBlocked(keys.target, caster) then return end
-
-	GrantCosmicOrbitResist(caster)
-	if caster.bIsMartialArtsImproved then
-		ApplyMarkOfFatality(caster, target)
-	end
-
-	-- do damage and apply CC
-	local damage = target:GetMaxHealth()*keys.DamagePercent/100
-	if caster.bIsFuriousChainAcquired then
-		damage = damage + caster:GetAgility() * ATTR_AGI_RATIO
-		GrantFuriousChainBuff(caster)
-		if target:HasModifier("modifier_mark_of_fatality") then
-			caster:SetMana(caster:GetMana()+ATTR_MANA_REFUND)
-		end
-	end
-	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, keys.ability, false)
-	caster:RemoveModifierByName("modifier_second_strike_turnrate")
-	if not IsImmuneToSlow(target) then ability:ApplyDataDrivenModifier(caster, target, "modifier_fierce_tiger_strike_3_slow", {}) end
-	Timers:RemoveTimer('fierce_tiger_timer')
-	-- switch strike 1 with 2
-	caster:SwapAbilities("lishuwen_fierce_tiger_strike_3", "lishuwen_tiger_strike", false, true)
-
-	caster:EmitSound("Hero_EarthShaker.Totem")
-	local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
-	ParticleManager:SetParticleControl( groundFx1, 1, target:GetAbsOrigin())
-	local groundFx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
-	ParticleManager:SetParticleControl( groundFx2, 1, target:GetAbsOrigin())
-	ParticleManager:SetParticleControlOrientation(groundFx1, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-	ParticleManager:SetParticleControlOrientation(groundFx2, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-	local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_third_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
-	ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
-
-	caster.tigerStrikeTarget = nil
 end
 
 function OnNSSCastStart(keys)
@@ -439,124 +230,6 @@ function OnNSSDelayFinished(keys)
 	-- do damage and apply CC
 end
 
-function OnDragonStrike1Start(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	-- Set master's combo cooldown
-	local masterCombo = caster.MasterUnit2:FindAbilityByName(keys.ability:GetAbilityName())
-	masterCombo:EndCooldown()
-	masterCombo:StartCooldown(keys.ability:GetCooldown(1))
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_raging_dragon_strike_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
-
-	local tigerStrikeAbility = caster:FindAbilityByName("lishuwen_tiger_strike")
-	local tigerStrikeCooldown = tigerStrikeAbility:GetCooldown(tigerStrikeAbility:GetLevel())
-	tigerStrikeAbility:StartCooldown(tigerStrikeCooldown)
-
-	if IsSpellBlocked(keys.target, caster) then return end
-
-	--GrantCosmicOrbitResist(caster)
-	--[[if caster.bIsFuriousChainAcquired then
-		keys.Damage = keys.Damage + caster:GetAgility() * ATTR_AGI_RATIO
-		GrantFuriousChainBuff(caster) 
-		if target:HasModifier("modifier_mark_of_fatality") then
-			caster:SetMana(caster:GetMana()+ATTR_MANA_REFUND)
-		end
-	end]]
-
-	caster.targetTable = {} 
-	-- fire linear projectile 
-	local projectile = 
-	{
-		Ability = keys.ability,
-        EffectName = "particles/econ/items/lina/lina_head_headflame/lina_spell_dragon_slave_headflame.vpcf",
-        iMoveSpeed = 9999,
-        vSpawnOrigin = caster:GetAbsOrigin(),
-        fDistance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() - 150, -- give 50 unit buffer 
-        fStartRadius = 250,
-        fEndRadius = 250,
-        Source = caster,
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-        iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-        fExpireTime = GameRules:GetGameTime() + 0.1,
-		bDeleteOnHit = false,
-		vVelocity = caster:GetForwardVector() * 9999
-	}
-	ProjectileManager:CreateLinearProjectile(projectile)
-
-	-- Wait 1 frame to receive target info
-	Timers:CreateTimer(0.034, function()
-		local startpoint = caster:GetAbsOrigin()
-		local endpoint = nil
-		for k,v in pairs(caster.targetTable) do
-			DoDamage(caster, v, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-			caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(v, 5)
-			ApplyMarkOfFatality(caster, v)
-			endpoint = v:GetAbsOrigin()
-			local trailFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, v )
-			ParticleManager:SetParticleControl( trailFx, 1, startpoint )
-			ParticleManager:SetParticleControl( trailFx, 0, endpoint )
-			startpoint = v:GetAbsOrigin()
-			v:EmitSound("Hero_EarthShaker.Attack")
-		end
-		local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-		caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100)
-		FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )
-	end)
-
-	caster:SwapAbilities("lishuwen_raging_dragon_strike", "lishuwen_raging_dragon_strike_2", false, true) 
-	caster.bIsCurrentDSCycleFinished = false
-	caster.bIsCurrentDSCycleStarted = true
-
-
-	-- start a timer to revert layout back after set time(4 sec)
-    --[[Timers:CreateTimer('raging_dragon_timer', {
-        endTime = 4,
-        callback = function()
-		local currentAbil = caster:GetAbilityByIndex(2)
-		if currentAbil:GetAbilityName() ~= "lishuwen_raging_dragon_strike" or not caster.bIsCurrentDSCycleFinished then
-			caster:SwapAbilities("lishuwen_tiger_strike",currentAbil:GetAbilityName() , true, false) 
-		end
-	end})]]
-
-	caster:EmitSound("Hero_EarthShaker.Attack")
-    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
-    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
-    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_first_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
-	ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
-end
-
-function OnDragonStrike1ProjectileHit(keys)
-	local caster = keys.caster
-	local target = keys.target 
-	table.insert(caster.targetTable,target)
-end
-
-function OnDragonStrike2Start(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	--GrantCosmicOrbitResist(caster)
-	caster:SwapAbilities("lishuwen_raging_dragon_strike_2", "lishuwen_raging_dragon_strike_3", false, true) 
-	--[[if caster.bIsFuriousChainAcquired then
-		keys.Damage = keys.Damage + caster:GetAgility() * ATTR_AGI_RATIO
-		GrantFuriousChainBuff(caster) 
-	end]]
-
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, keys.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-	for k,v in pairs(targets) do
-		DoDamage(caster, v, keys.Damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
-		caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(v, 5)
-		v:AddNewModifier(caster, v, "modifier_stunned", {Duration = keys.StunDuration})
-	end
-	caster:EmitSound("Hero_Centaur.HoofStomp")
-	local risingWindFx = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_second_hit.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl( firstStrikeFx, 0, caster:GetAbsOrigin())
-end
-
 vectors = {
 	Vector(500, 500, 500),
 	Vector(-500,-500,300),
@@ -593,136 +266,6 @@ vectorsV2 = {
 	Vector(0,500, -500)
 }
 
-function OnDragonStrike3Start(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	local count = keys.Count
-	--GrantCosmicOrbitResist(caster)
-	caster.bIsCurrentDSCycleFinished = true
-	Timers:RemoveTimer('raging_dragon_timer')
-	caster:SwapAbilities("lishuwen_tiger_strike","lishuwen_raging_dragon_strike_3", true, false) 
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-
-	if #targets == 0 then 
-    		local abil = caster:FindAbilityByName("lishuwen_raging_dragon_strike")
-    		ReduceCooldown(abil, abil:GetCooldown(1)*0.75)
-    		caster:RemoveModifierByName("modifier_raging_dragon_strike_cooldown")
-    		abil:ApplyDataDrivenModifier(caster, caster, "modifier_raging_dragon_strike_cooldown", {duration = abil:GetCooldown(abil:GetLevel())*0.25})
-		local masterabil = caster.MasterUnit2:FindAbilityByName("lishuwen_raging_dragon_strike")
-		masterabil:EndCooldown()
-		masterabil:StartCooldown(masterabil:GetCooldown(1)*0.25)    
-		return 
-	end
-
-	keys.Damage = keys.Damage + caster:GetAverageTrueAttackDamage(caster) * 0.2
-
-	print (keys.Damage)
-
-	local endpoint = nil
-	local counter = 0
-
-	--[[if caster.bIsFuriousChainAcquired then
-		keys.Damage = keys.Damage + caster:GetAgility() * ATTR_AGI_RATIO
-		GrantFuriousChainBuff(caster) 
-	end]]
-	-- knock them up and create counter
-	for k,v in pairs(targets) do
-		v.nDragonStrikeComboCount = 0
-		ApplyAirborne(caster, v, keys.KnockupDuration)
-	end
-
-	giveUnitDataDrivenModifier(keys.caster, keys.caster, "jump_pause", keys.KnockupDuration)
-
-	local dummy = CreateUnitByName("godhand_res_locator", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
-	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
-	dummy:AddNewModifier(caster, nil, "modifier_phased", {duration=2})
-	dummy:AddNewModifier(caster, nil, "modifier_kill", {duration=2})
-
-	Timers:CreateTimer(0.2, function()
-		if counter == 15 then 
-			local position = caster:GetAbsOrigin()
-			local dummyPosition = dummy:GetAbsOrigin()
-			if not IsInSameRealm(position, dummyPosition) then
-				position = dummyPosition
-			end
-			FindClearSpaceForUnit(caster, position, true)
-			return 
-		end
-
-		local target = nil
-
-        for i=1, 50 do
-			local curIndex = math.random(#targets)
-			if targets[curIndex].nDragonStrikeComboCount < 15 then
-				targets[curIndex].nDragonStrikeComboCount = targets[curIndex].nDragonStrikeComboCount + 1
-				target = targets[curIndex]
-				break
-			end
-		end
-		--[[for k,v in pairs(targets) do
-			if v.nDragonStrikeComboCount < 8 then
-				v.nDragonStrikeComboCount = v.nDragonStrikeComboCount + 1
-				target = v
-			end
-		end]]
-		
-		if target ~= nil then
-			--print(target:GetName() .. counter)
-			DoCompositeDamage(caster, target, keys.Damage, DAMAGE_TYPE_COMPOSITE, 0, keys.ability, false)
-			ApplyMarkOfFatality(caster, target)
-			caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 1)
-		end
-
-
-
-		--newpoint = Vector(startpoint.x + RandomInt(1,600), startpoint.y + RandomInt(1, 600), startpoint.y+500)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_raging_dragon_strike_3_anim", {})
-		local currentpoint = caster:GetAbsOrigin()
-		local newpoint = currentpoint+vectorsV2[counter+1]*0.5
-		caster:SetAbsOrigin(newpoint)
-		local trailFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, caster )
-		ParticleManager:SetParticleControl( trailFx, 1, currentpoint )
-		ParticleManager:SetParticleControl( trailFx, 0, newpoint )
-
-		if target ~= nil then
-		    local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf", PATTACH_ABSORIGIN, target )
-		    ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())
-	   	end
-		caster:EmitSound("Hero_Tusk.WalrusPunch.Target")
-		counter = counter + 1
-		return 0.08
-	end)
-
-	caster:EmitSound("Hero_Earthshaker.Pick")
-	--EmitGlobalSound("Lishuwen.Shout")
-	local soundQueue = math.random(1,3)
-
-	if caster:HasModifier("modifier_berserk") then
-		EmitGlobalSound("RYOOH")
-		EmitZlodemonTrueSoundEveryone("moskes_li_combo_bers")
-	else
-		EmitGlobalSound("Lishuwen_Combo_3_" .. soundQueue)
-		EmitZlodemonTrueSoundEveryone("moskes_li_combo".. math.random(1,2))
-	end
-	LoopOverPlayers(function(player, playerID, playerHero)
-    	--print("looping through " .. playerHero:GetName())
-        if playerHero.gachi == true then
-        	-- apply legion horn vsnd on their client
-        	CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="Pchela"})
-        	--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
-        end
-    end)
-
-    local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, caster )
-    ParticleManager:SetParticleControl( groundFx1, 1, caster:GetAbsOrigin())
-    local groundFx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, caster )
-    ParticleManager:SetParticleControl( groundFx2, 1, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControlOrientation(groundFx1, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-    ParticleManager:SetParticleControlOrientation(groundFx2, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_third_hit.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl( firstStrikeFx, 0, caster:GetAbsOrigin())
-end
-
 function LishuwenCheckCombo(caster, ability)
     if caster:GetStrength() >= 19.1 and caster:GetAgility() >= 19.1 and caster:GetIntellect() >= 19.1 then
         --[[if ability == caster:FindAbilityByName("lishuwen_concealment") then
@@ -744,7 +287,7 @@ function LishuwenCheckCombo(caster, ability)
                 	local abil = caster:FindAbilityByName("lishuwen_raging_dragon_strike")
                 	ReduceCooldown(abil, abil:GetCooldown(1)*0.75)
                 	caster:RemoveModifierByName("modifier_raging_dragon_strike_cooldown")
-                	abil:ApplyDataDrivenModifier(caster, caster, "modifier_raging_dragon_strike_cooldown", {duration = abil:GetCooldown(abil:GetLevel())*0.25})
+                	caster:AddNewModifier(caster, abil, "modifier_raging_dragon_strike_cooldown", {duration = abil:GetCooldown(abil:GetLevel())*0.25})
 					local masterabil = caster.MasterUnit2:FindAbilityByName("lishuwen_raging_dragon_strike")
 					masterabil:EndCooldown()
 					masterabil:StartCooldown(masterabil:GetCooldown(1)*0.25)            	
@@ -758,62 +301,3 @@ function LishuwenCheckCombo(caster, ability)
     end
 end
 
-function OnCirculatoryShockAcquired(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.bIsCirculatoryShockAcquired = true
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-end
-
-function OnMartialArtsImproved(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.bIsMartialArtsImproved = true
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-	hero:FindAbilityByName("lishuwen_martial_arts"):SetLevel(2)
-	hero:AddAbility("lishuwen_martial_arts_passive_dummy")
-	hero:FindAbilityByName("lishuwen_martial_arts_passive_dummy"):SetLevel(1)
-	AuraRefresh(keys)
-
-	--[[if not hero:HasModifier("modifier_martial_arts_passive") then
-		hero:AddNewModifier(hero, ability, "modifier_martial_arts_passive", { ManaBurnAmount = 55 })
-	end]]
-	-- allow NSS and FTS to apply mark of fatality
-end
-
-function OnDualClassAcquired(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.bIsDualClassAcquired = true
-	hero:FindAbilityByName("lishuwen_berserk"):SetLevel(1)
-	hero:SwapAbilities("lishuwen_berserk", "fate_empty1", true, false) 
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-end
-
-function OnFuriousChainAcquired(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.bIsFuriousChainAcquired = true
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-	-- AGI scaling and mana refund on abilities
-	-- aspd and ms buff
-end
-
-function AuraRefresh(keys)
-	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
-	hero:RemoveModifierByName("modifier_martial_arts_aura") 
-	hero:FindAbilityByName("lishuwen_martial_arts"):ApplyDataDrivenModifier(hero, hero, "modifier_martial_arts_aura", {}) 
-end

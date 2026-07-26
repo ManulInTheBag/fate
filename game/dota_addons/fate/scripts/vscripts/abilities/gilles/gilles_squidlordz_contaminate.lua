@@ -33,7 +33,7 @@ if IsServer() then
 
 		self:StartIntervalThink(0.33)
 
-		self.Particle = ParticleManager:CreateParticle("particles/custom/gilles/contaminate_debuff", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+		self.Particle = ParticleManager:CreateParticle("particles/custom/gilles/contaminate_debuff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(self.Particle, 0, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 	end
 

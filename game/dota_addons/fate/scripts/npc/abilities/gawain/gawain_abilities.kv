@@ -58,7 +58,8 @@
 
 	"gawain_blessing_proxy"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gawain/gawain_blessing_proxy"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/gawain_attribute_blessing_of_fairy"
 		"MaxLevel"						"1"
@@ -79,7 +80,8 @@
 	//=================================================================================================================
 	"gawain_blessing_of_fairy"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gawain/gawain_blessing_of_fairy"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/gawain_attribute_blessing_of_fairy"
 		"MaxLevel"						"1"
@@ -100,45 +102,7 @@
         }
 
 		
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"			"modifier_gawain_revive"
-				"Target"				"CASTER"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_gawain_revive"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"gawain_ability"
-						"Function"		"OnFairyDamageTaken"
-						"DamageTaken"	"%attack_damage"
-					}
-				}
-			}
-			"modifier_gawain_blessing_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"modifier_gawain_revive_regen"
-			{
-				"Duration"				"5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"     		"333"
-				}
-			}
-		}
 	}
 
 	
@@ -188,7 +152,8 @@
 	"gawain_excalibur_galatine"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gawain/gawain_excalibur_galatine"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -228,60 +193,7 @@
             "max_range" "1500"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"    		"gawain_ability"
-				"Function"      		"OnGalatineStart"
-				"Target"				"POINT"
-				"Damage"				"%damage"
-				"BurnDamage"			"%dot_damage"
-				"Max_range"				"%max_range"
-				"Radius"				"%radius"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"			"modifier_excalibur_galatine_vfx"
-				"Target"				"CASTER"
-			}
-		}
 		
-		"Modifiers"
-		{		
-			"modifier_excalibur_galatine_vfx"
-			{
-				"Duration"		"1.75"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/custom/saber_excalibur_circle.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"EffectRadius"		"400"
-					}
-				}
-			}
-
-			"modifier_excalibur_galatine_burnk"
-			{
-				"EffectName"			"particles/units/heroes/hero_doom_bringer/doom_infernal_blade_debuff.vpcf"
-				"EffectAttachType"		"follow_origin"			
-				"IsDebuff"				"1"
-				"Duration"				"%duration"
-				"ThinkInterval"			"0.25"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"gawain_ability"
-						"Function"			"OnBurnDamageTick"
-						"Damage"			"%dot_damage"
-					}
-				}
-			}
-		}
 	}
 
 	//=======================================
@@ -290,7 +202,8 @@
 	"gawain_excalibur_galatine_detonate"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gawain/gawain_excalibur_galatine_detonate"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/gawain_excalibur_galatine"
@@ -308,14 +221,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"gawain_ability"
-				"Function"				"OnGalatineDetonate"
-			}
-		}
 	}
 
 
@@ -327,7 +232,8 @@
 	"gawain_attribute_blessing_of_fairy"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gawain/gawain_attribute_blessing_of_fairy"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/gawain_attribute_blessing_of_fairy"
@@ -348,19 +254,7 @@
             "duration" "3"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gawain_ability"
-				"Function"		"OnFairyAcquired"
-			}
-		}
 
-		"Modifiers"
-		{
-
-		}
 	}
 	
 	//=======================================================
@@ -369,7 +263,8 @@
 	"gawain_attribute_res_sov"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gawain/gawain_attribute_res_sov"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/gawain_attribute_dawnbringer"
@@ -390,14 +285,6 @@
             "fire_trail_duration" "1.5"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"gawain_ability"
-				"Function"			"OnSoVAcquired"
-			}
-		}
 	}
 
  

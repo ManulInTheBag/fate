@@ -1,6 +1,5 @@
 #base "lu_bu_armistice.kv"
 #base "lu_bu_halberd_throw.kv"
-#base "lu_bu_god_strike.kv"
 #base "lu_bu_rebellious_spirit.kv"
 #base "lu_bu_bravery.kv"
 #base "lu_bu_god_force.kv"
@@ -200,37 +199,4 @@
 	//=======================================★★★★★
 	// Attribute: Combo List
 	//=======================================★★★★★
-	"lu_bu_combo_list"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/lu_bu/lu_bu_attributes"
-		"MaxLevel"						"1"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/lu_bu/lu_bu_sky_piercer"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "radius" "3000"
-            "duration" "2"
-            "slow_duration" "7"
-            "crack_time" "2"
-            "crack_width" "500"
-            "crack_distance" "5000"
-            "damage" "600"
-            "slow_pct" "75"
-        }
-	}
 }

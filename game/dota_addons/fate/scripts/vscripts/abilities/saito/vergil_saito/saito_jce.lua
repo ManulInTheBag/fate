@@ -237,6 +237,8 @@ function modifier_saito_jce:PerformJCEMotion(hCaster, hVergil_JCE_ComboTable, bI
 end
 
 function modifier_saito_jce:OnDestroy()
+	-- OnDestroy идёт в обеих VM, а поля заведены в OnCreated под IsServer
+	if not IsServer() then return end
     if IsServer() then
     	self.caster:RemoveNoDraw() --if something went wrong this should fix nodraw
 

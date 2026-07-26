@@ -107,12 +107,12 @@ function karna_recast_dash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 				giveUnitDataDrivenModifier(caster, hTarget, "stunned",  0.5)
 				hTarget:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 			else
-				hTarget:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-				hTarget:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+				local sa_mod = hTarget:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+				if sa_mod then sa_mod:SetStackCount(stacks + 1) end
 			end
 		else
-			hTarget:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-			hTarget:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+			local sa_mod = hTarget:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+			if sa_mod then sa_mod:SetStackCount(1) end
 		end
 	end
 	ApplyAirborne(caster, hTarget, 0.5)--self:GetAbility():GetSpecialValueFor("airborne_duration"))

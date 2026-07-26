@@ -10,9 +10,11 @@ function emiya_combo:OnSpellStart()
 	if IsSpellBlocked(enemy, caster) then 
 		caster:AddNewModifier(caster, ability, "modifier_arrow_rain_cooldown", {duration = self:GetCooldown(1)})
 		-- Set master's combo cooldown
-		local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
-		masterCombo:EndCooldown()
-		masterCombo:StartCooldown(self:GetCooldown(1))
+		local masterCombo = IsNotNull(caster.MasterUnit2) and caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+		if masterCombo then
+			masterCombo:EndCooldown()
+			masterCombo:StartCooldown(self:GetCooldown(1))
+		end
 		caster:RemoveModifierByName("modifier_ubw_chant_count")
 		caster:RemoveModifierByName("modifier_arrow_rain_window")
 		return 
@@ -57,19 +59,24 @@ function emiya_combo:OnSpellStart()
 
 	caster:AddNewModifier(caster, ability, "modifier_arrow_rain_cooldown", {duration = self:GetCooldown(1)})
 	-- Set master's combo cooldown
-	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
-	masterCombo:EndCooldown()
-	masterCombo:StartCooldown(self:GetCooldown(1))
+	local masterCombo = IsNotNull(caster.MasterUnit2) and caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+	if masterCombo then
+		masterCombo:EndCooldown()
+		masterCombo:StartCooldown(self:GetCooldown(1))
+	end
 	enemy:AddNewModifier(caster, self, "modifier_ubw_chronosphere", { Duration = 2 })
 
 
 	Timers:CreateTimer(0.5,function()
+		-- если Эмия умер на рывке, UBW открывать нечего: иначе арена с дамми и
+		-- огненным кольцом создавалась, а вход в UBW уже не проходил
+		if not IsNotNull(caster) or not caster:IsAlive() then return end
+		if not IsNotNull(ubw_ability) then return end
 		ubw_ability:StartUBW(false)
-
-	
 	end)
 
 	Timers:CreateTimer(2.0, function()
+		if not IsNotNull(caster) or not caster:IsAlive() then return end
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			caster:EmitSound("emiya_skin_ubw_combo")
 		else
@@ -84,7 +91,6 @@ function emiya_combo:OnSpellStart()
 	
 		
 		local centerpos = caster:GetAbsOrigin() + caster:GetForwardVector()*700
-		local enemypos = enemy:GetAbsOrigin()
 		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1)
 		local knockback2 = { should_stun = true,
 			knockback_duration = 0.2,
@@ -102,9 +108,11 @@ function emiya_combo:OnSpellStart()
 	
 	end)
 	Timers:CreateTimer(2.6, function()
-		if caster:IsAlive() then 
-			caster:MoveToTargetToAttack(enemy)
-			local enemypos = enemy:GetAbsOrigin()
+		if not IsNotNull(caster) then return end
+		if caster:IsAlive() then
+			if IsNotNull(enemy) then
+				caster:MoveToTargetToAttack(enemy)
+			end
 			--if  IsInSameRealm(caster:GetAbsOrigin(), enemypos) then
 				StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START, rate=1})
 				self:SwordRain(ubwCenter)
@@ -131,13 +139,14 @@ function emiya_combo:OnSpellStart()
 		end
 	end)
 	Timers:CreateTimer(4.5, function()
-		if caster:IsAlive() then 
+		if not IsNotNull(caster) then return end
+		if caster:IsAlive() then
 			caster:EmitSound("emiya_big_swords_spawn_combo")
 		end
 	end)
 	Timers:CreateTimer(5.3, function()
-		if caster:IsAlive() then 
-			local enemypos = enemy:GetAbsOrigin()
+		if not IsNotNull(caster) then return end
+		if caster:IsAlive() then
 			--if  IsInSameRealm(caster:GetAbsOrigin(), enemypos) then
 				local explosion_damage = self:GetSpecialValueFor("explosion_damage")
 				caster:EmitSound("explosion_emiya")
@@ -171,6 +180,7 @@ function emiya_combo:SwordRain(enemypos)
 	local forwardVec = ( targetPoint - caster:GetAbsOrigin() ):Normalized()
 	local damage = self:GetSpecialValueFor("rain_damage")
 	Timers:CreateTimer(function()
+		if not IsNotNull(caster) then return end
 		if caster:IsAlive() then
 			if duration >= 6 then return
 			else
@@ -202,7 +212,8 @@ function emiya_combo:SwordRain(enemypos)
 					ParticleManager:ReleaseParticleIndex( swordFxIndex )
 					
 					-- Delay damage
-					local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint + swordVector, nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+					if not IsNotNull(caster) then return nil end
+					local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint + swordVector, nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					for k,v in pairs(targets) do
 						--[[if v:HasModifier("modifier_sword_barrage_confine") then
 							DoDamage(caster, v, damage * 1.4, DAMAGE_TYPE_PHYSICAL, 0, self, false)

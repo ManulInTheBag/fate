@@ -1,9 +1,9 @@
 
 #base "sasaki_gatekeeper.kv"
 #base "sasaki_heart_of_harmony.kv"
-#base "sasaki_windblade.kv"
 #base "sasaki_tsubame.kv"
 #base "sasaki_quickdraw.kv"
+#base "sasaki_windblade.kv"
 
 "DOTAAbilities"
 {
@@ -12,7 +12,8 @@
 	//=================================================================================================================
 	"false_assassin_minds_eye"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/sasaki/false_assassin_minds_eye"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/false_assassin_minds_eye"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -30,81 +31,7 @@
             "agi_ratio_revoked" "0.6 1.2"
         }
 		
-		"OnSpellStart"
-		{
-		}
 		
-		"Modifiers"
-		{
-			"modifier_minds_eye"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"fa_ability"
-						"Function"			"OnMindsEyeAttacked"
-						"Ratio"				"%agi_ratio"
-						"RatioRevoked"		"%agi_ratio_revoked"
-					}
-				}
-			}
-			"modifier_minds_eye_crit"
-			{
-				"IsHidden"	"0"
-				//"Passive"	"1"
-				"OnAttackStart"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_minds_eye_crit_hit"
-						"Target"		"CASTER"
-					}
-
-					"Random"
-					{
-						"Chance"	"%critical_rate"
-						"OnSuccess"
-						{
-							"RunScript"
-							{
-								"ScriptFile"		"fa_ability"
-								"Function"			"OnFACrit"
-							}
-						}
-					}
-				}
-				"States"
-				{
-					//"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-
-			"modifier_minds_eye_crit_hit"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%critical_damage"
-				}
-				"OnAttackLanded"
-				{
-			    	"FireEffect"
-			    	{
-			    		"EffectName"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
-			    		"EffectAttachType"	"attach_hitloc"
-			    		"Target"			"TARGET"
-			    	}
-			        "RemoveModifier"
-			        {
-			            "ModifierName"  	"modifier_minds_eye_crit_hit"
-			            "Target"   			"CASTER"    
-			        }			
-				}
-			}
-		}
 	}
 
 	//========================================
@@ -112,7 +39,8 @@
 	//========================================
 	"false_assassin_gate_keeper"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/sasaki/false_assassin_gate_keeper"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/false_assassin_gate_keeper"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
@@ -149,66 +77,9 @@
             "mana_regen" "20"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"fa_ability"
-				"Function"			"OnGKStart"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_TemplarAssassin.Refraction"
-				"Target"		"CASTER"
-			}
-		}
 		
 		
 		
-		"Modifiers"
-		{
-			"modifier_gate_keeper_self_buff"
-			{
-				"Duration"		"%duration"
-				
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start_f.vpcf"
-						"EffectAttachType"	"start_at_origin"
-					}
-				
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_primal_split_storm_image.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						"ControlPointEntities"
-						{
-							"TARGET"		"attach_origin"
-							"TARGET"		"attach_origin"
-						}
-					}
-				}
-
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_hp_regen"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespeed_decrease"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"			"%bonus_sight"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%bonus_sight"
-				}
-				"States"
-				{
-				}
-
-			}
-		}
 	}
 
 	//=====================================
@@ -305,68 +176,6 @@
 	//========================================
 	// False Assassin : Windblade
 	//========================================
-	"false_assassin_windblade"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"custom/false_assassin_windblade"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate" 		"3.3"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"400"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"AbilityDamage"					"300 375 450 525 600"
-
-		"precache"
-		{
-			"particle"	"particles/custom/false_assassin/fa_thunder_clap.vpcf"
-		}
-		
-		"AbilityValues"
-        {
-            "damage" "300 375 450 525 600"
-            "radius" "500"
-            "global_cooldown" "30 26 22 18 14"
-            "focus_slashes" "1 1 2 2 3"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"fa_ability"
-				"Function"			"OnWBStart"
-				"Damage"			"%damage"
-				"Radius"			"%radius"
-				"GCD"				"%global_cooldown"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_wb_baseattack_reduction"
-			{
-				"Duration"	"0.033"
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-100"
-				}
-			}
-		}
-	}
 	
 	//========================================
 	// False Assassin : Heart of Harmony
@@ -604,139 +413,6 @@
 	//=====================================
 	// False Assassin : Tsubame Gaeshi
 	//=====================================
-	"false_assassin_tsubame_gaeshi"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityTextureName"			"custom/false_assassin_tsubame_gaeshi"
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate" 		"1.5"
-		
-		"AbilityCastPoint"				"0.85"
-		"AbilityCastRange"				"150"
-		"AbilityCastRangeBuffer"		"100"
-		"AbilityCooldown"				"50"
-		"AbilityManaCost"				"0"
-		
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_axe/axe_counterhelix_unused.vpcf"
-			"particle"		"particles/custom/false_assassin/fa_tsubame_gaeshi_first_slash.vpcf"
-			"particle"		"particles/custom/false_assassin/fa_tsubame_gaeshi_second_slash.vpcf"
-			"particle"		"particles/custom/false_assassin/fa_tsubame_gaeshi_third_slash.vpcf"
-			"particle"		"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
-			"particle"		"particles/custom/false_assassin/fa_illusory_wanderer_sword_glow.vpcf"
-			"particle"		"particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf"
-			"particle"		"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator.vpcf"
-		}
-
-		"AbilityValues"
-        {
-            "delay" "0.85"
-            "damage" "200 250 300 350 400"
-            "lasthit_damage" "300 375 450 525 600"
-            "stun_duration" "1.5"
-            "global_cooldown" "45 43 41 39 37"
-        }
-
-		"OnAbilityPhaseStart"
-		{
-			"FireEffect"
-			{
-				"Target"			"CASTER"
-				"EffectName"		"particles/units/heroes/hero_axe/axe_counterhelix_unused.vpcf"
-				"EffectAttachType"	"start_at_origin"
-			}
-		
-			"RunScript"
-			{
-				"ScriptFile"	"fa_ability"
-				"Function"		"TGPlaySound"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"fa_ability"
-				"Function"			"OnTGStart"
-				"Damage"			"%damage"
-				"LastDamage"		"%lasthit_damage"
-				"StunDuration"		"%stun_duration"
-				"GCD"				"%global_cooldown"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"		"modifier_tg_anim"
-				"Target"			"CASTER"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_tg_baseattack_reduction"
-			{
-				"Duration"	"1.0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-100"
-				}
-			}
-			"modifier_tg_overcharge_effect"
-			{
-				"IsHidden"	"1"
-				"Duration"	"1.0"
-				
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
-						"EffectAttachType"	"attach_hitloc"
-						"Target"			"TARGET"
-						
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_hitloc"
-						}
-					}
-				}
-			}
-			"modifier_tg_anim"
-			{
-				"Duration"	"1.0"
-				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_4"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"			"CASTER"
-						"EffectName"		"particles/custom/false_assassin/fa_illusory_wanderer_sword_glow.vpcf"
-						"EffectAttachType"	"follow_customorigin"
-						"ControlPointEntities"
-						{
-							"CASTER"		"attach_sword"
-						}
-					}
-				}				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"1.5"
-				}
-			}
-		}
-	}
 
 	//=======================================
 	// FA Attribute : Ganryu
@@ -744,7 +420,8 @@
 	"false_assassin_attribute_ganryu"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/sasaki/false_assassin_attribute_ganryu"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/false_assassin_attribute_ganryu"
@@ -766,14 +443,6 @@
             "armor_reduc" "33"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"fa_ability"
-				"Function"		"OnGanryuAcquired"
-			}
-		}
 	}
 	//=======================================
 	// FA Attribute : Eye of Serenity
@@ -781,7 +450,8 @@
 	"false_assassin_attribute_eye_of_serenity"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/sasaki/false_assassin_attribute_eye_of_serenity"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/false_assassin_attribute_eye_of_serenity"
@@ -801,14 +471,6 @@
             "vision_cd" "10.0"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"fa_ability"
-				"Function"		"OnEyeOfSerenityAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -817,7 +479,8 @@
 	"false_assassin_attribute_quickdraw"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/sasaki/false_assassin_attribute_quickdraw"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/false_assassin_attribute_quickdraw"
@@ -841,14 +504,6 @@
             "exhausted_duration" "8"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"fa_ability"
-				"Function"		"OnQuickdrawAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -857,7 +512,8 @@
 	"false_assassin_attribute_vitrification"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/sasaki/false_assassin_attribute_vitrification"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/false_assassin_attribute_vitrification"
@@ -875,14 +531,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"fa_ability"
-				"Function"		"OnVitrificationAcquired"
-			}
-		}
 	}
 	//=======================================
 	// FA Attribute : Improve Mind's Eye
@@ -890,7 +538,8 @@
 	"false_assassin_attribute_improve_minds_eye"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/sasaki/false_assassin_attribute_improve_minds_eye"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/false_assassin_attribute_improve_minds_eye"
@@ -911,13 +560,5 @@
             "attack_mana" "10"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"fa_ability"
-				"Function"		"OnMindsEyeImproved"
-			}
-		}
 	}	
 }

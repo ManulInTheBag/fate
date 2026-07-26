@@ -383,6 +383,8 @@ function modifier_medusa_bellerophon_landing:OnIntervalThink()
 end
 
 function modifier_medusa_bellerophon_landing:OnDestroy()
+	-- OnDestroy идёт в обеих VM, а поля заведены в OnCreated под IsServer
+	if not IsServer() then return end
 	FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
 end
 

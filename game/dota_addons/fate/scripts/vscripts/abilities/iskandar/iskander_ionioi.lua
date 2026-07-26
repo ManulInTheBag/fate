@@ -59,11 +59,12 @@ function iskander_ionioi:OnSpellStart()
 	end
 	caster.WaverSummoned = false
 	caster.CavalrySummoned = false
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
 	-- Set master's combo cooldown
-	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
-	masterCombo:EndCooldown()
-	masterCombo:StartCooldown(self:GetCooldown(1))
+	local masterCombo = IsNotNull(caster.MasterUnit2) and caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+	if masterCombo then
+		masterCombo:EndCooldown()
+		masterCombo:StartCooldown(self:GetCooldown(1))
+	end
 	caster:AddNewModifier(caster, self, "modifier_sanya_combo_cd", {duration =  self:GetCooldown(-1)})
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for q,w in pairs(targets) do
@@ -103,6 +104,8 @@ function iskander_ionioi:OnSpellStart()
 	end
 
 	Timers:CreateTimer(function()
+		-- Искандар может умереть/исчезнуть посреди спавна (лучники идут на 0.99с и 1.49с)
+		if not IsNotNull(caster) or caster.AOTKSoldiers == nil then return end
 		if infantrySpawnCounter == soldierCount then return end
 		local soldier = CreateUnitByName("iskander_infantry", firstRowPos + Vector(0, math.pow(-1,(infantrySpawnCounter+1))* infantrySpawnCounter*100,0), true, nil, nil, caster:GetTeamNumber())
 		soldier:SetForwardVector(Vector(-1,0,0))
@@ -120,6 +123,7 @@ function iskander_ionioi:OnSpellStart()
 
 	local archerSpawnCounter1 = 0
 	Timers:CreateTimer(0.99, function()
+		if not IsNotNull(caster) or caster.AOTKSoldiers == nil then return end
 		if archerSpawnCounter1 == (soldierCount / 2) then return end
 		local soldier = CreateUnitByName("iskander_archer", aotkCenter + Vector(800, 700 - archerSpawnCounter1*100, 0), true, nil, nil, caster:GetTeamNumber())
 		--soldier:AddNewModifier(caster, nil, "modifier_phased", {})
@@ -136,6 +140,7 @@ function iskander_ionioi:OnSpellStart()
 
 	local archerSpawnCounter2 = 0
 	Timers:CreateTimer(1.49, function()
+		if not IsNotNull(caster) or caster.AOTKSoldiers == nil then return end
 		if archerSpawnCounter2 == (soldierCount / 2) then return end
 		local soldier = CreateUnitByName("iskander_archer", aotkCenter + Vector(800, -700 + archerSpawnCounter2*100, 0), true, nil, nil, caster:GetTeamNumber())
 		--soldier:AddNewModifier(caster, nil, "modifier_phased", {})
@@ -154,13 +159,24 @@ function iskander_ionioi:OnSpellStart()
 	Timers:CreateTimer({
 		endTime = 2,
 		callback = function()
-		if caster:IsAlive() then 
+		if not IsNotNull(caster) then return end
+		if caster:IsAlive() then
 		    caster.AOTKLocator = CreateUnitByName("ping_sign2", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
 		    caster.AOTKLocator:FindAbilityByName("ping_sign_passive"):SetLevel(1)
 		    caster.AOTKLocator:AddNewModifier(caster, caster, "modifier_kill", {duration = 16.5})
 		    caster.AOTKLocator:SetAbsOrigin(caster:GetAbsOrigin())
 			self:OnAOTKStart()
-			
+
+		else
+			-- Искандар умер во время каста: AOTK не стартует, значит EndAOTK не будет
+			-- никогда, а уже наспавненные солдаты неуязвимы и висели бы на арене вечно
+			for i=1, #(caster.AOTKSoldiers or {}) do
+				local hSoldier = caster.AOTKSoldiers[i]
+				if IsNotNull(hSoldier) and IsValidEntity(hSoldier) then
+					hSoldier:RemoveSelf()
+				end
+			end
+			caster.AOTKSoldiers = {}
 		end
 	end
 	})
@@ -196,9 +212,10 @@ function iskander_ionioi:OnAOTKStart()
 	local aotkAbilityHandle = self
 
 	-- Swap abilities
-	if(caster:GetAbilityByIndex(4):GetName() == "fate_empty1") then
+	local hSlot4 = caster:GetAbilityByIndex(4)
+	if(hSlot4 and hSlot4:GetName() == "fate_empty1") then
 		caster:SwapAbilities("iskander_ionioi", "fate_empty1", true, false)
-	elseif(caster:GetAbilityByIndex(4):GetName() == "iskander_trap") then
+	elseif(hSlot4 and hSlot4:GetName() == "iskander_trap") then
 		caster:SwapAbilities("iskander_ionioi", "iskander_trap", true, false)
 	end
 	caster:SwapAbilities("iskander_ionioi", "iskander_summon_hephaestion", false, true)
@@ -239,7 +256,8 @@ function iskander_ionioi:OnAOTKStart()
 	truesightdummy:SetDayTimeVisionRange(2500)
 	truesightdummy:SetNightTimeVisionRange(2500)
 	local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
-	unseen:SetLevel(1)
+	if unseen then unseen:SetLevel(1) end
+	caster.AOTKSceneUnits = { truesightdummy }
 
 	-- Summon soldiers
 	local marbleCenter = 0
@@ -257,7 +275,8 @@ function iskander_ionioi:OnAOTKStart()
 	maharaja:SetControllableByPlayer(caster:GetPlayerID(), true)
 	maharaja:SetOwner(caster)
 	maharaja:SetForwardVector(Vector(-1,0,0))
-	maharaja:FindAbilityByName("iskander_battle_horn"):SetLevel(aotkAbilityHandle:GetLevel())
+	local hBattleHorn = maharaja:FindAbilityByName("iskander_battle_horn")
+	if hBattleHorn then hBattleHorn:SetLevel(aotkAbilityHandle:GetLevel()) end
 	table.insert(caster.AOTKSoldiers, maharaja)
 	caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 	maharaja:AddNewModifier(caster, self, "modifier_iskander_units_bonus_dmg_clickable", {duration = 16.5, dmg = self:GetSpecialValueFor("maharaja_bonus_damage")})
@@ -314,19 +333,21 @@ function iskander_ionioi:OnAOTKStart()
 		        end
 		        aotkTargets[i]:SetAbsOrigin(aotkCenter - diff)
 				FindClearSpaceForUnit(aotkTargets[i], aotkTargets[i]:GetAbsOrigin(), true)
-				Timers:CreateTimer(0.1, function() 
-					if caster:IsAlive() and IsValidEntity(aotkTargets[i]) then
-						aotkTargets[i]:AddNewModifier(aotkTargets[i], aotkTargets[i], "modifier_camera_follow", {duration = 1.0})
+				-- юнита держим в локальной переменной: EndAOTK обнуляет aotkTargets
+				local hUnit = aotkTargets[i]
+				Timers:CreateTimer(0.1, function()
+					if IsNotNull(caster) and caster:IsAlive() and IsNotNull(hUnit) then
+						hUnit:AddNewModifier(hUnit, hUnit, "modifier_camera_follow", {duration = 1.0})
 					end
 				end)
 				Timers:CreateTimer(0.033, function()
-					if caster:IsAlive() and IsValidEntity(aotkTargets[i]) then
+					if IsNotNull(caster) and caster:IsAlive() and IsNotNull(hUnit) then
 						ExecuteOrderFromTable({
-							UnitIndex = aotkTargets[i]:entindex(),
+							UnitIndex = hUnit:entindex(),
 							OrderType = DOTA_UNIT_ORDER_STOP,
 							Queue = false
 						})
-						aotkTargets[i]:SetForwardVector(forwardVec)
+						hUnit:SetForwardVector(forwardVec)
 					end
 				end)
 			end
@@ -341,6 +362,7 @@ end
 		if not IsServer() then return end
 		local caster = self:GetCaster()
 		Timers:CreateTimer(0.066, function()
+			if not (IsNotNull(self) and IsNotNull(caster)) then return end
 			print("aotk death")
 			self:EndAOTK(caster)
 		end)
@@ -348,34 +370,54 @@ end
 
 
 function iskander_ionioi:EndAOTK(caster)
-	if caster.IsAOTKActive == false then return end
+	if not IsNotNull(caster) then return end
+	-- было "== false": при nil (AOTK ещё не стартовал) проверка не срабатывала и
+	-- дальше шёл весь тир-даун по несуществующим полям
+	if not caster.IsAOTKActive then return end
+	caster.IsAOTKActive = false
 	print("AOTK ended")
 	-- Revert abilities
 
-	if(caster:GetAbilityByIndex(5):GetName() == "iskandar_buc") then
+	local hSlot5 = caster:GetAbilityByIndex(5)
+	if(hSlot5 and hSlot5:GetName() == "iskandar_buc") then
 		caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", true, false)
 	 end
-	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", not caster:FindAbilityByName("iskander_summon_hephaestion"):IsHidden(), false)
-	if caster.IsTacticsAcquired and not caster:FindAbilityByName("fate_empty1"):IsHidden() then
+	local hHephaestion = caster:FindAbilityByName("iskander_summon_hephaestion")
+	if hHephaestion then
+		caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", not hHephaestion:IsHidden(), false)
+	end
+	local hEmpty1 = caster:FindAbilityByName("fate_empty1")
+	if caster.IsTacticsAcquired and hEmpty1 and not hEmpty1:IsHidden() then
 		caster:SwapAbilities("iskander_trap", "fate_empty1", true, false)
 	end
 	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
-	if(caster:GetAbilityByIndex(3):GetName() ~= "iskandar_charisma" and caster:GetAbilityByIndex(3):GetName() ~= "iskander_cavalry" ) then
-		caster:SwapAbilities("iskandar_charisma", caster:GetAbilityByIndex(3):GetName(), true, false) 
+	local hSlot3 = caster:GetAbilityByIndex(3)
+	if(hSlot3 and hSlot3:GetName() ~= "iskandar_charisma" and hSlot3:GetName() ~= "iskander_cavalry" ) then
+		caster:SwapAbilities("iskandar_charisma", hSlot3:GetName(), true, false)
 	 end
 
 	CreateUITimer("Army of the King", 0, "aotk_timer")
-	caster.IsAOTKActive = false
-	if not caster.AOTKLocator:IsNull() and IsValidEntity(caster.AOTKLocator) then
+	-- локатор возврата (иконка меча на миникарте) и дамми истинного зрения арены
+	-- умирали по своим modifier_kill на 16/16.5с — при досрочном конце висели на карте
+	if IsNotNull(caster.AOTKLocator) and IsValidEntity(caster.AOTKLocator) then
 		caster.AOTKLocator:RemoveSelf()
+	end
+	caster.AOTKLocator = nil
+	if caster.AOTKSceneUnits then
+		for _, hUnit in pairs(caster.AOTKSceneUnits) do
+			if IsNotNull(hUnit) and IsValidEntity(hUnit) then
+				hUnit:RemoveSelf()
+			end
+		end
+		caster.AOTKSceneUnits = nil
 	end
 
 	StopSoundEvent("Ability.SandKing_SandStorm.loop", caster)
 
 	self:CleanUpHammer(caster)
 
-	-- Remove soldiers 
-	for i=1, #caster.AOTKSoldiers do
+	-- Remove soldiers
+	for i=1, #(caster.AOTKSoldiers or {}) do
 		if IsValidEntity(caster.AOTKSoldiers[i]) and not caster.AOTKSoldiers[i]:IsNull() then
 			if caster.AOTKSoldiers[i]:IsAlive() then
 				caster.AOTKSoldiers[i]:ForceKill(true)
@@ -391,14 +433,14 @@ function iskander_ionioi:EndAOTK(caster)
             boatUnit = v
         end
     end
-    if IsNotNull(boatUnit) then
+    if IsNotNull(boatUnit) and aotkTargetLoc ~= nil and aotkTargetLoc[1] ~= nil then
         if not IsInSameRealm( boatUnit:GetAbsOrigin(), Vector(0,0,0)) then
-            boatUnit:SetAbsOrigin(aotkTargetLoc[1]) 
+            boatUnit:SetAbsOrigin(aotkTargetLoc[1])
         end
     end
-    for i=1, #units do
+    for i=#units, 1, -1 do
     	if IsValidEntity(units[i]) and not units[i]:IsNull() then
-			if string.match(units[i]:GetUnitName(),"dummy") then 
+			if string.match(units[i]:GetUnitName(),"dummy") then
 				table.remove(units, i)
 			end
 		end
@@ -430,8 +472,11 @@ function iskander_ionioi:EndAOTK(caster)
 		    	for j=1, #aotkTargets do
 		    		if IsValidEntity(aotkTargets[j]) and not aotkTargets[j]:IsNull() then
 			    		if units[i] == aotkTargets[j] then
-			    			if aotkTargets[j] ~= nil then
-			    				units[i]:SetAbsOrigin(aotkTargetLoc[j]) 
+			    			-- проверять надо именно сохранённую позицию: aotkTargetLoc[j]
+			    			-- пуст для пропущенных вардов и при неактивном переносе,
+			    			-- и SetAbsOrigin(nil) падал на "Vector expected, got nil"
+			    			if aotkTargetLoc ~= nil and aotkTargetLoc[j] ~= nil then
+			    				units[i]:SetAbsOrigin(aotkTargetLoc[j])
 			    			end
 			    			FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true)
 			    			Timers:CreateTimer(0.1, function() 
@@ -467,9 +512,9 @@ function iskander_ionioi:EndAOTK(caster)
                 timers = timers+1
                 local units = FindUnitsInRadius(caster:GetTeam(), aotkCenter, nil, 1800, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
  
-			    for i=1, #units do
+			    for i=#units, 1, -1 do
 			    	if IsValidEntity(units[i]) and not units[i]:IsNull() then
-						if string.match(units[i]:GetUnitName(),"dummy") then 
+						if string.match(units[i]:GetUnitName(),"dummy") then
 							table.remove(units, i)
 						end
 					end
@@ -501,8 +546,8 @@ function iskander_ionioi:EndAOTK(caster)
 					    	for j=1, #aotkTargets do
 					    		if IsValidEntity(aotkTargets[j]) and not aotkTargets[j]:IsNull() then
 						    		if units[i] == aotkTargets[j] then
-						    			if aotkTargets[j] ~= nil then
-						    				units[i]:SetAbsOrigin(aotkTargetLoc[j]) 
+						    			if aotkTargetLoc ~= nil and aotkTargetLoc[j] ~= nil then
+						    				units[i]:SetAbsOrigin(aotkTargetLoc[j])
 						    			end
 						    			FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true)
 						    			Timers:CreateTimer(0.1, function() 
@@ -626,6 +671,10 @@ function modifier_army_of_the_king_death_checker:IsHidden()
 	return true
 end
 
-function modifier_army_of_the_king_death_checker:OnDestroy()	
-	self:GetAbility():OnAOTKDeath()
+function modifier_army_of_the_king_death_checker:OnDestroy()
+	if not IsServer() then return end
+	-- OnDestroy зовётся и на клиенте, и на уже мёртвом хэндле способности
+	local hAbility = self:GetAbility()
+	if not IsNotNull(hAbility) then return end
+	hAbility:OnAOTKDeath()
 end

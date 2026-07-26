@@ -260,6 +260,9 @@ function Timers:CreateTimer(name, args, context)
 end
 
 function Timers:RemoveTimer(name)
+  -- вызовы вида Timers:RemoveTimer(caster.ComboTimer) с ещё незаданным полем
+  -- раньше падали на "table index is nil" и роняли весь колбэк
+  if name == nil then return end
   Timers.timers[name] = nil
 end
 
@@ -278,23 +281,18 @@ function Timers:RemoveTimerWithCallbackTest(name)
       -- Make sure it worked
       if status then
         -- Check if it needs to loop
-        if nextCall then
-          -- Change its end time
-
-          if bOldStyle then
-            v.endTime = v.endTime + nextCall - now
-          else
-            v.endTime = v.endTime + nextCall
-          end
-
-          Timers.timers[k] = v
+        -- (раньше здесь стояли необъявленные k/now: перезапуск цикличного
+        --  таймера падал на "table index is nil")
+        if type(nextCall) == "number" then
+          v.endTime = v.endTime + nextCall
+          Timers.timers[name] = v
         end
 
         -- Update timer data
         --self:UpdateTimerData()
       else
         -- Nope, handle the error
-        Timers:HandleEventError('Timer', k, nextCall)
+        Timers:HandleEventError('Timer', name, nextCall)
       end
 end
 

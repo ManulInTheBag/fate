@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_jeanne_flag_swing_vfx", "abilities/jeanne_alter/jeanne_trail", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_angra_puddle", "abilities/angra_mainyu/angra_puddle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_puddle_debuff", "abilities/angra_mainyu/angra_puddle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_puddle_check", "abilities/angra_mainyu/angra_puddle", LUA_MODIFIER_MOTION_NONE)
@@ -103,7 +104,7 @@ function modifier_angra_puddle:OnIntervalThink()
         if self.army_counter >= 6 and self.caster.PuddleArmy then
 
 
-            giveUnitDataDrivenModifier(self.caster, self.caster, "modifier_avenger_death_checker", {})
+            giveUnitLuaModifier(self.caster, self.caster, "modifier_avenger_death_checker", {})
             local attackmove = {
             UnitIndex = nil,
             OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,

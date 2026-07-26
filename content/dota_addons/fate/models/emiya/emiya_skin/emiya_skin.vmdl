@@ -2629,6 +2629,64 @@
 						reverse = false
 						additional_anim_files = [  ]
 					},
+					{
+						_class = "AnimFile"
+						name = "Bow_jumpback"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ICE_WALL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 670
+						end_frame = 706
+						framerate = 80.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "Bow_jumpback1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ICE_WALL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 670
+						end_frame = 706
+						framerate = 80.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -2739,7 +2797,7 @@
 						_class = "Attachment"
 						name = "sword_spawn_loc_1"
 						parent_bone = "pepega30"
-						relative_origin = [ 43.149101, 35.095245, -66.600914 ]
+						relative_origin = [ 43.1491, 35.095245, -66.600914 ]
 						relative_angles = [ 0.0, 0.0, -0.000404 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2757,7 +2815,7 @@
 						_class = "Attachment"
 						name = "bow_spawn_1"
 						parent_bone = "pepega30"
-						relative_origin = [ 3.472616, 32.363281, -4.501684 ]
+						relative_origin = [ 3.472616, 32.36328, -4.501684 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2775,7 +2833,7 @@
 						_class = "Attachment"
 						name = "attach_attack_particle2"
 						parent_bone = ""
-						relative_origin = [ 158.759659, -16.314604, 144.053833 ]
+						relative_origin = [ 158.75966, -16.314604, 144.05383 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2811,7 +2869,7 @@
 						_class = "Attachment"
 						name = "sword_left_end_overedge"
 						parent_bone = "pepega30"
-						relative_origin = [ 5.673752, -145.857849, 46.027946 ]
+						relative_origin = [ 5.673752, -145.85785, 46.027946 ]
 						relative_angles = [ 0.0, 0.0, 0.000114 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2820,7 +2878,7 @@
 						_class = "Attachment"
 						name = "sword_right_end_overedge"
 						parent_bone = "pepega47"
-						relative_origin = [ -4.537109, -141.836151, 46.724762 ]
+						relative_origin = [ -4.537109, -141.83615, 46.724762 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2838,7 +2896,7 @@
 						_class = "Attachment"
 						name = "sword_left_end_overedge_dash"
 						parent_bone = "pepega25"
-						relative_origin = [ 81.079842, -108.279175, 5.84124 ]
+						relative_origin = [ 81.07984, -108.279175, 5.84124 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2890,8 +2948,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -70.723717, -54.026245, -159.907333 ]
-								hitbox_maxs = [ 72.4636, 78.699577, 75.778282 ]
+								hitbox_mins = [ -70.72372, -54.026245, -159.90733 ]
+								hitbox_maxs = [ 72.4636, 78.69958, 75.77828 ]
 							},
 							{
 								_class = "Hitbox"
@@ -3190,7 +3248,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.397381, -4.522809, -24.351509 ]
+								hitbox_mins = [ -4.397381, -4.522809, -24.35151 ]
 								hitbox_maxs = [ 3.649536, 3.974511, 0.5 ]
 							},
 							{
@@ -3265,7 +3323,6 @@
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
-		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
 		document_sub_type = "ModelDocSubType_None"
 	}

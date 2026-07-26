@@ -32,7 +32,8 @@
 	"caster_5th_item_construction"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_item_construction"
 		"MaxLevel"						"3"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -55,14 +56,6 @@
             "b_a_s_chance_near_workshop" "33 33 34"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnItemStart"
-			}
-		}
 	}
 
 	//=====================================
@@ -72,7 +65,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_territory_creation"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityTextureName"			"custom/caster_5th_territory_creation"
@@ -111,86 +105,7 @@
             "workshop_health" "10000"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"caster_ability"
-			 	"Function"		"OnTerritoryCreated"
-			 	"Target"		"POINT"
-			}
-			"FireSound"
-			{
-				"EffectName"		"Hero_Rubick.Telekinesis.Cast"
-				"Target"			"CASTER"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_caster_death_checker"
-			{
-				"OnDeath"
-				{
-					"RunScript"
-					{
-					 	"ScriptFile"	"caster_ability"
-					 	"Function"		"OnTerritoryOwnerDeath"
-					}
-				}
-			}
-			"modifier_territory_death_checker"
-			{
-				"IsHidden"			"1"
-	            "ThinkInterval"		"15.0"
-	            "OnIntervalThink"
-	         	{
-					"RunScript"
-					{
-					 	"ScriptFile"	"caster_ability"
-					 	"Function"		"OnTerritoryPingThink"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-					 	"ScriptFile"	"caster_ability"
-					 	"Function"		"OnTerritoryDeath"
-					}
-				}				
-			}
-			"modifier_territory_mana_regen"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"50"
-				}	
-			}
-			"modifier_territory_root"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"		"-10000"
-				//	"MODIFIER_PROPERTY_DISABLE_TURNING"		"1"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_territory_under_construction"
-			{
-				"IsHidden"		"0"
-				"Duration"		"5.0"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 
 	//=====================================
@@ -199,7 +114,8 @@
 	"caster_5th_mana_drain"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_mana_drain"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -226,46 +142,8 @@
             "int_ratio" "0.8"
         }
 
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnManaDrainCast"
-			}
-		}
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnManaDrainStart"
-				"ManaPerSec"	"%mana_per_second"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_Lion.ManaDrain"
-				"Target"		"TARGET"
-			}
-		}
 
-		"OnChannelFinish"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnManaDrainEnd"
-			}		
-		}
-		"OnChannelInterrupted"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnManaDrainEnd"
-			}
-		}
 	}
 
 	//=======================================
@@ -274,7 +152,8 @@
 	"caster_5th_territory_explosion"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_territory_explosion"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/caster_territory_explosion"
@@ -293,27 +172,8 @@
         {
             "cast_delay" "0.7"
         }
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"caster_ability"
-				"Function"				"OnTerritoryExplosionCastStart"
-			}
-		}
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnTerritoryExplosion"
-			}
-		}
 
-		"Modifiers"
-		{
-		}
 	}
 
 	//=======================================
@@ -322,7 +182,8 @@
 	"caster_5th_mobilize"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_mobilize"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/caster_mobilize"
@@ -338,26 +199,7 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnTerritoryMobilize"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_mobilize"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 	//=======================================
 	// Caster : Immobilize
@@ -365,7 +207,8 @@
 	"caster_5th_immobilize"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_immobilize"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/caster_immobilize"
@@ -381,30 +224,7 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnTerritoryImmobilize"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_territory_root"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"		"-10000"
-				//	"MODIFIER_PROPERTY_DISABLE_TURNING"		"1"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 
 	//=====================================
@@ -450,7 +270,8 @@
 	"caster_5th_recall"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_recall"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"keeper_of_the_light_recall"
@@ -470,31 +291,7 @@
         {
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnTerritoryRecall"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_recall"
-			{
-				"Duration"		"3.0"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"caster_ability"
-						"Function"			"OnRecallCanceled"
-					}
-				}
-
-			}
-		}
 	}
 
 
@@ -504,32 +301,12 @@
 	"caster_5th_skeleton_passive"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/medea/caster_5th_skeleton_passive"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "1"
 
 
-		"Modifiers"
-		{
-			"modifier_skeleton_health_decay"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "1"   
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-					 	"ScriptFile"	"caster_ability"
-					 	"Function"		"StopAttack"
-					}
-				} 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"-2.5"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE"	"-100"
-				}
-		  	}
-		}
 	}
 
 	//================================================
@@ -538,7 +315,8 @@
 	"caster_5th_skeleton_bash"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/medea/caster_5th_skeleton_bash"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "1"
 
@@ -548,30 +326,6 @@
             "bash_duration" "0.8"
         }
 
-		"Modifiers"
-		{
-			"modifier_skeleton_bash"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "1"   
-				"OnAttackLanded"
-				{
-					"Random"
-					{
-						"Chance"	"%bash_chance"
-						"OnSuccess"
-						{
-							"RunScript"
-							{
-							 	"ScriptFile"	"caster_ability"
-							 	"Function"		"OnSkeleBashSucceed"
-							 	"BashDuration"	"%bash_duration"
-							}
-						}
-					}
-				}
-		  	}
-		}
 	}
 
 	//================================================
@@ -580,7 +334,8 @@
 	"caster_5th_dragon_chilling_breath"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/medea/caster_5th_dragon_chilling_breath"
 		"AbilityTextureName"            "winter_wyvern_arctic_burn"
 		"MaxLevel"                      "1"
 
@@ -590,34 +345,6 @@
             "duration" "1"
         }
 
-		"Modifiers"
-		{
-			"modifier_chilling_breath"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "1"    
-				"OnAttackLanded"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"		"chilling_breath_slow"
-						"Target"			"TARGET"
-					}
-				}
-		  	}
-		  	"chilling_breath_slow"
-		  	{
-		  		"IsDebuff"						"1"
-		  		"Duration"						"%duration"
-				"StatusEffectName"     "particles/status_fx/status_effect_frost.vpcf"
-				"StatusEffectPriority" "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow"
-				}	
-		  	}
-		}
 	}
 
 	//================================================
@@ -627,7 +354,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_dragon_frostbite"
 		"MaxLevel"						"8"
 		"RequiredLevel"					"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
@@ -663,40 +391,8 @@
             "damage" "500 550 600 650 700 750 800 850"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"caster_ability"
-			 	"Function"		"OnFrostbiteStart"
-			 	"Target"		"POINT"
-			 	"EndRadius"		"%radius"
-			}
-		}
 
-		"OnProjectileHitUnit"
-		{
-		    "DeleteOnHit"        "false"
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnFrostbiteHit"
-				"Damage"		"%damage"
-			}
-		}
 		
-		"Modifiers"
-		{
-			"modifier_frostbite_root"
-			{
-				"Duration"		"%total_duration"
-				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 
 	//================================================
@@ -872,7 +568,8 @@
 	"caster_5th_ancient_magic"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_ancient_magic"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -893,30 +590,6 @@
         {
         }
 		
-		"OnToggleOn"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnAncientStart"
-			}		
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnAncientStart"
-			}
-		}
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"AncientLevelUp"
-			}
-		}
 	}
 
 	//=======================================
@@ -925,7 +598,8 @@
 	"caster_5th_wall_of_flame"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_wall_of_flame"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -952,22 +626,6 @@
             "radius" "300"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnFirewallStart"
-				"Damage"		"%damage"
-				"Pushback"		"%pushback"
-				"Radius"		"%radius"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_EmberSpirit.FlameGuard.Cast"
-				"Target"		"CASTER"
-			}
-		}
 	}
 
 	//=====================================
@@ -977,7 +635,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_silence"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -1014,22 +673,6 @@
             "radius" "250"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"caster_ability"
-			 	"Function"		"OnSilenceStart"
-			 	"Target"		"POINT"
-			 	"Radius"		"%radius"
-			 	"Duration"		"%duration"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_DeathProphet.Silence"
-				"Target"		"CASTER"
-			}
-		}
 	}
 
 	//=====================================
@@ -1039,7 +682,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_divine_words"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -1077,17 +721,6 @@
             "damage" "150 175 200 225 250"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"caster_ability"
-			 	"Function"		"OnDWStart"
-			 	"Target"		"POINT"
-			 	"Radius"		"%radius"
-			 	"Damage"		"%damage"
-			}
-		}
 	}
 
 	//=======================================
@@ -1095,7 +728,8 @@
 	//=======================================
 	"caster_5th_sacrifice"
 	{
-		"BaseClass"             		"ability_datadriven"
+		"BaseClass"             		"ability_lua"
+		"ScriptFile"             		"abilities/medea/caster_5th_sacrifice"
 		"AbilityTextureName"			"omniknight_guardian_angel"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
@@ -1128,209 +762,24 @@
             "radius" "600 675 750 825 900"
         }
 
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_big_bad_voodoo_damage_bonus"
-				"Target" 		"CASTER"
-				"Duration"		"%duration"
-				"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-			}
 
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_big_bad_voodoo_channeling"
-				"Target" 		"CASTER"
-				"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_big_bad_voodoo_ally"
-				"Target" 		"CASTER"
-				"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-			}			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnSacrificeStart"
-				"Radius"		"%radius"
-			}
-		}
 
-		"OnChannelFinish"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"RemoveSacrificeModifier"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_big_bad_voodoo_channeling"
-			{
-				"IsHidden"			"1"
-	            "ThinkInterval"		"1.0"
-	            "OnIntervalThink"
-	         	{
-	         		"ApplyModifier"
-	         		{
-	         			"ModifierName"	"modifier_channeling"
-	         			"Target" 		"CASTER"
-	         			"Duration"		"0.9"
-	         		}
-				}
-			}
-
-			"modifier_channeling"
-			{
-				"IsHidden"				"1"
-				"OverrideAnimation"     "ACT_DOTA_ATTACK"
-			}
-
-			"modifier_big_bad_voodoo_damage_bonus"
-			{
-				"EffectName"		"particles/units/heroes/hero_warlock/warlock_shadow_word_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-		
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_WitchDoctor.Maledict_Loop"
-						"Target" 		"CASTER"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"caster_ability.lua"
-						"Function"		"MaledictStop"
-					}
-
-				}
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"100"
-				}
-			}
-			"modifier_big_bad_voodoo_ally"
-			{
-				"IsHidden"			"1"
-				"Aura"          	"modifier_big_bad_voodoo_invulnerability"
-				"Aura_Radius"   	"%radius"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-				"Aura_ApplyToCaster" "0"
-			}
-
-			"modifier_big_bad_voodoo_invulnerability"
-			{
-				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_guardian_angel_buff_j.vpcf"
-				"EffectAttachType"	"follow_origin"
-		
-				"States"
-				{
-					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-
-				"ThinkInterval"		"1.0" // The laziest possible fix to make this effect keep playing without actually going to the effort of re-implementing the particle
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"caster_ability.lua"
-						"Function"		"CreateSacrificeAllyParticle"
-					}
-				}
-			}
-		}
 	}
 
 	//=====================================
 	// Caster : Mana Transfer
 	//=====================================
-	"caster_5th_mana_transfer"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"25"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"keeper_of_the_light_chakra_magic"
-		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
-		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"600"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"0"
-		"AbilityChannelTime"			"5.0"
-        "IsCastableWhileHidden"         "1"
-
-		"precache"
-		{
-			"particle"		"particles/econ/items/puck/puck_alliance_set/puck_dreamcoil_tether_aproset.vpcf"
-		}
-
-		"AbilityValues"
-        {
-            "mana_amount" "40 60 80 100 120"
-            "duration" "5.0"
-        }
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnMTStart"
-				"Duration"			"%duration"
-				"Manatransferred"	"%mana_amount"
-			}
-		}
-		"OnChannelFinish"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnMTEnd"
-			}
-		}
-		"OnChannelInterrupted"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnMTEnd"
-			}
-		}
-	}
 
 	"caster_5th_close_spellbook"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_close_spellbook"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"silencer_last_word"
 		
 		"AbilityCastPoint"				"0.0"
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnAncientClosed"
-			}
-		}
 	}
 
 	//=====================================
@@ -1339,7 +788,8 @@
 	"caster_5th_rule_breaker"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_rule_breaker"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -1371,233 +821,17 @@
             "duration" "1 1.25 1.5 1.75 2"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"caster_ability"
-				"Function"			"OnRBStart"
-				"StunDuration"		"%stun_duration"
-			}
-			"FireEffect"
-			{
-				"EffectName"        "particles/units/heroes/hero_dazzle/dazzle_weave.vpcf"
-				"EffectAttachType"  "start_at_customorigin"
-				"TargetPoint"            "TARGET"
 
-				"ControlPoints"
-				{
-					"01"	"200 0 0"
-				}
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_c_rule_breaker"
-			{
-				"IsDebuff"					"1"
-				"Duration"					"%duration"
-				"EffectName"				"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"	
-				"EffectAttachType"			"follow_overhead"
-				"States"
-				{
-					"MODIFIER_STATE_ATTACK_IMMUNE"						"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"							"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE"	"-100"
-					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"			"1"
-					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"				"1"
-				}
-			}
-			"modifier_dagger_of_treachery"
-			{
-				"Duration"	"3"
-				"IsDebuff"			"1"
-				"EffectName"		"particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"caster_ability"
-						"Function"		"OnRBSealStolen"
-						"Target"		"TARGET"
-					}
-				}
-			}
-		}
 	}
 
 	//====================================
 	// Caster : Hecatic Graea
 	//====================================
-	"caster_5th_hecatic_graea"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/caster_5th_hecatic_graea"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"AnimationPlaybackRate" 		"0.4"
-		"AOERadius"						"%radius"
-		"precache"
-		{
-			"particle"			"particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
-			"particle"			"particles/units/heroes/hero_templar_assassin/templar_assassin_trap_start_ring.vpcf"
-			"particle"			"particles/custom/caster/caster_hecatic_graea.vpcf"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
-		"AbilityCastPoint"				"0.5"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40.0"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"310 345 380 415 450"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"800"
-		
-		"AbilityValues"
-        {
-            "damage" "310 345 380 415 450"
-            "radius_bolt" "300"
-            "radius" "500"
-            "bolt_amount" "10"
-        }
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"caster_ability"
-			 	"Function"		"OnHGStart"
-			 	"Target"		"POINT"
-			 	"Damage"		"%damage"
-			 	"RadiusBolt"	"%radius_bolt"
-			 	"Radius"		"%radius"
-			 	"BoltAmount"	"%bolt_amount"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_hecatic_graea_anim"
-			{
-				//"IsHidden"			"1"
-				"IsHidden"			"1"
-				"Duration"			"4.0"
-				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"1.0"
-				}
-			}
-		}
-	}
 
 
 	//====================================
 	// Caster : Hecatic Graea Powered
 	//====================================
-	"caster_5th_hecatic_graea_powered"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/caster_5th_hecatic_graea_powered"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
-		"AnimationPlaybackRate" 		"0.5"
-		"AOERadius"						"%radius"
-		"precache"
-		{
-			"particle"			"particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
-			"particle"			"particles/units/heroes/hero_templar_assassin/templar_assassin_trap_start_ring.vpcf"
-			"particle"			"particles/custom/screen_purple_splash.vpcf"
-			"particle"			"particles/custom/caster/hecatic_graea_powered/area.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
-		"AbilityCastPoint"				"0.5"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"150.0"
-
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"800"
-		
-		"AbilityValues"
-        {
-            "damage" "600"
-            "lasthit_damage" "1500"
-            "radius_bolt" "300"
-            "radius_small" "550"
-            "radius_big" "800"
-            "bolt_amount" "13"
-        }
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"caster_ability"
-			 	"Function"		"OnHGPStart"
-			 	"Target"		"POINT"
-			 	"Damage"		"%damage"
-			 	"RadiusBolt"	"%radius_bolt"
-			 	"Radius"		"%radius"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_hecatic_graea_powered_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-
-			"modifier_hecatic_graea_powered_anim"
-			{
-				//"IsHidden"			"1"
-				"IsHidden"			"1"
-				"Duration"			"4.0"
-				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"1.0"
-				}
-			}
-		}
-	}
 
 	//=======================================
 	// Caster Attribute : Improve Territory Creation
@@ -1605,7 +839,8 @@
 	"caster_5th_attribute_improve_territory_creation"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_attribute_improve_territory_creation"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/caster_5th_attribute_improve_territory_creation"
@@ -1627,14 +862,6 @@
             "workshop_mana" "1500"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnImproveTerritoryCreationAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -1643,7 +870,8 @@
 	"caster_5th_attribute_improve_argos"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_attribute_improve_argos"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/caster_5th_attribute_improve_argos"
@@ -1665,14 +893,6 @@
             "armor" "25"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnImproveArgosAcquired"
-			}
-		}
 	}
 	
 	//=======================================
@@ -1681,7 +901,8 @@
 	"caster_5th_attribute_improve_hecatic_graea"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_attribute_improve_hecatic_graea"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/caster_hecatic_graea_attr"
@@ -1702,14 +923,6 @@
             "int_ratio" "1.5"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnImproveHGAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -1718,7 +931,8 @@
 	"caster_5th_attribute_dagger_of_treachery"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/medea/caster_5th_attribute_dagger_of_treachery"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/caster_5th_attribute_dagger_of_treachery"
@@ -1739,14 +953,9 @@
             "mana_steal_amount" "1"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnDaggerOfTreacheryAcquired"
-			}
-		}
 	}
 	
+
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
 }

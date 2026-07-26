@@ -309,6 +309,8 @@ function saito_formlessness_new_stacks:OnRefresh(args)
 end
 
 function saito_formlessness_new_stacks:OnDestroy()
+	-- OnCreated/OnRefresh уже под IsServer: на клиенте counterfx не создавался
+	if not IsServer() then return end
 	ParticleManager:DestroyParticle(self.counterfx , true)
 	ParticleManager:ReleaseParticleIndex(self.counterfx )
 

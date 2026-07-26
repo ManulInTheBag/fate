@@ -5,6 +5,7 @@ modifier_tempest_double_illusion = class({})
 
 LinkLuaModifier( "modifier_tempest_double_illusion", "abilities/nursery_rhyme/nursery_rhyme_tempest_double", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_rhyme_flying_book", "abilities/nursery_rhyme/modifiers/modifier_flying_book.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tempest_double_active", "abilities/nursery_rhyme/nursery_rhyme_tempest_double", LUA_MODIFIER_MOTION_NONE)
 
 function nursery_rhyme_tempest_double:CastFilterResult()
 	if self:GetCaster():HasModifier("modifier_tempest_double_active") then

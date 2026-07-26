@@ -318,51 +318,6 @@
 	//=======================================================================================================
 	//	Saitō Hajime : Formlessness [R] UNUSED
 	//=======================================================================================================
-	"saito_formless_slash" //UNUSED
-	{
-		"BaseClass"									"ability_lua"
-
-		"ScriptFile"								"abilities/saito/saito_abilities"
-		"AbilityTextureName"						"custom/saito/saito_formless_slash_0"
-
-		"AbilityType"								"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-
-		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
-
-		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
-
-		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
-
-		"AbilityCastPoint"							"0.2"
-		"AbilityCooldown"							"0"
-		"AbilityManaCost"							"50"
-		"AbilityCastRange"							"550 600 650 700 750"
-
-		"MaxLevel"									"5"
-		"RequiredLevel"								"1"
-		"LevelsBetweenUpgrades"						"2"
-
-		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_7"
-
-		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
-		//{
-
-		//}
-
-		"AbilityValues"
-		{
-			"max_slashes"							"4"
-			"slash_instances"						"2"
-			"lock_duration"							"0.5"
-			"last_lock_duration"					"1.5"
-			"slash_damage"							"100 125 150 175 200"
-			"last_damage"							"500 625 750 875 1000"
-		}
-	}
 	//=======================================================================================================
 	//	Saitō Hajime : Tetra-Step [Q]
 	//=======================================================================================================
@@ -516,56 +471,6 @@
 	//=======================================================================================================
 	//	Saitō Hajime : Undefeatable Style [COMBO]
 	//=======================================================================================================
-	"saito_style"
-	{
-		"BaseClass"									"ability_lua"
-
-		"ScriptFile"								"abilities/saito/saito_abilities"
-		"AbilityTextureName"						"custom/saito/saito_style"
-
-		"AbilityType"								"ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-
-		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
-
-		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
-
-		"AbilityCastPoint"							"0.3"
-		"AbilityCooldown"							"150"
-		"AbilityManaCost"							"600"
-		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
-
-		"MaxLevel"									"1"
-		"RequiredLevel"								"1"
-		"LevelsBetweenUpgrades"						"1"
-
-		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_1"
-
-		"LinkedAbilities"							"saito_blast"		//Only for Fatepedia.
-
-		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
-		//{
-
-		//}
-
-		"AbilityValues"
-		{
-			"duration"								"11"
-			"damage_chance"							"100"
-			"hp_damage"								"1"
-			"fds_hp_mp_scale"						"2"
-			"activation_steps_duration"				"3"
-			"activation_duration"					"3"
-			"activation_steps"						"2"
-			"blast_duration"						"4"
-			"max_linken_procs"						"1"
-		}
-	}
 	//=======================================================================================================
 	//	Saitō Hajime : One By One [D]
 	//=======================================================================================================

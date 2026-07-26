@@ -1,6 +1,5 @@
 #base "astolfo_trap_of_argalia.kv"
 #base "astolfo_monstrous_strength_passive.kv"
-#base "astolfo_evaporation_of_sanity.kv"
 
 "DOTAAbilities"
 {
@@ -37,7 +36,8 @@
 	"astolfo_casa_di_logistilla"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_casa_di_logistilla"
 		"AbilityTextureName"			"custom/astolfo_casa_di_logistilla"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"MaxLevel"						"1"
@@ -51,14 +51,6 @@
 			"particle"		"particles/units/heroes/hero_dazzle/dazzle_weave_circle_ray.vpcf"
 			"particle"		"particles/zlodemon/astolfo_jopa_shield.vpcf"
 		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnCasaStart"
-			}
-		}
 
 		"AbilityValues"
         {
@@ -67,56 +59,6 @@
             "active_duration" "3.5"
         }
 
-		"Modifiers"
-		{
-			"modifier_casa_passive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"				"0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnCasaThink"
-					}
-				}
-
-			}
-			"modifier_casa_passive_mr_aura"
-			{
-				"Duration"		"0.533"
-				"IsHidden"		"1"
-				"Aura"					"modifier_casa_passive_mr"
-				"Aura_Radius"			"350"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
-			}
-
-
-			"modifier_casa_passive_mr"
-			{
-				"Duration"		"0.533"
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%passive_mr"
-				}
-			}
-
-
-			"modifier_casa_active_mr"
-			{
-				"EffectName"		"particles/zlodemon/astolfo_jopa_shield.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Duration"		"3.5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%active_mr"
-				}				
-			}
-		}
 	}
 
 	//=======================================
@@ -125,7 +67,8 @@
 	"astolfo_hippogriff_vanish"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_hippogriff_vanish"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
@@ -157,61 +100,8 @@
             "banish_duration" "0.75"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnVanishStart"
-			}
-		}
 
-		"OnProjectileHitUnit"
-		{
-			"RunScript"
-			{
-				"ScriptFile"    "astolfo_ability"
-				"Function"      "OnVanishHit"
-				"Damage"		"%damage"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_hippogriff_vanish_banish"
-			{
-	    		"EffectName"		"particles/units/heroes/hero_shadow_demon/shadow_demon_disruption.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Duration"		"%banish_duration"
-				"IsDebuff"		"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "astolfo_ability"
-						"Function"      "OnVanishDebuffStart"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "astolfo_ability"
-						"Function"      "OnVanishDebuffEnd"						
-					}
-				}
-				"States"
-				{
-					//"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_SILENCED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 
 	//=======================================
@@ -220,7 +110,8 @@
 	"astolfo_down_with_a_touch"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_down_with_a_touch"
 		"MaxLevel"						"5"
 		"AbilityTextureName"			"custom/astolfo/astolfo_down"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
@@ -258,76 +149,8 @@
             "slow_tier3" "-7.5 -10 -12.5 -15 -17.5"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnDownStart"
-				"Target"		"POINT"
-				"Range"			"%range"
-				"AttackCount"	"%attack_amount"
-			}
-		}
 
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"false"
-			"RunScript"
-			{
-				"ScriptFile"    "astolfo_ability"
-				"Function"      "OnDownHit"
-				"Damage"		"%damage"
-				"LockDuration"	"%lock_duration"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_down_with_a_touch_slow"
-			{
-				"IsDebuff"	"1"
-				"Duration"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "astolfo_ability"
-						"Function"      "OnDownSlowTier1End"
-					}
-				}
-			}
-			"modifier_down_with_a_touch_slow_2"
-			{
-				"IsDebuff"	"1"
-				"Duration"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_tier2"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "astolfo_ability"
-						"Function"      "OnDownSlowTier2End"
-					}
-				}
-			}
-			"modifier_down_with_a_touch_slow_3"
-			{
-				"IsDebuff"	"1"
-				"Duration"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_tier3"
-				}
-			}
-		}
 	}
 
 	//=======================================
@@ -336,7 +159,8 @@
 	"astolfo_la_black_luna"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_la_black_luna"
 		"MaxLevel"						"5"
 		"AbilityTextureName"			"custom/astolfo_la_black_luna"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -372,113 +196,7 @@
             "slow_amount2" "-99"
         }
 
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnHornCast"
-			}		
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnHornStart"
-				"Slow"				"%slow_amount"
-				"Radius"			"%radius"
-				"DamageRadius"		"%damage_radius"
-				"Damage"			"%damage"
-				"SilenceRadius"		"%silence_radius"
-			}
-		}
-		"OnChannelInterrupted"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnHornInterrupted"
-			}
-		}
-		"OnChannelFinish"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnHornInterrupted"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_la_black_luna"
-			{
-				"ThinkInterval"					"0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnHornThink"
-						"Radius"			"%radius"
-						"DamageRadius"		"%damage_radius"
-						"Damage"			"%damage"
-						"SilenceRadius"		"%silence_radius"
-					}
-				}
-			}
-			"modifier_la_black_luna_deaf"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"0.53"
-			}
-			"modifier_la_black_luna_slow"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"0.53"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_amount"
-				}
-			}
-			"modifier_la_black_luna_slow1"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"1.0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_amount1"
-				}
-			}
-			"modifier_la_black_luna_slow2"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"2.0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_amount2"
-				}
-			}
-			"modifier_astolfo_mute1"
-			{
-				"Duration"		"0.5"
-				"IsDebuff"		"1"
-				"States"
-				{
-					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_astolfo_mute2"
-			{
-				"Duration"		"1.5"
-				"IsDebuff"		"1"
-				"States"
-				{
-					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 
 	//=======================================
@@ -487,7 +205,8 @@
 	"astolfo_hippogriff_raid"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_hippogriff_raid"
 		"MaxLevel"						"5"
 		"AbilityTextureName"			"custom/astolfo_hippogriff_raid"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -530,44 +249,6 @@
             "second_impact_damage" "400 500 600 700 800"
             "attribute_bonus_range" "500"
         }
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnRaidCast"
-			}			
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnRaidStart"
-				"Delay"				"%total_delay"
-				"Radius"			"%radius"
-				"Target"			"POINT"
-				"FirstDamage"		"%first_impact_damage"
-				"StunDuration"		"%first_impact_stun_duration"
-				"SecondDamage"		"%second_impact_damage"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_hippogriff_raid_respawn_checker"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnRaidCountReset"
-					}
-				}
-			}
-		}
 	}
 
 	//=======================================
@@ -576,7 +257,8 @@
 	"astolfo_hippogriff_ride"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_hippogriff_ride"
 		"AbilityTextureName"			"custom/astolfo_hippogriff_ride"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -613,51 +295,7 @@
             "damage" "600"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnRideStart"
-				"Delay"				"%ascend_delay"
-				"Radius"			"%max_range"
-				"Duration"			"%duration"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_hippogriff_ride_ascended"
-			{
-				"Duration"		"%duration"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnRideAscend"
-						"Duration"		"%duration"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnRideAscendEnd"
-					}
-				}				
-				"States"
-				{
-
-				}
-			}
-			"modifier_hippogriff_ride_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-		}
 
 	}
 
@@ -708,34 +346,6 @@
 	//=================================================================================================================
 	// Astolfo : Down with a Touch Passive
 	//=================================================================================================================
-	"astolfo_down_with_a_touch_passive"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			""
-		"MaxLevel"						"1"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"Modifiers"
-		{
-			"modifier_astolfo_down_with_a_touch_passive"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnDownAttackHit"
-					}
-				}
-			}
-		}
-	}
 
 
 
@@ -744,7 +354,8 @@
 	//=================================================================================================================
 	"astolfo_monstrous_strength"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_monstrous_strength"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			""
 		"MaxLevel"						"1"
@@ -753,22 +364,6 @@
         {
         }
 		
-		"Modifiers"
-		{
-			"modifier_astolfo_monstrous_strength"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnMStrengthHit"
-					}
-				}
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -776,51 +371,13 @@
 	//=================================================================================================================
 	"astolfo_independent_action"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_independent_action"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			""
 		"MaxLevel"						"1"
 		
 		
-		"Modifiers"
-		{
-			"modifier_astolfo_independent_action"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"ThinkInterval"				"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"astolfo_ability"
-						"Function"		"OnIAThink"
-					}
-				}
-			}
-
-			"modifier_astolfo_indepedent_action_regen"
-			{
-				"IsHidden"		"1"
-				"Duration"		"1.033"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"0.5"
-					"MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE"		"0.8"
-				}
-			}
-			"modifier_astolfo_indepedent_action_conditional_regen"
-			{
-				"IsHidden"		"1"
-				"Duration"		"1.033"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"1.5"
-					"MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE"		"3"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"300"
-				}
-			}
-		}
 	}
 
 	//=======================================
@@ -829,7 +386,8 @@
 	"astolfo_attribute_riding"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_attribute_riding"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/astolfo_attribute_riding"
@@ -850,14 +408,6 @@
             "raid_second_impact_radius" "100"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnRidingAcquired"
-			}
-		}
 	}
 
 
@@ -867,7 +417,8 @@
 	"astolfo_attribute_monstrous_strength"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_attribute_monstrous_strength"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/astolfo_attribute_monstrous_strength"
@@ -887,14 +438,6 @@
             "damage_pct" "8"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnMStrengthAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -903,7 +446,8 @@
 	"astolfo_attribute_independent_action"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_attribute_independent_action"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/astolfo_attribute_independent_action"
@@ -925,14 +469,6 @@
             "mana_regen_boosted" "3"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnIActionAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -941,7 +477,8 @@
 	"astolfo_attribute_sanity"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/astolfo/astolfo_attribute_sanity"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/astolfo_attribute_sanity"
@@ -963,57 +500,10 @@
             "evasion_duration" "1.0"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"astolfo_ability"
-				"Function"		"OnSanityAcquired"
-			}
-		}
 	}
 	//=======================================
 	// Astolfo: Hipogriff: Tornado
 	//=======================================
-	"astolfo_tornado"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"		"particles/astolfo/invoker_tornado.vpcf"
-		}
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/astolfo/astolfo_tornado"
-		"MaxLevel"						"5"
-		"AbilityTextureName"			"custom/astolfo_hippogriff_raid"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AOERadius"						"%radius"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
 
-		"AbilityCooldown"				"28"
-		"AbilityManaCost"				"800"
-		"AbilityCastRange"				"2000"
-		"AbilityCastPoint"				"0.5"
-
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate" 		"2.0"
-
-		"AbilityValues"
-        {
-            "max_range" "2500"
-            "cast_delay" "0.5"
-            "fly_duration" "1.2"
-            "duration" "1.0"
-            "pull_radius" "600"
-            "airborne_radius" "300"
-            "air_damage" "500 600 700 800 900"
-            "damage_per_second" "200 300 400 500 600"
-        }
-	}
+	// [restored] возвращён после ошибочной чистки
 }

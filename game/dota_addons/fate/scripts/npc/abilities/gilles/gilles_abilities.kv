@@ -252,7 +252,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/gilles/gille_larret_de_mort"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -289,215 +290,28 @@
             "damage_per_sec" "10"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnGilleComboStart"
-				"Damage"		"%initial_damage"
-				"KnockupDuration"	"%knockup_duration"
-			}
-		}
 		
-		"Modifiers"
-		{
-			"modifier_larret_de_mort_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"modifier_gille_combo"
-			{
-		        "EffectName"    "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
-		        "EffectAttachType"  "follow_origin"
-				"Duration"		"12"
-				"IsDebuff"		"1"
-				"ThinkInterval"		"1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"gille_ability"
-						"Function"		"OnGilleComboThink"
-						"DPS"			"%damage_per_sec"
-					}
-				}
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"gille_ability"
-						"Function"		"RemoveAllPoisons"
-					}
-				}
-			}
-			"modifier_gigantic_horror_freeze"
-			{
-				"EffectName"				"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
-				"EffectAttachType"			"follow_overhead"
-				"Duration"		"1.5"
-				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"0.5"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}	
 
 	//=======================================
 	// Gilles De Rais Attribute : Improve Black Magic
 	//=======================================
-	"gille_attribute_improve_black_magic"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_improve_black_magic"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"16"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "curse_damage" "400"
-            "curse_duration" "4.0"
-            "torment_multiplier" "15.0"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnBlackMagicImproved"
-			}
-		}
-	}
 
 	//=======================================
 	// Gilles De Rais Attribute : Mental Pollution
 	//=======================================
-	"gille_attribute_mental_pollution"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_mental_pollution"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"11"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "max_madness" "15"
-            "corpse_cooldown" "2.0"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnMentalPollutionAcquired"
-			}
-		}
-	}
 
 	//=======================================
 	// Gilles De Rais Attribute : Abyssal Connection
 	//=======================================
-	"gille_attribute_abyssal_connection"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_abyssal_connection"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "bonus_damage" "200"
-            "bonus_radius" "200"
-            "high_damage" "110"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnAbyssConnectionAcquired"
-			}
-		}
-	}
 
 	//=======================================
 	// Gilles De Rais Attribute : Abyssal Connection - Tier 2
 	//=======================================
-	"gille_attribute_abyssal_connection_2"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/gille_attribute_abyssal_connection_2"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
 
-		"precache"
-		{
-		}
 
-		"AbilityValues"
-        {
-            "bonus_health" "30"
-            "bonus_aspd" "50"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"gille_ability"
-				"Function"		"OnAbyssConnection2Acquired"
-			}
-		}
-	}
-
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
 }

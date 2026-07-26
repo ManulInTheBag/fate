@@ -42,12 +42,12 @@ function karna_spin_2:OnSpellStart()
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else
-							v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+							local sa_mod = v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+							if sa_mod then sa_mod:SetStackCount(stacks + 1) end
 						end
 					else
-						v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-						v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+						local sa_mod = v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+						if sa_mod then sa_mod:SetStackCount(1) end
 					end
 				end
 				if caster:HasModifier("modifier_karna_buff_melee") then
@@ -79,12 +79,12 @@ function karna_spin_2:OnSpellStart()
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else
-							v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+							local sa_mod = v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+							if sa_mod then sa_mod:SetStackCount(stacks + 1) end
 						end
 					else
-						v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-						v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+						local sa_mod = v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+						if sa_mod then sa_mod:SetStackCount(1) end
 					end
 				end
 				if caster:HasModifier("modifier_karna_buff_melee") then
@@ -118,11 +118,12 @@ function karna_spin_2:OnSpellStart()
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else
-							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+							local sa_mod = v:FindModifierByName("modifier_karna_ucm_sa_stacking")
+							if sa_mod then sa_mod:SetStackCount(stacks + 1) end
 						end
 					else
-						v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-						v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+						local sa_mod = v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+						if sa_mod then sa_mod:SetStackCount(1) end
 					end
 				end
 				if caster:HasModifier("modifier_karna_buff_melee") then
@@ -160,11 +161,12 @@ function karna_spin_2:OnSpellStart()
 							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
 							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
 						else
-							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+							local sa_mod = v:FindModifierByName("modifier_karna_ucm_sa_stacking")
+							if sa_mod then sa_mod:SetStackCount(stacks + 1) end
 						end
 					else
-						v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
-						v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+						local sa_mod = v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})
+						if sa_mod then sa_mod:SetStackCount(1) end
 					end
 				end
 				if caster:HasModifier("modifier_karna_buff_melee") then

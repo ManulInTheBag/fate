@@ -135,6 +135,8 @@ function modifier_jeanne_gods_resolution_active_buff:OnIntervalThink()
 end
 
 function modifier_jeanne_gods_resolution_active_buff:OnDestroy()
+	-- OnDestroy идёт в обеих VM, а поля заведены в OnCreated под IsServer
+	if not IsServer() then return end
 	if IsServer() then
 		self.caster:SwapAbilities("jeanne_gods_resolution", "jeanne_gods_resolution_end", true, false)
 		self.caster:StopSound("Hero_ArcWarden.MagneticField")

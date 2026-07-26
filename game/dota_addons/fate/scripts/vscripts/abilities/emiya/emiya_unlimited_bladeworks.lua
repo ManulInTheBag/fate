@@ -134,6 +134,7 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
     local castDelay = 1.5 + (boolsoundOn and   0.5 or 0)
     local radius = self:GetSpecialValueFor("radius")
 
+    caster.UBWSceneDummies = {}
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, radius - 550, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for q,w in pairs(targets) do
         --giveUnitDataDrivenModifier(caster, w, "pause_sealdisabled", castDelay)
@@ -182,6 +183,7 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
     Timers:CreateTimer({
         endTime = castDelay,
         callback = function()
+        if not IsNotNull(caster) then return end
         if caster:IsAlive() then
             local newLocation = caster:GetAbsOrigin()
             caster.UBWLocator = CreateUnitByName("ping_sign2", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
@@ -196,21 +198,33 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
             local entranceFlashParticle = ParticleManager:CreateParticle("particles/custom/archer/ubw/entrance_flash.vpcf", PATTACH_ABSORIGIN, caster)
             ParticleManager:SetParticleControl(entranceFlashParticle, 0, newLocation)
             ParticleManager:CreateParticle("particles/custom/archer/ubw/exit_flash.vpcf", PATTACH_ABSORIGIN, caster)
+        else
+            -- Эмия умер во время чанта: UBW не открылся, но декорации арены уже созданы
+            if caster.UBWSceneDummies then
+                for _, hDummy in pairs(caster.UBWSceneDummies) do
+                    if IsNotNull(hDummy) and IsValidEntity(hDummy) then
+                        hDummy:RemoveSelf()
+                    end
+                end
+                caster.UBWSceneDummies = nil
+            end
         end
     end
-    })    
+    })
 
     for i=2, 3 do
         --небольшой комментарий: еблан, который писал этот ебаный ульт аталанты - пожалуйста, выйди в окно нахуй. Тот факт, что он не удалял дамми-юниты - это просто пиздец
         local dummy = CreateUnitByName("dummy_unit", casterLocation, false, nil, nil, i)
         dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
         dummy:SetAbsOrigin(ubwCenter)
+        table.insert(caster.UBWSceneDummies, dummy)
         AddFOWViewer(i, ubwCenter, 1800, 3, false)
 
         local particle = ParticleManager:CreateParticleForTeam("particles/custom/archer/ubw/firering.vpcf", PATTACH_ABSORIGIN, dummy, i)
         ParticleManager:SetParticleControl(particle, 6, casterLocation)
         local particleRadius = 0
         Timers:CreateTimer(0, function()
+            if not IsNotNull(dummy) then return end
             if particleRadius < radius then
                 particleRadius = particleRadius + radius * 0.03 / 2
                 ParticleManager:SetParticleControl(particle, 1, Vector(particleRadius,0,0))
@@ -218,8 +232,9 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
             end
         end)
         Timers:CreateTimer(16, function()
-            dummy:RemoveSelf()
-
+            if IsNotNull(dummy) and IsValidEntity(dummy) then
+                dummy:RemoveSelf()
+            end
         end)
     end
 end
@@ -294,8 +309,12 @@ function emiya_unlimited_bladeworks:EnterUBW()
     ubwdummy1:SetDayTimeVisionRange(1500)
     ubwdummy1:SetNightTimeVisionRange(1500)
     ubwdummy1:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = 1500})
+    caster.UBWSceneDummies = caster.UBWSceneDummies or {}
+    table.insert(caster.UBWSceneDummies, ubwdummy1)
     Timers:CreateTimer( 15, function()
-		ubwdummy1:RemoveSelf()
+		if IsNotNull(ubwdummy1) and IsValidEntity(ubwdummy1) then
+			ubwdummy1:RemoveSelf()
+		end
 	end)
 
     -- Automated weapon shots
@@ -330,9 +349,11 @@ function emiya_unlimited_bladeworks:EnterUBW()
                 ubwTargets[i]:SetAbsOrigin(ubwCenter - diff)
                 ubwTargets[i]:Stop()
                 FindClearSpaceForUnit(ubwTargets[i], ubwTargets[i]:GetAbsOrigin(), true)
-                Timers:CreateTimer(0.1, function() 
-                    if caster:IsAlive() and IsValidEntity(ubwTargets[i]) then
-                        ubwTargets[i]:AddNewModifier(ubwTargets[i], ubwTargets[i], "modifier_camera_follow", {duration = 1.0})
+                -- юнита держим в локальной переменной: EndUBW обнуляет ubwTargets
+                local hUnit = ubwTargets[i]
+                Timers:CreateTimer(0.1, function()
+                    if IsNotNull(caster) and caster:IsAlive() and IsNotNull(hUnit) then
+                        hUnit:AddNewModifier(hUnit, hUnit, "modifier_camera_follow", {duration = 1.0})
                     end
                 end)
             end
@@ -340,16 +361,33 @@ function emiya_unlimited_bladeworks:EnterUBW()
     end    
 end
 
-function emiya_unlimited_bladeworks:EndUBW()   
+function emiya_unlimited_bladeworks:EndUBW()
     local caster = self:GetCaster()
+    -- смерть Эмии дёргает EndUBW дважды: и OnOwnerDied способности, и OnDestroy
+    -- модификатора (RemoveOnDeath). Флаг гасим здесь, чтобы второй вызов был no-op:
+    -- иначе второй проход шёл уже с обнулёнными ubwTargets/ubwTargetLoc и раскидывал
+    -- юнитов по неверным координатам (а на лодке Озимандиса падал на nil-индексе)
+    if not caster.IsUBWActive then return end
+    caster.IsUBWActive = false
+
     local swapAbil = caster:FindAbilityByName("emiya_weapon_swap")
-    swapAbil:SwapWeapons(1)
+    if swapAbil then swapAbil:SwapWeapons(1) end
     caster:SetBodygroup(0,0)
     CreateUITimer("Unlimited Blade Works", 0, "ubw_timer")
     caster:RemoveModifierByName("modifier_unlimited_bladeworks_autoblade")
-    --caster.IsUBWActive = false
-    if not caster.UBWLocator:IsNull() and IsValidEntity(caster.UBWLocator) then
+    -- локатор возврата (ping_sign2, иконка меча на миникарте) и декорации арены
+    -- жили по своим таймерам на 15/16с — при досрочном конце UBW висели на карте
+    if IsNotNull(caster.UBWLocator) and IsValidEntity(caster.UBWLocator) then
         caster.UBWLocator:RemoveSelf()
+    end
+    caster.UBWLocator = nil
+    if caster.UBWSceneDummies then
+        for _, hDummy in pairs(caster.UBWSceneDummies) do
+            if IsNotNull(hDummy) and IsValidEntity(hDummy) then
+                hDummy:RemoveSelf()
+            end
+        end
+        caster.UBWSceneDummies = nil
     end
 
      
@@ -362,9 +400,9 @@ function emiya_unlimited_bladeworks:EndUBW()
             boatUnit = v
         end
     end
-    if IsNotNull(boatUnit) then
+    if IsNotNull(boatUnit) and ubwTargetLoc ~= nil and ubwTargetLoc[1] ~= nil then
         if not IsInSameRealm( boatUnit:GetAbsOrigin(), Vector(0,0,0)) then
-            boatUnit:SetAbsOrigin(ubwTargetLoc[1]) 
+            boatUnit:SetAbsOrigin(ubwTargetLoc[1])
         end
     end
     i = 1
@@ -405,7 +443,8 @@ function emiya_unlimited_bladeworks:EndUBW()
                                 units[i]:Stop()
                             end
                             FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true)
-                            Timers:CreateTimer(0.1, function() 
+                            Timers:CreateTimer(0.1, function()
+                                if not IsNotNull(units[i]) then return end
                                 units[i]:AddNewModifier(units[i], units[i], "modifier_camera_follow", {duration = 1.0})
                             end)
                             IsUnitGeneratedInUBW = false
@@ -462,7 +501,8 @@ function emiya_unlimited_bladeworks:EndUBW()
                                             units[i]:Stop()
                                         end
                                         FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true)
-                                        Timers:CreateTimer(0.1, function() 
+                                        Timers:CreateTimer(0.1, function()
+                                            if not IsNotNull(units[i]) then return end
                                             units[i]:AddNewModifier(units[i], units[i], "modifier_camera_follow", {duration = 1.0})
                                         end)
                                         IsUnitGeneratedInUBW = false

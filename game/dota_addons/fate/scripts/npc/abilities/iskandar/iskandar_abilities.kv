@@ -653,7 +653,8 @@
 	//====================================
 	"iskander_hammer_and_anvil"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/iskandar/iskander_hammer_and_anvil"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -670,23 +671,6 @@
 			"damage"				"450"
 		}	
 
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"lancer_ability"
-				"Function"		"GBAttachEffect"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"iskander_ability"
-			 	"Function"		"OnHammerStart"
-			 	"Damage"		"%damage"
-			}
-		}
 
 	}
 	//====================================
@@ -749,7 +733,8 @@
 	//========================================
 	"iskander_annihilate"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/iskandar/iskander_annihilate"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/iskander_annihilate"
 		"MaxLevel"						"1"
@@ -777,50 +762,7 @@
             "aoe" "200"
             "duration" "6"
         }
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"iskander_ability"
-				"Function"			"OnAnnihilateStart"	
-				"ArrowDamage"		"%damage"
-				"ArrowAoE"			"%aoe"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_annihilate_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-
-			"modifier_annihilate_caster"
-			{
-				"Duration"		"12.0"
-				"IsHidden"		"1"
-			}
-			"modifier_annihilate"
-			{		
-                "EffectName" "particles/custom/iskandar/iskandar_combo_invul.vpcf"
-                "EffectAttachType" "follow_origin"
-				"Duration" 	"12.0"
-				"States"
-				{
-					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_annihilate_mute"
-			{
-				"Duration"		"%duration"
-				"IsDebuff"		"1"
-				"States"
-				{
-					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 	//=======================================
 	// Iskander : Improve Charisma
@@ -828,7 +770,8 @@
 	"iskander_attribute_improve_charisma"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/iskandar/iskander_attribute_improve_charisma"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/iskander_attribute_improve_charisma"
@@ -845,14 +788,6 @@
 			"bonus_range"		"300"
 		}	
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"iskander_ability"
-				"Function"		"OnIskanderCharismaImproved"
-			}
-		}
 	}
 
 	//=======================================
@@ -861,7 +796,8 @@
 	"iskander_attribute_thundergods_wrath"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/iskandar/iskander_attribute_thundergods_wrath"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/iskander_attribute_thundergods_wrath"
@@ -884,14 +820,6 @@
 
 		
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"iskander_ability"
-				"Function"		"OnThundergodAcquired"
-			}
-		}
 	}
 
 
@@ -901,7 +829,8 @@
 	"iskander_attribute_via_expugnatio"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/iskandar/iskander_attribute_via_expugnatio"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/iskander_via_expugnatio"
@@ -921,14 +850,6 @@
 			"stun_duration"								   		"1"
 			"damage_per_unit"								   	"75"
 		}	
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"iskander_ability"
-				"Function"		"OnChariotChargeAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -937,7 +858,8 @@
 	"iskander_attribute_bond_beyond_time"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/iskandar/iskander_attribute_bond_beyond_time"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/iskander_attribute_bond_beyond_time"
@@ -953,14 +875,6 @@
 		"AbilityValues"
         {
         }
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"iskander_ability"
-				"Function"		"OnBeyondTimeAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -969,7 +883,8 @@
 	"iskander_attribute_tactics"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/iskandar/iskander_attribute_tactics"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/iskandar/iskandar_tactics"
@@ -984,13 +899,5 @@
 		"AbilityValues"
         {
         }
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"iskander_ability"
-				"Function"		"OnTacticsAcquired"
-			}
-		}
 	}
 }

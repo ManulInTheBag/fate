@@ -3003,16 +3003,14 @@ function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
         if iBlockCheck <= 0 and not self.bIsComboShield then
             --print("shield_broken")
             for k, v in pairs (hModifiers) do
-
-                if self.hParent:HasModifier("modifier_leonidas_pride_counter") then
+                -- Destroy откладываем всегда: синхронный вызов идёт из блока урона,
+                -- а два удара в одном кадре ставили два таймера на один и тот же бафф
+                if IsNotNull(v) then
                     v:SetStackCount(0)
                     Timers:CreateTimer(FrameTime(), function()
-                        v:Destroy()
+                        if IsNotNull(v) then v:Destroy() end
                     end)
-                else
-                    v:Destroy()
                 end
-                
             end
         else
             for i=1, #hModifiers do

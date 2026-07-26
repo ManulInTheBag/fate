@@ -228,36 +228,6 @@
   //===========================================
   // Atalanta: Tauropolos - Bow of Heaven (Buff)
   //===========================================
-  "atalanta_tauropolos"
-  {
-    "BaseClass"           "ability_lua"
-    "ScriptFile"					"abilities/atalanta/tauropolos"
-    "MaxLevel"						"5"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"			"custom/atalanta_tauropolos"
-    "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_2"
-    "AbilityCastPoint"				"0.4"
-    "AbilityCooldown"				"28"
-    "AbilityManaCost"				"400"
-    "LevelsBetweenUpgrades"			"2"
-
-    "precache"
-    {
-      "particle"					"particles/econ/items/legion/legion_fallen/legion_fallen_press.vpcf"
-      "soundfile"					"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
-    }
-
-    "AbilityValues"
-        {
-            "duration" "4.0 4.5 5.0 5.5 6.0"
-            "bonus_arrows" "3 4 5 6 7"
-            "cast_time_reduction" "0.66"
-            "bonus_range_per_agi" "3"
-            "bonus_aoe_per_agi" "1"
-            "attribute_swap_duration" "6"
-            "bonus_stats" "15 30 45 60 75"
-        }
-  }  
 
   //=======================================
   // Atalanta: Phoebus Catastrophe: Barrage
@@ -465,30 +435,6 @@
   //=======================================
   // Atalanta Attribute : Bow of Heaven
   //=======================================
-  "atalanta_attribute_bow_of_heaven"
-  {
-    // General		//------------------------------------------------------------------------------------------------------------
-    "BaseClass"						"ability_lua"
-    "ScriptFile"					"abilities/atalanta/attributes"
-    "MaxLevel"						"1"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"			"custom/atalanta_bow_of_heaven"
-    
-    "AbilityCastPoint"				"0.0"
-    "AbilityCooldown"				"9999"
-    "AbilityManaCost"				"16"
-
-    "precache"
-    {
-    }
-
-    "AbilityValues"
-        {
-            "r_extra_range" "1000"
-            "r_agi_scaling" "5"
-            "phoebus_max_distance_from_r" "1500"
-        }
-  }
 
   //=======================================
   // Atalanta: Phoebus Catastrophe Proxy

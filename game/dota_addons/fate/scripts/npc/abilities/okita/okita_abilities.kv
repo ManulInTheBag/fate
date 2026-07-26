@@ -99,41 +99,6 @@
 	//=================================================================================================================
 	// Okita Souji : Skill 3 : Hira-Seigan: The Silent Step (E)
 	//=================================================================================================================
-	"okita_seigan"
-	{
-		"BaseClass"             		"ability_lua"
-		"ScriptFile"					"abilities/okita/okita_seigan"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityTextureName"			"custom/okita/okita_seigan"
-		"MaxLevel" 						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityManaCost"				"400"
-		"AbilityCooldown"				"24 22 20 18 16"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
-		"AnimationPlaybackRate" 		"1.0"
-		"AOERadius"						"%radius"
-
-		"precache"
-		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-			"particle"				"particles/okita/okita_counterhelix.vpcf"
-			"particle"		"particles/okita/okita_jet_cast_runes.vpcf"
-			"particle"		"particles/okita/okita_jet_fly.vpcf"
-			"particle"		"particles/okita/okita_windrun.vpcf"
-		}
-
-		"AbilityValues"
-        {
-            "base_dist" "500"
-            "stack_dist" "0"
-            "damage" "0.8"
-            "damage_big" "1.2"
-            "base_slashes" "3 3 4 4 5"
-            "damage_big_bonus" "0.8"
-        }
-	}
 
 	//=================================================================================================================
 	// Okita Souji : Hira-Seigan: The Silent Step (E) (Judgement Cut End in a nutshell)
@@ -642,15 +607,4 @@
         }
 	}
 
-    "okita_weak_constitution_summer"
-    {
-    	"BaseClass"									"ability_lua"
-    	"ScriptFile"								"abilities/okita/okita_weak_constitution"
-    	"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    	"AbilityTextureName"						"custom/okita/okita_weak_constitution_summer"
-
-    	"MaxLevel"                                  "1"
-        "RequiredLevel"                             "1"
-        "LevelsBetweenUpgrades"                     "1"
-    }
 }

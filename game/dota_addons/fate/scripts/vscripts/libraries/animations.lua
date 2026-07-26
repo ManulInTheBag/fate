@@ -67,6 +67,15 @@ LinkLuaModifier( "modifier_animation_freeze", "libraries/modifiers/modifier_anim
 
 require('libraries/timers')
 
+-- локальная проверка хендла: библиотека может грузиться в скоуп, где util.lua (IsNotNull) отсутствует
+local function _IsValidUnit(unit)
+  if unit == nil then return false end
+  if type(unit) == "table" and type(unit.IsNull) == "function" then
+    return not unit:IsNull()
+  end
+  return true
+end
+
 local _ANIMATION_TRANSLATE_TO_CODE = {
   abysm= 13,
   admirals_prow= 307,
@@ -446,6 +455,7 @@ local _ANIMATION_TRANSLATE_TO_CODE = {
 }
 
 function StartAnimation(unit, table)
+  if not _IsValidUnit(unit) then return end
   local duration = table.duration
   local activity = table.activity
   local translate = table.translate
@@ -471,7 +481,8 @@ function StartAnimation(unit, table)
 
   if unit:HasModifier("modifier_animation") or (unit._animationEnd ~= nil and unit._animationEnd + .067 > GameRules:GetGameTime()) then
     EndAnimation(unit)
-    Timers:CreateTimer(.066, function() 
+    Timers:CreateTimer(.066, function()
+      if not _IsValidUnit(unit) then return end
       if translate2 ~= nil then
         unit:AddNewModifier(unit, nil, "modifier_animation_translate", {duration=duration, translate=translate2})
         unit:SetModifierStackCount("modifier_animation_translate", unit, _ANIMATION_TRANSLATE_TO_CODE[translate2])
@@ -494,6 +505,7 @@ function StartAnimation(unit, table)
 end
 
 function FreezeAnimation(unit, duration)
+  if not _IsValidUnit(unit) then return end
   if duration then
     unit:AddNewModifier(unit, nil, "modifier_animation_freeze", {duration=duration})
   else
@@ -502,16 +514,19 @@ function FreezeAnimation(unit, duration)
 end
 
 function UnfreezeAnimation(unit)
+  if not _IsValidUnit(unit) then return end
   unit:RemoveModifierByName("modifier_animation_freeze")
 end
 
 function EndAnimation(unit)
+  if not _IsValidUnit(unit) then return end
   unit._animationEnd = GameRules:GetGameTime()
   unit:RemoveModifierByName("modifier_animation")
   unit:RemoveModifierByName("modifier_animation_translate")
 end
 
 function AddAnimationTranslate(unit, translate)
+  if not _IsValidUnit(unit) then return end
   if translate == nil or _ANIMATION_TRANSLATE_TO_CODE[translate] == nil then
     print("[ANIMATIONS.lua] ERROR, no translate-code found for '" .. translate .. "'.  This translate may be misspelled or need to be added to the enum manually.")
     return
@@ -522,6 +537,7 @@ function AddAnimationTranslate(unit, translate)
 end
 
 function RemoveAnimationTranslate(unit)
+  if not _IsValidUnit(unit) then return end
   unit:RemoveModifierByName("modifier_animation_translate_permanent")
 end
 

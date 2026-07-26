@@ -438,48 +438,6 @@
             "mr_reduction_per_attack" "3"
         }		
 	}
-	"muramasa_flame_attribute"
-	{
-		 
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/muramasa/muramasa_attributes"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/muramasa/muramasa_flame_attribute"
-		"AbilityCooldown"				"9999"
-
-		"AbilityManaCost"				"9"
-
-		 
-		"AbilityValues"
-        {
-            "radius" "250"
-            "base_dmg" "100"
-            "dmg_per_agi" "3"
-        }			
-	}
-	"muramasa_territory_creation_attribute"
-	{
-		 
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/muramasa/muramasa_attributes"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/muramasa/muramasa_territory_creation_attribute"
-		"AbilityCooldown"				"9999"
-
-		"AbilityManaCost"				"13"
-
-		 
-		"AbilityValues"
-        {
-            "cooldown" "1.5"
-        }		
-	}
 
 	"muramasa_wicked_sword_attribute"
 	{
@@ -611,34 +569,6 @@
 	//=================================================================================================================
 	// Muramasa - upgrade (D) /// UNUSED
 	//=================================================================================================================
-	"muramasa_upgrade"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/muramasa/muramasa_upgrade"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"25"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityTextureName"			"custom/muramasa/muramasa_upgrade"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_9"
-		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastPoint"				"0.2"
-		//"AbilityCastRange"				"300"
- 		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"200"
-		"AbilityValues"
-        {
-            "cost" "3"
-            "radius" "250"
-            "base_dmg" "100"
-            "dmg_per_agi" "3"
-            "att_damage_reduction" "10"
-            "vision_bonus" "400"
-        }
-	}
 
 	//=================================================================================================================
 	// Muramasa - tsumukari muramasa (R) /// UNUSED

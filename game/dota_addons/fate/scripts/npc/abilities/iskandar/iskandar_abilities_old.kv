@@ -7,73 +7,6 @@
 	//================================================
 	// Iskander : Charisma
 	//================================================
-	"iskander_charisma"
-	{
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
-		"AbilityTextureName"            "custom/iskander_charisma"
-		"MaxLevel"                      "1"
-		"AbilityCastRange"				"1000"
-
-		"AbilityValues"
-        {
-            "radius" "1000"
-            "bonus_ms" "15"
-        }	
-		"Modifiers"
-		{
-			"iskander_charisma_passive"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"iskander_ability"
-						"Function"		"OnIskanderCharismaStart"
-						"Radius"		"%radius"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"iskander_ability"
-						"Function"		"OnIskanderCharismaDeath"
-					}
-				}
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"iskander_ability"
-						"Function"		"OnIskanderCharismaRespawn"
-						"Radius"		"%radius"
-					}
-				}				
-		  	}
-			"modifier_charisma_movespeed"
-			{	
-				"Duration"				"0.25"		
-				"IsHidden"				"1"	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"15"
-				}
-			}
-			"modifier_charisma_improved"
-			{	
-				"Duration"				"0.25"		
-				"IsHidden"				"1"	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"15"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"20"
-				}
-			}
-		}
-	}
 
 	//========================================
 	// Iskander - Forward!
@@ -354,66 +287,6 @@
 	//====================================
 	// Iskander - Via Expugnatio
 	//====================================
-	"iskander_via_expugnatio"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"25"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/iskander_via_expugnatio"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
-			"particle"				"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.15"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"36"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400"
-		
-		"AbilityValues"
-        {
-            "charge_damage" "100"
-            "trail_damage" "20"
-            "range" "1500"
-            "trail_duration" "3.0"
-        }
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"iskander_ability"
-			 	"Function"		"OnChariotChargeStart"
-			 	"Target"		"POINT"
-			 	"ChargeDamage"	"%charge_damage"
-			 	"TrailDamage"	"%trail_damage"
-			 	"Range"			"%range"
-			 	"Duration"		"%trail_duration"
-			}
-		}
-		
-		"Modifiers"
-		{
-		}
-	}
 
 	//========================================
 	// Iskander - Army of the King
@@ -1544,4 +1417,6 @@
 			}
 		}
 	}
+
+	// [restored] возвращён после ошибочной чистки
 }

@@ -366,6 +366,8 @@ function modifier_azrael_particle:OnIntervalThink()
     ParticleManager:SetParticleControl(self.Particle, 4, self.ParticleDummy:GetAbsOrigin())
 end
 function modifier_azrael_particle:OnDestroy()
+	-- OnDestroy идёт в обеих VM, а поля заведены в OnCreated под IsServer
+	if not IsServer() then return end
 	if type(self.Particle) == "number" then
 		ParticleManager:DestroyParticle(self.Particle, false)
 		ParticleManager:ReleaseParticleIndex(self.Particle)

@@ -4,46 +4,6 @@
 	// Avenger - Flag Swing
 	//=======================================
 
-	"jeanne_flag_swing"
-	{
-		"BaseClass"						"ability_lua"
-		"precache"
-		{
-			"particle"		"particles/jeanne_alter/noire_slash_cast.vpcf"
-		}
-		"ScriptFile"					"abilities/jeanne_alter/jeanne_flag_swing"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
-
-		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
-		//"AnimationPlaybackRate" 		"1.7"
-
-		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/jeanne_alter/jeanne_flag"
-		"AbilityCastRange"				"300"
-
-		//"AbilityCastPoint"				"0.2"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		
-		"AbilityValues"
-        {
-            "damage" "80 100 120 140 160"
-            "block_duration" "1"
-            "marker_duration" "3"
-            "radius" "300"
-            "stun_duration" "1"
-            "return_percentage" "50 55 60 65 70"
-        }
-	}
 
 	//=======================================
 	// Avenger - Trail of Torment

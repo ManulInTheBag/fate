@@ -70,7 +70,8 @@
 	//=================================================================================================================
 	"jeanne_identity_discernment"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/jeanne/jeanne_identity_discernment"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/jeanne_identity_discernment"
 		"MaxLevel"						"1"
@@ -86,33 +87,8 @@
             "saint_vision_duration" "1.5"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"jeanne_ability"
-				"Function"			"OnIDPing"
-				"Duration"			"%saint_vision_duration"
-			}
-		}
 		
 
-		"Modifiers"
-		{
-			"modifier_identity_discernment"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnIDRespawn"
-					}
-				}
-			}
-		}
 	}
 	
 	//=================================================================================================================
@@ -432,112 +408,6 @@
 	//=================================================================================================================
 	// Jeanne d'Arc: La Pucelle
 	//=================================================================================================================
-	"jeanne_combo_la_pucelle"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/jeanne_la_pucelle"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"25"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityCooldown"				"240"
-		"precache"
-		{
-			"particle"				"particles/custom/ruler/la_pucelle/ruler_la_pucelle.vpcf"
-			"particle"				"particles/custom/ruler/la_pucelle/la_pucelle_flame.vpcf"
-			"particle"				"particles/status_fx/status_effect_keeper_spirit_form.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
-			"particle"		"particles/units/heroes/hero_chen/chen_penitence_c.vpcf"
-			"particle"		"particles/units/heroes/hero_chen/chen_teleport_flash_sparks.vpcf"
-		}
-
-		"AbilityValues"
-        {
-            "delay" "2.0"
-            "duration" "8"
-            "bonus_aspd" "200"
-            "bonus_ms" "50"
-            "flame_damage_per_sec" "9"
-        }
-		
-		"Modifiers"
-		{
-			"modifier_la_pucelle"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnLaPucelleTakeDamage"
-						"Duration"		"%duration"
-						"Delay"			"%delay"
-					}
-				}
-			}
-			"modifier_la_pucelle_spirit_form"
-			{
-				"EffectName"	"particles/custom/ruler/la_pucelle/ruler_la_pucelle.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"StatusEffectName" 		"particles/status_fx/status_effect_keeper_spirit_form.vpcf" 	   
-				"StatusEffectPriority"  "10"
-				"Duration"	"10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_aspd"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"50"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"99999999"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"1000"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"		"1000"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"100"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"				"0.25"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnLaPucelleThink"
-						"Damage"		"%flame_damage_per_sec"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"jeanne_ability"
-						"Function"		"OnLaPucelleDeath"
-					}
-				}
-			}
-			"modifier_la_pucelle_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"modifier_la_pucelle_anim"
-			{
-				"IsHidden"			"1"
-				"Duration"			"%delay"
-				"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"1.0"
-				}
-			}
-		}
-	}
 
 	//=======================================
 	// Jeanne Attribute : Identity Discernment
@@ -688,53 +558,4 @@
 	//====================================
 	// Jeanne d'Arc : Luminosite Eternelle
 	//====================================
-	"jeanne_flag"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/jeanne/jeanne_flag"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityTextureName"			"custom/jeanne_luminosite_eternelle"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"AbilityChannelTime"            "5"
-		"AnimationPlaybackRate" 		"1.05"
-		"precache"
-		{
-			"particle"			"particles/custom/ruler/luminosite_eternelle/luminosite_eternelle.vpcf"
-			"particle"			"particles/custom/ruler/luminosite_eternelle/sacred_zone.vpcf"
-			"particle"			"particles/econ/items/windrunner/windrunner_weapon_sparrowhawk/windrunner_spell_powershot_sparrowhawk.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-		}
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.7"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"47.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		
-		"AbilityValues"
-        {
-            "delay" "1"
-            "radius" "1000"
-            "reveal_duration" "3.0 4.0 5.0 6.0 7.0"
-            "dmg_per_mana" "1.7 1.9 2.1 2.3 2.5"
-            "flag_health" "8 13 18 23 28"
-            "flag_duration" "12"
-            "damage_amp" "30"
-            "damage_reduction_improved" "-45 -50 -55 -60 -65"
-        }
-	}
 }

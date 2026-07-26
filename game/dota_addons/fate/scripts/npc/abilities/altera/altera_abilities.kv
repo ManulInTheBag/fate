@@ -87,30 +87,6 @@
 	//=================================================================================================================
 	// Altera : Rift Open
 	//=================================================================================================================
-	"altera_rift_open"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/altera/altera_rift_open"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"custom/altera/altera_rush"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-
-		"AbilityCastPoint"				"0.3"
-
-        "AbilityManaCost"               "200"
-        "AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"16 15 14 13 12"
-
-		"AbilityValues"
-		{
-			"duration"				"15"
-			"radius"				"250"
-		}
-	}
 
 	//=======================================
 	// Altera - Dimensional Rift
@@ -167,27 +143,6 @@
 	//=================================================================================================================
 	// Altera : Rift Travel
 	//=================================================================================================================
-	"altera_rift_travel"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/altera/altera_rift_travel"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
-		"AbilityTextureName"			"custom/altera/altera_rush"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityCastRange"				"500"
-
-		"AbilityValues"
-		{
-			"travel_duration"			"5"
-			"unstable_duration"			"3"
-			"dash_max_distance"			"500"
-			"connect_distance"			"2000"
-		}
-	}
 
 	//=======================================
 	// Altera - Adaptive Burst
@@ -563,8 +518,6 @@
 
 		"AbilityValues"
         {
-            "damage_reduce" "10"
-            "duration" "2"
         }		
 	}
 	"altera_endless_attribute"

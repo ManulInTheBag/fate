@@ -489,7 +489,7 @@ function lishuwen_no_second_strike:ApplyMarkOfFatality(caster, target)
 
 	local currentStack = target:GetModifierStackCount("modifier_mark_of_fatality", abil)
 	target:RemoveModifierByName("modifier_mark_of_fatality") 
-	abil:ApplyDataDrivenModifier(caster, target, "modifier_mark_of_fatality", {}) 
+	target:AddNewModifier(caster, abil, "modifier_mark_of_fatality", {}) 
 	target:SetModifierStackCount("modifier_mark_of_fatality", abil, currentStack + 1)
 end
 

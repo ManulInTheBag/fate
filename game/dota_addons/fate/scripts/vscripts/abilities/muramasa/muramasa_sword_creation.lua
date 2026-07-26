@@ -97,14 +97,21 @@ end
 
 
 modifier_muramasa_sword_drop_enemy_buff = class({})
-function modifier_muramasa_sword_drop_enemy_buff:OnDestroy()
-        ParticleManager:DestroyParticle(self.counterfx , true)
-		ParticleManager:ReleaseParticleIndex(self.counterfx )
 
+-- counterfx создаётся только на сервере, а OnDestroy/OnRefresh зовутся и на клиенте:
+-- там индекс nil, и DestroyParticle падал с "expected integer but got void"
+function modifier_muramasa_sword_drop_enemy_buff:DestroyCounterFx()
+    if not self.counterfx then return end
+    ParticleManager:DestroyParticle(self.counterfx, true)
+    ParticleManager:ReleaseParticleIndex(self.counterfx)
+    self.counterfx = nil
+end
+
+function modifier_muramasa_sword_drop_enemy_buff:OnDestroy()
+    self:DestroyCounterFx()
 end
 function modifier_muramasa_sword_drop_enemy_buff:OnRefresh(args)
-        ParticleManager:DestroyParticle(self.counterfx , true)
-		ParticleManager:ReleaseParticleIndex(self.counterfx )
+    self:DestroyCounterFx()
     self:OnCreated(args)
 end
 
@@ -149,28 +156,37 @@ function modifier_muramasa_sword_drop_enemy_buff:OnAttackLanded(args)
     self.Dummy.GunFx = GunFx
     local dummy = self.Dummy
  
+    local hTarget = args.target
     Timers:CreateTimer(0.5, function()
-       if stackCount <= 1 then 
-        ParticleManager:DestroyParticle(self.counterfx , true)
-		ParticleManager:ReleaseParticleIndex(self.counterfx )
-        self:Destroy() 
-       end  
+       if stackCount <= 1 then
+        -- партикл снимет сам OnDestroy, вручную его больше не рвём (было двойное уничтожение)
+        self:Destroy()
+       end
        self.isReady = true
-        dummy:SetForwardVector((    args.target:GetAbsOrigin() - position ):Normalized())
+        if IsNotNull(dummy) then
+            if IsNotNull(hTarget) then
+                dummy:SetForwardVector((    hTarget:GetAbsOrigin() - position ):Normalized())
+            end
+            dummy:EmitSound("muramasa_sword_slash_soul")
+        end
 
         ParticleManager:DestroyParticle(GunFx, false)
 		ParticleManager:ReleaseParticleIndex(GunFx)
-        dummy:EmitSound("muramasa_sword_slash_soul")
-        dummy:RemoveSelf()      
+        if IsNotNull(dummy) then
+            dummy:RemoveSelf()
+        end
     end)
 	Timers:CreateTimer(0.25, function()
-                DoDamage(self.parent, args.target, (self.ability:GetSpecialValueFor("soul_sa_sword_damage") +self.ability:GetSpecialValueFor("soul_sa_sword_damage_per_level") * self:GetParent():GetLevel() ), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)   
+                if not (IsNotNull(self.parent) and IsNotNull(hTarget) and IsNotNull(self.ability)) then return end
+                DoDamage(self.parent, hTarget, (self.ability:GetSpecialValueFor("soul_sa_sword_damage") +self.ability:GetSpecialValueFor("soul_sa_sword_damage_per_level") * self.parent:GetLevel() ), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)
 
 	end)
 
     --DoDamage(self.parent, args.target, self.parent:GetAttackDamage(), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)   
 	self:SetStackCount(stackCount-1)
-    ParticleManager:SetParticleControl( self.counterfx , 2, Vector((stackCount-1),0,0) )
+    if self.counterfx then
+        ParticleManager:SetParticleControl( self.counterfx , 2, Vector((stackCount-1),0,0) )
+    end
 end
 
 function modifier_muramasa_sword_drop_enemy_buff:IsHidden()

@@ -1,0 +1,49 @@
+{
+ "version": 1,
+ "rolls": [
+  {
+   "hero": "npc_dota_hero_venomancer",
+   "hero_label": "Leonidas I",
+   "target_id": "ab:leonidas_enomotia_combo",
+   "target_kind": "ability",
+   "target_name": "leonidas_enomotia_combo",
+   "target_label": "🌀 — COMBO: Thermopylae Enomotia",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "combo_duration"
+     ],
+     "key": "combo_duration",
+     "key_label": "combo_duration",
+     "old": "6.0",
+     "new": "4.5",
+     "baseline": "6.0",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "combo_duration"
+   ],
+   "key": "combo_duration",
+   "key_label": "combo_duration",
+   "old": "6.0",
+   "new": "4.5",
+   "baseline": "6.0",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "8a620baf",
+   "ts": 1784733109,
+   "seed": null,
+   "expires": 1785337909,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1784733133
+  }
+ ]
+}

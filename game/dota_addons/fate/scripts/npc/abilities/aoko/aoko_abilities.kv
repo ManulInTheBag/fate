@@ -899,148 +899,16 @@
 	// Aozaki Aoko: Browning Starmine - Spark
 	//=================================================================================================================
 
-	"aoko_beam"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/aoko/aoko_beam"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate" 		"1.0"
-
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/altera/altera_sword"
-		//"AbilityCastRange"				"300"
-
-		"AbilityCastPoint"				"0.2"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
-		"AbilityCooldown"				"3"
-
-		"precache"
-		{
-			"particle"					"particles/aoko/aoko_beam_laser_simple.vpcf"
-		}
-		
-		"AbilityValues"
-		{
-			"damage"					"100 150 200 250 300"
-			"range"						"800"
-		}
-	}
 
 	//=================================================================================================================
 	// Aozaki Aoko: Acceleration Kick
 	//=================================================================================================================
-	"aoko_round_kick"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"		"particles/aoko/aoko_blade_fury_blue.vpcf"
-		}
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/aoko/aoko_round_kick"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"			"custom/ryougi/ryougi_backflip"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1.0"
-		//"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"100"
-		
-		"AbilityValues"
-		{
-			"cast_point"			"0.0"
-			"damage"				"300 375 450 525 600"
-			"radius"				"400"
-		}
-	}
 
 	//=================================================================================================================
 	// Aozaki Aoko: Star Fist
 	//=================================================================================================================
-	"aoko_punch"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/aoko/aoko_punch"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
-		"AbilityTextureName"			"custom/okita/okita_seigan"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityManaCost"				"400"
-		"AbilityCooldown"				"18"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"350"
-		
-		"AbilityValues"
-		{	
-			"cast_point"			"0.2"
-		}
-	}
 
 	//=================================================================================================================
 	// Aozaki Aoko: Cardio Routine
 	//=================================================================================================================
-	"aoko_dailin"
-	{
-		"BaseClass"             		"ability_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-
-		"AbilityTextureName"			"custom/edmon/enfer"
-		"ScriptFile"					"abilities/aoko/aoko_dailin"
-
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
-		"AnimationPlaybackRate" 		"1.0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400"
-
-		"precache"
-		{
-			"particle"					"particles/aoko/aoko_blast.vpcf"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-        {
-            "speed" "3000"
-            "range" "800"
-        }
-	}
 }

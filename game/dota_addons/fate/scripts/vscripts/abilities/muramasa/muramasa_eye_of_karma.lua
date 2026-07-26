@@ -37,17 +37,25 @@ function modifier_muramasa_eye_of_karma:OnCreated()
 if(not IsServer()) then return end
 local caster = self:GetCaster()
 self.atkstacks = 0
-caster.eyeofkarmafx = ParticleManager:CreateParticle("particles/muramasa/eye_of_karma_base.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
- ParticleManager:SetParticleShouldCheckFoW(caster.eyeofkarmafx, false)
+-- партикл держим на модификаторе, а не на кастере: иначе два дебаффа
+-- перетирают одно поле и первый партикл течёт
+self.eyeofkarmafx = ParticleManager:CreateParticle("particles/muramasa/eye_of_karma_base.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+caster.eyeofkarmafx = self.eyeofkarmafx
+ ParticleManager:SetParticleShouldCheckFoW(self.eyeofkarmafx, false)
 self.visionenabled = 0
 self:GetParent():EmitSound("Hero_Bane.Nightmare.Loop")
 ------ to grant vision and lock after 1 second
 local duration = self:GetAbility():GetSpecialValueFor("duration") 
-Timers:CreateTimer(1.55, function()      
-    self:GetParent():StopSound("Hero_Bane.Nightmare.Loop")
-    giveUnitDataDrivenModifier(caster,  self:GetParent(), "locked", duration)
-    self:GetParent():AddNewModifier(caster, self:GetAbility(), "modifier_vision_provider", { Duration = duration })
-    self:GetParent():EmitSound("Hero_Bane.Nightmare")
+Timers:CreateTimer(1.55, function()
+    -- дебафф могли снять/цель могла умереть за эти 1.55с — хендлы модификатора и кастера мертвы
+    if not IsNotNull(self) then return end
+    local parent = self:GetParent()
+    if not IsNotNull(parent) then return end
+    parent:StopSound("Hero_Bane.Nightmare.Loop")
+    if not IsNotNull(caster) then return end
+    giveUnitDataDrivenModifier(caster, parent, "locked", duration)
+    parent:AddNewModifier(caster, self:GetAbility(), "modifier_vision_provider", { Duration = duration })
+    parent:EmitSound("Hero_Bane.Nightmare")
 end)
  
 ------
@@ -59,9 +67,20 @@ end
 
 function modifier_muramasa_eye_of_karma:OnDestroy()
     if(not IsServer()) then return end
-    ParticleManager:DestroyParticle(self:GetCaster().eyeofkarmafx, true)
-	ParticleManager:ReleaseParticleIndex(self:GetCaster().eyeofkarmafx)
-
+    -- луп-звук раньше глушился только в таймере: при раннем диспеле он играл вечно
+    local parent = self:GetParent()
+    if IsNotNull(parent) then
+        parent:StopSound("Hero_Bane.Nightmare.Loop")
+    end
+    if self.eyeofkarmafx then
+        ParticleManager:DestroyParticle(self.eyeofkarmafx, true)
+        ParticleManager:ReleaseParticleIndex(self.eyeofkarmafx)
+        local caster = self:GetCaster()
+        if IsNotNull(caster) and caster.eyeofkarmafx == self.eyeofkarmafx then
+            caster.eyeofkarmafx = nil
+        end
+        self.eyeofkarmafx = nil
+    end
 end
 ----
 ----on refresh does not execute OnCreated and OnDestroyed, so i need to just remember values  

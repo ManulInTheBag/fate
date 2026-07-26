@@ -1,4 +1,3 @@
-#base "angra_mainyu_murderous_instinct.kv"
 #base "angra_mainyu_verg_avesta.kv"
 
 "DOTAAbilities"
@@ -116,7 +115,8 @@
 	"avenger_autoattack"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/avenger/avenger_autoattack"
 		"AbilityTextureName"            "custom/diarmuid_minds_eye"
 		"MaxLevel"                      "1"
 		"precache"
@@ -124,22 +124,6 @@
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
 		}
 		
-		"Modifiers"
-		{
-			"avenger_autoattack_passive"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "1"
-				"OnAttackLanded"
-				{
-					"FireSound"
-					{
-						"EffectName"		"Hero_PhantomAssassin.Attack"
-						"Target"			"CASTER"
-					}
-				}
-		  	}
-		}
 	}
 	//=====================================
 	// Avenger : Dark Passage
@@ -233,154 +217,14 @@
 	//========================================
 	// Avenger : Murderous Instinct
 	//========================================
-	"avenger_murderous_instinct"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"custom/avenger_murderous_instinct"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"precache"
-		{
-			"particle"			"particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn.vpcf"
-			"particle"			"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
-			"particle"			"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-		}
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
-		"AbilityCastPoint"				"0.1"
-
-		"LinkedAbilities"				"avenger_unlimited_remains"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		
-		"AbilityValues"
-        {
-            "crit_multiplier" "50 75 100 125 150"
-            "critical_rate" "25 30 35 40 45"
-            "duration" "9 11 13 15 17"
-            "mana_regen_percentage" "12"
-            "mana_regen_percentage_herokill" "12 14 16 18 20"
-            "on_attack_damage" "20 25 30 35 40"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnMurderStart"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_OgreMagi.Bloodlust.Cast"
-				"Target"		"CASTER"
-			}
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"Target"		"CASTER"
-
-			}
-		}
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnMurderLevelUp"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_murderous_instinct"
-			{
-				"Duration"		"%duration"
-				"EffectName" 	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
-	            "EffectAttachType" "follow_origin"
-	            "OnAttackLanded"
-				{
-					"Random"
-					{
-						"Chance"	"%critical_rate"
-						"OnSuccess"
-						{
-							"RunScript"
-							{
-								"ScriptFile"		"avenger_ability"
-								"Function"			"OnBashSuccess"
-							}
-						}
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"avenger_ability"
-						"Function"			"OnAttackDamageMurderous"
-						"on_attack_damage"	"%on_attack_damage"
-					}
-				}
-			}
-			"modifier_murderous_instinct_bash_checker"
-			{
-				"Duration"		"1"
-				"IsDebuff"		"1"
-				"IsHidden"		"1"
-			}
-			"modifier_murderous_instinct_passive"
-			{
-				"Passive"       "1"
-				"IsHidden"      "1"
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"avenger_ability"
-						"Function"			"OnMurder"
-						"ManaRegen"			"%mana_regen_percentage"
-						"ManaRegenHero"		"%mana_regen_percentage_herokill"
-					}
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn.vpcf"
-						"EffectAttachType"	"attach_origin"
-						"Target"		"CASTER"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"avenger_ability"
-						"Function"			"OnAttackRemain"
-					}
-				}
-			}
-			"modifier_murderous_instinct_crit_hit"
-			{
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multiplier"
-				}				
-			}
-		}
-	}
 
 	//========================================
 	// Avenger : Unlimited Remains
 	//========================================
 	"avenger_unlimited_remains"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_unlimited_remains"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/avenger_unlimited_remains"
 		"MaxLevel"						"5"
@@ -412,37 +256,7 @@
             //"multiply_period" "99"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnRemainStart"
-				"SpawnNumber"		"%spawn_number"
-				"Period"			"%multiply_period"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"		"modifier_avenger_death_checker"
-				"Target"			"CASTER"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_avenger_death_checker"
-			{
-				"IsHidden"      "1"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"avenger_ability"
-						"Function"			"OnRemainDeath"
-					}
-				}
-			}	
-		}
 	}
 
 	//================================================
@@ -451,7 +265,8 @@
 	"avenger_remain_passive"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/avenger/avenger_remain_passive"
 		"AbilityTextureName"            "custom/avenger_unlimited_remains"
 		"MaxLevel"                      "5"
 
@@ -461,49 +276,6 @@
             "damage" "100 125 150 175 200"
             //"multiply_period" "99"
         }	
-		"Modifiers"
-		{
-			"avenger_remain_self_destruct"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "1"		
-
-				"OnCreated"
-				{
-					//"RunScript"
-					//{
-						//"ScriptFile"	"avenger_ability"
-						//"Function"		"OnRemainMultiplyStart"
-					//}
-				}
-				"OnAttackStart"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
-						"EffectAttachType"  "start_at_customorigin"
-
-						"ControlPointEntities"
-						{
-							"CASTER"	"follow_origin"
-							"CASTER"	"follow_origin"
-							"CASTER"	"follow_origin"
-						}
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"avenger_ability"
-						"Function"			"OnRemainExplode"
-						"Damage"			"%damage"
-						"Period"			"%multiply_period"
-					}
-				}
-				//"States"
-				//{
-				//	"MODIFIER_STATE_SPECIALLY_DENIABLE" "MODIFIER_STATE_VALUE_ENABLED"
-				//}						
-		  	}
-		}
 	}
 
 	//=====================================
@@ -512,7 +284,8 @@
 	"avenger_tawrich_zarich"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_tawrich_zarich"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -548,36 +321,6 @@
             "damage_per_attack" "60 75 90 105 120"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnTZStart"
-				"Damage"			"%damage_per_attack"
-				"Duration"			"%duration"
-			}
-		}
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnTZLevelUp"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_tawrich_slow"
-			{
-				"Duration"		"%slow_duration"
-				"IsDebuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
-				}
-			}
-		}
 	}
 
 	//=====================================
@@ -586,7 +329,8 @@
 	"avenger_vengeance_mark"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_vengeance_mark"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -617,49 +361,6 @@
             "duration" "1 1.25 1.5 1.75 2"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnVengeanceStart"
-				"Damage"			"%damage"
-				"Delay"				"%delay"
-				"Duration"			"%duration"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_vengeance_mark"
-			{
-				"Duration"		"%delay"
-				"IsDebuff"		"1"
-				"EffectName"		"particles/units/heroes/hero_warlock/warlock_shadow_word_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"OnDestroy"
-				{
-					//"RunScript"
-					//{
-						//"ScriptFile"		"avenger_ability"
-						//"Function"			"OnVengeanceEnd"
-						//"Damage"			"%damage"	
-						//"ReturnAmount"		"%return_percentage"			
-					//}
-					"FireEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death_bonus.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"CASTER"
-					}
-					"FireSound"
-					{
-						"EffectName"		"Hero_DoomBringer.Devour"
-						"Target"			"CASTER"
-					}
-				}
-			}
-		}
 	}
 
 	//=====================================
@@ -668,7 +369,8 @@
 	"avenger_blood_mark"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_blood_mark"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -694,47 +396,15 @@
             "heal"		"500"
         }
 
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnBloodStart"
-			}
-			"FireEffect"
-			{
-				"EffectName"		"particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death_bonus.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"			"TARGET"
-			}
-			"FireSound"
-			{
-				"EffectName"		"Hero_DoomBringer.Devour"
-				"Target"			"TARGET"
-			}
-		}
 
-		"Modifiers"
-		{
-			"modifier_blood_mark_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"modifier_blood_mark_restriction"
-			{
-				"Duration"	"3.0"
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-		}
 	}
 	//========================================
 	// Avenger : True Form
 	//========================================
 	"avenger_true_form"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_true_form"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityTextureName"			"custom/avenger_true_form"
 		"MaxLevel"						"5"
@@ -767,208 +437,23 @@
             "duration" "10"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnTFStart"
-				"BonusMana"			"%bonus_mana"
-			}
-			"FireEffect"
-			{
-				"EffectName"		"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_transform.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"			"CASTER"
-			}
-		}
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnTFLevelUp"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_true_form"
-			{
-				"Duration"			"%duration"
-				"EffectName" 		"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
-				"EffectAttachType"  "follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET"	"%bonus_healing_power"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"					"%bonus_health"
-					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%bonus_healing_power"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"avenger_ability"
-						"Function"			"OnTFEnd"
-					}				
-				}
-			}
-		}
 	}
 
 	//========================================
 	// Avenger : Demon Core
 	//========================================
-	"avenger_demon_core"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/avenger_demon_core"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"25"
-		"LevelsBetweenUpgrades"			"1"
-
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_huskar/huskar_inner_vitality.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
-		}
-		
-		"AbilityValues"
-        {
-            "health_regen_percentage" "8 10 12 14 16"
-            "mana_cost_per_second" "50"
-        }
-		"OnToggleOn"
-		{
-			"FireSound"
-			{
-				"EffectName"		"Hero_Huskar.Inner_Vitality"
-				"Target"			"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnDCToggleOn"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_demon_core"
-			{
-				"EffectName"	"particles/units/heroes/hero_huskar/huskar_inner_vitality.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%health_regen_percentage"
-				}
-				"ThinkInterval"		"0.25"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"avenger_ability"
-						"Function"		"OnDCTick"
-					}
-				}
-			}
-		}
-	}
 
 	//========================================
 	// Avenger : Verg Avesta
 	//========================================
-	"avenger_verg_avesta"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/avenger_verg_avesta"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"precache"
-		{
-			"particle"		"particles/econ/items/sniper/sniper_charlie/sniper_assassinate_impact_blood_charlie.vpcf"
-			"particle"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-			"particle"		"particles/custom/avenger/avenger_verg_avesta.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-		}
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45"
-		"AbilityCastPoint"				"0.01"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"800"
-		
-		"AbilityValues"
-        {
-            "multiplier" "130 140 150 160 170"
-            "duration" "8.0 9.0 10.0 11.0 12.0"
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnVergStart"
-			}
-			"FireEffect"
-			{
-				"Target"			"CASTER"
-				"EffectName"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-				"EffectAttachType"	"start_at_origin"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_verg_avesta"
-			{
-				"Duration"		"%duration"
-				
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"
- 						{
- 							"Center"	"CASTER"
- 							"Flags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
- 						}   			
-						"EffectName"		"particles/custom/avenger/avenger_verg_avesta.vpcf"
-						"EffectAttachType"	"follow_origin"
-					}
-
-				}
-				
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "avenger_ability"
-						"Function"      "OnVergTakeDamage"
-						"Multiplier"		"%multiplier"
-						"DamageTaken"	"%attack_damage"
-					}
-				}				
-			}
-		}
-	}
 
 	//========================================
 	// Avenger : Endless Loop(combo)
 	//========================================
 	"avenger_endless_loop"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_endless_loop"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/avenger_endless_loop"
 		"MaxLevel"						"1"
@@ -996,45 +481,7 @@
             "duration" "12.0"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"avenger_ability"
-				"Function"			"OnEndlessStart"
-			}
-			"FireEffect"
-			{
-				"Target"			"CASTER"
-				"EffectName"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-				"EffectAttachType"	"start_at_origin"
-			}			
-		}
 
-		"Modifiers"
-		{
-			"modifier_endless_loop_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-
-			"modifier_endless_loop"
-			{
-				"Duration"		"%duration"
-				"EffectName"		"particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "avenger_ability"
-						"Function"      "OnEndlessTakeDamage"
-						"DamageTaken"	"%attack_damage"
-					}
-				}	
-			}
-		}
 	}
 
 	//=======================================
@@ -1043,7 +490,8 @@
 	"avenger_attribute_improve_dark_passage"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_attribute_improve_dark_passage"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/avenger_attribute_improve_dark_passage"
@@ -1063,14 +511,6 @@
             "range" "1000"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnDarkPassageImproved"
-			}
-		}
 	}
 
 	//=======================================
@@ -1079,7 +519,8 @@
 	"avenger_attribute_blood_mark"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_attribute_blood_mark"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/avenger_blood_mark"
@@ -1100,14 +541,6 @@
             "heal"		"500"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnBloodMarkAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -1116,7 +549,8 @@
 	"avenger_attribute_overdrive"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_attribute_overdrive"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/avenger_attribute_overdrive"
@@ -1137,14 +571,6 @@
             "max_aspd" "640"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnOverdriveAcquired"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1152,7 +578,8 @@
 	//=================================================================================================================
 	"avenger_overdrive"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_overdrive"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/avenger_overdrive"
 		"MaxLevel"						"1"
@@ -1163,160 +590,6 @@
             "duration" "2"
         }
 		
-		"Modifiers"
-		{
-			"modifier_overdrive"
-			{
-				"passive"		"1"
-				"IsHidden"		"0"
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"avenger_ability"
-						"Function"			"OnOverdriveAttack"
-					}
-				}
-			}
-			"modifier_overdrive_tier1"
-			{
-				"IsHidden"		"1"
-				"Duration"		"%duration"
-				"OnAttackStart"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier2"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier1"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"20"
-				}
-			}
-			"modifier_overdrive_tier2"
-			{
-				"IsHidden"		"1"
-				"Duration"		"%duration"		
-				"OnAttackStart"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier3"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier2"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-				}			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"40"
-				}
-			}
-			"modifier_overdrive_tier3"
-			{
-				"IsHidden"		"1"
-				"Duration"		"%duration"
-				"OnAttackStart"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier4"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier3"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-				}		
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
-				}
-			}
-			"modifier_overdrive_tier4"
-			{
-				"IsHidden"		"1"
-				"Duration"		"%duration"
-				"OnAttackStart"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier5"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier4"
-						"Target"		"CASTER"
-						"Flags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-				}		
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"160"
-				}
-			}
-			"modifier_overdrive_tier5"
-			{
-				"IsHidden"		"1"
-				"Duration"		"%duration"	
-				"OnAttackStart"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier6"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier5"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-				}			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"320"
-				}
-			}
-			"modifier_overdrive_tier6"
-			{
-				"IsHidden"		"1"
-				"Duration"		"%duration"	
-				"OnAttackStart"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"		"modifier_overdrive_tier6"
-						"Target"			"CASTER"
-						"Flags" "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-					}
-				}			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"640"
-				}
-			}
-		}
 	}
 
 
@@ -1326,7 +599,8 @@
 	"avenger_attribute_demon_incarnate"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_attribute_demon_incarnate"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/avenger_attribute_demon_incarnate"
@@ -1346,14 +620,6 @@
             "trueform_cdr" "4.0"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnDIAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -1380,7 +646,8 @@
 	"avenger_attribute_revenge"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/avenger/avenger_attribute_revenge"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/angra/revenge"
@@ -1397,13 +664,7 @@
             "trueform_cdr" "4.0"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"avenger_ability"
-				"Function"		"OnRevengeAcquired"
-			}
-		}
 	}
+
+	// [restored] возвращён после ошибочной чистки
 }

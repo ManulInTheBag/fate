@@ -200,46 +200,6 @@
 	//========================================
 	// Diarmuid - Double Spearsmanship
 	//========================================
-	"diarmuid_double_spearmanship"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/diarmuid/diarmuid_double_spearmanship"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"custom/diarmuid_double_spearsmanship"
-		"MaxLevel"						"5"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_invoker/invoker_alacrity_buff.vpcf"
-			"particle"				"particles/custom/diarmuid/diarmuid_red_trail.vpcf"
-			"particle"				"particles/custom/diarmuid/diarmuid_yellow_trail.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
-		}
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 19 18 17 16"
-		"AbilityCastPoint"				"0.1"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200"
-		
-		"AbilityValues"
-        {
-            "duration" "8 9 10 11 12"
-            "proc_chance" "15 20 25 30 35"
-            "combo_duration" "16"
-            "combo_aspd" "100"
-            "combo_damage" "140"
-            "combo_cooldown" "135"
-            "attribute_attack_speed" "30"
-            "window" "3"
-            "on_hit" "20 27.5 35 42.5 50"
-        }
-	}
 
 	//=================================================================================================================
 	// Diarmuid : Gae Buidhe
@@ -304,39 +264,6 @@
 	//========================================
 	// Diarmuid - Love Spot
 	//========================================
-	"diarmuid_love_spot"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/diarmuid/diarmuid_love_spot"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"			"custom/diarmuid_love_spot"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"MaxLevel"						"2"
-		"LevelsBetweenUpgrades"			"25"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
-		}
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"500 800"
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		
-		"AbilityValues"
-        {
-            "duration" "1.5 2.5"
-            "damage_reduction" "15"
-            "radius" "600 900"
-        }
-	}
 
 	//=======================================
 	// Diarmuid : Minds Eye
@@ -466,30 +393,6 @@
 	//=======================================
 	// Diarmuid Attribute : Improve Love Spot
 	//=======================================
-	"diarmuid_attribute_love_spot"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/diarmuid_attribute_improve_love_spot"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"9"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "duration" "1.0"
-            "range" "300"
-        }
-	}
 
 	//=======================================
 	// Diarmuid Attribute : Mind's Eye
@@ -613,33 +516,4 @@
 	//=======================================
 	// Diarmuid : Rampant Warrior Proxy
 	//=======================================
-	"diarmuid_rampant_warrior_proxy"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/diarmuid_rampant_warrior"
-		
-		
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"135"
-		"AbilityManaCost"				"0"
-
-		"precache"
-		{
-		}
-
-		"AbilityValues"
-        {
-            "cast_reduc" "62.5"
-            "spear_mana" "250"
-            "spear_cd" "1"
-            "atk_mgk_dmg" "125"
-            "atk_pure_dmg" "125"
-            "atk_spd" "100"
-            "duration" "15"
-        }
-	}
 }

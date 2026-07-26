@@ -2788,7 +2788,9 @@ function saito_step:GetAOERadius()
     return self:GetSpecialValueFor("max_distance")
 end
 function saito_step:CastFilterResultLocation(vLocation)
-    if IsLocked(self:GetCaster()) then
+    -- IsLocked объявлен в util.lua = только серверная VM; на клиенте был nil.
+    -- Такой же гард стоит у всех остальных потребителей IsLocked.
+    if IsServer() and IsLocked(self:GetCaster()) then
         return UF_FAIL_CUSTOM
     end
     return UF_SUCCESS

@@ -26,7 +26,6 @@
 #base "abilities/sasaki/sasaki_abilities.kv"
 #base "abilities/saber/saber_abilities.kv"
 #base "abilities/saber_alter/saber_alter_abilities.kv"
-#base "abilities/semiramis/semiramis_abilities.kv"
 #base "abilities/tamamo/tamamo_abilities.kv"
 #base "abilities/true_assassin/ta_abilities.kv"
 #base "abilities/vlad/vlad_abilities.kv"
@@ -78,34 +77,6 @@
     }
 
 
-    "dummy_pause"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			""
-		"MaxLevel"						"1"
-		//"DisplayAdditionalHeroes"   	"1"
-		
-		"Modifiers"
-		{
-			"modifier_dummy_pause"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-                "States"
-                {
-                	"MODIFIER_STATE_NO_HEALTH_BAR" 		"MODIFIER_STATE_VALUE_ENABLED"
-                	"MODIFIER_STATE_INVULNERABLE" 		"MODIFIER_STATE_VALUE_ENABLED"
-                	"MODIFIER_STATE_UNSELECTABLE" 		"MODIFIER_STATE_VALUE_ENABLED"
-                	"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
-                	"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
-                	"MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
-                	"MODIFIER_STATE_NOT_ON_MINIMAP" 	"MODIFIER_STATE_VALUE_ENABLED"
-                	"MODIFIER_STATE_OUT_OF_GAME" 		"MODIFIER_STATE_VALUE_ENABLED"
-            	}
-			}
-		}
-	}		
 
 	//================================================
 	// zone marker passive: как dummy_unit_passive, но БЕЗ
@@ -114,26 +85,11 @@
 	"zone_marker_passive"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/zone_marker_passive"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "1"
 
-		"Modifiers"
-		{
-			"modifier_zone_marker"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "1"
-				"States"
-				{
-					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FLYING" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
 	}
 
 	//================================================
@@ -341,12 +297,6 @@
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "1"
 
-		"precache"
-		{
-			"particle"					"particles/custom/gawain/gawain_artificial_sun.vpcf"
-			"particle"					"particles/custom/gawain/gawain_artificial_sun_2.vpcf"
-		}
-
 		
 	 
 	}
@@ -355,46 +305,6 @@
 	//=================================================================================================================
 	// Gawain : Divine Meltdown
 	//=================================================================================================================
-	"gawain_artificial_sun_divine_meltdown"
-	{
-		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"custom/gawain_blessing_of_fairy"
-
-		"precache"
-		{
-
-			"particle"		"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
-		}
-		
-		"OnSpellStart"
-		{
-		}
-
-		"Modifiers"
-		{
-			"modifier_gawain_revive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}						
-				}
-			}
-		}
-	}
 	//================================================
 	// Ping sign passive
 	//================================================
@@ -834,30 +744,6 @@
 		}
 	}
 
-	"stash_blink" 
-	{
-	    "BaseClass"    "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	    "AbilityTextureName"			"custom/antimage_blink"
-	    "AbilityCooldown"				"10"
-	    "AbilityCastRange"				"99999"
-	    "precache"
-	    {
-	    	"particle"	"particles/items_fx/blink_dagger_start.vpcf"
-	    	"particle"	"particles/items_fx/blink_dagger_end.vpcf"
-	    }
-
-
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"StashBlink"
-				"Target"		"POINT"
-			}
-	    }
-	}
 
 
 	//=================================================================================================================
@@ -1004,7 +890,8 @@
 	//=================================================================================================================
 	"cmd_seal_3"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/cmd_seal_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityTextureName"			"custom/cmd_seal_3"
 		"MaxLevel"						"1"
@@ -1016,22 +903,6 @@
 			"particle"		"particles/items2_fx/urn_of_shadows_heal_c.vpcf"
 		}
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnSeal3Start"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_command_seal_3"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"20"
-			}
-		}	
 	}
 
 	//=================================================================================================================
@@ -1039,7 +910,8 @@
 	//=================================================================================================================
 	"cmd_seal_4"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/cmd_seal_4"
 		"precache"
 		{
 			"particle"		"particles/items_fx/arcane_boots.vpcf"
@@ -1052,22 +924,6 @@
 		//"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnSeal4Start"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_command_seal_4"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"10"
-			}
-		}	
 	}
 
 	//=================================================================================================================
@@ -1075,23 +931,13 @@
 	//=================================================================================================================
 	"master_presence_resonator"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_presence_resonator"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityTextureName"			"custom/master/master_resonator"
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"30"		
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnPRStart"
-			}
-		}
-		"Modifiers"
-		{
-		}	
 	}
 
 	//=================================================================================================================
@@ -1099,7 +945,8 @@
 	//=================================================================================================================
 	"master_item_transfer_1"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_item_transfer_1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/master_item_transfer_1"
 		"MaxLevel"						"1"
@@ -1110,18 +957,6 @@
 		{
 		}
 		
-		"OnSpellStart"
-		{
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"TransferItem"
-				"Slot"			"1"
-			}
-		}
-		"Modifiers"
-		{
-		}		
 	}
 
 	//=================================================================================================================
@@ -1129,7 +964,8 @@
 	//=================================================================================================================
 	"master_item_transfer_2"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_item_transfer_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/master_item_transfer_2"
 		"MaxLevel"						"1"
@@ -1140,18 +976,6 @@
 		{
 		}
 		
-		"OnSpellStart"
-		{
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"TransferItem"
-				"Slot"			"2"
-			}
-		}
-		"Modifiers"
-		{
-		}		
 	}
 
 	//=================================================================================================================
@@ -1159,7 +983,8 @@
 	//=================================================================================================================
 	"master_item_transfer_3"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_item_transfer_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/master_item_transfer_3"
 		"MaxLevel"						"1"
@@ -1170,18 +995,6 @@
 		{
 		}
 		
-		"OnSpellStart"
-		{
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"TransferItem"
-				"Slot"			"3"
-			}
-		}
-		"Modifiers"
-		{
-		}		
 	}
 
 	//=================================================================================================================
@@ -1189,7 +1002,8 @@
 	//=================================================================================================================
 	"master_item_transfer_4"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_item_transfer_4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/master_item_transfer_4"
 		"MaxLevel"						"1"
@@ -1200,25 +1014,14 @@
 		{
 		}
 		
-		"OnSpellStart"
-		{
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"TransferItem"
-				"Slot"			"4"
-			}
-		}
-		"Modifiers"
-		{
-		}		
 	}
 	//=================================================================================================================
 	// Item Transfer
 	//=================================================================================================================
 	"master_item_transfer_5"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_item_transfer_5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/master_item_transfer_5"
 		"MaxLevel"						"1"
@@ -1229,25 +1032,14 @@
 		{
 		}
 		
-		"OnSpellStart"
-		{
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"TransferItem"
-				"Slot"			"5"
-			}
-		}
-		"Modifiers"
-		{
-		}		
 	}
 	//=================================================================================================================
 	// Item Transfer
 	//=================================================================================================================
 	"master_item_transfer_6"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_item_transfer_6"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/master_item_transfer_6"
 		"MaxLevel"						"1"
@@ -1258,18 +1050,6 @@
 		{
 		}
 		
-		"OnSpellStart"
-		{
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"TransferItem"
-				"Slot"			"6"
-			}
-		}
-		"Modifiers"
-		{
-		}		
 	}
 
 	//=================================================================================================================
@@ -1277,7 +1057,8 @@
 	//=================================================================================================================
     "attribute_bonus_custom"
     {
-        "BaseClass" "ability_datadriven"
+        "BaseClass" "ability_lua"
+        "ScriptFile" "abilities/general/attribute_bonus_custom"
         "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"   "attribute_bonus"
         "MaxLevel"  "7"
@@ -1288,20 +1069,6 @@
         {
             "stats" "3 6 9 12 15 18 21"
         }
-		"Modifiers"
-		{
-			"modifier_all_stats"
-			{
-				"Passive"	"1"
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%stats"
-				}
-			}
-		}	
     }
 
     //=================================================================================================================
@@ -1309,7 +1076,8 @@
 	//=================================================================================================================
     "attribute_bonus_custom_no_int"
     {
-        "BaseClass" 			"ability_datadriven"
+        "BaseClass" 			"ability_lua"
+        "ScriptFile" 			"abilities/general/attribute_bonus_custom_no_int"
         "AbilityBehavior"   	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"   "attribute_bonus"
         "MaxLevel"  			"7"
@@ -1320,182 +1088,43 @@
         {
             "stats" "3 6 9 12 15 18 21"
         }
-		"Modifiers"
-		{
-			"modifier_all_stats"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"Properties"
-				{
-					//"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%stats"
-				}
-			}
-		}	
     }
 
 	//=================================================================================================================
 	// Attribute List
 	//=================================================================================================================
-	"master_attribute_list"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/invoker_invoke"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnAttributeListOpen"
-			}
-		}
-	}
 
 	//=================================================================================================================
 	// Close List
 	//=================================================================================================================
-	"master_close_list"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"silencer_last_word"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnListClose"
-			}
-		}
-	}
 
 
 	//=================================================================================================================
 	// Close Stat List
 	//=================================================================================================================
-	"master_close_stat_list"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"silencer_last_word"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnStatListClose"
-			}
-		}
-	}
 
 
 	//=================================================================================================================
 	// Stat List
 	//=================================================================================================================
-	"master_stat_list1"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/attribute_bonus"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnStatList1Open"
-			}
-		}
-	}
 
 	//=================================================================================================================
 	// Stat List
 	//=================================================================================================================
-	"master_stat_list2"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/attribute_bonus"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnStatList2Open"
-			}
-		}
-	}
 
 
 
 	//=================================================================================================================
 	// Shard of Holy Grail
 	//=================================================================================================================
-	"master_shard_of_holy_grail"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/shard_of_holy_grail"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnShardOpen"
-			}
-		}
-	}
 
 	//=================================================================================================================
 	// Shard of Avarice
 	//=================================================================================================================
 	"master_shard_of_avarice"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_shard_of_avarice"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/shard_of_avarice"
 		"MaxLevel"						"1"
@@ -1505,14 +1134,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnAvariceAcquired"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1520,7 +1141,8 @@
 	//=================================================================================================================
 	"master_shard_of_anti_magic"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_shard_of_anti_magic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/shard_of_anti_magic"
 		"MaxLevel"						"1"
@@ -1530,14 +1152,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnAMAcquired"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1545,7 +1159,8 @@
 	//=================================================================================================================
 	"master_shard_of_replenishment"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_shard_of_replenishment"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/shard_of_replenishment"
 		"MaxLevel"						"1"
@@ -1555,14 +1170,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnReplenishmentAcquired"
-			}
-		}
 	}
 
 
@@ -1571,7 +1178,8 @@
 	//=================================================================================================================
 	"master_shard_of_prosperity"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_shard_of_prosperity"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/shard_of_prosperity"
 		"MaxLevel"						"1"
@@ -1581,21 +1189,14 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnProsperityAcquired"
-			}
-		}
 	}
 	//=================================================================================================================
 	// Gain Strength Stat
 	//=================================================================================================================
 	"master_strength"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_strength"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/strength"
 		"MaxLevel"						"1"
@@ -1606,14 +1207,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnStrengthGain"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1621,7 +1214,8 @@
 	//=================================================================================================================
 	"master_agility"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_agility"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/agility"
 		"MaxLevel"						"1"
@@ -1632,14 +1226,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnAgilityGain"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1647,7 +1233,8 @@
 	//=================================================================================================================
 	"master_intelligence"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_intelligence"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/intelligence"
 		"MaxLevel"						"1"
@@ -1658,14 +1245,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnIntelligenceGain"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1673,7 +1252,8 @@
 	//=================================================================================================================
 	"master_gold_per_second_new"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_gold_per_second_new"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/gilgamesh_golden_rule"
 		"MaxLevel"						"1"
@@ -1684,14 +1264,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnGpsGain"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1699,7 +1271,8 @@
 	//=================================================================================================================
 	"master_damage"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_damage"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/stat_damage"
 		"MaxLevel"						"1"
@@ -1710,49 +1283,20 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnDamageGain"
-			}
-		}
 	}
 
 
 	//=================================================================================================================
 	// Gain Armor Stat
 	//=================================================================================================================
-	"master_armor"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/stat_armor"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"1"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnArmorGain"
-			}
-		}
-	}
 
 	//=================================================================================================================
 	// Gain Health Regen Stat
 	//=================================================================================================================
 	"master_health_regen"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_health_regen"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/stat_health_regen"
 		"MaxLevel"						"1"
@@ -1763,14 +1307,6 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnHPRegenGain"
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -1778,7 +1314,8 @@
 	//=================================================================================================================
 	"master_mana_regen"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/general/master_mana_regen"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/stat_mana_regen"
 		"MaxLevel"						"1"
@@ -1789,41 +1326,11 @@
         {
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnManaRegenGain"
-			}
-		}
 	}
 
 	//=================================================================================================================
 	// Gain Movement Speed Stat
 	//=================================================================================================================
-	"master_movement_speed"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/stat_movement_speed"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"1"
-		
-		"AbilityValues"
-        {
-        }
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"master_ability"
-			 	"Function"		"OnMovementSpeedGain"
-			}
-		}
-	}
 
 		//=================================================================================================================
 	// C Scroll 
@@ -1886,24 +1393,11 @@
 	"lancer_trap_passive"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/lancer_trap_passive"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "1"
 
-		"Modifiers"
-		{
-			"lancer_trap"
-			{
-				"Passive"                        "1"
-				"IsHidden"                        "1"    
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-		  	}
-		}
 	}
 
 	"fate_experience_thinker"
@@ -1914,38 +1408,14 @@
 			"particle"		"particles/items_fx/immunity_sphere.vpcf"
 			"particle"				"particles/heroes/saito/saito_mind_eye_linken_release.vpcf"
 		}
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_experience_thinker"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "3"
 		"AbilityValues"
         {
             "range" "1300 1800 2500"
         }
-		"Modifiers"
-		{
-			"fate_experience_passive_aura"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"Aura"			"fate_experience_passive"
-				"Aura_Radius"	"%range"
-				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO"
-				"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		  	}
-			"fate_experience_passive"
-			{ 
-				"ThinkInterval"					"1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"libraries/util"
-						"Function"		"OnExperienceZoneThink"
-					}
-				}
-		  	}
-		}
 	}
 
 
@@ -1954,77 +1424,88 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty1"
 		"AbilityTextureName"            "rubick_empty1"
 	}
 	"fate_empty_nothidden"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty_nothidden"
 		"AbilityTextureName"            "rubick_empty1"
 	}	
 	"fate_empty2"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty2"
 		"AbilityTextureName"            "rubick_empty1"
 	}	
 	"fate_empty3"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty3"
 		"AbilityTextureName"            "rubick_empty1"
 	}	
 	"fate_empty4"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty4"
 		"AbilityTextureName"            "rubick_empty1"
 	}	
 	"fate_empty5"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty5"
 		"AbilityTextureName"            "rubick_empty1"
 	}	
 	"fate_empty6"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty6"
 		"AbilityTextureName"            "rubick_empty1"
 	}	
 	"fate_empty7"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty7"
 		"AbilityTextureName"            "rubick_empty1"
 	}
 	"fate_empty8"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty8"
 		"AbilityTextureName"            "rubick_empty1"
 	}
 	"fate_empty9"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty9"
 		"AbilityTextureName"            "rubick_empty1"
 	}
 	"fate_empty10"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/general/fate_empty10"
 		"AbilityTextureName"            "rubick_empty1"
 	}
 
@@ -3307,5 +2788,69 @@
 	{
 		"ItemPurchasable" "0"
 	}
+
+	// [restored] возвращён после ошибочной чистки
+    "dummy_pause"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			""
+		"MaxLevel"						"1"
+		//"DisplayAdditionalHeroes"   	"1"
+		
+		"Modifiers"
+		{
+			"modifier_dummy_pause"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+                "States"
+                {
+                	"MODIFIER_STATE_NO_HEALTH_BAR" 		"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_INVULNERABLE" 		"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_UNSELECTABLE" 		"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_NOT_ON_MINIMAP" 	"MODIFIER_STATE_VALUE_ENABLED"
+                	"MODIFIER_STATE_OUT_OF_GAME" 		"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+			}
+		}
+	}
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	"stash_blink" 
+	{
+	    "BaseClass"    "ability_datadriven"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			"custom/antimage_blink"
+	    "AbilityCooldown"				"10"
+	    "AbilityCastRange"				"99999"
+	    "precache"
+	    {
+	    	"particle"	"particles/items_fx/blink_dagger_start.vpcf"
+	    	"particle"	"particles/items_fx/blink_dagger_end.vpcf"
+	    }
+
+
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+			{
+				"ScriptFile"	"items"
+				"Function"		"StashBlink"
+				"Target"		"POINT"
+			}
+	    }
+	}
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
+	// [restored] возвращён после ошибочной чистки
 }
 

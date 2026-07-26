@@ -54,6 +54,7 @@ function nobu_dash:OnSpellStart()
 	Timers:CreateTimer("nobu_dash", {
 		endTime = dash_time ,
 		callback = function()
+		if not IsNotNull(caster) then return end
 		caster:OnPreBounce(nil)
 		caster:SetBounceMultiplier(0)
 		caster:PreventDI(false)
@@ -119,6 +120,7 @@ function nobu_dash:AttributeGuns()
 	local gun_spawn2 = hCaster:GetAbsOrigin()+  hCaster:GetRightVector() * -100  + Vector(0,0,150)
  	local aoe = 50
 	 Timers:CreateTimer(0.1, function()
+		if not IsNotNull(hCaster) then return end
 		self:Shot({
 			Speed = 10000,
 			AoE = aoe,
@@ -139,41 +141,50 @@ end
 function nobu_dash:Shot(keys, position)
     
     self.caster = self:GetCaster()
-    local vCasterOrigin = self.caster:GetAbsOrigin()
+    local caster = self.caster
+    local vCasterOrigin = caster:GetAbsOrigin()
     vCasterOrigin.z = 0
-    local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
-    self.target = nil
+    local targets = FindUnitsInRadius( caster:GetTeam(),  caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
+    -- цель и дамми держим в локальных переменных: AttributeGuns стреляет дважды,
+    -- и второй Shot обнулял self.target до срабатывания таймера первого
+    local target = nil
      if( targets[1] ~= nil) then
-        self.target  = targets[1]:GetAbsOrigin()
-     end    
-	 if(self.target == nil) then return end 
-     
-	self.Dummy = CreateUnitByName("dummy_unit", vCasterOrigin, false, nil, nil, self.caster:GetTeamNumber())
-	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
-	self.Dummy:SetAbsOrigin(position)
-	self.Dummy:SetForwardVector((  self.target- position ):Normalized())
+        target  = targets[1]:GetAbsOrigin()
+     end
+	 if(target == nil) then return end
+
+	local dummy = CreateUnitByName("dummy_unit", vCasterOrigin, false, nil, nil, caster:GetTeamNumber())
+	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+	dummy:SetAbsOrigin(position)
+	dummy:SetForwardVector((  target - position ):Normalized())
+	self.target = target
+	self.Dummy = dummy
 
  	local GunFx
-    if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
-        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_gregori"..math.random(1,2)..".vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+    if caster:HasModifier("modifier_hero_selection_skin") then
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun_gregori"..math.random(1,2)..".vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy )
     else
-        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+        GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy )
     end
-	 ParticleManager:SetParticleControl(GunFx, 3, position ) 
-     ParticleManager:SetParticleControl(GunFx, 4, self.target- position ) 
-    self.Dummy.GunFx = GunFx
-    local dummy = self.Dummy
+	 ParticleManager:SetParticleControl(GunFx, 3, position )
+     ParticleManager:SetParticleControl(GunFx, 4, target - position )
+    dummy.GunFx = GunFx
  	Timers:CreateTimer(0.4, function()
-        dummy:SetForwardVector((  self.target - position ):Normalized())
+        if not IsNotNull(dummy) then
+            ParticleManager:DestroyParticle(GunFx, false)
+            ParticleManager:ReleaseParticleIndex(GunFx)
+            return
+        end
+        dummy:SetForwardVector((  target - position ):Normalized())
         local velocity = dummy:GetForwardVector()
-		if self.caster:HasModifier("modifier_hero_selection_skin") then
+		if IsNotNull(caster) and caster:HasModifier("modifier_hero_selection_skin") then
             dummy:EmitSound("lament_1")
         else
             dummy:EmitSound("nobu_shoot_1")
         end
         velocity.z = 0
-		local Effectname = "particles/nobu/nobu_bullet.vpcf" 
-        if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+		local Effectname = "particles/nobu/nobu_bullet.vpcf"
+        if IsNotNull(caster) and caster:HasModifier("modifier_hero_selection_skin") then
             Effectname = "particles/gregori/gregori_bullet.vpcf"
         end
         local projectileTable = {
@@ -184,7 +195,7 @@ function nobu_dash:Shot(keys, position)
             fDistance = keys.Range,
             fStartRadius = keys.AoE,
             fEndRadius = keys.AoE,
-            Source = self:GetCaster(),
+            Source = caster,
             bHasFrontalCone = false,
             bReplaceExisting = false,
             iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,

@@ -11,6 +11,8 @@ function modifier_excalibur_galatine_burn:OnCreated()
 	self:StartIntervalThink(0.25)
 end
 function modifier_excalibur_galatine_burn:OnIntervalThink()
+	-- DoDamage живёт в util.lua, который require-ится только на сервере
+	if not IsServer() then return end
 	local caster = self:GetCaster()
 	local target = self:GetParent()
 	local damage = self:GetAbility():GetSpecialValueFor("dot_damage")/2

@@ -71,7 +71,7 @@ end
 function OnFaithReady(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_kinghassan_faith_passive", {})
+	caster:AddNewModifier(caster, ability, "modifier_kinghassan_faith_passive", {})
 end
 
 function OnBodyAcquired(keys)
@@ -263,7 +263,7 @@ function OnSlashStart(keys)
 
 	caster:EmitSound("Hero_Axe.CounterHelix_Blood_Chaser")
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.2)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_kinghassan_dread_slash", {})
+	caster:AddNewModifier(caster, ability, "modifier_kinghassan_dread_slash", {})
 
 	local spin = ParticleManager:CreateParticle("particles/custom/kinghassan/ka_spin.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(spin, 0, caster:GetAbsOrigin() + Vector(0,0,50))
@@ -343,7 +343,7 @@ function OnComboCast(keys)
 	local masterCombo = caster.MasterUnit2:FindAbilityByName("kinghassan_combo")
 	masterCombo:EndCooldown()
 	masterCombo:StartCooldown(ability:GetCooldown(1))
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_kinghassan_combo_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
+	caster:AddNewModifier(caster, ability, "modifier_kinghassan_combo_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
 	caster:RemoveModifierByName("modifier_combo_window")
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 9)
@@ -361,7 +361,7 @@ function OnComboCast(keys)
 	   	end
     end
 
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_kinghassan_combo_cast", {})	    
+	caster:AddNewModifier(caster, ability, "modifier_kinghassan_combo_cast", {})	    
 	local particle = ParticleManager:CreateParticle("particles/kinghassan/combo/comboareadarknew.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 
@@ -373,12 +373,12 @@ function OnComboCast(keys)
 	Timers:CreateTimer(1.4, function()
 		if caster:HasModifier("modifier_kinghassan_combo_cast") and caster:IsAlive() and target:IsAlive() then
 			EmitGlobalSound("KingHassan.Combo")
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_kinghassan_death_announce", {})
+			target:AddNewModifier(caster, ability, "modifier_kinghassan_death_announce", {})
 	 		
 	 		local fear = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
 			for k,v in pairs(fear) do
 				if IsInSameRealm(v:GetAbsOrigin(), caster:GetAbsOrigin()) then 
-					ability:ApplyDataDrivenModifier(caster, v, "modifier_kinghassan_combo_fear", {Duration = 6.6})	
+					v:AddNewModifier(caster, ability, "modifier_kinghassan_combo_fear", {duration = 6.6})	
 				end
 			end
 		else
@@ -392,7 +392,7 @@ function OnComboCast(keys)
 			local dread = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
 			for k,v in pairs(dread) do
 				if IsInSameRealm(v:GetAbsOrigin(), caster:GetAbsOrigin()) then 
-					ability:ApplyDataDrivenModifier(caster, v, "modifier_kinghassan_combo_dread", {Duration = 4.5})	
+					v:AddNewModifier(caster, ability, "modifier_kinghassan_combo_dread", {duration = 4.5})	
 				end
 			end
 		else
@@ -408,7 +408,7 @@ function OnComboCast(keys)
 			local revive_block = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
 			for k,v in pairs(revive_block) do
 				if IsInSameRealm(v:GetAbsOrigin(), caster:GetAbsOrigin()) then 
-					ability:ApplyDataDrivenModifier(caster, v, "modifier_kinghassan_combo_revive_lock", {Duration = 2.5})	
+					v:AddNewModifier(caster, ability, "modifier_kinghassan_combo_revive_lock", {duration = 2.5})	
 				end
 			end
 		else
@@ -724,7 +724,7 @@ function OnAzraelCast(keys)
 	local speed = ability:GetSpecialValueFor("speed")
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.5)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_azrael_cast", {})
+	caster:AddNewModifier(caster, ability, "modifier_azrael_cast", {})
     caster:EmitSound("KingHassan.Azrael")
 
 	StartAnimation(caster, {duration=1.7, activity=ACT_DOTA_ATTACK, rate=0.60})

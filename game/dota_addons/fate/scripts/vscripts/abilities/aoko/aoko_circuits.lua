@@ -178,18 +178,20 @@ end
 
 function modifier_aoko_circuits_passive:RaiseStackCount(count)
 	if IsServer() then
+		if not IsNotNull(self.parent) then return end
 		local mod = self.parent:FindModifierByName("modifier_aoko_3_beams_stacks")
 		self.beamability = self.parent:FindAbilityByName("aoko_3_beams")
-		self.stacks_for_beam = self.beamability:GetSpecialValueFor("stacks_for_charge")
-		self.beam_max_charges = self.beamability:GetSpecialValueFor("max_charges")
-		if mod and (mod:GetStackCount() < self.beam_max_charges) then
+		-- без aoko_3_beams заряды луча просто не копим, но стаки контуров идут дальше
+		self.stacks_for_beam = self.beamability and self.beamability:GetSpecialValueFor("stacks_for_charge") or 0
+		self.beam_max_charges = self.beamability and self.beamability:GetSpecialValueFor("max_charges") or 0
+		if mod and self.beamability and (mod:GetStackCount() < self.beam_max_charges) then
 			self.beamcounter = self.beamcounter + count
 			if self.beamcounter >= self.stacks_for_beam then
 				local beamstacks = math.floor(self.beamcounter/self.stacks_for_beam)
 				self.beamcounter = math.fmod(self.beamcounter, self.stacks_for_beam)
 				for i = 1, beamstacks do
 					if mod:GetStackCount() < self.beam_max_charges then
-						self.parent:FindModifierByName("modifier_aoko_3_beams_stacks"):IncrementStackCount()
+						mod:IncrementStackCount()
 					end
 				end
 			end
@@ -200,7 +202,8 @@ function modifier_aoko_circuits_passive:RaiseStackCount(count)
 		if self.parent:HasModifier("modifier_aoko_circuits_overload") then
 			self:StartOverload()
 			if self.parent.HighSpeedIncantationAcquired then
-				self.parent:FindModifierByName("modifier_aoko_circuits_overload"):OnBlueCircuitStackGain(count)
+				local overload = self.parent:FindModifierByName("modifier_aoko_circuits_overload")
+				if overload then overload:OnBlueCircuitStackGain(count) end
 			end
 			return
 		end
@@ -244,12 +247,14 @@ end
 
 function modifier_aoko_circuits_passive:StartOverload()
 	if IsServer() then
-		self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_overload", {duration = self.ability:GetSpecialValueFor("overload_duration")})
-		if self.parent.CircuitsAcquired then
-			self.parent:FindModifierByName("modifier_aoko_circuits_overload"):OnRedEnter()
+		if not IsNotNull(self.parent) then return end
+		-- модификатор может не примениться (например, цель уже мертва) — хендл берём с возврата
+		local overload = self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_overload", {duration = self.ability:GetSpecialValueFor("overload_duration")})
+		if overload and self.parent.CircuitsAcquired then
+			overload:OnRedEnter()
 		end
-		if self.parent.HighSpeedIncantationAcquired then
-			self.parent:FindModifierByName("modifier_aoko_circuits_overload"):OnBlueEnter()
+		if overload and self.parent.HighSpeedIncantationAcquired then
+			overload:OnBlueEnter()
 		end
 		local stacks = self:GetStackCount()
 		if self.aoko ~= nil then 

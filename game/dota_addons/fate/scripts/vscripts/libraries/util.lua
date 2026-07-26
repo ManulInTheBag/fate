@@ -1063,6 +1063,17 @@ function giveUnitDataDrivenModifier(source, target, modifier,dur)
     dummyAbility:ApplyDataDrivenModifier( source, target, modifier, {duration=dur} )
 end
 
+-- Аналог giveUnitDataDrivenModifier для lua-модификаторов (портированных из
+-- datadriven): ApplyDataDrivenModifier умеет только DD-модификаторы, поэтому
+-- ставим через AddNewModifier, сохранив прежний «носитель способности».
+function giveUnitLuaModifier(source, target, modifier, dur)
+    if not source:IsHero() then
+        source = source:GetPlayerOwner():GetAssignedHero()
+    end
+    local dummyAbility = source:FindAbilityByName("presence_detection_passive")
+    target:AddNewModifier(source, dummyAbility, modifier, {duration = dur})
+end
+
 function DoCompositeDamage(source, target, dmg, dmg_type, dmg_flag, abil, isLoop)
     DoDamage(source, target , dmg/3, DAMAGE_TYPE_MAGICAL, dmg_flag, abil, isLoop)
     DoDamage(source, target , dmg/3, DAMAGE_TYPE_PHYSICAL, dmg_flag, abil, isLoop)

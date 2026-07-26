@@ -70,7 +70,8 @@
 	"lishuwen_martial_arts"
 	{
 		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile" 					"abilities/li_shuwen/lishuwen_martial_arts"
 		"AbilityTextureName"            "custom/lishuwen_martial_arts"
 		//"AbilityCastRange"				"%search_radius"                     duplicate key #1, not sure if cast range is meant to be 700 700 or 700 1050.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -105,118 +106,6 @@
             "critical_damage" "150"
             "silence_duration" "1.5"
         }
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"lishuwen_ability"
-				"Function"		"OnMartialStart"
-				"Duration"		"%silence_duration"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_martial_arts_aura"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"Aura"					"modifier_martial_arts_aura_enemy"
-				"Aura_Radius"			"%search_radius"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
-				"OnRespawn"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"lishuwen_ability"
-						"Function"			"AuraRefresh"
-					}					
-				}
-			}
-			"modifier_martial_arts_aura_enemy"
-			{
-				"IsHidden"		"1"
-				"IsDebuff"		"1"
-
-			}
-			"modifier_mark_of_fatality"
-			{
-				"IsDebuff"		"1"
-				"Duration"		"%duration"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-			}
-			"modifier_martial_arts_critical"
-			{
-				"IsHidden"	"0"
-				"Passive"	"1"
-				"OnAttackStart"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_martial_arts_crit_hit"
-						"Target"
- 						{
- 							"Center"	"CASTER"
- 							"Flags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
- 						}
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"lishuwen_ability"
-						"Function"		"OnMartialAttackStart"
-						"Chance"		"%critical_rate_percentage"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"lishuwen_ability"
-						"Function"		"OnMartialAttackLanded"
-					}
-				}
-			}
-
-			"modifier_martial_arts_crit_hit"
-			{
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%critical_damage"
-				}
-				"OnAttackLanded"
-				{
-			    	"FireEffect"
-			    	{
-			    		"EffectName"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
-			    		"EffectAttachType"	"attach_hitloc"
-			    		"Target"			"TARGET"
-			    	}
-			        "RemoveModifier"
-			        {
-			            "ModifierName"  	"modifier_martial_arts_crit_hit"
-						"Target"
- 						{
- 							"Center"	"CASTER"
- 							"Flags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
- 						}
-			        }			
-				}
-			}
-			"modifier_furious_chain_buff"
-			{
-				"Duration"			"5"
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"EffectName"		"particles/units/heroes/hero_bristleback/bristleback_warpath.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"20"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"5"
-				}					
-			}
-		}
 	}	
 
 	//=================================================================================================================
@@ -226,7 +115,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/li_shuwen/lishuwen_raging_dragon_strike"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -273,46 +163,9 @@
         }
 		
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"lishuwen_ability"
-				"Function"				"OnDragonStrike1Start"
-				"Damage"				"%first_strike_damage"
-			}
-		}
 
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"false"
-            "RunScript"
-            {
- 			 	"ScriptFile"	"lishuwen_ability"
-			 	"Function"		"OnDragonStrike1ProjectileHit"           	
-            }
-		}
 	
 		
-		"Modifiers"
-		{
-			"modifier_raging_dragon_strike_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-
-			"modifier_raging_dragon_strike_1_slow"
-			{
-				"Duration"		"%first_strike_slow_duration"
-				"IsDebuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%first_strike_slow"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%first_strike_slow"
-				}
-			}
-		}
 	}
 
 
@@ -324,7 +177,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/li_shuwen/lishuwen_raging_dragon_strike_2"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -366,33 +220,9 @@
         }
 		
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"lishuwen_ability"
-				"Function"				"OnDragonStrike2Start"
-				"Damage"				"%second_strike_damage"
-				"Radius"				"%second_strike_radius"
-				"StunDuration"			"%second_strike_stun_duration"
-			}
-		}
 
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"false"
-            "RunScript"
-            {
- 			 	"ScriptFile"	"lishuwen_ability"
-			 	"Function"		"OnDragonStrike1ProjectileHit"           	
-            }
-		}
 	
 		
-		"Modifiers"
-		{
-
-		}
 	}
 
 	//=================================================================================================================
@@ -402,7 +232,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/li_shuwen/lishuwen_raging_dragon_strike_3"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -444,43 +275,9 @@
         }
 		
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"lishuwen_ability"
-				"Function"				"OnDragonStrike3Start"
-				"KnockupDuration"		"%third_strike_knockup_duration"
-				"Damage"				"%third_strike_aerial_damage"
-				"Count"				"%third_strike_aerial_hit_count"
-				"SlamDamage"			"%third_strike_slam_damage"
-			}
-		}
 
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"			"false"
-            "RunScript"
-            {
- 			 	"ScriptFile"	"lishuwen_ability"
-			 	"Function"		"OnDragonStrike1ProjectileHit"           	
-            }
-		}
 	
 		
-		"Modifiers"
-		{
-			"modifier_raging_dragon_strike_3_anim"
-			{
-				"IsHidden"			"1"
-				"Duration"			"0.14"
-				"OverrideAnimation"		"ACT_DOTA_ATTACK_EVENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"		"3.0"
-				}
-			}
-		}
 	}
 
 	//=======================================
@@ -489,7 +286,8 @@
 	"lishuwen_attribute_circulatory_shock"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/li_shuwen/lishuwen_attribute_circulatory_shock"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/lishuwen_attribute_circulatory_shock"
@@ -511,14 +309,6 @@
             "knockback_damage" "300"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"lishuwen_ability"
-				"Function"		"OnCirculatoryShockAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -527,7 +317,8 @@
 	"lishuwen_attribute_improve_martial_arts"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/li_shuwen/lishuwen_attribute_improve_martial_arts"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/lishuwen_attribute_improve_martial_arts"
@@ -551,14 +342,6 @@
             "mana_burn" "40"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"lishuwen_ability"
-				"Function"		"OnMartialArtsImproved"
-			}
-		}
 	}
 
 	//=======================================
@@ -567,7 +350,8 @@
 	"lishuwen_attribute_dual_class"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/li_shuwen/lishuwen_attribute_dual_class"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/lishuwen_attribute_dual_class"
@@ -594,14 +378,6 @@
 
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"lishuwen_ability"
-				"Function"		"OnDualClassAcquired"
-			}
-		}
 	}
 
 	//=======================================
@@ -610,7 +386,8 @@
 	"lishuwen_attribute_furious_chain"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/li_shuwen/lishuwen_attribute_furious_chain"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/lishuwen_attribute_furious_chain"
@@ -635,14 +412,6 @@
             "sa_attack_speed" "150"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"lishuwen_ability"
-				"Function"		"OnFuriousChainAcquired"
-			}
-		}
 	}
 
 	//=======================================
