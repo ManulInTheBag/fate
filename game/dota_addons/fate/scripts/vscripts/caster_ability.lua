@@ -98,12 +98,12 @@ function OnSummonSkeleton(keys)
 	spooky:SetHealth(keys.Health)
 	spooky:SetBaseDamageMax(keys.Damage)
 	spooky:SetBaseDamageMin(keys.Damage)
-
 	-- Bonus properties(give it 0.1 sec delay just in case)
 	Timers:CreateTimer(0.1, function()
-	
-		spooky:SetMaxHealth(spooky:GetMaxHealth() + hero:GetIntellect()*keys.HealthRatio)
-		spooky:SetHealth(spooky:GetMaxHealth())
+		spooky:SetMaxHealth(keys.Health + hero:GetIntellect()*keys.HealthRatio)
+		spooky:SetBaseMaxHealth(keys.Health + hero:GetIntellect()*keys.HealthRatio)
+		spooky:SetHealth(keys.Health + hero:GetIntellect()*keys.HealthRatio)
+		
 		spooky:SetBaseMoveSpeed(spooky:GetBaseMoveSpeed() + hero:GetIntellect()*keys.MSRatio)
 		if unitname == "caster_5th_skeleton_warrior" then
 			spooky:SetPhysicalArmorBaseValue(spooky:GetPhysicalArmorValue(false) + hero:GetIntellect()*keys.ArmorRatio)
