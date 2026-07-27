@@ -61,7 +61,7 @@ function gilgamesh_gate_of_babylon:FireProjectile(vOrigin, vForwardVector, dummy
         EffectName = "particles/gilgamesh/gob_weapon.vpcf",
         vSpawnOrigin = vOrigin +vForwardVector * -30,
         --fDistance = self:GetSpecialValueFor("range"),
-		fDistance = 1000,
+		fDistance = 1500,
         fStartRadius = 100,
         fEndRadius = 100,
         Source = self:GetCaster(),

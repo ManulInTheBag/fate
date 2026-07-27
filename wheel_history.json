@@ -44,6 +44,7861 @@
    "days": 7,
    "status": "reverted",
    "reverted_ts": 1784733133
+  },
+  {
+   "hero": "npc_dota_hero_spirit_breaker",
+   "hero_label": "Hijikata Toshizo",
+   "target_id": "ab:hijikata_dash",
+   "target_kind": "ability",
+   "target_name": "hijikata_dash",
+   "target_label": "Q — Madman shot",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "10 9 8 7 6",
+     "new": "9.0 8.1 7.2 6.3 5.4",
+     "baseline": "10 9 8 7 6",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "10 9 8 7 6",
+   "new": "9.0 8.1 7.2 6.3 5.4",
+   "baseline": "10 9 8 7 6",
+   "drift": 0.9,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "9ff97be0",
+   "ts": 1785095355,
+   "seed": null,
+   "expires": 1785700155,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "ab:true_assassin_zabaniya",
+   "target_kind": "ability",
+   "target_name": "true_assassin_zabaniya",
+   "target_label": "R — Zabaniya",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "25",
+     "new": "19",
+     "baseline": "25",
+     "drift": 0.76
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "25",
+   "new": "19",
+   "baseline": "25",
+   "drift": 0.76,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "9ffa57f5",
+   "ts": 1785095411,
+   "seed": null,
+   "expires": 1785700211,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785095518
+  },
+  {
+   "hero": "npc_dota_hero_puck",
+   "hero_label": "Merlin",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "StatusHealthRegen"
+     ],
+     "key": "StatusHealthRegen",
+     "key_label": "❤ Реген HP",
+     "old": "7",
+     "new": "6",
+     "baseline": "7",
+     "drift": 0.8571
+    }
+   ],
+   "path": [
+    "StatusHealthRegen"
+   ],
+   "key": "StatusHealthRegen",
+   "key_label": "❤ Реген HP",
+   "old": "7",
+   "new": "6",
+   "baseline": "7",
+   "drift": 0.8571,
+   "dir": -1,
+   "tier": "small",
+   "pct": 21,
+   "power_label": "🎲 ХАОС: нерф 21%",
+   "multi": false,
+   "id": "9ffba8f4",
+   "ts": 1785095497,
+   "seed": null,
+   "expires": 1785700297,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_puck",
+   "hero_label": "Merlin",
+   "target_id": "ab:merlin_orbs",
+   "target_kind": "ability",
+   "target_name": "merlin_orbs",
+   "target_label": "W — Tracking orbs",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "250",
+     "new": "198",
+     "baseline": "250",
+     "drift": 0.792
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "radius"
+   ],
+   "key": "radius",
+   "key_label": "radius",
+   "old": "250",
+   "new": "198",
+   "baseline": "250",
+   "drift": 0.792,
+   "dir": -1,
+   "tier": "small",
+   "pct": 21,
+   "power_label": "🎲 ХАОС: нерф 21%",
+   "multi": false,
+   "id": "9ffba8fc",
+   "ts": 1785095497,
+   "seed": null,
+   "expires": 1785700297,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785099788
+  },
+  {
+   "hero": "npc_dota_hero_legion_commander",
+   "hero_label": "Arturia Pendragon",
+   "target_id": "ab:artoria_avalon",
+   "target_kind": "ability",
+   "target_name": "artoria_avalon",
+   "target_label": "D — Avalon",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400 1200",
+     "new": "360 1080",
+     "baseline": "400 1200",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "400 1200",
+   "new": "360 1080",
+   "baseline": "400 1200",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "9ffccb8e",
+   "ts": 1785095572,
+   "seed": null,
+   "expires": 1785700372,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785096844
+  },
+  {
+   "hero": "npc_dota_hero_vengefulspirit",
+   "hero_label": "Angra Mainyu",
+   "target_id": "ab:avenger_true_form",
+   "target_kind": "ability",
+   "target_name": "avenger_true_form",
+   "target_label": "E — True Form",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "30",
+     "new": "22",
+     "baseline": "30",
+     "drift": 0.7333
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_health"
+     ],
+     "key": "bonus_health",
+     "key_label": "bonus_health",
+     "old": "300 375 450 525 600",
+     "new": "375 469 562 656 750",
+     "baseline": "300 375 450 525 600",
+     "drift": 1.2498
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_healing_power"
+     ],
+     "key": "bonus_healing_power",
+     "key_label": "bonus_healing_power",
+     "old": "40",
+     "new": "50",
+     "baseline": "40",
+     "drift": 1.25
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "10",
+     "new": "12",
+     "baseline": "10",
+     "drift": 1.2
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "30",
+   "new": "22",
+   "baseline": "30",
+   "drift": 0.7333,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "30",
+     "new": "22",
+     "baseline": "30",
+     "drift": 0.7333
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_health"
+     ],
+     "key": "bonus_health",
+     "key_label": "bonus_health",
+     "old": "300 375 450 525 600",
+     "new": "375 469 562 656 750",
+     "baseline": "300 375 450 525 600",
+     "drift": 1.2498
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_healing_power"
+     ],
+     "key": "bonus_healing_power",
+     "key_label": "bonus_healing_power",
+     "old": "40",
+     "new": "50",
+     "baseline": "40",
+     "drift": 1.25
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "10",
+     "new": "12",
+     "baseline": "10",
+     "drift": 1.2
+    }
+   ],
+   "id": "9ffdc0c9",
+   "ts": 1785095635,
+   "seed": null,
+   "expires": 1785700435,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_phantom_assassin",
+   "hero_label": "Shiki Ryougi",
+   "target_id": "ab:ryougi_knife_fan",
+   "target_kind": "ability",
+   "target_name": "ryougi_knife_fan",
+   "target_label": "Q — Hidden Dagger (ying)",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.1",
+     "new": "0.12",
+     "baseline": "0.1",
+     "drift": 1.2
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.1",
+   "new": "0.12",
+   "baseline": "0.1",
+   "drift": 1.2,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "9ffe4498",
+   "ts": 1785095668,
+   "seed": null,
+   "expires": 1785700468,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_omniknight",
+   "hero_label": "Gawain",
+   "target_id": "ab:gawain_blade_of_the_devoted",
+   "target_kind": "ability",
+   "target_name": "gawain_blade_of_the_devoted",
+   "target_label": "W — Blade of the Devoted",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400 475 550 625 700",
+     "new": "360 428 495 562 630",
+     "baseline": "400 475 550 625 700",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "400 475 550 625 700",
+   "new": "360 428 495 562 630",
+   "baseline": "400 475 550 625 700",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "9ffebe48",
+   "ts": 1785095700,
+   "seed": null,
+   "expires": 1785700500,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_terrorblade",
+   "hero_label": "Saitō Hajime",
+   "target_id": "ab:saito_flashblade",
+   "target_kind": "ability",
+   "target_name": "saito_flashblade",
+   "target_label": "Q — Flashblade",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.2",
+     "new": "0.22",
+     "baseline": "0.2",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.2",
+   "new": "0.22",
+   "baseline": "0.2",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "9fff39c0",
+   "ts": 1785095731,
+   "seed": null,
+   "expires": 1785700531,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785097817
+  },
+  {
+   "hero": "npc_dota_hero_phoenix",
+   "hero_label": "Ozymandias",
+   "target_id": "ab:ozy_spawn_piramid",
+   "target_kind": "ability",
+   "target_name": "ozy_spawn_piramid",
+   "target_label": "R — Ramesseum Tentyris",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "max_health"
+     ],
+     "key": "max_health",
+     "key_label": "max_health",
+     "old": "1000 1300 1600 1900 2200",
+     "new": "900 1170 1440 1710 1980",
+     "baseline": "1000 1300 1600 1900 2200",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "max_health"
+   ],
+   "key": "max_health",
+   "key_label": "max_health",
+   "old": "1000 1300 1600 1900 2200",
+   "new": "900 1170 1440 1710 1980",
+   "baseline": "1000 1300 1600 1900 2200",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "9ffff5e3",
+   "ts": 1785095779,
+   "seed": null,
+   "expires": 1785700579,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_enchantress",
+   "hero_label": "Tamamo no Mae",
+   "target_id": "ab:tamamo_soul_stream",
+   "target_kind": "ability",
+   "target_name": "tamamo_soul_stream",
+   "target_label": "Q — Soulstream",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "aspd_per_stack"
+     ],
+     "key": "aspd_per_stack",
+     "key_label": "aspd_per_stack",
+     "old": "15",
+     "new": "17",
+     "baseline": "15",
+     "drift": 1.1333
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "aspd_per_stack"
+   ],
+   "key": "aspd_per_stack",
+   "key_label": "aspd_per_stack",
+   "old": "15",
+   "new": "17",
+   "baseline": "15",
+   "drift": 1.1333,
+   "dir": 1,
+   "tier": "small",
+   "pct": 15,
+   "power_label": "🎲 ХАОС: бафф 15%",
+   "multi": false,
+   "id": "a000d8bf",
+   "ts": 1785095837,
+   "seed": null,
+   "expires": 1785700637,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785095985
+  },
+  {
+   "hero": "npc_dota_hero_venomancer",
+   "hero_label": "Leonidas I",
+   "target_id": "ab:leonidas_enomotia",
+   "target_kind": "ability",
+   "target_name": "leonidas_enomotia",
+   "target_label": "R — Thermopylae Enomotia",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "berserk_stun"
+     ],
+     "key": "berserk_stun",
+     "key_label": "berserk_stun",
+     "old": "0.8 1 1.2 1.4 1.6",
+     "new": "0.6 0.8 0.9 1.0 1.2",
+     "baseline": "0.8 1 1.2 1.4 1.6",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "berserk_stun"
+   ],
+   "key": "berserk_stun",
+   "key_label": "berserk_stun",
+   "old": "0.8 1 1.2 1.4 1.6",
+   "new": "0.6 0.8 0.9 1.0 1.2",
+   "baseline": "0.8 1 1.2 1.4 1.6",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a00158b5",
+   "ts": 1785095870,
+   "seed": null,
+   "expires": 1785700670,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_chen",
+   "hero_label": "Iskandar",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "AttributeStrengthGain"
+     ],
+     "key": "AttributeStrengthGain",
+     "key_label": "💪 Сила/ур.",
+     "old": "3",
+     "new": "3.3",
+     "baseline": "3",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AttributeStrengthGain"
+   ],
+   "key": "AttributeStrengthGain",
+   "key_label": "💪 Сила/ур.",
+   "old": "3",
+   "new": "3.3",
+   "baseline": "3",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a001c797",
+   "ts": 1785095899,
+   "seed": null,
+   "expires": 1785700699,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_phantom_lancer",
+   "hero_label": "Cu Chulainn",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "MovementSpeed"
+     ],
+     "key": "MovementSpeed",
+     "key_label": "👟 Скорость бега",
+     "old": "380",
+     "new": "426",
+     "baseline": "380",
+     "drift": 1.1211
+    }
+   ],
+   "path": [
+    "MovementSpeed"
+   ],
+   "key": "MovementSpeed",
+   "key_label": "👟 Скорость бега",
+   "old": "380",
+   "new": "426",
+   "baseline": "380",
+   "drift": 1.1211,
+   "dir": 1,
+   "tier": "small",
+   "pct": 12,
+   "power_label": "🎲 ХАОС: бафф 12%",
+   "multi": false,
+   "id": "a0023937",
+   "ts": 1785095928,
+   "seed": null,
+   "expires": 1785700728,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785097705
+  },
+  {
+   "hero": "npc_dota_hero_omniknight",
+   "hero_label": "Gawain",
+   "target_id": "ab:gawain_artificial_sun",
+   "target_kind": "ability",
+   "target_name": "gawain_artificial_sun",
+   "target_label": "D — Artificial Sun",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "10",
+     "new": "9",
+     "baseline": "10",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "10",
+   "new": "9",
+   "baseline": "10",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a002cedf",
+   "ts": 1785095966,
+   "seed": null,
+   "expires": 1785700766,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_razor",
+   "hero_label": "Jeanne d'Arc Alter",
+   "target_id": "ab:jeanne_jump",
+   "target_kind": "ability",
+   "target_name": "jeanne_jump",
+   "target_label": "E — Burned Ground",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "6",
+     "new": "8",
+     "baseline": "6",
+     "drift": 1.3333
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "duration"
+   ],
+   "key": "duration",
+   "key_label": "duration",
+   "old": "6",
+   "new": "8",
+   "baseline": "6",
+   "drift": 1.3333,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a003a565",
+   "ts": 1785096021,
+   "seed": null,
+   "expires": 1785700821,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_legion_commander",
+   "hero_label": "Arturia Pendragon",
+   "target_id": "ab:artoria_avalon",
+   "target_kind": "ability",
+   "target_name": "artoria_avalon",
+   "target_label": "D — Avalon",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "stun_duration"
+     ],
+     "key": "stun_duration",
+     "key_label": "stun_duration",
+     "old": "2.5",
+     "new": "2.2",
+     "baseline": "2.5",
+     "drift": 0.88
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "stun_duration"
+   ],
+   "key": "stun_duration",
+   "key_label": "stun_duration",
+   "old": "2.5",
+   "new": "2.2",
+   "baseline": "2.5",
+   "drift": 0.88,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🎲 ХАОС: нерф 10%",
+   "multi": false,
+   "id": "a0041435",
+   "ts": 1785096049,
+   "seed": null,
+   "expires": 1785700849,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_huskar",
+   "hero_label": "Diarmuid",
+   "target_id": "ab:diarmuid_warrior_charge",
+   "target_kind": "ability",
+   "target_name": "diarmuid_warrior_charge",
+   "target_label": "Q — Warrior's Charge",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "11 10 9 8 7",
+     "new": "16 15 14 12 10",
+     "baseline": "11 10 9 8 7",
+     "drift": 1.4889
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "11 10 9 8 7",
+   "new": "16 15 14 12 10",
+   "baseline": "11 10 9 8 7",
+   "drift": 1.4889,
+   "dir": -1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "💥 ДВОЙНАЯ СИЛА: нерф 50%",
+   "multi": false,
+   "id": "a0051ada",
+   "ts": 1785096116,
+   "seed": null,
+   "expires": 1785700916,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785097666
+  },
+  {
+   "hero": "npc_dota_hero_nevermore",
+   "hero_label": "Demon king Nobunaga",
+   "target_id": "ab:demon_king_materialization",
+   "target_kind": "ability",
+   "target_name": "demon_king_materialization",
+   "target_label": "F — Materialization",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "sa_dps"
+     ],
+     "key": "sa_dps",
+     "key_label": "sa_dps",
+     "old": "50",
+     "new": "45",
+     "baseline": "50",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "sa_dps"
+   ],
+   "key": "sa_dps",
+   "key_label": "sa_dps",
+   "old": "50",
+   "new": "45",
+   "baseline": "50",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a005b4c3",
+   "ts": 1785096156,
+   "seed": null,
+   "expires": 1785700956,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "AttributeAgilityGain"
+     ],
+     "key": "AttributeAgilityGain",
+     "key_label": "🏃 Ловкость/ур.",
+     "old": "4",
+     "new": "5",
+     "baseline": "4",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AttributeAgilityGain"
+   ],
+   "key": "AttributeAgilityGain",
+   "key_label": "🏃 Ловкость/ур.",
+   "old": "4",
+   "new": "5",
+   "baseline": "4",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 27,
+   "power_label": "🎲 ХАОС: бафф 27%",
+   "multi": false,
+   "id": "a00632b4",
+   "ts": 1785096188,
+   "seed": null,
+   "expires": 1785700988,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785099212
+  },
+  {
+   "hero": "npc_dota_hero_shadow_shaman",
+   "hero_label": "Gilles de Rais",
+   "target_id": "ab:gilles_summon_jellyfish",
+   "target_kind": "ability",
+   "target_name": "gilles_summon_jellyfish",
+   "target_label": "Q — Summon Oceanic Demon",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "700",
+     "new": "966",
+     "baseline": "700",
+     "drift": 1.38
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "700",
+   "new": "966",
+   "baseline": "700",
+   "drift": 1.38,
+   "dir": 1,
+   "tier": "big",
+   "pct": 38,
+   "power_label": "🎲 ХАОС: бафф 38%",
+   "multi": false,
+   "id": "a006b7b3",
+   "ts": 1785096222,
+   "seed": null,
+   "expires": 1785701022,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_treant",
+   "hero_label": "Edmond Dantes",
+   "target_id": "ab:edmon_enfer",
+   "target_kind": "ability",
+   "target_name": "edmon_enfer",
+   "target_label": "🌀 — Combo: Enfer Chateau d'If",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "1.2",
+     "new": "1.1",
+     "baseline": "1.2",
+     "drift": 0.9167
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "1.2",
+   "new": "1.1",
+   "baseline": "1.2",
+   "drift": 0.9167,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a008f88d",
+   "ts": 1785096370,
+   "seed": null,
+   "expires": 1785701170,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_razor",
+   "hero_label": "Jeanne d'Arc Alter",
+   "target_id": "ab:jeanne_curse",
+   "target_kind": "ability",
+   "target_name": "jeanne_curse",
+   "target_label": "Q — Curse of the Dragon Witch",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "5",
+     "new": "4",
+     "baseline": "5",
+     "drift": 0.8
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "duration"
+   ],
+   "key": "duration",
+   "key_label": "duration",
+   "old": "5",
+   "new": "4",
+   "baseline": "5",
+   "drift": 0.8,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a009cb8d",
+   "ts": 1785096424,
+   "seed": null,
+   "expires": 1785701224,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_mirana",
+   "hero_label": "Jeanne d'Arc",
+   "target_id": "ab:jeanne_purge_the_unjust",
+   "target_kind": "ability",
+   "target_name": "jeanne_purge_the_unjust",
+   "target_label": "W — Purge the Unjust",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "800",
+     "new": "1000",
+     "baseline": "800",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "800",
+   "new": "1000",
+   "baseline": "800",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a00ab843",
+   "ts": 1785096484,
+   "seed": null,
+   "expires": 1785701284,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_clinkz",
+   "hero_label": "Arash",
+   "target_id": "ab:arash_clair",
+   "target_kind": "ability",
+   "target_name": "arash_clair",
+   "target_label": "R — Clairvoyance: Arrow volley",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "2500",
+     "new": "1875",
+     "baseline": "2500",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "2500",
+   "new": "1875",
+   "baseline": "2500",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a00b2d22",
+   "ts": 1785096514,
+   "seed": null,
+   "expires": 1785701314,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_spirit_breaker",
+   "hero_label": "Hijikata Toshizo",
+   "target_id": "ab:hijikata_combo",
+   "target_kind": "ability",
+   "target_name": "hijikata_combo",
+   "target_label": "🌀 — Combo: Unstoppable Shinsengumi",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "160",
+     "new": "176",
+     "baseline": "160",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.5",
+     "new": "0.55",
+     "baseline": "0.5",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "12",
+     "new": "11",
+     "baseline": "12",
+     "drift": 0.9167
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "stun_duration"
+     ],
+     "key": "stun_duration",
+     "key_label": "stun_duration",
+     "old": "1",
+     "new": "0.9",
+     "baseline": "1",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "first_strike_damage"
+     ],
+     "key": "first_strike_damage",
+     "key_label": "first_strike_damage",
+     "old": "800",
+     "new": "720",
+     "baseline": "800",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "first_strike_range"
+     ],
+     "key": "first_strike_range",
+     "key_label": "first_strike_range",
+     "old": "950",
+     "new": "855",
+     "baseline": "950",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "second_strike_range"
+     ],
+     "key": "second_strike_range",
+     "key_label": "second_strike_range",
+     "old": "350",
+     "new": "315",
+     "baseline": "350",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "second_strike_width"
+     ],
+     "key": "second_strike_width",
+     "key_label": "second_strike_width",
+     "old": "200",
+     "new": "180",
+     "baseline": "200",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "second_strike_damage"
+     ],
+     "key": "second_strike_damage",
+     "key_label": "second_strike_damage",
+     "old": "700",
+     "new": "630",
+     "baseline": "700",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "third_strike_damage"
+     ],
+     "key": "third_strike_damage",
+     "key_label": "third_strike_damage",
+     "old": "2000",
+     "new": "1800",
+     "baseline": "2000",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "third_strike_range"
+     ],
+     "key": "third_strike_range",
+     "key_label": "third_strike_range",
+     "old": "1650",
+     "new": "1485",
+     "baseline": "1650",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "third_strike_width"
+     ],
+     "key": "third_strike_width",
+     "key_label": "third_strike_width",
+     "old": "300",
+     "new": "270",
+     "baseline": "300",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "160",
+   "new": "176",
+   "baseline": "160",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "160",
+     "new": "176",
+     "baseline": "160",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.5",
+     "new": "0.55",
+     "baseline": "0.5",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "12",
+     "new": "11",
+     "baseline": "12",
+     "drift": 0.9167
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "Width"
+     ],
+     "key": "Width",
+     "key_label": "Width",
+     "old": "500",
+     "new": "450",
+     "baseline": "500",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "distance"
+     ],
+     "key": "distance",
+     "key_label": "distance",
+     "old": "4000",
+     "new": "3600",
+     "baseline": "4000",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "stun_duration"
+     ],
+     "key": "stun_duration",
+     "key_label": "stun_duration",
+     "old": "1",
+     "new": "0.9",
+     "baseline": "1",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "first_strike_damage"
+     ],
+     "key": "first_strike_damage",
+     "key_label": "first_strike_damage",
+     "old": "800",
+     "new": "720",
+     "baseline": "800",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "first_strike_range"
+     ],
+     "key": "first_strike_range",
+     "key_label": "first_strike_range",
+     "old": "950",
+     "new": "855",
+     "baseline": "950",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "second_strike_range"
+     ],
+     "key": "second_strike_range",
+     "key_label": "second_strike_range",
+     "old": "350",
+     "new": "315",
+     "baseline": "350",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "second_strike_width"
+     ],
+     "key": "second_strike_width",
+     "key_label": "second_strike_width",
+     "old": "200",
+     "new": "180",
+     "baseline": "200",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "second_strike_damage"
+     ],
+     "key": "second_strike_damage",
+     "key_label": "second_strike_damage",
+     "old": "700",
+     "new": "630",
+     "baseline": "700",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "third_strike_damage"
+     ],
+     "key": "third_strike_damage",
+     "key_label": "third_strike_damage",
+     "old": "2000",
+     "new": "1800",
+     "baseline": "2000",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "third_strike_range"
+     ],
+     "key": "third_strike_range",
+     "key_label": "third_strike_range",
+     "old": "1650",
+     "new": "1485",
+     "baseline": "1650",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "third_strike_width"
+     ],
+     "key": "third_strike_width",
+     "key_label": "third_strike_width",
+     "old": "300",
+     "new": "270",
+     "baseline": "300",
+     "drift": 0.9
+    }
+   ],
+   "id": "a00bdbd4",
+   "ts": 1785096559,
+   "seed": null,
+   "expires": 1785701359,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_treant",
+   "hero_label": "Edmond Dantes",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "ArmorPhysical"
+     ],
+     "key": "ArmorPhysical",
+     "key_label": "🛡 Броня",
+     "old": "11",
+     "new": "8",
+     "baseline": "11",
+     "drift": 0.7273
+    }
+   ],
+   "path": [
+    "ArmorPhysical"
+   ],
+   "key": "ArmorPhysical",
+   "key_label": "🛡 Броня",
+   "old": "11",
+   "new": "8",
+   "baseline": "11",
+   "drift": 0.7273,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a00c6071",
+   "ts": 1785096593,
+   "seed": null,
+   "expires": 1785701393,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785098050
+  },
+  {
+   "hero": "npc_dota_hero_enchantress",
+   "hero_label": "Tamamo no Mae",
+   "target_id": "ab:tamamo_mantra",
+   "target_kind": "ability",
+   "target_name": "tamamo_mantra",
+   "target_label": "E — Mantra",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "ice_damage"
+     ],
+     "key": "ice_damage",
+     "key_label": "ice_damage",
+     "old": "40 50 60 70 80",
+     "new": "44 55 66 77 88",
+     "baseline": "40 50 60 70 80",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "ice_damage"
+   ],
+   "key": "ice_damage",
+   "key_label": "ice_damage",
+   "old": "40 50 60 70 80",
+   "new": "44 55 66 77 88",
+   "baseline": "40 50 60 70 80",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a00ccf60",
+   "ts": 1785096621,
+   "seed": null,
+   "expires": 1785701421,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_juggernaut",
+   "hero_label": "Sasaki Kojiro",
+   "target_id": "ab:false_assassin_tsubame_mai",
+   "target_kind": "ability",
+   "target_name": "false_assassin_tsubame_mai",
+   "target_label": "🌀 — Combo: The Swallow Dance",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "2.5",
+     "new": "3.1",
+     "baseline": "2.5",
+     "drift": 1.24
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "duration"
+   ],
+   "key": "duration",
+   "key_label": "duration",
+   "old": "2.5",
+   "new": "3.1",
+   "baseline": "2.5",
+   "drift": 1.24,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a00d7381",
+   "ts": 1785096663,
+   "seed": null,
+   "expires": 1785701463,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_chen",
+   "hero_label": "Iskandar",
+   "target_id": "ab:iskander_ionioi",
+   "target_kind": "ability",
+   "target_name": "iskander_ionioi",
+   "target_label": "🌀 — Army of the King",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "infantry_bonus_damage"
+     ],
+     "key": "infantry_bonus_damage",
+     "key_label": "infantry_bonus_damage",
+     "old": "30",
+     "new": "38",
+     "baseline": "30",
+     "drift": 1.2667
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "infantry_bonus_damage"
+   ],
+   "key": "infantry_bonus_damage",
+   "key_label": "infantry_bonus_damage",
+   "old": "30",
+   "new": "38",
+   "baseline": "30",
+   "drift": 1.2667,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a00ded7d",
+   "ts": 1785096695,
+   "seed": null,
+   "expires": 1785701495,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_abaddon",
+   "hero_label": "Mordred",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "AttributeIntelligenceGain"
+     ],
+     "key": "AttributeIntelligenceGain",
+     "key_label": "🧠 Интеллект/ур.",
+     "old": "1.9",
+     "new": "2.1",
+     "baseline": "1.9",
+     "drift": 1.1053
+    }
+   ],
+   "path": [
+    "AttributeIntelligenceGain"
+   ],
+   "key": "AttributeIntelligenceGain",
+   "key_label": "🧠 Интеллект/ур.",
+   "old": "1.9",
+   "new": "2.1",
+   "baseline": "1.9",
+   "drift": 1.1053,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a00e5bff",
+   "ts": 1785096723,
+   "seed": null,
+   "expires": 1785701523,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_skywrath_mage",
+   "hero_label": "Gilgamesh",
+   "target_id": "ab:gilgamesh_sword_rain",
+   "target_kind": "ability",
+   "target_name": "gilgamesh_sword_rain",
+   "target_label": "W — Sword Rain",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "attrbute_bonus_damage"
+     ],
+     "key": "attrbute_bonus_damage",
+     "key_label": "attrbute_bonus_damage",
+     "old": "10",
+     "new": "8",
+     "baseline": "10",
+     "drift": 0.8
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "attrbute_bonus_damage"
+   ],
+   "key": "attrbute_bonus_damage",
+   "key_label": "attrbute_bonus_damage",
+   "old": "10",
+   "new": "8",
+   "baseline": "10",
+   "drift": 0.8,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a00f08f5",
+   "ts": 1785096767,
+   "seed": null,
+   "expires": 1785701567,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_terrorblade",
+   "hero_label": "Saitō Hajime",
+   "target_id": "ab:saito_fds",
+   "target_kind": "ability",
+   "target_name": "saito_fds",
+   "target_label": "F — Freely Drawn Sword",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.15",
+     "new": "0.12",
+     "baseline": "0.15",
+     "drift": 0.8
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.15",
+   "new": "0.12",
+   "baseline": "0.15",
+   "drift": 0.8,
+   "dir": 1,
+   "tier": "small",
+   "pct": 22,
+   "power_label": "🎲 ХАОС: бафф 22%",
+   "multi": false,
+   "id": "a00f704d",
+   "ts": 1785096794,
+   "seed": null,
+   "expires": 1785701594,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "ab:true_assassin_selfmod",
+   "target_kind": "ability",
+   "target_name": "true_assassin_selfmod",
+   "target_label": "W — Self Modification",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_stats"
+     ],
+     "key": "bonus_stats",
+     "key_label": "bonus_stats",
+     "old": "1 1.2 1.4 1.6 1.8",
+     "new": "0.9 1.1 1.3 1.4 1.6",
+     "baseline": "1 1.2 1.4 1.6 1.8",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "bonus_stats"
+   ],
+   "key": "bonus_stats",
+   "key_label": "bonus_stats",
+   "old": "1 1.2 1.4 1.6 1.8",
+   "new": "0.9 1.1 1.3 1.4 1.6",
+   "baseline": "1 1.2 1.4 1.6 1.8",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a00fe652",
+   "ts": 1785096824,
+   "seed": null,
+   "expires": 1785701624,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_centaur",
+   "hero_label": "Lu Bu",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "StatusHealth"
+     ],
+     "key": "StatusHealth",
+     "key_label": "❤ Здоровье",
+     "old": "1350",
+     "new": "1215",
+     "baseline": "1350",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "StatusHealth"
+   ],
+   "key": "StatusHealth",
+   "key_label": "❤ Здоровье",
+   "old": "1350",
+   "new": "1215",
+   "baseline": "1350",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a010b3ab",
+   "ts": 1785096876,
+   "seed": null,
+   "expires": 1785701676,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_dark_willow",
+   "hero_label": "Okita Souji",
+   "target_id": "ab:okita_sandanzuki",
+   "target_kind": "ability",
+   "target_name": "okita_sandanzuki",
+   "target_label": "R — Mumyou Sandan-Zuki",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.8",
+     "new": "1.0",
+     "baseline": "0.8",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.8",
+   "new": "1.0",
+   "baseline": "0.8",
+   "drift": 1.25,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a013f703",
+   "ts": 1785097090,
+   "seed": null,
+   "expires": 1785701890,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_tidehunter",
+   "hero_label": "Vlad III",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "StatusManaRegen"
+     ],
+     "key": "StatusManaRegen",
+     "key_label": "💧 Реген маны",
+     "old": "5",
+     "new": "4.5",
+     "baseline": "5",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "StatusManaRegen"
+   ],
+   "key": "StatusManaRegen",
+   "key_label": "💧 Реген маны",
+   "old": "5",
+   "new": "4.5",
+   "baseline": "5",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a0144e4a",
+   "ts": 1785097113,
+   "seed": null,
+   "expires": 1785701913,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_tiny",
+   "hero_label": "Arcueid",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "AttackDamageMin"
+     ],
+     "key": "AttackDamageMin",
+     "key_label": "⚔ Урон атаки",
+     "old": "80",
+     "new": "88",
+     "baseline": "80",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AttackDamageMin"
+   ],
+   "key": "AttackDamageMin",
+   "key_label": "⚔ Урон атаки",
+   "old": "80",
+   "new": "88",
+   "baseline": "80",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a014d32b",
+   "ts": 1785097147,
+   "seed": null,
+   "expires": 1785701947,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_omniknight",
+   "hero_label": "Gawain",
+   "target_id": "ab:gawain_heat",
+   "target_kind": "ability",
+   "target_name": "gawain_heat",
+   "target_label": "Q — Heat",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "burn_damage"
+     ],
+     "key": "burn_damage",
+     "key_label": "burn_damage",
+     "old": "80 100 120 140 160",
+     "new": "72 90 108 126 144",
+     "baseline": "80 100 120 140 160",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "burn_damage"
+   ],
+   "key": "burn_damage",
+   "key_label": "burn_damage",
+   "old": "80 100 120 140 160",
+   "new": "72 90 108 126 144",
+   "baseline": "80 100 120 140 160",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a01528c0",
+   "ts": 1785097169,
+   "seed": null,
+   "expires": 1785701969,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_spectre",
+   "hero_label": "Arturia (Alter)",
+   "target_id": "ab:saber_alter_unleashed_ferocity",
+   "target_kind": "ability",
+   "target_name": "saber_alter_unleashed_ferocity",
+   "target_label": "F — Unleashed Ferocity",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "cast_delay"
+     ],
+     "key": "cast_delay",
+     "key_label": "cast_delay",
+     "old": "1.0",
+     "new": "0.8",
+     "baseline": "1.0",
+     "drift": 0.8
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "cast_delay"
+   ],
+   "key": "cast_delay",
+   "key_label": "cast_delay",
+   "old": "1.0",
+   "new": "0.8",
+   "baseline": "1.0",
+   "drift": 0.8,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a015798c",
+   "ts": 1785097189,
+   "seed": null,
+   "expires": 1785701989,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_drow_ranger",
+   "hero_label": "Atalanta",
+   "target_id": "ab:atalanta_priestess_of_the_hunt",
+   "target_kind": "ability",
+   "target_name": "atalanta_priestess_of_the_hunt",
+   "target_label": "F — Priestess Of The Hunt",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "cost"
+     ],
+     "key": "cost",
+     "key_label": "cost",
+     "old": "10",
+     "new": "11",
+     "baseline": "10",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "cost"
+   ],
+   "key": "cost",
+   "key_label": "cost",
+   "old": "10",
+   "new": "11",
+   "baseline": "10",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a015cd0d",
+   "ts": 1785097211,
+   "seed": null,
+   "expires": 1785702011,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_abaddon",
+   "hero_label": "Mordred",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "ArmorPhysical"
+     ],
+     "key": "ArmorPhysical",
+     "key_label": "🛡 Броня",
+     "old": "4",
+     "new": "3",
+     "baseline": "11",
+     "drift": 0.2727
+    }
+   ],
+   "path": [
+    "ArmorPhysical"
+   ],
+   "key": "ArmorPhysical",
+   "key_label": "🛡 Броня",
+   "old": "4",
+   "new": "3",
+   "baseline": "11",
+   "drift": 0.2727,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a0161988",
+   "ts": 1785097230,
+   "seed": null,
+   "expires": 1785702030,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_razor",
+   "hero_label": "Jeanne d'Arc Alter",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "StatusManaRegen"
+     ],
+     "key": "StatusManaRegen",
+     "key_label": "💧 Реген маны",
+     "old": "5.0",
+     "new": "6.2",
+     "baseline": "5",
+     "drift": 1.24
+    }
+   ],
+   "path": [
+    "StatusManaRegen"
+   ],
+   "key": "StatusManaRegen",
+   "key_label": "💧 Реген маны",
+   "old": "5.0",
+   "new": "6.2",
+   "baseline": "5",
+   "drift": 1.24,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a016675b",
+   "ts": 1785097250,
+   "seed": null,
+   "expires": 1785702050,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_mirana",
+   "hero_label": "Jeanne d'Arc",
+   "target_id": "ab:jeanne_charisma",
+   "target_kind": "ability",
+   "target_name": "jeanne_charisma",
+   "target_label": "Q — Charisma",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "200 250 300 350 400",
+     "new": "150 188 225 262 300",
+     "baseline": "200 250 300 350 400",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "200 250 300 350 400",
+   "new": "150 188 225 262 300",
+   "baseline": "200 250 300 350 400",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a016b89a",
+   "ts": 1785097271,
+   "seed": null,
+   "expires": 1785702071,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_nevermore",
+   "hero_label": "Demon king Nobunaga",
+   "target_id": "ab:demon_king_breath",
+   "target_kind": "ability",
+   "target_name": "demon_king_breath",
+   "target_label": "R — Singularity",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage_fire"
+     ],
+     "key": "damage_fire",
+     "key_label": "damage_fire",
+     "old": "400 500 600 700 800",
+     "new": "500 625 750 875 1000",
+     "baseline": "400 500 600 700 800",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage_fire"
+   ],
+   "key": "damage_fire",
+   "key_label": "damage_fire",
+   "old": "400 500 600 700 800",
+   "new": "500 625 750 875 1000",
+   "baseline": "400 500 600 700 800",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0172906",
+   "ts": 1785097300,
+   "seed": null,
+   "expires": 1785702100,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_huskar",
+   "hero_label": "Diarmuid",
+   "target_id": "ab:diarmuid_new_combo",
+   "target_kind": "ability",
+   "target_name": "diarmuid_new_combo",
+   "target_label": "🌀 — Combo: Rampant Warrior",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "1000",
+     "new": "590",
+     "baseline": "1000",
+     "drift": 0.59
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.4",
+     "baseline": "0.3",
+     "drift": 1.3333
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "120",
+     "new": "169",
+     "baseline": "120",
+     "drift": 1.4083
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400",
+     "new": "236",
+     "baseline": "400",
+     "drift": 0.59
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "1.4",
+     "new": "0.8",
+     "baseline": "1.4",
+     "drift": 0.5714
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "cast_range"
+     ],
+     "key": "cast_range",
+     "key_label": "cast_range",
+     "old": "1000",
+     "new": "590",
+     "baseline": "1000",
+     "drift": 0.59
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "total_damage"
+     ],
+     "key": "total_damage",
+     "key_label": "total_damage",
+     "old": "1800",
+     "new": "1062",
+     "baseline": "1800",
+     "drift": 0.59
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "1000",
+   "new": "590",
+   "baseline": "1000",
+   "drift": 0.59,
+   "dir": -1,
+   "tier": "big",
+   "pct": 41,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "1000",
+     "new": "590",
+     "baseline": "1000",
+     "drift": 0.59
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.4",
+     "baseline": "0.3",
+     "drift": 1.3333
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "120",
+     "new": "169",
+     "baseline": "120",
+     "drift": 1.4083
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400",
+     "new": "236",
+     "baseline": "400",
+     "drift": 0.59
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "1.4",
+     "new": "0.8",
+     "baseline": "1.4",
+     "drift": 0.5714
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "cast_range"
+     ],
+     "key": "cast_range",
+     "key_label": "cast_range",
+     "old": "1000",
+     "new": "590",
+     "baseline": "1000",
+     "drift": 0.59
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "recast_timer"
+     ],
+     "key": "recast_timer",
+     "key_label": "recast_timer",
+     "old": "2",
+     "new": "2.8",
+     "baseline": "2",
+     "drift": 1.4
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "250",
+     "new": "148",
+     "baseline": "250",
+     "drift": 0.592
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "total_damage"
+     ],
+     "key": "total_damage",
+     "key_label": "total_damage",
+     "old": "1800",
+     "new": "1062",
+     "baseline": "1800",
+     "drift": 0.59
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "reduced_cooldown"
+     ],
+     "key": "reduced_cooldown",
+     "key_label": "reduced_cooldown",
+     "old": "60",
+     "new": "35",
+     "baseline": "60",
+     "drift": 0.5833
+    }
+   ],
+   "id": "a017df03",
+   "ts": 1785097346,
+   "seed": null,
+   "expires": 1785702146,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_beastmaster",
+   "hero_label": "Karna",
+   "target_id": "ab:karna_push",
+   "target_kind": "ability",
+   "target_name": "karna_push",
+   "target_label": "• — Martial arts : Push",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "stun_duration"
+     ],
+     "key": "stun_duration",
+     "key_label": "stun_duration",
+     "old": "0.2",
+     "new": "0.15",
+     "baseline": "0.2",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "stun_duration"
+   ],
+   "key": "stun_duration",
+   "key_label": "stun_duration",
+   "old": "0.2",
+   "new": "0.15",
+   "baseline": "0.2",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a0183865",
+   "ts": 1785097369,
+   "seed": null,
+   "expires": 1785702169,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_templar_assassin",
+   "hero_label": "Medusa",
+   "target_id": "ab:medusa_bellerophon_2",
+   "target_kind": "ability",
+   "target_name": "medusa_bellerophon_2",
+   "target_label": "🌀 — Combo: Bellerophon II",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "stun_duration"
+     ],
+     "key": "stun_duration",
+     "key_label": "stun_duration",
+     "old": "1.5",
+     "new": "1.1",
+     "baseline": "1.5",
+     "drift": 0.7333
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "stun_duration"
+   ],
+   "key": "stun_duration",
+   "key_label": "stun_duration",
+   "old": "1.5",
+   "new": "1.1",
+   "baseline": "1.5",
+   "drift": 0.7333,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a01889cf",
+   "ts": 1785097390,
+   "seed": null,
+   "expires": 1785702190,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785097427
+  },
+  {
+   "hero": "npc_dota_hero_phantom_lancer",
+   "hero_label": "Cu Chulainn",
+   "target_id": "ab:cu_chulain_gae_bolg",
+   "target_kind": "ability",
+   "target_name": "cu_chulain_gae_bolg",
+   "target_label": "E — The Spear of Impaling Barbed Death",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400 500 600 700 800",
+     "new": "300 375 450 525 600",
+     "baseline": "400 500 600 700 800",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "400 500 600 700 800",
+   "new": "300 375 450 525 600",
+   "baseline": "400 500 600 700 800",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a018e574",
+   "ts": 1785097414,
+   "seed": null,
+   "expires": 1785702214,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_ember_spirit",
+   "hero_label": "EMIYA",
+   "target_id": "ab:emiya_caladbolg",
+   "target_kind": "ability",
+   "target_name": "emiya_caladbolg",
+   "target_label": "• — Caladbolg II",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "range"
+     ],
+     "key": "range",
+     "key_label": "range",
+     "old": "3000",
+     "new": "2700",
+     "baseline": "3000",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "range"
+   ],
+   "key": "range",
+   "key_label": "range",
+   "old": "3000",
+   "new": "2700",
+   "baseline": "3000",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a01979e2",
+   "ts": 1785097452,
+   "seed": null,
+   "expires": 1785702252,
+   "days": 7,
+   "status": "reverted",
+   "reverted_ts": 1785098065
+  },
+  {
+   "hero": "npc_dota_hero_venomancer",
+   "hero_label": "Leonidas I",
+   "target_id": "ab:leonidas_enomotia_combo",
+   "target_kind": "ability",
+   "target_name": "leonidas_enomotia_combo",
+   "target_label": "🌀 — COMBO: Thermopylae Enomotia",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.27",
+     "baseline": "0.3",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "220",
+     "new": "198",
+     "baseline": "220",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "1800",
+     "new": "1980",
+     "baseline": "1800",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "shield_duration"
+     ],
+     "key": "shield_duration",
+     "key_label": "shield_duration",
+     "old": "9.0",
+     "new": "9.9",
+     "baseline": "9.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "base_block_per_shield"
+     ],
+     "key": "base_block_per_shield",
+     "key_label": "base_block_per_shield",
+     "old": "50",
+     "new": "55",
+     "baseline": "50",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_block_per_pushed"
+     ],
+     "key": "bonus_block_per_pushed",
+     "key_label": "bonus_block_per_pushed",
+     "old": "10",
+     "new": "11",
+     "baseline": "10",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "defence_duration"
+     ],
+     "key": "defence_duration",
+     "key_label": "defence_duration",
+     "old": "9.0",
+     "new": "9.9",
+     "baseline": "9.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "defence_bonus_block_per_shield"
+     ],
+     "key": "defence_bonus_block_per_shield",
+     "key_label": "defence_bonus_block_per_shield",
+     "old": "20",
+     "new": "22",
+     "baseline": "20",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "steps_duration"
+     ],
+     "key": "steps_duration",
+     "key_label": "steps_duration",
+     "old": "3.0",
+     "new": "3.3",
+     "baseline": "3.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "combo_duration"
+     ],
+     "key": "combo_duration",
+     "key_label": "combo_duration",
+     "old": "6.0",
+     "new": "6.6",
+     "baseline": "6.0",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.3",
+   "new": "0.27",
+   "baseline": "0.3",
+   "drift": 0.9,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.27",
+     "baseline": "0.3",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "220",
+     "new": "198",
+     "baseline": "220",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "1800",
+     "new": "1980",
+     "baseline": "1800",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "push_radius"
+     ],
+     "key": "push_radius",
+     "key_label": "push_radius",
+     "old": "0.75",
+     "new": "0.83",
+     "baseline": "0.75",
+     "drift": 1.1067
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "push_duration"
+     ],
+     "key": "push_duration",
+     "key_label": "push_duration",
+     "old": "0.3",
+     "new": "0.33",
+     "baseline": "0.3",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "push_slow_duration"
+     ],
+     "key": "push_slow_duration",
+     "key_label": "push_slow_duration",
+     "old": "1.8",
+     "new": "2.0",
+     "baseline": "1.8",
+     "drift": 1.1111
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "push_slow_pct"
+     ],
+     "key": "push_slow_pct",
+     "key_label": "push_slow_pct",
+     "old": "-100",
+     "new": "-110",
+     "baseline": "-100",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "shield_duration"
+     ],
+     "key": "shield_duration",
+     "key_label": "shield_duration",
+     "old": "9.0",
+     "new": "9.9",
+     "baseline": "9.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "shield_damage"
+     ],
+     "key": "shield_damage",
+     "key_label": "shield_damage",
+     "old": "9",
+     "new": "9.9",
+     "baseline": "9",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "base_block_per_shield"
+     ],
+     "key": "base_block_per_shield",
+     "key_label": "base_block_per_shield",
+     "old": "50",
+     "new": "55",
+     "baseline": "50",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_block_per_pushed"
+     ],
+     "key": "bonus_block_per_pushed",
+     "key_label": "bonus_block_per_pushed",
+     "old": "10",
+     "new": "11",
+     "baseline": "10",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "defence_duration"
+     ],
+     "key": "defence_duration",
+     "key_label": "defence_duration",
+     "old": "9.0",
+     "new": "9.9",
+     "baseline": "9.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "defence_bonus_block_per_shield"
+     ],
+     "key": "defence_bonus_block_per_shield",
+     "key_label": "defence_bonus_block_per_shield",
+     "old": "20",
+     "new": "22",
+     "baseline": "20",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "steps_duration"
+     ],
+     "key": "steps_duration",
+     "key_label": "steps_duration",
+     "old": "3.0",
+     "new": "3.3",
+     "baseline": "3.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "combo_duration"
+     ],
+     "key": "combo_duration",
+     "key_label": "combo_duration",
+     "old": "6.0",
+     "new": "6.6",
+     "baseline": "6.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "defence_damage_back"
+     ],
+     "key": "defence_damage_back",
+     "key_label": "defence_damage_back",
+     "old": "200",
+     "new": "220",
+     "baseline": "200",
+     "drift": 1.1
+    }
+   ],
+   "id": "a01acb25",
+   "ts": 1785097538,
+   "seed": null,
+   "expires": 1785702338,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_beastmaster",
+   "hero_label": "Karna",
+   "target_id": "ab:karna_slashes",
+   "target_kind": "ability",
+   "target_name": "karna_slashes",
+   "target_label": "W — Martial arts : Slashes",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "550",
+     "new": "605",
+     "baseline": "550",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "radius"
+   ],
+   "key": "radius",
+   "key_label": "radius",
+   "old": "550",
+   "new": "605",
+   "baseline": "550",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a01b525a",
+   "ts": 1785097572,
+   "seed": null,
+   "expires": 1785702372,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_abaddon",
+   "hero_label": "Mordred",
+   "target_id": "ab:mordred_slash",
+   "target_kind": "ability",
+   "target_name": "mordred_slash",
+   "target_label": "Q — Mana Burst - Slash",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "base_damage"
+     ],
+     "key": "base_damage",
+     "key_label": "base_damage",
+     "old": "200 250 300 350 400",
+     "new": "180 225 270 315 360",
+     "baseline": "200 250 300 350 400",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "base_damage"
+   ],
+   "key": "base_damage",
+   "key_label": "base_damage",
+   "old": "200 250 300 350 400",
+   "new": "180 225 270 315 360",
+   "baseline": "200 250 300 350 400",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a01d24f9",
+   "ts": 1785097692,
+   "seed": null,
+   "expires": 1785702492,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_mirana",
+   "hero_label": "Jeanne d'Arc",
+   "target_id": "ab:jeanne_saint",
+   "target_kind": "ability",
+   "target_name": "jeanne_saint",
+   "target_label": "F — Saint",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "1000",
+     "new": "750",
+     "baseline": "1000",
+     "drift": 0.75
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "heal"
+     ],
+     "key": "heal",
+     "key_label": "heal",
+     "old": "25 75",
+     "new": "19 56",
+     "baseline": "25 75",
+     "drift": 0.75
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "hp_regen_const"
+     ],
+     "key": "hp_regen_const",
+     "key_label": "hp_regen_const",
+     "old": "10 40",
+     "new": "8 30",
+     "baseline": "10 40",
+     "drift": 0.76
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "5",
+     "new": "4",
+     "baseline": "5",
+     "drift": 0.8
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "regen_duration"
+     ],
+     "key": "regen_duration",
+     "key_label": "regen_duration",
+     "old": "2",
+     "new": "1.5",
+     "baseline": "2",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "radius"
+   ],
+   "key": "radius",
+   "key_label": "radius",
+   "old": "1000",
+   "new": "750",
+   "baseline": "1000",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "1000",
+     "new": "750",
+     "baseline": "1000",
+     "drift": 0.75
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "heal"
+     ],
+     "key": "heal",
+     "key_label": "heal",
+     "old": "25 75",
+     "new": "19 56",
+     "baseline": "25 75",
+     "drift": 0.75
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "hp_regen_const"
+     ],
+     "key": "hp_regen_const",
+     "key_label": "hp_regen_const",
+     "old": "10 40",
+     "new": "8 30",
+     "baseline": "10 40",
+     "drift": 0.76
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "5",
+     "new": "4",
+     "baseline": "5",
+     "drift": 0.8
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "regen_duration"
+     ],
+     "key": "regen_duration",
+     "key_label": "regen_duration",
+     "old": "2",
+     "new": "1.5",
+     "baseline": "2",
+     "drift": 0.75
+    }
+   ],
+   "id": "a01dc3ec",
+   "ts": 1785097733,
+   "seed": null,
+   "expires": 1785702533,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_magnataur",
+   "hero_label": "Muramasa",
+   "target_id": "ab:muramasa_eye_of_karma",
+   "target_kind": "ability",
+   "target_name": "muramasa_eye_of_karma",
+   "target_label": "• — Eye of karma",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "mr_reduction_per_attack"
+     ],
+     "key": "mr_reduction_per_attack",
+     "key_label": "mr_reduction_per_attack",
+     "old": "3",
+     "new": "3.8",
+     "baseline": "3",
+     "drift": 1.2667
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "mr_reduction_per_attack"
+   ],
+   "key": "mr_reduction_per_attack",
+   "key_label": "mr_reduction_per_attack",
+   "old": "3",
+   "new": "3.8",
+   "baseline": "3",
+   "drift": 1.2667,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a01e1e85",
+   "ts": 1785097756,
+   "seed": null,
+   "expires": 1785702556,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_huskar",
+   "hero_label": "Diarmuid",
+   "target_id": "ab:diarmuid_new_combo",
+   "target_kind": "ability",
+   "target_name": "diarmuid_new_combo",
+   "target_label": "🌀 — Combo: Rampant Warrior",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "590",
+     "new": "442",
+     "baseline": "1000",
+     "drift": 0.442
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "590",
+   "new": "442",
+   "baseline": "1000",
+   "drift": 0.442,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a01e7b0b",
+   "ts": 1785097779,
+   "seed": null,
+   "expires": 1785702579,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_phantom_assassin",
+   "hero_label": "Shiki Ryougi",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "MagicalResistance"
+     ],
+     "key": "MagicalResistance",
+     "key_label": "✨ Маг. сопр.",
+     "old": "10",
+     "new": "12",
+     "baseline": "10",
+     "drift": 1.2
+    }
+   ],
+   "path": [
+    "MagicalResistance"
+   ],
+   "key": "MagicalResistance",
+   "key_label": "✨ Маг. сопр.",
+   "old": "10",
+   "new": "12",
+   "baseline": "10",
+   "drift": 1.2,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a01ed914",
+   "ts": 1785097804,
+   "seed": null,
+   "expires": 1785702604,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_templar_assassin",
+   "hero_label": "Medusa",
+   "target_id": "ab:medusa_bellerophon",
+   "target_kind": "ability",
+   "target_name": "medusa_bellerophon",
+   "target_label": "R — Bellerophon",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "30.0",
+     "new": "33.0",
+     "baseline": "30.0",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "30.0",
+   "new": "33.0",
+   "baseline": "30.0",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a01f66cf",
+   "ts": 1785097840,
+   "seed": null,
+   "expires": 1785702640,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_doom_bringer",
+   "hero_label": "Heracles",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "AttackDamageMin"
+     ],
+     "key": "AttackDamageMin",
+     "key_label": "⚔ Урон атаки",
+     "old": "100",
+     "new": "90",
+     "baseline": "80",
+     "drift": 1.125
+    }
+   ],
+   "path": [
+    "AttackDamageMin"
+   ],
+   "key": "AttackDamageMin",
+   "key_label": "⚔ Урон атаки",
+   "old": "100",
+   "new": "90",
+   "baseline": "80",
+   "drift": 1.125,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a01fe1b8",
+   "ts": 1785097871,
+   "seed": null,
+   "expires": 1785702671,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_troll_warlord",
+   "hero_label": "Okada Izo",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "ArmorPhysical"
+     ],
+     "key": "ArmorPhysical",
+     "key_label": "🛡 Броня",
+     "old": "11",
+     "new": "12",
+     "baseline": "11",
+     "drift": 1.0909
+    }
+   ],
+   "path": [
+    "ArmorPhysical"
+   ],
+   "key": "ArmorPhysical",
+   "key_label": "🛡 Броня",
+   "old": "11",
+   "new": "12",
+   "baseline": "11",
+   "drift": 1.0909,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a02031e5",
+   "ts": 1785097892,
+   "seed": null,
+   "expires": 1785702692,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_vengefulspirit",
+   "hero_label": "Angra Mainyu",
+   "target_id": "ab:avenger_endless_loop",
+   "target_kind": "ability",
+   "target_name": "avenger_endless_loop",
+   "target_label": "🌀 — Combo: Endless Loop",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.33",
+     "baseline": "0.3",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.3",
+   "new": "0.33",
+   "baseline": "0.3",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a0207709",
+   "ts": 1785097910,
+   "seed": null,
+   "expires": 1785702710,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_spirit_breaker",
+   "hero_label": "Hijikata Toshizo",
+   "target_id": "ab:hijikata_demon_recast",
+   "target_kind": "ability",
+   "target_name": "hijikata_demon_recast",
+   "target_label": "• — ZloDemon of the battlefield",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "50 62.5 75 87.5 100",
+     "new": "62.5 78.1 93.8 109.4 125.0",
+     "baseline": "50 62.5 75 87.5 100",
+     "drift": 1.2501
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "50 62.5 75 87.5 100",
+   "new": "62.5 78.1 93.8 109.4 125.0",
+   "baseline": "50 62.5 75 87.5 100",
+   "drift": 1.2501,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0213cce",
+   "ts": 1785097960,
+   "seed": null,
+   "expires": 1785702760,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bloodseeker",
+   "hero_label": "Li Shuwen",
+   "target_id": "ab:lishuwen_martial_arts_passive_dummy",
+   "target_kind": "ability",
+   "target_name": "lishuwen_martial_arts_passive_dummy",
+   "target_label": "• — lishuwen_martial_arts_passive_dummy",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "mana_burn_amount"
+     ],
+     "key": "mana_burn_amount",
+     "key_label": "mana_burn_amount",
+     "old": "40",
+     "new": "36",
+     "baseline": "40",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "mana_burn_amount"
+   ],
+   "key": "mana_burn_amount",
+   "key_label": "mana_burn_amount",
+   "old": "40",
+   "new": "36",
+   "baseline": "40",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a0219a08",
+   "ts": 1785097984,
+   "seed": null,
+   "expires": 1785702784,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_legion_commander",
+   "hero_label": "Arturia Pendragon",
+   "target_id": "ab:artoria_strike_air",
+   "target_kind": "ability",
+   "target_name": "artoria_strike_air",
+   "target_label": "E — Strike Air",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "wall_stun"
+     ],
+     "key": "wall_stun",
+     "key_label": "wall_stun",
+     "old": "0.6 0.75 0.9 1.05 1.2",
+     "new": "0.66 0.83 0.99 1.16 1.32",
+     "baseline": "0.6 0.75 0.9 1.05 1.2",
+     "drift": 1.1022
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "wall_stun"
+   ],
+   "key": "wall_stun",
+   "key_label": "wall_stun",
+   "old": "0.6 0.75 0.9 1.05 1.2",
+   "new": "0.66 0.83 0.99 1.16 1.32",
+   "baseline": "0.6 0.75 0.9 1.05 1.2",
+   "drift": 1.1022,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a02263f9",
+   "ts": 1785098036,
+   "seed": null,
+   "expires": 1785702836,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_juggernaut",
+   "hero_label": "Sasaki Kojiro",
+   "target_id": "ab:sasaki_quickdraw",
+   "target_kind": "ability",
+   "target_name": "sasaki_quickdraw",
+   "target_label": "• — Quickdraw",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "1175",
+     "new": "1292",
+     "baseline": "1175",
+     "drift": 1.0996
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "1175",
+   "new": "1292",
+   "baseline": "1175",
+   "drift": 1.0996,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a0233611",
+   "ts": 1785098090,
+   "seed": null,
+   "expires": 1785702890,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_gyrocopter",
+   "hero_label": "Oda Nobunaga",
+   "target_id": "ab:nobu_shot",
+   "target_kind": "ability",
+   "target_name": "nobu_shot",
+   "target_label": "Q — Shoot",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.2",
+     "new": "0.22",
+     "baseline": "0.2",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.2",
+   "new": "0.22",
+   "baseline": "0.2",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a02384fc",
+   "ts": 1785098110,
+   "seed": null,
+   "expires": 1785702910,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "ab:true_assassin_snatch_strike",
+   "target_kind": "ability",
+   "target_name": "true_assassin_snatch_strike",
+   "target_label": "E — Snatch Strike",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.45",
+     "new": "0.56",
+     "baseline": "0.45",
+     "drift": 1.2444
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "14",
+     "new": "18",
+     "baseline": "14",
+     "drift": 1.2857
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "500 625 750 875 1000",
+     "new": "375 469 562 656 750",
+     "baseline": "500 625 750 875 1000",
+     "drift": 0.7499
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "10",
+     "new": "8",
+     "baseline": "10",
+     "drift": 0.8
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_strength"
+     ],
+     "key": "bonus_strength",
+     "key_label": "bonus_strength",
+     "old": "10 14 18 22 26",
+     "new": "8 10 14 16 20",
+     "baseline": "10 14 18 22 26",
+     "drift": 0.7556
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "range"
+     ],
+     "key": "range",
+     "key_label": "range",
+     "old": "600",
+     "new": "450",
+     "baseline": "600",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.45",
+   "new": "0.56",
+   "baseline": "0.45",
+   "drift": 1.2444,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.45",
+     "new": "0.56",
+     "baseline": "0.45",
+     "drift": 1.2444
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "14",
+     "new": "18",
+     "baseline": "14",
+     "drift": 1.2857
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "500 625 750 875 1000",
+     "new": "375 469 562 656 750",
+     "baseline": "500 625 750 875 1000",
+     "drift": 0.7499
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "10",
+     "new": "8",
+     "baseline": "10",
+     "drift": 0.8
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_strength"
+     ],
+     "key": "bonus_strength",
+     "key_label": "bonus_strength",
+     "old": "10 14 18 22 26",
+     "new": "8 10 14 16 20",
+     "baseline": "10 14 18 22 26",
+     "drift": 0.7556
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "range"
+     ],
+     "key": "range",
+     "key_label": "range",
+     "old": "600",
+     "new": "450",
+     "baseline": "600",
+     "drift": 0.75
+    }
+   ],
+   "id": "a023ebe3",
+   "ts": 1785098136,
+   "seed": null,
+   "expires": 1785702936,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_abaddon",
+   "hero_label": "Mordred",
+   "target_id": "ab:mordred_pedigree",
+   "target_kind": "ability",
+   "target_name": "mordred_pedigree",
+   "target_label": "D — Secret of Pedigree",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "magic_resist"
+     ],
+     "key": "magic_resist",
+     "key_label": "magic_resist",
+     "old": "10 20",
+     "new": "12 25",
+     "baseline": "10 20",
+     "drift": 1.2333
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "magic_resist"
+   ],
+   "key": "magic_resist",
+   "key_label": "magic_resist",
+   "old": "10 20",
+   "new": "12 25",
+   "baseline": "10 20",
+   "drift": 1.2333,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a02440c0",
+   "ts": 1785098158,
+   "seed": null,
+   "expires": 1785702958,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_troll_warlord",
+   "hero_label": "Okada Izo",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "StatusManaRegen"
+     ],
+     "key": "StatusManaRegen",
+     "key_label": "💧 Реген маны",
+     "old": "5.0",
+     "new": "4.5",
+     "baseline": "5",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "StatusManaRegen"
+   ],
+   "key": "StatusManaRegen",
+   "key_label": "💧 Реген маны",
+   "old": "5.0",
+   "new": "4.5",
+   "baseline": "5",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a0249844",
+   "ts": 1785098180,
+   "seed": null,
+   "expires": 1785702980,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_enchantress",
+   "hero_label": "Tamamo no Mae",
+   "target_id": "ab:tamamo_subterranean_grasp",
+   "target_kind": "ability",
+   "target_name": "tamamo_subterranean_grasp",
+   "target_label": "W — Subterranean Grasp",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "delay"
+     ],
+     "key": "delay",
+     "key_label": "delay",
+     "old": "0.5",
+     "new": "0.45",
+     "baseline": "0.5",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "delay"
+   ],
+   "key": "delay",
+   "key_label": "delay",
+   "old": "0.5",
+   "new": "0.45",
+   "baseline": "0.5",
+   "drift": 0.9,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a02757b3",
+   "ts": 1785098360,
+   "seed": null,
+   "expires": 1785703160,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_ogre_magi",
+   "hero_label": "Aozaki Aoko",
+   "target_id": "ab:aoko_3_beams",
+   "target_kind": "ability",
+   "target_name": "aoko_3_beams",
+   "target_label": "• — Severe Break Slider",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "cast_point"
+     ],
+     "key": "cast_point",
+     "key_label": "cast_point",
+     "old": "0.2",
+     "new": "0.3",
+     "baseline": "0.2",
+     "drift": 1.5
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "cast_point"
+   ],
+   "key": "cast_point",
+   "key_label": "cast_point",
+   "old": "0.2",
+   "new": "0.3",
+   "baseline": "0.2",
+   "drift": 1.5,
+   "dir": -1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "💥 ДВОЙНАЯ СИЛА: нерф 50%",
+   "multi": false,
+   "id": "a027b748",
+   "ts": 1785098385,
+   "seed": null,
+   "expires": 1785703185,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_juggernaut",
+   "hero_label": "Sasaki Kojiro",
+   "target_id": "ab:false_assassin_tsubame_mai",
+   "target_kind": "ability",
+   "target_name": "false_assassin_tsubame_mai",
+   "target_label": "🌀 — Combo: The Swallow Dance",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "110",
+     "new": "82",
+     "baseline": "110",
+     "drift": 0.7455
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "110",
+   "new": "82",
+   "baseline": "110",
+   "drift": 0.7455,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0281b01",
+   "ts": 1785098410,
+   "seed": null,
+   "expires": 1785703210,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_clinkz",
+   "hero_label": "Arash",
+   "target_id": "ab:arash_arrow_construction",
+   "target_kind": "ability",
+   "target_name": "arash_arrow_construction",
+   "target_label": "D — Arrow construction",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "120",
+     "new": "132",
+     "baseline": "120",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "120",
+   "new": "132",
+   "baseline": "120",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a02864f1",
+   "ts": 1785098429,
+   "seed": null,
+   "expires": 1785703229,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_centaur",
+   "hero_label": "Lu Bu",
+   "target_id": "ab:lu_bu_armistice",
+   "target_kind": "ability",
+   "target_name": "lu_bu_armistice",
+   "target_label": "Q — Armistice",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "200 250 300 350 400",
+     "new": "220 275 330 385 440",
+     "baseline": "200 250 300 350 400",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "200 250 300 350 400",
+   "new": "220 275 330 385 440",
+   "baseline": "200 250 300 350 400",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a028b1e6",
+   "ts": 1785098449,
+   "seed": null,
+   "expires": 1785703249,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "ab:true_assassin_dirk",
+   "target_kind": "ability",
+   "target_name": "true_assassin_dirk",
+   "target_label": "Q — Dirks",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.1",
+     "new": "0.15",
+     "baseline": "0.1",
+     "drift": 1.5
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.1",
+   "new": "0.15",
+   "baseline": "0.1",
+   "drift": 1.5,
+   "dir": -1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "💥 ДВОЙНАЯ СИЛА: нерф 50%",
+   "multi": false,
+   "id": "a02907b0",
+   "ts": 1785098471,
+   "seed": null,
+   "expires": 1785703271,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_terrorblade",
+   "hero_label": "Saitō Hajime",
+   "target_id": "ab:saito_mind_eye",
+   "target_kind": "ability",
+   "target_name": "saito_mind_eye",
+   "target_label": "D — Mind's Eye (True)",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "root_lock_duration"
+     ],
+     "key": "root_lock_duration",
+     "key_label": "root_lock_duration",
+     "old": "0.75",
+     "new": "0.94",
+     "baseline": "0.75",
+     "drift": 1.2533
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "root_lock_duration"
+   ],
+   "key": "root_lock_duration",
+   "key_label": "root_lock_duration",
+   "old": "0.75",
+   "new": "0.94",
+   "baseline": "0.75",
+   "drift": 1.2533,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a029577a",
+   "ts": 1785098491,
+   "seed": null,
+   "expires": 1785703291,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_tiny",
+   "hero_label": "Arcueid",
+   "target_id": "ab:arcueid_eyes",
+   "target_kind": "ability",
+   "target_name": "arcueid_eyes",
+   "target_label": "• — Mystic Eyes of Enchantment",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.33",
+     "baseline": "0.3",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "40",
+     "new": "44",
+     "baseline": "40",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "500",
+     "new": "450",
+     "baseline": "500",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "1.5",
+     "new": "1.4",
+     "baseline": "1.5",
+     "drift": 0.9333
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "500",
+     "new": "450",
+     "baseline": "500",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "max_damage_cap"
+     ],
+     "key": "max_damage_cap",
+     "key_label": "max_damage_cap",
+     "old": "300",
+     "new": "270",
+     "baseline": "300",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.3",
+   "new": "0.33",
+   "baseline": "0.3",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.33",
+     "baseline": "0.3",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "40",
+     "new": "44",
+     "baseline": "40",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "500",
+     "new": "450",
+     "baseline": "500",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "1.5",
+     "new": "1.4",
+     "baseline": "1.5",
+     "drift": 0.9333
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "500",
+     "new": "450",
+     "baseline": "500",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "max_damage_cap"
+     ],
+     "key": "max_damage_cap",
+     "key_label": "max_damage_cap",
+     "old": "300",
+     "new": "270",
+     "baseline": "300",
+     "drift": 0.9
+    }
+   ],
+   "id": "a029b72a",
+   "ts": 1785098516,
+   "seed": null,
+   "expires": 1785703316,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_monkey_king",
+   "hero_label": "Scathach",
+   "target_id": "ab:scathach_wisdom_of_dun_scaith",
+   "target_kind": "ability",
+   "target_name": "scathach_wisdom_of_dun_scaith",
+   "target_label": "• — Wisdom of Dún Scáith",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "30",
+     "new": "33",
+     "baseline": "30",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "3.0",
+     "new": "2.7",
+     "baseline": "3.0",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "30",
+   "new": "33",
+   "baseline": "30",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "30",
+     "new": "33",
+     "baseline": "30",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "3.0",
+     "new": "2.7",
+     "baseline": "3.0",
+     "drift": 0.9
+    }
+   ],
+   "id": "a02a1035",
+   "ts": 1785098539,
+   "seed": null,
+   "expires": 1785703339,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_razor",
+   "hero_label": "Jeanne d'Arc Alter",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "StatusHealth"
+     ],
+     "key": "StatusHealth",
+     "key_label": "❤ Здоровье",
+     "old": "1100",
+     "new": "825",
+     "baseline": "1350",
+     "drift": 0.6111
+    },
+    {
+     "path": [
+      "StatusHealthRegen"
+     ],
+     "key": "StatusHealthRegen",
+     "key_label": "❤ Реген HP",
+     "old": "5",
+     "new": "4",
+     "baseline": "7",
+     "drift": 0.5714
+    },
+    {
+     "path": [
+      "StatusManaRegen"
+     ],
+     "key": "StatusManaRegen",
+     "key_label": "💧 Реген маны",
+     "old": "6.2",
+     "new": "4.7",
+     "baseline": "5",
+     "drift": 0.94
+    },
+    {
+     "path": [
+      "ArmorPhysical"
+     ],
+     "key": "ArmorPhysical",
+     "key_label": "🛡 Броня",
+     "old": "4",
+     "new": "3",
+     "baseline": "11",
+     "drift": 0.2727
+    },
+    {
+     "path": [
+      "MagicalResistance"
+     ],
+     "key": "MagicalResistance",
+     "key_label": "✨ Маг. сопр.",
+     "old": "20",
+     "new": "15",
+     "baseline": "10",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AttackDamageMin"
+     ],
+     "key": "AttackDamageMin",
+     "key_label": "⚔ Урон атаки",
+     "old": "57",
+     "new": "43",
+     "baseline": "80",
+     "drift": 0.5375
+    },
+    {
+     "path": [
+      "AttackRate"
+     ],
+     "key": "AttackRate",
+     "key_label": "⏱ Интервал атаки",
+     "old": "1.7",
+     "new": "2.1",
+     "baseline": "1.7",
+     "drift": 1.2353
+    },
+    {
+     "path": [
+      "AttributeStrengthGain"
+     ],
+     "key": "AttributeStrengthGain",
+     "key_label": "💪 Сила/ур.",
+     "old": "2.5",
+     "new": "1.9",
+     "baseline": "3",
+     "drift": 0.6333
+    },
+    {
+     "path": [
+      "AttributeAgilityGain"
+     ],
+     "key": "AttributeAgilityGain",
+     "key_label": "🏃 Ловкость/ур.",
+     "old": "2.0",
+     "new": "1.5",
+     "baseline": "4",
+     "drift": 0.375
+    },
+    {
+     "path": [
+      "AttributeIntelligenceGain"
+     ],
+     "key": "AttributeIntelligenceGain",
+     "key_label": "🧠 Интеллект/ур.",
+     "old": "2.0",
+     "new": "1.5",
+     "baseline": "1.9",
+     "drift": 0.7895
+    },
+    {
+     "path": [
+      "MovementSpeed"
+     ],
+     "key": "MovementSpeed",
+     "key_label": "👟 Скорость бега",
+     "old": "375",
+     "new": "281",
+     "baseline": "380",
+     "drift": 0.7395
+    }
+   ],
+   "path": [
+    "StatusHealth"
+   ],
+   "key": "StatusHealth",
+   "key_label": "❤ Здоровье",
+   "old": "1100",
+   "new": "825",
+   "baseline": "1350",
+   "drift": 0.6111,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "StatusHealth"
+     ],
+     "key": "StatusHealth",
+     "key_label": "❤ Здоровье",
+     "old": "1100",
+     "new": "825",
+     "baseline": "1350",
+     "drift": 0.6111
+    },
+    {
+     "path": [
+      "StatusHealthRegen"
+     ],
+     "key": "StatusHealthRegen",
+     "key_label": "❤ Реген HP",
+     "old": "5",
+     "new": "4",
+     "baseline": "7",
+     "drift": 0.5714
+    },
+    {
+     "path": [
+      "StatusManaRegen"
+     ],
+     "key": "StatusManaRegen",
+     "key_label": "💧 Реген маны",
+     "old": "6.2",
+     "new": "4.7",
+     "baseline": "5",
+     "drift": 0.94
+    },
+    {
+     "path": [
+      "ArmorPhysical"
+     ],
+     "key": "ArmorPhysical",
+     "key_label": "🛡 Броня",
+     "old": "4",
+     "new": "3",
+     "baseline": "11",
+     "drift": 0.2727
+    },
+    {
+     "path": [
+      "MagicalResistance"
+     ],
+     "key": "MagicalResistance",
+     "key_label": "✨ Маг. сопр.",
+     "old": "20",
+     "new": "15",
+     "baseline": "10",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AttackDamageMin"
+     ],
+     "key": "AttackDamageMin",
+     "key_label": "⚔ Урон атаки",
+     "old": "57",
+     "new": "43",
+     "baseline": "80",
+     "drift": 0.5375
+    },
+    {
+     "path": [
+      "AttackRate"
+     ],
+     "key": "AttackRate",
+     "key_label": "⏱ Интервал атаки",
+     "old": "1.7",
+     "new": "2.1",
+     "baseline": "1.7",
+     "drift": 1.2353
+    },
+    {
+     "path": [
+      "AttributeStrengthGain"
+     ],
+     "key": "AttributeStrengthGain",
+     "key_label": "💪 Сила/ур.",
+     "old": "2.5",
+     "new": "1.9",
+     "baseline": "3",
+     "drift": 0.6333
+    },
+    {
+     "path": [
+      "AttributeAgilityGain"
+     ],
+     "key": "AttributeAgilityGain",
+     "key_label": "🏃 Ловкость/ур.",
+     "old": "2.0",
+     "new": "1.5",
+     "baseline": "4",
+     "drift": 0.375
+    },
+    {
+     "path": [
+      "AttributeIntelligenceGain"
+     ],
+     "key": "AttributeIntelligenceGain",
+     "key_label": "🧠 Интеллект/ур.",
+     "old": "2.0",
+     "new": "1.5",
+     "baseline": "1.9",
+     "drift": 0.7895
+    },
+    {
+     "path": [
+      "MovementSpeed"
+     ],
+     "key": "MovementSpeed",
+     "key_label": "👟 Скорость бега",
+     "old": "375",
+     "new": "281",
+     "baseline": "380",
+     "drift": 0.7395
+    }
+   ],
+   "id": "a02a7908",
+   "ts": 1785098565,
+   "seed": null,
+   "expires": 1785703365,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "ab:true_assassin_protection_from_wind",
+   "target_kind": "ability",
+   "target_name": "true_assassin_protection_from_wind",
+   "target_label": "F — Protection from Wind",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "ms_bonus"
+     ],
+     "key": "ms_bonus",
+     "key_label": "ms_bonus",
+     "old": "50",
+     "new": "38",
+     "baseline": "50",
+     "drift": 0.76
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "ms_bonus"
+   ],
+   "key": "ms_bonus",
+   "key_label": "ms_bonus",
+   "old": "50",
+   "new": "38",
+   "baseline": "50",
+   "drift": 0.76,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a02accee",
+   "ts": 1785098587,
+   "seed": null,
+   "expires": 1785703387,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_drow_ranger",
+   "hero_label": "Atalanta",
+   "target_id": "ab:atalanta_crossing_arcadia",
+   "target_kind": "ability",
+   "target_name": "atalanta_crossing_arcadia",
+   "target_label": "D — Crossing Arcadia",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.05",
+     "new": "0.06",
+     "baseline": "0.05",
+     "drift": 1.2
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.05",
+   "new": "0.06",
+   "baseline": "0.05",
+   "drift": 1.2,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a02b4339",
+   "ts": 1785098617,
+   "seed": null,
+   "expires": 1785703417,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_lina",
+   "hero_label": "Nero Claudius",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "MagicalResistance"
+     ],
+     "key": "MagicalResistance",
+     "key_label": "✨ Маг. сопр.",
+     "old": "20",
+     "new": "17",
+     "baseline": "10",
+     "drift": 1.7
+    }
+   ],
+   "path": [
+    "MagicalResistance"
+   ],
+   "key": "MagicalResistance",
+   "key_label": "✨ Маг. сопр.",
+   "old": "20",
+   "new": "17",
+   "baseline": "10",
+   "drift": 1.7,
+   "dir": -1,
+   "tier": "small",
+   "pct": 15,
+   "power_label": "🎲 ХАОС: нерф 15%",
+   "multi": false,
+   "id": "a02b8b8f",
+   "ts": 1785098636,
+   "seed": null,
+   "expires": 1785703436,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_huskar",
+   "hero_label": "Diarmuid",
+   "target_id": "ab:diarmuid_gae_buidhe",
+   "target_kind": "ability",
+   "target_name": "diarmuid_gae_buidhe",
+   "target_label": "E — Gae Buidhe",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "cooldown"
+     ],
+     "key": "cooldown",
+     "key_label": "cooldown",
+     "old": "30",
+     "new": "38",
+     "baseline": "30",
+     "drift": 1.2667
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "cooldown"
+   ],
+   "key": "cooldown",
+   "key_label": "cooldown",
+   "old": "30",
+   "new": "38",
+   "baseline": "30",
+   "drift": 1.2667,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a02bf600",
+   "ts": 1785098663,
+   "seed": null,
+   "expires": 1785703463,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "ab:true_assassin_combo",
+   "target_kind": "ability",
+   "target_name": "true_assassin_combo",
+   "target_label": "🌀 — Combo: Delusional Illusion",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "160",
+     "new": "80",
+     "baseline": "160",
+     "drift": 0.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "search_radius"
+     ],
+     "key": "search_radius",
+     "key_label": "search_radius",
+     "old": "650",
+     "new": "975",
+     "baseline": "650",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "8.0",
+     "new": "12.0",
+     "baseline": "8.0",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "base_damage"
+     ],
+     "key": "base_damage",
+     "key_label": "base_damage",
+     "old": "500",
+     "new": "750",
+     "baseline": "500",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_damage"
+     ],
+     "key": "bonus_damage",
+     "key_label": "bonus_damage",
+     "old": "25",
+     "new": "38",
+     "baseline": "25",
+     "drift": 1.52
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "160",
+   "new": "80",
+   "baseline": "160",
+   "drift": 0.5,
+   "dir": 1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "160",
+     "new": "80",
+     "baseline": "160",
+     "drift": 0.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "search_radius"
+     ],
+     "key": "search_radius",
+     "key_label": "search_radius",
+     "old": "650",
+     "new": "975",
+     "baseline": "650",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "8.0",
+     "new": "12.0",
+     "baseline": "8.0",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "base_damage"
+     ],
+     "key": "base_damage",
+     "key_label": "base_damage",
+     "old": "500",
+     "new": "750",
+     "baseline": "500",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "bonus_damage"
+     ],
+     "key": "bonus_damage",
+     "key_label": "bonus_damage",
+     "old": "25",
+     "new": "38",
+     "baseline": "25",
+     "drift": 1.52
+    }
+   ],
+   "id": "a02c62a4",
+   "ts": 1785098691,
+   "seed": null,
+   "expires": 1785703491,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_crystal_maiden",
+   "hero_label": "Medea",
+   "target_id": "ab:caster_5th_item_construction",
+   "target_kind": "ability",
+   "target_name": "caster_5th_item_construction",
+   "target_label": "F — Item Construction",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.3",
+     "new": "0.33",
+     "baseline": "0.3",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.3",
+   "new": "0.33",
+   "baseline": "0.3",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a02ce9cd",
+   "ts": 1785098725,
+   "seed": null,
+   "expires": 1785703525,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_crystal_maiden",
+   "hero_label": "Medea",
+   "target_id": "ab:caster_5th_territory_creation",
+   "target_kind": "ability",
+   "target_name": "caster_5th_territory_creation",
+   "target_label": "D — Territory Creation",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "40",
+     "new": "44",
+     "baseline": "40",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "40",
+   "new": "44",
+   "baseline": "40",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a02ce9e9",
+   "ts": 1785098725,
+   "seed": null,
+   "expires": 1785703525,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_spirit_breaker",
+   "hero_label": "Hijikata Toshizo",
+   "target_id": "ab:hijikata_ult",
+   "target_kind": "ability",
+   "target_name": "hijikata_ult",
+   "target_label": "R — Shinsengumi",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "width"
+     ],
+     "key": "width",
+     "key_label": "width",
+     "old": "150",
+     "new": "135",
+     "baseline": "150",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "width"
+   ],
+   "key": "width",
+   "key_label": "width",
+   "old": "150",
+   "new": "135",
+   "baseline": "150",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a02d2e7f",
+   "ts": 1785098743,
+   "seed": null,
+   "expires": 1785703543,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_riki",
+   "hero_label": "Jack The Ripper",
+   "target_id": "ab:jtr_surgical_procedure_passive",
+   "target_kind": "ability",
+   "target_name": "jtr_surgical_procedure_passive",
+   "target_label": "• — jtr_surgical_procedure_passive",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "base_healing"
+     ],
+     "key": "base_healing",
+     "key_label": "base_healing",
+     "old": "35",
+     "new": "26",
+     "baseline": "35",
+     "drift": 0.7429
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "agi_bonus"
+     ],
+     "key": "agi_bonus",
+     "key_label": "agi_bonus",
+     "old": "100",
+     "new": "75",
+     "baseline": "100",
+     "drift": 0.75
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "kill_heal"
+     ],
+     "key": "kill_heal",
+     "key_label": "kill_heal",
+     "old": "50",
+     "new": "38",
+     "baseline": "50",
+     "drift": 0.76
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "base_healing"
+   ],
+   "key": "base_healing",
+   "key_label": "base_healing",
+   "old": "35",
+   "new": "26",
+   "baseline": "35",
+   "drift": 0.7429,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityValues",
+      "base_healing"
+     ],
+     "key": "base_healing",
+     "key_label": "base_healing",
+     "old": "35",
+     "new": "26",
+     "baseline": "35",
+     "drift": 0.7429
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "agi_bonus"
+     ],
+     "key": "agi_bonus",
+     "key_label": "agi_bonus",
+     "old": "100",
+     "new": "75",
+     "baseline": "100",
+     "drift": 0.75
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "kill_heal"
+     ],
+     "key": "kill_heal",
+     "key_label": "kill_heal",
+     "old": "50",
+     "new": "38",
+     "baseline": "50",
+     "drift": 0.76
+    }
+   ],
+   "id": "a02da764",
+   "ts": 1785098774,
+   "seed": null,
+   "expires": 1785703574,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_ember_spirit",
+   "hero_label": "EMIYA",
+   "target_id": "ab:emiya_nine_lives",
+   "target_kind": "ability",
+   "target_name": "emiya_nine_lives",
+   "target_label": "• — Nine Lives",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "range"
+     ],
+     "key": "range",
+     "key_label": "range",
+     "old": "700",
+     "new": "875",
+     "baseline": "700",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "range"
+   ],
+   "key": "range",
+   "key_label": "range",
+   "old": "700",
+   "new": "875",
+   "baseline": "700",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a02df866",
+   "ts": 1785098795,
+   "seed": null,
+   "expires": 1785703595,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_magnataur",
+   "hero_label": "Muramasa",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "ArmorPhysical"
+     ],
+     "key": "ArmorPhysical",
+     "key_label": "🛡 Броня",
+     "old": "4",
+     "new": "4.4",
+     "baseline": "11",
+     "drift": 0.4
+    }
+   ],
+   "path": [
+    "ArmorPhysical"
+   ],
+   "key": "ArmorPhysical",
+   "key_label": "🛡 Броня",
+   "old": "4",
+   "new": "4.4",
+   "baseline": "11",
+   "drift": 0.4,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a02e45d6",
+   "ts": 1785098814,
+   "seed": null,
+   "expires": 1785703614,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_razor",
+   "hero_label": "Jeanne d'Arc Alter",
+   "target_id": "ab:jeanne_witch",
+   "target_kind": "ability",
+   "target_name": "jeanne_witch",
+   "target_label": "D — Charisma of the Dragon Witch",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "aura_radius"
+     ],
+     "key": "aura_radius",
+     "key_label": "aura_radius",
+     "old": "700",
+     "new": "525",
+     "baseline": "700",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "aura_radius"
+   ],
+   "key": "aura_radius",
+   "key_label": "aura_radius",
+   "old": "700",
+   "new": "525",
+   "baseline": "700",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a02e8e69",
+   "ts": 1785098833,
+   "seed": null,
+   "expires": 1785703633,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_terrorblade",
+   "hero_label": "Saitō Hajime",
+   "target_id": "ab:saito_storm",
+   "target_kind": "ability",
+   "target_name": "saito_storm",
+   "target_label": "• — Shieldbreaker",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400",
+     "new": "500",
+     "baseline": "400",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage"
+   ],
+   "key": "damage",
+   "key_label": "damage",
+   "old": "400",
+   "new": "500",
+   "baseline": "400",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a02f0981",
+   "ts": 1785098865,
+   "seed": null,
+   "expires": 1785703665,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_faceless_void",
+   "hero_label": "Altera",
+   "target_id": "ab:altera_whip",
+   "target_kind": "ability",
+   "target_name": "altera_whip",
+   "target_label": "Q — Energy Whip",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "attribute_cooldown"
+     ],
+     "key": "attribute_cooldown",
+     "key_label": "attribute_cooldown",
+     "old": "0.3",
+     "new": "0.38",
+     "baseline": "0.3",
+     "drift": 1.2667
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "attribute_cooldown"
+   ],
+   "key": "attribute_cooldown",
+   "key_label": "attribute_cooldown",
+   "old": "0.3",
+   "new": "0.38",
+   "baseline": "0.3",
+   "drift": 1.2667,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a02f546c",
+   "ts": 1785098884,
+   "seed": null,
+   "expires": 1785703684,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_vengefulspirit",
+   "hero_label": "Angra Mainyu",
+   "target_id": "ab:avenger_endless_loop",
+   "target_kind": "ability",
+   "target_name": "avenger_endless_loop",
+   "target_label": "🌀 — Combo: Endless Loop",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.33",
+     "new": "0.36",
+     "baseline": "0.3",
+     "drift": 1.2
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.33",
+   "new": "0.36",
+   "baseline": "0.3",
+   "drift": 1.2,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a02fb94a",
+   "ts": 1785098910,
+   "seed": null,
+   "expires": 1785703710,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_drow_ranger",
+   "hero_label": "Atalanta",
+   "target_id": "ab:atalanta_phoebus_catastrophe_snipe",
+   "target_kind": "ability",
+   "target_name": "atalanta_phoebus_catastrophe_snipe",
+   "target_label": "• — Phoebus Catastrophe: Snipe",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "arrow_aoe"
+     ],
+     "key": "arrow_aoe",
+     "key_label": "arrow_aoe",
+     "old": "200",
+     "new": "300",
+     "baseline": "200",
+     "drift": 1.5
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "arrow_aoe"
+   ],
+   "key": "arrow_aoe",
+   "key_label": "arrow_aoe",
+   "old": "200",
+   "new": "300",
+   "baseline": "200",
+   "drift": 1.5,
+   "dir": 1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "💥 ДВОЙНАЯ СИЛА: бафф 50%",
+   "multi": false,
+   "id": "a0304757",
+   "ts": 1785098946,
+   "seed": null,
+   "expires": 1785703746,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_ogre_magi",
+   "hero_label": "Aozaki Aoko",
+   "target_id": "ab:aoko_short_beam",
+   "target_kind": "ability",
+   "target_name": "aoko_short_beam",
+   "target_label": "E — Browning Starmine - Burst",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "range"
+     ],
+     "key": "range",
+     "key_label": "range",
+     "old": "600",
+     "new": "540",
+     "baseline": "600",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "range"
+   ],
+   "key": "range",
+   "key_label": "range",
+   "old": "600",
+   "new": "540",
+   "baseline": "600",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a0309362",
+   "ts": 1785098965,
+   "seed": null,
+   "expires": 1785703765,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_beastmaster",
+   "hero_label": "Karna",
+   "target_id": "ab:karna_push",
+   "target_kind": "ability",
+   "target_name": "karna_push",
+   "target_label": "• — Martial arts : Push",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "7 6.5 6 5.5 5",
+     "new": "8.8 8.1 7.5 6.9 6.2",
+     "baseline": "7 6.5 6 5.5 5",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "7 6.5 6 5.5 5",
+   "new": "8.8 8.1 7.5 6.9 6.2",
+   "baseline": "7 6.5 6 5.5 5",
+   "drift": 1.25,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a030de87",
+   "ts": 1785098985,
+   "seed": null,
+   "expires": 1785703785,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_skywrath_mage",
+   "hero_label": "Gilgamesh",
+   "target_id": "ab:gilgamesh_gate_of_babylon",
+   "target_kind": "ability",
+   "target_name": "gilgamesh_gate_of_babylon",
+   "target_label": "E — Gate of Babylon",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "1000",
+     "new": "1500",
+     "baseline": "1000",
+     "drift": 1.5
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "1000",
+   "new": "1500",
+   "baseline": "1000",
+   "drift": 1.5,
+   "dir": 1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "💥 ДВОЙНАЯ СИЛА: бафф 50%",
+   "multi": false,
+   "id": "a0313247",
+   "ts": 1785099006,
+   "seed": null,
+   "expires": 1785703806,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_dark_willow",
+   "hero_label": "Okita Souji",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "AttributeAgilityGain"
+     ],
+     "key": "AttributeAgilityGain",
+     "key_label": "🏃 Ловкость/ур.",
+     "old": "3.5",
+     "new": "4.4",
+     "baseline": "4",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AttributeAgilityGain"
+   ],
+   "key": "AttributeAgilityGain",
+   "key_label": "🏃 Ловкость/ур.",
+   "old": "3.5",
+   "new": "4.4",
+   "baseline": "4",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0318943",
+   "ts": 1785099028,
+   "seed": null,
+   "expires": 1785703828,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_sniper",
+   "hero_label": "Robin Hood",
+   "target_id": "ab:robin_backflip",
+   "target_kind": "ability",
+   "target_name": "robin_backflip",
+   "target_label": "Q — Flashbang Arrow",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "retreat_distance"
+     ],
+     "key": "retreat_distance",
+     "key_label": "retreat_distance",
+     "old": "600",
+     "new": "660",
+     "baseline": "600",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "retreat_distance"
+   ],
+   "key": "retreat_distance",
+   "key_label": "retreat_distance",
+   "old": "600",
+   "new": "660",
+   "baseline": "600",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a031d2bd",
+   "ts": 1785099047,
+   "seed": null,
+   "expires": 1785703847,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_tidehunter",
+   "hero_label": "Vlad III",
+   "target_id": "ab:vlad_combo",
+   "target_kind": "ability",
+   "target_name": "vlad_combo",
+   "target_label": "🌀 — Lord of Execution",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "dmg"
+     ],
+     "key": "dmg",
+     "key_label": "dmg",
+     "old": "1000",
+     "new": "750",
+     "baseline": "1000",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "dmg"
+   ],
+   "key": "dmg",
+   "key_label": "dmg",
+   "old": "1000",
+   "new": "750",
+   "baseline": "1000",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a0323997",
+   "ts": 1785099073,
+   "seed": null,
+   "expires": 1785703873,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_drow_ranger",
+   "hero_label": "Atalanta",
+   "target_id": "ab:atalanta_calydonian_hunt",
+   "target_kind": "ability",
+   "target_name": "atalanta_calydonian_hunt",
+   "target_label": "W — Calydonian Hunt",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.25",
+     "new": "0.23",
+     "baseline": "0.25",
+     "drift": 0.92
+    },
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "2000 2250 2500 2750 3000",
+     "new": "2200 2475 2750 3025 3300",
+     "baseline": "2000 2250 2500 2750 3000",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "16",
+     "new": "14",
+     "baseline": "16",
+     "drift": 0.875
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "debuff_duration"
+     ],
+     "key": "debuff_duration",
+     "key_label": "debuff_duration",
+     "old": "5.0",
+     "new": "5.5",
+     "baseline": "5.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "root_duration"
+     ],
+     "key": "root_duration",
+     "key_label": "root_duration",
+     "old": "1.1 1.5 1.9 2.3 2.7",
+     "new": "1.2 1.7 2.1 2.5 3.0",
+     "baseline": "1.1 1.5 1.9 2.3 2.7",
+     "drift": 1.1053
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "sight_duration"
+     ],
+     "key": "sight_duration",
+     "key_label": "sight_duration",
+     "old": "5.0 6.0 7.0 8.0 9.0",
+     "new": "5.5 6.6 7.7 8.8 9.9",
+     "baseline": "5.0 6.0 7.0 8.0 9.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "attribute_stack_bonus"
+     ],
+     "key": "attribute_stack_bonus",
+     "key_label": "attribute_stack_bonus",
+     "old": "2",
+     "new": "2.2",
+     "baseline": "2",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "attribute_bonus_duration"
+     ],
+     "key": "attribute_bonus_duration",
+     "key_label": "attribute_bonus_duration",
+     "old": "2",
+     "new": "2.2",
+     "baseline": "2",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "root_cooldown"
+     ],
+     "key": "root_cooldown",
+     "key_label": "root_cooldown",
+     "old": "8",
+     "new": "7.2",
+     "baseline": "8",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "sight_radius"
+     ],
+     "key": "sight_radius",
+     "key_label": "sight_radius",
+     "old": "2000 2250 2500 2750 3000",
+     "new": "2200 2475 2750 3025 3300",
+     "baseline": "2000 2250 2500 2750 3000",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "slow_amount"
+     ],
+     "key": "slow_amount",
+     "key_label": "slow_amount",
+     "old": "-35",
+     "new": "-38",
+     "baseline": "-35",
+     "drift": 1.0857
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "slow_duration"
+     ],
+     "key": "slow_duration",
+     "key_label": "slow_duration",
+     "old": "3",
+     "new": "3.3",
+     "baseline": "3",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "passive_radius"
+     ],
+     "key": "passive_radius",
+     "key_label": "passive_radius",
+     "old": "2000 2250 2500 2750 3000",
+     "new": "2200 2475 2750 3025 3300",
+     "baseline": "2000 2250 2500 2750 3000",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "3",
+     "new": "3.3",
+     "baseline": "3",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.25",
+   "new": "0.23",
+   "baseline": "0.25",
+   "drift": 0.92,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.25",
+     "new": "0.23",
+     "baseline": "0.25",
+     "drift": 0.92
+    },
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "2000 2250 2500 2750 3000",
+     "new": "2200 2475 2750 3025 3300",
+     "baseline": "2000 2250 2500 2750 3000",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "16",
+     "new": "14",
+     "baseline": "16",
+     "drift": 0.875
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "max_stacks"
+     ],
+     "key": "max_stacks",
+     "key_label": "max_stacks",
+     "old": "5",
+     "new": "5.5",
+     "baseline": "5",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "debuff_duration"
+     ],
+     "key": "debuff_duration",
+     "key_label": "debuff_duration",
+     "old": "5.0",
+     "new": "5.5",
+     "baseline": "5.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "root_duration"
+     ],
+     "key": "root_duration",
+     "key_label": "root_duration",
+     "old": "1.1 1.5 1.9 2.3 2.7",
+     "new": "1.2 1.7 2.1 2.5 3.0",
+     "baseline": "1.1 1.5 1.9 2.3 2.7",
+     "drift": 1.1053
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "sight_duration"
+     ],
+     "key": "sight_duration",
+     "key_label": "sight_duration",
+     "old": "5.0 6.0 7.0 8.0 9.0",
+     "new": "5.5 6.6 7.7 8.8 9.9",
+     "baseline": "5.0 6.0 7.0 8.0 9.0",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "attribute_stack_bonus"
+     ],
+     "key": "attribute_stack_bonus",
+     "key_label": "attribute_stack_bonus",
+     "old": "2",
+     "new": "2.2",
+     "baseline": "2",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "attribute_bonus_duration"
+     ],
+     "key": "attribute_bonus_duration",
+     "key_label": "attribute_bonus_duration",
+     "old": "2",
+     "new": "2.2",
+     "baseline": "2",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "root_cooldown"
+     ],
+     "key": "root_cooldown",
+     "key_label": "root_cooldown",
+     "old": "8",
+     "new": "7.2",
+     "baseline": "8",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "sight_radius"
+     ],
+     "key": "sight_radius",
+     "key_label": "sight_radius",
+     "old": "2000 2250 2500 2750 3000",
+     "new": "2200 2475 2750 3025 3300",
+     "baseline": "2000 2250 2500 2750 3000",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "slow_amount"
+     ],
+     "key": "slow_amount",
+     "key_label": "slow_amount",
+     "old": "-35",
+     "new": "-38",
+     "baseline": "-35",
+     "drift": 1.0857
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "slow_duration"
+     ],
+     "key": "slow_duration",
+     "key_label": "slow_duration",
+     "old": "3",
+     "new": "3.3",
+     "baseline": "3",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "passive_radius"
+     ],
+     "key": "passive_radius",
+     "key_label": "passive_radius",
+     "old": "2000 2250 2500 2750 3000",
+     "new": "2200 2475 2750 3025 3300",
+     "baseline": "2000 2250 2500 2750 3000",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "3",
+     "new": "3.3",
+     "baseline": "3",
+     "drift": 1.1
+    }
+   ],
+   "id": "a032d9ba",
+   "ts": 1785099114,
+   "seed": null,
+   "expires": 1785703914,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_spirit_breaker",
+   "hero_label": "Hijikata Toshizo",
+   "target_id": "ab:hijikata_demon",
+   "target_kind": "ability",
+   "target_name": "hijikata_demon",
+   "target_label": "W — ZloDemon of the battlefield",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "base_damage"
+     ],
+     "key": "base_damage",
+     "key_label": "base_damage",
+     "old": "30 35 40 45 50",
+     "new": "38 44 50 56 62",
+     "baseline": "30 35 40 45 50",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "base_damage"
+   ],
+   "key": "base_damage",
+   "key_label": "base_damage",
+   "old": "30 35 40 45 50",
+   "new": "38 44 50 56 62",
+   "baseline": "30 35 40 45 50",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0341404",
+   "ts": 1785099195,
+   "seed": null,
+   "expires": 1785703995,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_enchantress",
+   "hero_label": "Tamamo no Mae",
+   "target_id": "ab:tamamo_fiery_heaven",
+   "target_kind": "ability",
+   "target_name": "tamamo_fiery_heaven",
+   "target_label": "• — Fiery Heaven",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage_perc"
+     ],
+     "key": "damage_perc",
+     "key_label": "damage_perc",
+     "old": "3",
+     "new": "3.9",
+     "baseline": "3",
+     "drift": 1.3
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "350",
+     "new": "455",
+     "baseline": "350",
+     "drift": 1.3
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "4",
+     "new": "5",
+     "baseline": "4",
+     "drift": 1.25
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "25",
+     "new": "32",
+     "baseline": "25",
+     "drift": 1.28
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "damage_perc"
+   ],
+   "key": "damage_perc",
+   "key_label": "damage_perc",
+   "old": "3",
+   "new": "3.9",
+   "baseline": "3",
+   "drift": 1.3,
+   "dir": 1,
+   "tier": "big",
+   "pct": 30,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityValues",
+      "damage_perc"
+     ],
+     "key": "damage_perc",
+     "key_label": "damage_perc",
+     "old": "3",
+     "new": "3.9",
+     "baseline": "3",
+     "drift": 1.3
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "350",
+     "new": "455",
+     "baseline": "350",
+     "drift": 1.3
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "4",
+     "new": "5",
+     "baseline": "4",
+     "drift": 1.25
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "25",
+     "new": "32",
+     "baseline": "25",
+     "drift": 1.28
+    }
+   ],
+   "id": "a03501e8",
+   "ts": 1785099256,
+   "seed": null,
+   "expires": 1785704056,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_enchantress",
+   "hero_label": "Tamamo no Mae",
+   "target_id": "ab:tamamo_polygamist_castration_fist",
+   "target_kind": "ability",
+   "target_name": "tamamo_polygamist_castration_fist",
+   "target_label": "• — Polygamist Castration Kick",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "500",
+     "new": "650",
+     "baseline": "500",
+     "drift": 1.3
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "500",
+   "new": "650",
+   "baseline": "500",
+   "drift": 1.3,
+   "dir": 1,
+   "tier": "big",
+   "pct": 30,
+   "power_label": "🎲 ХАОС: бафф 30%",
+   "multi": false,
+   "id": "a0350201",
+   "ts": 1785099256,
+   "seed": null,
+   "expires": 1785704056,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_phoenix",
+   "hero_label": "Ozymandias",
+   "target_id": "ab:ozy_light_chacram",
+   "target_kind": "ability",
+   "target_name": "ozy_light_chacram",
+   "target_label": "Q — Light chacram",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "128",
+     "new": "160",
+     "baseline": "128",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "radius"
+   ],
+   "key": "radius",
+   "key_label": "radius",
+   "old": "128",
+   "new": "160",
+   "baseline": "128",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0355fb8",
+   "ts": 1785099280,
+   "seed": null,
+   "expires": 1785704080,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_shadow_shaman",
+   "hero_label": "Gilles de Rais",
+   "target_id": "ab:gilles_torment",
+   "target_kind": "ability",
+   "target_name": "gilles_torment",
+   "target_label": "• — Torment",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "900",
+     "new": "990",
+     "baseline": "900",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.25",
+     "new": "0.23",
+     "baseline": "0.25",
+     "drift": 0.92
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "14.0",
+     "new": "12.6",
+     "baseline": "14.0",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "300",
+     "new": "330",
+     "baseline": "300",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "140 175 210 245 280",
+     "new": "154 193 231 270 308",
+     "baseline": "140 175 210 245 280",
+     "drift": 1.101
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "distance_damage"
+     ],
+     "key": "distance_damage",
+     "key_label": "distance_damage",
+     "old": "30 37.5 45 52.5 60",
+     "new": "33.0 41.2 49.5 57.8 66.0",
+     "baseline": "30 37.5 45 52.5 60",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "4.0",
+     "new": "4.4",
+     "baseline": "4.0",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "900",
+   "new": "990",
+   "baseline": "900",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "900",
+     "new": "990",
+     "baseline": "900",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.25",
+     "new": "0.23",
+     "baseline": "0.25",
+     "drift": 0.92
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "14.0",
+     "new": "12.6",
+     "baseline": "14.0",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "300",
+     "new": "330",
+     "baseline": "300",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "140 175 210 245 280",
+     "new": "154 193 231 270 308",
+     "baseline": "140 175 210 245 280",
+     "drift": 1.101
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "distance_damage"
+     ],
+     "key": "distance_damage",
+     "key_label": "distance_damage",
+     "old": "30 37.5 45 52.5 60",
+     "new": "33.0 41.2 49.5 57.8 66.0",
+     "baseline": "30 37.5 45 52.5 60",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "duration"
+     ],
+     "key": "duration",
+     "key_label": "duration",
+     "old": "4.0",
+     "new": "4.4",
+     "baseline": "4.0",
+     "drift": 1.1
+    }
+   ],
+   "id": "a035d305",
+   "ts": 1785099309,
+   "seed": null,
+   "expires": 1785704109,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_night_stalker",
+   "hero_label": "Nanaya Shiki",
+   "target_id": "ab:nanaya_dash",
+   "target_kind": "ability",
+   "target_name": "nanaya_dash",
+   "target_label": "D — Sensou・Suigetsu",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "25",
+     "new": "19",
+     "baseline": "25",
+     "drift": 0.76
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "25",
+   "new": "19",
+   "baseline": "25",
+   "drift": 0.76,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0361d97",
+   "ts": 1785099328,
+   "seed": null,
+   "expires": 1785704128,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_doom_bringer",
+   "hero_label": "Heracles",
+   "target_id": "ab:heracles_fissure",
+   "target_kind": "ability",
+   "target_name": "heracles_fissure",
+   "target_label": "Q — Fissure Strike",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "width"
+     ],
+     "key": "width",
+     "key_label": "width",
+     "old": "125",
+     "new": "70",
+     "baseline": "125",
+     "drift": 0.56
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "width"
+   ],
+   "key": "width",
+   "key_label": "width",
+   "old": "125",
+   "new": "70",
+   "baseline": "125",
+   "drift": 0.56,
+   "dir": -1,
+   "tier": "big",
+   "pct": 44,
+   "power_label": "🎲 ХАОС: нерф 44%",
+   "multi": false,
+   "id": "a036803c",
+   "ts": 1785099354,
+   "seed": null,
+   "expires": 1785704154,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_sven",
+   "hero_label": "Lancelot",
+   "target_id": "ab:lancelot_gae_bolg",
+   "target_kind": "ability",
+   "target_name": "lancelot_gae_bolg",
+   "target_label": "• — The Spear of Impaling Barbed Death",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "300",
+     "new": "156",
+     "baseline": "300",
+     "drift": 0.52
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.6",
+     "new": "0.9",
+     "baseline": "0.6",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "27.0",
+     "new": "40.0",
+     "baseline": "27.0",
+     "drift": 1.4815
+    },
+    {
+     "path": [
+      "AbilityDamage"
+     ],
+     "key": "AbilityDamage",
+     "key_label": "AbilityDamage",
+     "old": "400 500 600 700 800",
+     "new": "208 260 312 364 416",
+     "baseline": "400 500 600 700 800",
+     "drift": 0.52
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400 500 600 700 800",
+     "new": "208 260 312 364 416",
+     "baseline": "400 500 600 700 800",
+     "drift": 0.52
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "300",
+   "new": "156",
+   "baseline": "300",
+   "drift": 0.52,
+   "dir": -1,
+   "tier": "big",
+   "pct": 48,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "300",
+     "new": "156",
+     "baseline": "300",
+     "drift": 0.52
+    },
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.6",
+     "new": "0.9",
+     "baseline": "0.6",
+     "drift": 1.5
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "27.0",
+     "new": "40.0",
+     "baseline": "27.0",
+     "drift": 1.4815
+    },
+    {
+     "path": [
+      "AbilityDamage"
+     ],
+     "key": "AbilityDamage",
+     "key_label": "AbilityDamage",
+     "old": "400 500 600 700 800",
+     "new": "208 260 312 364 416",
+     "baseline": "400 500 600 700 800",
+     "drift": 0.52
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "damage"
+     ],
+     "key": "damage",
+     "key_label": "damage",
+     "old": "400 500 600 700 800",
+     "new": "208 260 312 364 416",
+     "baseline": "400 500 600 700 800",
+     "drift": 0.52
+    }
+   ],
+   "id": "a036fff2",
+   "ts": 1785099386,
+   "seed": null,
+   "expires": 1785704186,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_terrorblade",
+   "hero_label": "Saitō Hajime",
+   "target_id": "ab:saito_formlessness_new",
+   "target_kind": "ability",
+   "target_name": "saito_formlessness_new",
+   "target_label": "• — Formlessness",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "stacks_duration"
+     ],
+     "key": "stacks_duration",
+     "key_label": "stacks_duration",
+     "old": "7",
+     "new": "6.3",
+     "baseline": "7",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "stacks_duration"
+   ],
+   "key": "stacks_duration",
+   "key_label": "stacks_duration",
+   "old": "7",
+   "new": "6.3",
+   "baseline": "7",
+   "drift": 0.9,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a0375e76",
+   "ts": 1785099411,
+   "seed": null,
+   "expires": 1785704211,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_mirana",
+   "hero_label": "Jeanne d'Arc",
+   "target_id": "stats",
+   "target_kind": "stats",
+   "target_name": null,
+   "target_label": "★ — Статы героя",
+   "items": [
+    {
+     "path": [
+      "AttributeStrengthGain"
+     ],
+     "key": "AttributeStrengthGain",
+     "key_label": "💪 Сила/ур.",
+     "old": "1.9",
+     "new": "2.1",
+     "baseline": "3",
+     "drift": 0.7
+    }
+   ],
+   "path": [
+    "AttributeStrengthGain"
+   ],
+   "key": "AttributeStrengthGain",
+   "key_label": "💪 Сила/ур.",
+   "old": "1.9",
+   "new": "2.1",
+   "baseline": "3",
+   "drift": 0.7,
+   "dir": 1,
+   "tier": "small",
+   "pct": 13,
+   "power_label": "🎲 ХАОС: бафф 13%",
+   "multi": false,
+   "id": "a037a2f8",
+   "ts": 1785099428,
+   "seed": null,
+   "expires": 1785704228,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_faceless_void",
+   "hero_label": "Altera",
+   "target_id": "ab:altera_teardrop",
+   "target_kind": "ability",
+   "target_name": "altera_teardrop",
+   "target_label": "🌀 — Combo - Teardrop Photon Ray",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "beam_radius"
+     ],
+     "key": "beam_radius",
+     "key_label": "beam_radius",
+     "old": "1000",
+     "new": "1100",
+     "baseline": "1000",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "beam_radius"
+   ],
+   "key": "beam_radius",
+   "key_label": "beam_radius",
+   "old": "1000",
+   "new": "1100",
+   "baseline": "1000",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a037e799",
+   "ts": 1785099446,
+   "seed": null,
+   "expires": 1785704246,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_axe",
+   "hero_label": "Cú Chulainn (Alter)",
+   "target_id": "ab:cu_alter_spear_of_the_sky",
+   "target_kind": "ability",
+   "target_name": "cu_alter_spear_of_the_sky",
+   "target_label": "R — Soaring Spear",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "delay"
+     ],
+     "key": "delay",
+     "key_label": "delay",
+     "old": "2.0",
+     "new": "2.2",
+     "baseline": "2.0",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "delay"
+   ],
+   "key": "delay",
+   "key_label": "delay",
+   "old": "2.0",
+   "new": "2.2",
+   "baseline": "2.0",
+   "drift": 1.1,
+   "dir": -1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Нерф −10%",
+   "multi": false,
+   "id": "a0383471",
+   "ts": 1785099465,
+   "seed": null,
+   "expires": 1785704265,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_chen",
+   "hero_label": "Iskandar",
+   "target_id": "ab:iskander_trap",
+   "target_kind": "ability",
+   "target_name": "iskander_trap",
+   "target_label": "• — Soldier trap",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "18",
+     "new": "14",
+     "baseline": "18",
+     "drift": 0.7778
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "18",
+   "new": "14",
+   "baseline": "18",
+   "drift": 0.7778,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a0387f15",
+   "ts": 1785099484,
+   "seed": null,
+   "expires": 1785704284,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bloodseeker",
+   "hero_label": "Li Shuwen",
+   "target_id": "ab:lishuwen_no_second_strike",
+   "target_kind": "ability",
+   "target_name": "lishuwen_no_second_strike",
+   "target_label": "R — No Second Strike",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "attribute_stun_duration"
+     ],
+     "key": "attribute_stun_duration",
+     "key_label": "attribute_stun_duration",
+     "old": "1.0",
+     "new": "1.1",
+     "baseline": "1.0",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "attribute_stun_duration"
+   ],
+   "key": "attribute_stun_duration",
+   "key_label": "attribute_stun_duration",
+   "old": "1.0",
+   "new": "1.1",
+   "baseline": "1.0",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a039f794",
+   "ts": 1785099581,
+   "seed": null,
+   "expires": 1785704381,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bloodseeker",
+   "hero_label": "Li Shuwen",
+   "target_id": "ab:lishuwen_raging_dragon_strike",
+   "target_kind": "ability",
+   "target_name": "lishuwen_raging_dragon_strike",
+   "target_label": "🌀 — Combo: Raging Dragon Strike",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.2",
+     "new": "0.18",
+     "baseline": "0.2",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.2",
+   "new": "0.18",
+   "baseline": "0.2",
+   "drift": 0.9,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a039f7a6",
+   "ts": 1785099581,
+   "seed": null,
+   "expires": 1785704381,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_dark_willow",
+   "hero_label": "Okita Souji",
+   "target_id": "ab:okita_sandanzuki",
+   "target_kind": "ability",
+   "target_name": "okita_sandanzuki",
+   "target_label": "R — Mumyou Sandan-Zuki",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "1.0",
+     "new": "0.9",
+     "baseline": "0.8",
+     "drift": 1.125
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "27",
+     "new": "24",
+     "baseline": "27",
+     "drift": 0.8889
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "cast_point"
+     ],
+     "key": "cast_point",
+     "key_label": "cast_point",
+     "old": "0.8",
+     "new": "0.72",
+     "baseline": "0.8",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "window_duration"
+     ],
+     "key": "window_duration",
+     "key_label": "window_duration",
+     "old": "6",
+     "new": "6.6",
+     "baseline": "6",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "distance"
+     ],
+     "key": "distance",
+     "key_label": "distance",
+     "old": "750",
+     "new": "825",
+     "baseline": "750",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "base_damage"
+     ],
+     "key": "base_damage",
+     "key_label": "base_damage",
+     "old": "250 330 410 490 570",
+     "new": "275 363 451 539 627",
+     "baseline": "250 330 410 490 570",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "delay_duration"
+     ],
+     "key": "delay_duration",
+     "key_label": "delay_duration",
+     "old": "0.9",
+     "new": "0.81",
+     "baseline": "0.9",
+     "drift": 0.9
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "1.0",
+   "new": "0.9",
+   "baseline": "0.8",
+   "drift": 1.125,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "🌪 ВСЁ И СРАЗУ",
+   "multi": true,
+   "_all": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "1.0",
+     "new": "0.9",
+     "baseline": "0.8",
+     "drift": 1.125
+    },
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "27",
+     "new": "24",
+     "baseline": "27",
+     "drift": 0.8889
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "cast_point"
+     ],
+     "key": "cast_point",
+     "key_label": "cast_point",
+     "old": "0.8",
+     "new": "0.72",
+     "baseline": "0.8",
+     "drift": 0.9
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "window_duration"
+     ],
+     "key": "window_duration",
+     "key_label": "window_duration",
+     "old": "6",
+     "new": "6.6",
+     "baseline": "6",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "distance"
+     ],
+     "key": "distance",
+     "key_label": "distance",
+     "old": "750",
+     "new": "825",
+     "baseline": "750",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "base_damage"
+     ],
+     "key": "base_damage",
+     "key_label": "base_damage",
+     "old": "250 330 410 490 570",
+     "new": "275 363 451 539 627",
+     "baseline": "250 330 410 490 570",
+     "drift": 1.1
+    },
+    {
+     "path": [
+      "AbilityValues",
+      "delay_duration"
+     ],
+     "key": "delay_duration",
+     "key_label": "delay_duration",
+     "old": "0.9",
+     "new": "0.81",
+     "baseline": "0.9",
+     "drift": 0.9
+    }
+   ],
+   "id": "a03a57b0",
+   "ts": 1785099605,
+   "seed": null,
+   "expires": 1785704405,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_ogre_magi",
+   "hero_label": "Aozaki Aoko",
+   "target_id": "ab:aoko_3_beams",
+   "target_kind": "ability",
+   "target_name": "aoko_3_beams",
+   "target_label": "• — Severe Break Slider",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "30",
+     "new": "15",
+     "baseline": "30",
+     "drift": 0.5
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "30",
+   "new": "15",
+   "baseline": "30",
+   "drift": 0.5,
+   "dir": 1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "💥 ДВОЙНАЯ СИЛА: бафф 50%",
+   "multi": false,
+   "id": "a03aabc4",
+   "ts": 1785099627,
+   "seed": null,
+   "expires": 1785704427,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_skeleton_king",
+   "hero_label": "King Hassan",
+   "target_id": "ab:khsn_aoe_flame",
+   "target_kind": "ability",
+   "target_name": "khsn_aoe_flame",
+   "target_label": "R — Phantasmal Flame",
+   "items": [
+    {
+     "path": [
+      "AbilityCooldown"
+     ],
+     "key": "AbilityCooldown",
+     "key_label": "AbilityCooldown",
+     "old": "45",
+     "new": "34",
+     "baseline": "45",
+     "drift": 0.7556
+    }
+   ],
+   "path": [
+    "AbilityCooldown"
+   ],
+   "key": "AbilityCooldown",
+   "key_label": "AbilityCooldown",
+   "old": "45",
+   "new": "34",
+   "baseline": "45",
+   "drift": 0.7556,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a03afc37",
+   "ts": 1785099648,
+   "seed": null,
+   "expires": 1785704448,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_treant",
+   "hero_label": "Edmond Dantes",
+   "target_id": "ab:edmon_ground_beams",
+   "target_kind": "ability",
+   "target_name": "edmon_ground_beams",
+   "target_label": "E — Revenge is Mine",
+   "items": [
+    {
+     "path": [
+      "AbilityCastPoint"
+     ],
+     "key": "AbilityCastPoint",
+     "key_label": "AbilityCastPoint",
+     "old": "0.2",
+     "new": "0.17",
+     "baseline": "0.2",
+     "drift": 0.85
+    }
+   ],
+   "path": [
+    "AbilityCastPoint"
+   ],
+   "key": "AbilityCastPoint",
+   "key_label": "AbilityCastPoint",
+   "old": "0.2",
+   "new": "0.17",
+   "baseline": "0.2",
+   "drift": 0.85,
+   "dir": 1,
+   "tier": "small",
+   "pct": 14,
+   "power_label": "🎲 ХАОС: бафф 14%",
+   "multi": false,
+   "id": "a03b434e",
+   "ts": 1785099666,
+   "seed": null,
+   "expires": 1785704466,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_troll_warlord",
+   "hero_label": "Okada Izo",
+   "target_id": "ab:okada_combo",
+   "target_kind": "ability",
+   "target_name": "okada_combo",
+   "target_label": "🌀 — Shimatsuken: Calm",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "600",
+     "new": "660",
+     "baseline": "600",
+     "drift": 1.1
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "600",
+   "new": "660",
+   "baseline": "600",
+   "drift": 1.1,
+   "dir": 1,
+   "tier": "small",
+   "pct": 10,
+   "power_label": "Бафф +10%",
+   "multi": false,
+   "id": "a03b90c6",
+   "ts": 1785099686,
+   "seed": null,
+   "expires": 1785704486,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_venomancer",
+   "hero_label": "Leonidas I",
+   "target_id": "ab:leonidas_enomotia",
+   "target_kind": "ability",
+   "target_name": "leonidas_enomotia",
+   "target_label": "R — Thermopylae Enomotia",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "push_slow_duration"
+     ],
+     "key": "push_slow_duration",
+     "key_label": "push_slow_duration",
+     "old": "1.5 1.8 2.1 2.4 2.7",
+     "new": "1.9 2.2 2.6 3.0 3.4",
+     "baseline": "1.5 1.8 2.1 2.4 2.7",
+     "drift": 1.2476
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "push_slow_duration"
+   ],
+   "key": "push_slow_duration",
+   "key_label": "push_slow_duration",
+   "old": "1.5 1.8 2.1 2.4 2.7",
+   "new": "1.9 2.2 2.6 3.0 3.4",
+   "baseline": "1.5 1.8 2.1 2.4 2.7",
+   "drift": 1.2476,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a03bd64f",
+   "ts": 1785099703,
+   "seed": null,
+   "expires": 1785704503,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_terrorblade",
+   "hero_label": "Saitō Hajime",
+   "target_id": "ab:saito_jce",
+   "target_kind": "ability",
+   "target_name": "saito_jce",
+   "target_label": "🌀 — Combo: Undefeatable Style",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "1300",
+     "new": "1625",
+     "baseline": "1300",
+     "drift": 1.25
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "radius"
+   ],
+   "key": "radius",
+   "key_label": "radius",
+   "old": "1300",
+   "new": "1625",
+   "baseline": "1300",
+   "drift": 1.25,
+   "dir": 1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ бафф +25%",
+   "multi": false,
+   "id": "a03c503f",
+   "ts": 1785099735,
+   "seed": null,
+   "expires": 1785704535,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_ursa",
+   "hero_label": "Atalanta Alter",
+   "target_id": "ab:atalanta_skia",
+   "target_kind": "ability",
+   "target_name": "atalanta_skia",
+   "target_label": "🌀 — Combo - Tauropolos Skia Thermokrasia",
+   "items": [
+    {
+     "path": [
+      "AbilityCastRange"
+     ],
+     "key": "AbilityCastRange",
+     "key_label": "AbilityCastRange",
+     "old": "6000",
+     "new": "4500",
+     "baseline": "6000",
+     "drift": 0.75
+    }
+   ],
+   "path": [
+    "AbilityCastRange"
+   ],
+   "key": "AbilityCastRange",
+   "key_label": "AbilityCastRange",
+   "old": "6000",
+   "new": "4500",
+   "baseline": "6000",
+   "drift": 0.75,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a03c9d55",
+   "ts": 1785099754,
+   "seed": null,
+   "expires": 1785704554,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_bounty_hunter",
+   "hero_label": "Hassan-i-Sabbah",
+   "target_id": "ab:true_assassin_protection_from_wind",
+   "target_kind": "ability",
+   "target_name": "true_assassin_protection_from_wind",
+   "target_label": "F — Protection from Wind",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "ms_bonus"
+     ],
+     "key": "ms_bonus",
+     "key_label": "ms_bonus",
+     "old": "38",
+     "new": "28",
+     "baseline": "50",
+     "drift": 0.56
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "ms_bonus"
+   ],
+   "key": "ms_bonus",
+   "key_label": "ms_bonus",
+   "old": "38",
+   "new": "28",
+   "baseline": "50",
+   "drift": 0.56,
+   "dir": -1,
+   "tier": "big",
+   "pct": 25,
+   "power_label": "СИЛЬНЫЙ нерф −25%",
+   "multi": false,
+   "id": "a03cebf3",
+   "ts": 1785099774,
+   "seed": null,
+   "expires": 1785704574,
+   "days": 7,
+   "status": "active"
+  },
+  {
+   "hero": "npc_dota_hero_centaur",
+   "hero_label": "Lu Bu",
+   "target_id": "ab:lu_bu_god_force",
+   "target_kind": "ability",
+   "target_name": "lu_bu_god_force",
+   "target_label": "R — God Force: The Five Soldiers of the War God",
+   "items": [
+    {
+     "path": [
+      "AbilityValues",
+      "radius"
+     ],
+     "key": "radius",
+     "key_label": "radius",
+     "old": "600",
+     "new": "900",
+     "baseline": "600",
+     "drift": 1.5
+    }
+   ],
+   "path": [
+    "AbilityValues",
+    "radius"
+   ],
+   "key": "radius",
+   "key_label": "radius",
+   "old": "600",
+   "new": "900",
+   "baseline": "600",
+   "drift": 1.5,
+   "dir": 1,
+   "tier": "big",
+   "pct": 50,
+   "power_label": "💥 ДВОЙНАЯ СИЛА: бафф 50%",
+   "multi": false,
+   "id": "a03de964",
+   "ts": 1785099839,
+   "seed": null,
+   "expires": 1785704639,
+   "days": 7,
+   "status": "active"
   }
  ]
 }
