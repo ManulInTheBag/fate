@@ -82,7 +82,7 @@ function diarmuid_new_combo:OnSpellStart()
         Ability = self,
         vSpawnOrigin = caster:GetAbsOrigin() + Vector(0,0,120),
         vVelocity = vector * speed,
-        fDistance = 650,
+        fDistance = 1300,
         fStartRadius = 150,
         fEndRadius = 150,
         Source = self:GetCaster(),

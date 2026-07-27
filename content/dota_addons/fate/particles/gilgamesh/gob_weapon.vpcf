@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf66:version{dd571be4-586e-4f41-8b2d-5bbc969e1c53} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 12
@@ -77,22 +77,14 @@
 	m_Initializers = 
 	[
 		{
-			_class = "C_INIT_CreateWithinSphereTransform"
+			_class = "C_INIT_CreateWithinSphere"
 		},
 		{
 			_class = "C_INIT_NormalAlignToCP"
 		},
 		{
 			_class = "C_INIT_VelocityFromCP"
-			m_velocityInput = 
-			{
-				m_nType = "PVEC_TYPE_CP_VALUE"
-				m_nControlPoint = 1
-			}
-			m_transformInput = 
-			{
-				m_nType = "PT_TYPE_INVALID"
-			}
+			m_nControlPoint = 1
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -106,13 +98,10 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_bReverseOrder = false
-				m_flRandomMin = 0.5
-				m_flRandomMax = 0.5
+				m_flRandomMin = 0.35
+				m_flRandomMax = 0.35
 				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_strSnapshotSubset = ""
 				m_flLOD0 = 0.0
 				m_flLOD1 = 0.0
 				m_flLOD2 = 0.0
@@ -131,8 +120,6 @@
 				m_flNoiseTurbulenceMix = 0.5
 				m_flNoiseImgPreviewScale = 1.0
 				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
 				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 				m_flMultFactor = 1.0
 				m_flInput0 = 0.0
@@ -143,7 +130,6 @@
 				m_flNotchedRangeMax = 1.0
 				m_flNotchedOutputOutside = 0.0
 				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 				m_flBiasParameter = 0.0
 				m_Curve = 
@@ -217,9 +203,6 @@
 					m_model = resource:"models/gilgamesh/houtengeki.vmdl"
 				},
 			]
-			m_modelInput = 
-			{
-			}
 		},
 	]
 	m_Children = 
