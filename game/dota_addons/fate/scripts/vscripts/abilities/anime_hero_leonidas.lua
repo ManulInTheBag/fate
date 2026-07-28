@@ -672,7 +672,7 @@ function leonidas_kick:OnSpellStart()
     --print(nBaseCriticalDamage, nBounceCriticalDamage)
     local bCasterBerserked = hCaster:HasModifier("modifier_leonidas_berserk")
 
-    local nLocked  = 1
+    local nLocked  = 0
     local nStunned = bCasterBerserked and 0 or 0
 
     local stun_duration = self:GetSpecialValueFor("stun_duration")

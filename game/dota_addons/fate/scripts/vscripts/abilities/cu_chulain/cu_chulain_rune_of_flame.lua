@@ -36,8 +36,4 @@ function cu_chulain_rune_of_flame:OnSpellStart()
 		return
 	end)
 
-	if not caster:HasModifier("modifier_celtic_rune_attribute") then
-		local ability = caster:FindAbilityByName("cu_chulain_rune_magic")
-		ability:CloseSpellbook(self:GetCooldown(self:GetLevel()))		
-	end
 end

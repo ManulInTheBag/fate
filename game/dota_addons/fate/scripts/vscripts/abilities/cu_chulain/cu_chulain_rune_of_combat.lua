@@ -27,8 +27,4 @@ function cu_chulain_rune_of_combat:OnSpellStart()
 																	 BonusAtkPct = self:GetSpecialValueFor("bonus_atk"),
 																	 StunDuration = self:GetSpecialValueFor("stun_dur") })
 
-	if not caster:HasModifier("modifier_celtic_rune_attribute") then
-		local ability = caster:FindAbilityByName("cu_chulain_rune_magic")
-		ability:CloseSpellbook(self:GetCooldown(self:GetLevel()))		
-	end
 end

@@ -191,6 +191,7 @@ model_lookup["npc_dota_hero_dark_willow"] = "models/okita/okita_new.vmdl"
 model_lookup["npc_dota_hero_riki"] = "models/jtr/jtr.vmdl"
 model_lookup["npc_dota_hero_centaur"] = "models/lu_bu/lu_bu.vmdl"
 model_lookup["npc_dota_hero_sniper"] = "models/robin/robin.vmdl"
+model_lookup["npc_dota_hero_dragon_knight"] = "models/barghest/barghest.vmdl"  -- Barghest
 
 DoNotKillAtTheEndOfRound = {
     "tamamo_charm",
@@ -252,6 +253,26 @@ end
 
 
 function Precache( context )
+	-- [panel] precache героев, добавлено панелью
+	PrecacheResource("model", "models/barghest/barghest.vmdl", context)
+	PrecacheResource("soundfile", "soundevents/hero_barghest.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts", context)
+	-- [barghest] партиклы базекита (пути собраны в abilities/barghest/barghest_shared.lua)
+	PrecacheResource("particle", "particles/arcueid/arcueid_slash.vpcf", context)
+	PrecacheResource("particle", "particles/arcueid/arcueid_slash_red.vpcf", context)
+	PrecacheResource("particle", "particles/custom/archer/archer_overedge_slash.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_centaur/centaur_warstomp.vpcf", context)
+	PrecacheResource("particle", "particles/arcueid/arcueid_shield.vpcf", context)
+	PrecacheResource("particle", "particles/arcueid/arcueid_shield_end.vpcf", context)
+	PrecacheResource("particle", "particles/arcueid/chain_model_circle_enemy.vpcf", context)
+	PrecacheResource("particle", "particles/aoko/aoko_spell_lifesteal.vpcf", context)
+	PrecacheResource("particle", "particles/custom/artoria/artoria_excalibur_charge.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_beastmaster/beastmaster_primal_roar_shockwave.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf", context)
+	PrecacheResource("particle", "particles/muramasa/vector.vpcf", context)
+	PrecacheResource("particle", "particles/aoko/aoko_facebreaker.vpcf", context)
 	-- [dd2lua] прекеш способностей, портированных из datadriven
 	PrecacheResource("particle", "particles/units/heroes/hero_invoker/invoker_sun_strike_beam.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_invoker/invoker_sun_strike_sparks.vpcf", context)

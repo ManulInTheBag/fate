@@ -24,6 +24,7 @@ modifier_ozy_piramid_auto_defence = class({})
 
 function modifier_ozy_piramid_auto_defence:RewriteValues()
 	self.damage = self:GetAbility():GetSpecialValueFor("damage")
+	self.damage_per_level = self:GetAbility():GetSpecialValueFor("damage_per_level")
 	self.max_targets = self:GetAbility():GetSpecialValueFor("max_targets")
 	self.radius = self:GetAbility():GetSpecialValueFor("radius")
 	self.hit_radius = self:GetAbility():GetSpecialValueFor("hit_radius")
@@ -75,9 +76,14 @@ function modifier_ozy_piramid_auto_defence:CreateBeam(target)
 		ParticleManager:DestroyParticle(SphereParticle, true)
 		ParticleManager:ReleaseParticleIndex(SphereParticle)
 		target:EmitSound("Hero_Luna.LucentBeam.Target")
+		-- урон считаем в момент попадания, а не в RewriteValues: уровень Озимандиаса растёт по ходу игры
+		local hOzy = self.hCaster.Ozy
+		if not IsNotNull(hOzy) then return end
+		local fDamage = self.damage + self.damage_per_level * hOzy:GetLevel()
+
 		local tEnemies = FindUnitsInRadius(self.hCaster:GetTeam(), targetPos, nil, self.hit_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(tEnemies) do
-			DoDamage(self.hCaster.Ozy, v, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			DoDamage(hOzy, v, fDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 		end
 	
 	end)

@@ -303,7 +303,7 @@
 		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"600"
 		"AbilityCastPoint"				"0"
-		"AbilityCastRange"				"1400"		// = jump_distance, so the range ring shows the real leap reach (keep in sync)
+		"AbilityCastRange"				"1800"		// = jump_distance, so the range ring shows the real leap reach (keep in sync)
 
 		"precache"
 		{
@@ -327,7 +327,7 @@
 			"combo_fps"				"30"
 			"anim_rate"				"1.0"
 			// jump phase (frames 50-100)
-			"jump_distance"			"1400"		// forward leap distance (capped by the clicked point); keep = AbilityCastRange
+			"jump_distance"			"1800"		// forward leap distance (capped by the clicked point); keep = AbilityCastRange
 			"jump_height"			"550"		// arc peak height — makes it read as a real jump
 			"damage_reduction"		"50"		// % less damage taken from the moment he leaps
 			// AoE (in front of him)
@@ -337,6 +337,9 @@
 			"hack_ticks"			"6"			// number of hits over the hacking window
 			"hack_damage"			"200"		// per hack tick
 			"hack_stun"				"0.5"		// mini-stun per tick (> tick spacing = stays locked)
+			// lock applied by the LAST hack (frame 180), over final_radius — nobody escapes the finisher
+			"lock_slow"				"30"		// % movement speed
+			"lock_duration"			"2.0"		// frame 180 -> 220 is 1.33s at 30 fps / rate 1.0, plus margin
 			// final blow (frame 220)
 			"final_radius"			"600"
 			"final_damage"			"1500"

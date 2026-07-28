@@ -1,0 +1,198 @@
+"DOTAAbilities"
+{
+
+	//=====================================
+	// Knight's Cadence
+	//=====================================
+	"barghest_q"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_q"
+		"AbilityTextureName"		"custom/barghest/barghest_q"
+		// OVERSHOOT — чтобы клик дальше дальности НЕ гнал героя пешком, а просто
+		// задавал направление удара (так же сделан aoko_facebreaker)
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		// Кулдаун МЕЖДУ ударами связки. Полный (`full_cooldown`) ставится кодом
+		// после третьего удара — иначе связка недостижима.
+		"AbilityCooldown"			"0.8"
+		"AbilityManaCost"			"40"
+		// AbilityCastRange НЕ объявлен намеренно: с OVERSHOOT курсор задаёт
+		// только направление и точку приземления, дальность ничего не режет
+		// (так же сделан aoko_facebreaker)
+		"AbilityCastPoint"			"0.15"
+		// перекрывается GetCastAnimation: у каждой стадии своя
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityValues"
+		{
+			"damage"			"80 105 130 155 180"
+			"radius"			"275"
+			"arc_angle"			"120"
+			"lunge_distance"			"450"		// потолок; фактическая — до курсора
+			"lunge_speed"			"1400"
+			"lunge_stop_radius"			"200"		// на таком расстоянии выпад тормозит о врага
+			"spin_radius"			"310"
+			"chain_window"			"3.0"
+			"full_cooldown"			"7 6.5 6 5.5 5"
+		}
+	}
+
+	//=====================================
+	// Iron Stance
+	//=====================================
+	"barghest_w"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_w"
+		"AbilityTextureName"		"custom/barghest/barghest_w"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"18 17 16 15 14"
+		"AbilityManaCost"			"200"
+		"AbilityCastRange"			"0"
+		"AbilityCastPoint"			"0"
+		"AbilityChannelTime"		"2.0"
+		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
+		"AbilityValues"
+		{
+			"duration"			"2.0"
+			"barrier_base"			"150 250 350 450 550"
+			"barrier_per_source"			"60 90 120 150 180"
+			"barrier_cap"			"450 700 950 1200 1450"
+			"slam_damage"			"100 160 220 280 340"
+			"slam_from_absorbed"			"50"		// % поглощённого уходит в удар
+			"slam_bonus_cap"			"200 300 400 500 600"
+			"slam_radius"			"350"
+		}
+	}
+
+	//=====================================
+	// Chain Hunt
+	//=====================================
+	"barghest_e"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_e"
+		"AbilityTextureName"		"custom/barghest/barghest_e"
+		// ⚠️ НЕ канал: канал обрывается любым приказом, а во время зарядки надо
+		// доворачиваться приказами движения. Держит на месте рут модификатора
+		// зарядки (приём из emiya_caladbolg). NO_TARGET — направление берётся с
+		// поворота героя, а не с курсора при касте.
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"2"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"22 21 20 19 18"
+		"AbilityManaCost"			"400"
+		"AbilityCastRange"			"1100"
+		"AbilityCastPoint"			"0.1"
+		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_2"
+		"AbilityValues"
+		{
+			"charge_time"			"2.0"
+			"min_distance"			"350"
+			"max_distance"			"1100"
+			"speed"			"1100"
+			"grab_radius"			"120"
+			"turn_rate"			"260"		// градусов в секунду: доворот ПО ХОДУ рывка
+			"chain_duration"			"1.0 1.25 1.5 1.75 2.0"
+			"chain_damage"			"40 60 80 100 120"
+			"chain_interval"			"0.5"
+		}
+	}
+
+	//=====================================
+	// Chain Hunt — кнопка «отпустить» (подменяет E на время зарядки)
+	//=====================================
+	"barghest_e_release"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_e_release"
+		"AbilityTextureName"		"custom/barghest/barghest_e_release"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCastPoint"			"0"
+	}
+
+	//=====================================
+	// Blood of the Beast
+	//=====================================
+	"barghest_f"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_f"
+		"AbilityTextureName"		"custom/barghest/barghest_f"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"0"
+		"AbilityManaCost"			"0"
+		"AbilityCastRange"			"0"
+		"AbilityCastPoint"			"0"
+		"AbilityValues"
+		{
+			"bonus_mr"			"8"
+			"lifesteal_pct"			"12"
+			"lifesteal_per_frenzy"			"2"
+		}
+	}
+
+	//=====================================
+	// Beast's Continuation
+	//=====================================
+	"barghest_r"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_r"
+		"AbilityTextureName"		"custom/barghest/barghest_r"
+		// OVERSHOOT — курсор задаёт только направление, дальность каста героя не держит.
+		// Иконка подменяется в коде (GetAbilityTextureName) по заряженной ветке.
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"2"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"1"
+		"AbilityManaCost"			"75"
+		"AbilityCastPoint"			"0.1"
+		// перекрывается GetCastAnimation: у каждой ветки своя
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityValues"
+		{
+			"window"			"1.0 1.2 1.4 1.6 1.8"
+			"damage"			"120 170 220 270 320"
+			"radius"			"300"
+			"arc_angle"			"120"
+			"uppercut_duration"			"0.6"
+			"uppercut_height"			"320"		// на сколько подбрасывает
+			"uppercut_push"			"40"		// почти без сдвига: вверх, а не от себя
+			"slam_radius"			"350"
+			"horn_distance"			"550"
+			"horn_speed"			"2600"
+			"horn_stun"			"1.0"
+			"wave_distance"			"900"
+			"wave_width"			"200"
+			"wave_ministun"			"0.3"
+			"cd_refund"			"1.0"
+			"frenzy_duration"			"6.0"
+			"frenzy_as"			"8"
+			"frenzy_max"			"5"
+		}
+	}
+}

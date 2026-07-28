@@ -19,6 +19,7 @@ cu_alter_combo = cu_alter_combo or class({})
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_alter_combo",    "abilities/cu_alter/cu_alter_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_alter_combo_cd", "abilities/cu_alter/cu_alter_combo", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_cu_alter_combo_slow", "abilities/cu_alter/cu_alter_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 -- Frame breakpoints of the ROT animation (tied to the animation, not balance knobs).
 local FRAME_ROAR_END = 50
@@ -197,6 +198,9 @@ function modifier_cu_alter_combo:OnIntervalThink()
 	while self.hacksFired < #self.hackTimes and elapsed >= self.hackTimes[self.hacksFired + 1] do
 		self:DoHack()
 		self.hacksFired = self.hacksFired + 1
+		-- the last hack (frame 180) nails everyone down: dimensional lock + slow, so nobody
+		-- blinks out of the finishing blow at frame 220
+		if self.hacksFired == #self.hackTimes then self:DoLock() end
 	end
 
 	-- FINAL (frame 220): the piercing, cursing blow.
@@ -307,6 +311,30 @@ function modifier_cu_alter_combo:DoHack()
 	end
 end
 
+-- Applied on the last hack, over the area the finisher will cover: nobody escapes the final blow.
+function modifier_cu_alter_combo:DoLock()
+	local caster  = self.caster
+	local ability = self.ability
+
+	local enemies = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		self:FrontCenter(),
+		nil,
+		ability:GetSpecialValueFor("final_radius"),
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER,
+		false)
+	local duration = ability:GetSpecialValueFor("lock_duration")
+	for _, enemy in pairs(enemies) do
+		if IsNotNull(enemy) then
+			giveUnitDataDrivenModifier(caster, enemy, "locked", duration)
+			enemy:AddNewModifier(caster, ability, "modifier_cu_alter_combo_slow", { duration = duration })
+		end
+	end
+end
+
 function modifier_cu_alter_combo:DoFinal()
 	local caster  = self.caster
 	local ability = self.ability
@@ -399,6 +427,29 @@ function modifier_cu_alter_combo:OnDestroy()
 		self.caster:SetBodygroup(0, 0)
 		FindClearSpaceForUnit(self.caster, self.caster:GetAbsOrigin(), true)
 	end
+end
+
+---------------------------------------------------------------------------------------------------
+-- Slow that rides along with the standard "locked" dimensional lock applied by the last hack.
+-- The lock itself is the shared datadriven "locked" modifier (npc_abilities_custom.txt) — do not
+-- invent a custom one, it would have to be registered in every `locks` table by hand.
+modifier_cu_alter_combo_slow = modifier_cu_alter_combo_slow or class({})
+
+function modifier_cu_alter_combo_slow:IsHidden()      return false end
+function modifier_cu_alter_combo_slow:IsDebuff()      return true end
+function modifier_cu_alter_combo_slow:IsPurgable()    return false end
+function modifier_cu_alter_combo_slow:RemoveOnDeath() return true end
+
+function modifier_cu_alter_combo_slow:GetAttributes()
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_cu_alter_combo_slow:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE }
+end
+
+function modifier_cu_alter_combo_slow:GetModifierMoveSpeedBonus_Percentage()
+	return -self:GetAbility():GetSpecialValueFor("lock_slow")
 end
 
 ---------------------------------------------------------------------------------------------------

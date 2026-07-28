@@ -61,10 +61,6 @@ function cu_chulain_rune_of_protection:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_rune_of_protection", { Duration = self:GetSpecialValueFor("duration") })
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.9)  
     caster:EmitSound("cu_protection_1") 
-	if not caster:HasModifier("modifier_celtic_rune_attribute") then
-		local ability = caster:FindAbilityByName("cu_chulain_rune_magic")
-		ability:CloseSpellbook(self:GetCooldown(self:GetLevel()))		
-	end
 end
 
 

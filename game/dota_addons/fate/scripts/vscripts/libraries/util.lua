@@ -118,6 +118,9 @@ strongdispellable = {
     "modifier_master_intervention",
     --"modifier_saito_mind_eye_buff",
     --"modifier_saito_quickslash_bonus",
+    "modifier_barghest_w_stance",
+    "modifier_barghest_frenzy",
+    "modifier_barghest_e_chains",
 }
 
 deargdispellable = {
@@ -198,6 +201,9 @@ deargdispellable = {
     "modifier_karna_buff_melee",
     "modifier_saito_mind_eye_active",
     "modifier_demon_king_release",
+    "modifier_barghest_w_stance",
+    "modifier_barghest_frenzy",
+    "modifier_barghest_e_chains",
 }
 
 revokes = {
@@ -726,6 +732,8 @@ CannotReset = {
     "cu_alter_warcry",
     "cu_alter_roar",
 
+    "barghest_f",
+
 }
 
 
@@ -752,6 +760,7 @@ femaleservant = {
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_nevermore",
+    "npc_dota_hero_dragon_knight",  -- Barghest
 }
 
 tCannotDetect = {
@@ -859,6 +868,7 @@ tKnightClass = {
     "npc_dota_hero_clinkz",
     "npc_dota_hero_sniper",
     "npc_dota_hero_monkey_king",
+    "npc_dota_hero_dragon_knight",  -- Barghest
 }
 
 tHorsemanClass = {
@@ -2577,6 +2587,7 @@ local heroNames = {
     ["npc_dota_hero_troll_warlord"] = "Okada Izo",
     ["npc_dota_hero_phoenix"] = "Ozymandias",
     ["npc_dota_hero_axe"] = "Cú Chulainn (Alter)",
+    ["npc_dota_hero_dragon_knight"] = "Barghest",  -- barghest
 }
 
  

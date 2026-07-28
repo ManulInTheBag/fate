@@ -60,10 +60,6 @@ function cu_chulain_rune_of_disengage:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_cu_disengage_ms", {duration = self:GetSpecialValueFor("ms_duration")})
 	end)
 
-	if not caster:HasModifier("modifier_celtic_rune_attribute") then
-		local ability = caster:FindAbilityByName("cu_chulain_rune_magic")
-		ability:CloseSpellbook(self:GetCooldown(self:GetLevel()))		
-	end
 
 	Timers:CreateTimer(1, function()
 		ParticleManager:DestroyParticle(particle, false)

@@ -38,6 +38,9 @@ function cu_chulain_rune_magic:OnSpellStart()
 	UpdateAbilityLayout(hCaster, tRunes)
 end
 
+-- Книга рун закрывается ТОЛЬКО кнопкой cu_chulain_close_runes: сами руны её больше не
+-- закрывают, и глобального кулдауна у Rune Magic нет. flCooldown остался ради старой
+-- сигнатуры вызова из close_runes и не используется.
 function cu_chulain_rune_magic:CloseSpellbook(flCooldown)
 	local hCaster = self:GetCaster()
 
@@ -46,10 +49,6 @@ function cu_chulain_rune_magic:CloseSpellbook(flCooldown)
     if hCaster:HasModifier("modifier_wesen_window") then
         hCaster:SwapAbilities("cu_chulain_gae_bolg", "cu_chulain_gae_bolg_combo", false, true)
     end
-
-	if not hCaster:HasModifier("modifier_celtic_rune_attribute") then
-		self:StartCooldown(flCooldown)
-	end
 end
 
 function cu_chulain_close_runes:OnSpellStart()
