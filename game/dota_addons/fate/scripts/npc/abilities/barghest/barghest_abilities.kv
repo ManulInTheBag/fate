@@ -35,6 +35,7 @@
 			"lunge_distance"			"450"		// потолок; фактическая — до курсора
 			"lunge_speed"			"1400"
 			"lunge_stop_radius"			"200"		// на таком расстоянии выпад тормозит о врага
+			"lunge_slam_delay"			"0.2"		// замах: удар об землю не мгновенный
 			"spin_radius"			"310"
 			"chain_window"			"3.0"
 			"full_cooldown"			"7 6.5 6 5.5 5"
@@ -65,12 +66,19 @@
 		{
 			"duration"			"2.0"
 			"barrier_base"			"150 250 350 450 550"
-			"barrier_per_source"			"60 90 120 150 180"
-			"barrier_cap"			"450 700 950 1200 1450"
+			"barrier_per_source"			"40 55 70 85 100"
+			// Потолок ровно вдвое от базы: подпиткой барьер можно самое большее
+			// удвоить. ⚠️ Он и есть главный ограничитель — скорострельные
+			// источники (пулемёт Ланселота: 10 попаданий в секунду) упираются в
+			// него меньше чем за секунду, и без потолка стойку было бы не пробить.
+			"barrier_cap"			"300 500 700 900 1100"
+			"barrier_min_damage"			"25"		// удар слабее барьер не кормит
+			"barrier_gain_cd"			"0.03"		// общий кулдаун подпитки — один кадр
 			"slam_damage"			"100 160 220 280 340"
 			"slam_from_absorbed"			"50"		// % поглощённого уходит в удар
 			"slam_bonus_cap"			"200 300 400 500 600"
 			"slam_radius"			"350"
+			"slam_delay"			"0.2"		// замах: урон приходит не мгновенно
 		}
 	}
 
@@ -103,9 +111,10 @@
 			"min_distance"			"350"
 			"max_distance"			"1100"
 			"speed"			"1100"
-			"grab_radius"			"120"
+			"grab_radius"			"120"		// на таком расстоянии рывок врезается во врага
 			"turn_rate"			"260"		// градусов в секунду: доворот ПО ХОДУ рывка
 			"chain_duration"			"1.0 1.25 1.5 1.75 2.0"
+			"chain_min_pct"			"50"		// % длительности даже при нулевом заряде
 			"chain_damage"			"40 60 80 100 120"
 			"chain_interval"			"0.5"
 		}
@@ -170,7 +179,7 @@
 		"MaxLevel"					"5"
 		"AbilityCooldown"			"1"
 		"AbilityManaCost"			"75"
-		"AbilityCastPoint"			"0.1"
+		"AbilityCastPoint"			"0.2"
 		// перекрывается GetCastAnimation: у каждой ветки своя
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
 		"AbilityValues"

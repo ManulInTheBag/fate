@@ -59,33 +59,50 @@ function barghest_q:GetStage()
 end
 
 --[[ У каждого удара связки СВОЯ activity, иначе под три разных движения
-     нельзя подобрать три разных клипа: 1 — дуга, 2 — выпад, 3 — вертушка. ]]
+     нельзя подобрать три разных клипа: 1 — дуга, 2 — выпад, 3 — вертушка.
+     Это ЗАМАХ, он играет на кастпоинте. ]]
 BARGHEST_Q_ACT = {
     ACT_DOTA_CAST_ABILITY_1,
     ACT_DOTA_CAST_ABILITY_2,
     ACT_DOTA_CAST_ABILITY_3,
 }
 
+--[[ Удар второй стадии — ОТДЕЛЬНЫЙ клип, играет на старте выпада. Тот же,
+     которым бьёт об землю стойка: клип точно есть на модели. ]]
+BARGHEST_Q_ACT_LUNGE_HIT = ACT_DOTA_CAST_ABILITY_4
+
+--[[ ⚠️ Замах отыгрывает ДВИЖОК по этому колбэку, руками его дублировать не
+     надо. Именно в этом и была двойная анимация: здесь возвращался клип, и он
+     же вторым разом запускался StartAnimation'ом из OnAbilityPhaseStart.
+     Так же сделано у altera_whip и atalanta_calydonian_hunt — один
+     GetCastAnimation и ничего больше. ]]
 function barghest_q:GetCastAnimation()
     return BARGHEST_Q_ACT[self:GetStage()] or ACT_DOTA_CAST_ABILITY_1
-end
-
-function barghest_q:OnAbilityPhaseStart()
-    StartAnimation(self:GetCaster(), {duration = self:GetCastPoint(),
-        activity = self:GetCastAnimation(), rate = 1.0})
-    return true
-end
-
-function barghest_q:OnAbilityPhaseInterrupted()
-    EndAnimation(self:GetCaster())
 end
 
 function barghest_q:OnSpellStart()
     if not IsServer() then return end
     local hCaster = self:GetCaster()
-    EndAnimation(hCaster)
+    --[[ ⚠️ EndAnimation тут тоже НЕ зовём. Он ставит _animationEnd = сейчас, а
+         StartAnimation (animations.lua:482) при свежем _animationEnd
+         откладывает следующий клип на 0.066 с. То есть каждый EndAnimation
+         прямо перед StartAnimation — это гарантированный провал на два кадра,
+         ровно то самое «анимация не успевает проиграться». ]]
 
     local iStage = self:GetStage()
+
+    --[[ ⚠️ Курсор и доворот — ТОЛЬКО у первых двух стадий. Третья объявлена
+         NO_TARGET (см. GetBehavior), курсора у неё нет: GetCursorPosition
+         вернёт позицию самой Баргест, vDir выродится, а FaceTowards в
+         собственную точку дёргает разворот на ровном месте. Бьёт она вокруг
+         себя — поворачивать её не нужно и нечем. ]]
+    if iStage == 3 then
+        if self:DoSpin() then
+            Barghest_ArmContinuation(hCaster, BARGHEST_CONT_Q3)
+        end
+        self:AdvanceChain(iStage)
+        return
+    end
 
     local vPoint = self:GetCursorPosition()
     local vDir = vPoint - hCaster:GetAbsOrigin()
@@ -100,12 +117,8 @@ function barghest_q:OnSpellStart()
         if self:DoArc(vDir) then
             Barghest_ArmContinuation(hCaster, BARGHEST_CONT_Q1)
         end
-    elseif iStage == 2 then
-        self:DoLunge(vDir, vPoint)  -- попадание считает сам выпад, в конце движения
     else
-        if self:DoSpin() then
-            Barghest_ArmContinuation(hCaster, BARGHEST_CONT_Q3)
-        end
+        self:DoLunge(vDir, vPoint)  -- попадание считает сам выпад, в конце движения
     end
 
     self:AdvanceChain(iStage)
@@ -165,9 +178,13 @@ function barghest_q:DoLunge(vDir, vPoint)
     local nWant = (vPoint - hCaster:GetAbsOrigin()):Length2D()
     local nDist = math.max(80, math.min(nMax, nWant))
 
+    --[[ Удар играем СРАЗУ, на старте выпада: он и есть само движение вперёд, а
+         не то, что происходит после приземления. ⚠️ Клип обязан отличаться от
+         замаха с кастпоинта — раньше тут стоял тот же ACT_DOTA_CAST_ABILITY_2,
+         и он проигрывался дважды подряд. ]]
     hCaster:EmitSound(BARGHEST_SND.Q_LUNGE)
     StartAnimation(hCaster, {duration = nDist / self:GetSpecialValueFor("lunge_speed") + 0.1,
-        activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.0})
+        activity = BARGHEST_Q_ACT_LUNGE_HIT, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_q_lunge", {
         duration = 0.5,
         x = vDir.x, y = vDir.y,
@@ -181,9 +198,13 @@ function barghest_q:DoSpin()
     local nRadius = self:GetSpecialValueFor("spin_radius")
     hCaster:EmitSound(BARGHEST_SND.Q_SPIN)
 
+    --[[ ⚠️ Анимации здесь НЕТ. Вертушка — это ACT_DOTA_CAST_ABILITY_3, и его
+         уже играет движок по GetCastAnimation. Повторный запуск того же клипа
+         и был «чем-то не так с анимацией» на третьем ударе: клип сбрасывался
+         на 0.15 с и начинался заново. Первая стадия сделана так же (в DoArc
+         анимации нет) и вопросов не вызывала. ]]
     -- Дуга на все 360° плюс кольцо по земле: третий удар обязан читаться как
     -- «вокруг себя», а не как ещё одна дуга вперёд.
-    StartAnimation(hCaster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.0})
     Barghest_FxArc(BARGHEST_FX.ARC, hCaster, nRadius, 360)
     Barghest_FxRing(BARGHEST_FX.RING, hCaster:GetAbsOrigin(), nRadius)
 
@@ -300,18 +321,35 @@ function modifier_barghest_q_lunge:OnDestroy()
 
     if not self.hParent:IsAlive() then return end
 
-    local vPos = self.hParent:GetAbsOrigin()
-    local nRadius = self.hAbility:GetSpecialValueFor("radius")
-    -- Прямой рез сверху вниз + пыль: выпад должен читаться как «воткнула меч в
-    -- землю», а не как ещё один взмах.
-    self.hParent:EmitSound(BARGHEST_SND.SLAM)
-    Barghest_FxCut(self.hParent, vPos + Vector(0, 0, 220), vPos + self.vDir * 120)
-    Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
+    -- ⚠️ Анимации здесь НЕТ: удар отыгрывается на СТАРТЕ выпада, в DoLunge.
+    -- Сюда попадаем уже на приземлении, и второй клип тут читался бы как
+    -- повтор того же движения.
+    local hParent  = self.hParent
+    local hAbility = self.hAbility
+    local vDir     = self.vDir
+    local nRadius  = hAbility:GetSpecialValueFor("radius")
 
-    local tUnits = FindUnitsInRadius(self.hParent:GetTeamNumber(), vPos, nil, nRadius,
-        self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
-        self.hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
-    if self.hAbility:DamageUnits(tUnits) then
-        Barghest_ArmContinuation(self.hParent, BARGHEST_CONT_Q2)
-    end
+    --[[ Урон приходит через lunge_slam_delay, а не в тот же кадр, что и
+         остановка. Выпад в упор длится меньше 0.1 с, и без задержки меч втыкался
+         в землю раньше, чем клип успевал до этого дойти. ]]
+    Timers:CreateTimer(hAbility:GetSpecialValueFor("lunge_slam_delay"), function()
+        -- ⚠️ За эти доли секунды её могли убить, а способность — отобрать.
+        if not Barghest_Alive(hParent) or not hParent:IsAlive() then return end
+        if not Barghest_Alive(hAbility) then return end
+
+        -- Бьёт туда, где стоит НА МОМЕНТ удара, а не где затормозила.
+        local vPos = hParent:GetAbsOrigin()
+        -- Прямой рез сверху вниз + пыль: выпад должен читаться как «воткнула меч
+        -- в землю», а не как ещё один взмах.
+        hParent:EmitSound(BARGHEST_SND.SLAM)
+        Barghest_FxCut(hParent, vPos + Vector(0, 0, 220), vPos + vDir * 120)
+        Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
+
+        local tUnits = FindUnitsInRadius(hParent:GetTeamNumber(), vPos, nil, nRadius,
+            hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
+            hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
+        if hAbility:DamageUnits(tUnits) then
+            Barghest_ArmContinuation(hParent, BARGHEST_CONT_Q2)
+        end
+    end)
 end

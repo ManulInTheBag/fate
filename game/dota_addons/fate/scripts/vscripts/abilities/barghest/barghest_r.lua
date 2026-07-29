@@ -80,25 +80,21 @@ BARGHEST_R_ACT = {
     ACT_DOTA_OVERRIDE_ABILITY_3,    -- ER:  волна
 }
 
+--[[ ⚠️ Клип ветки отыгрывает ДВИЖОК по этому колбэку. Руками его не дублируем:
+     раньше рядом стоял OnAbilityPhaseStart, который запускал ТО ЖЕ САМОЕ
+     StartAnimation'ом — отсюда и дёрганые анимации продолжений. ]]
 function barghest_r:GetCastAnimation()
     return BARGHEST_R_ACT[self:GetArmedBranch()] or ACT_DOTA_CAST_ABILITY_6
-end
-
-function barghest_r:OnAbilityPhaseStart()
-    StartAnimation(self:GetCaster(), {duration = self:GetCastPoint(),
-        activity = self:GetCastAnimation(), rate = 1.0})
-    return true
-end
-
-function barghest_r:OnAbilityPhaseInterrupted()
-    EndAnimation(self:GetCaster())
 end
 
 function barghest_r:OnSpellStart()
     if not IsServer() then return end
     local hCaster = self:GetCaster()
     local nBranch = self:GetContinuationBranch()
-    EndAnimation(hCaster)
+    --[[ ⚠️ EndAnimation отсюда убран: он выставляет _animationEnd, из-за чего
+         StartAnimation (animations.lua:482) откладывает следующий клип на
+         0.066 с. Для веток, которые тут же запускают свою анимацию, это был
+         провал на два кадра. ]]
 
     -- Продолжение одноразовое: снимаем сразу, иначе одним окном его отыграют дважды.
     hCaster:RemoveModifierByName("modifier_barghest_continuation")
@@ -251,10 +247,10 @@ end
 -- 4 (W) — рывок вперёд с ударом рогами
 function barghest_r:DoHornCharge(vDir)
     local hCaster = self:GetCaster()
+    -- ⚠️ Анимации здесь НЕТ: ACT_DOTA_OVERRIDE_ABILITY_2 — это и есть клип
+    -- ветки WR, движок уже играет его по GetCastAnimation. Повторный запуск
+    -- сбрасывал таран в самом начале рывка.
     hCaster:EmitSound(BARGHEST_SND.E_DASH)
-    StartAnimation(hCaster, {duration = self:GetSpecialValueFor("horn_distance")
-        / self:GetSpecialValueFor("horn_speed") + 0.2,
-        activity = ACT_DOTA_OVERRIDE_ABILITY_2, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_r_horn", {
         duration = self:GetSpecialValueFor("horn_distance")
                  / self:GetSpecialValueFor("horn_speed") + 0.1,

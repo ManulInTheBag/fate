@@ -229,7 +229,468 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "everything"
+						name = "move"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 51
+						end_frame = 75
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "big_slash_1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 76
+						end_frame = 103
+						framerate = 15.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "big_slash_2"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 126
+						end_frame = 152
+						framerate = 15.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "vertical_slash"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 175
+						end_frame = 207
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "charged_slash"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 225
+						end_frame = 295
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "run_sword_ground"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 315
+						end_frame = 366
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "round_slash"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 375
+						end_frame = 415
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "hand_shot"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 433
+						end_frame = 483
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "jump"
+						children = 
+						[
+							{
+								_class = "AnimBoneOffset"
+								bone = "Bip001_R_Hand"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 490
+						end_frame = 555
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "hand_shot_strong"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 560
+						end_frame = 650
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "stance_aura"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 660
+						end_frame = 725
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "slash_jump"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 737
+						end_frame = 800
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "madness_activate"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 805
+						end_frame = 860
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "drop_down"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 862
+						end_frame = 914
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "aura_sit"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 938
+						end_frame = 1000
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_from_aura_sit"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 1001
+						end_frame = 1070
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "ya_ne_ponyal"
+						children = 
+						[
+							{
+								_class = "AnimForceBoneSpin"
+								disabled = true
+								bone = "Bip001_R_Hand"
+								spin_degrees = 1.0
+								local_axis_rotation_offset = [ 90.0, 90.0, 90.0 ]
+								start_frame = 41
+								peak_frame = 60
+								tail_frame = 84
+								end_frame = 84
+							},
+							{
+								_class = "AnimForceBonePosition"
+								disabled = true
+								bone = "Bip001_R_Hand"
+								translation = [ -70.60211, -77.37384, 136.30858 ]
+								rotation = [ 0.0, 0.0, 90.0 ]
+							},
+							{
+								_class = "AnimBoneOffset"
+								bone = "Bip001_R_Hand"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 1072
+						end_frame = 1156
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "idle_bers"
 						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
@@ -246,11 +707,349 @@
 						delete_from_compiled_model = false
 						source_filename = "models/barghest/barghest.fbx"
 						import_bone_scales = false
-						start_frame = 0
-						end_frame = 1305
+						start_frame = 1157
+						end_frame = 1197
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "run_fast"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 1198
+						end_frame = 1214
+						framerate = 40.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "change_direction___"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 1217
+						end_frame = 1231
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "slash_jopa"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 1254
+						end_frame = 1300
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "Folder"
+						name = "using"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "big_slash_3"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.6
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 76
+								end_frame = 103
+								framerate = 25.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "round_slash1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 375
+								end_frame = 415
+								framerate = 35.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "stance_aura1"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 5
+										frames_from_end = 2
+									},
+									{
+										_class = "ExtractMotion"
+										extract_tx = false
+										extract_ty = false
+										extract_tz = false
+										extract_rz = false
+										linear = false
+										quadratic = false
+										extract_initial_offset = false
+										root_bone_name = ""
+										motion_type = "Uniform"
+									},
+									{
+										_class = "DiscardMotion"
+										disabled = true
+										discard_tx = true
+										discard_ty = true
+										discard_tz = true
+										discard_rx = true
+										discard_ry = true
+										discard_rz = true
+										bone_names = [  ]
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CHANNEL_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 697
+								end_frame = 717
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "aura_sit1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CHANNEL_ABILITY_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 970
+								end_frame = 1000
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "run_sword_ground1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_7"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 343
+								end_frame = 366
+								framerate = -1.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "vertical_slash1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.1
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 175
+								end_frame = 180
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "hand_shot_strong1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_OVERRIDE_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 575
+								end_frame = 590
+								framerate = 45.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "vertical_slash2"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.4
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 181
+								end_frame = 207
+								framerate = 50.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "slash_jopa1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.4
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 1261
+								end_frame = 1271
+								framerate = 20.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+						]
 					},
 				]
 				default_root_bone_name = ""
@@ -317,263 +1116,243 @@
 						[
 							{
 								_class = "Hitbox"
-								name = "Bip01_Spine1"
-								parent_bone = "Bip01_Spine1"
+								name = "Bip001_Spine"
+								parent_bone = "Bip001_Spine"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -53.42286, -47.819347, -112.805214 ]
-								hitbox_maxs = [ 65.93612, 60.420864, 61.435757 ]
+								hitbox_mins = [ -62.25053, -40.80302, -129.84674 ]
+								hitbox_maxs = [ 69.60059, 43.0138, 84.42746 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_Spine2"
-								parent_bone = "Bip01_Spine2"
+								name = "Bip001_Spine1"
+								parent_bone = "Bip001_Spine1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -19.122778, -10.560635, -3.928383 ]
-								hitbox_maxs = [ 19.930574, 12.318913, 22.976143 ]
+								hitbox_mins = [ -31.813745, -39.295307, -80.74371 ]
+								hitbox_maxs = [ 35.18273, 46.215534, 38.443985 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_UpperArm"
-								parent_bone = "Bip01_R_UpperArm"
+								name = "Bip001_Neck"
+								parent_bone = "Bip001_Neck"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -15.684788, -7.020888, -25.75505 ]
-								hitbox_maxs = [ 3.705317, 7.549785, 3.716316 ]
+								hitbox_mins = [ -5.6396027, -7.810854, -0.5 ]
+								hitbox_maxs = [ 5.907997, 5.20418, 8.5578 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Forearm"
-								parent_bone = "Bip01_R_Forearm"
+								name = "Bip001_R_Clavicle"
+								parent_bone = "Bip001_R_Clavicle"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -20.398663, -5.838091, -31.081139 ]
-								hitbox_maxs = [ 13.007222, 6.365381, 3.581345 ]
+								hitbox_mins = [ -14.589796, -13.810315, -2.4791412 ]
+								hitbox_maxs = [ 4.9444785, 2.6776857, 9.251938 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Hand"
-								parent_bone = "Bip01_R_Hand"
+								name = "Bip001_R_UpperArm"
+								parent_bone = "Bip001_R_UpperArm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.766972, -4.810081, -6.964455 ]
-								hitbox_maxs = [ 0.848602, 3.326294, 0.962204 ]
+								hitbox_mins = [ -22.121008, -5.298048, -23.996948 ]
+								hitbox_maxs = [ 8.963358, 6.064646, 5.80986 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Finger0"
-								parent_bone = "Bip01_R_Finger0"
+								name = "Bip001_R_Forearm"
+								parent_bone = "Bip001_R_Forearm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.327381, -0.802562, -2.135895 ]
-								hitbox_maxs = [ 0.630367, 0.609629, 0.5 ]
+								hitbox_mins = [ -22.889238, -5.340028, -22.667656 ]
+								hitbox_maxs = [ 7.8223267, 3.837144, 5.702217 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Finger01"
-								parent_bone = "Bip01_R_Finger01"
+								name = "Bone001"
+								parent_bone = "Bone001"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.809193, -0.632591, -1.381973 ]
-								hitbox_maxs = [ 0.739693, 0.612501, 0.5 ]
+								hitbox_mins = [ -29.958977, -14.7094345, -34.755928 ]
+								hitbox_maxs = [ 35.34925, 34.296165, 15.308426 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Finger1"
-								parent_bone = "Bip01_R_Finger1"
+								name = "Bone002"
+								parent_bone = "Bone002"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.132885, -0.697692, -1.427063 ]
-								hitbox_maxs = [ 0.5, 0.596968, 0.850235 ]
+								hitbox_mins = [ -28.933931, -12.907162, -37.12783 ]
+								hitbox_maxs = [ 30.301348, 35.396267, 14.630005 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Finger11"
-								parent_bone = "Bip01_R_Finger11"
+								name = "Bone003"
+								parent_bone = "Bone003"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.058651, -0.635219, -0.990601 ]
-								hitbox_maxs = [ 0.5, 0.57976, 0.885124 ]
+								hitbox_mins = [ -30.41256, -6.5278397, -35.93579 ]
+								hitbox_maxs = [ 40.964966, 34.10121, 19.910126 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Finger2"
-								parent_bone = "Bip01_R_Finger2"
+								name = "Bone010"
+								parent_bone = "Bone010"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.661289, -2.264872, -2.173302 ]
-								hitbox_maxs = [ 0.947418, 2.051405, 1.123863 ]
+								hitbox_mins = [ -37.35083, -23.583204, -31.061714 ]
+								hitbox_maxs = [ 39.217964, 28.503702, 14.530899 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Finger21"
-								parent_bone = "Bip01_R_Finger21"
+								name = "Bone011"
+								parent_bone = "Bone011"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.597355, -2.263733, -1.983215 ]
-								hitbox_maxs = [ 0.50238, 2.018073, 0.988785 ]
+								hitbox_mins = [ -37.35083, -22.437876, -30.861092 ]
+								hitbox_maxs = [ 30.184578, 31.433062, 29.945312 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_UpperArm"
-								parent_bone = "Bip01_L_UpperArm"
+								name = "Bone012"
+								parent_bone = "Bone012"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.149733, -7.120433, -26.324455 ]
-								hitbox_maxs = [ 17.742025, 7.45024, 5.450661 ]
+								hitbox_mins = [ -33.75963, -12.90094, -35.50168 ]
+								hitbox_maxs = [ 32.214676, 25.580051, 29.87053 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Forearm"
-								parent_bone = "Bip01_L_Forearm"
+								name = "Bone001_m"
+								parent_bone = "Bone001_m"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -10.716322, -5.651984, -30.456116 ]
-								hitbox_maxs = [ 19.457432, 6.043109, 2.402008 ]
+								hitbox_mins = [ -50.987106, -22.564774, -34.634804 ]
+								hitbox_maxs = [ 24.618408, 38.41124, 31.114319 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Hand"
-								parent_bone = "Bip01_L_Hand"
+								name = "Bone002_m"
+								parent_bone = "Bone002_m"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.756535, -4.37841, -6.808754 ]
-								hitbox_maxs = [ 8.408455, 3.745895, 1.252914 ]
+								hitbox_mins = [ -40.022923, -10.629894, -46.693558 ]
+								hitbox_maxs = [ 30.210255, 35.39628, 19.671127 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Finger0"
-								parent_bone = "Bip01_L_Finger0"
+								name = "Bone003_m"
+								parent_bone = "Bone003_m"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.5, -0.945669, -2.008736 ]
-								hitbox_maxs = [ 1.560509, 0.5, 0.5 ]
+								hitbox_mins = [ -42.50714, -8.112091, -35.935806 ]
+								hitbox_maxs = [ 30.412521, 34.10122, 28.128387 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Finger01"
-								parent_bone = "Bip01_L_Finger01"
+								name = "Bip001_L_Clavicle"
+								parent_bone = "Bip001_L_Clavicle"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.5, -0.714892, -1.844948 ]
-								hitbox_maxs = [ 1.055294, 0.530387, 0.5 ]
+								hitbox_mins = [ -5.3826923, -14.695698, -2.2413177 ]
+								hitbox_maxs = [ 13.825573, 2.6776729, 9.251938 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Finger1"
-								parent_bone = "Bip01_L_Finger1"
+								name = "Bip001_L_UpperArm"
+								parent_bone = "Bip001_L_UpperArm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.5, -0.826601, -1.985352 ]
-								hitbox_maxs = [ 2.462315, 0.544101, 0.5 ]
+								hitbox_mins = [ -9.481583, -6.616226, -24.933197 ]
+								hitbox_maxs = [ 24.82748, 7.063592, 5.8098145 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Finger11"
-								parent_bone = "Bip01_L_Finger11"
+								name = "Bip001_L_Forearm"
+								parent_bone = "Bip001_L_Forearm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.5, -0.644507, -1.346161 ]
-								hitbox_maxs = [ 2.135536, 0.608549, 0.706924 ]
+								hitbox_mins = [ -3.7787418, -6.174547, -18.940872 ]
+								hitbox_maxs = [ 21.70622, 7.4804316, 5.7958984 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Finger2"
-								parent_bone = "Bip01_L_Finger2"
+								name = "Bip001_R_Thigh"
+								parent_bone = "Bip001_R_Thigh"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.128609, -2.170611, -3.046722 ]
-								hitbox_maxs = [ 2.816826, 2.188976, 0.5 ]
+								hitbox_mins = [ -14.793326, -13.8872795, -48.863132 ]
+								hitbox_maxs = [ 12.308045, 15.844879, 5.1824417 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Finger21"
-								parent_bone = "Bip01_L_Finger21"
+								name = "Bip001_R_Calf"
+								parent_bone = "Bip001_R_Calf"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.586491, -2.336028, -2.349037 ]
-								hitbox_maxs = [ 1.946117, 1.946421, 0.623413 ]
+								hitbox_mins = [ -5.772691, -4.726532, -45.631866 ]
+								hitbox_maxs = [ 6.437436, 10.5082855, 6.0456734 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Thigh"
-								parent_bone = "Bip01_L_Thigh"
+								name = "Bip001_R_Foot"
+								parent_bone = "Bip001_R_Foot"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -9.286289, -14.599384, -36.488335 ]
-								hitbox_maxs = [ 10.97493, 14.787983, 0.5 ]
+								hitbox_mins = [ -4.5156746, -13.715651, -12.889769 ]
+								hitbox_maxs = [ 4.548687, 3.0624175, 6.508303 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Calf"
-								parent_bone = "Bip01_L_Calf"
+								name = "Bip001_L_Thigh"
+								parent_bone = "Bip001_L_Thigh"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -15.31188, -15.890417, -42.130497 ]
-								hitbox_maxs = [ 12.831854, 17.848211, 0.5 ]
+								hitbox_mins = [ -10.131684, -13.887302, -48.867966 ]
+								hitbox_maxs = [ 14.090047, 15.844856, 5.5027313 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_L_Foot"
-								parent_bone = "Bip01_L_Foot"
+								name = "Bip001_L_Calf"
+								parent_bone = "Bip001_L_Calf"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.799993, -17.86109, -11.738531 ]
-								hitbox_maxs = [ 5.372614, 3.941851, 0.5 ]
+								hitbox_mins = [ -6.437459, -4.7265463, -45.131294 ]
+								hitbox_maxs = [ 5.7723265, 10.508273, 3.9713326 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "Bip01_R_Thigh"
-								parent_bone = "Bip01_R_Thigh"
+								name = "Bip001_L_Foot"
+								parent_bone = "Bip001_L_Foot"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.144297, -14.742205, -36.552086 ]
-								hitbox_maxs = [ 9.803614, 14.645163, 2.768951 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "Bip01_R_Calf"
-								parent_bone = "Bip01_R_Calf"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -13.248217, -15.909624, -42.070637 ]
-								hitbox_maxs = [ 14.895521, 17.829004, 0.5 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "Bip01_R_Foot"
-								parent_bone = "Bip01_R_Foot"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -5.417922, -17.880283, -11.678701 ]
-								hitbox_maxs = [ 3.754672, 3.922657, 0.5 ]
+								hitbox_mins = [ -4.5487175, -14.008396, -12.889764 ]
+								hitbox_maxs = [ 4.515644, 3.0623937, 4.360057 ]
 							},
 						]
 					},
@@ -585,6 +1364,7 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
+						disabled = true
 						scale = 3.0
 						mirror_x = false
 						mirror_y = false

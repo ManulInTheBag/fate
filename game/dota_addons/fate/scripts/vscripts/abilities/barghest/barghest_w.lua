@@ -6,8 +6,9 @@ barghest_w = class({})
      Контра по образцу lancelot_parry: канал, во время которого урон съедает
      барьер. Барьер пробили — канал обрывается и она бьёт рукой об землю вокруг
      себя. Барьер выстоял, но урон был — удар на истечении стойки.
-     Своё сверху концепта: каждый НОВЫЙ источник урона за стойку добавляет
-     барьера (`barrier_per_source`).
+     Своё сверху концепта: каждый весомый удар по стойке её же и подкрепляет
+     (`barrier_per_source`) — не чаще раза в кадр и только если удар был
+     сильнее `barrier_min_damage`.
 
      ⚠️ Блок урона свой, а не modifier_barrier_new с HasCounter: ветка
      HasCounter в аддоне не используется НИКЕМ (cu_alter и demon_king передают
@@ -82,30 +83,53 @@ function barghest_w:Slam(hCaster, fAbsorbed)
     if self.bSlammed then return end
     if not Barghest_Alive(hCaster) or not hCaster:IsAlive() then return end
     self.bSlammed = true
-    hCaster:EmitSound(BARGHEST_SND.W_BREAK)
-    hCaster:EmitSound(BARGHEST_SND.SLAM)
 
-    local vPos = hCaster:GetAbsOrigin()
+    local fDelay = self:GetSpecialValueFor("slam_delay")
+
+    -- Замах: звук пробитого барьера и сама анимация идут сразу...
+    hCaster:EmitSound(BARGHEST_SND.W_BREAK)
+    StartAnimation(hCaster, {duration = fDelay + 0.5,
+        activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
+
+    --[[ ...а урон, кольцо и грохот — через slam_delay, когда рука уже дошла до
+         земли. Без задержки клип не успевал даже начаться, и удар случался
+         раньше, чем его было видно.
+         Урон считаем ЗДЕСЬ, а не в колбэке: уровень способности к моменту
+         приземления не изменится, а хэндлов в замыкании тем самым меньше. ]]
     local nRadius = self:GetSpecialValueFor("slam_radius")
     local nBonus = math.min(self:GetSpecialValueFor("slam_bonus_cap"),
         (fAbsorbed or 0) * self:GetSpecialValueFor("slam_from_absorbed") * 0.01)
     local nDamage = self:GetSpecialValueFor("slam_damage") + nBonus
+    local nDamageType  = self:GetAbilityDamageType()
+    local nTargetTeam  = self:GetAbilityTargetTeam()
+    local nTargetType  = self:GetAbilityTargetType()
+    local nTargetFlags = self:GetAbilityTargetFlags()
+    local hAbility = self
 
-    StartAnimation(hCaster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
-    -- ⚠️ Шоквейв — ТОЛЬКО привязанным к юниту (так он поставлен в cu_alter_roar);
-    -- кольцо по радиусу — warstomp'ом, у него CP1 честно задаёт размер.
-    Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
-    Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
+    Timers:CreateTimer(fDelay, function()
+        -- ⚠️ Гарды обязательны: за эти 0.2 с её могли убить, а способность —
+        -- забрать рулбрейкером.
+        if not Barghest_Alive(hCaster) or not hCaster:IsAlive() then return end
+        if not Barghest_Alive(hAbility) then return end
 
-    local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vPos, nil, nRadius,
-        self:GetAbilityTargetTeam(), self:GetAbilityTargetType(),
-        self:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
-    for _, hUnit in pairs(tUnits) do
-        if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
-            DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
-            Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin())
+        -- Бьёт туда, где стоит НА МОМЕНТ приземления, а не где начала замах.
+        local vPos = hCaster:GetAbsOrigin()
+        hCaster:EmitSound(BARGHEST_SND.SLAM)
+        -- ⚠️ Шоквейв — ТОЛЬКО привязанным к юниту (так он поставлен в
+        -- cu_alter_roar); кольцо по радиусу — warstomp'ом, у него CP1 честно
+        -- задаёт размер.
+        Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
+        Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
+
+        local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vPos, nil, nRadius,
+            nTargetTeam, nTargetType, nTargetFlags, FIND_ANY_ORDER, false)
+        for _, hUnit in pairs(tUnits) do
+            if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
+                DoDamage(hCaster, hUnit, nDamage, nDamageType, 0, hAbility, false)
+                Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin())
+            end
         end
-    end
+    end)
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -122,7 +146,7 @@ function modifier_barghest_w_stance:GetPriority()   return MODIFIER_PRIORITY_ULT
 function modifier_barghest_w_stance:OnCreated()
     self.hAbility = self:GetAbility()
     self.hParent  = self:GetParent()
-    self.tSources = {}
+    self.fLastFeed = nil    -- когда барьер подливали в последний раз
     self.bBroken  = false
     self.fAbsorbed = 0      -- сколько урона по ней прошло: решает силу удара
 
@@ -141,8 +165,38 @@ end
 function modifier_barghest_w_stance:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
+end
+
+--[[ Подпитка барьера от прилетевшего урона.
+     ⚠️ Живёт ЗДЕСЬ, а не в OnTakeDamage, и это и была поломка: пока барьер
+     держит, итоговый урон равен нулю, а событие MODIFIER_EVENT_ON_TAKEDAMAGE
+     на нулевом уроне движок вообще не рассылает. Прибавка приходила только в
+     тот кадр, когда барьер уже ПРОБИТ — то есть практически никогда.
+     GetModifierIncomingDamageConstant видит каждое попадание без исключений.
+
+     Два гейта, чтобы прибавка не стала бесплатной:
+     • barrier_min_damage — удар слабее порога барьер не кормит вообще. Это и
+       есть защита от «двадцать тиков по 5»;
+     • barrier_gain_cd — общий кулдаун в один кадр. АоЕ и мультихиты сбрасывают
+       по несколько инстансов урона в одном тике, и без него один взрыв
+       засчитывался бы как пять подпиток. ]]
+function modifier_barghest_w_stance:FeedBarrier(fDamage)
+    local hAbility = self.hAbility
+    if not Barghest_Alive(hAbility) then return end
+    if fDamage < hAbility:GetSpecialValueFor("barrier_min_damage") then return end
+
+    local fNow = GameRules:GetGameTime()
+    if self.fLastFeed ~= nil
+       and (fNow - self.fLastFeed) < hAbility:GetSpecialValueFor("barrier_gain_cd") then
+        return
+    end
+    self.fLastFeed = fNow
+
+    -- ⚠️ Барьер с потолком: без него толпа наваливала его быстрее, чем успевала
+    -- пробить, и стойку нельзя было сломать в принципе.
+    self:SetStackCount(math.min(hAbility:GetSpecialValueFor("barrier_cap"),
+        self:GetStackCount() + hAbility:GetSpecialValueFor("barrier_per_source")))
 end
 
 --[[ Остаток барьера показываем стаками — так игрок видит, сколько ещё держит.
@@ -154,13 +208,18 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
     if keys.damage <= 0 then return 0 end
     if self.bBroken then return 0 end
 
+    local fIncoming = keys.original_damage or keys.damage
     -- Копим ВЕСЬ прошедший урон: от него растёт ответный удар.
-    self.fAbsorbed = (self.fAbsorbed or 0) + keys.original_damage
+    self.fAbsorbed = (self.fAbsorbed or 0) + fIncoming
+
+    -- ⚠️ Подпитка ДО блока, а не после: иначе удар, который как раз и пробивает
+    -- барьер, в него ничего не вложил бы — самый частый случай.
+    self:FeedBarrier(fIncoming)
 
     local nBlock = self:GetStackCount()
-    if nBlock > keys.original_damage then
-        self:SetStackCount(nBlock - keys.original_damage)
-        return -keys.original_damage
+    if nBlock > fIncoming then
+        self:SetStackCount(nBlock - fIncoming)
+        return -fIncoming
     end
 
     -- Барьер пробит. ⚠️ Ни урона, ни Destroy, ни EndChannel прямо отсюда —
@@ -168,7 +227,7 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
     self.bBroken = true
     self:SetStackCount(0)
 
-    local nLeftover = keys.original_damage - nBlock
+    local nLeftover = fIncoming - nBlock
     local hAbility  = self.hAbility
     local hParent   = self.hParent
     local tDamage   = nil
@@ -198,28 +257,4 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
     end)
 
     return -nBlock
-end
-
---[[ ⚠️ Тут можно только менять свои поля и стаки: вешать модификаторы и
-     наносить урон прямо из колбэка нельзя. ]]
-function modifier_barghest_w_stance:OnTakeDamage(keys)
-    if not IsServer() then return end
-    if keys.unit ~= self.hParent then return end
-    -- ⚠️ Сверяемся с original_damage, а не с damage: барьер уже съел урон, и
-    -- damage тут будет 0 — а бить по ней били, источник считать надо.
-    if (keys.original_damage or 0) <= 0 then return end
-
-    local hAttacker = keys.attacker
-    if not Barghest_Alive(hAttacker) then return end
-    local nId = hAttacker:entindex()
-    if self.tSources[nId] then return end
-    self.tSources[nId] = true
-
-    -- ⚠️ Барьер с потолком: без него толпа наваливала его быстрее, чем успевала
-    -- пробить, и стойку нельзя было сломать в принципе.
-    if not self.bBroken then
-        local nCap = self.hAbility:GetSpecialValueFor("barrier_cap")
-        self:SetStackCount(math.min(nCap, self:GetStackCount()
-            + self.hAbility:GetSpecialValueFor("barrier_per_source")))
-    end
 end

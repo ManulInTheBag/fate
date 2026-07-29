@@ -21,7 +21,6 @@ barghest_e = class({})
 
 LinkLuaModifier("modifier_barghest_e_charge",  "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_e_dash",    "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_HORIZONTAL)
-LinkLuaModifier("modifier_barghest_e_carried", "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_e_chains",  "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_NONE)
 
 function barghest_e:GetAOERadius()
@@ -179,7 +178,8 @@ function modifier_barghest_e_charge:OnDestroy()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Рывок: летим вперёд, первого пойманного тащим с собой до конца
+-- Рывок: летим вперёд до первого врага. Встретили — впечатались оба:
+-- его сковывает на месте, наш рывок на этом кончается.
 ---------------------------------------------------------------------------------------------------
 modifier_barghest_e_dash = class({})
 
@@ -207,8 +207,7 @@ function modifier_barghest_e_dash:OnCreated(tTable)
     self.nGrab      = self.hAbility:GetSpecialValueFor("grab_radius")
     self.nDamage    = self.hAbility:GetSpecialValueFor("chain_damage")
     self.fTravelled = 0
-    self.hCarried   = nil
-    self.tBrushed   = {}
+    self.hHit       = nil       -- в кого впечатались; он же оборвал рывок
     self.nRetries   = 0
     self.fTurnRate  = math.rad(self.hAbility:GetSpecialValueFor("turn_rate"))
 
@@ -270,28 +269,23 @@ function modifier_barghest_e_dash:UpdateHorizontalMotion(hUnit, fTime)
     end
     hUnit:SetAbsOrigin(vNext)
 
-    -- Пойманного волочём перед собой — он и есть смысл рывка.
-    if Barghest_Alive(self.hCarried) and self.hCarried:IsAlive() then
-        self.hCarried:SetAbsOrigin(GetGroundPosition(vNext + self.vDir * self.nGrab,
-            self.hCarried))
-    end
-
+    --[[ Столкновение. Врага НЕ везём: кого задели — того и сковали на месте, а
+         рывок на этом кончается. Поэтому ищем только первого и сразу выходим.
+         ⚠️ Урон — здесь (так же было и раньше), а стан вешаем из OnDestroy
+         через таймер: модификатор на чужом юните прямо из колбэка контроллера
+         движения ставить нельзя. ]]
     local hCaster = self:GetCaster()
     local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vNext, nil, self.nGrab,
         self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
         self.hAbility:GetAbilityTargetFlags(), FIND_CLOSEST, false)
     for _, hEnemy in pairs(tUnits) do
-        if IsNotNull(hEnemy) and not IsSpellBlocked(hEnemy, hCaster)
-           and not self.tBrushed[hEnemy:entindex()] then
-            self.tBrushed[hEnemy:entindex()] = true
+        if IsNotNull(hEnemy) and not IsSpellBlocked(hEnemy, hCaster) then
+            self.hHit = hEnemy
+            hEnemy:EmitSound(BARGHEST_SND.E_GRAB)
             DoDamage(hCaster, hEnemy, self.nDamage, self.hAbility:GetAbilityDamageType(),
                 0, self.hAbility, false)
-            if self.hCarried == nil then
-                self.hCarried = hEnemy
-                hEnemy:EmitSound(BARGHEST_SND.E_GRAB)
-                hEnemy:AddNewModifier(hCaster, self.hAbility, "modifier_barghest_e_carried",
-                    {duration = self.nDistance / self.nSpeed + 0.2})
-            end
+            self:Destroy()
+            return
         end
     end
 end
@@ -305,49 +299,35 @@ function modifier_barghest_e_dash:OnDestroy()
     if not Barghest_Alive(self.hAbility) then return end
 
     local hCaster  = self:GetCaster()
-    local hCarried = self.hCarried
+    local hHit     = self.hHit
     local fCharge  = self.fCharge
     local hAbility = self.hAbility
-    if not Barghest_Alive(hCarried) then return end
+    -- Никого не задели — рывок просто выдохся, продолжение не заряжается.
+    if not Barghest_Alive(hHit) then return end
 
     -- ⚠️ Через таймер: рывок может кончиться внутри чужого пайплайна (смерть,
-    -- прерывание контроллера), а тут мы вешаем модификаторы.
+    -- прерывание контроллера, наш же Destroy из UpdateHorizontalMotion), а тут
+    -- мы вешаем модификаторы.
     Timers:CreateTimer(0, function()
-        if not Barghest_Alive(hCarried) or not Barghest_Alive(hCaster) then return end
+        if not Barghest_Alive(hHit) or not Barghest_Alive(hCaster) then return end
         if not Barghest_Alive(hAbility) then return end
-        hCarried:RemoveModifierByName("modifier_barghest_e_carried")
-        if not hCarried:IsAlive() then return end
+        if not hHit:IsAlive() then return end
 
-        FindClearSpaceForUnit(hCarried, hCarried:GetAbsOrigin(), true)
-        -- Дольше держали заряд — дольше висят цепи.
-        hCarried:AddNewModifier(hCaster, hAbility, "modifier_barghest_e_chains",
-            {duration = hAbility:GetSpecialValueFor("chain_duration") * fCharge})
+        --[[ Дольше держали заряд — дольше держат цепи. Пол в chain_min_pct:
+             без него рывок «в упор» давал стан в сотые доли секунды, то есть
+             ничего. ]]
+        local fMin = hAbility:GetSpecialValueFor("chain_min_pct") * 0.01
+        hHit:AddNewModifier(hCaster, hAbility, "modifier_barghest_e_chains",
+            {duration = hAbility:GetSpecialValueFor("chain_duration")
+                * (fMin + (1 - fMin) * fCharge)})
         Barghest_ArmContinuation(hCaster, BARGHEST_CONT_E)
     end)
 end
 
 ---------------------------------------------------------------------------------------------------
--- Пока волочёт: жертва оглушена и не толкается
----------------------------------------------------------------------------------------------------
-modifier_barghest_e_carried = class({})
-
-function modifier_barghest_e_carried:IsHidden()      return false end
-function modifier_barghest_e_carried:IsDebuff()      return true end
-function modifier_barghest_e_carried:IsPurgable()    return false end
-function modifier_barghest_e_carried:RemoveOnDeath() return true end
-
-function modifier_barghest_e_carried:CheckState()
-    return {
-        [MODIFIER_STATE_STUNNED]           = true,
-        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    }
-end
-
+-- Цепи: оглушают на месте и постепенно жгут
 -- ⚠️ Никакого GetOverrideAnimation: анимации на ЧУЖОМ юните в аддоне не
 -- проигрываем никогда. Стан и так показывает состояние.
-
----------------------------------------------------------------------------------------------------
--- Цепи: держат на месте и постепенно жгут
 ---------------------------------------------------------------------------------------------------
 modifier_barghest_e_chains = class({})
 
@@ -360,8 +340,12 @@ function modifier_barghest_e_chains:GetTexture()
     return "custom/barghest/barghest_chains"
 end
 
+-- Столкновение приколачивает цель к земле: не рут, а полноценный стан.
 function modifier_barghest_e_chains:CheckState()
-    return {[MODIFIER_STATE_ROOTED] = true}
+    return {
+        [MODIFIER_STATE_STUNNED] = true,
+        [MODIFIER_STATE_ROOTED]  = true,
+    }
 end
 
 function modifier_barghest_e_chains:OnCreated()
