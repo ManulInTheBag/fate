@@ -138,23 +138,7 @@
 								to = "models/barghest/2.vmat"
 							},
 							{
-								from = "2.vmat"
-								to = "models/barghest/16.vmat"
-							},
-							{
-								from = "3.vmat"
-								to = "models/barghest/15.vmat"
-							},
-							{
-								from = "4.vmat"
-								to = "models/barghest/15.vmat"
-							},
-							{
-								from = "5.vmat"
-								to = "models/barghest/15.vmat"
-							},
-							{
-								from = "1.vmat"
+								from = ""
 								to = "models/barghest/15.vmat"
 							},
 						]
@@ -814,7 +798,7 @@
 								import_bone_scales = false
 								start_frame = 76
 								end_frame = 103
-								framerate = 25.0
+								framerate = 50.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -826,7 +810,7 @@
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
-								fade_out_time = 0.2
+								fade_out_time = 0.5
 								looping = false
 								delta = false
 								worldSpace = false
@@ -837,9 +821,9 @@
 								delete_from_compiled_model = false
 								source_filename = "models/barghest/barghest.fbx"
 								import_bone_scales = false
-								start_frame = 375
-								end_frame = 415
-								framerate = 35.0
+								start_frame = 377
+								end_frame = 405
+								framerate = 30.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -1019,8 +1003,8 @@
 								source_filename = "models/barghest/barghest.fbx"
 								import_bone_scales = false
 								start_frame = 181
-								end_frame = 207
-								framerate = 50.0
+								end_frame = 191
+								framerate = 30.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -1046,6 +1030,40 @@
 								start_frame = 1261
 								end_frame = 1271
 								framerate = 20.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "jump1"
+								children = 
+								[
+									{
+										_class = "AnimBoneOffset"
+										bone = "Bip001_R_Hand"
+										translation = [ 0.0, 0.0, 0.0 ]
+										rotation = [ 0.0, 0.0, 180.0 ]
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 490
+								end_frame = 555
+								framerate = 90.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -1121,8 +1139,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -62.25053, -40.80302, -129.84674 ]
-								hitbox_maxs = [ 69.60059, 43.0138, 84.42746 ]
+								hitbox_mins = [ -27.525879, -40.80302, -34.646168 ]
+								hitbox_maxs = [ 42.50239, 43.0138, 49.61001 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1131,7 +1149,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -31.813745, -39.295307, -80.74371 ]
+								hitbox_mins = [ -31.813745, -39.295307, -55.822235 ]
 								hitbox_maxs = [ 35.18273, 46.215534, 38.443985 ]
 							},
 							{

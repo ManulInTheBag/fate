@@ -13,11 +13,93 @@ var BUFF_ICONS = {
 };
 
 var g_victory = null;
+var g_overtimeSeenAt = 0; // когда клиент впервые увидел овертайм (для баннера)
+var g_soonUntil = 0;      // до какого времени держим «овертайм возможен»
+var g_soonTeam = 0;       // кто тянет овертайм (для текста подсказки)
+
+// Флаг ot_possible гаснет, как только проигрывающие на пару секунд вышли из
+// зоны (TOUCH_GRACE), поэтому сообщение держим ещё столько секунд — иначе
+// оно мигает у самого таймаута
+var SOON_HOLD = 2.0;
 
 function UpdateVictory(data)
 {
     g_victory = data;
     RenderVictory();
+}
+
+// Сообщения об овертайме: возможен -> начался -> заканчивается.
+// Рисуются на клиенте (а не серверным center message), потому что их можно
+// выключить тумблером в Fate settings — сервер шлёт только состояние.
+function RenderAnnounce(v, allyTeam)
+{
+    var panel = $("#ZoneAnnouncePanel");
+    if (!panel) return;
+
+    var title = "";
+    var sub = "";
+    var soon = false;
+    var urgent = false;
+
+    if (v && v.enabled === 1 && v.phase === "active")
+    {
+        var now = Game.GetGameTime();
+        if (v.overtime === 1)
+        {
+            if (g_overtimeSeenAt === 0) g_overtimeSeenAt = now;
+            g_soonUntil = 0;
+
+            var endWarn = v.ot_end_warn > 0 ? v.ot_end_warn : 10;
+            var leftOT = Math.max(0, v.overtime_end - now);
+            if (v.leave_end > 0)
+            {
+                title = "RETURN TO THE ZONE";
+                sub = Math.max(0, v.leave_end - now).toFixed(1) + "s before the round is decided";
+                urgent = true;
+            }
+            else if (leftOT <= endWarn)
+            {
+                title = "OVERTIME ENDS IN " + Math.max(0, Math.ceil(leftOT)) + "s";
+                sub = "Capture the zone or force the enemy out!";
+                urgent = true;
+            }
+            else if (now - g_overtimeSeenAt <= 4)
+            {
+                title = "OVERTIME!";
+                sub = "Flip the zone or force the enemy out!";
+                urgent = true;
+            }
+        }
+        else
+        {
+            g_overtimeSeenAt = 0;
+            if (v.ot_possible === 1)
+            {
+                g_soonUntil = now + SOON_HOLD;
+                g_soonTeam = v.ot_team;
+            }
+            if (now < g_soonUntil)
+            {
+                title = "OVERTIME POSSIBLE";
+                sub = (g_soonTeam === allyTeam)
+                    ? "Stay in the zone at the timeout to keep playing"
+                    : "Push the enemies out of the zone before the timeout";
+                soon = true;
+            }
+        }
+    }
+    else
+    {
+        g_overtimeSeenAt = 0;
+        g_soonUntil = 0;
+    }
+
+    panel.SetHasClass("AnnounceVisible", title !== "");
+    panel.SetHasClass("Soon", soon);
+    panel.SetHasClass("Urgent", urgent);
+    if (title === "") return;
+    $("#ZoneAnnounceTitle").text = title;
+    $("#ZoneAnnounceSub").text = sub;
 }
 
 function RenderVictory()
@@ -26,12 +108,6 @@ function RenderVictory()
     if (!panel) return;
 
     var v = g_victory;
-    if (!v || v.enabled !== 1 || !v.phase || v.phase === "none")
-    {
-        panel.visible = false;
-        return;
-    }
-    panel.visible = true;
 
     // всё в панели рисуется ОТНОСИТЕЛЬНО смотрящего, как стены зоны:
     // союзники синие (слева), враги красные (справа); спектатору
@@ -39,6 +115,15 @@ function RenderVictory()
     var localTeam = Players.GetTeam(Game.GetLocalPlayerID());
     var allyTeam = (localTeam === TEAM_RED || localTeam === TEAM_BLACK) ? localTeam : TEAM_RED;
     var enemyTeam = (allyTeam === TEAM_RED) ? TEAM_BLACK : TEAM_RED;
+
+    RenderAnnounce(v, allyTeam);
+
+    if (!v || v.enabled !== 1 || !v.phase || v.phase === "none")
+    {
+        panel.visible = false;
+        return;
+    }
+    panel.visible = true;
 
     var status = $("#VZStatus");
     var bars = $("#VZBars");
@@ -48,10 +133,16 @@ function RenderVictory()
     status.SetHasClass("EnemyHold", false);
     panel.SetHasClass("OwnedAlly", v.owner === allyTeam);
     panel.SetHasClass("OwnedEnemy", v.owner === enemyTeam);
+    panel.SetHasClass("OvertimeActive", v.overtime === 1);
+
+    // зона могла стартовать уже захваченной (отставание 3+ раундов) —
+    // тогда полоску показываем и до активации
+    var preOwned = (v.owner === allyTeam) ? " (ALLIES HOLD)"
+        : (v.owner === enemyTeam ? " (ENEMIES HOLD)" : "");
 
     if (v.phase === "preround")
     {
-        status.text = "STARTS WITH ROUND";
+        status.text = "STARTS WITH ROUND" + preOwned;
         bars.visible = false;
         return;
     }
@@ -59,7 +150,7 @@ function RenderVictory()
     if (v.phase === "grace")
     {
         var left = Math.max(0, Math.ceil(v.grace_end - Game.GetGameTime()));
-        status.text = "ACTIVE IN " + left + "s";
+        status.text = "ACTIVE IN " + left + "s" + preOwned;
         bars.visible = false;
         return;
     }
@@ -188,7 +279,10 @@ function OnZonesChanged(tableName, key, data)
 // (сервер шлёт только таймстемпы, сами секунды тикают на клиенте)
 function GraceTick()
 {
-    if (g_victory && (g_victory.phase === "grace" || g_victory.overtime === 1))
+    // g_soonUntil тоже держим в условии: флаг ot_possible мог уже погаснуть,
+    // а сообщение ещё висит — без тика его некому снять
+    if (g_victory && (g_victory.phase === "grace" || g_victory.overtime === 1
+        || g_victory.ot_possible === 1 || Game.GetGameTime() < g_soonUntil))
     {
         RenderVictory();
     }

@@ -769,8 +769,10 @@ function leonidas_kick:OnSpellStart()
         for k,v in pairs(BROTHERS) do
             if v:GetUnitName() == "leonidas_brother_soldier" then
                 local modifier = v:FindModifierByName("modifier_leonidas_brother")
-                modifier.state = 1
-                modifier:StartIntervalThink(-1)
+                if modifier then
+                    modifier.state = 1
+                    modifier:StartIntervalThink(-1)
+                end
                 self.stopOrder_self = {
                     UnitIndex = v:entindex(), 
                     OrderType = DOTA_UNIT_ORDER_STOP
@@ -814,6 +816,9 @@ function leonidas_kick:OnSpellStart()
                 {
                     endTime  =  nDuration * ( nScaleFactor ),
                     callback = function()
+                        -- солдата могло не стать за время полёта (смерть,
+                        -- конец раунда): без этого гарда весь колбэк падал
+                        if not IsNotNull(v) or not IsNotNull(hCaster) then return end
                         v:OnPreBounce(nil)
                         v:SetBounceMultiplier(0)
                         v:PreventDI(false)
@@ -913,7 +918,10 @@ function leonidas_kick:OnSpellStart()
                                 end
                             end)
                         else
-                            v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+                            -- солдат мог умереть/потерять модификатор, пока
+                            -- летел от пинка (колбэк отложенный)
+                            local hBrotherMod = v:FindModifierByName("modifier_leonidas_brother")
+                            if hBrotherMod then hBrotherMod:ShareBarriers() end
 
                         end
                     end
@@ -1025,7 +1033,10 @@ function leonidas_kick:OnSpellStart()
                                 end
                             end)
                         else
-                            v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+                            -- солдат мог умереть/потерять модификатор, пока
+                            -- летел от пинка (колбэк отложенный)
+                            local hBrotherMod = v:FindModifierByName("modifier_leonidas_brother")
+                            if hBrotherMod then hBrotherMod:ShareBarriers() end
 
                         end
         
@@ -2045,7 +2056,8 @@ function leonidas_berserk:OnSpellStart()
     for k,v in pairs(BROTHERS) do
         if v:GetUnitName() == "leonidas_brother_soldier" then
             if not v:HasModifier("modifier_leonidas_pride_translator") then
-                v:FindModifierByName("modifier_leonidas_brother").state = 2
+                local hBrotherMod = v:FindModifierByName("modifier_leonidas_brother")
+                if hBrotherMod then hBrotherMod.state = 2 end
                 v:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK )
             end
         end

@@ -30,6 +30,14 @@
             </Panel>
         </Panel>
 
+        <!-- Экранные сообщения об овертайме (возможен / начался / кончается).
+             Скрываются тумблером «Show overtime announcements» в Fate settings
+             (класс ZoneMsgHidden вешает OnConfigZoneMsgToggle). -->
+        <Panel id="ZoneAnnouncePanel" class="ZoneAnnounce" hittest="false">
+            <Label id="ZoneAnnounceTitle" class="ZoneAnnounceTitle" text="" />
+            <Label id="ZoneAnnounceSub" class="ZoneAnnounceSub" text="" />
+        </Panel>
+
         <!-- Бафф-зоны: компактные иконки у правого края,
              скрываются тумблером в Fate settings -->
         <Panel id="BuffZonesPanel" class="BuffZones" hittest="false">

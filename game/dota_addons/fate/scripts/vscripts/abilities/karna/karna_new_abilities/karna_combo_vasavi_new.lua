@@ -58,10 +58,11 @@ function karna_combo_vasavi_new:OnSpellStart()
         --ParticleManager:ReleaseParticleIndex( self.flameFx2 )
     end)
     Timers:CreateTimer(fire_delay + 1.0, function()
-		caster:FindAbilityByName("karna_armor"):EndCooldown()
-    	ParticleManager:DestroyParticle( self.particle, false )
-        ParticleManager:ReleaseParticleIndex( self.particle)
-
+		-- self.particle тут никогда не заводился (остаток старой версии) —
+		-- DestroyParticle(nil) роняло весь колбэк, и karna_armor успевал
+		-- сброситься только потому, что стоял строкой выше
+		local hArmor = caster:FindAbilityByName("karna_armor")
+		if hArmor then hArmor:EndCooldown() end
     end)
 
 

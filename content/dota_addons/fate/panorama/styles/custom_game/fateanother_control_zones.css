@@ -84,9 +84,14 @@
     animation-timing-function: ease-in-out;
 }
 
+/* Овертайм в шапке панели — самый важный статус, поэтому крупнее
+   остальных, ярче и с собственным свечением */
 .VZStatus.Overtime
 {
-    color: #ff4a4a;
+    color: #ff2e2e;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 8px 3 #ff0000;
     animation-name: ZonePulse;
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
@@ -169,6 +174,70 @@
 .VZEnemyFill
 {
     background-color: gradient(linear, 0% 0%, 0% 100%, from(#e04545), to(#8f1f1f));
+}
+
+/* Пока идёт овертайм, вся панель обведена красным — её видно боковым зрением */
+.VictoryZone.OvertimeActive
+{
+    border: 2px solid #ff2e2e;
+    box-shadow: 0px 0px 12px 2px #ff000066;
+}
+
+/* ============ Экранные сообщения об овертайме ============ */
+
+/* Ниже центра экрана, чтобы не спорить с центральными сообщениями доты */
+.ZoneAnnounce
+{
+    horizontal-align: center;
+    vertical-align: center;
+    margin-top: 220px;
+    flow-children: down;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+}
+
+.ZoneAnnounce.AnnounceVisible
+{
+    opacity: 1;
+}
+
+/* Тумблер «Show overtime announcements» в Fate settings */
+.ZoneAnnounce.ZoneMsgHidden
+{
+    visibility: collapse;
+}
+
+.ZoneAnnounceTitle
+{
+    horizontal-align: center;
+    color: #ff3c3c;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 10px 3 #000000;
+}
+
+.ZoneAnnounce.Soon .ZoneAnnounceTitle
+{
+    color: #ffc83c;
+}
+
+.ZoneAnnounce.Urgent .ZoneAnnounceTitle
+{
+    animation-name: ZonePulse;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.ZoneAnnounceSub
+{
+    horizontal-align: center;
+    color: #e8e8e8;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0px 0px 8px 3 #000000;
 }
 
 /* ===================== Бафф-зоны (правый край) ===================== */

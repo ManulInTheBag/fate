@@ -129,6 +129,17 @@ function OnZonePosChanged(){
     panel.SetHasClass("PosLeftMiddle", id === "zp_left");
 }
 
+// Сообщения об овертайме боевой зоны на экране (по умолчанию включены).
+// checked = показывать; класс вешается абсолютно, дефолт тумблера
+// (checked="true") совпадает с дефолтом панели без класса.
+function OnConfigZoneMsgToggle(){
+    var configPanel = $.GetContextPanel();
+    var toggle = configPanel.FindChildTraverse("optionZoneMsg");
+    var panel = GetHUDRootUI().FindChildTraverse("ZoneAnnouncePanel");
+    if (!toggle || !panel) return;
+    panel.SetHasClass("ZoneMsgHidden", !toggle.checked);
+}
+
 function OnConfig9Toggle()
 {
     g_GameConfig.bIsConfig9On = !g_GameConfig.bIsConfig9On;

@@ -90,6 +90,15 @@ function lu_bu_sky_piercer:OnSpellStart()
 	masterCombo:EndCooldown()
 	masterCombo:StartCooldown(120)
 
+	-- Индексы партиклей объявлены ЗДЕСЬ, а не внутри таймера: таймер
+	-- уборки ниже (effect_delay+0.4) видит их только как апвалью. Раньше
+	-- они были local внутри колбэка -> в уборке резолвились в глобальный
+	-- nil -> "Parameter type mismatch" в DestroyParticle, и ни один
+	-- партикль трещины не убирался.
+	local particle_start_fx_center, particle_start_fx_left, particle_start_fx_right
+	local particle_start_fx_left_ext, particle_start_fx_right_ext
+	local particle_radius_indicator_right, particle_radius_indicator_left
+
 	-- Add start particle effect
 	Timers:CreateTimer(0.4, function()
 		local explosionFxName = "particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf"
@@ -98,14 +107,14 @@ function lu_bu_sky_piercer:OnSpellStart()
 				explosionFxName = "particles/custom/jia_qiu/lu_bu_sky_piercer_explosion.vpcf"
 			end
 		end
-		local particle_start_fx_center = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_left = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_right = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_left_ext = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
-		local particle_start_fx_right_ext = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		particle_start_fx_center = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		particle_start_fx_left = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		particle_start_fx_right = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		particle_start_fx_left_ext = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
+		particle_start_fx_right_ext = ParticleManager:CreateParticle(explosionFxName, PATTACH_WORLDORIGIN, caster)
 
-		local particle_radius_indicator_right = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)
-		local particle_radius_indicator_left = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)
+		particle_radius_indicator_right = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)
+		particle_radius_indicator_left = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)
 		
 		ParticleManager:SetParticleControl(particle_start_fx_center, 0, caster_position)
 		ParticleManager:SetParticleControl(particle_start_fx_center, 1, crack_ending_center)
@@ -202,21 +211,20 @@ function lu_bu_sky_piercer:OnSpellStart()
 
 
 		
-		ParticleManager:DestroyParticle( particle_start_fx_center, false )
-		ParticleManager:DestroyParticle( particle_start_fx_left, false )
-		ParticleManager:DestroyParticle( particle_start_fx_right, false )
-		ParticleManager:DestroyParticle( particle_start_fx_left_ext, false )
-		ParticleManager:DestroyParticle( particle_start_fx_right_ext, false )
-		ParticleManager:DestroyParticle( particle_radius_indicator_right, false )
-		ParticleManager:DestroyParticle( particle_radius_indicator_left, false )
-
-		ParticleManager:ReleaseParticleIndex(particle_start_fx_center)
-		ParticleManager:ReleaseParticleIndex(particle_start_fx_left)
-		ParticleManager:ReleaseParticleIndex(particle_start_fx_right)
-		ParticleManager:ReleaseParticleIndex(particle_start_fx_left_ext)
-		ParticleManager:ReleaseParticleIndex(particle_start_fx_right_ext)
-		ParticleManager:ReleaseParticleIndex(particle_radius_indicator_right)
-		ParticleManager:ReleaseParticleIndex(particle_radius_indicator_left)
+		-- партикль мог не успеть создаться (таймер создания 0.4с), поэтому
+		-- индекс проверяем — DestroyParticle(nil) роняет колбэк целиком
+		local function KillFx(nIndex)
+			if not nIndex then return end
+			ParticleManager:DestroyParticle(nIndex, false)
+			ParticleManager:ReleaseParticleIndex(nIndex)
+		end
+		KillFx(particle_start_fx_center)
+		KillFx(particle_start_fx_left)
+		KillFx(particle_start_fx_right)
+		KillFx(particle_start_fx_left_ext)
+		KillFx(particle_start_fx_right_ext)
+		KillFx(particle_radius_indicator_right)
+		KillFx(particle_radius_indicator_left)
 	end)
 end
 

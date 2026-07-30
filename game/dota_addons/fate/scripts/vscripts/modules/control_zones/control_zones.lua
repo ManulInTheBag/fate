@@ -376,13 +376,18 @@ end
 -- сторону карты (никакого зеркалирования — карта несимметрична):
 -- center при равном счёте, tierN_radiant/tierN_dire — по тому, на какой
 -- стороне в ЭТОМ раунде спавнится отстающая команда.
+-- Возвращает: позиция, тир (0/1/2), отстающая команда (0 при равном счёте).
+-- Тир нужен вызывающему: в крайнем положении (tier2) зона стартует уже
+-- захваченной отстающей стороной.
 function ControlZones:PickVictoryZone(round, radiantScore, direScore)
     local vzc = CONFIG.VICTORY_ZONE
     local diff = math.abs(radiantScore - direScore)
     local poolName = "center"
+    local tierNum, losingTeam = 0, 0
     if diff >= vzc.TIER1_SCORE_DIFF then
         local tier = diff >= vzc.TIER2_SCORE_DIFF and "tier2" or "tier1"
-        local losingTeam = radiantScore < direScore and TEAM_RED or TEAM_BLACK
+        tierNum = tier == "tier2" and 2 or 1
+        losingTeam = radiantScore < direScore and TEAM_RED or TEAM_BLACK
         poolName = tier .. (IsTeamOnRadiantSide(losingTeam, round) and "_radiant" or "_dire")
     end
 
@@ -402,7 +407,7 @@ function ControlZones:PickVictoryZone(round, radiantScore, direScore)
     end
     self.lastZoneKey = key
     local p = pool[idx]
-    return GetGroundPosition(Vector(p.x, p.y, 0), nil)
+    return GetGroundPosition(Vector(p.x, p.y, 0), nil), tierNum, losingTeam
 end
 
 function ControlZones:SetupBuffZones(round)
@@ -482,15 +487,9 @@ function ControlZones:_OnZonesVote(keys)
     if self.voteResolved then return end
     local pid = tonumber(keys.PlayerID or keys.player)
     if pid then
+        -- один голос на PlayerID, поздние (после ResolveVote) игнорируются
         if self.votedPlayers[pid] then return end
         self.votedPlayers[pid] = true
-        -- НА ВРЕМЯ ТЕСТИНГА: голос хоста решает вне зависимости от большинства
-        if CONFIG.VOTE_OVERRIDE_STEAMID and PlayerResource then
-            local ok, steamId = pcall(PlayerResource.GetSteamAccountID, PlayerResource, pid)
-            if ok and steamId == CONFIG.VOTE_OVERRIDE_STEAMID then
-                self.voteOverride = tonumber(keys.enabled) == 1
-            end
-        end
     end
     if tonumber(keys.enabled) == 1 then
         self.voteEnable = self.voteEnable + 1
@@ -505,17 +504,6 @@ function ControlZones:ResolveVote()
     if self.voteResolved then return end
     self.voteResolved = true
     if not CONFIG.ENABLED then return end
-    if self.voteOverride ~= nil then
-        -- тестовый оверрайд: решает голос хоста (см. VOTE_OVERRIDE_STEAMID)
-        if not self.voteOverride then
-            self.runtimeDisabled = true
-        end
-        GameRules:SendCustomMessage(string.format(
-            "<font color='#FF3399'>Vote Result:</font> Battle zones <font color='#FF3399'>%s</font> (host override, votes %d : %d)",
-            self.voteOverride and "ENABLED" or "DISABLED",
-            self.voteEnable, self.voteDisable), 0, 0)
-        return
-    end
     if self.voteDisable > self.voteEnable then
         self.runtimeDisabled = true
         GameRules:SendCustomMessage(string.format(
@@ -552,7 +540,7 @@ function ControlZones:_OnPreRound(round, radiantScore, direScore, gameMode)
     self.direScore = direScore or 0
 
     local vzc = CONFIG.VICTORY_ZONE
-    local pos = self:PickVictoryZone(round, radiantScore, direScore)
+    local pos, tier, losingTeam = self:PickVictoryZone(round, radiantScore, direScore)
     local axisDir, axisPerp = GetAxes()
     self.vz = {
         shape = "rect",
@@ -567,8 +555,18 @@ function ControlZones:_OnPreRound(round, radiantScore, direScore, gameMode)
         lastTouch = {}, -- когда команда последний раз касалась зоны (для овертайма)
         counts = { [TEAM_RED] = 0, [TEAM_BLACK] = 0 },
     }
-    self.vz.visualState = "neutral"
-    self.vz.particles = self:CreateRectWalls(self.vz, "neutral")
+    -- крайнее положение (отставание 3+): зона сразу принадлежит отстающим —
+    -- полная полоска и владение с первой секунды, противнику её дренить
+    self.vz.autoCaptured = false
+    if tier == 2 and losingTeam ~= 0 and vzc.TIER2_AUTO_CAPTURE then
+        self.vz.influence = (losingTeam == TEAM_RED and 1 or -1) * vzc.CAPTURE_TIME
+        self.vz.owner = losingTeam
+        self.vz.autoCaptured = true
+    end
+
+    local initialState = self.vz.owner ~= 0 and self.vz.owner or "neutral"
+    self.vz.visualState = initialState
+    self.vz.particles = self:CreateRectWalls(self.vz, initialState)
     self.vz.markers = SpawnMarkers(pos, MARKER_UNIT_VICTORY)
 
     self:SetupBuffZones(round)
@@ -613,15 +611,27 @@ function ControlZones:_OnRoundStart()
     self.leaveDeadline = nil
     self.lastContestants = nil
     self.stopped = false
+    -- ожидаемый таймаут раунда: 'round_timer' взводится в InitializeRound на
+    -- PRE_ROUND_DURATION + ROUND_DURATION, а этот хук — из 'beginround' на
+    -- PRE_ROUND_DURATION, т.е. now + ROUND_DURATION = момент таймаута
+    -- (обе метки по одним часам GameRules:GetGameTime, пауза их не разводит)
+    self.roundEnd = now + (ROUND_DURATION or 300)
 
-    -- территория зоны просвечена до самой активации
+    -- обзор на зону НЕ на весь грейс, а только первые секунды раунда
+    -- (VISION_AFTER_START): дальше зону надо разведывать самим
     for _, team in pairs({ TEAM_RED, TEAM_BLACK }) do
         AddFOWViewer(team, self.vz.pos,
-            math.max(vzc.HALF_LENGTH, vzc.HALF_WIDTH) + 300, vzc.GRACE_PERIOD, false)
+            math.max(vzc.HALF_LENGTH, vzc.HALF_WIDTH) + 300,
+            vzc.VISION_AFTER_START or 5, false)
     end
 
     GameRules:SendCustomMessage("Control zone activates in " .. vzc.GRACE_PERIOD
         .. " seconds. Full capture counts as +" .. vzc.BONUS_POINTS .. " alive players at timeout!", 0, 0)
+    if self.vz.autoCaptured and self.vz.owner ~= 0 then
+        GameRules:SendCustomMessage(TeamName(self.vz.owner)
+            .. " is behind by " .. vzc.TIER2_SCORE_DIFF
+            .. "+ rounds: the control zone starts already captured by them!", 0, 0)
+    end
 
     Timers:CreateTimer('cz_think', {
         endTime = CONFIG.TICK,
@@ -646,6 +656,9 @@ end
 
 function ControlZones:Cleanup()
     Timers:RemoveTimer('cz_think')
+    self.roundEnd = nil
+    self.otPossible = 0
+    self.otPossibleTeam = 0
     self.overtimeEnd = nil
     self.overtimeStart = nil
     self.overtimeResolve = nil
@@ -678,6 +691,7 @@ function ControlZones:Think()
     self:ThinkVictory(now)
     if not self.stopped then
         self:ThinkBuffZones(now)
+        self:ThinkOvertimeWarning(now)
         self:ThinkOvertime(now)
     end
     self:PushState(false)
@@ -892,6 +906,38 @@ local function TouchedRecently(vz, team, now)
     return t ~= nil and now - t <= CONFIG.VICTORY_ZONE.TOUCH_GRACE
 end
 
+-- Имеет ли овертайм смысл прямо сейчас: проигрывающая по виртуальному счёту
+-- команда касалась зоны в последние TOUCH_GRACE сек (то же условие, по
+-- которому овертайм реально стартует на таймауте).
+-- Возвращает: 1/0, команда-претендент.
+function ControlZones:OvertimeWouldMatter(now)
+    local vz = self.vz
+    if not vz or vz.phase ~= "active" then return 0, 0 end
+    local winner = self:VirtualWinner()
+    for _, team in pairs({ TEAM_RED, TEAM_BLACK }) do
+        if team ~= winner and TouchedRecently(vz, team, now) then return 1, team end
+    end
+    return 0, 0
+end
+
+-- Флаг «раунд заканчивается, овертайм возможен» для панели зоны: сообщения
+-- рисует клиент (их можно выключить тумблером в Fate settings), сервер лишь
+-- держит состояние в неттейбле.
+function ControlZones:ThinkOvertimeWarning(now)
+    local vzc = CONFIG.VICTORY_ZONE
+    -- при активной La Pucelle таймаут вообще не резолвится (см. round_timer),
+    -- обещать овертайм в этот момент нечестно
+    if self.overtimeEnd or not self.roundEnd or _G.LaPucelleActivated then
+        self.otPossible, self.otPossibleTeam = 0, 0
+        return
+    end
+    if now < self.roundEnd - (vzc.OVERTIME_WARN_BEFORE or 15) then
+        self.otPossible, self.otPossibleTeam = 0, 0
+        return
+    end
+    self.otPossible, self.otPossibleTeam = self:OvertimeWouldMatter(now)
+end
+
 function ControlZones:TryStartOvertime(resolveFn)
     if not self:IsEnabled() then return false end
     local ok, started = xpcall(function()
@@ -930,7 +976,9 @@ function ControlZones:_TryStartOvertime(resolveFn)
     self.overtimeResolve = resolveFn
     self.leaveDeadline = nil
     self.lastContestants = nil
-    CenterMessage("OVERTIME!\nFlip the zone or force the enemy out!", 4.0)
+    self.otPossible, self.otPossibleTeam = 0, 0
+    -- сообщение «OVERTIME!» рисует панель зоны (его можно выключить
+    -- тумблером в Fate settings), поэтому серверный CenterMessage не шлём
     self:PushState(true) -- отсчёт овертайма рисует панель зоны (overtime_end)
     return true
 end
@@ -1020,6 +1068,12 @@ function ControlZones:PushState(force)
         victory.overtime = self.overtimeEnd and 1 or 0
         victory.overtime_end = self.overtimeEnd and math.floor(self.overtimeEnd * 10) / 10 or 0
         victory.leave_end = self.leaveDeadline and math.floor(self.leaveDeadline * 10) / 10 or 0
+        -- «раунд кончается, овертайм возможен» + кто его тянет; сообщения
+        -- об овертайме рисует клиент по этим полям
+        victory.ot_possible = self.otPossible or 0
+        victory.ot_team = self.otPossibleTeam or 0
+        victory.ot_end_warn = CONFIG.VICTORY_ZONE.OVERTIME_END_WARN or 10
+        victory.round_end = self.roundEnd and math.floor(self.roundEnd * 10) / 10 or 0
     end
 
     local buffs = {}
@@ -1160,16 +1214,15 @@ function ControlZones:_OnPlayerChat(keys)
     -- Репро игрового пути голосования в tools (краш 2026-07-16 был в
     -- реальной игре, где team_select шлёт голоса): сбрасывает состояние и
     -- прогоняет голос КАЖДОГО подключённого игрока через настоящий
-    -- OnZonesVote (свой голос заденет ветку оверрайда по steamid), затем
-    -- тот же ResolveVote, что зовёт OnPreRound. "-zonevotesim off" —
-    -- голоса «против» (ветка отключения; вернуть потом -zoneon).
+    -- OnZonesVote, затем тот же ResolveVote, что зовёт OnPreRound.
+    -- "-zonevotesim off" — голоса «против» (ветка отключения; вернуть
+    -- потом -zoneon).
     local simVote = string.match(text, "^%-zonevotesim%s*(%a*)")
     if simVote then
         local enabled = simVote == "off" and 0 or 1
         self.voteResolved = nil
         self.votedPlayers = {}
         self.voteEnable, self.voteDisable = 0, 0
-        self.voteOverride = nil
         local fed = 0
         for pid = 0, 23 do
             if PlayerResource:IsValidPlayerID(pid) then
@@ -1179,8 +1232,8 @@ function ControlZones:_OnPlayerChat(keys)
         end
         self:ResolveVote()
         GameRules:SendCustomMessage(string.format(
-            "[Zones] vote sim: fed %d votes (enabled=%d), override=%s — check console for [ControlZones] errors",
-            fed, enabled, tostring(self.voteOverride)), 0, 0)
+            "[Zones] vote sim: fed %d votes (enabled=%d) — check console for [ControlZones] errors",
+            fed, enabled), 0, 0)
         return
     end
 
