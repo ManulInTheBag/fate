@@ -1,10 +1,176 @@
-#base "items/item_blink_scroll.txt"
-#base "items/item_mana_essence.txt"
-#base "items/item_shard_of_replenishment.txt"
-#base "items/item_sentry_familiar.kv"
+// #base "items/item_blink_scroll.txt" — содержимое вклеено ниже 31.07.2026
+// #base "items/item_mana_essence.txt" — содержимое вклеено ниже 31.07.2026
+// #base "items/item_shard_of_replenishment.txt" — содержимое вклеено ниже 31.07.2026
+// #base "items/item_sentry_familiar.kv" — содержимое вклеено ниже 31.07.2026
 
 "DOTAAbilities"
 {
+	// --- вклеено из scripts/npc/items/*.txt|.kv --------------------------
+	// Раньше подключалось через #base. При ХОЛОДНОМ запуске игры (не tools)
+	// лавка отдавала ванильные предметы, а со второго запуска — наши;
+	// подозрение на то, что #base на холодную не успевает разрешиться.
+
+	"item_blink_scroll"
+	{
+		"ID"											"1300"
+		"BaseClass"										"item_lua"
+		"ScriptFile"									"items/blink_scroll"
+		"AbilityTextureName"							"custom/blink_scroll"
+		
+	    "Model"    									    "models/props_gameplay/tpscroll01.vmdl" 
+	    "Effect"      									"particles/generic_gameplay/dropped_item.vpcf"
+		
+		"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_POINT"
+		
+		"AbilityCastRange"								"0"
+		"AbilityCastPoint"								"0"
+		"AbilityCooldown"								"20.0"
+		"AbilityManaCost"								"0"
+		
+		"ItemKillable"									"0"
+		"ItemSellable"									"0"
+		"ItemPurchasable"								"0"
+		"ItemDroppable"									"0"
+		"ItemPermanent"									"1"
+		
+		"ItemShareability"								"ITEM_NOT_SHAREABLE"
+		
+		"precache"
+		{
+			"particle"									"particles/items_fx/blink_dagger_start.vpcf"
+			"particle"									"particles/items_fx/blink_dagger_end.vpcf"
+			"soundfile"									"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+		}
+		
+		"AbilityValues"
+        {
+            "distance" "1000"
+        }
+	}
+
+	"item_mana_essence"
+	{
+		"ID"											"1307"
+		"BaseClass"										"item_lua"
+		"ScriptFile"									"items/mana_essence"
+		"AbilityTextureName"							"custom/mana_essence"
+		
+	    "Model"      								 	 "models/props_gameplay/salve_red.vmdl" 
+	    "Effect"      									 "particles/generic_gameplay/dropped_item.vpcf"
+		
+	    "AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityUnitTargetTeam"							"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"							"DOTA_UNIT_TARGET_HERO"
+		
+	    "AbilityCastRange"								"400"
+	    "AbilityCooldown"								"10"
+		
+	    "ItemCost"    									"400"
+	    "ItemKillable" 									"1" 
+	    "ItemSellable"									"1"
+	    "ItemPurchasable"								"1"
+	    "ItemDroppable"									"1"
+	    "ItemShareability"								"ITEM_FULLY_SHAREABLE"
+		
+	    "ItemInitialCharges"							"2"
+	    "ItemStackable"									"0"
+	    "ItemPermanent"									"0"
+		
+		"precache"
+	    {
+	    	"particle"									"particles/items_fx/healing_flask.vpcf"
+	    }
+		
+	    "AbilityValues"
+        {
+            "health" "500"
+            "mana" "300"
+            "duration" "10"
+        }
+	}
+
+	"item_shard_of_replenishment"
+	{
+	    "ID"           "1308"
+	    "BaseClass"    "item_lua"
+	    "Scriptfile"	"items/shard_of_replenishment"
+	    "AbilityTextureName" "custom/shard_of_replenishment"
+
+	    "Model"        "models/props_gameplay/gem01.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+
+	    "ItemCost"     "99999"
+	    "ItemKillable" "0" 
+	    "ItemSellable" "0"
+	    "ItemPurchasable" "0"
+	    "ItemDroppable" "0"
+	    "ItemShareability" "ITEM_NOT_SHAREABLE"
+
+
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+
+	    "ItemInitialCharges" "3"
+	    "ItemStackable" "0"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityCooldown"				"30"
+	    //"AbilityCastRange"				"1000"
+	    "precache"
+	    {
+	    	"particle"		"particles/units/heroes/hero_lich/lich_frost_armor.vpcf"
+	    	"particle"		"particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
+	    }
+	    "AbilityValues"
+        {
+            "hpregen" "500"
+            "manaregen" "500"
+            "healduration" "5.0"
+            "armorbonus" "50"
+            "armorduration" "5.0"
+            "hpbonus" "1000"
+            "manabonus" "500"
+        }
+	}
+
+	"item_sentry_familiar" 
+	{
+	    "ID"           				"2018"
+	    "BaseClass"    				"item_lua"
+	    "ScriptFile"				"items/sentry_familiar"
+	    "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"Model"						"models/props_gameplay/observer_ward_bundle.vmdl"
+		"AbilityTextureName" 		"custom/item_sentry_familiar"
+		"AbilityCastAnimation"		"ACT_DOTA_ITEM_PICKUP"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCooldown"				"1.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"	
+		"ItemStockMax"					"10"
+		"ItemStockInitial"				"4"
+		"ItemStockTime"					"30.0"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+
+	    "AbilityValues"
+        {
+            "duration" "90"
+            "vision_range" "25"
+            "truesight_range" "1400"
+        }
+	}
+
  
 	"item_master_transfer_items1" 
 	{

@@ -1,3 +1,8 @@
+// Все предметы в одной секции: клиент выкладывает секцию по 4 в ряд, а
+// несколько секций встают отдельными колонками. Имена секций захардкожены в
+// клиенте (consumables, attributes, weapons_armor, misc / basics, support,
+// magics, defense, weapons, artifacts / sideshop1-2, secretshop) — на
+// остальные он пишет в консоль "No shop category named", это безобидно.
 "dota_shops"
 {
 	"consumables"

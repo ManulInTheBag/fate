@@ -1579,11 +1579,6 @@ function FateGameMode:OnPlayerChat(keys)
     end
 
 
-    -- Emotes are now triggered only through the emote wheel (player_send_emote),
-    -- so the "#N" chat command is disabled. Re-enable by routing it back through
-    -- self:TriggerEmote(plyID, tonumber(...)) if the wheel is ever removed.
-
-
     if text == "-inven" then
         if Convars:GetBool("sv_cheats") then
             for i=6, 9 do
@@ -4818,6 +4813,7 @@ function FateGameMode:InitGameMode()
     Convars:RegisterCommand( "command_example", Dynamic_Wrap(FateGameMode, 'ExampleConsoleCommand'), "A console command example", 0 )
     function FateGameMode:ExampleConsoleCommand()
     end
+
 
     --[[-- Convars:RegisterCommand( "player_say", Dynamic_Wrap(FateGameMode, 'PlayerSay'), "Reads player chat", 0)
     Convars:RegisterCommand('player_say', function(...)
