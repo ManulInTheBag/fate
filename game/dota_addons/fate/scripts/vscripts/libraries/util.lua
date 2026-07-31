@@ -1349,7 +1349,62 @@ function LevelAllAbility(hero)
         for i=1, #CannotReset do
             if ability:GetName() == CannotReset[i] then ability.IsResetable = false break end
         end
-        
+
+    end
+end
+
+--[[ Пустые таланты special_bonus_fate_none_1..8 (заведены в npc_abilities_custom.txt).
+     Патч Доты от 31.07.2026: клиент падает при нажатии ALT, если у героя нет НИ ОДНОГО таланта
+     (крашится дерево талантов DOTAHudTalentDisplay). Настоящие таланты Валвы аддон вычищает,
+     поэтому взамен каждому Слуге выдаётся дерево из 8 пустышек — они не дают ровным счётом ничего.
+     ВАЖНО: везде, где абилки перебираются и удаляются по маске "special_bonus", пустышки надо
+     пропускать через IsFateNoneTalent(), иначе краш по ALT возвращается. ]]
+FATE_NONE_TALENT_COUNT = 8
+
+--[[ Способности стандартной карты Доты, которые движок выдаёт каждому герою сам: врата,
+     портал Underlord'а, лампа Аганима, захват точки. В fate они не работают и просто занимают
+     слоты. Слотов у юнита всего 36 (GetAbilityCount), а самые нагруженные Слуги (Ланселот —
+     24 своих способности + 8 пустых талантов) упирались в потолок ровно, и любой рантайм
+     AddAbility (Blessing of Fairy, Knight of Honor) уже не проходил. ]]
+FATE_UNUSED_MAP_ABILITIES = {
+    "ability_capture",
+    "ability_lamp_use",
+    "abyssal_underlord_portal_warp",
+    "twin_gate_portal_warp",
+}
+
+function RemoveUnusedMapAbilities(hero)
+    if not hero or hero:IsNull() then return end
+    for _, sAbilityName in ipairs(FATE_UNUSED_MAP_ABILITIES) do
+        if hero:HasAbility(sAbilityName) then
+            hero:RemoveAbility(sAbilityName)
+        end
+    end
+end
+
+function IsFateNoneTalent(sAbilityName)
+    return sAbilityName ~= nil and string.match(sAbilityName, "special_bonus_fate_none") ~= nil
+end
+
+function GiveFateNoneTalents(hero)
+    if not hero or hero:IsNull() or not hero:IsRealHero() then return end
+    for i=1, FATE_NONE_TALENT_COUNT do
+        local sTalentName = "special_bonus_fate_none_" .. i
+        if not hero:HasAbility(sTalentName) then
+            hero:AddAbility(sTalentName)
+        end
+    end
+    -- Проверяем, что таланты реально появились. Если KV с пустышками почему-то не подхватился,
+    -- откатываемся на стоковый пустой талант Валвы (у него тоже value 0 и никакого эффекта) —
+    -- лишь бы дерево талантов не осталось пустым, иначе клиент снова упадёт по ALT.
+    local bHasTalent = false
+    for i=0, hero:GetAbilityCount() - 1 do
+        local ability = hero:GetAbilityByIndex(i)
+        if ability and string.match(ability:GetName(), "special_bonus") then bHasTalent = true break end
+    end
+    if not bHasTalent then
+        print("[FateTalents] " .. hero:GetUnitName() .. ": пустышки из npc_abilities_custom.txt не завелись, ставлю special_bonus_undefined")
+        hero:AddAbility("special_bonus_undefined")
     end
 end
 

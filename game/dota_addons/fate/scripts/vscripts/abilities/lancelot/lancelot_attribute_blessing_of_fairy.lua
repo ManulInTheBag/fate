@@ -9,18 +9,26 @@ lancelot_attribute_blessing_of_fairy = class({})
 -- отдельный класс ловушек, повторять его незачем.
 local OnBlessingAcquired
 
-OnBlessingAcquired = function(keys)
-    local caster = keys.caster
-    local ply = caster:GetPlayerOwner()
-    local hero = caster:GetPlayerOwner():GetAssignedHero()
-    hero:AddAbility("lancelot_blessing_of_fairy") 
-    hero:FindAbilityByName("lancelot_blessing_of_fairy"):SetLevel(1) 
-    hero:SwapAbilities("fate_empty1", "lancelot_blessing_of_fairy", false, true) 
-    hero:RemoveAbility("fate_empty1") 
-    hero.IsFairyReady = true
-    -- Set master 1's mana 
-    local master = hero.MasterUnit
-    master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+OnBlessingAcquired = function(keys)
+    local caster = keys.caster
+    local ply = caster:GetPlayerOwner()
+    local hero = caster:GetPlayerOwner():GetAssignedHero()
+    hero:AddAbility("lancelot_blessing_of_fairy") 
+    -- Гард на nil: слотов способностей у юнита всего 36, и если список забит под завязку
+    -- (у Ланселота так и есть), AddAbility молча не срабатывает, а голый FindAbilityByName
+    -- ронял весь OnSpellStart вместе с выдачей атрибута.
+    local hBlessing = hero:FindAbilityByName("lancelot_blessing_of_fairy")
+    if hBlessing then
+        hBlessing:SetLevel(1)
+    else
+        print("[Fate] WARNING: lancelot_blessing_of_fairy не выдалась — кончились слоты способностей")
+    end
+    hero:SwapAbilities("fate_empty1", "lancelot_blessing_of_fairy", false, true) 
+    hero:RemoveAbility("fate_empty1") 
+    hero.IsFairyReady = true
+    -- Set master 1's mana 
+    local master = hero.MasterUnit
+    master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 end
 
 

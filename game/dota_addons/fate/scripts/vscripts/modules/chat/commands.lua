@@ -237,4 +237,31 @@ return {
 			Console:SetVisible(PlayerResource:GetPlayer(playerId))
 		end
 	},
+	-- Диагностика слотов способностей: сколько их у Слуги, что реально лежит в каждом слоте
+	-- и доехали ли пустые таланты special_bonus_fate_none_* (без них клиент падает по ALT).
+	["slots"] = {
+		level = CUSTOMCHAT_COMMAND_LEVEL_CHEAT_DEVELOPER,
+		f = function(args, hero)
+			if not hero or hero:IsNull() then return end
+			local nTotal, nTalents, sLine = 0, 0, ""
+			for i = 0, hero:GetAbilityCount() - 1 do
+				local ability = hero:GetAbilityByIndex(i)
+				if ability then
+					nTotal = nTotal + 1
+					if string.match(ability:GetName(), "special_bonus") then nTalents = nTalents + 1 end
+					sLine = sLine .. i .. ":" .. ability:GetName() .. "  "
+					print("[FateSlots] " .. i .. " = " .. ability:GetName())
+					if nTotal % 6 == 0 then
+						GameRules:SendCustomMessage(sLine, 0, 0)
+						sLine = ""
+					end
+				end
+			end
+			if sLine ~= "" then GameRules:SendCustomMessage(sLine, 0, 0) end
+			local sSummary = hero:GetUnitName() .. ": способностей " .. nTotal ..
+				", из них талантов " .. nTalents .. ", GetAbilityCount() = " .. hero:GetAbilityCount()
+			GameRules:SendCustomMessage("<font color='#FFCC00'>" .. sSummary .. "</font>", 0, 0)
+			print("[FateSlots] " .. sSummary)
+		end
+	},
 }

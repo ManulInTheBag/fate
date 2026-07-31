@@ -30,6 +30,10 @@
             <Panel id="AssistsContainer" class="ScoreCol_Assists ScoreboardPanel">
                 <Label id="Assists" text="999" />
             </Panel>
+            <!-- рейтинг игрока: приезжает в нет-таблице "mmr" на старте игры -->
+            <Panel id="MMRContainer" class="ScoreCol_MMR ScoreboardPanel">
+                <Label id="PlayerMMR" text="" />
+            </Panel>
         </Panel>
         <Panel id="UltimateIndicatorBG" class="UltimateIndicatorShared" />
         <Panel id="UltimateIndicator" class="UltimateIndicatorShared" />

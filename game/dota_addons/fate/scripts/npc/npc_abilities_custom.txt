@@ -2853,5 +2853,122 @@
 	// [restored] возвращён после ошибочной чистки
 	// [restored] возвращён после ошибочной чистки
 	// [restored] возвращён после ошибочной чистки
+
+	//=================================================================================================================
+	// Пустые таланты (заглушки против краша клиента по ALT, патч Доты от 31.07.2026)
+	// У героя, у которого нет НИ ОДНОГО таланта, клиент падает при нажатии ALT, поэтому каждому
+	// Слуге выдаётся полное дерево из 8 пустышек: значение 0, модификаторов нет, эффекта нет.
+	//=================================================================================================================
+	"special_bonus_fate_none_1"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
+
+	"special_bonus_fate_none_2"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
+
+	"special_bonus_fate_none_3"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
+
+	"special_bonus_fate_none_4"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
+
+	"special_bonus_fate_none_5"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
+
+	"special_bonus_fate_none_6"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
+
+	"special_bonus_fate_none_7"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
+
+	"special_bonus_fate_none_8"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value"		"0"
+			}
+		}
+	}
 }
 

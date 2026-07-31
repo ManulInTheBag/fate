@@ -45,6 +45,12 @@
 						<Label text="#custom_game_team_select_shuffle" />
 						<Image src="file://{images}/control_icons/shuffle.psd" />
 					</Button>
+					<!-- Балансировка по рейтингу: считает сервер (fate_mmr.lua), кнопка
+					     работает только у хоста и только когда рейтинги доехали. -->
+					<Button id="ShuffleByMMRButton" onactivate="OnShuffleByMMRPressed()">
+						<Label id="ShuffleByMMRLabel" text="SHUFFLE BY MMR" />
+						<Image src="file://{images}/control_icons/shuffle.psd" />
+					</Button>
 				</Panel>
 			</Panel>
 

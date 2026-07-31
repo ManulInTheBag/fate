@@ -69,6 +69,179 @@ function OnAutoAssignPressed()
 
 
 //--------------------------------------------------------------------------------------------------
+// MMR: сервер (fate_mmr.lua) кладёт рейтинги в нет-таблицу "mmr" — строка на
+// playerID плюс строка "teams" с флагом готовности. Средние и прогноз считаем
+// здесь же, чтобы цифры оставались верными, когда игрок перебегает вручную.
+//--------------------------------------------------------------------------------------------------
+// Данные приходят событием "mmr_data" (основной путь для этого экрана) и
+// дублируются нет-таблицей (основной путь для внутриигрового скорборда).
+// Читаем сначала событие: доезжает ли нет-таблица до контекста GameSetup —
+// не проверено, а события с этого экрана точно ходят.
+var g_MMRData = null;
+
+function OnMMRData( data )
+{
+	g_MMRData = data;
+	UpdateAllMMRLabels();
+}
+
+function GetPlayerMMR( playerId )
+{
+	// Пока рейтинги не загрузились, не показываем ничего: иначе стартовая
+	// «1000» у всех выглядела бы как реальный рейтинг.
+	if ( !IsMMRReady() )
+		return null;
+	if ( g_MMRData )
+	{
+		var v = g_MMRData[ "p" + playerId ];
+		return ( v === undefined ) ? null : v;
+	}
+	var row = CustomNetTables.GetTableValue( "mmr", String( playerId ) );
+	if ( !row || row.rated !== 1 )
+		return null;
+	return row.mmr;
+}
+
+function IsMMRReady()
+{
+	if ( g_MMRData )
+		return ( g_MMRData.ready === 1 && g_MMRData.rated === 1 );
+	var teams = CustomNetTables.GetTableValue( "mmr", "teams" );
+	return !!( teams && teams.ready === 1 && teams.rated === 1 );
+}
+
+// Elo, K=50 — та же формула, что на сервере. Здесь это только предпросмотр:
+// начисляет всегда сервер.
+function PredictMMRDelta( avgWinner, avgLoser )
+{
+	var expected = 1 / ( 1 + Math.pow( 10, ( avgLoser - avgWinner ) / 400 ) );
+	var delta = Math.round( 50 * ( 1 - expected ) );
+	return Math.max( 10, Math.min( 50, delta ) );
+}
+
+function TeamAverageMMR( teamId )
+{
+	var players = Game.GetPlayerIDsOnTeam( teamId );
+	var sum = 0, count = 0;
+	for ( var i = 0; i < players.length; ++i )
+	{
+		var mmr = GetPlayerMMR( players[ i ] );
+		if ( mmr !== null )
+		{
+			sum += mmr;
+			count++;
+		}
+	}
+	return count > 0 ? Math.round( sum / count ) : null;
+}
+
+// Метка рейтинга в строке игрока. Исходника team_select_player.xml в дереве
+// content нет (в игре живёт только скомпилированный), поэтому метка создаётся
+// поверх готовой строки.
+function UpdatePlayerMMRLabel( playerPanel, playerId )
+{
+	var label = playerPanel.FindChild( "PlayerMMRLabel" );
+	var mmr = GetPlayerMMR( playerId );
+	if ( mmr === null )
+	{
+		if ( label ) label.text = "";
+		return;
+	}
+	if ( label === null )
+	{
+		label = $.CreatePanel( "Label", playerPanel, "PlayerMMRLabel" );
+		label.AddClass( "PlayerMMRLabel" );
+	}
+	label.text = mmr;
+}
+
+function UpdateTeamMMRLabels()
+{
+	var ready = IsMMRReady();
+	var shuffleButton = $( "#ShuffleByMMRButton" );
+	if ( shuffleButton )
+	{
+		shuffleButton.SetHasClass( "mmr_not_ready", !ready );
+	}
+
+	var avgById = {};
+	for ( var i = 0; i < g_TeamPanels.length; ++i )
+	{
+		var teamId = g_TeamPanels[ i ].GetAttributeInt( "team_id", -1 );
+		if ( teamId > 0 )
+		{
+			avgById[ teamId ] = TeamAverageMMR( teamId );
+		}
+	}
+
+	for ( var i = 0; i < g_TeamPanels.length; ++i )
+	{
+		var teamPanel = g_TeamPanels[ i ];
+		var teamId = teamPanel.GetAttributeInt( "team_id", -1 );
+		var label = teamPanel.FindChild( "TeamMMRLabel" );
+		var avg = avgById[ teamId ];
+		if ( avg === null || avg === undefined )
+		{
+			if ( label ) label.text = "";
+			continue;
+		}
+		if ( label === null )
+		{
+			label = $.CreatePanel( "Label", teamPanel, "TeamMMRLabel" );
+			label.AddClass( "TeamMMRLabel" );
+		}
+		// прогноз показываем только когда есть с кем сравнивать (обе команды)
+		var enemyAvg = null;
+		for ( var key in avgById )
+		{
+			if ( Number( key ) !== teamId && avgById[ key ] !== null )
+			{
+				enemyAvg = avgById[ key ];
+			}
+		}
+		if ( enemyAvg === null )
+		{
+			label.text = "AVG MMR " + avg;
+		}
+		else
+		{
+			var win = PredictMMRDelta( avg, enemyAvg );
+			label.text = "AVG MMR " + avg + "   (+" + win + " / −" + win + ")";
+		}
+	}
+}
+
+function UpdateAllMMRLabels()
+{
+	for ( var i = 0; i < g_PlayerPanels.length; ++i )
+	{
+		var playerPanel = g_PlayerPanels[ i ];
+		UpdatePlayerMMRLabel( playerPanel, playerPanel.GetAttributeInt( "player_id", -1 ) );
+	}
+	UpdateTeamMMRLabels();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Кнопка «Шафл по MMR». Расстановку считает и применяет сервер — здесь только
+// запрос; право хоста проверяется там же (клиентская проверка обходится).
+//--------------------------------------------------------------------------------------------------
+function OnShuffleByMMRPressed()
+{
+	var gameTime = Game.GetGameTime();
+	var transitionTime = Game.GetStateTransitionTime();
+	if ( Game.GetState() !== 2 || Math.floor( transitionTime - gameTime ) <= 1 )
+	{
+		return;
+	}
+	if ( !IsMMRReady() )
+	{
+		return;
+	}
+	GameEvents.SendCustomGameEventToServer( "mmr_shuffle_request", {} );
+}
+
+
+//--------------------------------------------------------------------------------------------------
 // Handler for the shuffle player teams button being pressed
 //--------------------------------------------------------------------------------------------------
 function OnShufflePlayersPressed()
@@ -222,6 +395,9 @@ function OnTeamPlayerListChanged()
 	// Set the class on the panel to indicate if there are any unassigned players
 	$( "#GameAndPlayersRoot" ).SetHasClass( "unassigned_players", unassignedPlayers.length != 0 );
 	$( "#GameAndPlayersRoot" ).SetHasClass( "no_unassigned_players", unassignedPlayers.length == 0 );
+
+	// состав поменялся -> пересчитываем рейтинги в строках и средние по командам
+	UpdateAllMMRLabels();
 }
 
 
@@ -435,6 +611,17 @@ function SendVotes( )
 
 	// Register a listener for the event which is brodcast when the team assignment of a player is actually assigned
 	$.RegisterForUnhandledEvent( "DOTAGame_TeamPlayerListChanged", OnTeamPlayerListChanged );
+
+	// Рейтинги приезжают с сервера асинхронно (HTTP к базе), поэтому строки
+	// обновляем по приходу данных, а не только при смене состава. Панель могла
+	// создаться позже рассылки — просим сервер прислать их ещё раз.
+	GameEvents.Subscribe( "mmr_data", OnMMRData );
+	CustomNetTables.SubscribeNetTableListener( "mmr", UpdateAllMMRLabels );
+	GameEvents.SendCustomGameEventToServer( "mmr_request", {} );
+	$.Schedule( 2.0, function() {
+		if ( !g_MMRData ) GameEvents.SendCustomGameEventToServer( "mmr_request", {} );
+	} );
+	UpdateAllMMRLabels();
 
 	// Register a listener for the event which is broadcast whenever a player attempts to pick a team
 	$.RegisterForUnhandledEvent( "DOTAGame_PlayerSelectedCustomTeam", OnPlayerSelectedTeam );

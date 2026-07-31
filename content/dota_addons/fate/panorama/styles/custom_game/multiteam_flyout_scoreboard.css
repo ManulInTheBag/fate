@@ -310,3 +310,18 @@
 	text-align: center;
 }
 
+/* рейтинг игрока: четыре цифры не влезают в 30px кегль остальных колонок */
+.ScoreCol_MMR
+{
+	width: 66px;
+	text-align: center;
+}
+
+.ScoreCol_MMR Label
+{
+	font-size: 22px;
+	color: #d7b46a;
+	horizontal-align: center;
+	vertical-align: center;
+}
+

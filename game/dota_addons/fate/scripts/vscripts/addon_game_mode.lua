@@ -44,6 +44,7 @@ require('libraries/cameramodule')
 require('blink')
 --require('unit_voice')
 require('wrappers')
+-- fate_mmr требуется НИЖЕ (рядом с FateServerDisabled) — см. комментарий там
 
 _G.IsPickPhase = true
 _G.IsPreRound = true
@@ -1413,6 +1414,13 @@ function FateServerDisabled()
     if GameRules and GameRules:IsCheatMode() then return true end
     return false
 end
+
+-- ⚠️ MMR требуется ИМЕННО ЗДЕСЬ, а не наверху со всеми остальными require:
+-- окружение файла берётся на момент загрузки, и из fate_mmr.lua не видно ничего,
+-- что объявлено в этом файле НИЖЕ точки require. Загруженный отсюда, он видит и
+-- FATE_BINDS_HOST/FATE_API_KEY, и FateServerDisabled. (На всякий случай в самом
+-- fate_mmr.lua эти имена всё равно читаются через _G в момент вызова.)
+require('fate_mmr')
 
 -- Пер-игрок гейт на запросы к серверу биндов: не больше FATE_BINDS_REQ_MAX за
 -- FATE_BINDS_REQ_WINDOW секунд. Клиентский лок обходится хакнутым клиентом —
@@ -2934,6 +2942,12 @@ function FateGameMode:OnGameRulesStateChange(keys)
     end
     if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
         self.bSeenWaitForPlayers = true
+    elseif newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+        -- Сюда движок пускает, когда ВСЕ игроки прогрузились: тянем рейтинги и
+        -- раскидываем команды по MMR (см. fate_mmr.lua). Ошибка здесь не должна
+        -- ронять экран выбора команд.
+        local ok, err = pcall(function() FateMMR:OnCustomGameSetup() end)
+        if not ok then print("[FateMMR] ошибка на старте сетапа: " .. tostring(err)) end
     elseif newState == DOTA_GAMERULES_STATE_INIT then
     elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
     --SendToConsole("r_farz 5000")
@@ -2970,6 +2984,9 @@ function FateGameMode:OnGameRulesStateChange(keys)
         -- screw 7.00
     elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         GameRules:SetSafeToLeave( true )
+        -- Состав на старте: по нему считается порог «5+5» и начисление рейтинга.
+        local ok, err = pcall(function() FateMMR:CaptureStartRoster() end)
+        if not ok then print("[FateMMR] ошибка фиксации состава: " .. tostring(err)) end
         FateGameMode:OnGameInProgress()
     end
 end
@@ -3017,7 +3034,12 @@ function FateGameMode:OnHeroInGame(hero)
         hero:AddNewModifier(hero, dummyPause, "modifier_dummy_pause", {duration=9999})
         return
     end
-    if hero:GetName() == "npc_dota_hero_target_dummy" then return end
+    if hero:GetName() == "npc_dota_hero_target_dummy" then
+        -- На экране выбора игрок сидит именно этим болваном (FORCE_PICKED_HERO), а талантов
+        -- у него нет — нажатие ALT до пика роняло клиент ровно так же, как у Слуг.
+        GiveFateNoneTalents(hero)
+        return
+    end
 
     CameraModule:InitializeCamera(hero:GetPlayerID())
 
@@ -3057,15 +3079,34 @@ function FateGameMode:OnHeroInGame(hero)
   
 
     -- Removing Talents
-    for i=0,23 do
-        if hero:GetAbilityByIndex(i) ~= nil then
-            local ability = hero:GetAbilityByIndex(i)
-            --print("REMOVING ABILITY cringe", ability:GetAbilityName())
-            if string.match(ability:GetName(),"special_bonus") then
-                hero:RemoveAbility(ability:GetName())
-            end
+    -- Патч Доты от 31.07.2026: клиент падает при нажатии ALT, если у героя нет НИ ОДНОГО таланта.
+    -- Поэтому валвовские таланты убираем как раньше, а вместо них у Слуги остаётся дерево из 8
+    -- пустышек special_bonus_fate_none_* (прописаны в KV каждого Слуги, ничего не дают).
+    local tValveTalents = {}
+    for i=0, hero:GetAbilityCount() - 1 do
+        local ability = hero:GetAbilityByIndex(i)
+        if ability ~= nil and string.match(ability:GetName(), "special_bonus")
+        and not IsFateNoneTalent(ability:GetName()) then
+            table.insert(tValveTalents, ability:GetName())
         end
     end
+    for _, sTalentName in ipairs(tValveTalents) do
+        hero:RemoveAbility(sTalentName)
+    end
+    -- Освобождаем слоты от неиспользуемых способностей стандартной карты (врата, лампа, захват)
+    RemoveUnusedMapAbilities(hero)
+    -- Страховка на случай, если пустышки не прописаны в KV Слуги (или не влезли в слоты)
+    GiveFateNoneTalents(hero)
+    -- Поздняя проверка: если таланты снял кто-то ещё уже после спавна — вернём и напишем в консоль
+    Timers:CreateTimer(1.0, function()
+        if IsNotNull(hero) then
+            RemoveUnusedMapAbilities(hero)
+            if not hero:HasAbility("special_bonus_fate_none_1") then
+                print("[FateTalents] " .. hero:GetUnitName() .. ": пустые таланты кто-то снял после спавна, возвращаю")
+            end
+            GiveFateNoneTalents(hero)
+        end
+    end)
     --END
 
 
@@ -4664,7 +4705,9 @@ function FateGameMode:InitGameMode()
     GameRules:SetFirstBloodActive(false)
     GameRules:SetCustomGameEndDelay(30)
     GameRules:SetCustomVictoryMessageDuration(30)
-    GameRules:SetCustomGameSetupAutoLaunchDelay(IsInToolsMode() and 3 or 30)
+    -- В tools экран выбора команд жил 3 секунды — на нём физически не успеть
+    -- посмотреть ни рейтинги, ни результат шафла. В настоящем лобби как было.
+    GameRules:SetCustomGameSetupAutoLaunchDelay(IsInToolsMode() and 20 or 30)
     GameRules:SetCustomGameAllowBattleMusic( false )
     GameRules:SetCustomGameAllowHeroPickMusic( false )
     GameRules:SetCustomGameAllowMusicAtGameStart( false )
@@ -4748,6 +4791,10 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("player_send_emote", OnPlayerSendEmote )
     CustomGameEventManager:RegisterListener("player_save_binds", OnPlayerSaveBinds )
     CustomGameEventManager:RegisterListener("player_load_binds", OnPlayerLoadBinds )
+    -- Кнопка «Шафл по MMR» на экране выбора команд (проверка хоста — внутри)
+    CustomGameEventManager:RegisterListener("mmr_shuffle_request", OnMMRShuffleRequest )
+    -- Экран выбора команд просит рейтинги сам (он мог создаться позже рассылки)
+    CustomGameEventManager:RegisterListener("mmr_request", OnMMRRequest )
     -- LUA modifiers
     LinkLuaModifier("modifier_ms_cap", "modifiers/modifier_ms_cap", LUA_MODIFIER_MOTION_NONE)
 
@@ -5911,6 +5958,14 @@ function my_http_post(winnerTeam)
         print("[FateStats] tools/cheat lobby -> upload skipped")
         return
     end
+    -- Выгрузка ровно одна на матч: кроме победы по очкам её может вызвать
+    -- сторож недоигранного матча (см. fate_mmr.lua), и оба пути не должны
+    -- сложиться в двойную статистику.
+    if FATE_MATCH_UPLOADED then
+        print("[FateStats] матч уже выгружен -> повтор пропущен")
+        return
+    end
+    FATE_MATCH_UPLOADED = true
     -- Всё в pcall: выгрузка статы НЕ должна ронять завершение матча (my_http_post
     -- зовётся до SetGameWinner). Любая ошибка внутри -> просто лог, игра идёт дальше.
     local ok, err = pcall(function()
@@ -5977,6 +6032,10 @@ function my_http_post(winnerTeam)
                 print("[FateStats] player " .. steamid .. " -> " .. tostring(res.StatusCode))
             end)
         end)
+
+        -- Рейтинг: отдельным запросом, с паузой (сервер начисляет только за матч,
+        -- мета которого уже в базе) и всеми гейтами внутри (см. fate_mmr.lua).
+        FateMMR:ApplyMatch(matchId, winnerTeam)
     end)
     if not ok then
         print("[FateStats] upload error: " .. tostring(err))

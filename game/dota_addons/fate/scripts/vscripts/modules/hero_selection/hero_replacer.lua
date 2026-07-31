@@ -34,10 +34,13 @@ function HeroSelection:SelectHero(playerId, heroName, beforeReplace, afterReplac
 						HeroSelection:InitializeHeroClass(hero, heroTableCustom)
 						for i = 0, hero:GetAbilityCount() - 1 do
 							local ability = hero:GetAbilityByIndex(i)
-							if ability and string.starts(ability:GetAbilityName(), "special_bonus_") then
+							if ability and string.starts(ability:GetAbilityName(), "special_bonus_")
+							and not IsFateNoneTalent(ability:GetAbilityName()) then
 								UTIL_Remove(ability)
 							end
 						end
+						-- Без единого таланта клиент падает по ALT, поэтому возвращаем пустышки
+						GiveFateNoneTalents(hero)
 						if heroTableCustom.base_hero then
 							TransformUnitClass(hero, heroTableCustom)
 							hero.UnitName = heroName

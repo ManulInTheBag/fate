@@ -12204,6 +12204,16 @@
 		"DOTA_Tooltip_Ability_barghest_w_slam_delay"	"Slam wind-up:"
 		"DOTA_Tooltip_Ability_barghest_q_lunge_stop_radius"	"Lunge stops within:"
 
+		// Empty talents. They exist only because the Dota client crashes on ALT when a hero has no talents at all.
+		"DOTA_Tooltip_ability_special_bonus_fate_none_1"	"No Talent"
+		"DOTA_Tooltip_ability_special_bonus_fate_none_2"	"No Talent"
+		"DOTA_Tooltip_ability_special_bonus_fate_none_3"	"No Talent"
+		"DOTA_Tooltip_ability_special_bonus_fate_none_4"	"No Talent"
+		"DOTA_Tooltip_ability_special_bonus_fate_none_5"	"No Talent"
+		"DOTA_Tooltip_ability_special_bonus_fate_none_6"	"No Talent"
+		"DOTA_Tooltip_ability_special_bonus_fate_none_7"	"No Talent"
+		"DOTA_Tooltip_ability_special_bonus_fate_none_8"	"No Talent"
+
 
 	}
 }

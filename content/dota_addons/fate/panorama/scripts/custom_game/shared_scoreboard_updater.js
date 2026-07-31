@@ -9,6 +9,26 @@ function _ScoreboardUpdater_IsElimMap()
 }
 
 //=============================================================================
+// Рейтинг игрока из нет-таблицы "mmr" (её заполняет сервер, fate_mmr.lua).
+// Значение фиксируется на старте игры и в матче не меняется, поэтому кэшируем:
+// таблица дёргается на каждом обновлении скорборда по всем игрокам.
+//=============================================================================
+var g_MMRCache = {};
+
+function _ScoreboardUpdater_GetMMR( playerId )
+{
+	if ( g_MMRCache[ playerId ] !== undefined )
+		return g_MMRCache[ playerId ];
+
+	var row = CustomNetTables.GetTableValue( "mmr", String( playerId ) );
+	if ( !row || row.rated !== 1 )
+		return "";
+
+	g_MMRCache[ playerId ] = String( row.mmr );
+	return g_MMRCache[ playerId ];
+}
+
+//=============================================================================
 //=============================================================================
 function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
 {
@@ -123,6 +143,9 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Kills", playerInfo.player_kills );
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Deaths", playerInfo.player_deaths );
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Assists", playerInfo.player_assists );
+		// рейтинг: сервер кладёт его в нет-таблицу "mmr" на старте игры (ключ = playerID).
+		// Пусто, если рейтинг не загрузился или карта вне рейтинга.
+		_ScoreboardUpdater_SetTextSafe( playerPanel, "PlayerMMR", _ScoreboardUpdater_GetMMR( playerId ) );
 
 		var playerPortrait = playerPanel.FindChildInLayoutFile( "HeroIcon" );
 		if ( playerPortrait )

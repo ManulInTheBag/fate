@@ -116,7 +116,9 @@ function Chat:ApplyCommand(playerId, teamonly, text)
 	local commandName = table.remove(args, 1)
 	local data = commands[commandName]
 	if data then
-		local isDev = DynamicWearables:HasWearable(playerId, "wearable_developer") or IsInToolsMode()
+		-- модуль dynamic_wearables отключён в modules/index.lua, поэтому проверяем его наличие:
+		-- без этого любая чат-команда падала с "attempt to index global 'DynamicWearables'"
+		local isDev = (DynamicWearables ~= nil and DynamicWearables:HasWearable(playerId, "wearable_developer")) or IsInToolsMode()
 		local isCheat = GameRules:IsCheatMode()
 		if data.level == CUSTOMCHAT_COMMAND_LEVEL_PUBLIC
 			or (data.level == CUSTOMCHAT_COMMAND_LEVEL_CHEAT and isCheat)
