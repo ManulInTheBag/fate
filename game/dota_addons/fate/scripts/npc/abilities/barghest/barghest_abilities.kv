@@ -39,7 +39,7 @@
 			"lunge_distance"			"450"		// потолок; фактическая — до курсора
 			"lunge_speed"			"1400"
 			"lunge_stop_radius"			"200"		// на таком расстоянии выпад тормозит о врага
-			"lunge_slam_delay"			"0.2"		// замах: удар об землю не мгновенный
+		
 			// Клип удара (ACT_4, vertical_slash2) — 0.54 c при rate 1.0.
 			// Держим его деш (~0.32) + lunge_slam_delay + lunge_slam_hold ≈ длина клипа:
 			// больше — замрёт на последнем кадре, меньше — удар опять обрубится.
@@ -77,6 +77,10 @@
 		"AbilityCastPoint"			"0"
 		"AbilityChannelTime"		"2.0"
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
+         "precache"
+		{
+			"particle"			"particles/econ/items/lifestealer/lifestealer_immortal_backbone_gold/lifestealer_immortal_backbone_gold_rage_swirl.vpcf"
+		}
 		"AbilityValues"
 		{
 			"duration"			"2.0"
@@ -93,7 +97,7 @@
 			"slam_from_absorbed"			"50"		// % поглощённого уходит в удар
 			"slam_bonus_cap"			"200 300 400 500 600"
 			"slam_radius"			"350"
-			"slam_delay"			"0.2"		// замах: урон приходит не мгновенно
+			"slam_delay"			"0.15"		// замах: урон приходит не мгновенно
 		}
 	}
 

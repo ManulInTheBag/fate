@@ -862,7 +862,7 @@
 									},
 								]
 								is_default_idle_anim = false
-								activity_name = "ACT_DOTA_CHANNEL_ABILITY_1"
+								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
@@ -986,6 +986,7 @@
 							{
 								_class = "AnimFile"
 								name = "vertical_slash2"
+								disabled = true
 								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_4"
 								activity_weight = 1
@@ -1064,6 +1065,81 @@
 								start_frame = 490
 								end_frame = 555
 								framerate = 90.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "slash_jump1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 763
+								end_frame = 785
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "shield_charge"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CHANNEL_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 225
+								end_frame = 274
+								framerate = 25.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "shield_charge1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ICE_WALL"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 274
+								end_frame = 295
+								framerate = 30.0
 								reverse = false
 								additional_anim_files = [  ]
 							},

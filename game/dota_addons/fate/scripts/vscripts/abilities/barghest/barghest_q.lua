@@ -1,6 +1,16 @@
 require("abilities/barghest/barghest_shared")
 
 barghest_q = class({})
+function barghest_q:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
+	StartAnimation(caster, {duration=self:GetCastPoint(), activity=BARGHEST_Q_ACT[self:GetStage()] or ACT_DOTA_CAST_ABILITY_1, rate=1})
+end
+
+function barghest_q:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
+end
 
 --[[ Knight's Cadence (Q)
      Связка из трёх ударов, стадия переключается на каждое нажатие:
@@ -22,8 +32,7 @@ barghest_q = class({})
 
 LinkLuaModifier("modifier_barghest_q_chain", "abilities/barghest/barghest_q", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_q_lunge", "abilities/barghest/barghest_q", LUA_MODIFIER_MOTION_HORIZONTAL)
-LinkLuaModifier("modifier_barghest_q_slam_anim", "abilities/barghest/barghest_q", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_barghest_q_spin_anim", "abilities/barghest/barghest_q", LUA_MODIFIER_MOTION_NONE)
+
 
 function barghest_q:GetAOERadius()
     return self:GetSpecialValueFor("radius")
@@ -73,7 +82,7 @@ BARGHEST_Q_ACT = {
      В модели (content/.../barghest.vmdl) это `vertical_slash2`, кадры 181-207 на
      50 fps ≈ 0.54 c, ровно продолжение замаха `vertical_slash1` (ACT_2, кадры
      175-180) — то есть сам взмах сверху вниз. ]]
-BARGHEST_Q_ACT_LUNGE_HIT = ACT_DOTA_CAST_ABILITY_4
+
 
 --[[ Скорость проигрывания клипа для оверрайда анимации. Читается и на КЛИЕНТЕ,
      поэтому только GetSpecialValueFor: серверных методов юнита тут нельзя.
@@ -238,6 +247,9 @@ function barghest_q:DoLunge(vDir, vPoint)
         x = vDir.x, y = vDir.y,
         distance = nDist,
     })
+   StartAnimation(hCaster, {duration = 0.5,
+        activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
+    FreezeAnimation(hCaster, 0.5)	
 end
 
 -- Стадия 3: удар вокруг себя
@@ -249,8 +261,8 @@ function barghest_q:DoSpin()
     --[[ Пост-анимация: держим героя на месте, пока вертушка доигрывает. У Q
          стоит IGNORE_BACKSWING, так что своего замирания после каста у неё нет
          — без этого можно было убежать с первого же кадра клипа. ]]
-    hCaster:AddNewModifier(hCaster, self, "modifier_barghest_q_spin_anim",
-        {duration = self:GetSpecialValueFor("spin_post_delay")})
+    --hCaster:AddNewModifier(hCaster, self, "modifier_barghest_q_spin_anim",
+        --{duration = self:GetSpecialValueFor("spin_post_delay")})
 
     --[[ ⚠️ Анимации здесь НЕТ. Вертушка — это ACT_DOTA_CAST_ABILITY_3, и его
          уже играет движок по GetCastAnimation. Повторный запуск того же клипа
@@ -302,61 +314,10 @@ end
 
 --[[ Доигровка удара об землю после выпада. ACT_4 — тот же клип, что гонит сам
      выпад, поэтому смена модификатора на приземлении не перезапускает взмах. ]]
-modifier_barghest_q_slam_anim = class({})
 
-function modifier_barghest_q_slam_anim:IsHidden()      return true end
-function modifier_barghest_q_slam_anim:IsDebuff()      return false end
-function modifier_barghest_q_slam_anim:IsPurgable()    return false end
-function modifier_barghest_q_slam_anim:RemoveOnDeath() return true end
-
-function modifier_barghest_q_slam_anim:CheckState()
-    return {
-        [MODIFIER_STATE_ROOTED]             = true,
-        [MODIFIER_STATE_DISARMED]           = true,
-        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-    }
-end
-
-function modifier_barghest_q_slam_anim:DeclareFunctions()
-    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE}
-end
-
-function modifier_barghest_q_slam_anim:GetOverrideAnimation()
-    return BARGHEST_Q_ACT_LUNGE_HIT
-end
-
-function modifier_barghest_q_slam_anim:GetOverrideAnimationRate()
-    return Barghest_QAnimRate(self:GetAbility(), "lunge_anim_rate")
-end
 
 --[[ Доигровка вертушки (стадия 3). ACT_3 — та же активность, которую движок уже
      начал играть как каст-анимацию, так что оверрайд её продолжает, а не рвёт. ]]
-modifier_barghest_q_spin_anim = class({})
-
-function modifier_barghest_q_spin_anim:IsHidden()      return true end
-function modifier_barghest_q_spin_anim:IsDebuff()      return false end
-function modifier_barghest_q_spin_anim:IsPurgable()    return false end
-function modifier_barghest_q_spin_anim:RemoveOnDeath() return true end
-
-function modifier_barghest_q_spin_anim:CheckState()
-    return {
-        [MODIFIER_STATE_ROOTED]             = true,
-        [MODIFIER_STATE_DISARMED]           = true,
-        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-    }
-end
-
-function modifier_barghest_q_spin_anim:DeclareFunctions()
-    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE}
-end
-
-function modifier_barghest_q_spin_anim:GetOverrideAnimation()
-    return ACT_DOTA_CAST_ABILITY_3
-end
-
-function modifier_barghest_q_spin_anim:GetOverrideAnimationRate()
-    return Barghest_QAnimRate(self:GetAbility(), "spin_anim_rate")
-end
 
 ---------------------------------------------------------------------------------------------------
 -- Выпад второй стадии. Мини-деш, но всё равно через motion controller — правило
@@ -381,11 +342,11 @@ function modifier_barghest_q_lunge:DeclareFunctions()
 end
 
 function modifier_barghest_q_lunge:GetOverrideAnimation()
-    return BARGHEST_Q_ACT_LUNGE_HIT
+    return ACT_DOTA_CAST_ABILITY_4
 end
 
 function modifier_barghest_q_lunge:GetOverrideAnimationRate()
-    return Barghest_QAnimRate(self.hAbility or self:GetAbility(), "lunge_anim_rate")
+    return 1
 end
 
 function modifier_barghest_q_lunge:OnCreated(tTable)
@@ -473,15 +434,13 @@ function modifier_barghest_q_lunge:OnDestroy()
          игрок уходит с первого же кадра приземления, бег перекрывает удар — и
          клип снова «не видно», сколько бы мы его ни держали в StartAnimation.
          У Q стоит IGNORE_BACKSWING, своего замирания после каста у неё нет. ]]
-    hParent:AddNewModifier(hParent, hAbility, "modifier_barghest_q_slam_anim", {
-        duration = hAbility:GetSpecialValueFor("lunge_slam_delay")
-                   + hAbility:GetSpecialValueFor("lunge_slam_hold"),
-    })
+
 
     --[[ Урон приходит через lunge_slam_delay, а не в тот же кадр, что и
          остановка. Выпад в упор длится меньше 0.1 с, и без задержки меч втыкался
          в землю раньше, чем клип успевал до этого дойти. ]]
-    Timers:CreateTimer(hAbility:GetSpecialValueFor("lunge_slam_delay"), function()
+    UnfreezeAnimation(hParent)
+    Timers:CreateTimer(0.1, function()
         -- ⚠️ За эти доли секунды её могли убить, а способность — отобрать.
         if not Barghest_Alive(hParent) or not hParent:IsAlive() then return end
         if not Barghest_Alive(hAbility) then return end
@@ -493,7 +452,7 @@ function modifier_barghest_q_lunge:OnDestroy()
         hParent:EmitSound(BARGHEST_SND.SLAM)
         Barghest_FxCut(hParent, vPos + Vector(0, 0, 220), vPos + vDir * 120)
         Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
-
+        --EndAnimation(hParent)
         local tUnits = FindUnitsInRadius(hParent:GetTeamNumber(), vPos, nil, nRadius,
             hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
             hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)

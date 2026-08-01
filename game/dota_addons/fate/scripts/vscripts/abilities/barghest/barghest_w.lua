@@ -21,7 +21,7 @@ barghest_w = class({})
 ]]
 
 LinkLuaModifier("modifier_barghest_w_stance", "abilities/barghest/barghest_w", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_barghest_cc_immune", "abilities/barghest/barghest_w", LUA_MODIFIER_MOTION_NONE)
 function barghest_w:GetAOERadius()
     return self:GetSpecialValueFor("slam_radius")
 end
@@ -51,6 +51,8 @@ function barghest_w:OnSpellStart()
         activity = ACT_DOTA_CHANNEL_ABILITY_1, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_w_stance",
         {duration = self:GetChannelTime()})
+    hCaster:AddNewModifier(hCaster, self, "modifier_barghest_cc_immune",
+        {duration = self:GetChannelTime() + 1})
 end
 
 --[[ Канал кончился: сам ли добежал, сбили ли контролем, оборвали ли приказом.
@@ -68,6 +70,8 @@ function barghest_w:OnChannelFinish(bInterrupted)
     -- Не было урона — нет удара. Был — тем сильнее, чем больше по ней прилетело.
     if fAbsorbed > 0 then
         self:Slam(hCaster, fAbsorbed)
+    else
+         hCaster:RemoveModifierByName("modifier_barghest_cc_immune")
     end
     -- Продолжение — за сам выход из стойки: WR по концепту способ разорвать
     -- дистанцию, и завязывать его на «успели ли ударить» значило бы
@@ -88,8 +92,9 @@ function barghest_w:Slam(hCaster, fAbsorbed)
 
     -- Замах: звук пробитого барьера и сама анимация идут сразу...
     hCaster:EmitSound(BARGHEST_SND.W_BREAK)
+    EndAnimation(hCaster)
     StartAnimation(hCaster, {duration = fDelay + 0.5,
-        activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
+        activity = ACT_DOTA_CAST_ICE_WALL, rate = 1.0})
 
     --[[ ...а урон, кольцо и грохот — через slam_delay, когда рука уже дошла до
          земли. Без задержки клип не успевал даже начаться, и удар случался
@@ -166,6 +171,9 @@ function modifier_barghest_w_stance:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
     }
+end
+function modifier_barghest_w_stance:CheckState()
+	return {[MODIFIER_STATE_DEBUFF_IMMUNE] =true }
 end
 
 --[[ Подпитка барьера от прилетевшего урона.
@@ -257,4 +265,14 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
     end)
 
     return -nBlock
+end
+
+modifier_barghest_cc_immune = class({})
+
+function modifier_barghest_cc_immune:CheckState()
+	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = true}
+end
+
+function modifier_barghest_cc_immune:IsHidden()
+	return false
 end
