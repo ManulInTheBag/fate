@@ -2,6 +2,50 @@ hijikata_dash_recast = class({})
 LinkLuaModifier("modifier_hijikata_rush", "abilities/hijikata/hijikata_dash_recast", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_hijikata_rotation_lock","abilities/hijikata/hijikata_dash_recast", LUA_MODIFIER_MOTION_NONE)
 
+--------------------------------------------------------------------------------
+-- Что можно кастовать прямо в полёте Battle drive.
+-- Значение = прерывает ли каст деш (Madness не прерывает, остальные останавливают
+-- Хиджикату на текущем месте).
+HIJIKATA_RUSH_CASTABLE = {
+	["hijikata_demon"]         = true,  -- ZloDemon of the battlefield
+	["hijikata_demon_recast"]  = true,
+	["hijikata_duel"]          = true,  -- Duel
+	["hijikata_duel_recast"]   = true,
+	["hijikata_ult"]           = true,  -- Shinsengumi
+	["hijikata_madness"]       = false, -- Madness — деш продолжается
+}
+
+local HIJIKATA_RUSH_CAST_ORDERS = {
+	[DOTA_UNIT_ORDER_CAST_POSITION]          = true,
+	[DOTA_UNIT_ORDER_CAST_TARGET]            = true,
+	[DOTA_UNIT_ORDER_CAST_TARGET_TREE]       = true,
+	[DOTA_UNIT_ORDER_CAST_NO_TARGET]         = true,
+	[DOTA_UNIT_ORDER_CAST_TOGGLE]            = true,
+	[DOTA_UNIT_ORDER_VECTOR_TARGET_POSITION] = true,
+}
+
+-- Зовётся из FateGameMode:ExecuteOrderFilter. Возвращает false, чтобы съесть приказ.
+-- Раньше полёт закрывался MODIFIER_STATE_COMMAND_RESTRICTED и не пропускал вообще
+-- ничего; теперь состояние снято, и роль «нельзя командовать» играет этот фильтр.
+function HijikataRushOrderFilter(hUnit, hAbility, iOrder)
+	local rush = hUnit:FindModifierByName("modifier_hijikata_rush")
+	if rush == nil then return true end
+
+	if not HIJIKATA_RUSH_CAST_ORDERS[iOrder] then return false end
+	if not IsNotNull(hAbility) then return false end
+
+	local interrupts = HIJIKATA_RUSH_CASTABLE[hAbility:GetAbilityName()]
+	if interrupts == nil then return false end
+
+	-- деш рвём только если каст реально состоится
+	if interrupts and hAbility:IsFullyCastable() then
+		rush:StopRush()
+	end
+
+	return true
+end
+--------------------------------------------------------------------------------
+
 --[[
 function hijikata_dash_recast:CastFilterResult()
 	local caster = self:GetCaster()
@@ -38,7 +82,11 @@ end
 function hijikata_dash_recast:OnSpellStart()
     local caster = self:GetCaster()
 	local target = caster.dash_target
-    local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() 
+	if not IsNotNull(target) or not target:IsAlive() then
+		caster:RemoveModifierByName("modifier_hijikata_dash_recast_enable")
+		return
+	end
+    local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
 	if distance > self:GetSpecialValueFor("distance") then
 		return
 	end
@@ -78,6 +126,10 @@ function modifier_hijikata_rush:OnCreated(hui)
     self.parent:StartGesture(ACT_DOTA_AMBUSH)
     --self.parent:SetAnimation(ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END) 
 	self.target = self.parent.dash_target
+	if not IsNotNull(self.target) then
+		self:Destroy()
+		return
+	end
 	self.swordfx = ParticleManager:CreateParticle("particles/hijikata/hijikata_sword_dash.vpcf", PATTACH_ABSORIGIN_FOLLOW  , self.parent )
     ParticleManager:SetParticleControlEnt(self.swordfx, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_sword_base", Vector(0,0,0), true)
     ParticleManager:SetParticleControlEnt(self.swordfx, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_sword_end", Vector(0,0,0), true)
@@ -103,8 +155,11 @@ function modifier_hijikata_rush:RemoveOnDeath() return true end
 function modifier_hijikata_rush:GetPriority() return MODIFIER_PRIORITY_HIGH end
 
 function modifier_hijikata_rush:CheckState()
+    -- COMMAND_RESTRICTED снят: приказы фильтрует HijikataRushOrderFilter,
+    -- иначе движок не дал бы скастовать ничего прямо в полёте.
+    -- MUTED закрывает предметы, которые под тем же снятым состоянием иначе стали бы доступны
     local state = { [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                    [MODIFIER_STATE_COMMAND_RESTRICTED] = true, }
+                    [MODIFIER_STATE_MUTED] = true, }
 
     if self.target and not self.target:IsNull() and self.target:HasFlyMovementCapability() then
         state[MODIFIER_STATE_FLYING] = true
@@ -117,29 +172,37 @@ end
 
  
 
+-- Обрыв деша ради другой способности: без добивающей анимации и без
+-- rotation_lock, иначе собственный сайленс съел бы каст, ради которого прервались
+function modifier_hijikata_rush:StopRush()
+    if not IsServer() then return end
+    self.cancelled_by_spell = true
+    self:Destroy()
+end
+
 function modifier_hijikata_rush:OnDestroy()
     if not IsServer() then return end
-    self.parent:AddNewModifier(self.parent, self.ability, "modifier_hijikata_rotation_lock", {duration = 0.15})
-    self.parent:RemoveGesture(ACT_DOTA_AMBUSH)
-    StartAnimation( self.parent, {duration=0.5, activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate=1.0})
-    
-    local pos = self.parent:GetOrigin()
-    local direction = self.targetpos - pos
-    direction.z = 0     
-   
-    local attackFx = ParticleManager:CreateParticle("particles/hijikata/hijikata_dash_slash.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)  
-    ParticleManager:ReleaseParticleIndex(attackFx)
-    --ParticleManager:SetParticleControlTransformForward(attackFx, 0, self.parent:GetAbsOrigin(), direction)
-    if IsServer() then
-        self.parent:InterruptMotionControllers(true)
-        if self.parent:HasModifier("jump_pause_nosilence") then
-        	self.parent:RemoveModifierByName("jump_pause_nosilence")
-        end
+    if not IsNotNull(self.parent) then return end
 
-        if self.swordfx then
-            ParticleManager:DestroyParticle(self.swordfx, false)
-            ParticleManager:ReleaseParticleIndex(self.swordfx)
-        end
+    self.parent:RemoveGesture(ACT_DOTA_AMBUSH)
+
+    if not self.cancelled_by_spell then
+        self.parent:AddNewModifier(self.parent, self.ability, "modifier_hijikata_rotation_lock", {duration = 0.15})
+        StartAnimation( self.parent, {duration=0.5, activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate=1.0})
+
+        local attackFx = ParticleManager:CreateParticle("particles/hijikata/hijikata_dash_slash.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)
+        ParticleManager:ReleaseParticleIndex(attackFx)
+    end
+
+    self.parent:InterruptMotionControllers(true)
+    if self.parent:HasModifier("jump_pause_nosilence") then
+        self.parent:RemoveModifierByName("jump_pause_nosilence")
+    end
+
+    if self.swordfx then
+        ParticleManager:DestroyParticle(self.swordfx, false)
+        ParticleManager:ReleaseParticleIndex(self.swordfx)
+        self.swordfx = nil
     end
 end
 
@@ -195,8 +258,9 @@ function modifier_hijikata_rush:BOOM()
                             ParticleManager:ReleaseParticleIndex(blow_fx)
     	if not self.target:IsMagicImmune() then
             Timers:CreateTimer(0.1, function()
+                if not IsNotNull(self.parent) or not IsNotNull(self.target) then return end
                 if self.parent.IsShinsengumiAcquired then
-                    DoDamage(self.parent, self.target, self.parent:GetAverageTrueAttackDamage(hCaster) * self.ability:GetSpecialValueFor("sa_atk_dmg_mod"), DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
+                    DoDamage(self.parent, self.target, self.parent:GetAverageTrueAttackDamage(self.parent) * self.ability:GetSpecialValueFor("sa_atk_dmg_mod"), DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
                 end
                 DoDamage(self.parent, self.target, damage, DAMAGE_TYPE_PHYSICAL, 0, self.ability, false)
                 if self.parent:GetHealth() < self.parent:GetMaxHealth() then

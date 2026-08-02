@@ -253,6 +253,333 @@ GameUI.CustomUIConfig().multiteam_top_scoreboard =
     GameUI.CustomUIConfig().hud = hud;
 
 
+// ---------------------------------------------------------------------------
+// Диагностика лавки. Дерево плиток создаётся в C++ на лету, статически его не
+// увидеть — снимаем в рантайме. Открыть лавку и ввести в консоль: fb_shop_dump
+// ---------------------------------------------------------------------------
+function FateBalanceShopDump() {
+    var root = GetDotaHud();
+    var shop = root.FindChildTraverse("HUDElements");
+    shop = shop ? shop.FindChildTraverse("shop") : null;
+    if (!shop) {
+        $.Msg("[FBShopDump] панель shop не найдена");
+        return;
+    }
+    var printed = 0;
+
+    function walk(panel, depth) {
+        if (!panel) {
+            return;
+        }
+        var pad = "";
+        for (var d = 0; d < depth; d++) {
+            pad += "  ";
+        }
+
+        var line = pad + "<" + panel.paneltype + "> id='" + panel.id + "'";
+        if (!panel.visible) {
+            line += " [hidden]";
+        }
+
+        // главное: читается ли привязка плитки к предмету и что в ней лежит
+        if (panel.paneltype === "DOTAShopItem" || panel.paneltype === "DOTAItemImage") {
+            try {
+                line += " itemname='" + panel.itemname + "'";
+            } catch (e) {
+                line += " itemname=<НЕЧИТАЕМО>";
+            }
+        }
+
+        $.Msg("[FBShopDump] " + line);
+        printed++;
+
+        var n = panel.GetChildCount();
+        for (var i = 0; i < n; i++) {
+            walk(panel.GetChild(i), depth + 1);
+        }
+    }
+
+    $.Msg("[FBShopDump] ===== начало дампа (вся панель shop) =====");
+    walk(shop, 0);
+    $.Msg("[FBShopDump] ===== конец, панелей: " + printed + " =====");
+}
+
+Game.AddCommand("fb_shop_dump", FateBalanceShopDump, "Выгрузить дерево панелей лавки в консоль", 0);
+
+// ---------------------------------------------------------------------------
+// Починка лавки. На холодном старте клиент собирает сетку раньше, чем у него
+// появляется таблица предметов аддона, и первые 14 слотов занимают ванильные
+// consumables. Порядок и состав берём из scripts/shops.txt.
+// ---------------------------------------------------------------------------
+// имя предмета + имя файла иконки (AbilityTextureName из npc_items_custom.txt,
+// без префикса custom/). Из имени предмета оно НЕ выводится.
+// имя предмета -> имя файла иконки (AbilityTextureName без префикса custom/).
+// Из имени предмета оно НЕ выводится, половина не совпадает.
+// Раскладывать по ПОРЯДКУ нельзя: состав сетки зависит от common_items.txt
+// (например item_berserk_scroll стоит там с нулём и в лавку не попадает),
+// поэтому смотрим, что в плитке уже лежит, и меняем только картинку.
+var FB_ICONS = {
+    "item_mana_essence":           "mana_essence",
+    "item_condensed_mana_essence": "bottle_haste",
+    "item_c_scroll":               "c_scroll",
+    "item_b_scroll":               "b_scroll",
+    "item_a_scroll":               "a_scroll",
+    "item_s_scroll":               "s_scroll",
+    "item_ex_scroll":              "ex_scroll",
+    "item_a_plus_scroll":          "a_plus_scroll",
+    "item_ward_familiar":          "observer_ward",
+    "item_sentry_familiar":        "item_sentry_familiar",
+    "item_scout_familiar":         "scout_familiar",
+    "item_berserk_scroll":         "berserk_scroll",
+    "item_gem_of_speed":           "gem_of_speed",
+    "item_spirit_link":            "spirit_link",
+    "item_healing_scroll":         "healing_scroll",
+    "item_teleport_scroll":        "teleport_scroll",
+    "item_a_plus_recipe":          "item_recipe_scroll",
+    "item_attack_familiar":        "attack_familiar",
+    "item_relic_of_the_king":      "relic_of_the_king",
+    "item_blink_scroll":           "blink_scroll",
+    "item_gem_of_resonance":       "gem_of_resonance",
+    "item_all_seeing_orb":         "all_seeing_orb",
+    "item_shard_of_replenishment": "shard_of_replenishment",
+    "item_shard_of_anti_magic":    "shard_of_anti_magic",
+    "item_caster_5th_mount":       "caster_5th_mount"
+};
+
+// Состав сетки слот в слот: список из scripts/shops.txt МИНУС то, что выключено
+// в scripts/npc/common_items.txt (сейчас это item_berserk_scroll — там ноль).
+// Меняешь shops.txt или common_items.txt — правь и здесь.
+var FB_SHOP_ITEMS = [
+    ["item_mana_essence",           "mana_essence",         400],
+    ["item_condensed_mana_essence", "bottle_haste",         800],
+    ["item_c_scroll",               "c_scroll",             150],
+    ["item_b_scroll",               "b_scroll",             300],
+    ["item_a_scroll",               "a_scroll",             600],
+    ["item_s_scroll",               "s_scroll",            1200],
+    ["item_ex_scroll",              "ex_scroll",           2400],
+    ["item_a_plus_scroll",          "a_plus_scroll",       1000],
+    ["item_ward_familiar",          "observer_ward",        400],
+    ["item_sentry_familiar",        "item_sentry_familiar", 200],
+    ["item_scout_familiar",         "scout_familiar",       200],
+    ["item_gem_of_speed",           "gem_of_speed",         300],
+    ["item_spirit_link",            "spirit_link",         1500],
+    ["item_healing_scroll",         "healing_scroll",       800],
+    ["item_teleport_scroll",        "teleport_scroll",      400],
+    ["item_a_plus_recipe",          "item_recipe_scroll",   400],
+    ["item_attack_familiar",        "attack_familiar",      600],
+    ["item_relic_of_the_king",      "relic_of_the_king",   1200]
+];
+
+// Клик и тултип у захваченной плитки остаются привязаны к ванильному предмету —
+// запись itemname их не переучивает. Кладём сверху прозрачную кнопку: она
+// перехватывает мышь, а покупка уходит строкой в HotkeyPurchaseItem (util.lua).
+// Геометрию задаём явно: без position кнопка ложится по потоку, а не поверх
+// плитки, и попасть по ней можно только краем.
+function FateBalanceAttachBuy(tile, name, cost) {
+    var old = tile.FindChild("FBBuyOverlay");
+    if (old) {
+        old.DeleteAsync(0);
+    }
+    var ov = $.CreatePanel("Button", tile, "FBBuyOverlay");
+    ov.style.position = "0px 0px 0px";
+    ov.style.align = "left top";
+    ov.style.width = "100%";
+    ov.style.height = "100%";
+    ov.style.zIndex = "100";
+    ov.style.backgroundColor = "#00000001";
+
+    // Покупка на ПКМ — как в лавке было до правок. ЛКМ намеренно пустой.
+    // Шлём в hotkey_purchase_item (libraries/util.lua). НЕ пытаться слать в
+    // panorama_shop_item_buy: модуль modules/panorama_shop ОТКЛЮЧЁН —
+    // в modules/index.lua его require закомментирован, слушателя нет, покупка
+    // просто уходит в никуда.
+    ov.SetPanelEvent("oncontextmenu", function () {
+        var pid = Game.GetLocalPlayerID();
+        if (!Players.IsValidPlayerID(pid) || Players.IsSpectator(pid)) {
+            return;
+        }
+        GameEvents.SendCustomGameEventToServer("hotkey_purchase_item", { item: name });
+        Game.EmitSound("General.Buy");
+    });
+
+    ov.SetPanelEvent("onmouseover", function () {
+        // Ванильная плитка показывает тултип своего исходного предмета: наша
+        // кнопка лежит ВНУТРИ неё, поэтому плитка тоже считается наведённой.
+        // Гасим её тултип и показываем свой текстом. Полноценный тултип предмета
+        // тут не годится — на холодном старте у клиента нет KV наших предметов,
+        // он выведет UNKNOWN. Строки локализации при этом доступны.
+        $.DispatchEvent("DOTAHideAbilityTooltip");
+        $.DispatchEvent("DOTAHideTextTooltip");
+
+        var title = $.Localize("#DOTA_Tooltip_ability_" + name);
+        var desc = $.Localize("#DOTA_Tooltip_ability_" + name + "_Description");
+        if (title.indexOf("DOTA_Tooltip") >= 0) {
+            title = name;
+        }
+        var text = "";
+        if (desc.indexOf("DOTA_Tooltip") < 0) {
+            text = desc;
+        }
+        $.DispatchEvent("DOTAShowTitleTextTooltip", ov,
+                        title + "  —  " + cost, text);
+    });
+    ov.SetPanelEvent("onmouseout", function () {
+        $.DispatchEvent("DOTAHideTitleTextTooltip");
+        $.DispatchEvent("DOTAHideTextTooltip");
+    });
+}
+
+function FateBalanceFindShopGrids() {
+    var found = [];
+    var shop = GetDotaHud().FindChildTraverse("HUDElements");
+    shop = shop ? shop.FindChildTraverse("shop") : null;
+    if (!shop) {
+        return found;
+    }
+    var grid = shop.FindChildTraverse("GridMainShop");
+    if (!grid) {
+        return found;
+    }
+    // сеток две — GridMainShopContents и GridMainShopContentsV2, id контейнера
+    // с плитками у обеих одинаковый, поэтому собираем обходом
+    function walk(panel) {
+        if (!panel) {
+            return;
+        }
+        if (panel.id === "ShopItemsContainer") {
+            found.push(panel);
+            return;
+        }
+        var n = panel.GetChildCount();
+        for (var i = 0; i < n; i++) {
+            walk(panel.GetChild(i));
+        }
+    }
+    walk(grid);
+    return found;
+}
+
+function FateBalanceShopFix(quiet) {
+    var grids = FateBalanceFindShopGrids();
+    if (grids.length === 0) {
+        if (!quiet) {
+            $.Msg("[FBShopFix] ShopItemsContainer не найден");
+        }
+        return 0;
+    }
+    var totalFixed = 0;
+
+    for (var g = 0; g < grids.length; g++) {
+        var box = grids[g];
+        var n = box.GetChildCount();
+        var fixedCount = 0;
+        var okCount = 0;
+
+        for (var i = 0; i < n && i < FB_SHOP_ITEMS.length; i++) {
+            var tile = box.GetChild(i);
+            var was = tile.id;
+
+            // Плитка, в которой уже лежит наш предмет, работает штатно: своя
+            // иконка, свой тултип, своя покупка. Такую не трогаем вообще —
+            // любая правка делает только хуже.
+            if (FB_ICONS.hasOwnProperty(was)) {
+                okCount++;
+                continue;
+            }
+
+            // Уже починена на прошлом проходе. Проверка идёт по наличию нашей
+            // кнопки: id плитки так и остаётся ванильным, по нему повтор не
+            // отличить. Если лавку пересоберут — кнопка исчезнет вместе со
+            // старой плиткой, и починка произойдёт заново.
+            if (tile.FindChild("FBBuyOverlay")) {
+                okCount++;
+                continue;
+            }
+
+            // Слот захвачен ванильным предметом. Чиним по позиции: состав сетки
+            // совпадает с нашим списком слот в слот.
+            var want = FB_SHOP_ITEMS[i][0];
+            var tex = FB_SHOP_ITEMS[i][1];
+            var cost = FB_SHOP_ITEMS[i][2];
+
+            var img = tile.FindChildTraverse("ItemImage");
+            if (img) {
+                // ВАЖНО: расширение .vtex, движок сам дописывает _c.
+                // С .vtex_c получается ..._c_c и File not found.
+                try {
+                    img.SetImage("s2r://panorama/images/items/custom/" + tex + "_png.vtex");
+                } catch (e1) {
+                    $.Msg("[FBShopFix] SetImage упал: " + e1);
+                }
+            }
+            FateBalanceAttachBuy(tile, want, cost);
+
+            if (!quiet) {
+                $.Msg("[FBShopFix] слот " + i + ": захвачен '" + was + "' -> ставим '" +
+                      want + "', иконка custom/" + tex + ", цена " + cost);
+            }
+            fixedCount++;
+        }
+
+        totalFixed += fixedCount;
+        if (!quiet || fixedCount > 0) {
+            $.Msg("[FBShopFix] сетка " + (g + 1) + ": плиток " + n +
+                  ", своих и так " + okCount + ", починено " + fixedCount);
+        }
+    }
+    return totalFixed;
+}
+
+Game.AddCommand("fb_shop_fix", function () { FateBalanceShopFix(false); },
+                "Пересобрать плитки лавки под предметы Fate", 0);
+
+// Автопочинка. Лавку клиент пересобирает по ходу загрузки не один раз (в консоли
+// это видно по повторяющимся "No shop category named"), поэтому одного вызова
+// мало — крутим проверку постоянно. Она дешёвая: если у плиток уже стоит наша
+// кнопка, проход просто ничего не делает и молчит.
+function FateBalanceShopWatch() {
+    FateBalanceShopFix(true);
+    FateBalanceUpdateStocks();
+    $.Schedule(2.0, FateBalanceShopWatch);
+}
+$.Schedule(2.0, FateBalanceShopWatch);
+
+// Подпись стока на плитке. Ванильный StockAmount показывает сток чужого
+// предмета, к которому плитка привязана, поэтому пишем его сами из нет-таблицы
+// fb_stock (её наполняет PushItemStocksToClients в libraries/util.lua).
+function FateBalanceUpdateStocks() {
+    var pid = Game.GetLocalPlayerID();
+    if (!Players.IsValidPlayerID(pid)) {
+        return;
+    }
+    var team = Players.GetTeam(pid);
+    var grids = FateBalanceFindShopGrids();
+
+    for (var g = 0; g < grids.length; g++) {
+        var box = grids[g];
+        var n = box.GetChildCount();
+        for (var i = 0; i < n && i < FB_SHOP_ITEMS.length; i++) {
+            var tile = box.GetChild(i);
+            // только починенные нами плитки: у своих сток рисует сам движок
+            if (!tile.FindChild("FBBuyOverlay")) {
+                continue;
+            }
+            var name = FB_SHOP_ITEMS[i][0];
+            var row = CustomNetTables.GetTableValue("fb_stock", name);
+            var label = tile.FindChildTraverse("StockAmount");
+            if (!label) {
+                continue;
+            }
+            if (!row || row[team] === undefined) {
+                label.visible = false;
+                continue;
+            }
+            label.text = row[team];
+            label.visible = true;
+        }
+    }
+}
+
     //WORK WITH COMBINE REMOVING ITEMS ON HERO PICKS AKA SPAWNED
 let pInnatesPanel = GetDotaHud().FindChildrenWithClassTraverse("RootInnateDisplay");
 if (pInnatesPanel)

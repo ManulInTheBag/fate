@@ -489,6 +489,9 @@ function Physics:Unit(unit)
   
   function unit:PreventDI (prevent)
     unit.bPreventDI = prevent
+    if not IsValidEntity(unit) then
+      return
+    end
     if not prevent and unit:HasModifier("modifier_rooted") then
       unit:RemoveModifierByName("modifier_rooted")
     end

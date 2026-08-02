@@ -80,9 +80,9 @@ FATE_MMR_LEAVER_MULT = 2         -- и снимают с него вдвое (с
 FATE_MMR_LONG_MATCH_SCORE = 20   -- сумма счёта по раундам, после которой матч
                                  -- засчитывается, даже если не доигран
 FATE_MMR_WATCH_INTERVAL = 10     -- как часто сторож смотрит на отключения
-FATE_MMR_APPLY_DELAY = 3         -- пауза перед начислением: ждём, пока дойдёт мета матча
 FATE_MMR_APPLY_RETRIES = 4       -- сервер отвечает 409, пока меты нет — повторяем
-FATE_MMR_APPLY_RETRY_DELAY = 5
+                                 -- (повтор идёт сразу из колбэка: таймеров в
+                                 --  POST_GAME уже нет, см. ApplyMatch)
 
 -- Рейтинг работает только на основных двухкомандных картах. FFA и 3v3v3v3 вне
 -- системы: там нет двух команд, а значит и «среднего рейтинга противника».
@@ -102,6 +102,8 @@ FateMMR.ready = false                        -- рейтинги доехали 
 FateMMR.autoShuffled = false                 -- автошафл уже сработал
 FateMMR.startRoster = nil                    -- состав на старте матча: playerID -> команда
 FateMMR.applied = false                      -- начисление за матч уже отправлено
+FateMMR.applyOk = false                      -- ...и сервер подтвердил его 200-м
+FateMMR.pendingSend = nil                    -- функция повторной отправки
 
 function FateMMR:IsRatedMap()
     if not FATE_MMR_ENABLED then return false end
@@ -703,6 +705,7 @@ function FateMMR:ApplyMatch(matchId, winnerTeam)
         req:SetHTTPRequestGetOrPostParameter("score_sum", tostring(r + d))
         req:Send(function(res)
             if res.StatusCode == 200 then
+                FateMMR.applyOk = true
                 FateMMR:Debug("начисление: " .. tostring(res.Body))
             elseif res.StatusCode ~= 409 then
                 FateMMR:Notify("начисление не прошло: " .. tostring(res.StatusCode)
@@ -710,13 +713,33 @@ function FateMMR:ApplyMatch(matchId, winnerTeam)
             end
             print("[FateMMR] начисление (" .. matchId .. ") -> " .. tostring(res.StatusCode)
                   .. " " .. tostring(res.Body))
-            -- 409 = мета матча ещё не долетела до базы; повторяем.
+            -- 409 = мета матча ещё не долетела до базы; повторяем СРАЗУ из
+            -- колбэка. Пауза между попытками — сам сетевой круг (см. ниже,
+            -- почему здесь нельзя Timers).
             if res.StatusCode == 409 and attempt < FATE_MMR_APPLY_RETRIES then
-                Timers:CreateTimer(FATE_MMR_APPLY_RETRY_DELAY, function() send() end)
+                send()
             end
         end)
     end
-    -- Пауза: мету матча и строки игроков шлёт my_http_post прямо перед этим,
-    -- а сервер начисляет только за матч, который уже есть в базе.
-    Timers:CreateTimer(FATE_MMR_APPLY_DELAY, function() send() end)
+    -- ⚠️⚠️ БЕЗ Timers. Начисление уходит в конце матча, а `Timers:Think()`
+    -- выходит НИЧЕГО не сделав, как только состояние >= POST_GAME
+    -- (libraries/timers.lua). my_http_post зовётся прямо перед SetGameWinner,
+    -- поэтому отложенный на 3 секунды запрос не уходил ВООБЩЕ — статистика
+    -- матча улетала, а рейтинг молча не начислялся (матчи 01.08.2026).
+    --
+    -- Отправляем СРАЗУ, в том же кадре, что и мету матча. Гонку «мета ещё не в
+    -- базе» держит сам воркер: он ждёт её появления несколько секунд и только
+    -- потом отвечает 409. Плюс два запасных пути, оба идемпотентные (повторный
+    -- запрос получает «already applied»): RetryApply из колбэка POST /matches и
+    -- повтор на 409 из колбэка этого запроса.
+    self.pendingSend = send
+    send()
+end
+
+-- Повторная отправка, если первая не подтвердилась. Зовётся из колбэка
+-- POST /matches (мета точно в базе) — на случай, если первый запрос ушёл
+-- раньше меты и воркер не дождался её.
+function FateMMR:RetryApply()
+    if self.applyOk or type(self.pendingSend) ~= "function" then return end
+    self.pendingSend()
 end

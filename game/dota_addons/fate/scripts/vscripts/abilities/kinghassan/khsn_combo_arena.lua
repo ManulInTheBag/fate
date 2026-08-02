@@ -176,8 +176,19 @@ function modifier_khsn_combo_arena:OnCreated()
 	ParticleManager:SetParticleControl(self.line_fx_2, 0, self.ori_2)
 	ParticleManager:SetParticleControl(self.line_fx_2, 1, self.ori_2 + self.length*self.forward)
 
+	-- поперечные линии: замыкают коридор в прямоугольник, ближняя и дальняя грани
+	self.line_fx_3 = ParticleManager:CreateParticle("particles/kinghassan/khsn_combo_area_test/khsn_combo_area_ground_line.vpcf", PATTACH_ABSORIGIN, self.parent)
+	ParticleManager:SetParticleControl(self.line_fx_3, 0, self.ori_1)
+	ParticleManager:SetParticleControl(self.line_fx_3, 1, self.ori_2)
+
+	self.line_fx_4 = ParticleManager:CreateParticle("particles/kinghassan/khsn_combo_area_test/khsn_combo_area_ground_line.vpcf", PATTACH_ABSORIGIN, self.parent)
+	ParticleManager:SetParticleControl(self.line_fx_4, 0, self.ori_1 + self.length*self.forward)
+	ParticleManager:SetParticleControl(self.line_fx_4, 1, self.ori_2 + self.length*self.forward)
+
 	self:AddParticle(self.line_fx_1, true, false, -1, false, false)
 	self:AddParticle(self.line_fx_2, true, false, -1, false, false)
+	self:AddParticle(self.line_fx_3, true, false, -1, false, false)
+	self:AddParticle(self.line_fx_4, true, false, -1, false, false)
 
 	self.ray_fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_combo_area_test/khsn_combo_area_ray.vpcf", PATTACH_ABSORIGIN, self.parent)
 	ParticleManager:SetParticleControlTransformForward(self.ray_fx, 0, self.ori, self.forward)

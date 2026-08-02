@@ -115,7 +115,6 @@ SPAWN_POSITION_T4_TRIO = Vector(-888,1748,512)
 TRIO_RUMBLE_CENTER = Vector(2436,4132,1000)
 FFA_CENTER = Vector(368,3868,1000)
 mode = nil
-FATE_VERSION = "v13.37"
 roundQuest = nil
 IsGameStarted = false
 
@@ -921,7 +920,7 @@ This function is called once and only once after all players have loaded into th
     ]]
 function FateGameMode:OnAllPlayersLoaded()
    print("[BAREBONES] All Players have loaded into the game")
-    GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION .. " by Balance Department", 0, 0)
+    GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION_BRAND .. " (" .. tostring(FATE_VERSION) .. ") by Balance Department", 0, 0)
     GameRules:SendCustomMessage("Game is currently and forever in beta, so you may run into minor and major issues that nobody cares about. You've been warned.", 0, 0)
     --GameRules:SendCustomMessage("#Fate_Choose_Hero_Alert_60", 0, 0)
     --FireGameEvent('cgm_timer_display', { timerMsg = "Hero Select", timerSeconds = 61, timerEnd = true, timerPosition = 100})
@@ -1089,7 +1088,7 @@ function FateGameMode:OnGameInProgress()
         GameRules:GetGameModeEntity():SetThink( "OnGameTimerThink", self, 1 )
         IsPickPhase = false
         IsGameStarted = true
-        GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION .. " by Balance Department", 0, 0)
+        GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION_BRAND .. " (" .. tostring(FATE_VERSION) .. ") by Balance Department", 0, 0)
         GameRules:SendCustomMessage("Game is currently and forever in beta, so you may run into minor and major issues that nobody cares about. You've been warned.", 0, 0)
         GameRules:SendCustomMessage("#Fate_Game_Begin", 0, 0)
         CreateUITimer("Next Holy Grail's Blessing", FIRST_BLESSING_PERIOD, "ten_min_timer")
@@ -1400,6 +1399,13 @@ FATE_API_KEY = FATE_API_KEY or ""
 -- pcall: файла может не быть (свежий клон, никто не штамповал) — тогда "dev".
 pcall(require, "fate_version")
 FATE_VERSION = FATE_VERSION or "dev"
+
+-- Витринная («маркетинговая») версия для чата. ⚠️ Раньше эта строка жила в
+-- init_shit() как FATE_VERSION = "v13.37" — а init_shit зовётся в САМОМ КОНЦЕ
+-- файла (строка ~6057), то есть УЖЕ ПОСЛЕ require("fate_version"), и затирала
+-- проштампованный хеш. Из-за этого все матчи уезжали в статистику с версией
+-- "v13.37", сколько ни штампуй. Держать её здесь, рядом с require.
+FATE_VERSION_BRAND = "v13.37"
 
 -- Не отправляем НИЧЕГО на сервер из тестовых/чит-лобби (tools-режим или
 -- включённые читы) — чтобы не засорять прод-БД тестами и не давать
@@ -2928,6 +2934,12 @@ function FateGameMode:OnGameRulesStateChange(keys)
     print("OGRSC")
     print(newState)
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
+        -- гоняем стоки в нет-таблицу: движок пополняет их молча, событий нет,
+        -- а панораме надо чем-то подписать плитки лавки
+        Timers:CreateTimer(function()
+            PushItemStocksToClients()
+            return 1.0
+        end)
         print("collectingPD")
         HeroSelection:CollectPD()
         CameraModule:CollectPD()
@@ -3822,20 +3834,23 @@ function GetHeroItems(hero)
     return itemTable
 end
 
+-- Стеш — слоты 9..14 (DOTA_STASH_SLOT_1 = 9), 15 это выделенный слот под тапок.
+-- Здесь было 10..15: первый слот стеша не виден, зато читался слот тапка.
 function GetStashItems(hero)
     local stashTable = {}
     for i=1,6 do
-        local item = hero:GetItemInSlot(i + 9)
+        local item = hero:GetItemInSlot(i + 8)
         table.insert(stashTable, i, item and item:GetName())
     end
     return stashTable
 end
 
 function FindItemInStash(hero, itemname)
-    for i=10, 15 do
+    for i=9, 14 do
         local heroItem = hero:GetItemInSlot(i)
-        if heroItem == nil then return nil end
-        if heroItem:GetName() == itemname then
+        -- пустой слот в середине стеша не повод прекращать поиск:
+        -- раньше здесь стоял return и обрывал перебор на первой дырке
+        if heroItem ~= nil and heroItem:GetName() == itemname then
             return heroItem
         end
     end
@@ -4702,6 +4717,8 @@ function FateGameMode:InitGameMode()
     GameRules:SetCustomVictoryMessageDuration(30)
     -- В tools экран выбора команд жил 3 секунды — на нём физически не успеть
     -- посмотреть ни рейтинги, ни результат шафла. В настоящем лобби как было.
+    -- В tools экран выбора команд жил 3 секунды — на нём физически не успеть
+    -- посмотреть ни рейтинги, ни результат шафла. В настоящем лобби как было.
     GameRules:SetCustomGameSetupAutoLaunchDelay(IsInToolsMode() and 20 or 30)
     GameRules:SetCustomGameAllowBattleMusic( false )
     GameRules:SetCustomGameAllowHeroPickMusic( false )
@@ -4982,6 +4999,13 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
                   or nil
 
     if IsNotNull(hUnit) then
+        -- Battle drive: во время полёта пропускаем только белый список способностей Хиджикаты
+        if type(HijikataRushOrderFilter) == "function" and hUnit:HasModifier("modifier_hijikata_rush") then
+            if not HijikataRushOrderFilter(hUnit, hAbility, iOrder) then
+                return false
+            end
+        end
+
         if IsNotNull(AnimeVectorTargeting) then
             AnimeVectorTargeting:UpdateAnimeVectorTargetingAbility(hAbility, hUnit, hTarget, vPosition, iOrder)
         end
@@ -5990,7 +6014,18 @@ function my_http_post(winnerTeam)
         mreq:SetHTTPRequestGetOrPostParameter("version", tostring(FATE_VERSION or "dev"))
         mreq:Send(function(res)
             print("[FateStats] match meta (" .. matchId .. ") -> " .. tostring(res.StatusCode))
+            -- Подстраховка: если запрос на начисление ушёл раньше, чем мета
+            -- легла в базу, шлём его ещё раз — теперь мета точно там. Повтор
+            -- идемпотентен («already applied»).
+            local ok2, err2 = pcall(function() FateMMR:RetryApply() end)
+            if not ok2 then print("[FateMMR] повтор начисления не запустился: " .. tostring(err2)) end
         end)
+
+        -- Рейтинг: СИНХРОННО, в том же кадре. Откладывать нечем — таймеры в
+        -- POST_GAME не тикают (см. fate_mmr.lua), а полагаться только на колбэк
+        -- HTTP не хочется: это единственная ниточка, и она не проверена в бою.
+        local okm, errm = pcall(function() FateMMR:ApplyMatch(matchId, winnerTeam) end)
+        if not okm then print("[FateMMR] начисление не запустилось: " .. tostring(errm)) end
 
         LoopOverPlayers(function(player, playerID, playerHero)
             local hero = playerHero
@@ -6029,9 +6064,7 @@ function my_http_post(winnerTeam)
             end)
         end)
 
-        -- Рейтинг: отдельным запросом, с паузой (сервер начисляет только за матч,
-        -- мета которого уже в базе) и всеми гейтами внутри (см. fate_mmr.lua).
-        FateMMR:ApplyMatch(matchId, winnerTeam)
+        -- (Начисление рейтинга ушло выше — в колбэк POST /matches.)
     end)
     if not ok then
         print("[FateStats] upload error: " .. tostring(err))

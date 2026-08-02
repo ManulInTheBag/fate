@@ -42,8 +42,8 @@ end
 -- (once by the engine cast animation, once after the cast point).
 function cu_alter_battle_stance:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	caster:EmitSound("cu_alter_vo_stance")	-- "There won't be a next time."
-	caster:EmitSound("cu_alter_sfx_ecast")	-- stance cast SFX
+	-- звуки не здесь: они играют в OnSpellStart, то есть уже после каст-пойнта,
+	-- чтобы прерванный каст не оставлял после себя реплику и SFX
 	StartAnimation(caster, { duration = self:GetCastPoint() + self:GetSpecialValueFor("delay"), activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.0 })
 	return true
 end
@@ -59,6 +59,9 @@ end
 function cu_alter_battle_stance:OnSpellStart()
 	local caster = self:GetCaster()
 	local delay  = self:GetSpecialValueFor("delay")
+
+	caster:EmitSound("cu_alter_vo_stance")	-- "There won't be a next time."
+	caster:EmitSound("cu_alter_sfx_ecast")	-- stance cast SFX
 
 	caster:AddNewModifier(caster, self, "modifier_cu_alter_stance", { duration = delay })
 
@@ -208,6 +211,43 @@ function modifier_cu_alter_stance:CheckState()
 		[MODIFIER_STATE_SILENCED] = true,	-- no abilities
 		[MODIFIER_STATE_MUTED]    = true,	-- no items
 	}
+end
+
+function modifier_cu_alter_stance:OnCreated()
+	if not IsServer() then return end
+	self.caster = self:GetCaster()
+	self.radius = self:GetAbility():GetSpecialValueFor("radius")
+	self:StartIntervalThink(0.1)
+	self:OnIntervalThink()
+end
+
+function modifier_cu_alter_stance:OnRefresh()
+	self:OnCreated()
+end
+
+-- Пока стойка держится, из круга нельзя выпрыгнуть блинком. Стандартный "locked"
+-- вешаем короткими порциями: вышел из радиуса — лок сам спадает, а модификатор
+-- снимается в TryCharge, то есть ровно в момент старта рывка.
+function modifier_cu_alter_stance:OnIntervalThink()
+	if not IsServer() then return end
+	if not IsNotNull(self.caster) then return end
+
+	local enemies = FindUnitsInRadius(
+		self.caster:GetTeamNumber(),
+		self.caster:GetAbsOrigin(),
+		nil,
+		self.radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER,
+		false)
+
+	for _, enemy in pairs(enemies) do
+		if IsNotNull(enemy) then
+			giveUnitDataDrivenModifier(self.caster, enemy, "locked", 0.2)
+		end
+	end
 end
 
 ---------------------------------------------------------------------------------------------------

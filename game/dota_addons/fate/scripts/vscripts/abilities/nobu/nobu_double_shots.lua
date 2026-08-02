@@ -141,6 +141,28 @@ function nobu_double_shots:OnSpellStart()
    
 end
 
+-- Общий обрыв стрельбы: им пользуются и кнопка Stop, и комбо, которое ешку отменяет
+function nobu_double_shots:StopShooting()
+    local hCaster = self:GetCaster()
+    if not IsNotNull(hCaster) then return end
+
+    Timers:RemoveTimer("nobu_shoots")
+    Timers:RemoveTimer("nobu_stop")
+    Timers:RemoveTimer("nobu_stop_2")
+
+    self.stopped = true
+    hCaster:SetBodygroup(0,0)
+    EndAnimation(hCaster)
+    hCaster:RemoveModifierByName("modifier_nobu_turnlock")
+
+    -- по имени, а не по индексу слота: комбо может кастовать Мастер, у которого
+    -- слота 2 попросту нет (GetAbilityByIndex requested for invalid index 2)
+    local stop = hCaster:FindAbilityByName("nobu_double_shots_stop")
+    if stop and not stop:IsHidden() then
+        hCaster:SwapAbilities("nobu_double_shots", "nobu_double_shots_stop", true, false)
+    end
+end
+
 function nobu_double_shots:Shoot(keys)
     local Effectname = "particles/nobu/nobu_bullet.vpcf" 
     if self:GetCaster():HasModifier("modifier_hero_selection_skin") then

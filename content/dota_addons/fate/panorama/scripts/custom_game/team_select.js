@@ -545,6 +545,11 @@ function SendVotes( )
 
 	$( "#TeamSelectContainer" ).SetAcceptsFocus( true ); // Prevents the chat window from taking focus by default
 	$( "#RoundButton1" ).checked = true;
+	// checked="true" в xml движок не отрисовывает: голосование выглядело как
+	// «игрок не голосовал», хотя отсутствие голоса = голос за зоны.
+	if ( $( "#ZoneButton1" ) ) {
+		$( "#ZoneButton1" ).checked = true;
+	}
 	/*gameMap = Game.GetMapInfo().map_display_name
 	if (gameMap == "fate_elim_6v6") { 
 		voteOption1 = 12

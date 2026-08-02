@@ -225,7 +225,7 @@
 		"AbilityTextureName"						"custom/saito/saito_fds"
 
 		"AbilityType"								"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -234,7 +234,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.15"
+		"AbilityCastPoint"							"0"
 		"AbilityCooldown"							"30 27 24 21 18"
 		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.

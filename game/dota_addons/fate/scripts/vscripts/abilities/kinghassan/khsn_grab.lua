@@ -35,7 +35,9 @@ function khsn_grab:OnChannelFinish(bInterrupted)
 	local caster = self:GetCaster()
 
 	caster:RemoveModifierByName("modifier_khsn_grab")
-	self.target:RemoveModifierByName("modifier_khsn_grab_target")
+	if IsValidEntity(self.target) then
+		self.target:RemoveModifierByName("modifier_khsn_grab_target")
+	end
 end
 
 
@@ -109,6 +111,7 @@ function modifier_khsn_grab_target:OnCreated()
 	ParticleManager:ReleaseParticleIndex(fx2)
 
 	Timers:CreateTimer(FrameTime(), function()
+		if not IsValidEntity(self.dummy_2) then return end
 		self.dummy_2:EmitSound("hassanchik_laugh")
 	end)
 
@@ -123,6 +126,7 @@ function modifier_khsn_grab_target:OnCreated()
 	ParticleManager:ReleaseParticleIndex(fx3)
 
 	Timers:CreateTimer(0.0, function()
+		if not IsValidEntity(self.dummy_3) then return end
 		self.dummy_3:EmitSound("hassanchik_laugh")
 	end)
 
@@ -138,13 +142,13 @@ end
 function modifier_khsn_grab_target:OnDestroy()
 	if not IsServer() then return end
 
-	if self.dummy_1 then
+	if IsValidEntity(self.dummy_1) then
 		self.dummy_1:RemoveSelf()
 	end
-	if self.dummy_2 then
+	if IsValidEntity(self.dummy_2) then
 		self.dummy_2:RemoveSelf()
 	end
-	if self.dummy_3 then
+	if IsValidEntity(self.dummy_3) then
 		self.dummy_3:RemoveSelf()
 	end
 end
@@ -154,12 +158,13 @@ modifier_khsn_grab_dummy = class({})
 function modifier_khsn_grab_dummy:OnDestroy()
 	if not IsServer() then return end
 
-	local fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_grab_dummy_smoke.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+	local parent = self:GetParent()
+	if not IsValidEntity(parent) then return end
+
+	local fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_grab_dummy_smoke.vpcf", PATTACH_ABSORIGIN, parent)
 	ParticleManager:ReleaseParticleIndex(fx)
 
-	if self:GetParent() then
-		self:GetParent():RemoveSelf()
-	end
+	parent:RemoveSelf()
 end
 
 function modifier_khsn_grab_dummy:GetStatusEffectName()

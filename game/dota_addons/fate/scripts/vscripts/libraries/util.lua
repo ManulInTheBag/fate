@@ -1142,6 +1142,7 @@ function ApplyAirborneOnly(target, knockupSpeed, duration, Acc)
     target:Hibernate(false)
 
     Timers:CreateTimer(duration, function()
+        if not IsValidEntity(target) then return end
         --if not target:HasModifier("modifier_airborne_marker") then
             target:PreventDI(false)
             target:SetPhysicsVelocity(Vector(0,0,0))
@@ -1166,6 +1167,7 @@ function ApplyReattachableAirborneOnly(target, knockupSpeed, duration, Acc)
     Timers:RemoveTimerWithCallbackTest("airborne_timer"..target:entindex())
 
     Timers:CreateTimer(FrameTime(), function()
+        if not IsValidEntity(target) then return end
         Physics:Unit(target)
         target:PreventDI()
         target:SetPhysicsVelocity(Vector(0,0,knockupSpeed))
@@ -1177,6 +1179,7 @@ function ApplyReattachableAirborneOnly(target, knockupSpeed, duration, Acc)
         Timers:CreateTimer("airborne_timer"..target:entindex(), {
             endTime = duration,
             callback = function()
+                if not IsValidEntity(target) then return end
                 target:PreventDI(false)
                 target:SetPhysicsVelocity(Vector(0,0,0))
                 target:SetPhysicsAcceleration(Vector(0,0,0))
@@ -2876,6 +2879,51 @@ function WrapAttributes(ability, attributeName, callback)
 end
 
 -- Spaghetti and hax as fuck.
+-- Сток предметов считаем САМИ. Движок умеет это по ItemStockMax/ItemStockInitial
+-- /ItemStockTime из npc_items_custom.txt, но списывает сток только в своей
+-- покупке, а мы ходим мимо неё через AddItemByName. Полагаться на
+-- GetItemStockCount/SetItemStockCount оказалось нельзя: при неподходящей
+-- сигнатуре вызов молча не срабатывал, и лимит исчезал вообще.
+-- Значения продублированы из KV. Меняешь там — меняй и здесь.
+FB_STOCK_DEF = {
+    ["item_ward_familiar"]   = { max = 6,  initial = 4, time = 60 },
+    ["item_sentry_familiar"] = { max = 10, initial = 4, time = 30 },
+}
+FB_STOCK = FB_STOCK or {}   -- [item][team] = { count = n, elapsed = sec }
+
+function FBStockGet(item, team)
+    local def = FB_STOCK_DEF[item]
+    if not def then return nil end
+    FB_STOCK[item] = FB_STOCK[item] or {}
+    if not FB_STOCK[item][team] then
+        FB_STOCK[item][team] = { count = def.initial, elapsed = 0 }
+    end
+    return FB_STOCK[item][team]
+end
+
+-- Тик пополнения плюс выгрузка в нет-таблицу: плитка лавки показывает сток
+-- чужого предмета, к которому её привязал движок, поэтому панорама рисует
+-- подпись сама из fb_stock.
+function PushItemStocksToClients(dt)
+    for item, def in pairs(FB_STOCK_DEF) do
+        local byTeam = {}
+        for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_CUSTOM_8 do
+            local s = FBStockGet(item, team)
+            if s.count < def.max then
+                s.elapsed = s.elapsed + (dt or 1)
+                if s.elapsed >= def.time then
+                    s.count = math.min(s.count + 1, def.max)
+                    s.elapsed = 0
+                end
+            else
+                s.elapsed = 0
+            end
+            byTeam[tostring(team)] = s.count
+        end
+        CustomNetTables:SetTableValue("fb_stock", item, byTeam)
+    end
+end
+
 function HotkeyPurchaseItem(iSource, args)
     local item = args['item']
     local cost = GetItemCost(item)
@@ -2895,15 +2943,30 @@ function HotkeyPurchaseItem(iSource, args)
 
     local hItem = nil
 
+    -- Стеш — это слоты 9..14 (DOTA_STASH_SLOT_1 = 9), а 15 — выделенный слот
+    -- под тапок. Раньше здесь стояло 10..15: первый слот стеша пропускался,
+    -- зато перебор лез в тапочный.
     local target = nil
-    for j = 10, 15 do
+    for j = 9, 14 do
         if hero:GetItemInSlot(j) == nil then target = j break end
     end
+    -- стеш забит — не покупаем вовсе, иначе спишется золото, а предмет ляжет
+    -- в руки в обход стеша
     if not target then return end
+
+    local team = hero:GetTeamNumber()
+    local stockEntry = FBStockGet(item, team)
+    if stockEntry and stockEntry.count < 1 then
+        SendErrorMessage(id, "#dota_hud_error_item_out_of_stock")
+        return
+    end
 
     local purchase = function()
         hItem = hero:AddItemByName(item)
         hero:SpendGold(cost, 4)
+        if stockEntry then
+            stockEntry.count = stockEntry.count - 1
+        end
         mode:OnItemPurchased(keys)
     end
 
@@ -2915,12 +2978,14 @@ function HotkeyPurchaseItem(iSource, args)
         return
     end
 
+    -- Покупка всегда уходит в стеш, в том числе в базе: доставать её оттуда —
+    -- дело опции автоматической передачи, а не этой функции.
     local index = nil
-    for i = 0, 5 do
+    for i = 0, 8 do
         if hero:GetItemInSlot(i) == hItem then index = i break end
     end
 
-    if index ~= nil and target ~= nil then
+    if index ~= nil then
         hero:SwapItems(index, target)
     end
 end

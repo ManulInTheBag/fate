@@ -6,22 +6,15 @@ LinkLuaModifier("modifier_nobu_combo_stun", "abilities/nobu/nobu_combo", LUA_MOD
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_cd", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
-function nobu_combo:CastFilterResultLocation(vLocation)
-    local caster = self:GetCaster()
-    if IsServer() and  caster:FindModifierByName("modifier_nobu_turnlock") then
-        return UF_FAIL_CUSTOM
-    else
-        return UF_SUCESS
-    end
-end
-
-function nobu_combo:GetCustomCastErrorLocation(vLocation)
-    return "Can not be used while shooting"
-end
-
-
 function nobu_combo:OnSpellStart()
     local hCaster = self:GetCaster()
+
+    -- комбо отменяет Double shots: бежать на цель и одновременно стрелять нельзя
+    local double_shots = hCaster:FindAbilityByName("nobu_double_shots")
+    if double_shots then
+        double_shots:StopShooting()
+    end
+
     hCaster.target_enemy = self:GetCursorTarget()
     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_cd", {duration = self:GetCooldown(1)})
     local masterCombo = hCaster.MasterUnit2:FindAbilityByName(self:GetAbilityName())

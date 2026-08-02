@@ -503,6 +503,21 @@ function RegisterAllMasterUnits(data) {
     GameEvents.Subscribe( "ozy_select_boat", OzySelectBoat);
     GameEvents.Subscribe( "player_mount_status_changed", UpdateMountStatus);
 
+    // Дефолты контролов задаём из кода: checked="true" в xml на ToggleButton
+    // и checked="true" на пункте DropDown движком не применяются — контрол
+    // рисуется выключенным/пустым, хотя логика считает его включённым.
+    // Из-за этого «выключить» требовало двух кликов (включить → выключить).
+    var zoneMsg = $.GetContextPanel().FindChildTraverse("optionZoneMsg");
+    if (zoneMsg) {
+        zoneMsg.checked = true;
+        OnConfigZoneMsgToggle();
+    }
+    var zonePos = $.GetContextPanel().FindChildTraverse("FateConfigZonePos");
+    if (zonePos) {
+        zonePos.SetSelected("zp_center");
+        OnZonePosChanged();
+    }
+
     var config = GameUI.CustomUIConfig()
     if (!config.masterUnits) {
         config.masterUnits = {}

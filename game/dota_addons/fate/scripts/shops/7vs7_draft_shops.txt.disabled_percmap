@@ -1,0 +1,30 @@
+// Все предметы в одной секции: клиент выкладывает секцию по 4 в ряд, а
+// несколько секций встают отдельными колонками. Имена секций захардкожены в
+// клиенте (consumables, attributes, weapons_armor, misc / basics, support,
+// magics, defense, weapons, artifacts / sideshop1-2, secretshop) — на
+// остальные он пишет в консоль "No shop category named", это безобидно.
+"dota_shops"
+{
+	"consumables"
+	{
+		"item"		"item_mana_essence"
+		"item"		"item_condensed_mana_essence"
+		"item"		"item_c_scroll"
+		"item"		"item_b_scroll"
+		"item"		"item_a_scroll"
+		"item"		"item_s_scroll"
+		"item"		"item_ex_scroll"
+		"item"		"item_a_plus_scroll"
+		"item"		"item_ward_familiar"
+		"item"		"item_sentry_familiar"
+		"item"		"item_scout_familiar"
+		"item"		"item_berserk_scroll"
+		"item"		"item_gem_of_speed"
+		"item"		"item_spirit_link"
+		"item"		"item_healing_scroll"
+		"item"		"item_teleport_scroll"
+		"item"		"item_a_plus_recipe"
+		"item"		"item_attack_familiar"
+		"item"		"item_relic_of_the_king"
+	}
+}

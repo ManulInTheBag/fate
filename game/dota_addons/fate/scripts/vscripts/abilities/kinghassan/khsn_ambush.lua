@@ -63,7 +63,38 @@ if IsServer() then
         	--caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", false, true)
         end
 
+        self:CreateRangeRing()
+
         self:StartIntervalThink(self.ability:GetSpecialValueFor("invis_duration"))
+    end
+
+    -- Кольцо дальности атаки: по ней же считается блинк за спину при ударе.
+    -- Видно только владельцу — CreateParticleForPlayer.
+    function modifier_khsn_ambush:CreateRangeRing()
+        local caster = self:GetParent()
+        local owner  = caster:GetPlayerOwner()
+        if owner == nil then return end
+
+        self:DestroyRangeRing()
+
+        self.range_ring_fx = ParticleManager:CreateParticleForPlayer("particles/hijikata/hijikata_dash_radius.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, owner)
+        ParticleManager:SetParticleControl(self.range_ring_fx, 1, Vector(caster:Script_GetAttackRange(), 0, 0))
+
+        -- бонус к дальности от этого же модификатора мог ещё не попасть в расчёт —
+        -- перевыставляем радиус следующим кадром
+        Timers:CreateTimer(0, function()
+            if not IsNotNull(self) or self.range_ring_fx == nil then return end
+            if not IsNotNull(caster) then return end
+            ParticleManager:SetParticleControl(self.range_ring_fx, 1, Vector(caster:Script_GetAttackRange(), 0, 0))
+        end)
+    end
+
+    -- ⚠️ Руками: партиклы из CreateParticleForPlayer не подхватываются self:AddParticle
+    function modifier_khsn_ambush:DestroyRangeRing()
+        if self.range_ring_fx == nil then return end
+        ParticleManager:DestroyParticle(self.range_ring_fx, true)
+        ParticleManager:ReleaseParticleIndex(self.range_ring_fx)
+        self.range_ring_fx = nil
     end
 
     function modifier_khsn_ambush:OnRefresh()
@@ -145,7 +176,9 @@ if IsServer() then
 
     function modifier_khsn_ambush:OnDestroy()
         local caster = self:GetParent()
-        
+
+        self:DestroyRangeRing()
+
         --if not (caster:GetAbilityByIndex(0):GetName() == "khsn_ambush") then
         --	caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", true, false)
         --end

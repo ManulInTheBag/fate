@@ -12,7 +12,7 @@
 
 	"item_blink_scroll"
 	{
-		"ID"											"9755"
+		"ID"											"1300"
 		"BaseClass"										"item_lua"
 		"ScriptFile"									"items/blink_scroll"
 		"AbilityTextureName"							"custom/blink_scroll"
@@ -50,7 +50,7 @@
 
 	"item_mana_essence"
 	{
-		"ID"											"9756"
+		"ID"											"1307"
 		"BaseClass"										"item_lua"
 		"ScriptFile"									"items/mana_essence"
 		"AbilityTextureName"							"custom/mana_essence"
@@ -91,7 +91,7 @@
 
 	"item_shard_of_replenishment"
 	{
-	    "ID"           "9757"
+	    "ID"           "1308"
 	    "BaseClass"    "item_lua"
 	    "Scriptfile"	"items/shard_of_replenishment"
 	    "AbilityTextureName" "custom/shard_of_replenishment"
@@ -174,7 +174,7 @@
  
 	"item_master_transfer_items1" 
 	{
-	    "ID"				"9713"
+	    "ID"				"6001"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items1"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -216,7 +216,7 @@
 
 	"item_master_transfer_items2" 
 	{
-	    "ID"				"9714"
+	    "ID"				"6002"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items2"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -256,7 +256,7 @@
 
 	"item_master_transfer_items3" 
 	{
-	    "ID"				"9715"
+	    "ID"				"6003"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items3"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -296,7 +296,7 @@
 
 	"item_master_transfer_items4" 
 	{
-	    "ID"				"9716"
+	    "ID"				"6004"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items4"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -336,7 +336,7 @@
 
 	"item_master_transfer_items5" 
 	{
-	    "ID"				"9717"
+	    "ID"				"6005"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items5"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -376,7 +376,7 @@
 
 	"item_master_transfer_items6" 
 	{
-	    "ID"				"9718"
+	    "ID"				"6006"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items6"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -416,7 +416,7 @@
 
 	"item_apply_modifiers"
 	{
-	    "ID"				"9719"
+	    "ID"				"6007"
 	    // General
 	    //-------------------------------------------------------------------------------------------------------------
 	    "BaseClass"                     "item_datadriven"
@@ -496,7 +496,7 @@
 
 	"item_stat_modifier"
 	{
-		"ID"				"9720"
+		"ID"				"6008"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"item_datadriven"
 		"ItemPurchasable" "0"
@@ -573,7 +573,7 @@
 
 	"item_mana_essence_old" 
 	{
-	    "ID"				"9721"
+	    "ID"				"6009"
 		//		GENERAL
 		//-------------------------------------
 	    "BaseClass"    			"item_datadriven"
@@ -653,7 +653,7 @@
 
 	"item_condensed_mana_essence" 
 	{
-	    "ID"				"9722"
+	    "ID"				"6010"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/bottle_haste"
 	    "Model"        "models/props_gameplay/salve_red.vmdl" 
@@ -705,7 +705,7 @@
 
 	"item_teleport_scroll" 
 	{
-	    "ID"				"9723"
+	    "ID"				"6011"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/teleport_scroll"
 	    "Model"        "models/props_gameplay/recipe.vmdl" 
@@ -776,7 +776,7 @@
 
 	"item_gem_of_speed" 
 	{
-	    "ID"				"9724"
+	    "ID"				"6012"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gem_of_speed"
 	    "Model"        "models/props_gameplay/crystal_ring01.vmdl" 
@@ -839,7 +839,7 @@
 
 	"item_relic_of_the_king" 
 	{
-	    "ID"				"9725"
+	    "ID"				"6013"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/item_relic_of_the_king"
 	    "AbilityTextureName" "custom/relic_of_the_king"
@@ -876,7 +876,7 @@
 	} 
 	"item_scout_familiar" 
 	{
-	    "ID"				"9726"
+	    "ID"				"6014"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/scout_familiar"
 	    "Model"        "models/props_gameplay/roquelaire/roquelaire.vmdl" 
@@ -945,7 +945,7 @@
 	}
 	"item_attack_familiar" 
 	{
-	    "ID"				"9727"
+	    "ID"				"6015"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/attack_familiar"
 	    "Model"        "models/items/beastmaster/hawk/ti9_cache_bm_chieftain_of_the_primal_tribes_bird/ti9_cache_bm_chieftain_of_the_primal_tribes_bird.vmdl" 
@@ -1012,7 +1012,7 @@
 	}
 	"item_berserk_scroll" 
 	{
-	    "ID"				"9728"
+	    "ID"				"6016"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/berserk_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1075,7 +1075,7 @@
 
 	"item_ward_familiar" 
 	{
-	    "ID"				"9729"
+	    "ID"				"6017"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"Model"							"models/props_gameplay/observer_ward_bundle.vmdl"
@@ -1134,7 +1134,7 @@
 
 	"item_spirit_link" 
 	{
-	    "ID"				"9730"
+	    "ID"				"6018"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/spirit_link"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1213,7 +1213,7 @@
 
 	"item_mass_teleport_scroll" 
 	{
-	    "ID"				"9731"
+	    "ID"				"6019"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/item_recipe_scroll"
 	    "Model"        "models/props_gameplay/recipe.vmdl" 
@@ -1275,7 +1275,7 @@
 
 	"item_gem_of_resonance" 
 	{
-	    "ID"				"9732"
+	    "ID"				"6020"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gem_of_resonance"
 	    "Model"        "models/props_gameplay/gem01.vmdl" 
@@ -1317,7 +1317,7 @@
 
 	"item_healing_scroll" 
 	{
-	    "ID"				"9733"
+	    "ID"				"6021"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/healing_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1391,7 +1391,7 @@
 
 	"item_blink_scroll_old" 
 	{
-	    "ID"				"9734"
+	    "ID"				"6022"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/blink_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1442,7 +1442,7 @@
 
 	"item_c_scroll" 
 	{
-	    "ID"				"9735"
+	    "ID"				"6023"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/c_scroll"
 	    "AbilityTextureName" "custom/c_scroll"
@@ -1496,7 +1496,7 @@
 
 	"item_b_scroll" 
 	{
-	    "ID"				"9736"
+	    "ID"				"6024"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/b_scroll"
 	    "AbilityTextureName" "custom/b_scroll"
@@ -1565,7 +1565,7 @@
 
 	"item_a_scroll" 
 	{
-	    "ID"				"9737"
+	    "ID"				"6025"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/a_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1637,7 +1637,7 @@
 
 	"item_a_plus_recipe" 
 	{
-	    "ID"				"9738"
+	    "ID"				"6026"
 	    "BaseClass"    			"item_datadriven"
 	    "AbilityTextureName" 	"custom/item_recipe_scroll"
 	    "Model"        			"models/props_gameplay/tpscroll01.vmdl" 
@@ -1672,7 +1672,7 @@
 
 	"item_a_plus_scroll" 
 	{
-	    "ID"				"9739"
+	    "ID"				"6027"
 	    "BaseClass"    			"item_datadriven"
 	    "AbilityTextureName" 	"custom/a_plus_scroll"
 	    "Model"        			"models/props_gameplay/tpscroll01.vmdl" 
@@ -1732,7 +1732,7 @@
 
 	"item_s_scroll" 
 	{
-	    "ID"				"9740"
+	    "ID"				"6028"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/sex_scrolls"
 	    "AbilityTextureName" "custom/s_scroll"
@@ -1784,7 +1784,7 @@
 
 	"item_ex_scroll" 
 	{
-	    "ID"				"9741"
+	    "ID"				"6029"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/sex_scrolls"
 	    "AbilityTextureName" "custom/ex_scroll"
@@ -1836,7 +1836,7 @@
 
 	"item_summon_skeleton_warrior" 
 	{
-	    "ID"				"9742"
+	    "ID"				"6030"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/summon_skeleton_warrior"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1892,7 +1892,7 @@
 
 	"item_summon_skeleton_archer" 
 	{
-	    "ID"				"9743"
+	    "ID"				"6031"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/summon_skeleton_archer"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1949,7 +1949,7 @@
 
 	"item_summon_ancient_dragon" 
 	{
-	    "ID"				"9744"
+	    "ID"				"6032"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/summon_ancient_dragon"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2010,7 +2010,7 @@
 
 	"item_all_seeing_orb" 
 	{
-	    "ID"				"9745"
+	    "ID"				"6033"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/all_seeing_orb"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2066,7 +2066,7 @@
 
 	"item_caster_5th_mount" 
 	{
-	    "ID"				"9746"
+	    "ID"				"6034"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/caster_5th_mount"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2161,7 +2161,7 @@
 
 	"item_shard_of_anti_magic" 
 	{
-	    "ID"				"9747"
+	    "ID"				"6035"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/shard_of_anti_magic"
 	    "Model"        "models/props_gameplay/gem01.vmdl" 
@@ -2236,7 +2236,7 @@
 
 	"item_shard_of_replenishment_old" 
 	{
-	    "ID"				"9748"
+	    "ID"				"6036"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/shard_of_replenishment"
 	    "Model"        "models/props_gameplay/gem01.vmdl" 
@@ -2294,7 +2294,7 @@
 
 	"item_gille_contaminate" 
 	{
-	    "ID"				"9749"
+	    "ID"				"6037"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gille_contaminate"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2386,7 +2386,7 @@
 
 	"item_gille_integrate" 
 	{
-	    "ID"				"9750"
+	    "ID"				"6038"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gille_integrate"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2487,7 +2487,7 @@
 
 	"item_gille_otherworldly_portal" 
 	{
-	    "ID"				"9751"
+	    "ID"				"6039"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gille_integrate"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2535,7 +2535,7 @@
 
 	"item_shard_drop" 
 	{
-		"ID"				"9752"
+		"ID"				"6040"
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityName"					"item_treasure_chest"
 		"BaseClass"						"item_bag_of_gold"
@@ -2567,7 +2567,7 @@
 
 	"item_dummy_item" 
 	{
-	    "ID"				"9753"
+	    "ID"				"6041"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" ""
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2594,7 +2594,7 @@
 
 	"item_dummy_item_unusable" 
 	{
-	    "ID"				"9754"
+	    "ID"				"6042"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" ""
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 

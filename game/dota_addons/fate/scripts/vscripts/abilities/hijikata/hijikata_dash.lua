@@ -78,8 +78,8 @@ function hijikata_dash:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 		hCaster:Heal(diff, hCaster)
 	 end
 	 hTarget:AddNewModifier(hCaster, self, "modifier_vision_provider", { Duration = self:GetSpecialValueFor("recast_duration") })
-	 self:AbilityChange(hTarget)
 	 hCaster.dash_target = hTarget
+	 self:AbilityChange(hTarget)
  
   end
 	 Timers:CreateTimer(0.033,function()
@@ -108,7 +108,14 @@ function modifier_hijikata_dash_recast_enable:OnCreated(args)
 end
 
 function modifier_hijikata_dash_recast_enable:OnIntervalThink()
-    if self:GetCaster().dash_target:IsAlive()~= true then
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	if not IsNotNull(caster) then
+		self:Destroy()
+		return
+	end
+	local target = caster.dash_target
+	if not IsNotNull(target) or not target:IsAlive() then
 		self:Destroy()
 	end
 end

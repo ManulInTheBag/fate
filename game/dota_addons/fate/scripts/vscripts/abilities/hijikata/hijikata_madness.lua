@@ -31,9 +31,12 @@ function hijikata_madness:OnSpellStart()
         delay = 0
     end
 
-    StartAnimation(caster, {duration=delay , activity=ACT_DOTA_DISABLED, rate=1})
+    -- в полёте Battle drive не перебиваем анимацию деша
+    if not caster:HasModifier("modifier_hijikata_rush") then
+        StartAnimation(caster, {duration=delay , activity=ACT_DOTA_DISABLED, rate=1})
+    end
     if delay > 0 then
-	    caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = delay}) 
+	    caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = delay})
     end
     Timers:CreateTimer(delay, function()
         caster:AddNewModifier(caster, self, "modifier_hijikata_madness_active", { Duration = duration })

@@ -45,8 +45,7 @@ OnDIZabHit = function(keys)
 	local ply = keys.caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
 	local comboAbility = hero:FindAbilityByName("true_assassin_combo")
-	local damage = hero:FindAbilityByName("true_assassin_zabaniya"):GetLevel() * comboAbility:GetSpecialValueFor("bonus_damage")
-				 + comboAbility:GetSpecialValueFor("base_damage")
+	local damage =  comboAbility:GetSpecialValueFor("base_damage")
 	if hero.IsShadowStrikeAcquired then
 		damage = damage + 100
 	end

@@ -50,8 +50,11 @@ function okada_flashblade:OnSpellStart()
         self.AuraDummy:AddNewModifier(hCaster, self, "modifier_okada_flashblade_motion", {duration = distance/self:GetSpecialValueFor("speed")/1.5, state = 1}) 
         self.AuraDummy:AddNewModifier(hCaster, self, "modifier_kill", { Duration = distance/self:GetSpecialValueFor("speed") + 1 })
         self.AuraDummy:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY )
+        local hDummy = self.AuraDummy
         Timers:CreateTimer(distance/self:GetSpecialValueFor("speed")/1.5 - 0.03, function()
-            self.AuraDummy:RemoveSelf()
+            if IsNotNull(hDummy) then
+                hDummy:RemoveSelf()
+            end
         end)
         FindClearSpaceForUnit(hCaster, hCaster:GetAbsOrigin() + vec * distance, true)
         hCaster:SetForwardVector(vec)
@@ -87,7 +90,6 @@ function modifier_okada_flashblade_motion:OnCreated(tTable)
 
     self.nSpeed = self.hAbility:GetSpecialValueFor("speed")
 
-    self.nImageRootDuration = self.hAbility:GetSpecialValueFor("root_duration")
     self.nImageRadius       = self.hAbility:GetSpecialValueFor("radius")
     self.nImageDamage       = self.hAbility:GetSpecialValueFor("damage") 
     if self.hCaster.OkadaSa1Acquired then
@@ -247,7 +249,10 @@ end
 function modifier_okada_flashblade_motion:OnDestroy()
 
     if IsServer() then
-            self.hParent:StopSound("okada_dash_test")
+            -- OnDestroy прилетает и изнутри RemoveSelf() клона — тогда хендл уже мёртв
+            if IsNotNull(self.hParent) then
+                self.hParent:StopSound("okada_dash_test")
+            end
        --FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true) --Only for resolving possible errors by finding clear space.
        --Uncomment if there will be any problem with that in the future.
        --EndAnimation(self.hParent)

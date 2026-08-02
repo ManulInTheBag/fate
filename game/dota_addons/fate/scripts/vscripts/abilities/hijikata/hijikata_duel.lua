@@ -31,7 +31,7 @@ function hijikata_duel:OnSpellStart()
     local duration = self:GetSpecialValueFor("duration")
     local modifier = self.caster:FindModifierByName("modifier_hijikata_laws")
     local radius = self:GetSpecialValueFor("radius")
-    if modifier.duel_restriction == false then
+    if modifier and modifier.duel_restriction == false then
         modifier:IncrementStackCount()
 		modifier:TakeDamage()
         modifier.duel_restriction = true
@@ -40,12 +40,15 @@ function hijikata_duel:OnSpellStart()
     self.target:AddNewModifier(self.caster, self, "modifier_hijikata_duel_leash", { duration = duration, radius = radius, center_x = targetpos.x, center_y = targetpos.y})
     self.caster:AddNewModifier(self.caster, self, "modifier_hijikata_duel_leash", { duration = duration, radius = radius, center_x = targetpos.x, center_y = targetpos.y})
     self.caster:AddNewModifier(self.caster, self, "modifier_hijikata_duel", { duration = duration,auraRadius = radius})
-	if self.caster:GetAbilityByIndex(2):GetName() == "hijikata_duel"  then
+	local eSlot = self.caster:GetAbilityByIndex(2)
+	if eSlot and eSlot:GetName() == "hijikata_duel"  then
 		self.caster:SwapAbilities("hijikata_duel", "hijikata_duel_recast", false, true)
 		Timers:CreateTimer("hijik_recast_e_window", {
 			endTime = duration,
 			callback = function()
-			if self.caster:GetAbilityByIndex(2):GetName() == "hijikata_duel_recast"  then
+			if not IsNotNull(self.caster) then return end
+			local slot = self.caster:GetAbilityByIndex(2)
+			if slot and slot:GetName() == "hijikata_duel_recast"  then
 				self.caster:SwapAbilities("hijikata_duel", "hijikata_duel_recast", true, false)
 			end
 			return end
@@ -84,45 +87,47 @@ function hijikata_duel:OnSpellStart()
 end
 
 function hijikata_duel:RemoveDuel(winner)
-	self.caster:StopSound("hijikata_prepare_for_battle")
-	if self.caster:HasModifier("modifier_hijikata_duel") then
-		self.caster:RemoveModifierByName("modifier_hijikata_duel")
-	end
-	if self.caster:HasModifier("modifier_hijikata_duel_leash") then
-		self.caster:RemoveModifierByName("modifier_hijikata_duel_leash")
-	end
-	if self.target:HasModifier("modifier_hijikata_duel_leash") then
-		self.target:RemoveModifierByName("modifier_hijikata_duel_leash")
-	end
-	if self.castfx then 
-		ParticleManager:DestroyParticle(self.castfx, false)
-		ParticleManager:ReleaseParticleIndex(self.castfx)
-	end
-	if self.part1 then 
-		ParticleManager:DestroyParticle(self.part1, true)
-		ParticleManager:ReleaseParticleIndex(self.part1)
-	end
-	if self.part2 then 
-		ParticleManager:DestroyParticle(self.part2, true)
-		ParticleManager:ReleaseParticleIndex(self.part2)
-	end
-	self:DeclareWinner(winner)
-	if self.AuraDummy ~= nil and not self.AuraDummy:IsNull() then 
-		self.AuraDummy:RemoveModifierByName("modifier_hijikata_duel_aura")
-
-		local pepe = self.AuraDummy
-		if pepe then
-			pepe:RemoveSelf()
+	if IsNotNull(self.caster) then
+		self.caster:StopSound("hijikata_prepare_for_battle")
+		if self.caster:HasModifier("modifier_hijikata_duel") then
+			self.caster:RemoveModifierByName("modifier_hijikata_duel")
+		end
+		if self.caster:HasModifier("modifier_hijikata_duel_leash") then
+			self.caster:RemoveModifierByName("modifier_hijikata_duel_leash")
 		end
 	end
+	if IsNotNull(self.target) and self.target:HasModifier("modifier_hijikata_duel_leash") then
+		self.target:RemoveModifierByName("modifier_hijikata_duel_leash")
+	end
+	if self.castfx then
+		ParticleManager:DestroyParticle(self.castfx, false)
+		ParticleManager:ReleaseParticleIndex(self.castfx)
+		self.castfx = nil
+	end
+	if self.part1 then
+		ParticleManager:DestroyParticle(self.part1, true)
+		ParticleManager:ReleaseParticleIndex(self.part1)
+		self.part1 = nil
+	end
+	if self.part2 then
+		ParticleManager:DestroyParticle(self.part2, true)
+		ParticleManager:ReleaseParticleIndex(self.part2)
+		self.part2 = nil
+	end
+	self:DeclareWinner(winner)
+	if IsNotNull(self.AuraDummy) then
+		self.AuraDummy:RemoveModifierByName("modifier_hijikata_duel_aura")
+		self.AuraDummy:RemoveSelf()
+	end
+	self.AuraDummy = nil
 end
 
 function hijikata_duel:DeclareWinner(winner)
 	--print(winner)
-	if winner == nil then return end
+	if not IsNotNull(winner) then return end
 	winner:EmitSound("nobu_innovation_cast")
-	if self.caster.IsShinsengumiAcquired then
-		if winner ~= nil and winner:IsAlive() then
+	if IsNotNull(self.caster) and self.caster.IsShinsengumiAcquired then
+		if winner:IsAlive() then
 			--print("add disengage")
 			winner:AddNewModifier(self.caster, self, "modifier_hijikata_disengage", { duration = self:GetSpecialValueFor("regen_duration")})
 		end
@@ -425,28 +430,39 @@ function modifier_hijikata_duel_leash:OnRemoved()
 end
 
 function modifier_hijikata_duel_leash:OnDestroy()
-	if self:GetCaster():IsAlive() ~= true then
-		--print("hijikata died")
-		 self:GetAbility():RemoveDuel(self:GetAbility().target)
-		 self.duelend = true
-		 --self:GetAbility():DeclareWinner(self:GetAbility().target)
-		 self:Destroy()
+	if not IsServer() then return end
+
+	local ability = self:GetAbility()
+	if not IsNotNull(ability) then return end
+
+	local caster = self:GetCaster()
+	local target = ability.target
+
+	-- кто пережил дуэль; если кастера уже нет в мире, победителя не объявляем
+	local winner = nil
+	if IsNotNull(caster) then
+		if not caster:IsAlive() then
+			if IsNotNull(target) and target:IsAlive() then
+				winner = target
+			end
+			self.duelend = true
+		elseif not IsNotNull(target) or not target:IsAlive() then
+			winner = caster
+			self.duelend = true
+		end
 	end
 
-	if self:GetAbility().target:IsAlive() ~= true then
-		--print("target died")
-		self:GetAbility():RemoveDuel(self:GetCaster())
-		self.duelend = true
-		--self:GetAbility():DeclareWinner(self:GetCaster())
-		self:Destroy()
-   end
-   self:GetAbility():RemoveDuel()
-	if not IsServer() then return end
+	ability:RemoveDuel(winner)
+
 	if self.endCallback then
 		self.endCallback()
 	end
-	if self:GetCaster():GetAbilityByIndex(2):GetName() == "hijikata_duel_recast"  then
-		self:GetCaster():SwapAbilities("hijikata_duel", "hijikata_duel_recast", true, false)
+
+	if IsNotNull(caster) then
+		local slot = caster:GetAbilityByIndex(2)
+		if slot and slot:GetName() == "hijikata_duel_recast" then
+			caster:SwapAbilities("hijikata_duel", "hijikata_duel_recast", true, false)
+		end
 	end
 end
 
