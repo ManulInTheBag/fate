@@ -80,6 +80,12 @@ FATE_MMR_LEAVER_MULT = 2         -- и снимают с него вдвое (с
 FATE_MMR_LONG_MATCH_SCORE = 20   -- сумма счёта по раундам, после которой матч
                                  -- засчитывается, даже если не доигран
 FATE_MMR_WATCH_INTERVAL = 10     -- как часто сторож смотрит на отключения
+-- Насколько разбиение может быть хуже идеального, чтобы всё ещё считаться
+-- равноценным. Из всех таких выбирается СЛУЧАЙНОЕ (см. ComputeBalance) — иначе
+-- составы повторяются из матча в матч. 5 очков расхождения средних меняют
+-- начисление меньше чем на очко, то есть честность не страдает.
+FATE_MMR_BALANCE_TOLERANCE = 5
+
 FATE_MMR_APPLY_RETRIES = 4       -- сервер отвечает 409, пока меты нет — повторяем
                                  -- (повтор идёт сразу из колбэка: таймеров в
                                  --  POST_GAME уже нет, см. ApplyMatch)
@@ -327,10 +333,12 @@ function FateMMR:PredictDelta(avgWinner, avgLoser)
 end
 
 -- Разбивает игроков на две команды так, чтобы средние рейтинги были максимально
--- близки. Игроков максимум 14, поэтому перебираем ВСЕ разбиения (C(14,7)=3432) и
--- берём точный оптимум; при равном балансе выигрывает вариант, который переставляет
--- меньше людей (меньше суеты на экране команд).
--- Возвращает таблицу playerID -> команда или nil, если балансировать нечего.
+-- близки. Игроков максимум 14, поэтому перебираем ВСЕ разбиения (C(14,7)=3432).
+-- Из разбиений, чей баланс не хуже идеального больше чем на
+-- FATE_MMR_BALANCE_TOLERANCE, берётся СЛУЧАЙНОЕ — иначе составы повторяются из
+-- матча в матч (разбор в комментарии перед вторым проходом ниже).
+-- Возвращает playerID -> команда, счёт выбранного разбиения, счёт идеального и
+-- число равноценных вариантов. Или nil, если балансировать нечего.
 function FateMMR:ComputeBalance()
     local players = self:CollectPlayers()
     if #players < 2 then return nil end
@@ -374,40 +382,74 @@ function FateMMR:ComputeBalance()
     local total = 0
     for _, p in ipairs(players) do total = total + p.mmr end
 
-    local best, bestScore, bestMoves = nil, nil, nil
+    -- Досчитываем размер второй команды ПОСЛЕ всех поправок sizeRadiant выше.
+    -- Присваиваем в уже объявленную переменную, а не заводим новую с тем же
+    -- именем: затенение здесь читалось бы как ошибка.
+    sizeDire = #players - sizeRadiant
     local pick = {}
-    local function search(index, chosen, sum)
+
+    -- Насколько разъезжаются средние рейтинги команд при данном разбиении.
+    local function scoreOf(sum)
+        return math.abs(sum / sizeRadiant - (total - sum) / sizeDire)
+    end
+
+    -- Полный перебор разбиений (C(14,7)=3432). Проходов ДВА, поэтому что делать
+    -- с готовым кандидатом решает переданный visit: первый раз мы только ищем
+    -- лучший счёт, второй — выбираем из равноценных.
+    local function search(visit, index, chosen, sum)
         if chosen == sizeRadiant then
-            local sizeDire = #players - sizeRadiant
-            local score = math.abs(sum / sizeRadiant - (total - sum) / sizeDire)
-            -- сколько людей придётся переставить
-            local moves = 0
-            local inRadiant = {}
-            for i = 1, chosen do inRadiant[pick[i]] = true end
-            for i = 1, #players do
-                local wantRadiant = inRadiant[i] == true
-                local isRadiant = players[i].team == DOTA_TEAM_GOODGUYS
-                if wantRadiant ~= isRadiant then moves = moves + 1 end
-            end
-            if bestScore == nil or score < bestScore - 0.0001
-               or (score < bestScore + 0.0001 and moves < bestMoves) then
-                bestScore, bestMoves = score, moves
-                best = {}
-                for i = 1, #players do
-                    best[players[i].playerID] = inRadiant[i] and DOTA_TEAM_GOODGUYS or DOTA_TEAM_BADGUYS
-                end
-            end
+            visit(scoreOf(sum))
             return
         end
         if index > #players then return end
         -- не хватит оставшихся, чтобы добрать команду
         if (#players - index + 1) < (sizeRadiant - chosen) then return end
         pick[chosen + 1] = index
-        search(index + 1, chosen + 1, sum + players[index].mmr)
-        search(index + 1, chosen, sum)
+        search(visit, index + 1, chosen + 1, sum + players[index].mmr)
+        search(visit, index + 1, chosen, sum)
     end
-    search(1, 0, 0)
-    return best, bestScore
+
+    local bestScore = nil
+    search(function(score)
+        if bestScore == nil or score < bestScore then bestScore = score end
+    end, 1, 0, 0)
+    if bestScore == nil then return nil end
+
+    -- ⚠️⚠️ ЗДЕСЬ БЫЛ ТАЙ-БРЕЙК «меньше перестановок», и именно он оказался
+    -- причиной вечно одинаковых составов. Он выбирал из равноценных разбиений
+    -- то, которое трогает меньше людей, — то есть УТВЕРЖДАЛ уже имевшуюся
+    -- рассадку (её делал валвовский автоассайн, а тот держит пати вместе).
+    -- Хуже того, пары с ОДИНАКОВЫМ рейтингом заводятся сами собой: одинаковый
+    -- старт + всегда одна команда = всегда одна дельта = рейтинги не разъезжаются
+    -- никогда. Разнести таких двоих не улучшает счёт ни на копейку, значит решал
+    -- всегда тай-брейк, а он голосовал «не трогать». В базе таких пар было две,
+    -- и обе не разлучались 5 матчей подряд.
+    --
+    -- Теперь выбираем СЛУЧАЙНОЕ разбиение среди тех, что не хуже оптимума больше
+    -- чем на FATE_MMR_BALANCE_TOLERANCE. Выбор — резервуарная выборка (n-й
+    -- подходящий кандидат берётся с вероятностью 1/n): даёт равномерный выбор за
+    -- один проход и не требует держать в памяти тысячи разбиений.
+    -- ⚠️ Побочный эффект намеренный: перестановок теперь больше, экран команд
+    -- «шевелится» сильнее. Это цена за то, что составы перестают залипать.
+    local limit = bestScore + FATE_MMR_BALANCE_TOLERANCE
+    local chosenSet, chosenScore, variants = nil, nil, 0
+    search(function(score)
+        if score > limit then return end
+        variants = variants + 1
+        -- RandomInt(1, variants) == 1 — вероятность ровно 1/variants
+        if RandomInt(1, variants) == 1 then
+            chosenScore = score
+            chosenSet = {}
+            for i = 1, sizeRadiant do chosenSet[pick[i]] = true end
+        end
+    end, 1, 0, 0)
+    if chosenSet == nil then return nil end
+
+    local best = {}
+    for i = 1, #players do
+        best[players[i].playerID] = chosenSet[i] and DOTA_TEAM_GOODGUYS or DOTA_TEAM_BADGUYS
+    end
+    return best, chosenScore, bestScore, variants
 end
 
 -- Применяет расстановку. Работает только в CUSTOM_GAME_SETUP: позже движок
@@ -421,7 +463,7 @@ function FateMMR:Shuffle(reason)
         self:Notify("шафл возможен только на экране выбора команд")
         return false
     end
-    local assignment, score = self:ComputeBalance()
+    local assignment, score, bestScore, variants = self:ComputeBalance()
     -- ⚠️ Молчаливый выход отсюда выглядел как «кнопка не работает»: жать её
     -- будут именно тогда, когда переставлять нечего (один игрок, пустое лобби).
     if not assignment then
@@ -449,11 +491,20 @@ function FateMMR:Shuffle(reason)
     for playerID, team in pairs(moving) do
         PlayerResource:SetCustomTeamAssignment(playerID, team)
     end
+    -- ⚠️ Эти строки идут через SendCustomMessage, а на экране выбора команд чат
+    -- НЕ ВИДЕН — то есть в игре их не прочитать, только в логах дедика. Это не
+    -- мелочь: по разбору матчей 02–03.08.2026 шафл отрабатывает не всегда (в 2 из
+    -- 3 проверяемых матчей итоговые команды не совпали ни с одним оптимумом), а
+    -- отличить «не отработал» от «отработал» на месте сейчас нечем. Пока не
+    -- выведем исход на сам экран команд, проверять — по логам.
+    -- «вариантов» = сколько равноценных разбиений было на выбор: 1 означает,
+    -- что состав жёстко задан рейтингами и повторов не избежать.
     if moved == 0 then
         self:Notify(string.format("команды уже сбалансированы (расхождение средних %.0f)", score or 0))
     else
-        self:Notify(string.format("команды пересобраны: переставлено %d, расхождение средних %.0f",
-                    moved, score or 0))
+        self:Notify(string.format(
+            "команды пересобраны: переставлено %d, расхождение средних %.0f (идеал %.0f, вариантов %d)",
+            moved, score or 0, bestScore or 0, variants or 0))
     end
     -- команды поменялись -> пересчитываем средние и прогноз для UI
     self:PublishToUI()

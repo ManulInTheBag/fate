@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -192,7 +192,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.50934, -15.612397, -35.512749 ]
+								hitbox_mins = [ -6.50934, -15.612397, -35.51275 ]
 								hitbox_maxs = [ 12.492443, 14.408706, -4.085838 ]
 							},
 							{
@@ -282,7 +282,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -15.619204, -14.910782, -44.728809 ]
+								hitbox_mins = [ -15.619204, -14.910782, -44.72881 ]
 								hitbox_maxs = [ 6.566504, 18.27602, -3.397392 ]
 							},
 							{
@@ -310,7 +310,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -21.149216, -126.44458, -3.385544 ]
-								hitbox_maxs = [ 21.684139, 124.598816, 4.23848 ]
+								hitbox_maxs = [ 21.68414, 124.598816, 4.23848 ]
 							},
 							{
 								_class = "Hitbox"
@@ -327,7 +327,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -23.501141, 2.139141, -33.274132 ]
+								hitbox_mins = [ -23.50114, 2.139141, -33.27413 ]
 								hitbox_maxs = [ 23.501842, 15.325748, -3.878708 ]
 							},
 							{
@@ -345,7 +345,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -5.409096, -16.538891, -58.342903 ]
+								hitbox_mins = [ -5.409096, -16.53889, -58.342903 ]
 								hitbox_maxs = [ 13.964666, 27.179707, -8.669184 ]
 							},
 							{
@@ -470,12 +470,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 800
 								end_frame = 845
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
@@ -493,12 +495,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 30
 								end_frame = 100
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
@@ -516,12 +520,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 730
 								end_frame = 784
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
@@ -539,12 +545,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 230
 								end_frame = 270
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
@@ -562,12 +570,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 300
 								end_frame = 330
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
@@ -585,12 +595,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 670
 								end_frame = 710
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
@@ -608,12 +620,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 395
 								end_frame = 450
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
@@ -631,12 +645,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
 								start_frame = 570
 								end_frame = 640
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 						]
 					},
@@ -679,13 +695,13 @@
 						]
 						hidden_in_tools = false
 						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 				]
 			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
-		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
 		document_sub_type = "ModelDocSubType_None"
 	}

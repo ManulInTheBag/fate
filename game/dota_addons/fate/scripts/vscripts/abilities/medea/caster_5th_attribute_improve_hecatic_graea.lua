@@ -9,16 +9,17 @@ caster_5th_attribute_improve_hecatic_graea = class({})
 -- отдельный класс ловушек, повторять его незачем.
 local OnImproveHGAcquired
 
-OnImproveHGAcquired = function(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.IsHGImproved = true
-
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-	ATTRIBUTE_HG_INT_MULTIPLIER = 1.5
+OnImproveHGAcquired = function(keys)
+	local caster = keys.caster
+	local ply = caster:GetPlayerOwner()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	hero.IsHGImproved = true
+
+	-- Set master 1's mana 
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+	-- Множитель бонуса — константа HG_INT_MULTIPLIER в самих способностях
+	-- (divine_words / wall_of_flame). Здесь достаточно пер-геройского флага выше.
 end
 
 

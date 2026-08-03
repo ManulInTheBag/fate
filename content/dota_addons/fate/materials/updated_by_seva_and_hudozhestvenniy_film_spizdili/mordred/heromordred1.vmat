@@ -15,6 +15,9 @@ Layer0
 	F_MASKS_1 1
 	F_MASKS_2 1
 
+	//---- Translucency ----
+	F_ALPHA_TEST 1
+
 	//---- Blend To Full ----
 	g_flEnvMapBlendToFull "0.000"
 	g_flMetalnessBlendToFull "0.000"
@@ -38,7 +41,9 @@ Layer0
 	TextureColor "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/heromordred1.tga"
 
 	//---- Detail 1 ----
+	g_flDetailTexCoordRotation "0.000"
 	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vDetailTexCoordOffset "[0.000 0.000]"
 	g_vDetailTexCoordScale "[1.000 1.000]"
 
 	//---- Detail 2 ----
@@ -55,6 +60,7 @@ Layer0
 	g_flAmbientScale "1.000"
 	g_flBloomScale "0.000"
 	g_flBloomShift "0.000"
+	g_flOverbrightFactor "1.000"
 	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
 
 	//---- Mask 1 ----
@@ -81,6 +87,10 @@ Layer0
 	g_flSpecularScale "1.000"
 	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
 
+	//---- Translucency ----
+	g_flAlphaTestReference "0.010"
+	TextureTranslucency "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/jopa1.png"
+
 
 	VariableState
 	{
@@ -106,6 +116,7 @@ Layer0
 		{
 			"Ambient" 0
 			"Bloom" 0
+			"Overbright" 0
 		}
 		"Mask 1"
 		{
@@ -120,6 +131,9 @@ Layer0
 		{
 		}
 		"Specular"
+		{
+		}
+		"Translucency"
 		{
 		}
 	}

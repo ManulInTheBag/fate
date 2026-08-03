@@ -69,8 +69,17 @@ function modifier_altera_beam:OnCreated()
         	self.distance = self.distance + self.ability:GetSpecialValueFor("int_bonus_distance")
         end
         self.direction = (Vector(self.point.x, self.point.y, self.point.z) - Vector(self.caster:GetAbsOrigin().x, self.caster:GetAbsOrigin().y, self.caster:GetAbsOrigin().z)):Normalized()
+
+        -- горизонтальная длина луча всегда равна distance: наклон по высоте сохраняем,
+        -- но растягиваем вектор так, чтобы его проекция на плоскость XY была ровно distance
+        local flHorizontal = math.sqrt(self.direction.x * self.direction.x + self.direction.y * self.direction.y)
+        if flHorizontal < 0.01 then
+            self.direction = self.caster:GetForwardVector()
+            flHorizontal = math.sqrt(self.direction.x * self.direction.x + self.direction.y * self.direction.y)
+        end
+
         self.vAttachLoc = self.caster:GetAttachmentOrigin(self.caster:ScriptLookupAttachment("attach_attack1")) - self.direction * 30 + Vector(0, 0, -100)
-        self.point     = self.vAttachLoc + self.direction * self.distance
+        self.point     = self.vAttachLoc + self.direction * (self.distance / flHorizontal)
 
         self.start_width = self.ability:GetSpecialValueFor("start_width")
         self.end_width = self.ability:GetSpecialValueFor("end_width")

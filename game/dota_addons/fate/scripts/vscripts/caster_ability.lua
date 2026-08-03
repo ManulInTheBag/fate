@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_workshop_recall", "abilities/caster/modifier_workshop_recall", LUA_MODIFIER_MOTION_NONE)
 territoryAbilHandle = nil -- Ability handle for Create Workshop
-ATTRIBUTE_HG_INT_MULTIPLIER = 0
 
 --[[
 	Author: Dun1007
