@@ -54,6 +54,9 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 		end
 	end
 	local particle = ParticleManager:CreateParticle(particle_effect, PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl(particle, 2, Vector(1,1,self.SmallRadius))
+	print(self.SmallRadius)
+	ParticleManager:SetParticleControl(particle, 3, Vector(self.SmallRadius / 350,1,1))
 	if self.HitNumber == 8 then
 		StartAnimation(caster, {duration = 0.5, activity=ACT_DOTA_CAST_ABILITY_ROT, rate = 1.3})
 	end
@@ -82,8 +85,6 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 			--giveUnitDataDrivenModifier(caster, v, "stunned", 0.5)
 		end
 
-		ParticleManager:SetParticleControl(particle, 2, Vector(1,1,self.SmallRadius))
-		ParticleManager:SetParticleControl(particle, 3, Vector(self.SmallRadius / 350,1,1))
 		self.HitNumber = self.HitNumber + 1
 	elseif self.HitNumber == 9 then
 		--print("final hit")
