@@ -20,7 +20,7 @@ barghest_r = class({})
 -- modifier_barghest_continuation объявлен в barghest_shared: вешают его Q/W/E.
 LinkLuaModifier("modifier_barghest_frenzy",       "abilities/barghest/barghest_r", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_r_horn",       "abilities/barghest/barghest_r", LUA_MODIFIER_MOTION_HORIZONTAL)
-
+LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 function barghest_r:GetAOERadius()
     return self:GetSpecialValueFor("radius")
 end
@@ -85,6 +85,26 @@ BARGHEST_R_ACT = {
      StartAnimation'ом — отсюда и дёрганые анимации продолжений. ]]
 function barghest_r:GetCastAnimation()
     return BARGHEST_R_ACT[self:GetArmedBranch()] or ACT_DOTA_CAST_ABILITY_6
+end
+
+function barghest_r:GetCastPoint()
+    if self:GetArmedBranch() == 5 then
+        return 0.3
+    else
+        return 0.2
+    end
+end
+function barghest_r:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
+    local jopa = BARGHEST_R_ACT[self:GetArmedBranch()]
+    print(jopa)
+	StartAnimation(caster, {duration=self:GetCastPoint(), activity=jopa, rate=1})
+end
+
+function barghest_r:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
 end
 
 function barghest_r:OnSpellStart()
@@ -250,10 +270,12 @@ function barghest_r:DoHornCharge(vDir)
     -- ⚠️ Анимации здесь НЕТ: ACT_DOTA_OVERRIDE_ABILITY_2 — это и есть клип
     -- ветки WR, движок уже играет его по GetCastAnimation. Повторный запуск
     -- сбрасывал таран в самом начале рывка.
+    EndAnimation(hCaster)
+    local charge_duration = self:GetSpecialValueFor("horn_distance")
+                 / self:GetSpecialValueFor("horn_speed") + 0.1
     hCaster:EmitSound(BARGHEST_SND.E_DASH)
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_r_horn", {
-        duration = self:GetSpecialValueFor("horn_distance")
-                 / self:GetSpecialValueFor("horn_speed") + 0.1,
+        duration = charge_duration,
         x = vDir.x, y = vDir.y,
     })
 end
@@ -335,7 +357,7 @@ function modifier_barghest_r_horn:OnCreated(tTable)
     self.nDistance = self.hAbility:GetSpecialValueFor("horn_distance")
     self.nStun     = self.hAbility:GetSpecialValueFor("horn_stun")
     self.nDamage   = self.hAbility:GetSpecialValueFor("damage")
-    self.nGrab     = 120
+    self.nGrab     = 200
     self.vStart    = self.hParent:GetAbsOrigin()
     self.bDone     = false
 
@@ -353,7 +375,17 @@ end
 function modifier_barghest_r_horn:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
+function modifier_barghest_r_horn:DeclareFunctions()
+    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE}
+end
 
+function modifier_barghest_r_horn:GetOverrideAnimation()
+    return ACT_DOTA_CAST_SUN_STRIKE
+end
+
+function modifier_barghest_r_horn:GetOverrideAnimationRate()
+    return 1
+end
 function modifier_barghest_r_horn:OnHorizontalMotionInterrupted()
     if not IsServer() then return end
     -- ⚠️ Без этого чужой контроллер оставит героя висеть.
@@ -372,25 +404,16 @@ function modifier_barghest_r_horn:UpdateHorizontalMotion(hUnit, fTime)
         return
     end
     hUnit:SetAbsOrigin(vNext)
-
-    local hCaster = self:GetCaster()
-    local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vNext, nil, self.nGrab,
-        self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
-        self.hAbility:GetAbilityTargetFlags(), FIND_CLOSEST, false)
-    for _, hEnemy in pairs(tUnits) do
-        if IsNotNull(hEnemy) and not IsSpellBlocked(hEnemy, hCaster) then
-            DoDamage(hCaster, hEnemy, self.nDamage, self.hAbility:GetAbilityDamageType(),
-                0, self.hAbility, false)
-            hEnemy:AddNewModifier(hCaster, self.hAbility, "modifier_stunned",
-                {duration = self.nStun})
-            Barghest_FxAt(BARGHEST_FX.SHOCK, hEnemy:GetAbsOrigin())
-            hEnemy:EmitSound(BARGHEST_SND.R_IMPACT)
-            self.bDone = true
-            self.hAbility:RewardHit()
-            self:Destroy()
-            return
-        end
+    local tUnits = FindUnitsInRadius(self.hParent:GetTeamNumber(), self.hParent:GetAbsOrigin(), nil, self.nGrab,
+            self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
+            self.hAbility:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+    if #tUnits > 0 then
+        self.bDone = true
+        self:Destroy()
+        self.hAbility:RewardHit()
     end
+
+    
 end
 
 function modifier_barghest_r_horn:OnDestroy()
@@ -398,5 +421,27 @@ function modifier_barghest_r_horn:OnDestroy()
     if Barghest_Alive(self.hParent) then
         self.hParent:RemoveHorizontalMotionController(self)
         FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true)
+        EndAnimation(self.hParent)
+        StartAnimation(self.hParent, {duration = 0.4,
+        activity = ACT_DOTA_ICE_VORTEX, rate = 1.0})
+        self.hParent:AddNewModifier(self.hParent, self:GetAbility(), "modifier_merlin_self_pause", {Duration = 0.20}) 
+        Timers:CreateTimer(0.2, function()
+        local hCaster = self.hParent
+        local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil, self.nGrab,
+            self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
+            self.hAbility:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+        for _, hEnemy in pairs(tUnits) do
+            
+                DoDamage(hCaster, hEnemy, self.nDamage, self.hAbility:GetAbilityDamageType(),
+                    0, self.hAbility, false)
+                hEnemy:AddNewModifier(hCaster, self.hAbility, "modifier_stunned",
+                    {duration = self.nStun})
+                Barghest_FxAt(BARGHEST_FX.SHOCK, hEnemy:GetAbsOrigin())
+                hEnemy:EmitSound(BARGHEST_SND.R_IMPACT)
+                return
+           
+        end
+        
+        end)
     end
 end

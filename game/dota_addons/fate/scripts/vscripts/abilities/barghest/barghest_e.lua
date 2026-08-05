@@ -304,7 +304,7 @@ function modifier_barghest_e_dash:OnDestroy()
     local hAbility = self.hAbility
     -- Никого не задели — рывок просто выдохся, продолжение не заряжается.
     if not Barghest_Alive(hHit) then return end
-
+        EndAnimation(hCaster)
     -- ⚠️ Через таймер: рывок может кончиться внутри чужого пайплайна (смерть,
     -- прерывание контроллера, наш же Destroy из UpdateHorizontalMotion), а тут
     -- мы вешаем модификаторы.

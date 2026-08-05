@@ -916,7 +916,7 @@
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
-								fade_out_time = 0.2
+								fade_out_time = 0.4
 								looping = false
 								delta = false
 								worldSpace = false
@@ -927,9 +927,9 @@
 								delete_from_compiled_model = false
 								source_filename = "models/barghest/barghest.fbx"
 								import_bone_scales = false
-								start_frame = 343
-								end_frame = 366
-								framerate = -1.0
+								start_frame = 340
+								end_frame = 360
+								framerate = 45.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -966,7 +966,7 @@
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
-								fade_out_time = 0.2
+								fade_out_time = 0.4
 								looping = false
 								delta = false
 								worldSpace = false
@@ -979,9 +979,16 @@
 								import_bone_scales = false
 								start_frame = 575
 								end_frame = 590
-								framerate = 45.0
+								framerate = 60.0
 								reverse = false
 								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 590
+										frame_count = 10
+									},
+								]
 							},
 							{
 								_class = "AnimFile"
@@ -1047,10 +1054,10 @@
 									},
 								]
 								is_default_idle_anim = false
-								activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
+								activity_name = "ACT_DOTA_ICE_VORTEX"
 								activity_weight = 1
 								weight_list_name = ""
-								fade_in_time = 0.2
+								fade_in_time = 0.1
 								fade_out_time = 0.2
 								looping = false
 								delta = false
@@ -1062,9 +1069,9 @@
 								delete_from_compiled_model = false
 								source_filename = "models/barghest/barghest.fbx"
 								import_bone_scales = false
-								start_frame = 490
-								end_frame = 555
-								framerate = 90.0
+								start_frame = 517
+								end_frame = 530
+								framerate = 30.0
 								reverse = false
 								additional_anim_files = [  ]
 							},
@@ -1142,6 +1149,114 @@
 								framerate = 30.0
 								reverse = false
 								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "jump2"
+								children = 
+								[
+									{
+										_class = "AnimBoneOffset"
+										disabled = true
+										bone = "Bip001_R_Hand"
+										translation = [ 0.0, 0.0, 0.0 ]
+										rotation = [ 0.0, 0.0, 180.0 ]
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 500
+								end_frame = 505
+								framerate = 40.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 505
+										frame_count = 3
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "jump3"
+								children = 
+								[
+									{
+										_class = "AnimBoneOffset"
+										bone = "Bip001_R_Hand"
+										translation = [ 0.0, 0.0, 0.0 ]
+										rotation = [ 0.0, 0.0, 180.0 ]
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_SUN_STRIKE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.1
+								fade_out_time = 0.0
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 505
+								end_frame = 516
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "slash_jopa2"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.4
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/barghest/barghest.fbx"
+								import_bone_scales = false
+								start_frame = 1263
+								end_frame = 1271
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 1271
+										frame_count = 10
+									},
+								]
 							},
 						]
 					},
