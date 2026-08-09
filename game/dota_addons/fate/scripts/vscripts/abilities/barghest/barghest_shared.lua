@@ -52,7 +52,7 @@ BARGHEST_FX = {
     CHARGE     = "particles/custom/artoria/artoria_excalibur_charge.vpcf",
     -- стрелка прицела на зарядке E — та же, что у emiya_caladbolg
     AIM        = "particles/muramasa/vector.vpcf",
-    DASH       = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf",
+    DASH       = "particles/barghest/barghest_rush_e.vpcf",
     -- волна по линии: у facebreaker известны контрольные точки и он ТОЧНО виден
     WAVE       = "particles/aoko/aoko_facebreaker.vpcf",
     CHAINS     = "particles/arcueid/chain_model_circle_enemy.vpcf",

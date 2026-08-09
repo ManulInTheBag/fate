@@ -16,64 +16,114 @@ LinkLuaModifier("modifier_furious_chain_buff", "abilities/li_shuwen/lishuwen_mar
 -- отдельный класс ловушек, повторять его незачем.
 local OnMartialStart, AuraRefresh, OnMartialAttackStart, OnMartialAttackLanded, ApplyMarkOfFatality
 
-OnMartialStart = function(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local duration = keys.Duration
-	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
-	giveUnitDataDrivenModifier(caster, target, "silenced", duration)
-	ApplyMarkOfFatality(caster, target)
-	--[[if caster:GetName() == "npc_dota_hero_bloodseeker" then
-		GrantCosmicOrbitResist(caster)
-		if caster.bIsFuriousChainAcquired then
-			GrantFuriousChainBuff(caster) 
-		end
-	end]]
-    local pcMark = ParticleManager:CreateParticle("particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_start.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
-    ParticleManager:ReleaseParticleIndex(pcMark)
-	target:EmitSound("Hero_Nightstalker.Void")
+OnMartialStart = function(keys)
+
+	local caster = keys.caster
+
+	local target = keys.target
+
+	local duration = keys.Duration
+
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
+
+	giveUnitDataDrivenModifier(caster, target, "silenced", duration)
+
+	ApplyMarkOfFatality(caster, target)
+
+	--[[if caster:GetName() == "npc_dota_hero_bloodseeker" then
+
+		GrantCosmicOrbitResist(caster)
+
+		if caster.bIsFuriousChainAcquired then
+
+			GrantFuriousChainBuff(caster) 
+
+		end
+
+	end]]
+
+    local pcMark = ParticleManager:CreateParticle("particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_start.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
+
+    ParticleManager:ReleaseParticleIndex(pcMark)
+
+	target:EmitSound("Hero_Nightstalker.Void")
+
 end
 
-AuraRefresh = function(keys)
-	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
-	hero:RemoveModifierByName("modifier_martial_arts_aura") 
-	hero:AddNewModifier(hero, hero:FindAbilityByName("lishuwen_martial_arts"), "modifier_martial_arts_aura", {}) 
+AuraRefresh = function(keys)
+
+	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
+
+	hero:RemoveModifierByName("modifier_martial_arts_aura") 
+
+	hero:AddNewModifier(hero, hero:FindAbilityByName("lishuwen_martial_arts"), "modifier_martial_arts_aura", {}) 
+
 end
 
-OnMartialAttackStart = function(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local chance = keys.Chance
-	local ability = keys.ability
-	if not target:HasModifier("modifier_mark_of_fatality") then return end
-	local stacks = target:FindModifierByName("modifier_mark_of_fatality"):GetStackCount()
-	chance = stacks * chance
-	local roll = math.random(100)
-	if roll < chance then
-		caster:AddNewModifier(caster, ability, "modifier_martial_arts_crit_hit", {})
-	end
+OnMartialAttackStart = function(keys)
+
+	local caster = keys.caster
+
+	local target = keys.target
+
+	local chance = keys.Chance
+
+	local ability = keys.ability
+
+	if not target:HasModifier("modifier_mark_of_fatality") then return end
+
+	local stacks = target:FindModifierByName("modifier_mark_of_fatality"):GetStackCount()
+
+	chance = stacks * chance
+
+	local roll = math.random(100)
+
+	if roll < chance then
+
+		caster:AddNewModifier(caster, ability, "modifier_martial_arts_crit_hit", {})
+
+	end
+
 end
 
-OnMartialAttackLanded = function(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	if ability:GetLevel() == 2 and target:HasModifier("modifier_mark_of_fatality") then
-		DoDamage(caster, target, target:GetMaxHealth() * 3.5/100, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	end
-
+OnMartialAttackLanded = function(keys)
+
+	local caster = keys.caster
+
+	local target = keys.target
+
+	local ability = keys.ability
+
+	if ability:GetLevel() == 2 and target:HasModifier("modifier_mark_of_fatality") then
+
+		DoDamage(caster, target, target:GetMaxHealth() * 3.5/100, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+
+	end
+
+
+
 end
 
-ApplyMarkOfFatality = function(caster,target)
-	local abil = caster:FindAbilityByName("lishuwen_martial_arts")
-
-	SpawnAttachedVisionDummy(caster, target, abil:GetLevelSpecialValueFor("vision_radius", abil:GetLevel()-1 ), abil:GetLevelSpecialValueFor("duration", abil:GetLevel()-1 ), false)
-
-	-- add new stack
-	local currentStack = target:GetModifierStackCount("modifier_mark_of_fatality", abil)
-	target:RemoveModifierByName("modifier_mark_of_fatality") 
-	target:AddNewModifier(caster, abil, "modifier_mark_of_fatality", {}) 
-	target:SetModifierStackCount("modifier_mark_of_fatality", abil, currentStack + 1)
+ApplyMarkOfFatality = function(caster,target)
+
+	local abil = caster:FindAbilityByName("lishuwen_martial_arts")
+
+
+
+	SpawnAttachedVisionDummy(caster, target, abil:GetLevelSpecialValueFor("vision_radius", abil:GetLevel()-1 ), abil:GetLevelSpecialValueFor("duration", abil:GetLevel()-1 ), false)
+
+
+
+	-- add new stack
+
+	local currentStack = target:GetModifierStackCount("modifier_mark_of_fatality", abil)
+
+	target:RemoveModifierByName("modifier_mark_of_fatality") 
+
+	target:AddNewModifier(caster, abil, "modifier_mark_of_fatality", {}) 
+
+	target:SetModifierStackCount("modifier_mark_of_fatality", abil, currentStack + 1)
+
 end
 
 
@@ -87,7 +137,7 @@ function lishuwen_martial_arts:OnSpellStart()
 	OnMartialStart({
 		caster = caster,
 		ability = self,
-		target = caster,
+		target = self:GetCursorTarget(),
 		Duration = self:GetSpecialValueFor("silence_duration")
 	})
 end

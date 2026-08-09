@@ -58,7 +58,7 @@ end
 
 function modifier_jeanne_saint_aura:PlayEffects()
 	if IsServer() then
-		local heal = self.ability:GetSpecialValueFor("heal")
+		local heal = self.ability:GetSpecialValueFor("heal") + self.caster:GetLevel() * self.ability:GetSpecialValueFor("heal_per_hero_level")
 		local duration = self.ability:GetSpecialValueFor("regen_duration")
 
 		local targets = FindUnitsInRadius(self.caster:GetTeam(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)

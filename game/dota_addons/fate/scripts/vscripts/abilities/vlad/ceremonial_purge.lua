@@ -152,7 +152,7 @@ function vlad_ceremonial_purge:OnSpellStart()
 		--caster:EmitSound("Hero_Axe.CounterHelix")
 		caster:EmitSound("Hero_Magnataur.ReversePolarity.Anim")
 
-	  giveUnitDataDrivenModifier(caster, caster, "drag_pause",0.5)
+	  --giveUnitDataDrivenModifier(caster, caster, "drag_pause",0.5)
 		Timers:CreateTimer(delay, function()
 			local targets_outer = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, aoe_outer, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 			--[[ alternate way to pick which targets are in which aoe if some issues

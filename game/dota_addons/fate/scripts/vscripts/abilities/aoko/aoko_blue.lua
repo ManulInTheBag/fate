@@ -135,6 +135,7 @@ end
 
 function modifier_aoko_blue_ally:OnDestroy()
 	if IsServer() then
+		giveUnitDataDrivenModifier(self.caster, self.parent, "can_be_executed", 0.033)
 		self.parent:Kill(self.ability, self.caster)
 	end
 end

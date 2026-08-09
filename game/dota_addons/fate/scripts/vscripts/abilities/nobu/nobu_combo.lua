@@ -229,7 +229,7 @@ function modifier_nobu_combo_self:OnIntervalThink()
         self:GetAbility():AttackEnemy()
         self:Destroy()
     end
-    if self.gunSpawnCounter >= 10 then
+    if self.gunSpawnCounter >= 15 then
         self.gunSpawnCounter = 0
         self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
             Speed = 10000,

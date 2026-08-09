@@ -9,42 +9,66 @@ LinkLuaModifier("modifier_channeling", "abilities/medea/caster_5th_sacrifice", L
 LinkLuaModifier("modifier_big_bad_voodoo_damage_bonus", "abilities/medea/caster_5th_sacrifice", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_big_bad_voodoo_ally", "abilities/medea/caster_5th_sacrifice", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_big_bad_voodoo_invulnerability", "abilities/medea/caster_5th_sacrifice", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 -- Логика перенесена из scripts/vscripts/caster_ability.lua (DD-обвязка удалена).
 -- Функции локальные: одноимённые глобали в разных файлах —
 -- отдельный класс ловушек, повторять его незачем.
 local OnSacrificeStart, RemoveSacrificeModifier, MaledictStop, CreateSacrificeAllyParticle
 
-OnSacrificeStart = function(keys)
-	local caster = keys.caster
-	caster.SacFx = ParticleManager:CreateParticle("particles/custom/caster/sacrifice/caster_sacrifice_indicator.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
-	ParticleManager:SetParticleControl( caster.SacFx, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl( caster.SacFx, 1, Vector(keys.Radius,0,0))
-
-	caster:EmitSound("Medea_Skill_" .. math.random(7,8))
+OnSacrificeStart = function(keys)
+
+	local caster = keys.caster
+
+	caster.SacFx = ParticleManager:CreateParticle("particles/custom/caster/sacrifice/caster_sacrifice_indicator.vpcf", PATTACH_WORLDORIGIN, nil )
+    caster:AddNewModifier(caster,self, "modifier_kb_immune", {duration = 10})
+	ParticleManager:SetParticleControl( caster.SacFx, 0, caster:GetAbsOrigin())
+
+	ParticleManager:SetParticleControl( caster.SacFx, 1, Vector(keys.Radius,0,0))
+    ParticleManager:SetParticleShouldCheckFoW(caster.SacFx, false)
+
+
+	caster:EmitSound("Medea_Skill_" .. math.random(7,8))
+
 end
 
-RemoveSacrificeModifier = function(keys)
-	local caster = keys.caster
-	keys.caster:RemoveModifierByName("modifier_big_bad_voodoo_channeling")
-	keys.caster:RemoveModifierByName("modifier_big_bad_voodoo_ally")
-	Timers:CreateTimer(1.0, function()
-	keys.caster:RemoveModifierByName("modifier_big_bad_voodoo_damage_bonus")
-	end)
-
-	ParticleManager:DestroyParticle( caster.SacFx, false )
-	ParticleManager:ReleaseParticleIndex( caster.SacFx )
-	caster.SacFx = nil
+RemoveSacrificeModifier = function(keys)
+
+	local caster = keys.caster
+
+	keys.caster:RemoveModifierByName("modifier_big_bad_voodoo_channeling")
+
+	keys.caster:RemoveModifierByName("modifier_big_bad_voodoo_ally")
+
+	Timers:CreateTimer(1.0, function()
+
+	keys.caster:RemoveModifierByName("modifier_big_bad_voodoo_damage_bonus")
+
+	end)
+
+
+
+	ParticleManager:DestroyParticle( caster.SacFx, false )
+
+	ParticleManager:ReleaseParticleIndex( caster.SacFx )
+    caster:RemoveModifierByNameAndCaster("modifier_kb_immune", caster)
+	caster.SacFx = nil
+
 end
 
-MaledictStop = function( event )
-	local caster = event.caster
-	
-	caster:StopSound("Hero_WitchDoctor.Maledict_Loop")
+MaledictStop = function( event )
+
+	local caster = event.caster
+
+	
+
+	caster:StopSound("Hero_WitchDoctor.Maledict_Loop")
+
 end
 
-CreateSacrificeAllyParticle = function(keys)
-	ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_buff_j.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
+CreateSacrificeAllyParticle = function(keys)
+
+	ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_buff_j.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
+
 end
 
 
@@ -103,7 +127,7 @@ function modifier_big_bad_voodoo_damage_bonus:DeclareFunctions()
 end
 
 function modifier_big_bad_voodoo_damage_bonus:GetModifierIncomingDamage_Percentage()
-	return 100
+	return 50
 end
 
 function modifier_big_bad_voodoo_damage_bonus:OnCreated(kv)

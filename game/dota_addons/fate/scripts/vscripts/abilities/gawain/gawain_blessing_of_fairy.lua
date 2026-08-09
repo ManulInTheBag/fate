@@ -13,31 +13,56 @@ LinkLuaModifier("modifier_gawain_revive_regen", "abilities/gawain/gawain_blessin
 -- отдельный класс ловушек, повторять его незачем.
 local OnFairyDamageTaken
 
-OnFairyDamageTaken = function(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	local currentHealth = caster:GetHealth()
-
-	if currentHealth < 333 and keys.ability:IsCooldownReady() and IsRevivePossible(caster) then
-		RemoveDebuffsForRevival(caster)
-		caster:SetHealth(333)
-		keys.ability:StartCooldown(99) 
-
-		HardCleanse(caster)
-
-		local proxy = caster:FindAbilityByName("gawain_blessing_proxy")
-
-		proxy:StartCooldown(99)
-
-		caster:AddNewModifier(caster, ability, "modifier_gawain_blessing_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
-		caster:AddNewModifier(caster, ability, "modifier_gawain_revive_regen", {duration = 5})
-		local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-		ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())
-		Timers:CreateTimer( 3.0, function()
-			ParticleManager:DestroyParticle( particle, false )
-			ParticleManager:ReleaseParticleIndex( particle )
-		end)
-	end
+OnFairyDamageTaken = function(keys)
+
+	local caster = keys.caster
+
+	local ability = keys.ability
+
+	local currentHealth = caster:GetHealth()
+
+
+
+	if currentHealth < 333 and keys.ability:IsCooldownReady() and IsRevivePossible(caster) and not caster:HasModifier("can_be_executed") then
+
+		RemoveDebuffsForRevival(caster)
+
+		caster:SetHealth(333)
+
+		keys.ability:StartCooldown(99) 
+
+
+
+		HardCleanse(caster)
+
+
+
+		local proxy = caster:FindAbilityByName("gawain_blessing_proxy")
+
+
+
+		proxy:StartCooldown(99)
+
+
+
+		caster:AddNewModifier(caster, ability, "modifier_gawain_blessing_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
+
+		caster:AddNewModifier(caster, ability, "modifier_gawain_revive_regen", {duration = 5})
+
+		local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+
+		ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())
+
+		Timers:CreateTimer( 3.0, function()
+
+			ParticleManager:DestroyParticle( particle, false )
+
+			ParticleManager:ReleaseParticleIndex( particle )
+
+		end)
+
+	end
+
 end
 
 

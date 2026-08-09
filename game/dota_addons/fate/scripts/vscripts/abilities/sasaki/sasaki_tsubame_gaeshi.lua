@@ -148,7 +148,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 
 	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.0})
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.0)
-	giveUnitDataDrivenModifier(caster, caster, "revoked", 1.0)
+	--giveUnitDataDrivenModifier(caster, caster, "revoked", 1.0)
 
 	local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()) 

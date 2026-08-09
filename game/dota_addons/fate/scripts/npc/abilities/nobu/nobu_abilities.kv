@@ -14,7 +14,7 @@
 		"AbilityTextureName"			"custom/nobu/nobu_guns"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastPoint"				"0"
 		"AbilityCastRange"				"1200"
  		"AbilityCooldown"				"20 20 15 10"
@@ -126,7 +126,7 @@
 		"ScriptFile"					"abilities/nobu/nobu_dash"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -146,7 +146,7 @@
         {
             "max_charges" "3"
             "charge_time" "14 12.5 11 9.5 7"
-            "attr_damage" "30 37.5 45 52.5 60"
+            "attr_damage" "25 31 38 44 50"
             "charisma_barrier_radius" "500"
             "charisma_barrier_duration" "3"
             "charisma_barrier_base" "100"
@@ -173,11 +173,11 @@
 		"AOERadius"						"%range"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastRange"				"1000"
- 		"AbilityCooldown"				"30 26 22 18 14"
+ 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"400"
 		"AbilityValues"
         {
-            "damage_mod" "0.5 0.55 0.6 0.65 0.7"
+            "damage_mod" "0.5"
             "duration" "5"
             "sps" "3"
         }
@@ -576,7 +576,7 @@
 		"AbilityValues"
         {
             "pure_percentage" "20"
-            "dmg_mod" "0.5"
+            "dmg_mod" "0.3"
         }		
 	}
 	"nobu_unifying_attribute"
@@ -618,7 +618,6 @@
 		 
 		"AbilityValues"
         {
-            "microstun_duration" "0.1"
             "guns_amount" "3 5 7"
         }		
 	}

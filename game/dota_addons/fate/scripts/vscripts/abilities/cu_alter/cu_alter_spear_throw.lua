@@ -72,7 +72,7 @@ function cu_alter_spear_throw:GetAOERadius()
 end
 
 local W_SLOT_INDEX = 1 -- Ability2 (0-based)
-
+local Q_SLOT_INDEX = 0
 -- keep the hidden release ability at the same level as the main ability
 function cu_alter_spear_throw:OnUpgrade()
 	local caster = self:GetCaster()
@@ -102,11 +102,14 @@ function cu_alter_spear_throw:OnSpellStart()
 		if caster:GetAbilityByIndex(W_SLOT_INDEX) and caster:GetAbilityByIndex(W_SLOT_INDEX):GetName() == "cu_alter_spear_throw" and caster:HasModifier("modifier_cu_alter_spear_charge") then
 			caster:SwapAbilities("cu_alter_spear_throw", "cu_alter_spear_throw_release", false, true)
 		end
+		if caster:GetAbilityByIndex(Q_SLOT_INDEX) and caster:GetAbilityByIndex(Q_SLOT_INDEX):GetName() == "cu_alter_charge" and caster:HasModifier("modifier_cu_alter_spear_charge") then
+			caster:SwapAbilities("cu_alter_charge", "cu_alter_spear_throw_release_no_knockback", false, true)
+		end
 	end)
 end
 
 -- Fires the spear. Called from the charge modifier's OnDestroy (early release / max charge / interrupt).
-function cu_alter_spear_throw:Release()
+function cu_alter_spear_throw:Release(shouldKnockback)
 	local caster = self:GetCaster()
 	self.isCharging = false
 
@@ -127,6 +130,9 @@ function cu_alter_spear_throw:Release()
 	-- restore the ability layout
 	if caster:GetAbilityByIndex(W_SLOT_INDEX) and caster:GetAbilityByIndex(W_SLOT_INDEX):GetName() == "cu_alter_spear_throw_release" then
 		caster:SwapAbilities("cu_alter_spear_throw", "cu_alter_spear_throw_release", true, false)
+	end
+	if caster:GetAbilityByIndex(Q_SLOT_INDEX) and caster:GetAbilityByIndex(Q_SLOT_INDEX):GetName() == "cu_alter_spear_throw_release_no_knockback" then
+		caster:SwapAbilities("cu_alter_charge", "cu_alter_spear_throw_release_no_knockback", true, false)
 	end
 
 	-- Empowerment / aim captured NOW (at release), while he is still facing his charge direction.
@@ -172,6 +178,7 @@ function cu_alter_spear_throw:Release()
 			iUnitTargetType   = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			iUnitTargetFlags  = DOTA_UNIT_TARGET_FLAG_NONE,
 			bDeleteOnHit      = true,
+			ExtraData = {ShouldKnockback = shouldKnockback}
 		}
 		self.iProjectile = ProjectileManager:CreateLinearProjectile(projectile)
 
@@ -247,7 +254,9 @@ function cu_alter_spear_throw:OnProjectileHit_ExtraData(target, location, data)
 		if IsNotNull(u) then
 			DoDamage(caster, u, self.releaseDamage or self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 			u:AddNewModifier(caster, self, "modifier_cu_alter_spear_slow", { duration = self:GetSpecialValueFor("slow_duration") })
-			CuAlterGatherKnockback(caster, self, u, gather +fwd * 400, self:GetSpecialValueFor("push_duration"))
+			if data.ShouldKnockback == 1 then
+				CuAlterGatherKnockback(caster, self, u, gather +fwd * 400, self:GetSpecialValueFor("push_duration"))
+			end
 		end
 	end
 
@@ -274,8 +283,22 @@ cu_alter_spear_throw_release = cu_alter_spear_throw_release or class({})
 
 function cu_alter_spear_throw_release:OnSpellStart()
 	local caster = self:GetCaster()
+	if IsNotNull(caster:FindModifierByName("modifier_cu_alter_spear_charge")) then
+		caster:FindModifierByName("modifier_cu_alter_spear_charge").ShouldKnockback = true
+	end
 	caster:RemoveModifierByName("modifier_cu_alter_spear_charge")
 end
+
+cu_alter_spear_throw_release_no_knockback = cu_alter_spear_throw_release_no_knockback or class({})
+
+function cu_alter_spear_throw_release_no_knockback:OnSpellStart()
+	local caster = self:GetCaster()
+	if IsNotNull(caster:FindModifierByName("modifier_cu_alter_spear_charge")) then
+		caster:FindModifierByName("modifier_cu_alter_spear_charge").ShouldKnockback = false
+	end
+	caster:RemoveModifierByName("modifier_cu_alter_spear_charge")
+end
+
 
 ---------------------------------------------------------------------------------------------------
 -- Charge modifier : roots the caster (he can still turn to aim); firing happens on destroy.
@@ -303,7 +326,7 @@ function modifier_cu_alter_spear_charge:OnCreated()
 	self.ability = self:GetAbility()
 	self.minR    = self.ability:GetSpecialValueFor("min_range")
 	self.maxR    = self.ability:GetSpecialValueFor("max_range")
-
+	self.ShouldKnockback = false
 	if IsServer() then
 		-- direction arrow (like Emiya's Caladbolg)
 		self.arrowFx = ParticleManager:CreateParticleForPlayer("particles/muramasa/vector.vpcf", PATTACH_CUSTOMORIGIN, nil, self.caster:GetPlayerOwner())
@@ -336,7 +359,7 @@ function modifier_cu_alter_spear_charge:OnDestroy()
 			ParticleManager:ReleaseParticleIndex(self.arrowFx)
 			self.arrowFx = nil
 		end
-		self:GetAbility():Release()
+		self:GetAbility():Release(self.ShouldKnockback)
 	end
 end
 

@@ -206,7 +206,7 @@ function atalanta_crossing_arcadia:OnSpellStart()
         rotateCounter = rotateCounter + 1
         return 0.03
     end)]]
-    giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
+    giveUnitDataDrivenModifier(caster, caster, "stunned", 0.5)
 
 
     if caster.CrossingArcadiaPlusAcquired then

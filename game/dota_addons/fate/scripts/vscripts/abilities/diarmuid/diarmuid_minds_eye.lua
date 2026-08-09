@@ -12,7 +12,7 @@ function diarmuid_minds_eye:OnSpellStart()
 	local caster = self:GetCaster()
 	
 	ProjectileManager:ProjectileDodge(caster)
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 2250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, self:GetSpecialValueFor("active_vision_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for _,v in pairs(targets) do
     	if not v:HasModifier("modifier_murderer_mist_in") then
 			self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, v )

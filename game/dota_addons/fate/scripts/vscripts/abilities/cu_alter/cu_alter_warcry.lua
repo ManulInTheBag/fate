@@ -155,6 +155,7 @@ function modifier_cu_alter_warcry_passive:OnAttackLanded(keys)
 	if not IsNotNull(target) or target == caster then return end
 	if target:GetTeamNumber() == caster:GetTeamNumber() then return end
 	if target:IsBuilding() or target:IsOther() then return end
+	if target:IsMagicImmune() then return end
 
 	local ability = self:GetAbility()
 

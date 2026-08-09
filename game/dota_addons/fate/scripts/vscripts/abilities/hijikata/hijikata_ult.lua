@@ -45,7 +45,7 @@ function hijikata_ult:OnSpellStart()
 	ParticleManager:SetParticleShouldCheckFoW(self.particle, false)
 	ParticleManager:SetParticleControl(self.particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.particle, 1, origin)
-	ParticleManager:SetParticleControl(self.particle, 2, origin + target * rangeJopa)
+	ParticleManager:SetParticleControl(self.particle, 2, origin + target * (rangeJopa+ 300) )
 	ParticleManager:SetParticleControl(self.particle, 3, Vector(radius, 0, 0))
 
 	if caster:HasModifier("modifier_hijikata_combo_ticker") and caster.bSoundReady then

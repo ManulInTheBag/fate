@@ -22,6 +22,7 @@ if IsServer() then
 			and caster:GetHealth() <= 0 
 			and not caster:HasModifier("modifier_robin_faceless_king_cooldown") 
 			and IsRevivePossible(caster)
+			and not caster:HasModifier("can_be_executed")
 			then
 
 			caster:SetHealth(500)

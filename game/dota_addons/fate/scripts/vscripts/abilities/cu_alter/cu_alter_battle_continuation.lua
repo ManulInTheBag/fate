@@ -37,6 +37,7 @@ function modifier_cu_alter_battle_cont:GetMinHealth()
 		or not parent:IsAlive()
 		or not parent:IsRealHero()
 		or not ability:IsCooldownReady()
+		or parent:HasModifier("can_be_executed")
 		or parent:HasModifier("modifier_cu_alter_battle_cont_cd") then
 		return nil
 	end

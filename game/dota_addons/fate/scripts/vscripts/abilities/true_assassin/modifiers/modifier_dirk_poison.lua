@@ -30,7 +30,7 @@ function modifier_dirk_poison:OnIntervalThink()
 		stacks = target:GetModifierStackCount("modifier_weakening_venom", self:GetAbility()) 
 	end
 	local total_stacks = stacks + stacksDirk
-	DoDamage(caster, target, self.PoisonDamage * total_stacks, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false) 
+	DoDamage(caster, target, self.PoisonDamage * total_stacks, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false) 
 end
 
 function modifier_dirk_poison:GetAttributes()

@@ -3282,7 +3282,7 @@
 		"DOTA_Tooltip_Ability_cu_alter_charge_distance"			"Charge distance:"
 
 		"DOTA_Tooltip_Ability_cu_alter_spear_throw"				"Gáe Bolg"
-		"DOTA_Tooltip_Ability_cu_alter_spear_throw_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nCú Chulainn Alter charges his spear, turning to aim. Recast (or reach full charge) to release a piercing throw. The first enemy hit takes <font color='#58ACFA'>damage</font>, is briefly <font color='#FF3399'>stunned</font>, knocked back and <font color='#9400D3'>slowed by %slow_pct%%%</font>. Charging longer increases range and damage.\nEnemies in a small box behind the pierced target are also <font color='#58ACFA'>damaged</font> and <font color='#9400D3'>slowed</font>, and everyone struck is <font color='#FFDC60'>dragged together</font> onto the spear. The pierced target is <font color='#FFFACD'>revealed</font> for %vision_duration% seconds.\nApplies <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds.\n<font color='#F1C40F'>Upgradable by attribute Cursed Gáe Bolg.</font>"
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>|    <font color='#29EE32'>Refreshable</font>\nCú Chulainn Alter charges his spear, turning to aim. Recast (or reach full charge) to release a piercing throw. The first enemy hit takes <font color='#58ACFA'>damage</font>, is briefly <font color='#FF3399'>stunned</font>, knocked back and <font color='#9400D3'>slowed by %slow_pct%%%</font>. Charging longer increases range and damage.\nEnemies in a small box behind the pierced target are also <font color='#58ACFA'>damaged</font> and <font color='#9400D3'>slowed</font>, and everyone struck is <font color='#FFDC60'>dragged together</font> onto the spear. The pierced target is <font color='#FFFACD'>revealed</font> for %vision_duration% seconds.\nApplies <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds.\n<font color='#F1C40F'>Upgradable by attribute Cursed Gáe Bolg.</font>.\nThere is 2 varians of recasting this ability. Ability slot 2 will apply knockback and gather, ability slot 1 will not."
 		"DOTA_Tooltip_Ability_cu_alter_spear_throw_damage"			"Damage:"
 		"DOTA_Tooltip_Ability_cu_alter_spear_throw_slow_pct"		"%Move speed slow:"
 		"DOTA_Tooltip_Ability_cu_alter_spear_throw_slow_duration"	"Slow duration:"
@@ -3361,6 +3361,10 @@
 		"DOTA_Tooltip_modifier_cu_alter_combo_cd_Description"	"Curruid Coinchenn is on cooldown."
 		"DOTA_Tooltip_modifier_cu_alter_combo_slow"				"Curruid Coinchenn"
 		"DOTA_Tooltip_modifier_cu_alter_combo_slow_Description"	"Slowed by the hacking blows. Uncleansable."
+
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_release"				"Throw with knockback"
+
+		"DOTA_Tooltip_Ability_cu_alter_spear_throw_release_no_knockback" "Throw with no knockback"
 
 		 //====================================
 		//  Okada Izo (Assasin)
@@ -4130,7 +4134,7 @@
 		"DOTA_Tooltip_ability_heracles_berserk_bonus_movement"		"%Bonus movement:"
 
 		"DOTA_Tooltip_Ability_pepeg_jump"					"Berserk's Toss"
-		"DOTA_Tooltip_ability_pepeg_jump_Description"		"Heracles tosses the nearest unit towards the target point, dealing magic damage and percent of the max health of thrown target as a pure damage and <font color='#FF3399'>slowing and muting</font> all enemies in radius around the arrival point. If target is enemy, it suffers a huge magic damage and doubled portion of it's max health as pure damage and is <font color='#FF3399'>slowed</font> more than other enemies while muted for the same duration. \n<font color='#FF0000'>Berserked:</font> Increases cast range. Instead of throwing someone, Berserk leaps towards the target point himself, dealing significant magic damage and portion of his max health as pure damage and <font color='#FF3399'>slowing</font> and <font color='#9400D3'>locking</font> all enemies as if they were thrown themselves. \n Berserker's strength additionally amplifies this ability (2x strength as range, 1x strength as damage when throws, 1.25x strength as damage when leaps)"
+		"DOTA_Tooltip_ability_pepeg_jump_Description"		"Heracles tosses the nearest unit towards the target point, dealing <font color='#58ACFA'>damage </font>and percent of the max health of thrown target as a <font color='#58ACFA'>damage </font>and <font color='#FF3399'>slowing and muting</font> all enemies in radius around the arrival point. If target is enemy, it suffers a huge <font color='#58ACFA'>damage </font>and doubled portion of it's max health as <font color='#58ACFA'>damage </font>and is <font color='#FF3399'>slowed</font> more than other enemies while <font color='#FF3399'>muted </font>for the same duration. \n<font color='#FF0000'>Berserked:</font> Increases cast range. Instead of throwing someone, Berserk leaps towards the target point himself, dealing significant <font color='#58ACFA'>damage </font>and portion of his max health <font color='#58ACFA'>damage </font>and <font color='#FF3399'>slowing</font> and <font color='#9400D3'>locking</font> all enemies as if they were thrown themselves. \n Berserker's <font color='#FF0000'>strength </font>additionally amplifies this ability (2x strength as <font color='#FFFAFA'>range</font>, 1x <font color='#FF0000'>strength </font>as <font color='#58ACFA'>damage </font>when throws, 1.25x <font color='#FF0000'>strength </font>as <font color='#58ACFA'>damage </font>when leaps)"
 		"DOTA_Tooltip_ability_pepeg_jump_Lore"				"Cu Chulain dislikes this."
 		"DOTA_Tooltip_ability_pepeg_jump_radius"			"Radius:"
 		"DOTA_Tooltip_ability_pepeg_jump_range"			"Range:"
@@ -4534,7 +4538,7 @@
 		"npc_dota_hero_bounty_hunter_bio"	""
 		
 		"DOTA_Tooltip_Ability_true_assassin_dirk"				"Dirks"
-		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Cast Point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font>\n\nHassan throws his daggers at the target enemy one after another, until he runs out of them or the target leaves 950 range, each dagger dealing <font color='#A72E28'>damage</font> and part of Hassan's attack damage.\nEach dagger applies a stacking poison, dealing <font color='#58ACFA'>damage</font> over time and <font color='#9400D3'>slowing</font> for %duration% seconds. Poison damage scales with the amount of poison and <font color='#58ACFA'>Weakening Venom</font> stacks on the target.\nWhile <font color='#58ACFA'>Self Modification</font> is active, daggers additionally deal <font color='#58ACFA'>damage</font> based on Hassan's <font color='#00FF00'>agility</font>.\nDaggers are restocked one at a time.\n<font color='#F1C40F'>Upgradable by attribute Perfect Agony.</font>"
+		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Cast Point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font>\n\nHassan throws his daggers at the target enemy one after another, until he runs out of them or the target leaves 950 range, each dagger dealing <font color='#A72E28'>damage</font> and part of Hassan's attack damage.\nEach dagger applies a stacking poison, dealing <font color='#A72E28'>damage</font> over time and <font color='#9400D3'>slowing</font> for %duration% seconds. Poison damage scales with the amount of poison and <font color='#58ACFA'>Weakening Venom</font> stacks on the target.\nWhile <font color='#58ACFA'>Self Modification</font> is active, daggers additionally deal <font color='#A72E28'>damage</font> based on Hassan's <font color='#00FF00'>agility</font>.\nDaggers are restocked one at a time.\n<font color='#F1C40F'>Upgradable by attribute Perfect Agony.</font>"
 		"DOTA_Tooltip_ability_true_assassin_dirk_Lore"			"The hunter's call begins with flurry of daggers, coated in poison."
 		"DOTA_Tooltip_ability_true_assassin_dirk_damage"		"Damage:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_atk_ratio"		"%Attack Ratio:"
@@ -4886,7 +4890,7 @@
 		"DOTA_Tooltip_ability_caster_5th_divine_words_radius"	"RADIUS:"
 
 		"DOTA_Tooltip_Ability_caster_5th_sacrifice"	"Sacrifice"
-		"DOTA_Tooltip_ability_caster_5th_sacrifice_Description"	"CHANNELING : Channels a forbidden magic, granting nearby allies temporary invulnerability. While channeling and for 1 second afterward, Caster takes twice as much damage."
+		"DOTA_Tooltip_ability_caster_5th_sacrifice_Description"	"CHANNELING : Channels a forbidden magic, granting nearby allies temporary invulnerability. While channeling and for 1 second afterward, Caster takes 1.5x as much damage."
 		"DOTA_Tooltip_ability_caster_5th_sacrifice_Lore"	"Even immortality is within reach for the ancient magus."
 		"DOTA_Tooltip_ability_caster_5th_sacrifice_radius"	"RADIUS:"
 		"DOTA_Tooltip_ability_caster_5th_sacrifice_duration"	"DURATION:"
@@ -5476,12 +5480,12 @@
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye"					"Attribute: Mind's Eye"
         "DOTA_Tooltip_ability_diarmuid_attribute_minds_eye_Description"		"When activated, Diarmuid gains evasion for a short duration and blocks first targeted spell. Activating Mind's Eye also reveals all enemies within a large area of effect. \n Passive: Grants vision of nearby enemies within smaller radius."
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_duration"		"Vision Duration:"
-        "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_radius"			"Vision Radius:"
+        "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_radius"			"Passive Radius:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_active_duration"	"Active Duration:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_evasion"			"%Active Evasion:"
 
         "DOTA_Tooltip_Ability_diarmuid_attribute_golden_rose"						"Attribute: Golden Rose of Mortality"
-        "DOTA_Tooltip_ability_diarmuid_attribute_golden_rose_Description"			"Gae Buidhe deals additional damage on the target based on how many times he has been injured by Gae Buidhe as pure damage.\nReduces castpoint of Gae Buidhe by 0.2"
+        "DOTA_Tooltip_ability_diarmuid_attribute_golden_rose_Description"			"Gae Buidhe deals additional damage on the target based on how many times he has been injured by Gae Buidhe as pure damage.\nReduces castpoint of Gae Buidhe by 0.1"
         "DOTA_Tooltip_Ability_diarmuid_attribute_golden_rose_damage_per_stack"		"%Damage Per Stack:"
 
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose"          		"Attribute: Crimson Rose of Exorcism"
@@ -7104,7 +7108,7 @@
         //"DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_regen_duration"		"RECOVERY PERIOD:"
 
 		"DOTA_Tooltip_Ability_jeanne_saint"		"Saint"
-        "DOTA_Tooltip_Ability_jeanne_saint_Description"	"<font color='#FFFAFA'>Passive</font>\nThis ability activates for %duration% seconds each time Jeanne <font color='#FFFAFA'>damages</font> an enemy.\nWhile active, Jeanne emits a wave of holyness each second, <font color='#ACFF05'>healing</font> herself and her allies in %radius% radius for %heal% and increasing their <font color='#ACFF05'>health regeneration</font> by %hp_regen_const% for %regen_duration% seconds."
+        "DOTA_Tooltip_Ability_jeanne_saint_Description"	"<font color='#FFFAFA'>Passive</font>\nThis ability activates for %duration% seconds each time Jeanne <font color='#FFFAFA'>damages</font> an enemy.\nWhile active, Jeanne emits a wave of holyness each second, <font color='#ACFF05'>healing</font> herself and her allies in %radius% radius for %heal% and increasing their <font color='#ACFF05'>health regeneration</font> by %hp_regen_const% for %regen_duration% seconds.\n<font color='#ACFF05'>Heal</font> is based on Jeanne's level."
         "DOTA_Tooltip_Ability_jeanne_saint_Lore"	"I shall heal you, curing you of all disease and injury you possess."
 
         "DOTA_Tooltip_Ability_jeanne_identity_discernment" 	"Identity Discernment"
@@ -9283,6 +9287,7 @@
 
         "DOTA_Tooltip_ability_jtr_surgical_procedure_attribute"					"Attribute: Surgical Procedure"
         "DOTA_Tooltip_ability_jtr_surgical_procedure_attribute_Description"		"Attacking enemies also stitches Jack's wounds, healing her as well as all nearby allies by %base_healing% + %agi_bonus% per point of agility. The amount of health that can be recovered is capped at %healing_cap%% of Jack's maximum health.\nWhenever Jack kills the enemy, she replenishes 50%% of her mana and health pools."
+        "DOTA_Tooltip_ability_jtr_surgical_procedure_attribute_radius"			"Radius:"
 
         "DOTA_Tooltip_ability_jtr_information_erase_attribute"					"Attribute: Information Erasure"
         "DOTA_Tooltip_ability_jtr_information_erase_attribute_Description"		"Enables Jack to apply silence on the target.\nReduces reveal radius for the Murderer of the Misty Night to 300."
@@ -12213,6 +12218,10 @@
 		"DOTA_Tooltip_ability_special_bonus_fate_none_6"	"No Talent"
 		"DOTA_Tooltip_ability_special_bonus_fate_none_7"	"No Talent"
 		"DOTA_Tooltip_ability_special_bonus_fate_none_8"	"No Talent"
+		"DOTA_Tooltip_Ability_jeanne_saint_heal_per_hero_level"	"Heal per level:"
+		"DOTA_Tooltip_Ability_diarmuid_minds_eye_radius"	"Passive vision:"
+		"DOTA_Tooltip_Ability_diarmuid_minds_eye_active_vision_radius"	"Acive vision:"
+		"DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_active_radius"	"Active radius:"
 
 
 	}
