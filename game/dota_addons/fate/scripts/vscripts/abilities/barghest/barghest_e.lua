@@ -216,9 +216,15 @@ function modifier_barghest_e_dash:OnCreated(tTable)
         self:Destroy()
         return
     end
-
+    if self.fCharge > 0.5 then
+        self.nFxIndexSpeed = ParticleManager:CreateParticle("particles/barghest/barghest_rush_e_speed.vpcf",
+        PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+        self:AddParticle(self.nFxIndexSpeed, false, false, -1, false, false)
+    end
     self.nFxIndex = ParticleManager:CreateParticle(BARGHEST_FX.DASH,
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+    
+
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
 end
 
@@ -240,6 +246,9 @@ function modifier_barghest_e_dash:OnHorizontalMotionInterrupted()
     if self.nRetries > 20 or not self:ApplyHorizontalMotionController() then
         self:Destroy()
     end
+end
+function modifier_barghest_e_dash:GetStatusEffectName()
+	return "particles/barghest/barghest_status_fx.vpcf"
 end
 
 function modifier_barghest_e_dash:UpdateHorizontalMotion(hUnit, fTime)

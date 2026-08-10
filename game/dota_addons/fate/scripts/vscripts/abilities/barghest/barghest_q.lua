@@ -271,7 +271,7 @@ function barghest_q:DoSpin()
          анимации нет) и вопросов не вызывала. ]]
     -- Дуга на все 360° плюс кольцо по земле: третий удар обязан читаться как
     -- «вокруг себя», а не как ещё одна дуга вперёд.
-    Barghest_FxArc(BARGHEST_FX.ARC, hCaster, nRadius, 360)
+    --Barghest_FxArc(BARGHEST_FX.ARC, hCaster, nRadius, 360)
     Barghest_FxRing(BARGHEST_FX.RING, hCaster:GetAbsOrigin(), nRadius)
 
     local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil,
@@ -451,7 +451,7 @@ function modifier_barghest_q_lunge:OnDestroy()
         -- в землю», а не как ещё один взмах.
         hParent:EmitSound(BARGHEST_SND.SLAM)
         Barghest_FxCut(hParent, vPos + Vector(0, 0, 220), vPos + vDir * 120)
-        Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
+        --Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
         --EndAnimation(hParent)
         local tUnits = FindUnitsInRadius(hParent:GetTeamNumber(), vPos, nil, nRadius,
             hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),

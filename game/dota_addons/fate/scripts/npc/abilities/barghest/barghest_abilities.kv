@@ -30,10 +30,17 @@
 		"AbilityCastPoint"			"0.15"
 		// перекрывается GetCastAnimation: у каждой стадии своя
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"particle"			"particles/barghest/barghest_slash_1.vpcf"
+			"particle"			"particles/barghest/barghest_slash_2.vpcf"
+
+
+		}
 		"AbilityValues"
 		{
 			"damage"			"80 105 130 155 180"
-			"radius"			"275"
+			"radius"			"350"
 			"arc_angle"			"120"
 			"cast_point"			"0.15"		// стадии 1-2; читает GetCastPoint
 			"lunge_distance"			"450"		// потолок; фактическая — до курсора
@@ -80,6 +87,9 @@
          "precache"
 		{
 			"particle"			"particles/econ/items/lifestealer/lifestealer_immortal_backbone_gold/lifestealer_immortal_backbone_gold_rage_swirl.vpcf"
+			"particle"			"particles/barghest/barghest_w_shield.vpcf"
+			"particle"			"particles/barghest/barghest_barrier.vpcf"
+			"particle"			"particles/barghest/barghest_slash_3.vpcf"
 
 		}
 		"AbilityValues"
@@ -128,6 +138,10 @@
 		"precache"
 		{
 			"particle"			"particles/barghest/barghest_rush_e.vpcf"
+			"particle"			"particles/barghest/barghest_rush_e_speed.vpcf"
+			"particle"			"particles/barghest/barghest_status_fx.vpcf"
+			"particle"			"particles/barghest/barghest_e_charge.vpcf"
+			"particle"			"particles/barghest/barghest_e_chains.vpcf"
 			
 		}
 		"AbilityValues"
@@ -207,6 +221,12 @@
 		"AbilityCastPoint"			"0.2"
 		// перекрывается GetCastAnimation: у каждой ветки своя
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
+		"precache"
+		{
+			"particle"			"particles/barghest/barghest_slash_4.vpcf"
+
+			
+		}
 		"AbilityValues"
 		{
 			"window"			"2"

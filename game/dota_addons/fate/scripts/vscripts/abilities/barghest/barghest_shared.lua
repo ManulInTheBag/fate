@@ -39,24 +39,25 @@ BARGHEST_CONT_E  = 5
      понять, что именно сработало. Свои рисуются отдельно, пути тогда меняются
      только здесь. ]]
 BARGHEST_FX = {
-    ARC        = "particles/arcueid/arcueid_slash.vpcf",         -- размашистая дуга
-    ARC_FIRE   = "particles/arcueid/arcueid_slash_red.vpcf",     -- она же, но огненная (R)
+    ARC        = "particles/barghest/barghest_slash_1.vpcf",         -- размашистая дуга
+    ARC_FIRE   = "particles/barghest/barghest_slash_4.vpcf",     -- она же, но огненная (R)
     CUT        = "particles/custom/archer/archer_overedge_slash.vpcf", -- прямой рез
-    RING       = "particles/units/heroes/hero_centaur/centaur_warstomp.vpcf",
+    RING       = "particles/barghest/barghest_slash_2.vpcf",
     SHOCK      = "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf",
     BURST      = "particles/units/heroes/hero_beastmaster/beastmaster_primal_roar_shockwave.vpcf",
     FIRE_HIT   = "particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf",
-    STANCE     = "particles/arcueid/arcueid_shield.vpcf",
+    STANCE     = "particles/barghest/barghest_w_shield.vpcf",
     -- ⚠️ Тут был arcueid_shield_end — он в аддоне не используется НИГДЕ и
     -- вживую не рисовался. Взрыв стойки теперь на проверенном шоквейве.
-    CHARGE     = "particles/custom/artoria/artoria_excalibur_charge.vpcf",
+    CHARGE     = "particles/barghest/barghest_e_charge.vpcf",
     -- стрелка прицела на зарядке E — та же, что у emiya_caladbolg
     AIM        = "particles/muramasa/vector.vpcf",
     DASH       = "particles/barghest/barghest_rush_e.vpcf",
     -- волна по линии: у facebreaker известны контрольные точки и он ТОЧНО виден
     WAVE       = "particles/aoko/aoko_facebreaker.vpcf",
-    CHAINS     = "particles/arcueid/chain_model_circle_enemy.vpcf",
+    CHAINS     = "particles/barghest/barghest_e_chains.vpcf",
     LIFESTEAL  = "particles/aoko/aoko_spell_lifesteal.vpcf",
+    SHIELD_SLASH = "particles/barghest/barghest_slash_3.vpcf",
 }
 
 --[[ Звуки. Простые, из уже используемых в аддоне дотовских событий: свои
@@ -159,6 +160,8 @@ function Barghest_FxArc(sName, hCaster, nRadius, nAngle)
     ReleaseLater(nFx, 1.0)
     return nFx
 end
+
+
 
 --[[ Прямой рез из точки в точку (выпад, удар снизу). CP2/CP3 — как у kuro. ]]
 function Barghest_FxCut(hCaster, vFrom, vTo)

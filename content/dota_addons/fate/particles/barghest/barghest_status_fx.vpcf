@@ -1,0 +1,60 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf66:version{dd571be4-586e-4f41-8b2d-5bbc969e1c53} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_nInitialParticles = 1
+	m_flConstantRadius = 0.0
+	m_ConstantColor = [ 0, 0, 0, 255 ]
+	m_nConstantSequenceNumber = 1
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_previewState = 
+			{
+				m_previewModel = "models/heroes/ogre_magi/ogre_magi.vmdl"
+				m_nModSpecificData = 3026
+				m_sequenceName = "idle"
+				m_hitboxSetName = "default"
+				m_flPlaybackSpeed = 0.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_StatusEffect"
+			m_flDetail2Scale = 0.6
+			m_flColorWarpIntensity = 0.4
+			m_flDetail2BlendFactor = 0.6
+			m_nDetail2Combo = "DETAIL_2_COMBO_MUL"
+			m_flEnvMapIntensity = 0.0
+			m_flAmbientScale = 1.0
+			m_flRimLightScale = 1.0
+			m_flSpecularScale = 2.0
+			m_flSpecularExponent = 2.0
+			m_flSpecularExponentBlendToFull = 0.7
+			m_flSpecularBlendToFull = 0.5
+			m_flReflectionsTintByBaseBlendToNone = 1.0
+			m_flMetalnessBlendToFull = 0.3
+			m_specularColor = [ 65, 63, 43 ]
+			m_rimLightColor = [ 255, 255, 255 ]
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_EndCapTimedDecay"
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderStatusEffect"
+			m_pTextureDetail2 = resource:"materials/models/heroes/statuseffects/burning.vtex"
+			m_pTextureColorWarp = resource:"materials/models/heroes/statuseffects/colorwarp_c2015_lvl2_dire.vtex"
+		},
+	]
+}

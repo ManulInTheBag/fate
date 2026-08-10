@@ -123,7 +123,10 @@ function barghest_w:Slam(hCaster, fAbsorbed)
         -- ⚠️ Шоквейв — ТОЛЬКО привязанным к юниту (так он поставлен в
         -- cu_alter_roar); кольцо по радиусу — warstomp'ом, у него CP1 честно
         -- задаёт размер.
-        Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
+        local nAngle = 180
+        hCaster:EmitSound(BARGHEST_SND.Q_ARC)
+
+        Barghest_FxArc(BARGHEST_FX.SHIELD_SLASH, hCaster, nRadius, nAngle)
         Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
 
         local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vPos, nil, nRadius,
@@ -159,8 +162,12 @@ function modifier_barghest_w_stance:OnCreated()
     self:SetStackCount(self.hAbility:GetSpecialValueFor("barrier_base"))
 
     self.nFxIndex = ParticleManager:CreateParticle(BARGHEST_FX.STANCE,
-        PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+        PATTACH_CUSTOMORIGIN_FOLLOW , self.hParent)
+    ParticleManager:SetParticleControlTransformForward(self.nFxIndex, 0, self.hParent:GetAbsOrigin() + self.hParent:GetForwardVector() * 150 + Vector(0,0,150), self.hParent:GetForwardVector())
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
+    self.nFxIndex2 = ParticleManager:CreateParticle("particles/barghest/barghest_barrier.vpcf",
+    PATTACH_CUSTOMORIGIN_FOLLOW , self.hParent)
+    self:AddParticle(self.nFxIndex2, true, false, -1, false, false)
 end
 
 function modifier_barghest_w_stance:OnRefresh()
@@ -234,6 +241,8 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
     -- только на следующий тик.
     self.bBroken = true
     self:SetStackCount(0)
+    ParticleManager:DestroyParticle(self.nFxIndex, true)
+    ParticleManager:ReleaseParticleIndex(self.nFxIndex)
 
     local nLeftover = fIncoming - nBlock
     local hAbility  = self.hAbility
