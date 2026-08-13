@@ -77,7 +77,7 @@
 		"AbilityTextureName"			"custom/gilgamesh/gilgamesh_sword_barrage"
 		
 		"AbilityCastPoint"				"0.1"
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"1000"
 		"AbilityCastRangeBuffer"		"150"
 		"AbilityCooldown"				"4"
 		"AbilityManaCost"				"100"
@@ -95,7 +95,7 @@
 		"AbilityValues"
         {
             "cast_delay" "0.3"
-            "cast_range" "700"
+            "cast_range" "1000"
             "damage" "60 75 90 105 120"
             "root_duration" "0.3"
             "lock_duration" "0.3"
@@ -120,7 +120,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityTextureName"			"custom/gilgamesh_gate_of_babylon"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate" 		"10.0"
@@ -131,6 +131,7 @@
 			"particle"		"particles/gilgamesh/gob.vpcf"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
 			"particle"		"particles/custom_game/heroes/gilgamesh/gilgamesh_enlarge_gate_hit/gilgamesh_enlarge_gate_hit.vpcf"
+			"particle"		"particles/gilgamesh/gob_weapon_longer.vpcf"
 		}
 		
 		// Casting
@@ -148,9 +149,9 @@
 		
 		"AbilityValues"
         {
-            "damage" "15 20 25 30 35"
+            "damage" "20 25 30 35 40"
             "radius" "100"
-            "duration" "8"
+            "duration" "5"
             "range" "1000"
         }
 		
@@ -354,8 +355,7 @@
 
 		"AbilityValues"
         {
-            "dmg_ratio" "8"
-            "dmg_ratio_magical" "5"
+            "dmg_ratio" "20"
             "dmg_ratio_q" "25"
         }
 		

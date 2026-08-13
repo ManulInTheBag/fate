@@ -1,11 +1,11 @@
 LinkLuaModifier("modifier_altera_dash", "abilities/altera/altera_dash", LUA_MODIFIER_MOTION_HORIZONTAL)
-
+LinkLuaModifier("modifier_barrier_new", "modifiers/modifier_barrier_new", LUA_MODIFIER_MOTION_NONE)
 altera_dash = class({})
 
 function altera_dash:GetAOERadius()
 	local distance = self:GetSpecialValueFor("distance")
-	if self:GetCaster():HasModifier("modifier_altera_form_int") then
-		distance = distance + self:GetSpecialValueFor("int_bonus_distance")
+	if self:GetCaster():HasModifier("modifier_altera_form_agi") then
+		distance = distance + self:GetSpecialValueFor("agi_bonus_distance")
 	end
     return distance
 end
@@ -193,6 +193,18 @@ function modifier_altera_dash:PlayEffects()
                 --     self.distance = self.distance + self.ability:GetSpecialValueFor("distance")
                 -- end
 			end
+        end
+    end
+
+    local allies = FindUnitsInRadius(self.parent:GetTeam(), self.parent:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+
+    for _, ally in pairs(allies) do
+        if ally and not ally:IsNull() and IsValidEntity(ally) and ally ~= self.parent and not self.AttackedTargets[ally:entindex()] and ally:GetName() ~= "npc_dota_ward_base" then
+                self.AttackedTargets[ally:entindex()] = true
+                ally:AddNewModifier(self.parent, self,"modifier_barrier_new", {duration = self:GetAbility():GetSpecialValueFor("barrier_duration"), beforeBScroll = true, 
+			   																		ShouldEndChannel = false,  decreaseDamageOnProck = 0,
+                                                                           			shield_amount = self:GetAbility():GetSpecialValueFor("barrier_base"), HasCounter = false} )
+			
         end
     end
 end

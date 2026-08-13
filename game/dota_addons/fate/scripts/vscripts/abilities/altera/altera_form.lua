@@ -37,7 +37,43 @@ local tForms = {
 end]]
 
 function altera_form_open:OnSpellStart()
-	self:OpenSezame()
+	--self:OpenSezame()
+	local caster = self:GetCaster()
+	if self:GetCurrentForm() == 1 then
+		caster:RemoveModifierByName("modifier_altera_form_str")
+		caster:RemoveModifierByName("modifier_altera_form_agi")
+		caster:RemoveModifierByName("modifier_altera_form_int")
+		caster:AddNewModifier(caster, self, "modifier_altera_form_agi", {})
+	elseif self:GetCurrentForm() == 2 then
+		caster:RemoveModifierByName("modifier_altera_form_str")
+		caster:RemoveModifierByName("modifier_altera_form_agi")
+		caster:RemoveModifierByName("modifier_altera_form_int")
+		caster:AddNewModifier(caster, self, "modifier_altera_form_int", {})
+	elseif self:GetCurrentForm() == 3 then
+		caster:RemoveModifierByName("modifier_altera_form_str")
+		caster:RemoveModifierByName("modifier_altera_form_agi")
+		caster:RemoveModifierByName("modifier_altera_form_int")
+		caster:AddNewModifier(caster, self, "modifier_altera_form_str", {})
+	elseif self:GetCurrentForm() == 4 then
+		caster:RemoveModifierByName("modifier_altera_form_str")
+		caster:RemoveModifierByName("modifier_altera_form_agi")
+		caster:RemoveModifierByName("modifier_altera_form_int")
+		caster:AddNewModifier(caster, self, "modifier_altera_form_str", {})
+	end
+end
+
+function altera_form_open:GetCurrentForm()
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_altera_form_str") then
+		return 1
+	end
+	if caster:HasModifier("modifier_altera_form_agi") then
+		return 2
+	end
+	if caster:HasModifier("modifier_altera_form_int") then
+		return 3
+	end
+	return 4
 end
 
 function altera_form_open:OpenSezame()
@@ -92,6 +128,21 @@ function altera_form_str:OnSpellStart()
 	caster:FindAbilityByName("altera_form_close"):OnSpellCalled(false)
 
 	caster:AddNewModifier(caster, self, "modifier_altera_form_str", {})
+	local castPos = self:GetCursorPosition()
+	local vector = (-caster:GetAbsOrigin() + castPos)
+
+	if vector:Length2D() < 10 then
+		vector = vector + RandomVector(1)
+	end
+	vector = vector:Normalized()
+	vector.z = 0
+	caster:SetForwardVector(vector)
+	if (caster:GetAbsOrigin() - castPos):Length2D() > 500 then
+		castPos = caster:GetAbsOrigin() + vector * 500
+	end
+	if caster:HasModifier("modifier_altera_adaptive") then
+		caster:FindAbilityByName("altera_adaptive"):DeployToPosition(castPos, false)
+	end
 	--caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_STRENGTH)
 end
 
@@ -107,8 +158,26 @@ function altera_form_agi:OnSpellStart()
 	caster:FindAbilityByName("altera_form_close"):OnSpellCalled(false)
 		
 	caster:AddNewModifier(caster, self, "modifier_altera_form_agi", {})
+	local castPos = self:GetCursorPosition()
+	local vector = (-caster:GetAbsOrigin() + castPos)
+
+	if vector:Length2D() < 10 then
+		vector = vector + RandomVector(1)
+	end
+	vector = vector:Normalized()
+	vector.z = 0
+	caster:SetForwardVector(vector)
+	if (caster:GetAbsOrigin() - castPos):Length2D() > 500 then
+		castPos = caster:GetAbsOrigin() + vector * 500
+	end
+	if caster:HasModifier("modifier_altera_adaptive") then
+		caster:FindAbilityByName("altera_adaptive"):DeployToPosition(castPos, false)
+	end
 	--caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
 end
+
+
+
 
 altera_form_int = class({})
 
@@ -122,8 +191,24 @@ function altera_form_int:OnSpellStart()
 	caster:FindAbilityByName("altera_form_close"):OnSpellCalled(false)
 		
 	caster:AddNewModifier(caster, self, "modifier_altera_form_int", {})
+	local castPos = self:GetCursorPosition()
+	local vector = (-caster:GetAbsOrigin() + castPos)
+
+	if vector:Length2D() < 10 then
+		vector = vector + RandomVector(1)
+	end
+	vector = vector:Normalized()
+	vector.z = 0
+	caster:SetForwardVector(vector)
+	if (caster:GetAbsOrigin() - castPos):Length2D() > 500 then
+		castPos = caster:GetAbsOrigin() + vector * 500
+	end
+	if caster:HasModifier("modifier_altera_adaptive") then
+		caster:FindAbilityByName("altera_adaptive"):DeployToPosition(castPos, false)
+	end
 	--caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
 end
+
 
 -------
 

@@ -12,7 +12,7 @@ function ozy_spawn_boat:OnSpellStart()
 	if IsNotNull(hCaster.boat) then
 		CustomGameEventManager:Send_ServerToPlayer( hCaster:GetPlayerOwner(), "ozy_select_boat", {boat = hCaster.boat:entindex()} )
 	else
-		local life_dur = 120
+		local life_dur = 185
 		local boat = CreateUnitByName("ozy_boat", vTargetPoint, false, hCaster, hCaster, hCaster:GetTeamNumber())
 		boat:SetControllableByPlayer(hCaster:GetPlayerID(), true)
 		boat:SetOwner(hCaster)

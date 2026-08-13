@@ -40,6 +40,7 @@ local spellBooks = {
 	"avenger_dark_passage",
 	"gilles_combo_activator",
 	"gilles_eye_for_art_passive",
+	"altera_form_open",
 }
 
 tamamo_amaterasu = class({})

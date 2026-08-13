@@ -68,87 +68,112 @@ function altera_whip:OnSpellStart()
 	end
 end
 
-function altera_whip:WhipSpam()
-	local caster = self:GetCaster()
-	local slash_count = self:GetSpecialValueFor("slash_count")
-	local radius = self:GetSpecialValueFor("range")
-	local interval = 0.05
+-- function altera_whip:WhipSpam()
+-- 	local caster = self:GetCaster()
+-- 	local slash_count = self:GetSpecialValueFor("slash_count")
+-- 	local radius = self:GetSpecialValueFor("range")
+-- 	local interval = 0.05
 
-	--StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
+-- 	--StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
 
-	Timers:CreateTimer(0, function()
-		slash_count = slash_count - 1
-		if slash_count <= 0 then
-			interval = nil
-		else
-			giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.06)
-		end
+-- 	Timers:CreateTimer(0, function()
+-- 		slash_count = slash_count - 1
+-- 		if slash_count <= 0 then
+-- 			interval = nil
+-- 		else
+-- 			giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.06)
+-- 		end
 
-		if slash_count == 6 then
-			StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=4})
-		end
+-- 		if slash_count == 6 then
+-- 			StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1, rate=4})
+-- 		end
 
-		if slash_count == 3 then
-			StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=4})
-		end
+-- 		if slash_count == 3 then
+-- 			StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=4})
+-- 		end
 
-		local part1 = math.random(-10, 10)
-		local part2 = -80
-		local part3 = math.random(-30, 30)
-		if slash_count%2 == 0 then
-			part1 = part1 + 180
-			part2 = 80
-		end
+-- 		local part1 = math.random(-10, 10)
+-- 		local part2 = -80
+-- 		local part3 = math.random(-30, 30)
+-- 		if slash_count%2 == 0 then
+-- 			part1 = part1 + 180
+-- 			part2 = 80
+-- 		end
 
-		local form = "int"
-		local part = "blue"
+-- 		local form = "int"
+-- 		local part = "blue"
 
-		if caster:HasModifier("modifier_altera_form_str") then
-	    	form = "str"
-	    	part = "red"
-	    end
-	    if caster:HasModifier("modifier_altera_form_agi") then
-	    	form = "agi"
-	    	part = "green"
-	    end
-	    if caster:HasModifier("modifier_altera_form_int") then
-	       	form = "int"
-	       	part = "blue"
-	    end
+-- 		if caster:HasModifier("modifier_altera_form_str") then
+-- 	    	form = "str"
+-- 	    	part = "red"
+-- 	    end
+-- 	    if caster:HasModifier("modifier_altera_form_agi") then
+-- 	    	form = "agi"
+-- 	    	part = "green"
+-- 	    end
+-- 	    if caster:HasModifier("modifier_altera_form_int") then
+-- 	       	form = "int"
+-- 	       	part = "blue"
+-- 	    end
 
-		local forw = Vector(0, 0, VectorToAngles(caster:GetForwardVector())[2])
+-- 		local forw = Vector(0, 0, VectorToAngles(caster:GetForwardVector())[2])
 
-		local slash_fx = ParticleManager:CreateParticle("particles/altera/altera_blade_fury_"..part..".vpcf", PATTACH_ABSORIGIN, caster)
-		ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(slash_fx, 5, Vector(radius, 1, 1))
-		ParticleManager:SetParticleControl(slash_fx, 10, forw + Vector(part1, part3, part2))
+-- 		local slash_fx = ParticleManager:CreateParticle("particles/altera/altera_blade_fury_"..part..".vpcf", PATTACH_ABSORIGIN, caster)
+-- 		ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin())
+-- 		ParticleManager:SetParticleControl(slash_fx, 5, Vector(radius, 1, 1))
+-- 		ParticleManager:SetParticleControl(slash_fx, 10, forw + Vector(part1, part3, part2))
+		
+-- 		local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+-- 											caster:GetAbsOrigin(),
+-- 											nil,
+-- 											radius,
+-- 											DOTA_UNIT_TARGET_TEAM_ENEMY,
+-- 											DOTA_UNIT_TARGET_ALL,
+-- 											DOTA_UNIT_TARGET_FLAG_NONE,
+-- 											FIND_ANY_ORDER,
+-- 											false)
 
-		local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
-		                                    caster:GetAbsOrigin(),
-		                                    nil,
-		                                    radius,
-		                                    DOTA_UNIT_TARGET_TEAM_ENEMY,
-		                                    DOTA_UNIT_TARGET_ALL,
-		                                    DOTA_UNIT_TARGET_FLAG_NONE,
-		                                    FIND_ANY_ORDER,
-		                                    false)
+-- 		local forw_ori = caster:GetAbsOrigin() + caster:GetForwardVector()*radius
+-- 		forw_ori = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 30, 0), forw_ori)
+-- 		local forw = (forw_ori - caster:GetAbsOrigin()):Normalized()
+-- 		for _,enemy in pairs(enemies) do
+-- 			local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+-- 			local origin_diff_norm = origin_diff:Normalized()
+-- 			if forw:Dot(origin_diff_norm) > 0 then
+-- 				self:WhipImpact(enemy, form)
+-- 			end
+-- 		end
+-- 		if form == "int" then
+-- 			local allies = FindUnitsInRadius(  caster:GetTeamNumber(),
+-- 												caster:GetAbsOrigin(),
+-- 												nil,
+-- 												600 pam u nedius,
+-- 												DOTA_UNIT_TARGET_TEAM_FRIENDLY ,
+-- 												DOTA_UNIT_TARGET_ALL,
+-- 												DOTA_UNIT_TARGET_FLAG_NONE,
+-- 												FIND_ANY_ORDER,
+-- 												false)
 
-		local forw_ori = caster:GetAbsOrigin() + caster:GetForwardVector()*radius
-		forw_ori = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 30, 0), forw_ori)
-		local forw = (forw_ori - caster:GetAbsOrigin()):Normalized()
-		for _,enemy in pairs(enemies) do
-			local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
-			local origin_diff_norm = origin_diff:Normalized()
-			if forw:Dot(origin_diff_norm) > 0 then
-				self:WhipImpact(enemy, form)
-			end
-		end
+-- 			local forw_ori = caster:GetAbsOrigin() + caster:GetForwardVector()*radius
+-- 			forw_ori = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 30, 0), forw_ori)
+-- 			local forw = (forw_ori - caster:GetAbsOrigin()):Normalized()
+-- 			for _,ally in pairs(allies) do
+-- 				local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+-- 				local origin_diff_norm = origin_diff:Normalized()
+-- 				if forw:Dot(origin_diff_norm) > 0 then
+-- 					self:WhipImpactTeammate(ally)
+-- 				end
+-- 			end
 
-		caster:EmitSound("nanaya.slash")
+-- 		end
 
-	    return interval
-	end)
-end
+	
+
+-- 		caster:EmitSound("nanaya.slash")
+
+-- 	    return interval
+-- 	end)
+-- end
 
 function altera_whip:Whip1()
 	local caster = self:GetCaster()
@@ -193,6 +218,28 @@ function altera_whip:Whip1()
 		local origin_diff_norm = origin_diff:Normalized()
 		if forw:Dot(origin_diff_norm) > 0 then
 			self:WhipImpact(enemy, form)
+		end
+	end
+	if caster:HasModifier("modifier_altera_form_int") then
+		local allies = FindUnitsInRadius(  caster:GetTeamNumber(),
+											caster:GetAbsOrigin(),
+											nil,
+											600,
+											DOTA_UNIT_TARGET_TEAM_FRIENDLY ,
+											DOTA_UNIT_TARGET_ALL,
+											DOTA_UNIT_TARGET_FLAG_NONE,
+											FIND_ANY_ORDER,
+											false)
+
+		local forw_ori = caster:GetAbsOrigin() + caster:GetForwardVector()*600
+		forw_ori = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 30, 0), forw_ori)
+		local forw = (forw_ori - caster:GetAbsOrigin()):Normalized()
+		for _,ally in pairs(allies) do
+			local origin_diff = ally:GetAbsOrigin() - caster:GetAbsOrigin()
+			local origin_diff_norm = origin_diff:Normalized()
+			if forw:Dot(origin_diff_norm) > 0 then
+				self:WhipImpactTeammate(ally)
+			end
 		end
 	end
 end
@@ -242,8 +289,38 @@ function altera_whip:Whip2()
 			self:WhipImpact(enemy, form)
 		end
 	end
+
+	if caster:HasModifier("modifier_altera_form_int")  then
+			local allies = FindUnitsInRadius(  caster:GetTeamNumber(),
+												caster:GetAbsOrigin(),
+												nil,
+												600,
+												DOTA_UNIT_TARGET_TEAM_FRIENDLY ,
+												DOTA_UNIT_TARGET_ALL,
+												DOTA_UNIT_TARGET_FLAG_NONE,
+												FIND_ANY_ORDER,
+												false)
+
+			local forw_ori = caster:GetAbsOrigin() + caster:GetForwardVector()*600
+			forw_ori = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 30, 0), forw_ori)
+			local forw = (forw_ori - caster:GetAbsOrigin()):Normalized()
+			for _,ally in pairs(allies) do
+				local origin_diff = ally:GetAbsOrigin() - caster:GetAbsOrigin()
+				local origin_diff_norm = origin_diff:Normalized()
+				if forw:Dot(origin_diff_norm) > 0 then
+					self:WhipImpactTeammate(ally)
+				end
+			end
+
+		end
 end
 
+function altera_whip:WhipImpactTeammate(ally)
+	local caster = self:GetCaster()
+	ally:Heal(self:GetSpecialValueFor("int_damage") * 0.5,caster)
+
+
+end
 function altera_whip:WhipImpact(enemy, form)
 	local caster = self:GetCaster()
 
@@ -267,9 +344,7 @@ function altera_whip:WhipImpact(enemy, form)
 			caster:Heal(healing, self)
 		end
 	elseif form == "agi" then
-		enemy:AddNewModifier(caster, self, "modifier_silence", {duration = self:GetSpecialValueFor("agi_silence_duration")})
-	else
-		giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("int_lock_duration"))
+		giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("agi_lock_duration"))
 	end
 end
 

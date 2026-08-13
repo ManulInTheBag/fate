@@ -9,7 +9,6 @@
 	[
 		{
 			m_name = "preview"
-			m_drivers = [  ]
 		},
 	]
 	m_Emitters = 
@@ -140,19 +139,21 @@
 			_class = "C_INIT_InitFloat"
 			m_InputValue = 
 			{
-				m_nType = "PF_TYPE_LITERAL"
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
 				m_flLiteralValue = 1.05
 				m_NamedValue = ""
-				m_nControlPoint = 0
+				m_nControlPoint = 9
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
+				m_bReverseOrder = false
 				m_flRandomMin = 0.0
 				m_flRandomMax = 1.0
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_strSnapshotSubset = ""
 				m_flLOD0 = 0.0
 				m_flLOD1 = 0.0
 				m_flLOD2 = 0.0
@@ -389,11 +390,13 @@
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
+				m_bReverseOrder = false
 				m_flRandomMin = 0.0
 				m_flRandomMax = 1.0
 				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_strSnapshotSubset = ""
 				m_flLOD0 = 0.0
 				m_flLOD1 = 0.0
 				m_flLOD2 = 0.0
@@ -434,26 +437,26 @@
 						{
 							x = 0.0
 							y = 0.0
-							m_flSlopeIncoming = 0.097219
-							m_flSlopeOutgoing = 0.097219
+							m_flSlopeIncoming = 0.058331415
+							m_flSlopeOutgoing = 0.058331415
 						},
 						{
 							x = 10.286053
-							y = 1.0
-							m_flSlopeIncoming = 0.058518
-							m_flSlopeOutgoing = 0.058518
+							y = 0.6
+							m_flSlopeIncoming = 0.035111077
+							m_flSlopeOutgoing = 0.035111077
 						},
 						{
 							x = 17.088625
-							y = 1.0
-							m_flSlopeIncoming = -0.05362
-							m_flSlopeOutgoing = -0.05362
+							y = 0.6
+							m_flSlopeIncoming = -0.03217205
+							m_flSlopeOutgoing = -0.03217205
 						},
 						{
 							x = 28.935781
 							y = 0.0
-							m_flSlopeIncoming = -0.003751
-							m_flSlopeOutgoing = -0.003751
+							m_flSlopeIncoming = -0.0022506001
+							m_flSlopeOutgoing = -0.0022506001
 						},
 					]
 					m_tangents = 
@@ -476,7 +479,7 @@
 						},
 					]
 					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 30.0, 1.0 ]
+					m_vDomainMaxs = [ 30.0, 0.6 ]
 				}
 			}
 			m_nOutputField = 7
@@ -1442,7 +1445,6 @@
 			}
 			m_nOutputField = 7
 			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_PositionLock"

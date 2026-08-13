@@ -177,6 +177,7 @@ OnDexStart = function(keys)
    				ParticleManager:SetParticleControl(excalpepegFxIndex, 0, caster:GetAbsOrigin() + pepega_vec*(range + width-100)/3.2 + Vector(0, 0, 266))
 
    				ParticleManager:SetParticleControl(excalpepegFxIndex, 1, pepega_end + Vector(0,0,400)) 
+				ParticleManager:SetParticleControl(excalpepegFxIndex, 9, Vector(0.8,0,0)) 
 				ParticleManager:SetParticleControl(excalpepegFxIndex, 3, Vector(width,0,0)) 
 				ParticleManager:SetParticleControl(excalpepegFxIndex, 63, Vector(0.3,0, 0.5)) 
 				ParticleManager:SetParticleControl(excalpepegFxIndex, 15, caster:GetAbsOrigin() )

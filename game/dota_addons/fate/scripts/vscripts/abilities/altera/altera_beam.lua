@@ -41,21 +41,24 @@ function modifier_altera_beam:OnCreated()
     	self.form = "neutral"
         self.particlename = "particles/altera/altera_beam.vpcf"
         self.particlename2 = "particles/altera/altera_beam_mane.vpcf"
-
+		self.beamcolor = Vector(1,1,1)
         if self.caster:HasModifier("modifier_altera_form_str") then
         	self.form = "str"
         	self.particlename = "particles/altera/altera_beam_red.vpcf"
         	self.particlename2 = "particles/altera/altera_beam_mane_red.vpcf"
+			self.beamcolor = Vector(1,0.1,0.1)
         end
         if self.caster:HasModifier("modifier_altera_form_agi") then
         	self.form = "agi"
         	self.particlename = "particles/altera/altera_beam_green.vpcf"
         	self.particlename2 = "particles/altera/altera_beam_mane_green.vpcf"
+			self.beamcolor = Vector(0.1,1,0.1)
         end
         if self.caster:HasModifier("modifier_altera_form_int") then
         	self.form = "int"
         	self.particlename = "particles/altera/altera_beam_blue.vpcf"
         	self.particlename2 = "particles/altera/altera_beam_mane_blue.vpcf"
+			self.beamcolor = Vector(0.1,0.1,1)
         end
 
         self.team_flag = DOTA_UNIT_TARGET_TEAM_ENEMY
@@ -89,14 +92,27 @@ function modifier_altera_beam:OnCreated()
         if self.parent.ErosionAcquired then
         	if self.form == "str" then
         		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetStrength()
+			
         	end
         	if self.form == "agi" then
         		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetAgility()
+
         	end
         	if self.form == "int" then
         		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetIntellect()
+				self.start_width = self.start_width + self.ability:GetSpecialValueFor("int_radius_increase")
         	end
         end
+
+		self.particleNew =ParticleManager:CreateParticle("particles/zlodemon/ground_marker_line.vpcf", PATTACH_ABSORIGIN, self.caster)  
+
+		ParticleManager:SetParticleControl(self.particleNew, 0, self.vAttachLoc)
+
+		ParticleManager:SetParticleControl(self.particleNew, 3, Vector(self.start_width,0,0)) 
+		ParticleManager:SetParticleControl(self.particleNew, 9, Vector(1.6,0,0)) 
+		ParticleManager:SetParticleControl(self.particleNew, 63, self.beamcolor) 
+		ParticleManager:SetParticleControl(self.particleNew, 15, self.caster:GetAbsOrigin() )
+		ParticleManager:SetParticleControl(self.particleNew, 16, self.point + self.direction* (self.start_width)) 
 
         self.duration = self.ability:GetSpecialValueFor("duration")
         self.damage = ( self.damage / self.duration ) * 0.1--FrameTime()
