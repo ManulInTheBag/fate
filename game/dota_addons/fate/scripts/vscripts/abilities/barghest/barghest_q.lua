@@ -450,7 +450,7 @@ function modifier_barghest_q_lunge:OnDestroy()
         -- Прямой рез сверху вниз + пыль: выпад должен читаться как «воткнула меч
         -- в землю», а не как ещё один взмах.
         hParent:EmitSound(BARGHEST_SND.SLAM)
-        Barghest_FxCut(hParent, vPos + Vector(0, 0, 220), vPos + vDir * 120)
+        Barghest_FxCut(hParent, nRadius, hParent:GetAbsOrigin())
         --Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
         --EndAnimation(hParent)
         local tUnits = FindUnitsInRadius(hParent:GetTeamNumber(), vPos, nil, nRadius,

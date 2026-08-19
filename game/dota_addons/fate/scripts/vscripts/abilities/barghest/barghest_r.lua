@@ -201,7 +201,7 @@ function barghest_r:DoBlazingArc(vDir)
                                              nRadius, nAngle)) do
         if not IsSpellBlocked(hUnit, hCaster) then
             DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
-            Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hUnit:GetAbsOrigin())
+             Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
             bHit = true
         end
     end
@@ -219,8 +219,8 @@ function barghest_r:DoUppercut(vDir)
 
     -- Снизу вверх: рез идёт от земли перед ней к небу — это и читается как
     -- подброс, в отличие от горизонтальной дуги Q1R.
-    Barghest_FxCut(hCaster, vPos + vDir * 90, vPos + vDir * 140 + Vector(0, 0, 300))
-
+    Barghest_FxCutUp   (hCaster, nRadius, hCaster:GetAbsOrigin())
+    Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
     local bHit = false
     for _, hUnit in pairs(Barghest_FindInArc(hCaster, self, vPos, vDir,
                                              nRadius, self:GetSpecialValueFor("arc_angle"))) do
@@ -244,7 +244,7 @@ function barghest_r:DoUppercut(vDir)
                     center_z = vFrom.z,
                 })
             end
-            Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin())
+            --Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin())
             bHit = true
         end
     end
@@ -258,7 +258,7 @@ function barghest_r:DoBurstSlam()
     local nRadius = self:GetSpecialValueFor("slam_radius")
     hCaster:EmitSound(BARGHEST_SND.R_SLAM)
 
-    Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
+    --Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
     Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
     Barghest_FxAt(BARGHEST_FX.FIRE_HIT, vPos)
     return self:DamageArea(vPos, nRadius, self:GetSpecialValueFor("damage"))
@@ -290,22 +290,84 @@ function barghest_r:DoHoundWave(vDir)
 
     Barghest_FxLine(hCaster, vDir, nDist, self:GetSpecialValueFor("wave_width"))
 
-    local bHit = false
-    local tUnits = FATE_FindUnitsInLine(hCaster:GetTeamNumber(), vOrigin,
-        vOrigin + vDir * nDist, self:GetSpecialValueFor("wave_width"),
-        self:GetAbilityTargetTeam(), self:GetAbilityTargetType(),
-        self:GetAbilityTargetFlags(), FIND_ANY_ORDER)
-    for _, hUnit in pairs(tUnits) do
-        if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
-            DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
-            hUnit:AddNewModifier(hCaster, self, "modifier_stunned",
-                {duration = self:GetSpecialValueFor("wave_ministun")})
-            Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hUnit:GetAbsOrigin())
-            bHit = true
-        end
-    end
+    local sParticle = "particles/barghest/barghest_black_dog_proj.vpcf" 
+     self.nParticle =  ParticleManager:CreateParticle(sParticle, PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleShouldCheckFoW( self.nParticle, false)
+    ParticleManager:SetParticleAlwaysSimulate( self.nParticle)
+    ParticleManager:SetParticleControl( self.nParticle, 0, vOrigin)
+    --ParticleManager:SetParticleControl( self.nParticle, 1, GetGroundPosition(vPoint, nil))
+    ParticleManager:SetParticleControl( self.nParticle, 1, 3000 * vDir)
+    ParticleManager:SetParticleControl( self.nParticle, 6, Vector(0, 0, 0))
+    ParticleManager:SetParticleControl( self.nParticle, 15, Vector(0,0,0))
+    local tProjectile = {
+		EffectName = "",
+		Ability = self,
+		vSpawnOrigin = hCaster:GetAbsOrigin(),
+		vVelocity = vDir * 3000 ,
+		fDistance = range,
+		fStartRadius = 200,
+		fEndRadius = 200,
+		Source = hCaster,
+		bHasFrontalCone = false,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = 0,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		--bProvidesVision = true,
+		bDeleteOnHit = false,
+		--iVisionRadius = 500,
+		--bFlyingVision = true,
+		--iVisionTeamNumber = caster:GetTeamNumber(),
+	}  
+	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
+    local bHit = true
+    -- local tUnits = FATE_FindUnitsInLine(hCaster:GetTeamNumber(), vOrigin,
+    --     vOrigin + vDir * nDist, self:GetSpecialValueFor("wave_width"),
+    --     self:GetAbilityTargetTeam(), self:GetAbilityTargetType(),
+    --     self:GetAbilityTargetFlags(), FIND_ANY_ORDER)
+    -- for _, hUnit in pairs(tUnits) do
+    --     if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
+    --         DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
+    --         hUnit:AddNewModifier(hCaster, self, "modifier_stunned",
+    --             {duration = self:GetSpecialValueFor("wave_ministun")})
+    --         Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hUnit:GetAbsOrigin())
+    --         bHit = true
+    --     end
+    -- end
     return bHit
 end
+
+function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
+  	local hCaster = self:GetCaster()
+	if(hTarget ~= nil) then
+        if type( self.nParticle) == "number" then
+			ParticleManager:DestroyParticle( self.nParticle, false)
+			ParticleManager:ReleaseParticleIndex( self.nParticle)
+		end
+		local enemies = FindUnitsInRadius(  hCaster:GetTeamNumber(),
+						hTarget:GetAbsOrigin(),
+                        nil,
+                        200,
+                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                        DOTA_UNIT_TARGET_ALL,
+                        DOTA_UNIT_TARGET_FLAG_NONE,
+                        FIND_ANY_ORDER,
+                        false)
+    
+        for _,enemy in pairs(enemies) do
+            DoDamage(hCaster, enemy, self:GetSpecialValueFor("damage"), self:GetAbilityDamageType(), 0, self, false)
+
+        hTarget:EmitSound("arash_attack_hit")
+
+        
+        end
+    end
+   	Timers:CreateTimer(0.033,function()
+   		ProjectileManager:DestroyLinearProjectile(self.iProjectile)
+  	end)
+	return true
+end
+
 
 ---------------------------------------------------------------------------------------------------
 -- Разгон: каждое попавшее продолжение ускоряет атаку и усиливает вампиризм F
@@ -319,6 +381,19 @@ function modifier_barghest_frenzy:RemoveOnDeath() return true end
 
 function modifier_barghest_frenzy:GetTexture()
     return "custom/barghest/barghest_frenzy"
+end
+
+function modifier_barghest_frenzy:OnStackCountChanged(iStackCount)
+    ParticleManager:SetParticleControl(self.particle_unbreak, 1, Vector((iStackCount + 1)*2,0,0))
+
+end
+
+function modifier_barghest_frenzy:OnCreated()
+	self.particle_unbreak = ParticleManager:CreateParticle("particles/hijikata/barghest_passive.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+							ParticleManager:SetParticleControl(self.particle_unbreak, 0, self:GetParent():GetAbsOrigin())
+							ParticleManager:SetParticleControl(self.particle_unbreak, 1, Vector(self:GetStackCount(),0,0))
+
+	self:AddParticle(self.particle_unbreak, false, true, -1, true, false)
 end
 
 -- Без IsServer-гарда: бонус обязан считаться и на клиенте.
@@ -425,8 +500,13 @@ function modifier_barghest_r_horn:OnDestroy()
         StartAnimation(self.hParent, {duration = 0.4,
         activity = ACT_DOTA_ICE_VORTEX, rate = 1.0})
         self.hParent:AddNewModifier(self.hParent, self:GetAbility(), "modifier_merlin_self_pause", {Duration = 0.20}) 
-        Timers:CreateTimer(0.2, function()
         local hCaster = self.hParent
+        Barghest_FxCut(hCaster, 300, hCaster:GetAbsOrigin())
+        Timers:CreateTimer(0.2, function()
+        
+            Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
+            Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hCaster:GetAbsOrigin())
+            
         local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil, self.nGrab,
             self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
             self.hAbility:GetAbilityTargetFlags(), FIND_CLOSEST, false)
@@ -436,7 +516,7 @@ function modifier_barghest_r_horn:OnDestroy()
                     0, self.hAbility, false)
                 hEnemy:AddNewModifier(hCaster, self.hAbility, "modifier_stunned",
                     {duration = self.nStun})
-                Barghest_FxAt(BARGHEST_FX.SHOCK, hEnemy:GetAbsOrigin())
+                --Barghest_FxAt(BARGHEST_FX.SHOCK, hEnemy:GetAbsOrigin())
                 hEnemy:EmitSound(BARGHEST_SND.R_IMPACT)
                 return
            

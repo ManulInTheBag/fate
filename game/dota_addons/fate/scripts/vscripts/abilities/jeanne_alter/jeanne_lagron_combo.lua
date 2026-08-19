@@ -195,6 +195,7 @@ function modifier_lagron_combo_ally:OnTakeDamage(args)
         if (previousHealth - damagePostReduction*(1 - return_percentage) > 0) then
             hTarget:SetHealth(previousHealth - args.damage*(1 - return_percentage))
         end
+		self.hp = self.parent:GetHealth()
         blockModifier.stored_damage = blockModifier.stored_damage + args.damage*return_percentage
         --self.stored_damage = self.stored_damage + args.damage*return_percentage
     end

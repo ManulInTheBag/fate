@@ -41,11 +41,13 @@ BARGHEST_CONT_E  = 5
 BARGHEST_FX = {
     ARC        = "particles/barghest/barghest_slash_1.vpcf",         -- размашистая дуга
     ARC_FIRE   = "particles/barghest/barghest_slash_4.vpcf",     -- она же, но огненная (R)
-    CUT        = "particles/custom/archer/archer_overedge_slash.vpcf", -- прямой рез
+    CUT        = "particles/barghest/barghest_slash_vertical_up.vpcf", -- прямой рез
+    CUT2        = "particles/barghest/barghest_slash_vertical.vpcf", -- прямой рез
+    CUTThin     = "particles/barghest/barghest_slash_vertical_up_thin.vpcf",
     RING       = "particles/barghest/barghest_slash_2.vpcf",
     SHOCK      = "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf",
-    BURST      = "particles/units/heroes/hero_beastmaster/beastmaster_primal_roar_shockwave.vpcf",
-    FIRE_HIT   = "particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf",
+    BURST      = "particles/barghest/barghest_small_explosion.vpcf",
+    FIRE_HIT   = "particles/barghest/barghest_slam.vpcf",
     STANCE     = "particles/barghest/barghest_w_shield.vpcf",
     -- ⚠️ Тут был arcueid_shield_end — он в аддоне не используется НИГДЕ и
     -- вживую не рисовался. Взрыв стойки теперь на проверенном шоквейве.
@@ -54,9 +56,9 @@ BARGHEST_FX = {
     AIM        = "particles/muramasa/vector.vpcf",
     DASH       = "particles/barghest/barghest_rush_e.vpcf",
     -- волна по линии: у facebreaker известны контрольные точки и он ТОЧНО виден
-    WAVE       = "particles/aoko/aoko_facebreaker.vpcf",
+    WAVE       = "particles/barghest/barghest_black_dog.vpcf",
     CHAINS     = "particles/barghest/barghest_e_chains.vpcf",
-    LIFESTEAL  = "particles/aoko/aoko_spell_lifesteal.vpcf",
+    LIFESTEAL  = "particles/barghest/barghest_lifesteal.vpcf",
     SHIELD_SLASH = "particles/barghest/barghest_slash_3.vpcf",
 }
 
@@ -164,10 +166,26 @@ end
 
 
 --[[ Прямой рез из точки в точку (выпад, удар снизу). CP2/CP3 — как у kuro. ]]
-function Barghest_FxCut(hCaster, vFrom, vTo)
-    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.CUT, PATTACH_CUSTOMORIGIN, hCaster)
-    ParticleManager:SetParticleControl(nFx, 2, vFrom)
-    ParticleManager:SetParticleControl(nFx, 3, vTo)
+function Barghest_FxCut(hCaster, nRadius, vPos)
+    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.CUT, PATTACH_ABSORIGIN_FOLLOW, hCaster)
+    ParticleManager:SetParticleControl(nFx, 0, vPos)
+    ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    ReleaseLater(nFx, 1.0)
+    return nFx
+end
+
+function Barghest_FxCutThin(hCaster, nRadius, vPos)
+    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.CUTThin, PATTACH_ABSORIGIN_FOLLOW, hCaster)
+    ParticleManager:SetParticleControl(nFx, 0, vPos)
+    ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    ReleaseLater(nFx, 1.0)
+    return nFx
+end
+
+function Barghest_FxCutUp(hCaster, nRadius, vPos)
+    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.CUT2, PATTACH_ABSORIGIN_FOLLOW, hCaster)
+    ParticleManager:SetParticleControl(nFx, 0, vPos)
+    ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
     ReleaseLater(nFx, 1.0)
     return nFx
 end
@@ -204,8 +222,8 @@ end
 function Barghest_FxLine(hCaster, vDir, nDistance, nWidth)
     local vOrigin = hCaster:GetAbsOrigin()
     local nFx = ParticleManager:CreateParticle(BARGHEST_FX.WAVE, PATTACH_ABSORIGIN, hCaster)
-    ParticleManager:SetParticleControl(nFx, 0, vOrigin + vDir * nDistance)
-    ParticleManager:SetParticleControl(nFx, 1, vOrigin)
+    ParticleManager:SetParticleControl(nFx, 1, vOrigin + vDir * nDistance)
+    ParticleManager:SetParticleControl(nFx, 0, vOrigin)
     ParticleManager:SetParticleControl(nFx, 2, Vector(0, nWidth, 0))
     ParticleManager:ReleaseParticleIndex(nFx)
     return nFx

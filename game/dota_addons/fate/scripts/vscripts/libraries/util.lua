@@ -166,6 +166,7 @@ deargdispellable = {
     --"modifier_true_assassin_selfmod",
     "modifier_selfmod_agility", 
     "modifier_merlin_excalibur_attack",
+    "modifier_rho_aias_emiya",
 
     -- Strong Dispelable
     "modifier_b_scroll",
