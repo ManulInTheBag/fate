@@ -280,6 +280,21 @@ function barghest_r:DoHornCharge(vDir)
     })
 end
 
+function barghest_r:getAngle2D(v1, v2)
+    -- Находим угол каждого вектора относительно оси X и вычитаем их
+    local angleRad = math.atan2(v2.y, v2.x) - math.atan2(v1.y, v1.x)
+    
+    -- Переводим радианы в градусы
+    local angleDeg = math.deg(angleRad)
+    
+    -- Корректируем значение, чтобы оно всегда было в диапазоне [0, 360)
+    if angleDeg < 0 then
+        angleDeg = angleDeg + 360
+    end
+    
+    return angleDeg
+end
+
 -- 5 (E) — волна в виде чёрного пса, микростан по линии
 function barghest_r:DoHoundWave(vDir)
     local hCaster = self:GetCaster()
@@ -292,19 +307,26 @@ function barghest_r:DoHoundWave(vDir)
 
     local sParticle = "particles/barghest/barghest_black_dog_proj.vpcf" 
      self.nParticle =  ParticleManager:CreateParticle(sParticle, PATTACH_WORLDORIGIN, nil)
-    ParticleManager:SetParticleShouldCheckFoW( self.nParticle, false)
-    ParticleManager:SetParticleAlwaysSimulate( self.nParticle)
+
     ParticleManager:SetParticleControl( self.nParticle, 0, vOrigin)
     --ParticleManager:SetParticleControl( self.nParticle, 1, GetGroundPosition(vPoint, nil))
     ParticleManager:SetParticleControl( self.nParticle, 1, 3000 * vDir)
-    ParticleManager:SetParticleControl( self.nParticle, 6, Vector(0, 0, 0))
+    ParticleManager:SetParticleControl( self.nParticle, 6, (vDir * nDist) + vOrigin)
     ParticleManager:SetParticleControl( self.nParticle, 15, Vector(0,0,0))
+        ParticleManager:SetParticleShouldCheckFoW( self.nParticle, false)
+    ParticleManager:SetParticleAlwaysSimulate( self.nParticle)
+    Timers:CreateTimer(nDist/3000 - 0.05, function()
+        if type( self.nParticle) == "number" then
+			ParticleManager:DestroyParticle( self.nParticle, false)
+			ParticleManager:ReleaseParticleIndex( self.nParticle)
+		end
+    end)
     local tProjectile = {
 		EffectName = "",
 		Ability = self,
 		vSpawnOrigin = hCaster:GetAbsOrigin(),
 		vVelocity = vDir * 3000 ,
-		fDistance = range,
+		fDistance = nDist,
 		fStartRadius = 200,
 		fEndRadius = 200,
 		Source = hCaster,
@@ -340,10 +362,6 @@ end
 function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
 	if(hTarget ~= nil) then
-        if type( self.nParticle) == "number" then
-			ParticleManager:DestroyParticle( self.nParticle, false)
-			ParticleManager:ReleaseParticleIndex( self.nParticle)
-		end
 		local enemies = FindUnitsInRadius(  hCaster:GetTeamNumber(),
 						hTarget:GetAbsOrigin(),
                         nil,

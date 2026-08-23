@@ -504,6 +504,7 @@
 			m_flAddSelfAmount = 1.5
 			m_flOverbrightFactor = 3.0
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_RenderSprites"
