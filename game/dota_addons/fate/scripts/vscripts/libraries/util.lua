@@ -896,6 +896,8 @@ tHorsemanClass = {
     "npc_dota_hero_troll_warlord",
     "npc_dota_hero_phoenix",
     "npc_dota_hero_axe",
+    "npc_dota_hero_centaur",         -- Lu Bu
+    "npc_dota_hero_spirit_breaker",  -- Hijikata Toshizo
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
