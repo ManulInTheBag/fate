@@ -1,6 +1,12 @@
 require("abilities/barghest/barghest_shared")
 
 barghest_q = class({})
+
+--[[ Замах ставим РУКАМИ, хотя GetCastAnimation отдаёт движку тот же клип.
+     Оверрайд через StartAnimation оказался единственным способом, при котором
+     клип видно на всех трёх стадиях: движковая каст-анимация у Q режется
+     IGNORE_BACKSWING'ом и на смене стадии не перезапускается. EndAnimation
+     перед ним обязателен — иначе новый клип не сменит предыдущий. ]]
 function barghest_q:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
     EndAnimation(caster)
@@ -78,29 +84,8 @@ BARGHEST_Q_ACT = {
     ACT_DOTA_CAST_ABILITY_3,
 }
 
---[[ Удар второй стадии — ОТДЕЛЬНЫЙ клип, играет на старте выпада.
-     В модели (content/.../barghest.vmdl) это `vertical_slash2`, кадры 181-207 на
-     50 fps ≈ 0.54 c, ровно продолжение замаха `vertical_slash1` (ACT_2, кадры
-     175-180) — то есть сам взмах сверху вниз. ]]
-
-
---[[ Скорость проигрывания клипа для оверрайда анимации. Читается и на КЛИЕНТЕ,
-     поэтому только GetSpecialValueFor: серверных методов юнита тут нельзя.
-     Способность могли отобрать (revoke) — тогда просто штатная скорость. ]]
-function Barghest_QAnimRate(hAbility, sKey)
-    if hAbility == nil or type(hAbility.GetSpecialValueFor) ~= "function" then
-        return 1.0
-    end
-    local nRate = hAbility:GetSpecialValueFor(sKey)
-    if nRate == nil or nRate <= 0 then return 1.0 end
-    return nRate
-end
-
---[[ ⚠️ Замах отыгрывает ДВИЖОК по этому колбэку, руками его дублировать не
-     надо. Именно в этом и была двойная анимация: здесь возвращался клип, и он
-     же вторым разом запускался StartAnimation'ом из OnAbilityPhaseStart.
-     Так же сделано у altera_whip и atalanta_calydonian_hunt — один
-     GetCastAnimation и ничего больше. ]]
+--[[ Клип замаха для движка. Дублируется StartAnimation'ом в
+     OnAbilityPhaseStart — см. комментарий там, это осознанно. ]]
 function barghest_q:GetCastAnimation()
     return BARGHEST_Q_ACT[self:GetStage()] or ACT_DOTA_CAST_ABILITY_1
 end
@@ -134,13 +119,12 @@ end
 function barghest_q:OnSpellStart()
     if not IsServer() then return end
     local hCaster = self:GetCaster()
-    --[[ ⚠️ EndAnimation тут тоже НЕ зовём. Он ставит _animationEnd = сейчас, а
-         StartAnimation (animations.lua:482) при свежем _animationEnd
-         откладывает следующий клип на 0.066 с. То есть каждый EndAnimation
-         прямо перед StartAnimation — это гарантированный провал на два кадра,
-         ровно то самое «анимация не успевает проиграться». ]]
+    --[[ ⚠️ EndAnimation здесь НЕ зовём: клип замаха, поставленный в
+         OnAbilityPhaseStart, должен доиграть в удар. Гасить его на старте
+         каста — и есть «анимация не успевает проиграться». ]]
 
     local iStage = self:GetStage()
+    Barghest_Grunt(hCaster, BARGHEST_VO.Q, 1)	-- короткий выкрик на удар
 
     --[[ ⚠️ Курсор и доворот — ТОЛЬКО у первых двух стадий. Третья объявлена
          NO_TARGET (см. GetBehavior), курсора у неё нет: GetCursorPosition
@@ -226,30 +210,29 @@ end
 function barghest_q:DoLunge(vDir, vPoint)
     local hCaster = self:GetCaster()
     local nMax = self:GetSpecialValueFor("lunge_distance")
+    local nMin = self:GetSpecialValueFor("lunge_min_distance")
     local nWant = (vPoint - hCaster:GetAbsOrigin()):Length2D()
-    local nDist = math.max(80, math.min(nMax, nWant))
+    local nDist = math.max(nMin, math.min(nMax, nWant))
+    local fLife = self:GetSpecialValueFor("lunge_duration")
 
-    --[[ ⚠️ StartAnimation тут БОЛЬШЕ НЕТ, и возвращать его нельзя.
-         Жест (modifier_animation из animations.lua) конкурирует с каст-анимацией
-         движка: у Q стоит IGNORE_BACKSWING, движок обрывает каст-клип ровно на
-         кастпоинте и сам же переводит модель в IDLE — жест, поставленный в тот же
-         кадр, до экрана не доезжал. Именно поэтому «удар не проигрывался», хотя
-         клип ACT_DOTA_CAST_ABILITY_4 в модели есть.
-         Правило аддона (см. cu_alter_charge): деш→удар гнать МОДИФИКАТОРАМИ через
-         MODIFIER_PROPERTY_OVERRIDE_ANIMATION — оверрайд жёстче каста и меняется
-         без задержки в 0.066 c, которую даёт churn StartAnimation/EndAnimation.
-         Клип выпада отдаёт modifier_barghest_q_lunge, доигровку удара об землю —
-         modifier_barghest_q_slam_anim. Оба на ТОМ ЖЕ ACT_4, так что смена
-         модификатора на приземлении клип не перезапускает. ]]
+    --[[ Клип удара (ACT_4) гонится ДВУМЯ способами сразу, и это намеренно:
+         • modifier_barghest_q_lunge отдаёт его через OVERRIDE_ANIMATION —
+           оверрайд не срезается движком на кастпоинте (у Q стоит
+           IGNORE_BACKSWING) и живёт ровно столько, сколько летит деш;
+         • StartAnimation + FreezeAnimation держат тот же клип ПОСЛЕ того, как
+           деш кончился раньше времени (упёрся в стену, затормозил о врага) —
+           иначе модель на приземлении сваливалась в IDLE и удара было не видно.
+         Оба на ТОЙ ЖЕ активности, так что снятие модификатора клип не рвёт.
+         Заморозку снимает UnfreezeAnimation в OnDestroy выпада. ]]
     hCaster:EmitSound(BARGHEST_SND.Q_LUNGE)
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_q_lunge", {
-        duration = 0.5,
+        duration = fLife,
         x = vDir.x, y = vDir.y,
         distance = nDist,
     })
-   StartAnimation(hCaster, {duration = 0.5,
+    StartAnimation(hCaster, {duration = fLife,
         activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
-    FreezeAnimation(hCaster, 0.5)	
+    FreezeAnimation(hCaster, fLife)
 end
 
 -- Стадия 3: удар вокруг себя
@@ -258,20 +241,11 @@ function barghest_q:DoSpin()
     local nRadius = self:GetSpecialValueFor("spin_radius")
     hCaster:EmitSound(BARGHEST_SND.Q_SPIN)
 
-    --[[ Пост-анимация: держим героя на месте, пока вертушка доигрывает. У Q
-         стоит IGNORE_BACKSWING, так что своего замирания после каста у неё нет
-         — без этого можно было убежать с первого же кадра клипа. ]]
-    --hCaster:AddNewModifier(hCaster, self, "modifier_barghest_q_spin_anim",
-        --{duration = self:GetSpecialValueFor("spin_post_delay")})
-
-    --[[ ⚠️ Анимации здесь НЕТ. Вертушка — это ACT_DOTA_CAST_ABILITY_3, и его
-         уже играет движок по GetCastAnimation. Повторный запуск того же клипа
-         и был «чем-то не так с анимацией» на третьем ударе: клип сбрасывался
-         на 0.15 с и начинался заново. Первая стадия сделана так же (в DoArc
-         анимации нет) и вопросов не вызывала. ]]
-    -- Дуга на все 360° плюс кольцо по земле: третий удар обязан читаться как
-    -- «вокруг себя», а не как ещё одна дуга вперёд.
-    --Barghest_FxArc(BARGHEST_FX.ARC, hCaster, nRadius, 360)
+    --[[ ⚠️ Своей анимации здесь НЕТ: вертушку целиком отыгрывает замах из
+         OnAbilityPhaseStart, на то ей и удлинён каст-пойнт (spin_cast_point).
+         Повторный запуск того же клипа сбрасывал его в начало.
+         Кольцо по земле вместо дуги: третий удар обязан читаться как «вокруг
+         себя», а не как ещё одна дуга вперёд. ]]
     Barghest_FxRing(BARGHEST_FX.RING, hCaster:GetAbsOrigin(), nRadius)
 
     local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil,
@@ -300,26 +274,6 @@ function modifier_barghest_q_chain:GetTexture()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Пост-анимация удара: короткое замирание, чтобы клип доиграл, плюс сам клип
--- через MODIFIER_PROPERTY_OVERRIDE_ANIMATION.
--- ⚠️ Активность у оверрайда ЗАХАРДКОЖЕНА в классе, а не приходит параметром:
--- анимация считается на клиенте, а туда таблица AddNewModifier не доезжает (ровно
--- поэтому animations.lua пакует activity в стаки). Отсюда два почти одинаковых
--- класса вместо одного с параметром — так же сделан modifier_cu_alter_charge_hit.
--- Набор состояний — как у modifier_altera_teardrop_anim, кроме SILENCED и MUTED:
--- ⚠️ Их тут быть НЕ должно. Смысл третьего удара — сразу уйти в R (он заряжает
--- BARGHEST_CONT_Q3), и глушить себя же на выходе из связки нельзя.
--- COMMAND_RESTRICTED и так не даст отдать приказ эти доли секунды.
----------------------------------------------------------------------------------------------------
-
---[[ Доигровка удара об землю после выпада. ACT_4 — тот же клип, что гонит сам
-     выпад, поэтому смена модификатора на приземлении не перезапускает взмах. ]]
-
-
---[[ Доигровка вертушки (стадия 3). ACT_3 — та же активность, которую движок уже
-     начал играть как каст-анимацию, так что оверрайд её продолжает, а не рвёт. ]]
-
----------------------------------------------------------------------------------------------------
 -- Выпад второй стадии. Мини-деш, но всё равно через motion controller — правило
 -- аддона: своим перемещением героя занимается отдельный модификатор движения.
 ---------------------------------------------------------------------------------------------------
@@ -334,9 +288,10 @@ function modifier_barghest_q_lunge:CheckState()
     return {[MODIFIER_STATE_ROOTED] = true}
 end
 
---[[ Клип удара гонит САМ модификатор движения, а не StartAnimation: оверрайд не
-     срезается движком на кастпоинте и переключается без задержки в 0.066 c.
-     Продолжается он в modifier_barghest_q_slam_anim на той же активности. ]]
+--[[ Клип удара выпада (ACT_4, `vertical_slash2` в модели — продолжение замаха
+     `vertical_slash1`) модификатор гонит оверрайдом: тот не срезается движком на
+     кастпоинте. Ту же активность держит StartAnimation из DoLunge — на момент,
+     когда деш кончился раньше своей длительности. ]]
 function modifier_barghest_q_lunge:DeclareFunctions()
     return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE}
 end
@@ -363,6 +318,7 @@ function modifier_barghest_q_lunge:OnCreated(tTable)
     -- короткий выпад полз бы, а длинный телепортировал.
     self.nSpeed      = self.hAbility:GetSpecialValueFor("lunge_speed")
     self.nStopRadius = self.hAbility:GetSpecialValueFor("lunge_stop_radius")
+    self.nNoStop     = self.hAbility:GetSpecialValueFor("lunge_no_stop_distance")
 
     self.hParent:SetForwardVector(self.vDir)
     if not self:ApplyHorizontalMotionController() then
@@ -394,10 +350,11 @@ function modifier_barghest_q_lunge:UpdateHorizontalMotion(hUnit, fTime)
          себя: первый удар бьёт в радиусе 275, а выпад уносит на 450 — тот, кого
          только что задели аркой, оказывался ЗА спиной и вне радиуса удара об
          землю. Теперь до цели долетаем и бьём по ней, а не мимо.
-         Первые 120 единиц не тормозим: иначе при вплотную стоящем враге выпада
-         не было бы вовсе, а он всё-таки рывок. Радиус остановки (200) меньше
-         радиуса удара (275), так что застрять «слишком далеко» нельзя. ]]
-    if (vNext - self.vStart):Length2D() < 120 then return end
+         Первые lunge_no_stop_distance единиц не тормозим: иначе при вплотную
+         стоящем враге выпада не было бы вовсе, а он всё-таки рывок. Радиус
+         остановки меньше радиуса удара, так что застрять «слишком далеко»
+         нельзя — держать это соотношение при правке KV. ]]
+    if (vNext - self.vStart):Length2D() < self.nNoStop then return end
 
     local tUnits = FindUnitsInRadius(hUnit:GetTeamNumber(), vNext, nil, self.nStopRadius,
         self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
@@ -422,25 +379,18 @@ function modifier_barghest_q_lunge:OnDestroy()
 
     if not self.hParent:IsAlive() then return end
 
-    -- ⚠️ Анимации здесь НЕТ: удар отыгрывается на СТАРТЕ выпада, в DoLunge.
-    -- Сюда попадаем уже на приземлении, и второй клип тут читался бы как
-    -- повтор того же движения.
+    -- ⚠️ Новую анимацию здесь НЕ запускаем: клип удара уже идёт с СТАРТА выпада
+    -- (DoLunge). Сюда попадаем на приземлении, второй клип читался бы как
+    -- повтор того же движения. Снимаем только заморозку, поставленную там же.
     local hParent  = self.hParent
     local hAbility = self.hAbility
-    local vDir     = self.vDir
     local nRadius  = hAbility:GetSpecialValueFor("radius")
 
-    --[[ Держим её на месте, пока меч идёт в землю и клип доигрывает. Без этого
-         игрок уходит с первого же кадра приземления, бег перекрывает удар — и
-         клип снова «не видно», сколько бы мы его ни держали в StartAnimation.
-         У Q стоит IGNORE_BACKSWING, своего замирания после каста у неё нет. ]]
-
-
     --[[ Урон приходит через lunge_slam_delay, а не в тот же кадр, что и
-         остановка. Выпад в упор длится меньше 0.1 с, и без задержки меч втыкался
-         в землю раньше, чем клип успевал до этого дойти. ]]
+         остановка. Выпад в упор длится меньше десятой доли секунды, и без
+         задержки меч втыкался в землю раньше, чем клип успевал до этого дойти. ]]
     UnfreezeAnimation(hParent)
-    Timers:CreateTimer(0.1, function()
+    Timers:CreateTimer(hAbility:GetSpecialValueFor("lunge_slam_delay"), function()
         -- ⚠️ За эти доли секунды её могли убить, а способность — отобрать.
         if not Barghest_Alive(hParent) or not hParent:IsAlive() then return end
         if not Barghest_Alive(hAbility) then return end

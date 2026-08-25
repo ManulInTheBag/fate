@@ -34,10 +34,12 @@ BARGHEST_CONT_Q3 = 3
 BARGHEST_CONT_W  = 4
 BARGHEST_CONT_E  = 5
 
---[[ Партиклы: готовые из аддона, чтобы было видно, что делает скилл. Каждая
-     стадия Q и каждая ветка R получают РАЗНЫЙ эффект — иначе по экрану не
-     понять, что именно сработало. Свои рисуются отдельно, пути тогда меняются
-     только здесь. ]]
+--[[ Партиклы. Почти все уже свои (particles/barghest/*), пути собраны здесь —
+     менять их надо только в этой таблице. Каждая стадия Q и каждая ветка R
+     получают РАЗНЫЙ эффект: иначе по экрану не понять, что сработало.
+     ⚠️ Всё, что тут перечислено, обязано стоять в precache соответствующей
+     способности (см. barghest_abilities.kv) — иначе первый каст в матче
+     подвешивает сервер на подгрузке. ]]
 BARGHEST_FX = {
     ARC        = "particles/barghest/barghest_slash_1.vpcf",         -- размашистая дуга
     ARC_FIRE   = "particles/barghest/barghest_slash_4.vpcf",     -- она же, но огненная (R)
@@ -49,13 +51,12 @@ BARGHEST_FX = {
     BURST      = "particles/barghest/barghest_small_explosion.vpcf",
     FIRE_HIT   = "particles/barghest/barghest_slam.vpcf",
     STANCE     = "particles/barghest/barghest_w_shield.vpcf",
-    -- ⚠️ Тут был arcueid_shield_end — он в аддоне не используется НИГДЕ и
-    -- вживую не рисовался. Взрыв стойки теперь на проверенном шоквейве.
     CHARGE     = "particles/barghest/barghest_e_charge.vpcf",
     -- стрелка прицела на зарядке E — та же, что у emiya_caladbolg
     AIM        = "particles/muramasa/vector.vpcf",
     DASH       = "particles/barghest/barghest_rush_e.vpcf",
-    -- волна по линии: у facebreaker известны контрольные точки и он ТОЧНО виден
+    -- след волны ER по земле (Barghest_FxLine, CP0/CP1/CP2); самого летящего
+    -- пса рисует barghest_black_dog_proj прямо в barghest_r
     WAVE       = "particles/barghest/barghest_black_dog.vpcf",
     CHAINS     = "particles/barghest/barghest_e_chains.vpcf",
     LIFESTEAL  = "particles/barghest/barghest_lifesteal.vpcf",
@@ -82,6 +83,56 @@ BARGHEST_SND = {
     R_IMPACT  = "Hero_Spirit_Breaker.GreaterBash",
     R_WAVE    = "Hero_LegionCommander.Overwhelming.Location",
 }
+
+--[[ Голос Barghest на способностях (FGO, VA Inoue Marina, Слуга №310).
+     События лежат в soundevents/hero_barghest.vsndevts, клипы — в
+     sounds/barghest/. ⚠️ Голос вешаем только на РЕДКИЕ способности: Q и R
+     жмут по несколько раз в связке, и реплика на них превращается в спам —
+     на тех же граблях это уже проверено у Cu Alter.
+     Реплики самого героя (спавн, смерть, приказы) живут не здесь, а в
+     soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts: Barghest
+     переопределяет Dragon Knight, и движок берёт VO по его событиям. ]]
+BARGHEST_VO = {
+    Q          = "barghest_vo_q",          -- короткий выкрик на удар связки
+    R          = "barghest_vo_r",          -- выкрик потяжелее на продолжение
+    W          = "barghest_vo_w",          -- стойка: «Клянусь этим мечом…»
+    E          = "barghest_vo_e",          -- рывок: «Пёс… ест пса…!»
+    D          = "barghest_vo_d",          -- под будущую D
+    NP_START   = "barghest_vo_np_start",   -- под будущее комбо
+    NP_SCREAM  = "barghest_vo_np_scream",
+    NP_SHOUT   = "barghest_vo_np_shout",
+    HACK       = "barghest_vo_hack",
+    LAUGH      = "barghest_vo_laugh",
+}
+
+--[[ Самый длинный клип в пуле выкриков (см. hero_barghest.vsndevts). Ровно на
+     столько выкрик и «занимает голос»: Q и R жмут ЧЕРЕДУЯ (ротация qrqrqr), и
+     без этого второй выкрик ложился бы поверх первого — каша из двух голосов.
+     ⚠️ Держать не меньше длины самого длинного клипа своего события. ]]
+BARGHEST_GRUNT_LEN = {
+    [1] = 0.7,      -- пул Q: короткие «Хм!»/«Ха!», самый длинный 0.65 c
+    [2] = 1.05,     -- пул R: выкрики потяжелее, самый длинный 1.01 c
+}
+
+--[[ Боевой выкрик. Пока звучит предыдущий — новый молчит.
+     ⚠️ Пропущенный выкрик НЕ откладываем и не копим: голос, приехавший через
+     полсекунды после удара, читается как чужой.
+     Пауза Q между ударами связки (0.8 c) длиннее её же клипа, так что каждый
+     удар связки свой выкрик получает; глохнет только то, что влезло между. ]]
+function Barghest_Grunt(hCaster, sEvent, nPool)
+    if not IsServer() then return end
+    if not Barghest_Alive(hCaster) then return end
+
+    local fNow = GameRules:GetGameTime()
+    -- Время держим НА ЮНИТЕ, а не в модуле: require кэширует модуль один раз на
+    -- всю карту, и общая переменная затыкала бы выкрики второй Barghest —
+    -- в аддоне это Мастер с копией способностей.
+    if hCaster.fBarghestGruntUntil ~= nil and fNow < hCaster.fBarghestGruntUntil then
+        return
+    end
+    hCaster.fBarghestGruntUntil = fNow + (BARGHEST_GRUNT_LEN[nPool] or 1.0)
+    hCaster:EmitSound(sEvent)
+end
 
 --[[ Живой ли хэндл. Своя копия — по той же причине, что и у
      modifier_barrier_new: IsNotNull из util есть не во всех VM. ]]
@@ -229,6 +280,6 @@ function Barghest_FxLine(hCaster, vDir, nDistance, nWidth)
     return nFx
 end
 
--- Доворот дешей по приказу движения живёт в ExecuteOrderFilter
--- (addon_game_mode.lua) и зовёт SteerTo прямо у модификатора: тащить сюда
--- функцию нельзя — require кэширует модуль, и в среде фильтра её не окажется.
+-- ⚠️ Никаких хуков в ExecuteOrderFilter у Barghest НЕТ и заводить их не надо.
+-- Доворот рывка E сделан внутри самого модификатора движения: он следует за
+-- forward-вектором рутованного героя (см. modifier_barghest_e_dash).

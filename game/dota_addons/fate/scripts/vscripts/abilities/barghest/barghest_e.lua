@@ -12,9 +12,11 @@ barghest_e = class({})
      отпустил раньше времени. Не нажал — уходит само по истечении charge_time.
 
      Направление рывка = куда герой смотрит в момент отпускания. Дальше рывок
-     доворачивается: приказы движения во время него перехватываются в
-     ExecuteOrderFilter и идут в SteerTo, а не в движок (иначе они рвали бы
-     motion controller). Скорость доворота — turn_rate.
+     доворачивается САМ, без всяких фильтров приказов: герой рутован, приказ
+     идти он выполнить не может, но разворачивается на него — а контроллер
+     движения просто следует за его forward-вектором, не быстрее turn_rate.
+     ⚠️ Перехват приказов в ExecuteOrderFilter пробовали и выбросили: съеденный
+     приказ не давал герою повернуться, и рулить рывком становилось нечем.
 
      ROOT_DISABLES в KV обязателен: рывок должен блокироваться рутом.
 ]]
@@ -34,12 +36,13 @@ function barghest_e:OnSpellStart()
 
     self.fChargeStart = GameRules:GetGameTime()
     hCaster:EmitSound(BARGHEST_SND.E_CHARGE)
+    hCaster:EmitSound(BARGHEST_VO.E)	-- «Пёс… ест пса…!»
     StartAnimation(hCaster, {duration = fMax, activity = ACT_DOTA_CHANNEL_ABILITY_2, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_e_charge", {duration = fMax})
 
-    -- Подменяем кнопку на «отпустить». С задержкой — иначе то же нажатие,
-    -- которым начали зарядку, тут же её и оборвёт.
-    Timers:CreateTimer(0.25, function()
+    -- Подменяем кнопку на «отпустить». С задержкой (release_swap_delay) —
+    -- иначе то же нажатие, которым начали зарядку, тут же её и оборвёт.
+    Timers:CreateTimer(self:GetSpecialValueFor("release_swap_delay"), function()
         if not IsNotNull(hCaster) then return end
         if hCaster:HasModifier("modifier_barghest_e_charge")
            and hCaster:FindAbilityByName("barghest_e_release") ~= nil then
@@ -84,11 +87,17 @@ function barghest_e:LaunchDash()
     local nMax = self:GetSpecialValueFor("max_distance")
     local nDistance = nMin + (nMax - nMin) * fCharge
 
+    -- Расчётное время полёта плюс dash_anim_tail: это ПОТОЛОК, обычно рывок
+    -- кончается раньше сам (доехал, упёрся, влетел во врага). Запас нужен,
+    -- потому что доворот удлиняет путь по сравнению с прямой линией.
+    local fLife = nDistance / self:GetSpecialValueFor("speed")
+                  + self:GetSpecialValueFor("dash_anim_tail")
+
     hCaster:EmitSound(BARGHEST_SND.E_DASH)
-    StartAnimation(hCaster, {duration = nDistance / self:GetSpecialValueFor("speed") + 0.2,
+    StartAnimation(hCaster, {duration = fLife,
         activity = ACT_DOTA_CAST_ABILITY_5, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_e_dash", {
-        duration = nDistance / self:GetSpecialValueFor("speed") + 0.2,
+        duration = fLife,
         x = vDir.x, y = vDir.y,
         distance = nDistance,
         charge = fCharge * 100,     -- в таблицу модификатора уходят только числа
@@ -216,7 +225,9 @@ function modifier_barghest_e_dash:OnCreated(tTable)
         self:Destroy()
         return
     end
-    if self.fCharge > 0.5 then
+    -- Шлейф скорости — только у заряженного рывка (speed_fx_charge_pct): на
+    -- коротком он не успевает прочитаться и только замусоривает экран.
+    if self.fCharge * 100 > self.hAbility:GetSpecialValueFor("speed_fx_charge_pct") then
         self.nFxIndexSpeed = ParticleManager:CreateParticle("particles/barghest/barghest_rush_e_speed.vpcf",
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
         self:AddParticle(self.nFxIndexSpeed, false, false, -1, false, false)

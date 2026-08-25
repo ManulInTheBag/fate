@@ -45,6 +45,7 @@ function barghest_w:OnSpellStart()
     local hCaster = self:GetCaster()
     EndAnimation(hCaster)
     hCaster:EmitSound(BARGHEST_SND.W_CAST)
+    hCaster:EmitSound(BARGHEST_VO.W)	-- «Клянусь этим мечом…»
 
     self.bSlammed = false
     StartAnimation(hCaster, {duration = self:GetChannelTime(),
@@ -93,7 +94,9 @@ function barghest_w:Slam(hCaster, fAbsorbed)
     -- Замах: звук пробитого барьера и сама анимация идут сразу...
     hCaster:EmitSound(BARGHEST_SND.W_BREAK)
     EndAnimation(hCaster)
-    StartAnimation(hCaster, {duration = fDelay + 0.5,
+    -- Клип живёт замах + slam_anim_tail: к моменту удара он должен ещё идти,
+    -- иначе модель сваливается в IDLE раньше, чем рука дойдёт до земли.
+    StartAnimation(hCaster, {duration = fDelay + self:GetSpecialValueFor("slam_anim_tail"),
         activity = ACT_DOTA_CAST_ICE_WALL, rate = 1.0})
 
     --[[ ...а урон, кольцо и грохот — через slam_delay, когда рука уже дошла до
@@ -105,6 +108,7 @@ function barghest_w:Slam(hCaster, fAbsorbed)
     local nBonus = math.min(self:GetSpecialValueFor("slam_bonus_cap"),
         (fAbsorbed or 0) * self:GetSpecialValueFor("slam_from_absorbed") * 0.01)
     local nDamage = self:GetSpecialValueFor("slam_damage") + nBonus
+    local nArcAngle    = self:GetSpecialValueFor("slam_arc_angle")
     local nDamageType  = self:GetAbilityDamageType()
     local nTargetTeam  = self:GetAbilityTargetTeam()
     local nTargetType  = self:GetAbilityTargetType()
@@ -120,13 +124,12 @@ function barghest_w:Slam(hCaster, fAbsorbed)
         -- Бьёт туда, где стоит НА МОМЕНТ приземления, а не где начала замах.
         local vPos = hCaster:GetAbsOrigin()
         hCaster:EmitSound(BARGHEST_SND.SLAM)
-        -- ⚠️ Шоквейв — ТОЛЬКО привязанным к юниту (так он поставлен в
-        -- cu_alter_roar); кольцо по радиусу — warstomp'ом, у него CP1 честно
-        -- задаёт размер.
-        local nAngle = 180
         hCaster:EmitSound(BARGHEST_SND.Q_ARC)
 
-        Barghest_FxArc(BARGHEST_FX.SHIELD_SLASH, hCaster, nRadius, nAngle)
+        -- ⚠️ Дуга и вспышка — ТОЛЬКО привязанными к юниту (так же поставлено в
+        -- cu_alter_roar): на PATTACH_WORLDORIGIN эти партиклы не рисуются.
+        -- Урон при этом идёт по КРУГУ, дуга здесь чисто визуальная.
+        Barghest_FxArc(BARGHEST_FX.SHIELD_SLASH, hCaster, nRadius, nArcAngle)
         Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
 
         local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vPos, nil, nRadius,
@@ -276,6 +279,11 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
     return -nBlock
 end
 
+--[[ Иммунитет к дебаффам на время стойки И на ответный удар.
+     ⚠️ Живёт на секунду дольше канала намеренно: без этого стойку было
+     достаточно прервать станом, и удар, ради которого её и держали, не
+     выходил. Если урона не было (удара не будет) — снимается сразу в
+     OnChannelFinish, чтобы бесплатной неуязвимости к контролю не осталось. ]]
 modifier_barghest_cc_immune = class({})
 
 function modifier_barghest_cc_immune:CheckState()

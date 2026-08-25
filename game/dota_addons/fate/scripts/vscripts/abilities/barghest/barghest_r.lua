@@ -11,7 +11,8 @@ barghest_r = class({})
        2 (Q2) — удар снизу, ненадолго подбрасывает
        3 (Q3) — удар об землю с огненным взрывом
        4 (W)  — рывок вперёд, удар рогами, стан первого встречного
-       5 (E)  — волна энергии в виде чёрного пса, микростан по линии
+       5 (E)  — волна энергии в виде чёрного пса: летит, разбивается о первого
+                встречного и микростанит всех вокруг него
 
      Окно растёт с уровнем R (`window`). Попадание любым продолжением возвращает
      часть кулдауна Q и даёт стак разгона.
@@ -80,26 +81,31 @@ BARGHEST_R_ACT = {
     ACT_DOTA_OVERRIDE_ABILITY_3,    -- ER:  волна
 }
 
---[[ ⚠️ Клип ветки отыгрывает ДВИЖОК по этому колбэку. Руками его не дублируем:
-     раньше рядом стоял OnAbilityPhaseStart, который запускал ТО ЖЕ САМОЕ
-     StartAnimation'ом — отсюда и дёрганые анимации продолжений. ]]
+--[[ Клип ветки для движка. Дублируется StartAnimation'ом в OnAbilityPhaseStart
+     — см. комментарий там, это осознанно. ]]
 function barghest_r:GetCastAnimation()
     return BARGHEST_R_ACT[self:GetArmedBranch()] or ACT_DOTA_CAST_ABILITY_6
 end
 
+--[[ ⚠️ Каст-пойнт решает ЭТОТ метод, а не AbilityCastPoint из KV: у волны (ER)
+     замах длиннее остальных веток. KV-значение остаётся справочным и уходит в
+     тултип через %AbilityCastPoint% — держать его равным `cast_point`. ]]
 function barghest_r:GetCastPoint()
-    if self:GetArmedBranch() == 5 then
-        return 0.3
-    else
-        return 0.2
+    if self:GetArmedBranch() == BARGHEST_CONT_E then
+        return self:GetSpecialValueFor("wave_cast_point")
     end
+    return self:GetSpecialValueFor("cast_point")
 end
+
+--[[ Замах ставим РУКАМИ поверх GetCastAnimation — тем же приёмом, что и в Q:
+     веток пять, и без явного EndAnimation+StartAnimation движок не всегда
+     переключал клип при смене заряженной ветки. ]]
 function barghest_r:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
     EndAnimation(caster)
-    local jopa = BARGHEST_R_ACT[self:GetArmedBranch()]
-    print(jopa)
-	StartAnimation(caster, {duration=self:GetCastPoint(), activity=jopa, rate=1})
+	StartAnimation(caster, {duration = self:GetCastPoint(),
+        activity = BARGHEST_R_ACT[self:GetArmedBranch()] or ACT_DOTA_CAST_ABILITY_6,
+        rate = 1})
 end
 
 function barghest_r:OnAbilityPhaseInterrupted()
@@ -119,6 +125,7 @@ function barghest_r:OnSpellStart()
     -- Продолжение одноразовое: снимаем сразу, иначе одним окном его отыграют дважды.
     hCaster:RemoveModifierByName("modifier_barghest_continuation")
     if nBranch == nil then return end
+    Barghest_Grunt(hCaster, BARGHEST_VO.R, 2)	-- выкрик на продолжение
 
     local vPoint = self:GetCursorPosition()
     local vDir = vPoint - hCaster:GetAbsOrigin()
@@ -170,6 +177,10 @@ function barghest_r:RewardHit()
     end
 end
 
+--[[ Урон по кругу БЕЗ эффектов на целях. ⚠️ Раньше тут на каждого задетого
+     садился свой взрыв, и на пачке врагов Q3R превращалась в стену огня —
+     удар об землю один, и вспышка у него должна быть одна, в точке удара
+     (её ставит сам вызывающий). ]]
 function barghest_r:DamageArea(vPos, nRadius, nDamage)
     local hCaster = self:GetCaster()
     local bHit = false
@@ -179,7 +190,6 @@ function barghest_r:DamageArea(vPos, nRadius, nDamage)
     for _, hUnit in pairs(tUnits) do
         if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
             DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
-            Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hUnit:GetAbsOrigin())
             bHit = true
         end
     end
@@ -258,7 +268,8 @@ function barghest_r:DoBurstSlam()
     local nRadius = self:GetSpecialValueFor("slam_radius")
     hCaster:EmitSound(BARGHEST_SND.R_SLAM)
 
-    --Barghest_FxRing(BARGHEST_FX.RING, vPos, nRadius)
+    -- Ровно два эффекта на весь удар: вспышка на самой Barghest и огонь в
+    -- точке удара. Ничего пер-таргетного тут быть не должно.
     Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
     Barghest_FxAt(BARGHEST_FX.FIRE_HIT, vPos)
     return self:DamageArea(vPos, nRadius, self:GetSpecialValueFor("damage"))
@@ -271,8 +282,11 @@ function barghest_r:DoHornCharge(vDir)
     -- ветки WR, движок уже играет его по GetCastAnimation. Повторный запуск
     -- сбрасывал таран в самом начале рывка.
     EndAnimation(hCaster)
+    -- Потолок жизни модификатора: расчётное время полёта плюс запас. Обычно
+    -- таран кончается раньше сам — доехал, упёрся в рельеф или зацепил врага.
     local charge_duration = self:GetSpecialValueFor("horn_distance")
-                 / self:GetSpecialValueFor("horn_speed") + 0.1
+                 / self:GetSpecialValueFor("horn_speed")
+                 + self:GetSpecialValueFor("horn_dash_tail")
     hCaster:EmitSound(BARGHEST_SND.E_DASH)
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_r_horn", {
         duration = charge_duration,
@@ -295,40 +309,51 @@ function barghest_r:getAngle2D(v1, v2)
     return angleDeg
 end
 
--- 5 (E) — волна в виде чёрного пса, микростан по линии
+--[[ 5 (E) — волна в виде чёрного пса. Урон и микростан наносит не эта функция,
+     а OnProjectileHit_ExtraData: пёс ЛЕТИТ, и бить всех на линии в момент каста
+     было бы нечестно — попадание обязано совпадать с картинкой.
+     ⚠️ Возвращает true ВСЕГДА, то есть стак разгона и возврат кулдауна ER даёт
+     даже мимо. Так и задумано: тащить факт попадания обратно из колбэка
+     проджектайла ради одного стака не стоит усложнения. ]]
 function barghest_r:DoHoundWave(vDir)
     local hCaster = self:GetCaster()
     local vOrigin = hCaster:GetAbsOrigin()
-    local nDist = self:GetSpecialValueFor("wave_distance")
-    local nDamage = self:GetSpecialValueFor("damage")
+    local nDist   = self:GetSpecialValueFor("wave_distance")
+    local nSpeed  = self:GetSpecialValueFor("wave_speed")
+    local nWidth  = self:GetSpecialValueFor("wave_width")
     hCaster:EmitSound(BARGHEST_SND.R_WAVE)
 
-    Barghest_FxLine(hCaster, vDir, nDist, self:GetSpecialValueFor("wave_width"))
+    Barghest_FxLine(hCaster, vDir, nDist, nWidth)
 
-    local sParticle = "particles/barghest/barghest_black_dog_proj.vpcf" 
+    --[[ Пёс — ОТДЕЛЬНЫЙ партикль, а не EffectName проджектайла: скорость он
+         берёт с CP1, точку исчезновения с CP6, и движковый снаряд их не задаёт.
+         Поэтому обоим даём одну и ту же wave_speed — разъедутся, и урон пойдёт
+         мимо картинки. ]]
+    local sParticle = "particles/barghest/barghest_black_dog_proj.vpcf"
      self.nParticle =  ParticleManager:CreateParticle(sParticle, PATTACH_WORLDORIGIN, nil)
 
     ParticleManager:SetParticleControl( self.nParticle, 0, vOrigin)
-    --ParticleManager:SetParticleControl( self.nParticle, 1, GetGroundPosition(vPoint, nil))
-    ParticleManager:SetParticleControl( self.nParticle, 1, 3000 * vDir)
+    ParticleManager:SetParticleControl( self.nParticle, 1, nSpeed * vDir)
     ParticleManager:SetParticleControl( self.nParticle, 6, (vDir * nDist) + vOrigin)
     ParticleManager:SetParticleControl( self.nParticle, 15, Vector(0,0,0))
         ParticleManager:SetParticleShouldCheckFoW( self.nParticle, false)
     ParticleManager:SetParticleAlwaysSimulate( self.nParticle)
-    Timers:CreateTimer(nDist/3000 - 0.05, function()
+    -- ⚠️ Убираем РУКАМИ и чуть раньше конца пути: сам он не умирает и без этого
+    -- висит в точке прибытия.
+    Timers:CreateTimer(nDist / nSpeed - 0.05, function()
         if type( self.nParticle) == "number" then
 			ParticleManager:DestroyParticle( self.nParticle, false)
 			ParticleManager:ReleaseParticleIndex( self.nParticle)
 		end
     end)
     local tProjectile = {
-		EffectName = "",
+		EffectName = "",            -- картинку рисует партикль пса выше
 		Ability = self,
 		vSpawnOrigin = hCaster:GetAbsOrigin(),
-		vVelocity = vDir * 3000 ,
+		vVelocity = vDir * nSpeed ,
 		fDistance = nDist,
-		fStartRadius = 200,
-		fEndRadius = 200,
+		fStartRadius = nWidth,
+		fEndRadius = nWidth,
 		Source = hCaster,
 		bHasFrontalCone = false,
 		bReplaceExisting = false,
@@ -342,42 +367,39 @@ function barghest_r:DoHoundWave(vDir)
 		--iVisionTeamNumber = caster:GetTeamNumber(),
 	}  
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
-    local bHit = true
-    -- local tUnits = FATE_FindUnitsInLine(hCaster:GetTeamNumber(), vOrigin,
-    --     vOrigin + vDir * nDist, self:GetSpecialValueFor("wave_width"),
-    --     self:GetAbilityTargetTeam(), self:GetAbilityTargetType(),
-    --     self:GetAbilityTargetFlags(), FIND_ANY_ORDER)
-    -- for _, hUnit in pairs(tUnits) do
-    --     if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
-    --         DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
-    --         hUnit:AddNewModifier(hCaster, self, "modifier_stunned",
-    --             {duration = self:GetSpecialValueFor("wave_ministun")})
-    --         Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hUnit:GetAbsOrigin())
-    --         bHit = true
-    --     end
-    -- end
-    return bHit
+    return true
 end
 
+--[[ Попадание волны. Бьёт не по одной цели, а по всем в wave_hit_radius вокруг
+     неё: пёс большой, и урон только по задетой модели читался бы как промах.
+     ⚠️ Проджектайл убиваем СРАЗУ после первого попадания (bDeleteOnHit = false,
+     значит сам он летел бы дальше и собирал цель за целью): волна должна
+     разбиться о первого встречного, как и обещает описание. Через таймер, а не
+     прямо здесь — уничтожать снаряд из его же колбэка нельзя. ]]
 function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
 	if(hTarget ~= nil) then
 		local enemies = FindUnitsInRadius(  hCaster:GetTeamNumber(),
 						hTarget:GetAbsOrigin(),
                         nil,
-                        200,
+                        self:GetSpecialValueFor("wave_hit_radius"),
                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                         DOTA_UNIT_TARGET_ALL,
                         DOTA_UNIT_TARGET_FLAG_NONE,
                         FIND_ANY_ORDER,
                         false)
-    
+
+        local fStun = self:GetSpecialValueFor("wave_ministun")
         for _,enemy in pairs(enemies) do
-            DoDamage(hCaster, enemy, self:GetSpecialValueFor("damage"), self:GetAbilityDamageType(), 0, self, false)
-
-        hTarget:EmitSound("arash_attack_hit")
-
-        
+            if IsNotNull(enemy) and not IsSpellBlocked(enemy, hCaster) then
+                DoDamage(hCaster, enemy, self:GetSpecialValueFor("damage"),
+                    self:GetAbilityDamageType(), 0, self, false)
+                -- Микростан: сам по себе он ничего не решает, но сбивает касты и
+                -- даёт Barghest время подойти — ради этого ветку и берут.
+                enemy:AddNewModifier(hCaster, self, "modifier_stunned",
+                    {duration = fStun})
+                enemy:EmitSound("arash_attack_hit")
+            end
         end
     end
    	Timers:CreateTimer(0.033,function()
@@ -450,7 +472,7 @@ function modifier_barghest_r_horn:OnCreated(tTable)
     self.nDistance = self.hAbility:GetSpecialValueFor("horn_distance")
     self.nStun     = self.hAbility:GetSpecialValueFor("horn_stun")
     self.nDamage   = self.hAbility:GetSpecialValueFor("damage")
-    self.nGrab     = 200
+    self.nGrab     = self.hAbility:GetSpecialValueFor("horn_grab_radius")
     self.vStart    = self.hParent:GetAbsOrigin()
     self.bDone     = false
 
@@ -514,32 +536,47 @@ function modifier_barghest_r_horn:OnDestroy()
     if Barghest_Alive(self.hParent) then
         self.hParent:RemoveHorizontalMotionController(self)
         FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true)
+
+        --[[ Таран кончился (доехал, упёрся, зацепил врага) — отыгрываем сам
+             удар рогами. Пауза modifier_merlin_self_pause держит её на месте,
+             пока клип идёт: иначе с первого же кадра можно убежать и удара не
+             видно. Длится ровно до момента урона (horn_impact_delay). ]]
+        local hAbility = self.hAbility
+        local fImpact  = hAbility:GetSpecialValueFor("horn_impact_delay")
+
         EndAnimation(self.hParent)
-        StartAnimation(self.hParent, {duration = 0.4,
+        StartAnimation(self.hParent, {duration = hAbility:GetSpecialValueFor("horn_impact_anim"),
         activity = ACT_DOTA_ICE_VORTEX, rate = 1.0})
-        self.hParent:AddNewModifier(self.hParent, self:GetAbility(), "modifier_merlin_self_pause", {Duration = 0.20}) 
+        self.hParent:AddNewModifier(self.hParent, self:GetAbility(), "modifier_merlin_self_pause", {Duration = fImpact})
         local hCaster = self.hParent
-        Barghest_FxCut(hCaster, 300, hCaster:GetAbsOrigin())
-        Timers:CreateTimer(0.2, function()
-        
+        Barghest_FxCut(hCaster, hAbility:GetSpecialValueFor("horn_cut_radius"), hCaster:GetAbsOrigin())
+        local nGrab   = self.nGrab
+        local nDamage = self.nDamage
+        local nStun   = self.nStun
+        Timers:CreateTimer(fImpact, function()
+            -- ⚠️ Гарды обязательны: за эти доли секунды её могли убить, а
+            -- способность — забрать рулбрейкером.
+            if not Barghest_Alive(hCaster) or not hCaster:IsAlive() then return end
+            if not Barghest_Alive(hAbility) then return end
+
             Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
             Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hCaster:GetAbsOrigin())
-            
-        local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil, self.nGrab,
-            self.hAbility:GetAbilityTargetTeam(), self.hAbility:GetAbilityTargetType(),
-            self.hAbility:GetAbilityTargetFlags(), FIND_CLOSEST, false)
-        for _, hEnemy in pairs(tUnits) do
-            
-                DoDamage(hCaster, hEnemy, self.nDamage, self.hAbility:GetAbilityDamageType(),
-                    0, self.hAbility, false)
-                hEnemy:AddNewModifier(hCaster, self.hAbility, "modifier_stunned",
-                    {duration = self.nStun})
-                --Barghest_FxAt(BARGHEST_FX.SHOCK, hEnemy:GetAbsOrigin())
-                hEnemy:EmitSound(BARGHEST_SND.R_IMPACT)
-                return
-           
-        end
-        
+
+            -- Бьёт ОДНОГО, ближайшего: это таран рогами, а не АоЕ — отсюда
+            -- FIND_CLOSEST и выход из цикла на первом же враге.
+            local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil, nGrab,
+                hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
+                hAbility:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+            for _, hEnemy in pairs(tUnits) do
+                if IsNotNull(hEnemy) and not IsSpellBlocked(hEnemy, hCaster) then
+                    DoDamage(hCaster, hEnemy, nDamage, hAbility:GetAbilityDamageType(),
+                        0, hAbility, false)
+                    hEnemy:AddNewModifier(hCaster, hAbility, "modifier_stunned",
+                        {duration = nStun})
+                    hEnemy:EmitSound(BARGHEST_SND.R_IMPACT)
+                    return
+                end
+            end
         end)
     end
 end

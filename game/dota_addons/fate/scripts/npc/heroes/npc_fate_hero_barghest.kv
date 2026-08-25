@@ -11,8 +11,15 @@
 		"ModelScale"				"1"
 		"DrawParticlesWhileHidden"	"1"
 		"GameSoundsFile"			"soundevents/hero_barghest.vsndevts"
+		// Реплики Barghest подменяют собой VO Dragon Knight — она его
+		// переопределяет, и движок дёргает события ЕГО именами (четыре набора:
+		// drag/dragon/dk_davion/dk_slyrak, см. сам файл).
 		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
-		"SoundSet"					"Hero_Barghest"
+		// ⚠️ SoundSet НЕ объявляем: набора "Hero_Barghest" не существует, и с ним
+		// у неё пропадала бы вся звуковая мелочь (шаги, замахи, попадания).
+		// Без строки берётся набор Dragon Knight — так же сделано у остальных
+		// Слуг аддона. Заведём свой — впишем сюда.
+		//"SoundSet"				"Hero_Barghest"
 
 		"AbilityLayout"				"6"
 		"Ability1"					"barghest_q"					// Q
