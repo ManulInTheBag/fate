@@ -289,3 +289,485 @@
 		}
 	}
 }
+
+// ---------------------------------------------------------------------
+// Звуки способностей (не голос). Источник — папка «The Middle Nursefather
+// - Matthias», нарезано по головному транзиенту: в оригиналах удар лежит в
+// первые 20-70 мс, дальше идёт длинный кинематографичный хвост, который в
+// связке Q накладывался бы сам на себя. Длина среза указана в комментарии
+// к каждому событию. Пути на клипы — sounds/barghest/barghest_sfx_*.
+// Отдельного precache не нужно: весь hero_barghest.vsndevts уже грузится
+// из addon_game_mode.lua.
+// ---------------------------------------------------------------------
+
+// Q1 дуга: лязг клинка (middlefather_0_4-2, 0.70 с)
+"barghest_sfx_q1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_q1.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// Q2 выпад: рез по телу (middlefather_0_8, 0.70 с)
+"barghest_sfx_q2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_q2.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// Q3 вертушка: лязг (middlefather_0_6, 0.75 с)
+"barghest_sfx_q3"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_q3.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// попадание: самый короткий клип набора (liuyisang_p_3, 0.45 с)
+"barghest_sfx_hit"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_hit.vsnd"
+						}
+					}
+					"volume"	{ "value"	"4.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// ответный слэм стойки (salvagreg_1_2, 1.10 с)
+"barghest_sfx_slam"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_slam.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// включение стойки: звонкий лязг (middlefather_seq_28, 1.20 с)
+"barghest_sfx_w_cast"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_w_cast.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// зарядка рывка: свелл с нарастанием (salvagreg_ad1, 2.50 с)
+"barghest_sfx_e_charge"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_e_charge.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// захват в конце рывка (middlefather_seq_17, 0.90 с)
+"barghest_sfx_e_grab"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_e_grab.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// R огонь: огненный выброс (middlefather_f_1-2, 2.20 с)
+"barghest_sfx_r_fire"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_r_fire.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// R апперкот: горение (salvagreg_2_6, 1.80 с)
+"barghest_sfx_r_upper"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_r_upper.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// R слэм: тяжёлый низкий взрыв (middlefather_4_2, 2.40 с)
+"barghest_sfx_r_slam"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_r_slam.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// R добивание: взрыв (middlefather_seq_23, 1.60 с)
+"barghest_sfx_r_impact"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_r_impact.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+
+// R волна: длинный огненный раскат (middleswordsq_3, 2.60 с)
+"barghest_sfx_r_wave"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_r_wave.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// обрыв стойки: яркий рассыпающийся выброс (liuyisang_1_2, 0.90 с)
+"barghest_sfx_w_break"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_w_break.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// рывок E (liuyisang_3_1-1, 0.70 с)
+"barghest_sfx_e_dash"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_e_dash.vsnd"
+						}
+					}
+					"volume"	{ "value"	"5.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// таран ветки WR (bigdog_p_1, 1.00 с)
+"barghest_sfx_r_horn"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_r_horn.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}
+// попадание волка, ветка RE (bigdog_3_2, 0.80 с)
+"barghest_sfx_r_hound"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			"sos_reference_stack"
+				"reference_stack"	"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/barghest/barghest_sfx_r_hound.vsnd"
+						}
+					}
+					"volume"	{ "value"	"6.000000" }
+					"pitch"		{ "value"	"1.000000" }
+				}
+			}
+		}
+	}
+}

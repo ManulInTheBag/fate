@@ -20,6 +20,7 @@ barghest_r = class({})
 
 -- modifier_barghest_continuation объявлен в barghest_shared: вешают его Q/W/E.
 LinkLuaModifier("modifier_barghest_frenzy",       "abilities/barghest/barghest_r", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_barghest_burn",         "abilities/barghest/barghest_r", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_r_horn",       "abilities/barghest/barghest_r", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 function barghest_r:GetAOERadius()
@@ -29,6 +30,23 @@ end
 --[[ Что заряжено — числом, КЛИЕНТОБЕЗОПАСНО.
      ⚠️ GetModifierStackCount есть в обеих VM, а FindModifierByName только на
      сервере. Иконку слота считает клиент, поэтому здесь только это. ]]
+--[[ Урон ветки с учётом третьего атрибута.
+
+     Galatine's Ember, кроме дота горения, добавляет ВСЕМ веткам R прибавку
+     от силы героя. Читается в одном месте, чтобы ветки не разъезжались:
+     стоит забыть её в одной из пяти — и та молча останется слабее.
+     ⚠️ GetStrength есть только у героев, гард обязателен. ]]
+function barghest_r:GetBranchDamage()
+    local nDamage = self:GetSpecialValueFor("damage")
+    local hCaster = self:GetCaster()
+    if Barghest_Alive(hCaster) and hCaster.BarghestAttr3Acquired
+       and type(hCaster.GetStrength) == "function" then
+        nDamage = nDamage + hCaster:GetStrength()
+                  * self:GetSpecialValueFor("str_pct") * 0.01
+    end
+    return nDamage
+end
+
 function barghest_r:GetArmedBranch()
     local hCaster = self:GetCaster()
     if hCaster == nil or type(hCaster.GetModifierStackCount) ~= "function" then
@@ -177,6 +195,27 @@ function barghest_r:RewardHit()
     end
 end
 
+--[[ Поджечь цель — атрибут 3 (Galatine's Ember).
+     Каждое попавшее продолжение добавляет стак и обновляет длительность, то есть
+     держать горение можно только продолжая ротацию qrqrqr. Без купленного
+     атрибута не делает ничего.
+     ⚠️ Зовётся из КАЖДОЙ ветки, где R наносит урон: ветка, забывшая позвать,
+     молча не поджигает. ]]
+function barghest_r:ApplyBurn(hUnit)
+    if not IsServer() then return end
+    local hCaster = self:GetCaster()
+    if not hCaster.BarghestAttr3Acquired then return end
+    if not IsNotNull(hUnit) or not hUnit:IsAlive() then return end
+    if IsSpellBlocked(hUnit, hCaster) then return end
+
+    local hBurn = hUnit:AddNewModifier(hCaster, self, "modifier_barghest_burn",
+        {duration = self:GetSpecialValueFor("burn_duration")})
+    if Barghest_Alive(hBurn) then
+        hBurn:SetStackCount(math.min(self:GetSpecialValueFor("burn_max_stacks"),
+            hBurn:GetStackCount() + 1))
+    end
+end
+
 --[[ Урон по кругу БЕЗ эффектов на целях. ⚠️ Раньше тут на каждого задетого
      садился свой взрыв, и на пачке врагов Q3R превращалась в стену огня —
      удар об землю один, и вспышка у него должна быть одна, в точке удара
@@ -190,6 +229,7 @@ function barghest_r:DamageArea(vPos, nRadius, nDamage)
     for _, hUnit in pairs(tUnits) do
         if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
             DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
+            self:ApplyBurn(hUnit)
             bHit = true
         end
     end
@@ -201,7 +241,7 @@ function barghest_r:DoBlazingArc(vDir)
     local hCaster = self:GetCaster()
     local nRadius = self:GetSpecialValueFor("radius")
     local nAngle  = self:GetSpecialValueFor("arc_angle")
-    local nDamage = self:GetSpecialValueFor("damage")
+    local nDamage = self:GetBranchDamage()
     hCaster:EmitSound(BARGHEST_SND.R_FIRE)
 
     Barghest_FxArc(BARGHEST_FX.ARC_FIRE, hCaster, nRadius, nAngle)
@@ -211,6 +251,7 @@ function barghest_r:DoBlazingArc(vDir)
                                              nRadius, nAngle)) do
         if not IsSpellBlocked(hUnit, hCaster) then
             DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
+            self:ApplyBurn(hUnit)
              Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
             bHit = true
         end
@@ -222,8 +263,10 @@ end
 function barghest_r:DoUppercut(vDir)
     local hCaster = self:GetCaster()
     local vPos    = hCaster:GetAbsOrigin()
-    local nRadius = self:GetSpecialValueFor("radius") * 0.7
-    local nDamage = self:GetSpecialValueFor("damage")
+    -- Свои радиус и сектор, а не доля от общих: подгонять зону под картинку
+    -- эффекта нельзя — по узкому сектору в упор попасть почти невозможно.
+    local nRadius = self:GetSpecialValueFor("uppercut_radius")
+    local nDamage = self:GetBranchDamage()
     local fUp = self:GetSpecialValueFor("uppercut_duration")
     hCaster:EmitSound(BARGHEST_SND.R_UPPER)
 
@@ -233,9 +276,10 @@ function barghest_r:DoUppercut(vDir)
     Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
     local bHit = false
     for _, hUnit in pairs(Barghest_FindInArc(hCaster, self, vPos, vDir,
-                                             nRadius, self:GetSpecialValueFor("arc_angle"))) do
+                                             nRadius, self:GetSpecialValueFor("uppercut_arc_angle"))) do
         if not IsSpellBlocked(hUnit, hCaster) then
             DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
+            self:ApplyBurn(hUnit)
             hUnit:AddNewModifier(hCaster, self, "modifier_stunned", {duration = fUp})
             -- Подброс: движковый knockback с высотой и почти нулевым сдвигом —
             -- цель уходит ВВЕРХ, а не улетает от неё. Стан держит её и после
@@ -272,7 +316,7 @@ function barghest_r:DoBurstSlam()
     -- точке удара. Ничего пер-таргетного тут быть не должно.
     Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
     Barghest_FxAt(BARGHEST_FX.FIRE_HIT, vPos)
-    return self:DamageArea(vPos, nRadius, self:GetSpecialValueFor("damage"))
+    return self:DamageArea(vPos, nRadius, self:GetBranchDamage())
 end
 
 -- 4 (W) — рывок вперёд с ударом рогами
@@ -287,7 +331,7 @@ function barghest_r:DoHornCharge(vDir)
     local charge_duration = self:GetSpecialValueFor("horn_distance")
                  / self:GetSpecialValueFor("horn_speed")
                  + self:GetSpecialValueFor("horn_dash_tail")
-    hCaster:EmitSound(BARGHEST_SND.E_DASH)
+    hCaster:EmitSound(BARGHEST_SND.R_HORN)
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_r_horn", {
         duration = charge_duration,
         x = vDir.x, y = vDir.y,
@@ -392,13 +436,14 @@ function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
         local fStun = self:GetSpecialValueFor("wave_ministun")
         for _,enemy in pairs(enemies) do
             if IsNotNull(enemy) and not IsSpellBlocked(enemy, hCaster) then
-                DoDamage(hCaster, enemy, self:GetSpecialValueFor("damage"),
+                DoDamage(hCaster, enemy, self:GetBranchDamage(),
                     self:GetAbilityDamageType(), 0, self, false)
+                self:ApplyBurn(enemy)
                 -- Микростан: сам по себе он ничего не решает, но сбивает касты и
                 -- даёт Barghest время подойти — ради этого ветку и берут.
                 enemy:AddNewModifier(hCaster, self, "modifier_stunned",
                     {duration = fStun})
-                enemy:EmitSound("arash_attack_hit")
+                enemy:EmitSound(BARGHEST_SND.R_HOUND)
             end
         end
     end
@@ -408,6 +453,60 @@ function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	return true
 end
 
+
+---------------------------------------------------------------------------------------------------
+-- Горение (атрибут 3). Стаки копятся с каждого попавшего продолжения, тик бьёт
+-- burn_damage за стак в секунду.
+---------------------------------------------------------------------------------------------------
+modifier_barghest_burn = class({})
+
+function modifier_barghest_burn:IsHidden()      return false end
+function modifier_barghest_burn:IsDebuff()      return true end
+function modifier_barghest_burn:IsPurgable()    return true end
+function modifier_barghest_burn:RemoveOnDeath() return true end
+
+function modifier_barghest_burn:GetTexture()
+    return "custom/barghest/barghest_cont_3"
+end
+
+-- Пламя на цели. ⚠️ Партикль чужой (muramasa), поэтому он прекешится в KV R.
+function modifier_barghest_burn:GetEffectName()
+    return "particles/muramasa/muramasa_rush_burn.vpcf"
+end
+
+function modifier_barghest_burn:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_barghest_burn:OnCreated()
+    self.hAbility = self:GetAbility()
+    if not IsServer() then return end
+    self:StartIntervalThink(self.hAbility:GetSpecialValueFor("burn_interval"))
+end
+
+-- ⚠️ OnRefresh НЕ трогает стаки: их считает ApplyBurn, иначе обновление
+-- длительности сбрасывало бы накопленное.
+function modifier_barghest_burn:OnRefresh()
+    self:OnCreated()
+end
+
+function modifier_barghest_burn:OnIntervalThink()
+    if not IsServer() then return end
+    local hParent  = self:GetParent()
+    local hCaster  = self:GetCaster()
+    local hAbility = self.hAbility
+    if not Barghest_Alive(hParent) or not Barghest_Alive(hCaster)
+       or not Barghest_Alive(hAbility) then
+        return
+    end
+    if not hParent:IsAlive() then return end
+
+    -- burn_damage задан В СЕКУНДУ за стак, поэтому тик умножаем на интервал.
+    local fInterval = hAbility:GetSpecialValueFor("burn_interval")
+    DoDamage(hCaster, hParent,
+        hAbility:GetSpecialValueFor("burn_damage") * self:GetStackCount() * fInterval,
+        hAbility:GetAbilityDamageType(), 0, hAbility, false)
+end
 
 ---------------------------------------------------------------------------------------------------
 -- Разгон: каждое попавшее продолжение ускоряет атаку и усиливает вампиризм F
@@ -471,7 +570,7 @@ function modifier_barghest_r_horn:OnCreated(tTable)
     self.nSpeed    = self.hAbility:GetSpecialValueFor("horn_speed")
     self.nDistance = self.hAbility:GetSpecialValueFor("horn_distance")
     self.nStun     = self.hAbility:GetSpecialValueFor("horn_stun")
-    self.nDamage   = self.hAbility:GetSpecialValueFor("damage")
+    self.nDamage   = self.hAbility:GetBranchDamage()
     self.nGrab     = self.hAbility:GetSpecialValueFor("horn_grab_radius")
     self.vStart    = self.hParent:GetAbsOrigin()
     self.bDone     = false
@@ -562,6 +661,13 @@ function modifier_barghest_r_horn:OnDestroy()
             Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
             Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hCaster:GetAbsOrigin())
 
+            --[[ Удар рогами звучит ВСЕГДА, даже когда таран доехал в пустоту:
+                 партиклы выше играют безусловно, и без звука конец разгона
+                 выглядел оборванным. Поэтому звук на КАСТЕРЕ, а не на жертве —
+                 иначе при промахе его некому отыграть, а при попадании он бы
+                 задвоился (жертва стоит вплотную, разницы в позиции нет). ]]
+            hCaster:EmitSound(BARGHEST_SND.R_IMPACT)
+
             -- Бьёт ОДНОГО, ближайшего: это таран рогами, а не АоЕ — отсюда
             -- FIND_CLOSEST и выход из цикла на первом же враге.
             local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil, nGrab,
@@ -571,9 +677,9 @@ function modifier_barghest_r_horn:OnDestroy()
                 if IsNotNull(hEnemy) and not IsSpellBlocked(hEnemy, hCaster) then
                     DoDamage(hCaster, hEnemy, nDamage, hAbility:GetAbilityDamageType(),
                         0, hAbility, false)
+                    hAbility:ApplyBurn(hEnemy)
                     hEnemy:AddNewModifier(hCaster, hAbility, "modifier_stunned",
                         {duration = nStun})
-                    hEnemy:EmitSound(BARGHEST_SND.R_IMPACT)
                     return
                 end
             end

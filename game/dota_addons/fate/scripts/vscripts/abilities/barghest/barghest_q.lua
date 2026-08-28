@@ -132,9 +132,9 @@ function barghest_q:OnSpellStart()
          собственную точку дёргает разворот на ровном месте. Бьёт она вокруг
          себя — поворачивать её не нужно и нечем. ]]
     if iStage == 3 then
-        if self:DoSpin() then
-            Barghest_ArmContinuation(hCaster, BARGHEST_CONT_Q3)
-        end
+        Barghest_ArmOnHit(hCaster, self:DoSpin(), BARGHEST_CONT_Q3)
+        -- У вертушки курсора нет (NO_TARGET) — пёс бежит туда, куда смотрит.
+        self:SpawnHound(hCaster:GetForwardVector())
         self:AdvanceChain(iStage)
         return
     end
@@ -149,14 +149,92 @@ function barghest_q:OnSpellStart()
     hCaster:FaceTowards(vPoint)
 
     if iStage == 1 then
-        if self:DoArc(vDir) then
-            Barghest_ArmContinuation(hCaster, BARGHEST_CONT_Q1)
-        end
+        Barghest_ArmOnHit(hCaster, self:DoArc(vDir), BARGHEST_CONT_Q1)
     else
         self:DoLunge(vDir, vPoint)  -- попадание считает сам выпад, в конце движения
     end
+    self:SpawnHound(vDir)
 
     self:AdvanceChain(iStage)
+end
+
+--[[ Послеобраз чёрного пса за ударом — атрибут 1 (Black Dog's Wake).
+     Пёс пробегает `hound_distance` вперёд и кусает в точке, куда добежал:
+     `hound_str_pct` процентов от СИЛЫ героя по всем в `hound_radius`.
+     Гейт по флагу с героя — без купленного атрибута не бежит и не бьёт.
+
+     ⚠️ Пёс — уменьшенная копия снаряда ER (`barghest_hound_wake`, 40 % размера):
+     полноразмерный на каждый удар связки закрывал бы пол-экрана.
+     ⚠️ Урон СЧИТАЕМ СРАЗУ, а бьём отложенно: уровень Q за эти доли секунды не
+     изменится, зато в замыкание не уезжает лишний хэндл способности. ]]
+function barghest_q:SpawnHound(vDir)
+    if not IsServer() then return end
+    local hCaster = self:GetCaster()
+    if not hCaster.BarghestAttr1Acquired then return end
+
+    local nDistance = self:GetSpecialValueFor("hound_distance")
+    local nRadius   = self:GetSpecialValueFor("hound_radius")
+
+    --[[ Пёс бежит НА цель со случайной стороны, а не от героя вперёд: убегая
+         от камеры он закрывался самим героем и почти не читался. Точку старта
+         берём на окружности вокруг жертвы, направление — внутрь, укус приходит
+         туда же, где она стоит.
+         ⚠️ Случайный угол здесь важен не для красоты: в связке пёс выбегает
+         три раза подряд, и с фиксированной стороны это выглядело бы как один
+         и тот же кадр, проигранный трижды.
+         Цели нет (ударили по воздуху) — оставляем старое поведение, иначе на
+         промахе пёс пропадал бы совсем. ]]
+    local vFrom, vRun, vBite
+    local hTarget = nil
+    for _, hUnit in pairs(FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil,
+            self:GetSpecialValueFor("hound_search"), self:GetAbilityTargetTeam(),
+            self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)) do
+        if IsNotNull(hUnit) then hTarget = hUnit break end
+    end
+
+    if hTarget then
+        vBite = hTarget:GetAbsOrigin()
+        -- Сторона честно случайная на все 360°: пёс может выскочить и из-за
+        -- спины цели, и спереди. Любое сужение сектора превращает разброс в
+        -- «только с боков» и читается как одна и та же анимация.
+        local fAngle = math.rad(RandomFloat(0, 360))
+        local vOff   = Vector(math.cos(fAngle), math.sin(fAngle), 0)
+        vFrom = vBite + vOff * nDistance
+        vRun  = (vBite - vFrom):Normalized()
+    else
+        vFrom = hCaster:GetAbsOrigin()
+        vRun  = vDir
+        vBite = vFrom + vDir * nDistance
+    end
+
+    Barghest_FxHound(vFrom, vRun, nDistance, self:GetSpecialValueFor("hound_speed"))
+
+    --[[ Укус считается от СИЛЫ героя, а не от урона удара: Barghest —
+         STR-танк, и послеобраз должен расти вместе с её основным статом.
+         ⚠️ GetStrength есть только у героев; на всякий случай гардим, иначе
+         вызов у не-героя уронит сервер прямо в связке. ]]
+    local nDamage = 0
+    if type(hCaster.GetStrength) == "function" then
+        nDamage = hCaster:GetStrength() * self:GetSpecialValueFor("hound_str_pct") * 0.01
+    end
+    local nType   = self:GetAbilityDamageType()
+    local nTeam, nTargets, nFlags = self:GetAbilityTargetTeam(),
+        self:GetAbilityTargetType(), self:GetAbilityTargetFlags()
+    local hAbility = self
+
+    Timers:CreateTimer(self:GetSpecialValueFor("hound_delay"), function()
+        -- ⚠️ За это время её могли убить, а способность — забрать рулбрейкером.
+        if not Barghest_Alive(hCaster) or not Barghest_Alive(hAbility) then return end
+
+        Barghest_FxAt(BARGHEST_FX.BURST, vBite)
+        for _, hUnit in pairs(FindUnitsInRadius(hCaster:GetTeamNumber(), vBite, nil,
+                nRadius, nTeam, nTargets, nFlags, FIND_ANY_ORDER, false)) do
+            if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
+                DoDamage(hCaster, hUnit, nDamage, nType, 0, hAbility, false)
+                hUnit:EmitSound(BARGHEST_SND.HIT)
+            end
+        end
+    end)
 end
 
 --[[ Продвинуть связку и выставить нужный кулдаун. ]]
@@ -385,6 +463,8 @@ function modifier_barghest_q_lunge:OnDestroy()
     local hParent  = self.hParent
     local hAbility = self.hAbility
     local nRadius  = hAbility:GetSpecialValueFor("radius")
+    -- Откуда стартовали: нужно, чтобы добить тех, мимо кого пролетели.
+    local vFrom    = self.vStart
 
     --[[ Урон приходит через lunge_slam_delay, а не в тот же кадр, что и
          остановка. Выпад в упор длится меньше десятой доли секунды, и без
@@ -406,8 +486,31 @@ function modifier_barghest_q_lunge:OnDestroy()
         local tUnits = FindUnitsInRadius(hParent:GetTeamNumber(), vPos, nil, nRadius,
             hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
             hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
-        if hAbility:DamageUnits(tUnits) then
-            Barghest_ArmContinuation(hParent, BARGHEST_CONT_Q2)
+
+        --[[ Плюс все, мимо кого пролетели: первые lunge_no_stop_distance единиц
+             выпад НЕ тормозит о врагов, поэтому цель, стоявшая вплотную,
+             оставалась за спиной и в круг приземления не попадала — со стороны
+             это выглядело как промах по стоящему в упор. Коридор считаем от
+             точки старта до фактической точки удара.
+             ⚠️ Список объединяем по entindex: в оба поиска один и тот же юнит
+             попадает запросто, а DamageUnits бьёт каждого, кого ей передали. ]]
+        if vFrom then
+            local tSeen = {}
+            for _, hUnit in pairs(tUnits) do
+                if IsNotNull(hUnit) then tSeen[hUnit:entindex()] = true end
+            end
+            local tPath = FindUnitsInLine(hParent:GetTeamNumber(), vFrom, vPos, nil,
+                hAbility:GetSpecialValueFor("lunge_path_width"),
+                hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
+                hAbility:GetAbilityTargetFlags())
+            for _, hUnit in pairs(tPath) do
+                if IsNotNull(hUnit) and not tSeen[hUnit:entindex()] then
+                    tSeen[hUnit:entindex()] = true
+                    table.insert(tUnits, hUnit)
+                end
+            end
         end
+
+        Barghest_ArmOnHit(hParent, hAbility:DamageUnits(tUnits), BARGHEST_CONT_Q2)
     end)
 end

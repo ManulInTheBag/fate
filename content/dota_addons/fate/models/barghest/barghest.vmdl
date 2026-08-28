@@ -177,6 +177,38 @@
 						import_filter = 
 						{
 							exclude_by_default = false
+							exception_list = 
+							[
+								"glow",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "barghest1"
+						children = 
+						[
+							{
+								_class = "RenderMeshMarkup"
+								material_search_path = ""
+								use_expensive_tangents = false
+								high_high_precision_texcoords = true
+								high_precision_blendweights = false
+								calc_per_vertex_curvature = false
+								prefer_high_density_tris_in_uv_density_calc = false
+								skin_parented_transforms = false
+								use_uv2_for_charts = false
+								render_mode = "default"
+								blend_weights_per_vertex = "4"
+								suppress_joint_weight_count_warnings = false
+								close_outline_at_hard_edges = false
+							},
+						]
+						filename = "models/barghest/barghest.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
 							exception_list = [  ]
 						}
 					},
@@ -542,7 +574,7 @@
 						start_frame = 805
 						end_frame = 860
 						framerate = -1.0
-						reverse = false
+						reverse = true
 						additional_anim_files = [  ]
 					},
 					{
@@ -1260,6 +1292,31 @@
 							},
 						]
 					},
+					{
+						_class = "AnimFile"
+						name = "havayu_tebya_lol"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_GHOST_SHIP"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/barghest/barghest.fbx"
+						import_bone_scales = false
+						start_frame = 805
+						end_frame = 830
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -1580,6 +1637,38 @@
 						mirror_z = false
 						flip_bone_forward = false
 						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "sword"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "HasSword"
+								meshes = 
+								[
+									"barghest1",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "NoSword"
+								meshes = 
+								[
+									"barghest",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 				]
 			},

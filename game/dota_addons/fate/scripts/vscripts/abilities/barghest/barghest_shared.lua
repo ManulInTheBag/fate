@@ -58,30 +58,46 @@ BARGHEST_FX = {
     -- след волны ER по земле (Barghest_FxLine, CP0/CP1/CP2); самого летящего
     -- пса рисует barghest_black_dog_proj прямо в barghest_r
     WAVE       = "particles/barghest/barghest_black_dog.vpcf",
+    -- уменьшенный пёс для послеобразов атрибута 1 (клон снаряда ER, 40% размера)
+    HOUND      = "particles/barghest/barghest_hound_wake.vpcf",
     CHAINS     = "particles/barghest/barghest_e_chains.vpcf",
     LIFESTEAL  = "particles/barghest/barghest_lifesteal.vpcf",
     SHIELD_SLASH = "particles/barghest/barghest_slash_3.vpcf",
 }
 
---[[ Звуки. Простые, из уже используемых в аддоне дотовских событий: свои
-     соберём отдельно, а пока важно слышать, что скилл сработал. ]]
+--[[ Звуки способностей. Свои, собраны из трёх папок SFX («The Middle
+     Nursefather - Matthias», «Liu Assoc. South Section 3», «Dawn Office Rep»),
+     события лежат в soundevents/hero_barghest.vsndevts рядом с голосом.
+     Оригиналы там кинематографичные, по 1-4 с с длинным хвостом: удар сидит в
+     первые 20-70 мс, остальное реверб. Поэтому клипы обрезаны по головному
+     транзиенту — иначе три удара связки Q наложились бы друг на друга в кашу.
+     Длина среза и исходник каждого клипа записаны в комментарии к его событию.
+     ⚠️ На дотовском плейсхолдере остался только E_CHAIN: звука цепей не нашлось
+     ни в одной из трёх папок. ]]
 BARGHEST_SND = {
-    Q_ARC     = "Hero_Juggernaut.BladeDance",
-    Q_LUNGE   = "Hero_Magnataur.Skewer.Cast",
-    Q_SPIN    = "Hero_Axe.CounterHelix",
-    HIT       = "Hero_Juggernaut.OmniSlash.Damage",
-    W_CAST    = "Hero_Abaddon.AphoticShield.Cast",
-    W_BREAK   = "Hero_Abaddon.AphoticShield.Destroy",
-    SLAM      = "Hero_Centaur.HoofStomp",
-    E_CHARGE  = "Hero_Invoker.EMP.Charge",
-    E_DASH    = "Hero_Centaur.Stampede.Cast",
-    E_GRAB    = "Hero_EarthSpirit.BoulderSmash.Target",
-    E_CHAIN   = "Hero_Huskar.Burning_Spear",
-    R_FIRE    = "Hero_DragonKnight.BreathFire",
-    R_UPPER   = "Hero_Mars.Spear.Cast",
-    R_SLAM    = "Hero_EarthShaker.Totem",
-    R_IMPACT  = "Hero_Spirit_Breaker.GreaterBash",
-    R_WAVE    = "Hero_LegionCommander.Overwhelming.Location",
+    -- связка Q: три разных удара, все короткие (0.70-0.75 с)
+    Q_ARC     = "barghest_sfx_q1",
+    Q_LUNGE   = "barghest_sfx_q2",
+    Q_SPIN    = "barghest_sfx_q3",
+    HIT       = "barghest_sfx_hit",     -- 0.45 с: звучит чаще всего, потому самый короткий
+    W_CAST    = "barghest_sfx_w_cast",
+    W_BREAK   = "barghest_sfx_w_break",
+    SLAM      = "barghest_sfx_slam",
+    E_CHARGE  = "barghest_sfx_e_charge",-- свелл на всю зарядку, глушится по отпусканию
+    E_DASH    = "barghest_sfx_e_dash",
+    E_GRAB    = "barghest_sfx_e_grab",
+    E_CHAIN   = "Hero_Huskar.Burning_Spear",   -- ⚠️ плейсхолдер: цепей нет в исходниках
+    -- продолжения R: самые тяжёлые и огненные звуки набора
+    R_FIRE    = "barghest_sfx_r_fire",
+    R_UPPER   = "barghest_sfx_r_upper",
+    R_SLAM    = "barghest_sfx_r_slam",
+    R_IMPACT  = "barghest_sfx_r_impact",
+    R_WAVE    = "barghest_sfx_r_wave",
+    --[[ Таран ветки WR — отдельный звук, а не общий с рывком E: у E короткий
+         свист на месте, а тут герой едет рогами вперёд через полкарты. ]]
+    R_HORN    = "barghest_sfx_r_horn",
+    -- Укус пса из ветки RE. Раньше здесь играл чужой arash_attack_hit.
+    R_HOUND   = "barghest_sfx_r_hound",
 }
 
 --[[ Голос Barghest на способностях (FGO, VA Inoue Marina, Слуга №310).
@@ -174,19 +190,58 @@ function Barghest_ArmContinuation(hCaster, nBranch)
     end
 end
 
+--[[ Зарядить продолжение по итогу удара.
+
+     Без третьего атрибута ветку открывает только ПОПАДАНИЕ: промахнулась —
+     R не заряжен. С Galatine's Ember ветка открывается в любом случае, даже
+     по воздуху: это и есть смысл атрибута — связка перестаёт рваться от
+     одного промаха.
+     ⚠️ Флаг лежит на ГЕРОЕ (его ставит barghest_attribute_3), а не на
+     способности: атрибуты кастует Мастер, а не сама Баргест. ]]
+function Barghest_ArmOnHit(hCaster, bHit, nBranch)
+    if not IsServer() then return end
+    if bHit or (Barghest_Alive(hCaster) and hCaster.BarghestAttr3Acquired) then
+        Barghest_ArmContinuation(hCaster, nBranch)
+    end
+end
+
 --[[ Враги в секторе перед точкой: аркой бьют и Q, и Q1R. ]]
+--[[ Запас поиска на габариты цели: у самых толстых юнитов Доты
+     GetPaddedCollisionRadius не превышает сотни с небольшим. ]]
+local BARGHEST_ARC_PAD = 128
+
+--[[ Цель считается задетой, если в сектор попал КРАЙ её хитбокса, а не центр.
+     Проверка по центру означала, что попадать надо пиксель в пиксель под
+     картинку эффекта, и в бою это неиграбельно: у стоящего вплотную юнита
+     центр легко оказывается вне узкого сектора, хотя моделью он в нём весь.
+     Отсюда две поправки — к дальности прибавляется радиус цели, а к половине
+     угла допуск, который у ближней цели заметный, а у дальней почти нулевой. ]]
 function Barghest_FindInArc(hCaster, hAbility, vOrigin, vDir, nRadius, nAngle)
     local tHit = {}
-    local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vOrigin, nil, nRadius,
+    local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vOrigin, nil,
+        nRadius + BARGHEST_ARC_PAD,
         hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
         hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
-    local nCos = math.cos(math.rad(nAngle * 0.5))
+    local fHalf = math.rad(nAngle * 0.5)
     for _, hUnit in pairs(tUnits) do
         if Barghest_Alive(hUnit) then
             local vTo = hUnit:GetAbsOrigin() - vOrigin
             vTo.z = 0
-            if vTo:Length2D() < 1 or vTo:Normalized():Dot(vDir) >= nCos then
-                table.insert(tHit, hUnit)
+            local fDist = vTo:Length2D()
+            local fPad  = 0
+            if type(hUnit.GetPaddedCollisionRadius) == "function" then
+                fPad = hUnit:GetPaddedCollisionRadius()
+            end
+            if fDist - fPad <= nRadius then
+                if fDist < 1 then
+                    table.insert(tHit, hUnit)
+                else
+                    local fSlack = math.asin(math.min(1, fPad / math.max(fDist, 1)))
+                    local fDot   = math.max(-1, math.min(1, vTo:Normalized():Dot(vDir)))
+                    if math.acos(fDot) <= fHalf + fSlack then
+                        table.insert(tHit, hUnit)
+                    end
+                end
             end
         end
     end
@@ -277,6 +332,36 @@ function Barghest_FxLine(hCaster, vDir, nDistance, nWidth)
     ParticleManager:SetParticleControl(nFx, 0, vOrigin)
     ParticleManager:SetParticleControl(nFx, 2, Vector(0, nWidth, 0))
     ParticleManager:ReleaseParticleIndex(nFx)
+    return nFx
+end
+
+--[[ Пробежка чёрного пса (атрибут 1, послеобраз на ударе). Стартовую точку
+     задаёт вызывающий: пёс бежит НА цель со случайной стороны, а не от героя
+     вперёд — убегая от камеры он почти не читался.
+
+     Это ТОТ ЖЕ партикль-снаряд, что у волны ER, только уменьшенная копия
+     (barghest_hound_wake, 40% от размера): полноразмерный пёс на каждый удар
+     связки закрывал бы собой пол-экрана.
+
+     Контрольные точки — как у ER: CP0 старт, CP1 скорость (вектор), CP6 точка,
+     где пёс должен исчезнуть.
+     ⚠️ Партикль сам не умирает — снимаем руками чуть раньше прибытия, иначе он
+     зависнет в конце пробега (ровно эта грабля была у волны ER). ]]
+function Barghest_FxHound(vFrom, vDir, nDistance, nSpeed)
+    if not IsServer() then return end
+    local vOrigin = vFrom
+    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.HOUND, PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(nFx, 0, vOrigin)
+    ParticleManager:SetParticleControl(nFx, 1, vDir * nSpeed)
+    ParticleManager:SetParticleControl(nFx, 6, vOrigin + vDir * nDistance)
+    ParticleManager:SetParticleControl(nFx, 15, Vector(0, 0, 0))
+    ParticleManager:SetParticleShouldCheckFoW(nFx, false)
+    ParticleManager:SetParticleAlwaysSimulate(nFx)
+
+    Timers:CreateTimer(math.max(0.05, nDistance / nSpeed - 0.05), function()
+        ParticleManager:DestroyParticle(nFx, false)
+        ParticleManager:ReleaseParticleIndex(nFx)
+    end)
     return nFx
 end
 

@@ -37,6 +37,7 @@
 			"particle"			"particles/barghest/barghest_slash_vertical_up.vpcf"
 			"particle"			"particles/barghest/barghest_slam.vpcf"
 			"particle"			"particles/barghest/barghest_small_explosion.vpcf"
+			"particle"			"particles/barghest/barghest_hound_wake.vpcf"
 
 
 		}
@@ -56,12 +57,29 @@
 			// целиком, а деш обрывается раньше сам (дошёл / упёрся / встретил врага).
 			"lunge_duration"			"0.5"
 			"lunge_slam_delay"			"0.1"		// от остановки до удара мечом в землю
+			// Ширина коридора, по которому выпад бьёт ВСЕХ, мимо кого пролетел.
+			// Без него цель, стоящая в первых lunge_no_stop_distance единицах,
+			// оставалась позади и в круг приземления уже не попадала.
+			"lunge_path_width"			"200"
 			"spin_radius"			"310"
 			// Клип вертушки (ACT_3, round_slash1) — 29 кадров на 30 fps ≈ 0.97 c.
 			// Каст-пойнт обязан его покрывать, иначе прокрут обрубается движком
 			// (IGNORE_BACKSWING) — это и было «слишком быстро».
 			"spin_cast_point"			"0.35"		// вертушка длиннее общего каст-пойнта
 			"spin_anim_rate"			"1.0"		// замедлять НЕ надо: клип и так ~1 c, иначе лок вырастет вдвое
+			// Послеобраз чёрного пса на удар — включается атрибутом
+			// barghest_attribute_1 (флаг BarghestAttr1Acquired на герое).
+			// ⚠️ Значения в самом атрибуте — ТОЛЬКО для тултипа, держать равными.
+			"hound_distance"			"350"		// сколько пробегает послеобраз
+			"hound_speed"			"1400"
+			"hound_delay"			"0.35"		// через сколько после удара кусает
+			"hound_radius"			"200"		// радиус укуса в точке, куда добежал
+			// В кого целится пёс: ближайший враг в этом радиусе от героя.
+			// Не нашли никого — пёс по-старому бежит от героя вперёд.
+			"hound_search"			"600"
+			// Урон укуса — процент от СИЛЫ героя, а не доля от урона удара:
+			// у танка со STR-скейлом послеобраз должен расти вместе с ним.
+			"hound_str_pct"			"60"		// % от силы героя
 			"chain_window"			"3.0"
 			"full_cooldown"			"7 6.5 6 5.5 5"
 		}
@@ -160,6 +178,9 @@
 			"chain_duration"			"1.0 1.25 1.5 1.75 2.0"
 			"chain_min_pct"			"50"		// % длительности даже при нулевом заряде
 			"chain_damage"			"40 60 80 100 120"
+			// Обе строки читаются только с четвёртым атрибутом (Fang Unbound).
+			"e_str_pct"			"50"		// % от силы героя к урону рывка
+			"chain_stun_min"			"0.75"		// пол длительности цепей, с
 			"chain_interval"			"0.5"
 			// Подмена кнопки на «отпустить» — не в тот же кадр, иначе нажатие,
 			// которым начали зарядку, тут же её и оборвёт.
@@ -197,7 +218,9 @@
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"		"1"
-		"MaxLevel"					"1"
+		// Уровень 2 не качается обычным путём — его открывает атрибут
+		// barghest_attribute_2 (так же сделано у cu_alter_roar).
+		"MaxLevel"					"2"
 		"AbilityCooldown"			"0"
 		"AbilityManaCost"			"0"
 		"AbilityCastRange"			"0"
@@ -212,9 +235,10 @@
 		}
 		"AbilityValues"
 		{
-			"bonus_mr"			"8"
-			"lifesteal_pct"			"12"
-			"lifesteal_per_frenzy"			"2"
+			// Второе значение — уровень 2, его выдаёт barghest_attribute_2.
+			"bonus_mr"			"8 14"
+			"lifesteal_pct"			"12 18"
+			"lifesteal_per_frenzy"			"2 3"
 		}
 	}
 
@@ -246,14 +270,23 @@
 			"particle"			"particles/barghest/barghest_slash_vertical.vpcf"
 			"particle"			"particles/barghest/barghest_black_dog_proj.vpcf"
 			"particle"			"particles/barghest/barghest_black_dog.vpcf"
+			"particle"			"particles/muramasa/muramasa_rush_burn.vpcf"
 			
 		}
 		"AbilityValues"
 		{
 			"window"			"2"
 			"damage"			"120 170 220 270 320"
+			// Прибавка ко ВСЕМ веткам R за третий атрибут (Galatine's Ember).
+			// Без атрибута не читается вовсе — см. barghest_r:GetBranchDamage.
+			"str_pct"			"50"		// % от силы героя
 			"radius"			"300"
 			"arc_angle"			"120"
+			// Удар снизу бьёт ближе и уже общей зоны ветки, но не «пиксель в
+			// пиксель под эффект»: с 210 (0.7 от radius) и сектором 120 попасть
+			// в бою было почти нереально.
+			"uppercut_radius"			"260"
+			"uppercut_arc_angle"			"160"
 			"uppercut_duration"			"0.6"
 			"uppercut_height"			"600"		// на сколько подбрасывает
 			"uppercut_push"			"40"		// почти без сдвига: вверх, а не от себя
@@ -280,6 +313,109 @@
 			"frenzy_duration"			"6.0"
 			"frenzy_as"			"8"
 			"frenzy_max"			"5"
+			// Дот горения — включается атрибутом barghest_attribute_3
+			// (флаг BarghestAttr3Acquired на герое). ⚠️ Значения в самом
+			// атрибуте — ТОЛЬКО для тултипа, держать равными.
+			"burn_damage"			"20"		// урон в секунду ЗА СТАК
+			"burn_duration"			"4"
+			"burn_max_stacks"			"5"
+			"burn_interval"			"0.5"		// как часто тикает
 		}
 	}
+	//=====================================================================================
+	// Атрибуты. Их покупает и кастует МАСТЕР (AddMasterAbility -> LoopThroughAttr),
+	// мана списывается из пула Мастера. Каждый только поднимает флаг на герое —
+	// сам эффект читают уже способности.
+	// ⚠️ Значения в AbilityValues здесь ТОЛЬКО для тултипа; рабочие числа должны
+	// лежать в KV той способности, которую атрибут усиливает (как у cu_alter).
+	// ⚠️ Иконки временные, из уже имеющихся: своих sa1..sa3 ещё не нарисовано.
+	//=====================================================================================
+
+	// Атрибут 1 — по концепту: удары связки оставляют послеобразы чёрного пса,
+	// бьющие процентом от урона удара. ЗАГОТОВКА: флаг ставится, эффекта нет.
+	"barghest_attribute_1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/barghest/barghest_attributes"
+		"AbilityTextureName"			"custom/barghest/barghest_chain_1"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"AbilityValues"		// только для тултипа; TODO: перенести в barghest_q при реализации
+		{
+			"hound_str_pct"				"60"		// % от силы героя
+			"hound_delay"				"0.35"		// через сколько бьёт послеобраз
+		}
+	}
+
+	// Атрибут 2 — по концепту: усиление пассивки. Поднимает Blood of the Beast
+	// до 2 уровня (числа второго уровня лежат в самой barghest_f). РАБОЧИЙ.
+	"barghest_attribute_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/barghest/barghest_attributes"
+		"AbilityTextureName"			"custom/barghest/barghest_f"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"AbilityValues"		// только для тултипа; рабочие числа — в barghest_f
+		{
+			"bonus_mr"					"14"
+			"lifesteal_pct"				"18"
+			"lifesteal_per_frenzy"		"3"
+		}
+	}
+
+	// Атрибут 3 — по концепту геймплея: ротация qrqrqr начинает вешать
+	// стакающийся дот горения. ЗАГОТОВКА: флаг ставится, эффекта нет.
+	"barghest_attribute_4"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/barghest/barghest_attributes"
+		"AbilityTextureName"			"custom/barghest/barghest_chain_1"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"AbilityValues"		// только для тултипа, рабочие числа лежат в barghest_e
+		{
+			"e_str_pct"					"50"		// % от силы героя к урону рывка
+			"chain_stun_min"			"0.75"		// пол длительности цепей, с
+		}
+	}
+	"barghest_attribute_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/barghest/barghest_attributes"
+		"AbilityTextureName"			"custom/barghest/barghest_cont_3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"AbilityValues"		// только для тултипа; TODO: перенести в barghest_r при реализации
+		{
+			"str_pct"					"50"		// % от силы ко всем веткам R (копия из barghest_r)
+			"burn_damage"				"20"		// урон в секунду за стак
+			"burn_duration"				"4"
+			"burn_max_stacks"			"5"
+		}
+	}
+
+	// ⚠️ Атрибуты 4 и 5 в концепте не придуманы. Пока их НЕ объявляем: движок
+	// сам подставит пустышки fate_empty (hero_selection.lua), и в панели будут
+	// пустые слоты. Появится идея — завести здесь и вписать в hero.kv.
 }

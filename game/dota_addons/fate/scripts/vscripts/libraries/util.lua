@@ -351,6 +351,7 @@ cleansable = {
     "modifier_discern_poor_horseman",
     "modifier_discern_poor_extra",
     "modifier_agni_burn",
+    "modifier_barghest_burn",
     "modifier_muramasa_flame",
     "muramasa_eye_of_karma",
     "modifier_ryougi_knife_fan_slow",

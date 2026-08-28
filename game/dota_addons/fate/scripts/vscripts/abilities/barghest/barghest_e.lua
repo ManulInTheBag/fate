@@ -215,6 +215,13 @@ function modifier_barghest_e_dash:OnCreated(tTable)
     self.nSpeed     = self.hAbility:GetSpecialValueFor("speed")
     self.nGrab      = self.hAbility:GetSpecialValueFor("grab_radius")
     self.nDamage    = self.hAbility:GetSpecialValueFor("chain_damage")
+    --[[ Четвёртый атрибут (Fang Unbound) добавляет к урону рывка процент
+         от силы героя. ⚠️ GetStrength есть только у героев. ]]
+    local hOwner = self.hParent      -- модификатор висит на самой Баргест
+    if hOwner.BarghestAttr4Acquired and type(hOwner.GetStrength) == "function" then
+        self.nDamage = self.nDamage + hOwner:GetStrength()
+                       * self.hAbility:GetSpecialValueFor("e_str_pct") * 0.01
+    end
     self.fTravelled = 0
     self.hHit       = nil       -- в кого впечатались; он же оборвал рывок
     self.nRetries   = 0
@@ -322,8 +329,13 @@ function modifier_barghest_e_dash:OnDestroy()
     local hHit     = self.hHit
     local fCharge  = self.fCharge
     local hAbility = self.hAbility
-    -- Никого не задели — рывок просто выдохся, продолжение не заряжается.
-    if not Barghest_Alive(hHit) then return end
+    --[[ Никого не задели — рывок просто выдохся. Без третьего атрибута на этом
+         всё и кончается; с Galatine's Ember ветка ER всё равно открывается,
+         только цепей вешать не на кого — поэтому заряжаем и выходим. ]]
+    if not Barghest_Alive(hHit) then
+        Barghest_ArmOnHit(hCaster, false, BARGHEST_CONT_E)
+        return
+    end
         EndAnimation(hCaster)
     -- ⚠️ Через таймер: рывок может кончиться внутри чужого пайплайна (смерть,
     -- прерывание контроллера, наш же Destroy из UpdateHorizontalMotion), а тут
@@ -337,10 +349,18 @@ function modifier_barghest_e_dash:OnDestroy()
              без него рывок «в упор» давал стан в сотые доли секунды, то есть
              ничего. ]]
         local fMin = hAbility:GetSpecialValueFor("chain_min_pct") * 0.01
+        local fDur = hAbility:GetSpecialValueFor("chain_duration")
+                     * (fMin + (1 - fMin) * fCharge)
+        --[[ Четвёртый атрибут поднимает ПОЛ длительности: рывок без зарядки
+             давал стан в половину базовой, то есть почти ничего. Именно пол,
+             а не фикс: иначе на высоких уровнях атрибут резал бы длительность
+             полного заряда. ]]
+        if hCaster.BarghestAttr4Acquired then
+            fDur = math.max(fDur, hAbility:GetSpecialValueFor("chain_stun_min"))
+        end
         hHit:AddNewModifier(hCaster, hAbility, "modifier_barghest_e_chains",
-            {duration = hAbility:GetSpecialValueFor("chain_duration")
-                * (fMin + (1 - fMin) * fCharge)})
-        Barghest_ArmContinuation(hCaster, BARGHEST_CONT_E)
+            {duration = fDur})
+        Barghest_ArmOnHit(hCaster, true, BARGHEST_CONT_E)
     end)
 end
 
