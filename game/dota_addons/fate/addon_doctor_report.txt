@@ -1,8 +1,12 @@
 
-=== ОШИБКИ: битые ссылки (файл не найден нигде) (145) ===
+=== ОШИБКИ: битые ссылки (файл не найден нигде) (127) ===
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts:8  MISSING  sounds/crack.vsnd
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts:359  MISSING  sounds/berserker/Shiro_Onegai.vsnd
 ../../../content/dota_addons/fate/soundevents/hero_chocolate.vsndevts:107  MISSING  sounds/kuro/chloe_pre_combo.vsnd
 ../../../content/dota_addons/fate/soundevents/hero_chocolate.vsndevts:118  MISSING  sounds/kuro/chloe_combo.vsnd
+../../../content/dota_addons/fate/soundevents/hero_okita.vsndevts:74  MISSING  sounds/ally_sound/okita_ally_fa.vsnd
 ../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts:603  MISSING  sounds/rider/medusa_kill_7.vsnd
+../../../content/dota_addons/fate/soundevents/hero_robin.vsndevts:44  MISSING  sounds/robin/silence.vsnd
 ../../../content/dota_addons/fate/soundevents/hero_scathach.vsndevts:140  MISSING  sounds/cu_chulainn/cu_gae_bolg_explosion.vsnd
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_sven.vsndevts:5990  MISSING  sounds/vo/lancelot/lancelot_lasthit_02.vsnd
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_sven.vsndevts:6056  MISSING  sounds/vo/lancelot/lancelot_lasthit_04.vsnd
@@ -19,74 +23,61 @@ maps/7vs7_test.vpk  MISSING  models/props/naga_city/darkreef_column_001.vmdl
 maps/7vs7_test.vpk  MISSING  particles/journey_fountain_radiant.vpcf
 maps/7vs7_test.vpk  MISSING  particles/lamp_journey_tintable.vpcf
 scripts/addon_hud_textures.txt:7  MISSING  materials/vgui/hud/minimap_treasure_chest.vmat
-scripts/npc/abilities/artoria/artoria_ability_template.kv:32  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
+scripts/npc/abilities/arcueid/arcueid_abilities.kv:157  MISSING  particles/arcueid/arcueid_barrier.vpcf
 scripts/npc/abilities/artoria/artoria_instinct.kv:22  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
 scripts/npc/abilities/atalanta/atalanta_abilities.kv:118  MISSING  particles/units/heroes/hero_enchantress/enchantress_natures_attendants_lvl4.vpcf
-scripts/npc/abilities/atalanta/atalanta_abilities.kv:546  MISSING  particles/heroes/anime_hero_tanya/tanya_elinium_projectile.vpcf
-scripts/npc/abilities/atalanta/atalanta_abilities.kv:550  MISSING  soundevents/heroes/anime_hero_tanya.vsndevts
-scripts/npc/abilities/atalanta/atalanta_abilities_unused.kv:180  MISSING  particles/custom/atalanta/r/r_ring.vpcf
-scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1231  MISSING  particles/custom/witchdoctor_voodoo_restoration_aura.vpcf
-scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1238  MISSING  particles/custom/warlock_shadow_word_buff_copy.vpcf
-scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1245  MISSING  particles/custom/witchdoctor_voodoo_restoration.vpcf
+scripts/npc/abilities/atalanta/atalanta_abilities.kv:492  MISSING  particles/heroes/anime_hero_tanya/tanya_elinium_projectile.vpcf
+scripts/npc/abilities/atalanta/atalanta_abilities.kv:496  MISSING  soundevents/heroes/anime_hero_tanya.vsndevts
+scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1104  MISSING  particles/custom/witchdoctor_voodoo_restoration_aura.vpcf
+scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1111  MISSING  particles/custom/warlock_shadow_word_buff_copy.vpcf
+scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1118  MISSING  particles/custom/witchdoctor_voodoo_restoration.vpcf
 scripts/npc/abilities/jtr/jtr_dagger_throw.kv:27  MISSING  particles/heroes/anime_hero_okita/okita_slash_impact.vpcf
-scripts/npc/abilities/karna/karna_abilities.kv:656  MISSING  particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf
-scripts/npc/abilities/kinghassan/king_hassan_abilities.kv:25  MISSING  particles/custom/kinghassan/ka_spin.vpcf
-scripts/npc/abilities/kinghassan/king_hassan_abilities.kv:724  MISSING  particles/custom/kinghassan/kh_black_flames.vpcf
+scripts/npc/abilities/karna/karna_abilities.kv:652  MISSING  particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf
 scripts/npc/abilities/lancelot/eternal_arms.kv:17  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
-scripts/npc/abilities/lancelot/unused/lancelot_vajra.kv:25  MISSING  soundevents/game_sounds_heroes/game_sounds_zeus.vsndevts
-scripts/npc/abilities/lancelot/unused/unused.kv:348  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
 scripts/npc/abilities/li_shuwen/berserk.kv:17  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
 scripts/npc/abilities/li_shuwen/berserk_data.kv:16  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
 scripts/npc/abilities/li_shuwen/unused_kv_files.kv:16  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
-scripts/npc/abilities/lu_bu/lu_bu_ability_template.kv:32  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
 scripts/npc/abilities/lu_bu/lu_bu_rebellious_spirit.kv:23  MISSING  particles/custom/enkidu/enkiduenergyblades.vpcf
 scripts/npc/abilities/master/master_abilities.kv:18  MISSING  particles/custom/abaddon_death_coil_explosion.vpcf
 scripts/npc/abilities/scathach/scathach_abilities.kv:92  MISSING  soundevents/game_sounds_heroes/game_sounds_crystal_maiden.vsndevts
 scripts/npc/abilities/scathach/scathach_gae_bolg_jump.kv:33  MISSING  particles/custom/cu_chulainn/gae_bolg.vpcf
 scripts/npc/abilities/scathach/scathach_gait_three.kv:25  MISSING  particles/custom/emiya/overedge_swords.vpcf
+scripts/npc/abilities/scathach/scathach_red_creed_combo.kv:26  MISSING  particles/custom/cu_chulainn/gae_bolg_explosion.vpcf
 scripts/npc/abilities/scathach/scathach_red_wind.kv:29  MISSING  particles/custom/scathach/abilityflash.vpcf
-scripts/npc/abilities/semiramis/semiramis_beam_bombard.kv:18  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
-scripts/npc/abilities/semiramis/semiramis_beam_bombard.kv:19  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard.vpcf
-scripts/npc/abilities/semiramis/semiramis_beam_bombard.kv:20  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard_ground.vpcf
-scripts/npc/abilities/semiramis/semiramis_binding_chains.kv:27  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
-scripts/npc/abilities/semiramis/semiramis_binding_chains.kv:28  MISSING  particles/custom/semiramis/semiramis_chains_body.vpcf
-scripts/npc/abilities/semiramis/semiramis_poisonous_bite.kv:27  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
-scripts/npc/abilities/semiramis/semiramis_poisonous_bite.kv:28  MISSING  particles/custom/semiramis/semiramis_chains_body.vpcf
-scripts/npc/abilities/tamamo/tamamo_abilities.kv:390  MISSING  particles/custom/tamamo/charms_purle.vpcf
-scripts/npc/npc_units_custom.txt:3348  MISSING  models/shirou/shirouanim.vmdl
-scripts/npc/portraits.txt:11834  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
-scripts/npc/portraits.txt:18444  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
-scripts/npc/portraits.txt:19137  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
-scripts/npc/portraits.txt:19285  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
-scripts/npc/portraits.txt:19501  MISSING  models/creeps/nian/nian.vmdl
-scripts/npc/portraits.txt:23455  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
-scripts/npc/portraits.txt:23565  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
-scripts/npc/portraits.txt:23639  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
-scripts/npc/portraits.txt:23898  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
-scripts/npc/portraits.txt:2840  MISSING  models/nero/nero_new.vmdl
-scripts/npc/portraits.txt:4177  MISSING  models/heroes/drow/drow.vmdl
-scripts/npc/portraits.txt:4208  MISSING  models/heroes/drow/drow2.vmdl
-scripts/npc/portraits.txt:5346  MISSING  models/heroes/windrunner/windrunner2.vmdl
-scripts/npc/portraits.txt:5507  MISSING  models/heroes/lina/lina2.vmdl
-scripts/npc/portraits.txt:6286  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
-scripts/npc/portraits.txt:6370  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
-scripts/npc/portraits.txt:7605  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
-scripts/npc/portraits_card.txt:1441  MISSING  models/heroes/drow/drow.vmdl
-scripts/npc/portraits_card.txt:1472  MISSING  models/heroes/drow/drow2.vmdl
-scripts/npc/portraits_card.txt:15676  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
-scripts/npc/portraits_card.txt:16369  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
-scripts/npc/portraits_card.txt:16517  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
-scripts/npc/portraits_card.txt:16733  MISSING  models/creeps/nian/nian.vmdl
-scripts/npc/portraits_card.txt:20687  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
-scripts/npc/portraits_card.txt:20797  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
-scripts/npc/portraits_card.txt:20871  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
-scripts/npc/portraits_card.txt:21130  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
-scripts/npc/portraits_card.txt:2610  MISSING  models/heroes/windrunner/windrunner2.vmdl
-scripts/npc/portraits_card.txt:2771  MISSING  models/heroes/lina/lina2.vmdl
-scripts/npc/portraits_card.txt:3550  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
-scripts/npc/portraits_card.txt:3634  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
-scripts/npc/portraits_card.txt:4869  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
-scripts/npc/portraits_card.txt:9098  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
+scripts/npc/npc_units_custom.txt:3390  MISSING  models/shirou/shirouanim.vmdl
+scripts/npc/portraits.txt:11803  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
+scripts/npc/portraits.txt:18413  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
+scripts/npc/portraits.txt:19106  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
+scripts/npc/portraits.txt:19254  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
+scripts/npc/portraits.txt:19470  MISSING  models/creeps/nian/nian.vmdl
+scripts/npc/portraits.txt:23424  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
+scripts/npc/portraits.txt:23534  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
+scripts/npc/portraits.txt:23608  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
+scripts/npc/portraits.txt:23867  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
+scripts/npc/portraits.txt:2809  MISSING  models/nero/nero_new.vmdl
+scripts/npc/portraits.txt:4146  MISSING  models/heroes/drow/drow.vmdl
+scripts/npc/portraits.txt:4177  MISSING  models/heroes/drow/drow2.vmdl
+scripts/npc/portraits.txt:5315  MISSING  models/heroes/windrunner/windrunner2.vmdl
+scripts/npc/portraits.txt:5476  MISSING  models/heroes/lina/lina2.vmdl
+scripts/npc/portraits.txt:6255  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
+scripts/npc/portraits.txt:6339  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
+scripts/npc/portraits.txt:7574  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
+scripts/npc/portraits_card.txt:1410  MISSING  models/heroes/drow/drow.vmdl
+scripts/npc/portraits_card.txt:1441  MISSING  models/heroes/drow/drow2.vmdl
+scripts/npc/portraits_card.txt:15645  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
+scripts/npc/portraits_card.txt:16338  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
+scripts/npc/portraits_card.txt:16486  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
+scripts/npc/portraits_card.txt:16702  MISSING  models/creeps/nian/nian.vmdl
+scripts/npc/portraits_card.txt:20656  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
+scripts/npc/portraits_card.txt:20766  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
+scripts/npc/portraits_card.txt:20840  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
+scripts/npc/portraits_card.txt:21099  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
+scripts/npc/portraits_card.txt:2579  MISSING  models/heroes/windrunner/windrunner2.vmdl
+scripts/npc/portraits_card.txt:2740  MISSING  models/heroes/lina/lina2.vmdl
+scripts/npc/portraits_card.txt:3519  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
+scripts/npc/portraits_card.txt:3603  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
+scripts/npc/portraits_card.txt:4838  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
+scripts/npc/portraits_card.txt:9067  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
 scripts/soundscapes_holdout_example.txt:19  MISSING  sounds/ambient/altar_lp.vsnd
 scripts/soundscapes_holdout_example.txt:93  MISSING  sounds/ambient/disquiet01.vsnd
 scripts/soundscapes_holdout_example.txt:94  MISSING  sounds/ambient/disquiet02.vsnd
@@ -97,7 +88,7 @@ scripts/vscripts/abilities/alter_atalanta/atalanta_jump.lua:92  MISSING  particl
 scripts/vscripts/abilities/arcueid/arcueid_regen.lua:122  MISSING  particles/arcueid/arcueid_barrier.vpcf
 scripts/vscripts/abilities/artoria/modifiers/modifier_artoria_avalon_heal.lua:20  MISSING  particles/custom/kinghassan/kinghassan_protection_of_faith/kinghassan_protection_of_faith.vpcf
 scripts/vscripts/abilities/atalanta/golden_apple.lua:55  MISSING  particles/units/heroes/hero_enchantress/enchantress_natures_attendants_lvl4.vpcf
-scripts/vscripts/abilities/cu_alter/cu_alter_battle_stance.lua:245  MISSING  particles/cu_alter/cu_alter_stance_dash.vpcf
+scripts/vscripts/abilities/cu_alter/cu_alter_battle_stance.lua:285  MISSING  particles/cu_alter/cu_alter_stance_dash.vpcf
 scripts/vscripts/abilities/cu_alter/cu_alter_roar.lua:117  MISSING  particles/cu_alter/cu_alter_roar_pulse.vpcf
 scripts/vscripts/abilities/cu_alter/cu_alter_spear_throw.lua:98  MISSING  particles/cu_alter/cu_alter_spear_charge.vpcf
 scripts/vscripts/abilities/edmon/edmon_enfer.lua:160  MISSING  particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
@@ -106,33 +97,24 @@ scripts/vscripts/abilities/heracles/pepeg_jump.lua:191  MISSING  particles/heroe
 scripts/vscripts/abilities/heracles/pepeg_jump.lua:258  MISSING  particles/heroes/anime_hero_seth/seth_slam.vpcf
 scripts/vscripts/abilities/jeanne/jeanne_jump.lua:92  MISSING  particles/heroes/anime_hero_uzume/uzume_dash.vpcf
 scripts/vscripts/abilities/jtr/jtr_dagger_throw.lua:126  MISSING  particles/heroes/anime_hero_okita/okita_slash_impact.vpcf
-scripts/vscripts/abilities/karna/karna_new_abilities/karna_combo_vasavi_new.lua:109  MISSING  particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf
+scripts/vscripts/abilities/karna/karna_new_abilities/karna_combo_vasavi_new.lua:110  MISSING  particles/karna/aemis_mecha/combo/aemis_mecha_combo_ray.vpcf
 scripts/vscripts/abilities/king_hassan/king_hassan_abilities.lua:268  MISSING  particles/custom/kinghassan/ka_spin.vpcf
 scripts/vscripts/abilities/lancelot/lancelot_f16.lua:475  MISSING  particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf
 scripts/vscripts/abilities/lancelot/lancelot_minigun.lua:180  MISSING  particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf
-scripts/vscripts/abilities/medusa/medusa_hook.lua:86  MISSING  particles/econ/items/pudge/pudge_dragonclaw/pudge_meathook_dragonclaw_imba.vpcf
 scripts/vscripts/abilities/okita/okita_zekken.lua:101  MISSING  particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
 scripts/vscripts/abilities/okita/okita_zekken.lua:86  MISSING  particles/heroes/juggernaut/phantom_sword_dance.vpcf
 scripts/vscripts/abilities/robin/modifiers/modifier_robin_yew_bow.lua:68  MISSING  particles/string/here.vpcf
 scripts/vscripts/abilities/saito/saito_abilities.lua:1730  MISSING  particles/heroes/saito/saito_mind_eye_cast.vpcf
 scripts/vscripts/abilities/scathach/scathach_red_creed_combo.lua:155  MISSING  particles/custom/cu_chulainn/gae_bolg_explosion.vpcf
 scripts/vscripts/abilities/scathach/scathach_red_wind.lua:93  MISSING  particles/units/casteres/caster_zuus/zuus_static_field.vpcf
-scripts/vscripts/abilities/semiramis/hanging_gardens_bombard.lua:39  MISSING  particles/custom/semiramis/beam/semiramis_beam.vpcf
-scripts/vscripts/abilities/semiramis/hanging_gardens_orbital_strike.lua:26  MISSING  particles/custom/semiramis/laser/semiramis_laser.vpcf
-scripts/vscripts/abilities/semiramis/modifiers/modifier_binding_chains.lua:24  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
-scripts/vscripts/abilities/semiramis/modifiers/modifier_binding_chains.lua:27  MISSING  particles/custom/semiramis/semiramis_chains_body.vpcf
-scripts/vscripts/abilities/semiramis/modifiers/modifier_poisonous_bite.lua:48  MISSING  particles/custom/semiramis/semiramis_poison_explosion.vpcf
-scripts/vscripts/abilities/semiramis/semiramis_beam_bombard.lua:21  MISSING  particles/custom/semiramis/binding_chains/magic_circle.vpcf
-scripts/vscripts/abilities/semiramis/semiramis_beam_bombard.lua:57  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard.vpcf
-scripts/vscripts/abilities/semiramis/semiramis_beam_bombard.lua:61  MISSING  particles/custom/semiramis/beam_bombard/semiramis_beam_bombard_ground.vpcf
-scripts/vscripts/abilities/semiramis/semiramis_hanging_gardens.lua:41  MISSING  particles/custom/semiramis/hanghing_gardens_rocks.vpcf
+scripts/vscripts/addon_game_mode.lua:324  MISSING  particles/custom/tamamo/charms_purle.vpcf
+scripts/vscripts/addon_game_mode.lua:387  MISSING  particles/custom/kinghassan/ka_spin.vpcf
 scripts/vscripts/data/ability_functions.lua:212  MISSING  particles/arena/units/heroes/hero_sara/fragment_of_armor_impact.vpcf
 scripts/vscripts/data/modifiers.lua:61  MISSING  particles/arena/items_fx/desolator2_projectile.vpcf
 scripts/vscripts/data/modifiers.lua:77  MISSING  particles/arena/items_fx/golden_eagle_relic_projectile.vpcf
 scripts/vscripts/data/modifiers.lua:81  MISSING  particles/arena/items_fx/desolator4_projectile.vpcf
 scripts/vscripts/data/modifiers.lua:85  MISSING  particles/arena/items_fx/desolator5_projectile.vpcf
 scripts/vscripts/data/modifiers.lua:89  MISSING  particles/arena/items_fx/desolator6_projectile.vpcf
-scripts/vscripts/jeanne_ability.lua:562  MISSING  particles/custom/reference/luminosite_eternelle/luminosite_eternelle.vpcf
 scripts/vscripts/libraries/vector_target.lua:42  MISSING  particles/vector_target_ring.vpcf
 scripts/vscripts/modules/custom_runes/data.lua:122  MISSING  particles/arena/generic_gameplay/rune_acceleration.vpcf
 scripts/vscripts/modules/custom_runes/data.lua:130  MISSING  particles/arena/generic_gameplay/rune_vibration.vpcf
@@ -148,9 +130,72 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 
 === ОШИБКИ: двойные расширения (0) ===
 
-=== ОШИБКИ: битые чилды партиклей [пропущено --fast] (0) ===
+=== ОШИБКИ: битые чилды партиклей (63) ===
+particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_a.vpcf
+particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_b.vpcf
+particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_c.vpcf
+particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_d.vpcf
+particles/cu_chulain/gae_bolg_b.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_b0.vpcf
+particles/cu_chulain/gae_bolg_c.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_c0.vpcf
+particles/cu_chulain/gae_bolg_c.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_c1.vpcf
+particles/cu_chulain/gae_bolg_throw.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_throw_a.vpcf
+particles/cu_chulain/gae_bolg_throw_a.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_throw_a0.vpcf
+particles/cu_chulain/gae_bolg_throw_a.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_throw_a1.vpcf
+particles/custom/berserker/courage/stun_explosion.vpcf  ->  particles/custom/reference/shield_explosion/explosion_flash.vpcf
+particles/custom/berserker/courage/stun_explosion.vpcf  ->  particles/custom/reference/shield_explosion/explosion_light.vpcf
+particles/custom/berserker/nine_lives/matthias/matthias_ninenew.vpcf  ->  particles/custom/berserker/nine_lives/matthias/matthias_ninenewa.vpcf
+particles/custom/berserker/nine_lives/matthias/matthias_ninenewb.vpcf  ->  particles/custom/berserker/nine_lives/matthias/matthias_ninenewb3.vpcf
+particles/custom/berserker/nine_lives/matthias/matthias_ninenewb.vpcf  ->  particles/custom/berserker/nine_lives/matthias/matthias_ninenewb4.vpcf
+particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_beam_immortal1.vpcf
+particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_ember_column_immortal1.vpcf
+particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_ray_b_immortal1_immortal1.vpcf
+particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_ray_immortal1.vpcf
+particles/custom/item/oracle_fatesedict_ring.vpcf  ->  particles/units/heroes/hero_oracle/oracle_fatesedict_ring_spiral.vpcf
+particles/custom/lancer/hearbreak/lancer_heart_break_text.vpcf  ->  particles/custom/lancer/ggggg.vpcf
+particles/custom/lancer/lancer_heart_break_text.vpcf  ->  particles/custom/lancer/ggggg.vpcf
+particles/custom/saber/excalibur/shockwave.vpcf  ->  particles/custom/saber/excalibur/shockwave_ground_marker.vpcf
+particles/custom/saber_alter/excalibur/shockwave.vpcf  ->  particles/custom/saber/excalibur/shockwave_ground_marker.vpcf
+particles/custom_game/heroes/guts/guts_indomitable_fervor_count/guts_indomitable_fervor_count_g.vpcf  ->  particles/custom_game/heroes/guts/guts_indomitable_fervor_counter/guts_indomitable_fervor_counter_g.vpcf
+particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a0.vpcf
+particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a1.vpcf
+particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a2.vpcf
+particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a2a.vpcf
+particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_ambient_eyer.vpcf  ->  particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_ambient_eye_glow_r.vpcf
+particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_dust.vpcf
+particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_dust_swirl.vpcf
+particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_glow.vpcf
+particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_glow_trail.vpcf
+particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_launch.vpcf
+particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_trail_c.vpcf
+particles/gawain/galatine_ambient.vpcf  ->  particles/custom/gawain/galatine_ambient_a.vpcf
+particles/gawain/galatine_ambient_trail.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_a.vpcf
+particles/gawain/galatine_ambient_trail.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_b.vpcf
+particles/gawain/galatine_ambient_trail.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_c.vpcf
+particles/gawain/galatine_ambient_trail_a.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_a0.vpcf
+particles/gawain/galatine_ambient_trail_b.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_b0.vpcf
+particles/gawain/galatine_ambient_trail_c.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_c0.vpcf
+particles/kinghassan/combo/combo (1).vpcf  ->  particles/kinghassan/necro_sullen_harvest_scythe_model_streaks.vpcf
+particles/kinghassan/combo/comboslash (1).vpcf  ->  particles/kinghassan/necro_sullen_harvest_scythe_model_streaks.vpcf
+particles/kinghassan/combo/necro_ti7_immortal_scythe_impact_model.vpcf  ->  particles/kinghassan/necro_sullen_harvest_scythe_model_streaks.vpcf
+particles/muramasa/hijikata_ult/hijik_init_ult.vpcf  ->  particles/hijikata/hijikata_ult/hijik_init_ult_circles.vpcf
+particles/newl.vpcf  ->  particles/units/heroes/hero_oracle/oracle_fatesedict_ring_spiral.vpcf
+particles/ozy/piramid/piramid_barrier_newb.vpcf  ->  particles/ozy/piramid/piramid_barrier_newb0.vpcf
+particles/ozy/piramid/piramid_barrier_newb.vpcf  ->  particles/ozy/piramid/piramid_barrier_newb1.vpcf
+particles/ozy/piramid/piramid_barrier_newb.vpcf  ->  particles/ozy/piramid/piramid_barrier_newb2.vpcf
+particles/thd2/heroes/marisa/marisa_01_rocket_a.vpcf  ->  particles/heroes/alice/ability_alice_dash_a1.vpcf
+particles/thd2/heroes/marisa/marisa_01_rocket_a.vpcf  ->  particles/heroes/alice/ability_alice_dash_a2.vpcf
+particles/thd2/heroes/marisa/marisa_02_stars.vpcf  ->  particles/heroes/marisa/marisa_02_stars_a.vpcf
+particles/thd2/heroes/marisa/marisa_02_stars.vpcf  ->  particles/heroes/marisa/marisa_02_stars_b.vpcf
+particles/thd2/heroes/marisa/marisa_02_stars.vpcf  ->  particles/heroes/marisa/marisa_02_stars_c.vpcf
+particles/thd2/heroes/marisa/marisa_02_stars_a.vpcf  ->  particles/heroes/marisa/marisa_02_stars_d.vpcf
+particles/thd2/heroes/marisa/marisa_04_spark.vpcf  ->  particles/heroes/marisa/marisa_04_spark_light.vpcf
+particles/thd2/heroes/marisa/marisa_04_spark_laser.vpcf  ->  particles/heroes/marisa/marisa_04_spark_laser_g.vpcf
+particles/thd2/heroes/marisa/marisa_04_spark_laser.vpcf  ->  particles/heroes/marisa/marisa_04_spark_laser_h.vpcf
+particles/thd2/heroes/marisa/marisa_04_spark_laser.vpcf  ->  particles/heroes/marisa/marisa_04_spark_laser_i.vpcf
+particles/units/heroes/hero_monkey_king/monkey_king_jump_trail_old.vpcf  ->  particles/units/heroes/hero_monkey_king/monkey_king_jump_trail_a.vpcf
+particles/zlodemon/yujiro/yujiro_slamf.vpcf  ->  particles/zlodemon/yujiro/yujiro_slamf0.vpcf
 
-=== ПРЕДУПРЕЖДЕНИЯ: регистр путей (422) ===
+=== ПРЕДУПРЕЖДЕНИЯ: регистр путей (603) ===
 ../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/CuChulain_Ally_Emiya.vsnd' vs файл 'sounds/ally_sound/cuchulain_ally_emiya.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Diarmuid_Ally_Arthuria_1.vsnd' vs файл 'sounds/ally_sound/diarmuid_ally_arthuria_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/Diarmuid_Ally_Arthuria_2.vsnd' vs файл 'sounds/ally_sound/diarmuid_ally_arthuria_2.vsnd_c'
@@ -199,6 +244,37 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 ../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Gilles_Enemy_Arturia.vsnd' vs файл 'sounds/enemy_sound/gilles_enemy_arturia.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Gilles_Enemy_Jeanne.vsnd' vs файл 'sounds/enemy_sound/gilles_enemy_jeanne.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/enemy_sounds.vsndevts  CASE  ссылка 'sounds/enemy_sound/Saber_Enemy_Gawain.vsnd' vs файл 'sounds/enemy_sound/saber_enemy_gawain.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Caladbolg_1.vsnd' vs файл 'sounds/archer/emiya_caladbolg_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Caladbolg_2.vsnd' vs файл 'sounds/archer/emiya_caladbolg_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Crane1.vsnd' vs файл 'sounds/archer/emiya_crane1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Crane2.vsnd' vs файл 'sounds/archer/emiya_crane2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Crane3.vsnd' vs файл 'sounds/archer/emiya_crane3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Hrunt1.vsnd' vs файл 'sounds/archer/emiya_hrunt1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Hrunt2.vsnd' vs файл 'sounds/archer/emiya_hrunt2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_archer.vsndevts  CASE  ссылка 'sounds/archer/Emiya_Rho_Aias_Alt.vsnd' vs файл 'sounds/archer/emiya_rho_aias_alt.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Black_Luna_1.vsnd' vs файл 'sounds/astolfo/astolfo_black_luna_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Black_Luna_2.vsnd' vs файл 'sounds/astolfo/astolfo_black_luna_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Hippogriff_Cast_1.vsnd' vs файл 'sounds/astolfo/astolfo_hippogriff_cast_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Hippogriff_Cast_2.vsnd' vs файл 'sounds/astolfo/astolfo_hippogriff_cast_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Hippogriff_Success_1.vsnd' vs файл 'sounds/astolfo/astolfo_hippogriff_success_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Hippogriff_Success_2.vsnd' vs файл 'sounds/astolfo/astolfo_hippogriff_success_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_1.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_2.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_3.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_4.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_5.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_6.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_7.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Sanity_8.vsnd' vs файл 'sounds/astolfo/astolfo_sanity_8.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Slide_1.vsnd' vs файл 'sounds/astolfo/astolfo_slide_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Slide_2.vsnd' vs файл 'sounds/astolfo/astolfo_slide_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Slide_3.vsnd' vs файл 'sounds/astolfo/astolfo_slide_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Slide_4.vsnd' vs файл 'sounds/astolfo/astolfo_slide_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Slide_5.vsnd' vs файл 'sounds/astolfo/astolfo_slide_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Snatch_1.vsnd' vs файл 'sounds/astolfo/astolfo_snatch_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Snatch_2.vsnd' vs файл 'sounds/astolfo/astolfo_snatch_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Snatch_3.vsnd' vs файл 'sounds/astolfo/astolfo_snatch_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_astolfo.vsndevts  CASE  ссылка 'sounds/astolfo/Astolfo_Snatch_4.vsnd' vs файл 'sounds/astolfo/astolfo_snatch_4.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_1.vsnd' vs файл 'sounds/atalanta/atalanta_kill_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_2.vsnd' vs файл 'sounds/atalanta/atalanta_kill_2.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_3.vsnd' vs файл 'sounds/atalanta/atalanta_kill_3.vsnd_c'
@@ -215,6 +291,48 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 ../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Tauropolos.vsnd' vs файл 'sounds/atalanta/atalanta_tauropolos.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Thanks_1.vsnd' vs файл 'sounds/atalanta/atalanta_thanks_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_atalanta.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Thanks_2.vsnd' vs файл 'sounds/atalanta/atalanta_thanks_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack1.vsnd' vs файл 'sounds/barghest/s310_stage1_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack2.vsnd' vs файл 'sounds/barghest/s310_stage1_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack3.vsnd' vs файл 'sounds/barghest/s310_stage1_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack4.vsnd' vs файл 'sounds/barghest/s310_stage1_attack4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack5.vsnd' vs файл 'sounds/barghest/s310_stage1_attack5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack7.vsnd' vs файл 'sounds/barghest/s310_stage1_attack7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectNP1.vsnd' vs файл 'sounds/barghest/s310_stage1_selectnp1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectNP2.vsnd' vs файл 'sounds/barghest/s310_stage1_selectnp2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Skill1.vsnd' vs файл 'sounds/barghest/s310_stage1_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Skill3.vsnd' vs файл 'sounds/barghest/s310_stage1_skill3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Skill4.vsnd' vs файл 'sounds/barghest/s310_stage1_skill4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack1.vsnd' vs файл 'sounds/barghest/s310_stage2_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack2.vsnd' vs файл 'sounds/barghest/s310_stage2_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack3.vsnd' vs файл 'sounds/barghest/s310_stage2_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack4.vsnd' vs файл 'sounds/barghest/s310_stage2_attack4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack5.vsnd' vs файл 'sounds/barghest/s310_stage2_attack5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Skill1.vsnd' vs файл 'sounds/barghest/s310_stage2_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Skill2.vsnd' vs файл 'sounds/barghest/s310_stage2_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_barghest.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Skill4.vsnd' vs файл 'sounds/barghest/s310_stage2_skill4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Battle_Begins.vsnd' vs файл 'sounds/berserker/heracles_battle_begins.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Combo_Easter_1.vsnd' vs файл 'sounds/berserker/heracles_combo_easter_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Combo_Easter_2.vsnd' vs файл 'sounds/berserker/heracles_combo_easter_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Combo_Easter_3.vsnd' vs файл 'sounds/berserker/heracles_combo_easter_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_1.vsnd' vs файл 'sounds/berserker/heracles_death_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_2.vsnd' vs файл 'sounds/berserker/heracles_death_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_3.vsnd' vs файл 'sounds/berserker/heracles_death_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Death_4.vsnd' vs файл 'sounds/berserker/heracles_death_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_1.vsnd' vs файл 'sounds/berserker/heracles_kill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_2.vsnd' vs файл 'sounds/berserker/heracles_kill_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_3.vsnd' vs файл 'sounds/berserker/heracles_kill_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_4.vsnd' vs файл 'sounds/berserker/heracles_kill_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_5.vsnd' vs файл 'sounds/berserker/heracles_kill_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_6.vsnd' vs файл 'sounds/berserker/heracles_kill_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_NineLives_1.vsnd' vs файл 'sounds/berserker/heracles_ninelives_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_NineLives_2.vsnd' vs файл 'sounds/berserker/heracles_ninelives_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_NineLives_3.vsnd' vs файл 'sounds/berserker/heracles_ninelives_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Roar_1.vsnd' vs файл 'sounds/berserker/heracles_roar_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Roar_2.vsnd' vs файл 'sounds/berserker/heracles_roar_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Roar_3.vsnd' vs файл 'sounds/berserker/heracles_roar_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Roar_4.vsnd' vs файл 'sounds/berserker/heracles_roar_4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Roar_5.vsnd' vs файл 'sounds/berserker/heracles_roar_5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_berserker.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Roar_6.vsnd' vs файл 'sounds/berserker/heracles_roar_6.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Combo_1.vsnd' vs файл 'sounds/caster/medea_combo_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Rule_Breaker_1.vsnd' vs файл 'sounds/caster/medea_rule_breaker_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_caster.vsndevts  CASE  ссылка 'sounds/caster/Medea_Rule_Breaker_2.vsnd' vs файл 'sounds/caster/medea_rule_breaker_2.vsnd_c'
@@ -246,6 +364,19 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 ../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Tsubame_Slash_1.vsnd' vs файл 'sounds/fa/tsubame_slash_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Tsubame_Slash_2.vsnd' vs файл 'sounds/fa/tsubame_slash_2.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_fa.vsndevts  CASE  ссылка 'sounds/fa/Tsubame_Slash_3.vsnd' vs файл 'sounds/fa/tsubame_slash_3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Attack1.vsnd' vs файл 'sounds/gawain/gawain_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Attack2.vsnd' vs файл 'sounds/gawain/gawain_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Attack3.vsnd' vs файл 'sounds/gawain/gawain_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Galatine_1.vsnd' vs файл 'sounds/gawain/gawain_galatine_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Galatine_2.vsnd' vs файл 'sounds/gawain/gawain_galatine_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Skill1.vsnd' vs файл 'sounds/gawain/gawain_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Spawn.vsnd' vs файл 'sounds/gawain/gawain_spawn.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Sun_Explode.vsnd' vs файл 'sounds/gawain/gawain_sun_explode.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Trigger1.vsnd' vs файл 'sounds/gawain/gawain_trigger1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gawain.vsndevts  CASE  ссылка 'sounds/gawain/Gawain_Trigger2.vsnd' vs файл 'sounds/gawain/gawain_trigger2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gilg.vsndevts  CASE  ссылка 'sounds/gilg/Gilgamesh_Alt_Combo_1.vsnd' vs файл 'sounds/gilg/gilgamesh_alt_combo_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gilg.vsndevts  CASE  ссылка 'sounds/gilg/Gilgamesh_Alt_Combo_2.vsnd' vs файл 'sounds/gilg/gilgamesh_alt_combo_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_gilg.vsndevts  CASE  ссылка 'sounds/gilg/Gilgamesh_Alt_Combo_3.vsnd' vs файл 'sounds/gilg/gilgamesh_alt_combo_3.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskandar_Chariot_hit.vsnd' vs файл 'sounds/iskander/iskandar_chariot_hit.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Cart_Charge_1.vsnd' vs файл 'sounds/iskander/iskander_cart_charge_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_iskander.vsndevts  CASE  ссылка 'sounds/iskander/Iskander_Cart_Charge_2.vsnd' vs файл 'sounds/iskander/iskander_cart_charge_2.vsnd_c'
@@ -349,6 +480,16 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 ../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts  CASE  ссылка 'sounds/rider/Medusa_Bellerophon.vsnd' vs файл 'sounds/rider/medusa_bellerophon.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts  CASE  ссылка 'sounds/rider/Medusa_Skill1.vsnd' vs файл 'sounds/rider/medusa_skill1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_rider.vsndevts  CASE  ссылка 'sounds/rider/Medusa_Skill2.vsnd' vs файл 'sounds/rider/medusa_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Excalibur_Short.vsnd' vs файл 'sounds/saber/excalibur_short.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Saber_Ex.vsnd' vs файл 'sounds/saber/saber_ex.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Saber_Kalibar.vsnd' vs файл 'sounds/saber/saber_kalibar.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Chant_1.vsnd' vs файл 'sounds/saber/saber_max_chant_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Chant_2.vsnd' vs файл 'sounds/saber/saber_max_chant_2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Ex.vsnd' vs файл 'sounds/saber/saber_max_ex.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Excalibur.vsnd' vs файл 'sounds/saber/saber_max_excalibur.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber.vsndevts  CASE  ссылка 'sounds/saber/Saber_Max_Kalibar.vsnd' vs файл 'sounds/saber/saber_max_kalibar.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber_alter.vsndevts  CASE  ссылка 'sounds/saberalter/Excalibur_Morgan.vsnd' vs файл 'sounds/saberalter/excalibur_morgan.vsnd_c'
+../../../content/dota_addons/fate/soundevents/hero_saber_alter.vsndevts  CASE  ссылка 'sounds/saberalter/Excalibur_Morgan_Precast.vsnd' vs файл 'sounds/saberalter/excalibur_morgan_precast.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_ta.vsndevts  CASE  ссылка 'sounds/ta/Hassan_Combo.vsnd' vs файл 'sounds/ta/hassan_combo.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_ta.vsndevts  CASE  ссылка 'sounds/ta/Hassan_Skill1.vsnd' vs файл 'sounds/ta/hassan_skill1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_ta.vsndevts  CASE  ссылка 'sounds/ta/Hassan_Zabaniya.vsnd' vs файл 'sounds/ta/hassan_zabaniya.vsnd_c'
@@ -389,6 +530,11 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 ../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt3_1.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt3_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_GaeDearg_Alt3_2.vsnd' vs файл 'sounds/zl/diarmuid_gaedearg_alt3_2.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/hero_zl.vsndevts  CASE  ссылка 'sounds/zl/Diarmuid_Skill_1.vsnd' vs файл 'sounds/zl/diarmuid_skill_1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/heroes/aemis/aemis_sounds.vsndevts  CASE  ссылка 'sounds/aemis/HumanE.vsnd' vs файл 'sounds/aemis/humane.vsnd_c'
+../../../content/dota_addons/fate/soundevents/heroes/aemis/aemis_sounds.vsndevts  CASE  ссылка 'sounds/aemis/HumanE2.vsnd' vs файл 'sounds/aemis/humane2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/heroes/aemis/aemis_sounds.vsndevts  CASE  ссылка 'sounds/aemis/Slash1.vsnd' vs файл 'sounds/aemis/slash1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/heroes/aemis/aemis_sounds.vsndevts  CASE  ссылка 'sounds/aemis/Slash2.vsnd' vs файл 'sounds/aemis/slash2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/heroes/aemis/aemis_sounds.vsndevts  CASE  ссылка 'sounds/aemis/Slash3.vsnd' vs файл 'sounds/aemis/slash3.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/Master_Yi_01.vsnd' vs файл 'sounds/master_yi_01.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/Master_Yi_02.vsnd' vs файл 'sounds/master_yi_02.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/jtr_rework.vsndevts  CASE  ссылка 'sounds/Nanomachines.vsnd' vs файл 'sounds/nanomachines.vsnd_c'
@@ -449,6 +595,86 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_4.vsnd' vs файл 'sounds/berserker/heracles_kill_4.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_5.vsnd' vs файл 'sounds/berserker/heracles_kill_5.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts  CASE  ссылка 'sounds/berserker/Heracles_Kill_6.vsnd' vs файл 'sounds/berserker/heracles_kill_6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack1.vsnd' vs файл 'sounds/barghest/s310_stage1_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack10.vsnd' vs файл 'sounds/barghest/s310_stage1_attack10.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack11.vsnd' vs файл 'sounds/barghest/s310_stage1_attack11.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack12.vsnd' vs файл 'sounds/barghest/s310_stage1_attack12.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack2.vsnd' vs файл 'sounds/barghest/s310_stage1_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack3.vsnd' vs файл 'sounds/barghest/s310_stage1_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack4.vsnd' vs файл 'sounds/barghest/s310_stage1_attack4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack5.vsnd' vs файл 'sounds/barghest/s310_stage1_attack5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack6.vsnd' vs файл 'sounds/barghest/s310_stage1_attack6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack7.vsnd' vs файл 'sounds/barghest/s310_stage1_attack7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack8.vsnd' vs файл 'sounds/barghest/s310_stage1_attack8.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Attack9.vsnd' vs файл 'sounds/barghest/s310_stage1_attack9.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Bond1.vsnd' vs файл 'sounds/barghest/s310_stage1_bond1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Damage1.vsnd' vs файл 'sounds/barghest/s310_stage1_damage1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_DamageNP1.vsnd' vs файл 'sounds/barghest/s310_stage1_damagenp1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Defeated1.vsnd' vs файл 'sounds/barghest/s310_stage1_defeated1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Defeated2.vsnd' vs файл 'sounds/barghest/s310_stage1_defeated2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Dialogue1.vsnd' vs файл 'sounds/barghest/s310_stage1_dialogue1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Dialogue3.vsnd' vs файл 'sounds/barghest/s310_stage1_dialogue3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Event.vsnd' vs файл 'sounds/barghest/s310_stage1_event.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_ExtraAttack1.vsnd' vs файл 'sounds/barghest/s310_stage1_extraattack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_ExtraAttack2.vsnd' vs файл 'sounds/barghest/s310_stage1_extraattack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_ExtraAttack3.vsnd' vs файл 'sounds/barghest/s310_stage1_extraattack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Finish1.vsnd' vs файл 'sounds/barghest/s310_stage1_finish1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Finish2.vsnd' vs файл 'sounds/barghest/s310_stage1_finish2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Grail.vsnd' vs файл 'sounds/barghest/s310_stage1_grail.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Hate.vsnd' vs файл 'sounds/barghest/s310_stage1_hate.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Like.vsnd' vs файл 'sounds/barghest/s310_stage1_like.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_LvUp1.vsnd' vs файл 'sounds/barghest/s310_stage1_lvup1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_LvUp2.vsnd' vs файл 'sounds/barghest/s310_stage1_lvup2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_LvUp3.vsnd' vs файл 'sounds/barghest/s310_stage1_lvup3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectAttack1.vsnd' vs файл 'sounds/barghest/s310_stage1_selectattack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectAttack2.vsnd' vs файл 'sounds/barghest/s310_stage1_selectattack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectAttack3.vsnd' vs файл 'sounds/barghest/s310_stage1_selectattack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectNP1.vsnd' vs файл 'sounds/barghest/s310_stage1_selectnp1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectNP2.vsnd' vs файл 'sounds/barghest/s310_stage1_selectnp2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_SelectNP3.vsnd' vs файл 'sounds/barghest/s310_stage1_selectnp3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Skill1.vsnd' vs файл 'sounds/barghest/s310_stage1_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Skill2.vsnd' vs файл 'sounds/barghest/s310_stage1_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Skill3.vsnd' vs файл 'sounds/barghest/s310_stage1_skill3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Skill4.vsnd' vs файл 'sounds/barghest/s310_stage1_skill4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Start1.vsnd' vs файл 'sounds/barghest/s310_stage1_start1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Start2.vsnd' vs файл 'sounds/barghest/s310_stage1_start2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage1_Start3.vsnd' vs файл 'sounds/barghest/s310_stage1_start3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack1.vsnd' vs файл 'sounds/barghest/s310_stage2_attack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack10.vsnd' vs файл 'sounds/barghest/s310_stage2_attack10.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack11.vsnd' vs файл 'sounds/barghest/s310_stage2_attack11.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack12.vsnd' vs файл 'sounds/barghest/s310_stage2_attack12.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack2.vsnd' vs файл 'sounds/barghest/s310_stage2_attack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack3.vsnd' vs файл 'sounds/barghest/s310_stage2_attack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack4.vsnd' vs файл 'sounds/barghest/s310_stage2_attack4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack5.vsnd' vs файл 'sounds/barghest/s310_stage2_attack5.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack6.vsnd' vs файл 'sounds/barghest/s310_stage2_attack6.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack7.vsnd' vs файл 'sounds/barghest/s310_stage2_attack7.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack8.vsnd' vs файл 'sounds/barghest/s310_stage2_attack8.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Attack9.vsnd' vs файл 'sounds/barghest/s310_stage2_attack9.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Damage1.vsnd' vs файл 'sounds/barghest/s310_stage2_damage1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_DamageNP1.vsnd' vs файл 'sounds/barghest/s310_stage2_damagenp1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Defeated1.vsnd' vs файл 'sounds/barghest/s310_stage2_defeated1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Defeated2.vsnd' vs файл 'sounds/barghest/s310_stage2_defeated2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Dialogue2.vsnd' vs файл 'sounds/barghest/s310_stage2_dialogue2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Event.vsnd' vs файл 'sounds/barghest/s310_stage2_event.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_ExtraAttack1.vsnd' vs файл 'sounds/barghest/s310_stage2_extraattack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_ExtraAttack2.vsnd' vs файл 'sounds/barghest/s310_stage2_extraattack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_ExtraAttack3.vsnd' vs файл 'sounds/barghest/s310_stage2_extraattack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Finish1.vsnd' vs файл 'sounds/barghest/s310_stage2_finish1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Like.vsnd' vs файл 'sounds/barghest/s310_stage2_like.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_LvUp1.vsnd' vs файл 'sounds/barghest/s310_stage2_lvup1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_LvUp2.vsnd' vs файл 'sounds/barghest/s310_stage2_lvup2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_LvUp3.vsnd' vs файл 'sounds/barghest/s310_stage2_lvup3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_SelectAttack1.vsnd' vs файл 'sounds/barghest/s310_stage2_selectattack1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_SelectAttack2.vsnd' vs файл 'sounds/barghest/s310_stage2_selectattack2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_SelectAttack3.vsnd' vs файл 'sounds/barghest/s310_stage2_selectattack3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Skill1.vsnd' vs файл 'sounds/barghest/s310_stage2_skill1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Skill2.vsnd' vs файл 'sounds/barghest/s310_stage2_skill2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Skill3.vsnd' vs файл 'sounds/barghest/s310_stage2_skill3.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Skill4.vsnd' vs файл 'sounds/barghest/s310_stage2_skill4.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Start1.vsnd' vs файл 'sounds/barghest/s310_stage2_start1.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Start2.vsnd' vs файл 'sounds/barghest/s310_stage2_start2.vsnd_c'
+../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts  CASE  ссылка 'sounds/barghest/S310_Stage2_Start3.vsnd' vs файл 'sounds/barghest/s310_stage2_start3.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_1.vsnd' vs файл 'sounds/atalanta/atalanta_kill_1.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_2.vsnd' vs файл 'sounds/atalanta/atalanta_kill_2.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/voscripts/game_sounds_vo_drowranger.vsndevts  CASE  ссылка 'sounds/atalanta/Atalanta_Kill_3.vsnd' vs файл 'sounds/atalanta/atalanta_kill_3.vsnd_c'
@@ -574,47 +800,47 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 ../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenR.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwenr.vsnd_c'
 ../../../content/dota_addons/fate/soundevents/zlodemon_true.vsndevts  CASE  ссылка 'sounds/zlodemon_true/moskes_shuwen/ShuwenW.vsnd' vs файл 'sounds/zlodemon_true/moskes_shuwen/shuwenw.vsnd_c'
 
-=== ПРЕДУПРЕЖДЕНИЯ: партикли без precache (41) ===
-particles/arcueid/arcueid_barrier.vpcf
-        исп.: scripts/vscripts/abilities/arcueid/arcueid_regen.lua:122
+=== ПРЕДУПРЕЖДЕНИЯ: партикли без precache (32) ===
 particles/arena/generic_gameplay/rune_soul_steal_owner_effect.vpcf
         исп.: scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_soul_steal.lua:68
 particles/arena/generic_gameplay/rune_vibration_owner_wave.vpcf
         исп.: scripts/vscripts/modules/custom_runes/modifiers/modifier_arena_rune_vibration.lua:49
-particles/check_slashes.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_d.lua:143
 particles/cu_alter/cu_alter_roar_pulse.vpcf
         исп.: scripts/vscripts/abilities/cu_alter/cu_alter_roar.lua:117
 particles/cu_alter/cu_alter_spear_charge.vpcf
         исп.: scripts/vscripts/abilities/cu_alter/cu_alter_spear_throw.lua:98
 particles/cu_alter/cu_alter_stance_dash.vpcf
-        исп.: scripts/vscripts/abilities/cu_alter/cu_alter_battle_stance.lua:245
-particles/custom/cu_chulainn/gae_bolg_explosion.vpcf
-        исп.: scripts/vscripts/abilities/scathach/scathach_red_creed_combo.lua:155
-particles/custom/gawain/gawain_excalibur_galatine_orb_combo.vpcf
-        исп.: scripts/vscripts/abilities/gawain/excalibur_galatine_combo_old.lua:57; scripts/vscripts/abilities/gawain/unused/excalibur_galatine_combo_old.lua:57
-particles/custom/gawain/gawain_galetine_flametrail_combo_parent.vpcf
-        исп.: scripts/vscripts/abilities/gawain/excalibur_galatine_combo_old.lua:187; scripts/vscripts/abilities/gawain/unused/excalibur_galatine_combo_old.lua:187
-particles/custom/reference/luminosite_eternelle/luminosite_eternelle.vpcf
-        исп.: scripts/vscripts/jeanne_ability.lua:562
-particles/custom/semiramis/beam/semiramis_beam.vpcf
-        исп.: scripts/vscripts/abilities/semiramis/hanging_gardens_bombard.lua:39
-particles/custom/semiramis/hanghing_gardens_rocks.vpcf
-        исп.: scripts/vscripts/abilities/semiramis/semiramis_hanging_gardens.lua:41
-particles/custom/semiramis/laser/semiramis_laser.vpcf
-        исп.: scripts/vscripts/abilities/semiramis/hanging_gardens_orbital_strike.lua:26
-particles/custom/semiramis/semiramis_poison_explosion.vpcf
-        исп.: scripts/vscripts/abilities/semiramis/modifiers/modifier_poisonous_bite.lua:48
+        исп.: scripts/vscripts/abilities/cu_alter/cu_alter_battle_stance.lua:285
+particles/custom/jeanne/jeanne_luminosite_eternelle_barrier.vpcf
+        исп.: scripts/vscripts/abilities/aoko/aoko_blue.lua:496; scripts/vscripts/abilities/aoko/aoko_blue.lua:571; scripts/vscripts/abilities/aoko/aoko_facebreaker.lua:186
+particles/custom/karna/agni/agni_explosion.vpcf
+        исп.: scripts/vscripts/abilities/karna/modifiers/modifier_agni_burn.lua:14; scripts/vscripts/abilities/karna/modifiers/modifier_agni_karna.lua:64
+particles/custom/karna/agni/agni_fire_ambient.vpcf
+        исп.: scripts/vscripts/abilities/karna/modifiers/modifier_agni_karna.lua:80
+particles/custom/mordred/zuus_arc_lightning.vpcf
+        исп.: scripts/vscripts/abilities/jeanne_alter/jeanne_jump.lua:176; scripts/vscripts/abilities/mordred/mordred_mana_burst.lua:71
+particles/custom/mordred/zuus_static_field.vpcf
+        исп.: scripts/vscripts/abilities/jeanne_alter/jeanne_jump.lua:187; scripts/vscripts/abilities/mordred/mordred_mana_burst.lua:77
+particles/custom/rider/chain_web_current.vpcf
+        исп.: scripts/vscripts/abilities/lu_bu/lu_bu_relentless_assault_four.lua:121
+particles/custom/rider/rider_spirit.vpcf
+        исп.: scripts/vscripts/abilities/medusa/rider_5th_bloodfort_andromeda.lua:219
+particles/custom/ruler/luminosite_eternelle/sacred_zone.vpcf
+        исп.: scripts/vscripts/abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle.lua:26
+particles/custom/tamamo/tamamo_soulstream_explosion_blue.vpcf
+        исп.: scripts/vscripts/tamamo_ability.lua:227
+particles/custom/tamamo/tamamo_soulstream_explosion_green.vpcf
+        исп.: scripts/vscripts/tamamo_ability.lua:241
+particles/custom/tamamo/tamamo_soulstream_explosion_red.vpcf
+        исп.: scripts/vscripts/tamamo_ability.lua:210
 particles/custom/warlock_shadow_word_buff_copy.vpcf
-        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1238
+        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1111
 particles/custom/witchdoctor_voodoo_restoration.vpcf
-        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1245
+        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1118
 particles/custom/witchdoctor_voodoo_restoration_aura.vpcf
-        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1231
-particles/demon_king_nobunaga/demon_king_nobunaga_ignition.vpcf
-        исп.: scripts/vscripts/abilities/demon_king_nobunaga/demon_king_ignition.lua:35
-particles/econ/items/puck/puck_alliance_set/puck_illusory_orb_explode_aproset.vpcf
-        исп.: scripts/vscripts/abilities/arturia_alter/arturia_alter_mana_burst.lua:68
+        исп.: scripts/npc/abilities/iskandar/iskandar_abilities_old.kv:1104
+particles/generic_gameplay/generic_sleep.vpcf
+        исп.: scripts/vscripts/abilities/merlin/merlin_illusion.lua:100; scripts/vscripts/abilities/merlin/merlin_illusion.lua:121
 particles/heroes/anime_hero_seth/seth_slam.vpcf
         исп.: scripts/vscripts/abilities/alter_atalanta/atalanta_jump.lua:157; scripts/vscripts/abilities/heracles/pepeg_jump.lua:258; scripts/vscripts/abilities/heracles/pepeg_jump.lua:473
 particles/heroes/anime_hero_uzume/uzume_dash.vpcf
@@ -623,42 +849,24 @@ particles/heroes/juggernaut/phantom_sword_dance.vpcf
         исп.: scripts/vscripts/abilities/okita/okita_zekken.lua:86
 particles/heroes/juggernaut/phantom_sword_dance_a.vpcf
         исп.: scripts/vscripts/abilities/edmon/edmon_enfer.lua:160; scripts/vscripts/abilities/edmon/edmon_ult.lua:75; scripts/vscripts/abilities/okita/okita_zekken.lua:101
-particles/nanaya_combo_1hit2_.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_q.lua:176
-particles/nanaya_hit_test22.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_q.lua:170
-particles/nanaya_image.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_q2jump.lua:239; scripts/vscripts/abilities/nanaya/nanaya_r.lua:347; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:196
+particles/jeanne_alter/noire_slash_cast.vpcf
+        исп.: scripts/vscripts/abilities/jeanne_alter/jeanne_trail.lua:322
+particles/kinghassan/raze/hassanraze.vpcf
+        исп.: scripts/vscripts/abilities/king_hassan/king_hassan_abilities.lua:251
 particles/nanaya_image_clone2.vpcf
         исп.: scripts/vscripts/abilities/nanaya/nanaya.lua:155
-particles/nanaya_image_clone_attach.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:569
-particles/nanaya_image_clone_back.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:598
-particles/nanaya_image_clone_rework.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_r.lua:41
-particles/ozy/piramid/flashka_na_a.vpcf
-        исп.: scripts/vscripts/abilities/ozy/ozy_piramid_flash.lua:30
 particles/screen_black_splash.vpcf
         исп.: scripts/vscripts/abilities/nanaya/nanaya.lua:193
-particles/screen_spla.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:300; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:301; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:426
-particles/shiki_afterearth2final.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_r.lua:39
 particles/shiki_lost_gate/shiki_lostgate.vpcf
         исп.: scripts/vscripts/abilities/nanaya/nanaya_r.lua:152
-particles/test_part5.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_q2jump.lua:210
-particles/test_part_small.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:427; scripts/vscripts/abilities/nanaya/nanaya_w_e_knife.lua:611
-particles/test_partcheckfinal.vpcf
-        исп.: scripts/vscripts/abilities/nanaya/nanaya.lua:363; scripts/vscripts/abilities/nanaya/nanaya_new/nanaya_dahsf.lua:59
 particles/units/casteres/caster_zuus/zuus_static_field.vpcf
         исп.: scripts/vscripts/abilities/scathach/scathach_red_wind.lua:93; scripts/vscripts/abilities/scathach/scathach_red_wind.lua:94
-particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf
-        исп.: scripts/vscripts/abilities/semiramis/semiramis_snek_spit_poison.lua:14
+particles/units/heroes/hero_dark_seer/dark_seer_vacuum.vpcf
+        исп.: scripts/vscripts/gille_ability.lua:195
+particles/units/heroes/hero_lion/lion_spell_finger_of_death_fire.vpcf
+        исп.: scripts/vscripts/abilities/nero/modifiers/modifier_gladiusanus.lua:72
 
-=== ПРЕДУПРЕЖДЕНИЯ: клиент-сервер (значения бафов не видны на клиенте) (24) ===
+=== ПРЕДУПРЕЖДЕНИЯ: клиент-сервер (значения бафов не видны на клиенте) (25) ===
 scripts/vscripts/abilities/angra_mainyu/angra_mainyu_murderous_instinct.lua  modifier_murderous_instinct_crit:GetModifierPreAttack_CriticalStrike()  читает self.CritDamage (задаётся только на сервере)
 scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierPreAttack_CriticalStrike()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
 scripts/vscripts/abilities/anime_hero_leonidas.lua  modifier_leonidas_berserk:GetModifierProcAttack_Feedback()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
@@ -681,16 +889,16 @@ scripts/vscripts/abilities/iskandar/iskander_ionioi.lua  modifier_iskander_units
 scripts/vscripts/abilities/kinghassan/khsn_bc.lua  modifier_khsn_bc:GetModifierAvoidDamage()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
 scripts/vscripts/abilities/kinghassan/khsn_bc.lua  modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
 scripts/vscripts/abilities/lu_bu/modifiers/modifier_lu_bu_armistice.lua  modifier_lu_bu_armistice:GetModifierProcAttack_Feedback()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
+scripts/vscripts/abilities/rasputin/modifier_rasputin_curse.lua  modifier_rasputin_curse:GetModifierConstantManaRegen()  читает self.manaCancel (задаётся только на сервере)
 scripts/vscripts/abilities/saito/saito_abilities.lua  modifier_saito_mind_eye_shell:GetModifierTotal_ConstantBlock()  ГЕТТЕР ПОД IsServer() — на клиенте вернёт nil
 scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selection_skin:GetModifierModelChange()  читает self.sModelName (задаётся только на сервере)
 
 === СИРОТЫ: compiled без исходника в content ===
 
-[materials] всего 283:
+[materials] всего 269:
      53  materials/models
      25  materials/scathach
      20  materials/custom_game
-     15  materials/semi
      12  materials/overviews
      11  materials/scathach_gate
      10  materials/tamamo
@@ -712,9 +920,11 @@ scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selecti
       3  materials/altera
       3  materials/archer
       3  materials/astolfo
+      3  materials/iskander
 
-[models] всего 4800:
-   4762  models/heroes
+[models] всего 11000:
+   5961  models/items
+   5001  models/heroes
      16  models/custom_game
       2  models/iskander
       2  models/kuro
@@ -722,6 +932,7 @@ scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selecti
       1  models/altera
       1  models/atlanta
       1  models/berserker
+      1  models/building
       1  models/femalehassan
       1  models/jtr
       1  models/karna
@@ -730,16 +941,15 @@ scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selecti
       1  models/rider
       1  models/rin
       1  models/saber
-      1  models/semi
       1  models/shirou
       1  models/tohsaka
       1  models/zlojamon
       1  particles/units
 
-[particles] всего 14929:
+[particles] всего 14862:
    6961  particles/units
    3345  particles/custom_game
-   1957  particles/custom
+   1902  particles/custom
    1639  particles/econ
     309  particles/generic_gameplay
     262  particles/heroes
@@ -751,7 +961,6 @@ scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selecti
      18  particles/artoria
      13  particles/cu_chulain
      13  particles/muramasa
-     13  particles/semiramis
      11  particles/lancelot
       8  particles/ozy
       4  particles/ui_mouseactions
@@ -762,3 +971,4 @@ scripts/vscripts/modules/hero_selection/hero_replacer.lua  modifier_hero_selecti
       1  particles/alchemist_electricity.vpcf_c
       1  particles/edward_electricity1.vpcf_c
       1  particles/edward_electricity2.vpcf_c
+      1  particles/edward_electricity3.vpcf_c

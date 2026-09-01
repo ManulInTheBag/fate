@@ -1,0 +1,96 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//	Grigori Rasputin
+	//=================================================================================================================
+	"npc_dota_hero_rasputin"
+	{
+		"override_hero"			"npc_dota_hero_pangolier"
+		"DisableWearables" 			"1"
+		"Model"					"models/rasputin/kirei_1.vmdl"
+		//"Model"					"models/development/invisiblebox.vmdl"
+
+		"AbilityLayout"			"6"
+		//"HeroID"					"118"
+		"DrawParticlesWhileHidden" "1"
+		"ModelScale"			"1.1"
+		
+
+		"Ability1"				"rasputin_knife_dash"
+		"Ability2"              "rasputin_low_kick"
+		"Ability3"              "rasputin_dash"
+		"Ability4"              "rasputin_dodge"
+		"Ability5"              "rasputin_finisher"
+		"Ability6"              "rasputin_wide_kick"
+
+		// These three are on every other hero in the addon and were missing here.
+		// attribute_bonus_custom is the one that mattered: hero setup calls
+		// FindAbilityByName("attribute_bonus_custom"):SetHidden(false) with no nil
+		// check, BEFORE the attribute Master (master_2, Tohsaka Rin) is created -
+		// so a hero without it threw there and the Master was never spawned at all,
+		// which is why no attributes could be taken.
+		// Swapped in over rasputin_dodge while stunned, once BK + curses is taken.
+		"Ability7"				"rasputin_dodge_break"
+
+		"Ability8"				"hero_base_stats_bonus"
+		"Ability9"				"presence_detection_passive"
+		"Ability10"				"attribute_bonus_custom"
+		"Ability11"				"rasputin_combo"
+
+		// Пустые таланты: без дерева талантов клиент падает по ALT (патч Доты 31.07.2026)
+		"Ability12"				"special_bonus_fate_none_1"
+		"Ability13"				"special_bonus_fate_none_2"
+		"Ability14"				"special_bonus_fate_none_3"
+		"Ability15"				"special_bonus_fate_none_4"
+		"Ability16"				"special_bonus_fate_none_5"
+		"Ability17"				"special_bonus_fate_none_6"
+		"Ability18"				"special_bonus_fate_none_7"
+		"Ability19"				"special_bonus_fate_none_8"
+
+		// What the scoreboard reads to show his combo as ready. The gate the
+		// game itself uses is GetComboAvailability, which goes through
+		// heroCombos in libraries/util.lua.
+		"Combo"					"rasputin_combo"
+
+		// The four Hijikata attributes that used to sit here were leftovers from
+		// the hero this kit was built on top of - their flags are only ever read
+		// by Hijikata's own abilities, so they did nothing for Rasputin, and
+		// eternal_madness levelled an ability he does not have and errored.
+		"AttributeNumber"			"4"
+		"Attribute1"				"rasputin_combat_movement"
+		"Attribute2"				"rasputin_territory_creation"
+		"Attribute3"				"rasputin_bk_curses"
+		"Attribute4"				"rasputin_keys"
+
+		"StatusHealth"					"1300"
+		"StatusHealthRegen"				"6.0"
+		"StatusMana"					"1000"
+		"StatusManaRegen"				"5.0"
+		
+		"ArmorPhysical"					"4"
+		"MagicalResistance"				"20"
+		
+		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"				"60"
+		"AttackDamageMax"				"60"
+		"AttackRate"					"1.5"
+		"AttackAcquisitionRange"		"550"
+		"AttackRange"					"225"
+		"HealthBarOffset"				"260" 
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"2.1"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"2.0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"1.9"
+		
+		"MovementSpeed"					"390"
+		"MovementTurnRate"				"0.8"
+
+		"VisionDaytimeRange"			"1050"
+		"VisionNighttimeRange"			"1050"
+
+	}
+}

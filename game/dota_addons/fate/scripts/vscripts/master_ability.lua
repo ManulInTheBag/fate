@@ -27,6 +27,13 @@ function ResetAbilities(hero)
 			break
 		end
 	end
+
+	-- Распутин: часть его кулдаунов живёт не в способности, а в модификаторах-
+	-- трекерах (Q/W/D досаживают КД по окончании секвенции), а заряды E - в стеках,
+	-- поэтому одного EndCooldown мало
+	if hero:GetName() == "npc_dota_hero_pangolier" and RasputinOnSealRefresh then
+		RasputinOnSealRefresh(hero)
+	end
 end
 
 function ResetItems(hero)

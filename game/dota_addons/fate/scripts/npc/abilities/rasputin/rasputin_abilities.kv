@@ -1,0 +1,506 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Dash with Knife (Q)
+	//=====================================
+	"rasputin_knife_dash"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_knife_dash"
+		"AbilityTextureName"				"custom/rasputin/rasputin_knife_dash_1"
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"				"1"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "10 9 8 7 6"
+		"AbilityManaCost"					"100"
+		"AbilityCastRange"					"1500"
+		"AbilityCastPoint"					"0.0"
+		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
+
+		"precache"
+		{
+			"particle"		"particles/rasputin/rasputin_dash_shield.vpcf"
+			"particle"		"particles/rasputin/rasputin_dash_trail.vpcf"
+			"particle"		"particles/rasputin/rasputin_knife_dash_hit.vpcf"
+			"particle"		"particles/rasputin/rasputin_hit.vpcf"
+			"particle"		"particles/rasputin/knife_throw.vpcf"
+			"particle"		"particles/rasputin/rasputin_knife_mark.vpcf"
+			"particle"		"particles/rasputin/rasputin_slam.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_test.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_back.vpcf"
+			"particle"		"particles/rasputin/rasputin_dash_radius.vpcf"
+			"particle"		"particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf"
+		}
+		"AbilityValues"
+		{
+			"distance"								"1500"
+			"speed"									"2200"
+			"throw_delay"							"0.1"
+			"backstep_distance"						"250"
+			"backstep_duration"						"0.1"
+			"recast_duration"									"4"
+			"vision_linger"							"1"
+			"damage1"									"200 225 250 275 300"
+			"damage2"								"200 225 250 275 300"
+			"damage_per_level"						"5"
+			"grab_stack_threshold"					"5"
+			"grab_cooldown"							"10"
+			"grab_cooldown_per_level"				"0.2"
+			"grab_cooldown_min"						"4"
+			"grab_damage_multiplier"				"1.5"
+			"grab_duration"							"0.45"
+			"grab_hero_overshoot"					"250"
+			"grab_victim_lead"						"120"
+			"grab_hero_land_fraction"				"0.6"
+			"grab_height"							"250"
+			"grab_victim_height"					"300"
+			"grab_radius"							"300"
+			"grab_stun_after"						"0.5"
+			"grab_mark_duration"					"0.5"
+			"reborn_dash_speed_pct"					"25"
+			"reborn_projectile_speed_pct"			"20"
+			"keys_shield_damage_pct"				"30"
+			"keys_shield_bonus_pct"					"50"
+			"keys_shield_damage_cap"					"1000"
+		}
+	}
+
+	//=====================================
+	// Low Kicks (W)
+	//=====================================
+	"rasputin_low_kick"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_low_kick"
+		"AbilityTextureName"				"custom/rasputin/rasputin_low_kicks"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"							"5"
+		"LevelsBetweenUpgrades"				"1"
+		"AbilityCooldown"				    "25 23 21 19 17"
+		"AbilityManaCost"					"200"
+		"AbilityCastPoint"					"0.0"
+		"AbilityCastRange"				"99999"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastAnimation"              "ACT_DOTA_DISABLE_ANIMATION"
+		"precache"
+		{
+			"particle"		"particles/rasputin/rasputin_hit.vpcf"
+			"particle"		"particles/rasputin/rasputin_low_kick_1.vpcf"
+			"particle"		"particles/rasputin/rasputin_low_kick_2.vpcf"
+			"particle"		"particles/rasputin/rasputin_slam.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_test.vpcf"
+		}
+		"AbilityValues"
+		{
+			"length"								"200"
+			"width"                                 "150"
+			"w1_marker_bonus"						"200"
+			"w3_impact_offset"						"100"
+			"w3_radius"								"300"
+			"damage_1"									"160 200 240 280 320"
+			"slow_duration"								"2"		
+			"damage_2"									"160 200 240 280 320"
+			"knockback_duration"				"0.5"
+			"knockback_distance"                 "300"
+            "knockback_height"                   "300"
+            "damage_3"                         "160 200 240 280 320"
+			"damage_per_level"						"4"
+            "stun_duration" "1"
+            "dash_speed"								"1200"
+			"slow_amount"								"20"
+			"sequence_window"								"3"
+			"dash_distance_reduction"						"0"
+			"w3_jump_speed"									"1000"
+			"micro_dash_distance"						"125"
+			"micro_dash_duration"						"0.15"
+			"hitbox_duration"							"0.2"
+			"w1_recast_gap"								"0.2"
+			"w2_recast_gap"								"0.15"
+			"reborn_kick_gap_pct"						"20"
+			"reborn_dash_speed_pct"						"25"
+		}
+	}
+
+	//=====================================
+	// Dash (E)
+	//=====================================
+	"rasputin_dash"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_dash"
+		"AbilityTextureName"				"custom/rasputin/rasputin_dash"
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"MaxLevel"							"5"
+		"LevelsBetweenUpgrades"				"2"
+		"AbilityCooldown"				"0.1"
+		"AbilityCastPoint" "0.0"
+		"AbilityManaCost"					"200"
+		"AbilityCastRange"				"99999"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
+		"precache"
+		{
+			"particle"		"particles/rasputin/rasputin_dash_shield.vpcf"
+			"particle"		"particles/rasputin/rasputin_dash_trail.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_test.vpcf"
+		}
+		"AbilityValues"
+		{
+			"distance"									"325"
+			"max_charges"								"2"
+			"charge_restore_time"						"8.0"
+			"charge_refund_per_stack"					"2.5"
+			"reborn_dash_speed_pct"						"25"
+			"surge_duration"							"2"
+			"surge_mana_base"							"50 60 70 80 90"
+			"surge_mana_pct"							"75"
+			"surge_heal_pct"							"50"
+			"surge_heal_pct_max"						"100"
+		}
+	}
+
+	//=====================================
+	// Attribute: Combat Movement
+	//=====================================
+	"rasputin_combat_movement"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/rasputin/rasputin_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/rasputin/rasputin_com_mov_attribute"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+	}
+
+	//=====================================
+	// Attribute: Territory Creation
+	//=====================================
+	"rasputin_territory_creation"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/rasputin/rasputin_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/rasputin/rasputin_territory_attribute"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+	}
+
+	//=====================================
+	// Attribute: BK + Curses
+	//=====================================
+	"rasputin_bk_curses"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/rasputin/rasputin_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/rasputin/rasputin_curses_attribute"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+	}
+
+	//=====================================
+	// Attribute: Keys
+	//=====================================
+	"rasputin_keys"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/rasputin/rasputin_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/rasputin/rasputin_keys_attribute"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+	}
+
+	//=====================================
+	// Dodge, replaced while stunned (BK + curses)
+	//=====================================
+	"rasputin_dodge_break"
+	{
+		"precache"
+		{
+			"particle"		"particles/rasputin/rasputin_curse_burst.vpcf"
+		}
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_bk"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"				"custom/rasputin/rasputin_combo_break"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"				"SPELL_DISPELLABLE_NO"
+		"MaxLevel"							"1"
+		"RequiredLevel"						"1"
+		"AbilityCooldown"				    "90"
+		"AbilityManaCost"					"100"
+		"AbilityCastPoint"					"0.0"
+		"AbilityCastAnimation"              "ACT_DOTA_DISABLE_ANIMATION"
+		"AbilityValues"
+		{
+			"break_duration"					"0.5"
+			"break_radius"						"400"
+			"break_tick"						"0.1"
+			"break_tick_damage"					"60"
+			"break_damage_reduction"			"50"
+			"break_push_distance"				"300"
+			"break_push_duration"				"0.3"
+		}
+	}
+
+
+	//=====================================
+	// Dodge (D)
+	//=====================================
+	"rasputin_dodge"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_dodge"
+		"AbilityTextureName"				"custom/rasputin/rasputin_dodge"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"MaxLevel"							"1"
+		"LevelsBetweenUpgrades"				"1"
+		"AbilityCooldown"				    "15"
+		"AbilityManaCost"					"100"
+		"AbilityCastPoint"					"0.0"
+		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
+		"precache"
+		{
+			// The shell a dash travels inside, the tail it drags, and the copies
+			// it leaves - the retreat gets the same set as every other dash, only
+			// with the backwards copy.
+			"particle"		"particles/rasputin/rasputin_dash_shield.vpcf"
+			"particle"		"particles/rasputin/rasputin_dash_trail.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_back.vpcf"
+			"particle"		"particles/rasputin/rasputin_dodge_flash.vpcf"
+		}
+		"AbilityValues"
+		{
+			"dodge_window"						"0.5"
+			"recast_window"						"3"
+			"dodge_distance"					"350"
+			"dodge_duration"					"0.3"
+			"dodge_angle"						"45"
+			"max_dodges"						"3"
+			"leap_immunity_fraction"			"0.1"
+			"reborn_dash_speed_pct"				"25"
+		}
+	}
+
+	//=====================================
+	// Finisher (F)
+	//=====================================
+	"rasputin_finisher"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_finisher"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"				"custom/rasputin/rasputin_finisher"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastRange"					"99999"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "0"
+		"AbilityManaCost"					"0"
+		"AbilityCastPoint"					"0.0"
+		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
+		"AnimationPlaybackRate" 		"1.5"
+		"precache"
+		{
+			"particle"		"particles/rasputin/rasputin_hit.vpcf"
+			"particle"		"particles/rasputin/rasputin_finisher_hits.vpcf"
+			"particle"		"particles/rasputin/rasputin_finisher_hit_enemy.vpcf"
+			"particle"		"particles/rasputin/rasputin_fall_trail_finisher.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_attack.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_attack2.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_channel1.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_cast2.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_cast4.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_attack_bk.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_attack2_bk.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_channel1_bk.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_cast2_bk.vpcf"
+			"particle"		"particles/rasputin/rasputin_afterimage_fin_cast4_bk.vpcf"
+			"particle"		"particles/rasputin/rasputin_max_stacks.vpcf"
+			"particle"		"particles/rasputin/rasputin_territory_creation.vpcf"
+			"particle"		"particles/rasputin/rasputin_cleanse_new.vpcf"
+			"particle"		"particles/items_fx/aegis_respawn.vpcf"
+		}
+		"AbilityValues"
+		{
+			"duration"								"1"
+			"tick_damage"								"50"
+			"hit_fx_offset"							"40"
+			"hit_fx_height"							"90"
+			"hit_fx_length"							"130"
+			"hit_wave_offset"						"50"
+			"hit_spark_spread"						"30"
+			"group_radius"							"500"
+			"finish_stun_after"						"0.1"
+			"combo_press_gap"						"0.1"
+			"finish_stun"							"0.2"
+			"vision_linger"							"1"
+			"teleport_offset"						"170"
+			"strike_offset"							"110"
+			"finish_damage"						"300"
+			"damage_per_level"						"1"
+			"finish_push_distance"						"350"
+			"finish_push_height"						"300"
+			"finish_push_duration"						"0.5"
+			"missing_hp_percent"						"0.5"
+			"push_distance_min"						"100"
+			"push_distance_max"						"250"
+			"cooldown_refund_per_stack"					"1.5"
+			"heal_pct"									"50"
+			"heal_pct_max"								"100"
+			"mana_pct"									"50"
+			"territory_max_stacks"						"10"
+			"territory_duration"						"6"
+			"territory_radius_min"						"500"
+			"territory_radius_max"						"1400"
+			"territory_regen_min"						"20"
+			"territory_regen_max"						"110"
+			"territory_stacks_per_wave"					"5"
+			"territory_wave_tail"						"0.5"
+
+			// --- BK + curses ----------------------------------------------
+			"curse_stacks_to_revive"					"20"
+			"reborn_movespeed"							"550"
+			"reborn_cooldown_pct"						"30"
+			"reborn_kill_window"						"5"
+			"reborn_kill_radius"						"300"
+		}
+	}
+
+	//=====================================
+	// 
+	//=====================================
+	"rasputin_wide_kick"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_wide_kick"
+		"AbilityTextureName"				"custom/rasputin/rasputin_wide_kick"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"				"1"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "10 9 8 7 6"
+		"AbilityManaCost"					"100"
+		"AbilityCastRange"					"1500"
+		"AbilityCastPoint"					"0.0"
+		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
+		"precache"
+		{
+			"particle"		"particles/rasputin/rasputin_wide_kick_enemy.vpcf"
+			"particle"		"particles/rasputin/rasputin_hit.vpcf"
+			"particle"		"particles/rasputin/rasputin_skill_mark_wide.vpcf"
+			"particle"		"particles/rasputin/rasputin_wide_kick.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage"								"200"
+			"distance"									"900"
+			"speed"								"900"
+			"length"							"450"
+			"width"							"300"
+			"cone_angle"						"82.5"
+			"close_radius"						"150"
+			"cast_delay"						"0.35"
+			"hitbox_duration"					"0.35"
+			"chain_radius"						"175"
+			"chain_stun_duration"				"0.5"
+			"chain_push_distance"				"100"
+			"chain_push_duration"				"0.3"
+			"chain_max_hp_damage_percent"				"10"
+			"thin_wall_max_depth"				"150"
+			"wallstun_damage"						"100"
+			"damage_per_level"						"5"
+			"wallstun_duration"						"1"
+			"reborn_ult_delay_divisor"				"1.4"
+			"reborn_ult_hitbox_cut_pct"				"29"
+		}
+	}
+
+
+	//=====================================
+	// Combo: the grail (F, F)
+	//=====================================
+	"rasputin_combo"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/rasputin/rasputin_combo"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"				"custom/rasputin/rasputin_combo"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"							"1"
+		"RequiredLevel"						"1"
+		"AbilityCooldown"				    "160"
+		"AbilityManaCost"					"0"
+		"AbilityCastPoint"					"0.0"
+		"AbilityCastAnimation"              "ACT_DOTA_DISABLE_ANIMATION"
+
+		"precache"
+		{
+			"particle"		"particles/kirei/kirei_dragon/kirei_dragon_ring_base.vpcf"
+			"particle"		"particles/rasputin/rasputin_curse_lvl1.vpcf"
+			"particle"		"particles/rasputin/rasputin_curse_lvl2.vpcf"
+			"particle"		"particles/rasputin/rasputin_curse_lvl3.vpcf"
+			"particle"		"particles/rasputin/rasputin_combo_territory.vpcf"
+			"particle"		"particles/rasputin/rasputin_combo_test.vpcf"
+			"particle"		"particles/rasputin/rasputin_combo_fall_trail.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"duration"								"7"
+			"combo_start_delay"						"0.3"
+			"haul_delay"							"0.1"
+			"grail_height"							"850"
+			"grail_fx_height"						"50"
+			"aura_radius"							"1500"
+			"curse_tick"							"0.1"
+			"field_damage"							"60"
+			"field_damage_tick"						"0.5"
+			"wave_start_delay"						"1.5"
+
+			// --- being hauled into it ------------------------------------
+			"lift_rise_time"						"1.5"
+			"lift_hang_time"						"1.0"
+			"lift_fall_time"						"0.4"
+			// How far from directly under the grail they are scattered on the
+			// way down, so a group does not come down in one pile.
+			"lift_scatter"							"600"
+			"lift_scatter_min"						"400"
+			"hang_damage"							"250"
+			"hang_damage_tick"						"0.1"
+
+			// modifier_rasputin_combo_haul:OnCreated.
+			"curse_stacks_per_level"				"10"
+			"curse_max_level"						"3"
+			"curse_gain_time"						"1.5"
+			"curse_decay_time"						"1.5"
+			"curse_max_stacks"						"40"
+		}
+	}
+ 
+}

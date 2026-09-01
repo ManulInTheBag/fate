@@ -307,6 +307,7 @@ cleansable = {
     "modifier_gordius_wheel_thunder_slow",
     -- Other CCs
     "modifier_stunned",
+    "modifier_rasputin_wide_kick_knockback",
     "modifier_rule_breaker",
     "modifier_c_rule_breaker",
     "modifier_l_rule_breaker",
@@ -399,6 +400,8 @@ cleansable = {
     "modifier_cu_alter_spear_slow",
     "modifier_cu_alter_roar_str_debuff",
     "modifier_cu_alter_fear",
+    "modifier_rasputin_wide_kick_target",
+    "modifier_rasputin_low_kick_slow",
     "modifier_muted"
 }
 
@@ -452,6 +455,7 @@ slowmodifier = {
     "modifier_hijikata_ult_slow",
     "modifier_hijikata_slow",
     "modifier_cu_alter_spear_slow",
+    "modifier_rasputin_low_kick_slow",
 }
 
 donotlevel = {
@@ -735,6 +739,8 @@ CannotReset = {
     "cu_alter_roar",
 
     "barghest_f",
+
+    "rasputin_dodge",
 
 }
 
@@ -2650,6 +2656,7 @@ local heroNames = {
     ["npc_dota_hero_phoenix"] = "Ozymandias",
     ["npc_dota_hero_axe"] = "Cú Chulainn (Alter)",
     ["npc_dota_hero_dragon_knight"] = "Barghest",  -- barghest
+    ["npc_dota_hero_pangolier"] = "Rasputin",
 }
 
  
@@ -2721,6 +2728,7 @@ local heroCombos = {
     ["npc_dota_hero_okada"] = "okada_combo",
     ["npc_dota_hero_ozy"] = "ozy_combo",
     ["npc_dota_hero_axe"] = "cu_alter_combo",
+    ["npc_dota_hero_pangolier"] = "rasputin_combo",
 }
 
 local slotToCombo

@@ -1,0 +1,183 @@
+.RasputinHudRoot
+{
+	width: 100%;
+	height: 100%;
+	overflow: noclip;
+}
+
+
+.RasputinUnitPanel
+{
+	position: 0px 0px 0px;
+	width: 170px;
+	height: 66px;
+	flow-children: none;
+	overflow: noclip;
+	opacity: 1;
+	transition: opacity 0.1s linear 0s;
+}
+
+.RasputinUnitPanel.Hidden
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+
+.RasputinStacks
+{
+	position: 0px 0px 0px;
+	border: 1px solid #cfd6dbdd;
+	background-color: #10131699;
+	overflow: noclip;
+	flow-children: none;
+}
+
+
+.RasputinStacksFill
+{
+	position: 0px 0px 0px;
+	width: 0%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffffffff ), to( #ccd4daff ) );
+	transition: width 0.1s linear 0s, background-color 0.1s linear 0s;
+}
+
+
+.RasputinStacks.Warn .RasputinStacksFill
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffb03aff ), to( #e07a12ff ) );
+}
+
+
+.RasputinStacks.Max .RasputinStacksFill
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #ff8074ff ), to( #e8493aff ) );
+}
+
+.RasputinStacks.Max
+{
+	border: 1px solid #ffd2ccff;
+	box-shadow: #e33b2e99 0px 0px 6px 0px;
+}
+
+
+.RasputinStacks.MaxReady .RasputinStacksFill
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #ff8074ff ), to( #e8493aff ) );
+	animation-name: RasputinStacksPulse;
+	animation-duration: 1.0s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+.RasputinStacks.MaxReady
+{
+	border: 1px solid #ffd8b0ff;
+	box-shadow: #ff9a3399 0px 0px 7px 0px;
+}
+
+@keyframes 'RasputinStacksPulse'
+{
+	0%
+	{
+		background-color: gradient( linear, 0% 0%, 0% 100%, from( #ff8074ff ), to( #e8493aff ) );
+	}
+
+	100%
+	{
+		background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffb03aff ), to( #e07a12ff ) );
+	}
+}
+
+
+.RasputinStacksTicks
+{
+	position: 0px 0px 0px;
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+}
+
+
+.RasputinStackTick
+{
+	position: 0px 0px 0px;
+	width: 1px;
+	height: 100%;
+	background-color: #00000099;
+}
+
+
+.RasputinCharges
+{
+	position: 0px 0px 0px;
+	border-radius: 50%;
+	border: 1px solid #ffffffdd;
+	background-color: #050505ee;
+	flow-children: none;
+}
+
+.RasputinChargesLabel
+{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	color: #ffffffff;
+	text-shadow: 0px 0px 2px 2.0 #000000ff;
+}
+
+
+.RasputinCharges.Empty .RasputinChargesLabel
+{
+	color: #7a7a7aff;
+}
+
+
+.RasputinCurse
+{
+	position: 0px 0px 0px;
+	border: 1px solid #b9a6a6cc;
+	background-color: #10131699;
+	overflow: noclip;
+	flow-children: none;
+	visibility: visible;
+}
+
+.RasputinCurseFill
+{
+	position: 0px 0px 0px;
+	width: 0%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #9a6ad4ff ), to( #6d3fa8ff ) );
+	transition: width 0.1s linear 0s, background-color 0.15s linear 0s;
+}
+
+
+.RasputinCurse.Full .RasputinCurseFill
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #8c1414ff ), to( #5a0808ff ) );
+}
+
+.RasputinCurse.Full
+{
+	border: 1px solid #e8bdbdff;
+	box-shadow: #8c141499 0px 0px 5px 0px;
+}
+
+
+.RasputinCurse.Reborn .RasputinCurseFill
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #ff2a2aff ), to( #b40f0fff ) );
+	transition: width 0.12s linear 0s;
+}
+
+.RasputinCurse.Reborn
+{
+	border: 1px solid #ffd0d0ff;
+	box-shadow: #ff2a2a88 0px 0px 6px 0px;
+}

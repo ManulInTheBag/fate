@@ -1,0 +1,104 @@
+"Hero_Pangolier.PreAttack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/marci/preattack01.vsnd"
+							"value1"		"sounds/weapons/hero/marci/preattack02.vsnd"
+							"value2"		"sounds/weapons/hero/marci/preattack03.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"1.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+"Hero_Pangolier.Attack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/marci/attack01.vsnd"
+							"value1"		"sounds/weapons/hero/marci/attack02.vsnd"
+							"value2"		"sounds/weapons/hero/marci/attack03.vsnd"
+							"value3"		"sounds/weapons/hero/marci/attack04.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"1.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+"Hero_Pangolier.Attack.Impact"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/marci/impact01.vsnd"
+							"value1"		"sounds/weapons/hero/marci/impact02.vsnd"
+							"value2"		"sounds/weapons/hero/marci/impact03.vsnd"
+							"value3"		"sounds/weapons/hero/marci/impact04.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"1.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}

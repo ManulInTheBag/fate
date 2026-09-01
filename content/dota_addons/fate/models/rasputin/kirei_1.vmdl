@@ -1,0 +1,1242 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "1.vmat"
+								to = "materials/rasputin/mapo1.vmat"
+							},
+							{
+								from = "2.vmat"
+								to = "materials/rasputin/mapo3.vmat"
+							},
+							{
+								from = "3.vmat"
+								to = "materials/rasputin/mapo2.vmat"
+							},
+							{
+								from = "4.vmat"
+								to = "materials/rasputin/mapo4.vmat"
+							},
+							{
+								from = "5.vmat"
+								to = "materials/rasputin/jinshu.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_ORIGIN"
+						parent_bone = ""
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "Chest2"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HEAD"
+						parent_bone = "Head"
+						relative_origin = [ 7.007126, 0.0, 0.0 ]
+						relative_angles = [ -0.000001, -0.000001, -0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_RIGHT_EYE"
+						parent_bone = "overhead"
+						relative_origin = [ 10.657036, -3.8592067, -19.372025 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "L_hand"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK2"
+						parent_bone = "R_hand"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Chest"
+								parent_bone = "Chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.77887, -32.079845, -2.9321518 ]
+								hitbox_maxs = [ 18.449585, 13.92318, 25.257225 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Chest2"
+								parent_bone = "Chest2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -51.99286, -57.86939, -129.76654 ]
+								hitbox_maxs = [ 55.347397, 59.14691, 64.41069 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_arm"
+								parent_bone = "L_arm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -3.4898934, -8.168884 ]
+								hitbox_maxs = [ 31.101587, 7.3595185, 4.8879395 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_elbow"
+								parent_bone = "L_elbow"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -3.3874786, -5.569824 ]
+								hitbox_maxs = [ 27.99372, 6.854985, 5.0483704 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_arm"
+								parent_bone = "R_arm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.235886, -3.05753, -7.785492 ]
+								hitbox_maxs = [ 0.5, 7.866158, 4.720169 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_elbow"
+								parent_bone = "R_elbow"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -28.79746, -4.300638, -5.3104706 ]
+								hitbox_maxs = [ 0.5, 6.160802, 5.3874054 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_leg"
+								parent_bone = "R_leg"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.8625603, -10.41712, -48.690414 ]
+								hitbox_maxs = [ 23.623505, 11.713558, 2.9752579 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_knee"
+								parent_bone = "R_knee"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.055885, -6.4651775, -43.00901 ]
+								hitbox_maxs = [ 6.637941, 13.163862, 8.607285 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_leg"
+								parent_bone = "L_leg"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.940508, -10.465958, -48.52174 ]
+								hitbox_maxs = [ 6.8725624, 9.583286, 3.0514755 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_knee"
+								parent_bone = "L_knee"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.4843993, -7.2383223, -43.314114 ]
+								hitbox_maxs = [ 7.2094254, 13.196593, 13.450077 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new1"
+								parent_bone = "bone_new1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.406181, -1.4376383, -16.839005 ]
+								hitbox_maxs = [ 16.4049, 7.7804775, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new2"
+								parent_bone = "bone_new2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.419352, -0.5, -14.408493 ]
+								hitbox_maxs = [ 18.418077, 11.115329, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new3"
+								parent_bone = "bone_new3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.083118, -0.5, -14.174286 ]
+								hitbox_maxs = [ 21.08183, 14.668226, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new4"
+								parent_bone = "bone_new4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.746872, -0.5, -12.910362 ]
+								hitbox_maxs = [ 23.74559, 18.29417, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new5"
+								parent_bone = "bone_new5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -25.078754, -0.5, -7.5718307 ]
+								hitbox_maxs = [ 25.077473, 18.641043, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new9"
+								parent_bone = "bone_new9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.8836317, -37.552635, -16.5932 ]
+								hitbox_maxs = [ 2.2431574, 10.508477, 2.241684 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new10"
+								parent_bone = "bone_new10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.850692, -46.01987, -17.061676 ]
+								hitbox_maxs = [ 2.9728422, 12.08654, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new11"
+								parent_bone = "bone_new11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -15.470694, -13.012802 ]
+								hitbox_maxs = [ 5.18493, 13.806305, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new12"
+								parent_bone = "bone_new12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -22.763607, -13.80862 ]
+								hitbox_maxs = [ 5.847544, 14.507961, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new13"
+								parent_bone = "bone_new13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -24.859163, -13.479305 ]
+								hitbox_maxs = [ 6.2760606, 15.160917, 2.6373024 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new14"
+								parent_bone = "bone_new14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -26.982021, -0.5 ]
+								hitbox_maxs = [ 6.572235, 15.786578, 8.832512 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new29"
+								parent_bone = "bone_new29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.2443895, -37.552647, -16.5932 ]
+								hitbox_maxs = [ 5.196019, 10.508469, 2.241684 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new30"
+								parent_bone = "bone_new30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.9740934, -46.01988, -17.061676 ]
+								hitbox_maxs = [ 5.8494625, 12.086529, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new31"
+								parent_bone = "bone_new31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.1861887, -20.716515, -13.012802 ]
+								hitbox_maxs = [ 1.5391908, 13.8062935, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new32"
+								parent_bone = "bone_new32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.5189185, -24.372076, -13.80862 ]
+								hitbox_maxs = [ 0.5, 15.648001, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new33"
+								parent_bone = "bone_new33"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.947693, -26.467636, -7.462799 ]
+								hitbox_maxs = [ 0.5, 16.300957, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new8"
+								parent_bone = "bone_new8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.8025894, -5.659318, -16.865646 ]
+								hitbox_maxs = [ 8.942987, 3.116269, 1.7832947 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new16"
+								parent_bone = "bone_new16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.6082153, -9.380382, -13.198471 ]
+								hitbox_maxs = [ 10.331209, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new17"
+								parent_bone = "bone_new17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.121339, -13.92771, -13.274551 ]
+								hitbox_maxs = [ 11.204274, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new18"
+								parent_bone = "bone_new18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.9969225, -18.47445, -14.995899 ]
+								hitbox_maxs = [ 11.686971, 0.5, 4.761093 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new19"
+								parent_bone = "bone_new19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.4816732, -20.639647, -12.4361725 ]
+								hitbox_maxs = [ 10.924639, 0.5, 1.7027054 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new22"
+								parent_bone = "bone_new22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.944255, -5.659318, -16.865646 ]
+								hitbox_maxs = [ 5.801324, 3.1162643, 1.7832947 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new23"
+								parent_bone = "bone_new23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.5375543, -9.380381, -13.198471 ]
+								hitbox_maxs = [ 5.6069493, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new24"
+								parent_bone = "bone_new24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.936885, -13.92771, -13.274551 ]
+								hitbox_maxs = [ 5.120055, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new25"
+								parent_bone = "bone_new25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.945804, -17.899986, -14.978386 ]
+								hitbox_maxs = [ 4.995658, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new26"
+								parent_bone = "bone_new26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.9258995, -20.639652, -12.436169 ]
+								hitbox_maxs = [ 4.948818, 0.5, 0.5 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/rasputin/kirei_1.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "kirei_1"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "dash"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 264
+						end_frame = 264
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_8"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 43
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "stand"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 60
+						end_frame = 120
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 140
+						end_frame = 185
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 205
+						end_frame = 244
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 264
+						end_frame = 280
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "dissipate"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 300
+						end_frame = 480
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_1"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 500
+						end_frame = 550
+						framerate = 50.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_2"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 570
+						end_frame = 649
+						framerate = 60.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_4"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 669
+						end_frame = 688
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_3"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 708
+						end_frame = 742
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_5"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 762
+						end_frame = 784
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_6"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 804
+						end_frame = 846
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_7"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 866
+						end_frame = 909
+						framerate = 40.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_9"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CHANNEL_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 929
+						end_frame = 970
+						framerate = 50.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_channal"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CHANNEL_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 990
+						end_frame = 990
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_slam_2"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1039
+						end_frame = 1072
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_slam_3"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1092
+						end_frame = 1125
+						framerate = 35.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_slam_4"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1145
+						end_frame = 1163
+						framerate = 35.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_slam_5"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1183
+						end_frame = 1224
+						framerate = 40.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_slam_6"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1244
+						end_frame = 1285
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_10"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1305
+						end_frame = 1345
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "new"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1395
+						end_frame = 1465
+						framerate = 90.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_throw"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1532
+						end_frame = 1582
+						framerate = 80.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "stand_hit_1"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1602
+						end_frame = 1623
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "stand_hit_2"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1643
+						end_frame = 1668
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_11"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 688
+						end_frame = 688
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_slam_7"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_8"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/rasputin/kirei_1.fbx"
+						import_bone_scales = false
+						start_frame = 1195
+						end_frame = 1195
+						framerate = 40.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					{
+						_class = "Bone"
+						name = "overhead"
+						origin = [ -3.2058144, -0.06974411, 200.96736 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						do_not_discard = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Bip01 Pelvis' to 'Bip01_Pelvis'\nChanged incompatible hitbox parent bone name 'Bip01 Spine' to 'Bip01_Spine'\nChanged incompatible hitbox parent bone name 'Bip01 Spine1' to 'Bip01_Spine1'\nChanged incompatible hitbox parent bone name 'Bip01 Neck' to 'Bip01_Neck'\nChanged incompatible hitbox parent bone name 'Bip01 L Clavicle' to 'Bip01_L_Clavicle'\nChanged incompatible hitbox parent bone name 'Bip01 R Clavicle' to 'Bip01_R_Clavicle'\nChanged incompatible hitbox parent bone name 'Bip01 L UpperArm' to 'Bip01_L_UpperArm'\nChanged incompatible hitbox parent bone name 'Bip01 R UpperArm' to 'Bip01_R_UpperArm'\nChanged incompatible hitbox parent bone name 'Bip01 L Forearm' to 'Bip01_L_Forearm'\nChanged incompatible hitbox parent bone name 'Bip01 R Forearm' to 'Bip01_R_Forearm'\nChanged incompatible hitbox parent bone name 'Bip01 L Thigh' to 'Bip01_L_Thigh'\nChanged incompatible hitbox parent bone name 'Bip01 R Thigh' to 'Bip01_R_Thigh'\nChanged incompatible hitbox parent bone name 'Bip01 Head' to 'Bip01_Head'\nChanged incompatible hitbox parent bone name 'Bip01 L Hand' to 'Bip01_L_Hand'\nChanged incompatible hitbox parent bone name 'Bip01 R Hand' to 'Bip01_R_Hand'\nChanged incompatible hitbox parent bone name 'Bip01 L Calf' to 'Bip01_L_Calf'\nChanged incompatible hitbox parent bone name 'Bip01 R Calf' to 'Bip01_R_Calf'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger0' to 'Bip01_L_Finger0'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger1' to 'Bip01_L_Finger1'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger2' to 'Bip01_L_Finger2'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger0' to 'Bip01_R_Finger0'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger1' to 'Bip01_R_Finger1'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger2' to 'Bip01_R_Finger2'\nChanged incompatible hitbox parent bone name 'Bip01 L Foot' to 'Bip01_L_Foot'\nChanged incompatible hitbox parent bone name 'Bip01 R Foot' to 'Bip01_R_Foot'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger01' to 'Bip01_L_Finger01'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger11' to 'Bip01_L_Finger11'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger21' to 'Bip01_L_Finger21'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger01' to 'Bip01_R_Finger01'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger11' to 'Bip01_R_Finger11'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger21' to 'Bip01_R_Finger21'\nChanged incompatible hitbox parent bone name 'Bip01 L Toe0' to 'Bip01_L_Toe0'\nChanged incompatible hitbox parent bone name 'Bip01 R Toe0' to 'Bip01_R_Toe0'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger02' to 'Bip01_L_Finger02'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger12' to 'Bip01_L_Finger12'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger22' to 'Bip01_L_Finger22'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger02' to 'Bip01_R_Finger02'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger12' to 'Bip01_R_Finger12'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger22' to 'Bip01_R_Finger22'\nChanged incompatible bone name 'Bip01 Spine1' to 'Bip01_Spine1'\nChanged incompatible bone name 'Bip01 Head' to 'Bip01_Head'\nChanged incompatible bone name 'Bip01 Head' to 'Bip01_Head'\nChanged incompatible bone name 'Bip01 R Hand' to 'Bip01_R_Hand'\nChanged incompatible bone name 'Bip01 L Hand' to 'Bip01_L_Hand'\n"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

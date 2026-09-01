@@ -1,0 +1,22 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/rasputin_hud.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/rasputin_hud.vjs_c" />
+	</scripts>
+
+	<!--
+		World-anchored indicators for Rasputin, one set per Rasputin on the map.
+		The panels themselves are built in script and parented to the container
+		below, which spans the screen and never takes input.
+
+		The root panel deliberately carries no id - the compiler refuses one
+		there - so the container is a child of it.
+	-->
+	<Panel class="RasputinHudRoot" hittest="false" hittestchildren="false">
+		<Panel id="RasputinHudRoot" class="RasputinHudRoot" hittest="false" hittestchildren="false">
+		</Panel>
+	</Panel>
+</root>
