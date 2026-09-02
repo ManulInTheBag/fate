@@ -63,6 +63,12 @@ BARGHEST_FX = {
     CHAINS     = "particles/barghest/barghest_e_chains.vpcf",
     LIFESTEAL  = "particles/barghest/barghest_lifesteal.vpcf",
     SHIELD_SLASH = "particles/barghest/barghest_slash_3.vpcf",
+    -- Линии скорости заряженного рывка E (раньше путь был вписан прямо в barghest_e).
+    DASH_SPEED = "particles/barghest/barghest_rush_e_speed.vpcf",
+    -- ударная волна по земле на рубящем ударе комбо
+    GROUND_SLAM  = "particles/barghest/barghest_ground_slam.vpcf",
+    -- свечение гиганта, пока держится комбо
+    GIANT_GLOW   = "particles/barghest/barghest_passive_glow.vpcf",
 }
 
 --[[ Звуки способностей. Свои, собраны из трёх папок SFX («The Middle
@@ -135,6 +141,27 @@ BARGHEST_GRUNT_LEN = {
      полсекунды после удара, читается как чужой.
      Пауза Q между ударами связки (0.8 c) длиннее её же клипа, так что каждый
      удар связки свой выкрик получает; глохнет только то, что влезло между. ]]
+--[[ Реплика Слуги. У неё и у боевых выкриков ОДИН канал: реплика поверх
+     выкрика (или поверх другой реплики) — это два голоса разом, ровно на что
+     жаловались после комбо, где подряд шли фраза, крик роста и крик удара.
+     Поэтому здесь: предыдущий звук глушим, канал занимаем на длину нового.
+     ⚠️ Занятость держим НА ЮНИТЕ: require кэширует модуль один раз на карту,
+     общая переменная затыкала бы вторую Barghest (у Мастера копия способностей). ]]
+function Barghest_Voice(hCaster, sEvent, fLength)
+    if not IsServer() then return end
+    if not Barghest_Alive(hCaster) then return end
+    if sEvent == nil then return end
+
+    -- Играющую реплику обрываем: обрезанная фраза читается лучше, чем две разом.
+    if hCaster.sBarghestVoiceEvent ~= nil then
+        hCaster:StopSound(hCaster.sBarghestVoiceEvent)
+    end
+    hCaster.sBarghestVoiceEvent = sEvent
+    hCaster.fBarghestGruntUntil = GameRules:GetGameTime() + (fLength or 2.0)
+    hCaster:EmitSound(sEvent)
+end
+
+--[[ Боевой выкрик. Пока звучит предыдущий ГОЛОС (выкрик или реплика) — молчит. ]]
 function Barghest_Grunt(hCaster, sEvent, nPool)
     if not IsServer() then return end
     if not Barghest_Alive(hCaster) then return end
@@ -147,6 +174,7 @@ function Barghest_Grunt(hCaster, sEvent, nPool)
         return
     end
     hCaster.fBarghestGruntUntil = fNow + (BARGHEST_GRUNT_LEN[nPool] or 1.0)
+    hCaster.sBarghestVoiceEvent = sEvent
     hCaster:EmitSound(sEvent)
 end
 
@@ -159,6 +187,54 @@ function Barghest_Alive(hScript)
         return not hScript:IsNull()
     end
     return true
+end
+
+--[[ Множитель радиусов, пока держится комбо (Black Dog Galatine).
+
+     Пока на Barghest висит modifier_barghest_combo_giant, она вдвое больше —
+     и зоны попадания ВСЕХ её способностей растут вместе с моделью. Число
+     лежит в KV самого комбо (`radius_mult`), чтобы его правили в одном месте.
+
+     ⚠️ Считается и в КЛИЕНТСКОЙ VM (через GetAOERadius), поэтому каждый шаг
+     под гардом: там у юнита может не оказаться ни HasModifier, ни
+     FindAbilityByName. Не смогли прочитать — возвращаем 1, то есть обычный
+     радиус: соврать в меньшую сторону безопаснее, чем упасть.
+     ⚠️ Собственная дуга комбо через это НЕ гоняется — она и так посчитана
+     под гиганта (см. шапку barghest_combo.lua). ]]
+BARGHEST_GIANT_MOD = "modifier_barghest_combo_giant"
+
+function Barghest_GiantMult(hCaster)
+    if not Barghest_Alive(hCaster) then return 1 end
+    if type(hCaster.HasModifier) ~= "function" then return 1 end
+    if not hCaster:HasModifier(BARGHEST_GIANT_MOD) then return 1 end
+    if type(hCaster.FindAbilityByName) ~= "function" then return 1 end
+    local hCombo = hCaster:FindAbilityByName("barghest_combo")
+    if not Barghest_Alive(hCombo) then return 1 end
+    -- ⚠️ Индекс уровня ЯВНЫЙ: на способности нулевого уровня GetSpecialValueFor
+    -- вернул бы 0, и множитель молча схлопнулся бы в 1 (см. barghest_combo:Value).
+    local fMult = hCombo:GetLevelSpecialValueFor("radius_mult", 0)
+    if fMult == nil or fMult <= 0 then return 1 end
+    return fMult
+end
+
+--[[ Дальность рывков с поправкой на размер: у гиганта шаг длиннее, и выпад Q,
+     рывок E и таран WR летят дальше. Множитель СВОЙ (`dash_mult`), не тот, что
+     у радиусов: удвоенный рывок улетал бы через пол-карты. ]]
+function Barghest_Dash(hCaster, nDistance)
+    if Barghest_GiantMult(hCaster) <= 1 then return nDistance end
+    if type(hCaster.FindAbilityByName) ~= "function" then return nDistance end
+    local hCombo = hCaster:FindAbilityByName("barghest_combo")
+    if not Barghest_Alive(hCombo) then return nDistance end
+    local fMult = hCombo:GetLevelSpecialValueFor("dash_mult", 0)
+    if fMult == nil or fMult <= 0 then return nDistance end
+    return nDistance * fMult
+end
+
+--[[ Радиус способности с поправкой на размер. Через неё обязан проходить
+     КАЖДЫЙ радиус попадания Q/W/E/R — иначе большая Barghest бьёт по зоне
+     маленькой, и попадание не совпадает с картинкой эффекта. ]]
+function Barghest_Radius(hCaster, nRadius)
+    return nRadius * Barghest_GiantMult(hCaster)
 end
 
 --[[ Довернуть вектор к цели не больше чем на fMaxRad. Нужен дешам: мгновенный
@@ -258,10 +334,56 @@ local function ReleaseLater(nFx, fDelay)
     end)
 end
 
+--[[ ⚠️ РАЗМЕР КЛИНКОВЫХ ПАРТИКЛЕЙ ИЗ LUA НЕ МЕНЯЕТСЯ. Каждый barghest_slash_*
+     содержит оператор `C_OP_SetControlPointPositions` с `m_nCP1 = 5` и
+     `m_vecCP1Pos = [450, 0, 150]`: партикль КАЖДЫЙ КАДР сам пишет себе CP5, а
+     кольцо берёт из него радиус (`C_INIT_RingWave.m_flInitialRadius = CP5.x *
+     0.7`). Всё, что положат в CP5 снаружи, затирается на следующем кадре —
+     поэтому `SetParticleControl(nFx, 5, ...)` здесь бесполезен (он и стоял в
+     Barghest_FxArc с самого начала, ничего не масштабируя), как и CP10, из
+     которого никто не читает угол.
+     Единственный рабочий способ — заранее собранная копия с домноженными
+     числами: BARGHEST_FX_GIANT + Barghest_FxName ниже. ]]
+
+--[[ Плоские вспышки (`barghest_small_explosion`, `barghest_slam`,
+     `barghest_ground_slam`) не читают control point ВООБЩЕ: размер зашит
+     литералами в них самих и в их детях. Масштабировать их из Lua нечем, и
+     единственный путь — заранее собранная копия на удвоенных числах.
+     Копии лежат рядом с оригиналами и прекешатся из barghest_combo.kv. ]]
+BARGHEST_FX_GIANT = {
+    [BARGHEST_FX.ARC]          = "particles/barghest/barghest_slash_1_giant.vpcf",
+    [BARGHEST_FX.ARC_FIRE]     = "particles/barghest/barghest_slash_4_giant.vpcf",
+    [BARGHEST_FX.RING]         = "particles/barghest/barghest_slash_2_giant.vpcf",
+    [BARGHEST_FX.SHIELD_SLASH] = "particles/barghest/barghest_slash_3_giant.vpcf",
+    [BARGHEST_FX.CUT]          = "particles/barghest/barghest_slash_vertical_up_giant.vpcf",
+    [BARGHEST_FX.CUT2]         = "particles/barghest/barghest_slash_vertical_giant.vpcf",
+    [BARGHEST_FX.CUTThin]      = "particles/barghest/barghest_slash_vertical_up_thin_giant.vpcf",
+    [BARGHEST_FX.BURST]        = "particles/barghest/barghest_small_explosion_giant.vpcf",
+    [BARGHEST_FX.FIRE_HIT]     = "particles/barghest/barghest_slam_giant.vpcf",
+    [BARGHEST_FX.GROUND_SLAM]  = "particles/barghest/barghest_ground_slam_giant.vpcf",
+    -- Chain Hunt: зарядка, шлейф рывка, линии скорости и стрелка прицела
+    [BARGHEST_FX.CHARGE]       = "particles/barghest/barghest_e_charge_giant.vpcf",
+    [BARGHEST_FX.DASH]         = "particles/barghest/barghest_rush_e_giant.vpcf",
+    [BARGHEST_FX.DASH_SPEED]   = "particles/barghest/barghest_rush_e_speed_giant.vpcf",
+    -- ⚠️ Цепи НЕ увеличиваем: они висят на жертве, и раздутые читались как
+    -- эффект самой жертвы. Оставлены как есть по просьбе юзера.
+    [BARGHEST_FX.AIM]          = "particles/barghest/vector_giant.vpcf",
+}
+
+--[[ Имя партикля с поправкой на размер: пока она гигант — «большая» копия,
+     если та заведена. Нет копии — вернём оригинал, эффект просто останется
+     прежнего размера. ]]
+function Barghest_FxName(sName, hCaster)
+    if Barghest_GiantMult(hCaster) > 1 then
+        return BARGHEST_FX_GIANT[sName] or sName
+    end
+    return sName
+end
+
 --[[ Размашистая дуга вокруг героя. Контрольные точки — как в arcueid_ready:
      CP5 задаёт размер, CP10.z — на сколько градусов метёт. ]]
 function Barghest_FxArc(sName, hCaster, nRadius, nAngle)
-    local nFx = ParticleManager:CreateParticle(sName, PATTACH_ABSORIGIN_FOLLOW, hCaster)
+    local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, hCaster:GetAbsOrigin())
     ParticleManager:SetParticleControl(nFx, 5, Vector(nRadius + 150, 0, 70))
     ParticleManager:SetParticleControl(nFx, 10, Vector(0, 0, nAngle))
@@ -273,7 +395,7 @@ end
 
 --[[ Прямой рез из точки в точку (выпад, удар снизу). CP2/CP3 — как у kuro. ]]
 function Barghest_FxCut(hCaster, nRadius, vPos)
-    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.CUT, PATTACH_ABSORIGIN_FOLLOW, hCaster)
+    local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUT, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
     ReleaseLater(nFx, 1.0)
@@ -281,7 +403,7 @@ function Barghest_FxCut(hCaster, nRadius, vPos)
 end
 
 function Barghest_FxCutThin(hCaster, nRadius, vPos)
-    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.CUTThin, PATTACH_ABSORIGIN_FOLLOW, hCaster)
+    local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUTThin, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
     ReleaseLater(nFx, 1.0)
@@ -289,7 +411,7 @@ function Barghest_FxCutThin(hCaster, nRadius, vPos)
 end
 
 function Barghest_FxCutUp(hCaster, nRadius, vPos)
-    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.CUT2, PATTACH_ABSORIGIN_FOLLOW, hCaster)
+    local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUT2, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
     ReleaseLater(nFx, 1.0)
@@ -297,8 +419,8 @@ function Barghest_FxCutUp(hCaster, nRadius, vPos)
 end
 
 --[[ Кольцо по земле точно по радиусу зоны. ]]
-function Barghest_FxRing(sName, vPos, nRadius)
-    local nFx = ParticleManager:CreateParticle(sName, PATTACH_WORLDORIGIN, nil)
+function Barghest_FxRing(sName, vPos, nRadius, hCaster)
+    local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hCaster), PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
     ParticleManager:ReleaseParticleIndex(nFx)
@@ -309,14 +431,15 @@ end
      живут только привязанными к юниту и на PATTACH_WORLDORIGIN не рисуются —
      именно так и «ломался» взрыв стойки. ]]
 function Barghest_FxOn(sName, hUnit, fLife)
-    local nFx = ParticleManager:CreateParticle(sName, PATTACH_ABSORIGIN_FOLLOW, hUnit)
+    local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hUnit), PATTACH_ABSORIGIN_FOLLOW, hUnit)
     ReleaseLater(nFx, fLife or 1.5)
     return nFx
 end
 
 --[[ Разовая вспышка в точке (попадание). ]]
-function Barghest_FxAt(sName, vPos)
-    local nFx = ParticleManager:CreateParticle(sName, PATTACH_WORLDORIGIN, nil)
+-- hCaster не обязателен: без него вспышка всегда обычного размера.
+function Barghest_FxAt(sName, vPos, hCaster)
+    local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hCaster), PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:ReleaseParticleIndex(nFx)
     return nFx

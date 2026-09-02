@@ -24,7 +24,7 @@ LinkLuaModifier("modifier_barghest_burn",         "abilities/barghest/barghest_r
 LinkLuaModifier("modifier_barghest_r_horn",       "abilities/barghest/barghest_r", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 function barghest_r:GetAOERadius()
-    return self:GetSpecialValueFor("radius")
+    return Barghest_Radius(self:GetCaster(), self:GetSpecialValueFor("radius"))
 end
 
 --[[ Что заряжено — числом, КЛИЕНТОБЕЗОПАСНО.
@@ -239,7 +239,7 @@ end
 -- 1 (Q1) — вторая арка, меч в огне: та же дуга, но КРАСНАЯ, шире и с огнём
 function barghest_r:DoBlazingArc(vDir)
     local hCaster = self:GetCaster()
-    local nRadius = self:GetSpecialValueFor("radius")
+    local nRadius = Barghest_Radius(hCaster, self:GetSpecialValueFor("radius"))
     local nAngle  = self:GetSpecialValueFor("arc_angle")
     local nDamage = self:GetBranchDamage()
     hCaster:EmitSound(BARGHEST_SND.R_FIRE)
@@ -265,7 +265,7 @@ function barghest_r:DoUppercut(vDir)
     local vPos    = hCaster:GetAbsOrigin()
     -- Свои радиус и сектор, а не доля от общих: подгонять зону под картинку
     -- эффекта нельзя — по узкому сектору в упор попасть почти невозможно.
-    local nRadius = self:GetSpecialValueFor("uppercut_radius")
+    local nRadius = Barghest_Radius(hCaster, self:GetSpecialValueFor("uppercut_radius"))
     local nDamage = self:GetBranchDamage()
     local fUp = self:GetSpecialValueFor("uppercut_duration")
     hCaster:EmitSound(BARGHEST_SND.R_UPPER)
@@ -309,13 +309,13 @@ end
 function barghest_r:DoBurstSlam()
     local hCaster = self:GetCaster()
     local vPos    = hCaster:GetAbsOrigin()
-    local nRadius = self:GetSpecialValueFor("slam_radius")
+    local nRadius = Barghest_Radius(hCaster, self:GetSpecialValueFor("slam_radius"))
     hCaster:EmitSound(BARGHEST_SND.R_SLAM)
 
     -- Ровно два эффекта на весь удар: вспышка на самой Barghest и огонь в
     -- точке удара. Ничего пер-таргетного тут быть не должно.
     Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
-    Barghest_FxAt(BARGHEST_FX.FIRE_HIT, vPos)
+    Barghest_FxAt(BARGHEST_FX.FIRE_HIT, vPos, hCaster)
     return self:DamageArea(vPos, nRadius, self:GetBranchDamage())
 end
 
@@ -364,7 +364,7 @@ function barghest_r:DoHoundWave(vDir)
     local vOrigin = hCaster:GetAbsOrigin()
     local nDist   = self:GetSpecialValueFor("wave_distance")
     local nSpeed  = self:GetSpecialValueFor("wave_speed")
-    local nWidth  = self:GetSpecialValueFor("wave_width")
+    local nWidth  = Barghest_Radius(hCaster, self:GetSpecialValueFor("wave_width"))
     hCaster:EmitSound(BARGHEST_SND.R_WAVE)
 
     Barghest_FxLine(hCaster, vDir, nDist, nWidth)
@@ -426,7 +426,7 @@ function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 		local enemies = FindUnitsInRadius(  hCaster:GetTeamNumber(),
 						hTarget:GetAbsOrigin(),
                         nil,
-                        self:GetSpecialValueFor("wave_hit_radius"),
+                        Barghest_Radius(hCaster, self:GetSpecialValueFor("wave_hit_radius")),
                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                         DOTA_UNIT_TARGET_ALL,
                         DOTA_UNIT_TARGET_FLAG_NONE,
@@ -568,10 +568,10 @@ function modifier_barghest_r_horn:OnCreated(tTable)
 
     self.vDir      = Vector(tTable.x, tTable.y, 0):Normalized()
     self.nSpeed    = self.hAbility:GetSpecialValueFor("horn_speed")
-    self.nDistance = self.hAbility:GetSpecialValueFor("horn_distance")
+    self.nDistance = Barghest_Dash(self.hParent, self.hAbility:GetSpecialValueFor("horn_distance"))
     self.nStun     = self.hAbility:GetSpecialValueFor("horn_stun")
     self.nDamage   = self.hAbility:GetBranchDamage()
-    self.nGrab     = self.hAbility:GetSpecialValueFor("horn_grab_radius")
+    self.nGrab     = Barghest_Radius(self.hParent, self.hAbility:GetSpecialValueFor("horn_grab_radius"))
     self.vStart    = self.hParent:GetAbsOrigin()
     self.bDone     = false
 
@@ -648,7 +648,7 @@ function modifier_barghest_r_horn:OnDestroy()
         activity = ACT_DOTA_ICE_VORTEX, rate = 1.0})
         self.hParent:AddNewModifier(self.hParent, self:GetAbility(), "modifier_merlin_self_pause", {Duration = fImpact})
         local hCaster = self.hParent
-        Barghest_FxCut(hCaster, hAbility:GetSpecialValueFor("horn_cut_radius"), hCaster:GetAbsOrigin())
+        Barghest_FxCut(hCaster, Barghest_Radius(hCaster, hAbility:GetSpecialValueFor("horn_cut_radius")), hCaster:GetAbsOrigin())
         local nGrab   = self.nGrab
         local nDamage = self.nDamage
         local nStun   = self.nStun
@@ -659,7 +659,7 @@ function modifier_barghest_r_horn:OnDestroy()
             if not Barghest_Alive(hAbility) then return end
 
             Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
-            Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hCaster:GetAbsOrigin())
+            Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hCaster:GetAbsOrigin(), hCaster)
 
             --[[ Удар рогами звучит ВСЕГДА, даже когда таран доехал в пустоту:
                  партиклы выше играют безусловно, и без звука конец разгона

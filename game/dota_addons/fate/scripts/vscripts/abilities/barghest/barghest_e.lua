@@ -25,6 +25,49 @@ LinkLuaModifier("modifier_barghest_e_charge",  "abilities/barghest/barghest_e", 
 LinkLuaModifier("modifier_barghest_e_dash",    "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_barghest_e_chains",  "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_NONE)
 
+--------------------------------------------------------------------------------
+--[[ Что разрешено нажимать, пока идёт зарядка или сам разбег.
+
+     Зарядка держится РУТОМ, а не каналом (иначе не прицелиться поворотом), и
+     рут не мешает кастовать: игрок мог в зарядке нажать любую кнопку, а во
+     время разбега — блинкануть, и рывок ломался вместе с анимацией.
+     Ни SILENCED, ни COMMAND_RESTRICTED сюда не годятся: первым мы отрежем и
+     саму кнопку «отпустить», вторым — поворот, на котором держится прицел.
+     Поэтому приказы фильтруем: пропускаем движение (им она целится) и ровно
+     две свои кнопки, всё остальное съедаем.
+     ⚠️ Предметы приходят теми же CAST-приказами — блинк отсекается здесь же. ]]
+local BARGHEST_E_CAST_ORDERS = {
+    [DOTA_UNIT_ORDER_CAST_POSITION]          = true,
+    [DOTA_UNIT_ORDER_CAST_TARGET]            = true,
+    [DOTA_UNIT_ORDER_CAST_TARGET_TREE]       = true,
+    [DOTA_UNIT_ORDER_CAST_NO_TARGET]         = true,
+    [DOTA_UNIT_ORDER_CAST_TOGGLE]            = true,
+    [DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO]       = true,
+    [DOTA_UNIT_ORDER_CAST_RUNE]              = true,
+    [DOTA_UNIT_ORDER_VECTOR_TARGET_POSITION] = true,
+}
+
+-- Кнопки самой Chain Hunt: ими зарядку и отпускают.
+local BARGHEST_E_ALLOWED = {
+    ["barghest_e"]         = true,
+    ["barghest_e_release"] = true,
+}
+
+-- Зовётся из FateGameMode:ExecuteOrderFilter. false = приказ съеден.
+function BarghestChargeOrderFilter(hUnit, hAbility, iOrder)
+    if not hUnit:HasModifier("modifier_barghest_e_charge")
+       and not hUnit:HasModifier("modifier_barghest_e_dash") then
+        return true
+    end
+    -- Не каст (движение, атака, стоп) — пропускаем: поворот в зарядке нужен.
+    if not BARGHEST_E_CAST_ORDERS[iOrder] then return true end
+    if not IsNotNull(hAbility) then return false end
+    -- В самом разбеге не даём вообще ничего: даже «отпустить» там уже нечего.
+    if hUnit:HasModifier("modifier_barghest_e_dash") then return false end
+    return BARGHEST_E_ALLOWED[hAbility:GetAbilityName()] == true
+end
+--------------------------------------------------------------------------------
+
 function barghest_e:GetAOERadius()
     return self:GetSpecialValueFor("max_distance")
 end
@@ -36,7 +79,7 @@ function barghest_e:OnSpellStart()
 
     self.fChargeStart = GameRules:GetGameTime()
     hCaster:EmitSound(BARGHEST_SND.E_CHARGE)
-    hCaster:EmitSound(BARGHEST_VO.E)	-- «Пёс… ест пса…!»
+    Barghest_Voice(hCaster, BARGHEST_VO.E, 2.5)	-- «Пёс… ест пса…!»
     StartAnimation(hCaster, {duration = fMax, activity = ACT_DOTA_CHANNEL_ABILITY_2, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_e_charge", {duration = fMax})
 
@@ -83,8 +126,9 @@ function barghest_e:LaunchDash()
     vDir.z = 0
     vDir = vDir:Normalized()
 
-    local nMin = self:GetSpecialValueFor("min_distance")
-    local nMax = self:GetSpecialValueFor("max_distance")
+    -- Дальность рывка тянется за размером: гигант делает шаг длиннее.
+    local nMin = Barghest_Dash(hCaster, self:GetSpecialValueFor("min_distance"))
+    local nMax = Barghest_Dash(hCaster, self:GetSpecialValueFor("max_distance"))
     local nDistance = nMin + (nMax - nMin) * fCharge
 
     -- Расчётное время полёта плюс dash_anim_tail: это ПОТОЛОК, обычно рывок
@@ -129,14 +173,15 @@ function modifier_barghest_e_charge:OnCreated()
     self.hAbility = self:GetAbility()
     if not IsServer() then return end
 
-    self.nFxIndex = ParticleManager:CreateParticle(BARGHEST_FX.CHARGE,
+    self.nFxIndex = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CHARGE, self.hParent),
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
 
     -- Линия прицела — только владельцу, как у emiya_caladbolg.
     local hOwner = self.hParent:GetPlayerOwner()
     if hOwner ~= nil then
-        self.nAimFx = ParticleManager:CreateParticleForPlayer(BARGHEST_FX.AIM,
+        self.nAimFx = ParticleManager:CreateParticleForPlayer(
+            Barghest_FxName(BARGHEST_FX.AIM, self.hParent),
             PATTACH_CUSTOMORIGIN, nil, hOwner)
         ParticleManager:SetParticleControl(self.nAimFx, 4, Vector(255, 60, 60))
     end
@@ -154,8 +199,9 @@ function modifier_barghest_e_charge:OnIntervalThink()
     if not Barghest_Alive(self.hParent) or not Barghest_Alive(self.hAbility) then return end
     if self.nAimFx == nil then return end
 
-    local nMin = self.hAbility:GetSpecialValueFor("min_distance")
-    local nMax = self.hAbility:GetSpecialValueFor("max_distance")
+    -- Прицел рисуем по ТОЙ ЖЕ дальности, что и полетит рывок (см. LaunchDash).
+    local nMin = Barghest_Dash(self.hParent, self.hAbility:GetSpecialValueFor("min_distance"))
+    local nMax = Barghest_Dash(self.hParent, self.hAbility:GetSpecialValueFor("max_distance"))
     local nLen = nMin + (nMax - nMin) * self.hAbility:GetChargeFraction()
     local vPos = self.hParent:GetAbsOrigin()
     ParticleManager:SetParticleControl(self.nAimFx, 0, vPos)
@@ -213,7 +259,7 @@ function modifier_barghest_e_dash:OnCreated(tTable)
     self.nDistance  = tTable.distance
     self.fCharge    = (tTable.charge or 100) / 100
     self.nSpeed     = self.hAbility:GetSpecialValueFor("speed")
-    self.nGrab      = self.hAbility:GetSpecialValueFor("grab_radius")
+    self.nGrab      = Barghest_Radius(self.hParent, self.hAbility:GetSpecialValueFor("grab_radius"))
     self.nDamage    = self.hAbility:GetSpecialValueFor("chain_damage")
     --[[ Четвёртый атрибут (Fang Unbound) добавляет к урону рывка процент
          от силы героя. ⚠️ GetStrength есть только у героев. ]]
@@ -235,11 +281,11 @@ function modifier_barghest_e_dash:OnCreated(tTable)
     -- Шлейф скорости — только у заряженного рывка (speed_fx_charge_pct): на
     -- коротком он не успевает прочитаться и только замусоривает экран.
     if self.fCharge * 100 > self.hAbility:GetSpecialValueFor("speed_fx_charge_pct") then
-        self.nFxIndexSpeed = ParticleManager:CreateParticle("particles/barghest/barghest_rush_e_speed.vpcf",
+        self.nFxIndexSpeed = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.DASH_SPEED, self.hParent),
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
         self:AddParticle(self.nFxIndexSpeed, false, false, -1, false, false)
     end
-    self.nFxIndex = ParticleManager:CreateParticle(BARGHEST_FX.DASH,
+    self.nFxIndex = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.DASH, self.hParent),
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
     
 

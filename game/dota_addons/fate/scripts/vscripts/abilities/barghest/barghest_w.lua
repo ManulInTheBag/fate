@@ -23,7 +23,7 @@ barghest_w = class({})
 LinkLuaModifier("modifier_barghest_w_stance", "abilities/barghest/barghest_w", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_cc_immune", "abilities/barghest/barghest_w", LUA_MODIFIER_MOTION_NONE)
 function barghest_w:GetAOERadius()
-    return self:GetSpecialValueFor("slam_radius")
+    return Barghest_Radius(self:GetCaster(), self:GetSpecialValueFor("slam_radius"))
 end
 
 function barghest_w:GetChannelTime()
@@ -45,7 +45,7 @@ function barghest_w:OnSpellStart()
     local hCaster = self:GetCaster()
     EndAnimation(hCaster)
     hCaster:EmitSound(BARGHEST_SND.W_CAST)
-    hCaster:EmitSound(BARGHEST_VO.W)	-- «Клянусь этим мечом…»
+    Barghest_Voice(hCaster, BARGHEST_VO.W, 3.0)	-- «Клянусь этим мечом…»
 
     self.bSlammed = false
     StartAnimation(hCaster, {duration = self:GetChannelTime(),
@@ -104,7 +104,7 @@ function barghest_w:Slam(hCaster, fAbsorbed)
          раньше, чем его было видно.
          Урон считаем ЗДЕСЬ, а не в колбэке: уровень способности к моменту
          приземления не изменится, а хэндлов в замыкании тем самым меньше. ]]
-    local nRadius = self:GetSpecialValueFor("slam_radius")
+    local nRadius = Barghest_Radius(hCaster, self:GetSpecialValueFor("slam_radius"))
     local nBonus = math.min(self:GetSpecialValueFor("slam_bonus_cap"),
         (fAbsorbed or 0) * self:GetSpecialValueFor("slam_from_absorbed") * 0.01)
     local nDamage = self:GetSpecialValueFor("slam_damage") + nBonus
@@ -137,7 +137,7 @@ function barghest_w:Slam(hCaster, fAbsorbed)
         for _, hUnit in pairs(tUnits) do
             if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
                 DoDamage(hCaster, hUnit, nDamage, nDamageType, 0, hAbility, false)
-                Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin())
+                Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin(), hCaster)
             end
         end
     end)

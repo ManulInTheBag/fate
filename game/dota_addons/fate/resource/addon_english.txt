@@ -12336,6 +12336,28 @@
 		"DOTA_Tooltip_Ability_barghest_attribute_4_Description"	"<font color='#58ACFA'>Chain Hunt</font> deals <font color='#58ACFA'>%e_str_pct%%%</font> of Barghest's <font color='#FF0000'>strength</font> as bonus damage, and its chains hold for <font color='#FF3399'>%chain_stun_min% seconds</font> at the least, however briefly the dash was charged."
 		"DOTA_Tooltip_Ability_barghest_attribute_4_e_str_pct"	"%Strength as bonus damage:"
 		"DOTA_Tooltip_Ability_barghest_attribute_4_chain_stun_min"	"Minimum chain duration:"
+		"DOTA_Tooltip_Ability_barghest_combo"	"Black Dog Galatine"
+		"DOTA_Tooltip_Ability_barghest_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>
+<font color='#58ACFA'>Combo Sequence : press D</font>
+Barghest braces for %prep_time% seconds, then <font color='#FF0000'>swells to %model_scale% times her size</font> and cleaves everything in front of her for <font color='#58ACFA'>%cleave_damage% damage</font> plus <font color='#58ACFA'>%cleave_str_pct%%%</font> of her <font color='#FF0000'>strength</font>, <font color='#FF3399'>stunning</font> them for %cleave_stun% seconds.
+She holds that shape for %giant_duration% seconds afterwards: her <font color='#FF0000'>strength is multiplied by %str_mult%</font>, she gains <font color='#A72E28'>%bonus_armor% armor</font> and <font color='#58ACFA'>%bonus_mr%%% magic resistance</font>, and the strike radius of <font color='#58ACFA'>every one of her abilities</font> is multiplied by %radius_mult%. Her dashes reach %dash_mult% times further, she moves <font color='#FFFAFA'>%bonus_ms_pct%%%</font> faster, sees <font color='#FFFAFA'>%bonus_vision%</font> further, and her body itself is as large as she looks.
+<font color='#FFFAFA'>She cannot act while preparing and striking.</font>"
+		"DOTA_Tooltip_Ability_barghest_combo_cleave_damage"	"Cleave damage:"
+		"DOTA_Tooltip_Ability_barghest_combo_cleave_str_pct"	"%Strength as bonus damage:"
+		"DOTA_Tooltip_Ability_barghest_combo_cleave_radius"	"Cleave radius:"
+		"DOTA_Tooltip_Ability_barghest_combo_cleave_stun"	"Stun duration:"
+		"DOTA_Tooltip_Ability_barghest_combo_prep_time"	"Preparation:"
+		"DOTA_Tooltip_Ability_barghest_combo_giant_duration"	"Giant duration:"
+		"DOTA_Tooltip_Ability_barghest_combo_str_mult"	"Strength multiplier:"
+		"DOTA_Tooltip_Ability_barghest_combo_radius_mult"	"Ability radius multiplier:"
+		"DOTA_Tooltip_Ability_barghest_combo_bonus_armor"	"Bonus armor:"
+		"DOTA_Tooltip_Ability_barghest_combo_bonus_mr"	"%Bonus magic resistance:"
+		"DOTA_Tooltip_Ability_barghest_combo_bonus_ms_pct"	"%Bonus movement speed:"
+		"DOTA_Tooltip_Ability_barghest_combo_dash_mult"	"Dash range multiplier:"
+		"DOTA_Tooltip_Ability_barghest_combo_bonus_vision"	"Bonus vision:"
+		"DOTA_Tooltip_Ability_barghest_combo_model_scale"	"Size multiplier:"
+		"DOTA_Tooltip_modifier_barghest_combo_giant"	"Black Dog Galatine"
+		"DOTA_Tooltip_modifier_barghest_combo_giant_Description"	"Grown far larger: bonus <font color='#A72E28'>armor</font>, bonus <font color='#58ACFA'>magic resistance</font>, multiplied <font color='#FF0000'>strength</font> (the stack count is how much was added), bonus movement speed and vision, longer dashes, and a larger strike radius on all of her abilities."
 		"DOTA_Tooltip_modifier_barghest_burn"	"Smoldering"
 		"DOTA_Tooltip_modifier_barghest_burn_Description"	"Set alight by <font color='#58ACFA'>Beast's Continuation</font>: taking <font color='#58ACFA'>damage</font> every second for each stack. Every continuation that lands adds a stack and refreshes the duration."
 		"DOTA_Tooltip_modifier_barghest_q_chain"	"Cadence"

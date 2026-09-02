@@ -41,7 +41,7 @@ LinkLuaModifier("modifier_barghest_q_lunge", "abilities/barghest/barghest_q", LU
 
 
 function barghest_q:GetAOERadius()
-    return self:GetSpecialValueFor("radius")
+    return Barghest_Radius(self:GetCaster(), self:GetSpecialValueFor("radius"))
 end
 
 --[[ Иконка В СЛОТЕ показывает, какой удар связки пойдёт следующим.
@@ -173,7 +173,7 @@ function barghest_q:SpawnHound(vDir)
     if not hCaster.BarghestAttr1Acquired then return end
 
     local nDistance = self:GetSpecialValueFor("hound_distance")
-    local nRadius   = self:GetSpecialValueFor("hound_radius")
+    local nRadius   = Barghest_Radius(hCaster, self:GetSpecialValueFor("hound_radius"))
 
     --[[ Пёс бежит НА цель со случайной стороны, а не от героя вперёд: убегая
          от камеры он закрывался самим героем и почти не читался. Точку старта
@@ -226,7 +226,7 @@ function barghest_q:SpawnHound(vDir)
         -- ⚠️ За это время её могли убить, а способность — забрать рулбрейкером.
         if not Barghest_Alive(hCaster) or not Barghest_Alive(hAbility) then return end
 
-        Barghest_FxAt(BARGHEST_FX.BURST, vBite)
+        Barghest_FxAt(BARGHEST_FX.BURST, vBite, hCaster)
         for _, hUnit in pairs(FindUnitsInRadius(hCaster:GetTeamNumber(), vBite, nil,
                 nRadius, nTeam, nTargets, nFlags, FIND_ANY_ORDER, false)) do
             if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
@@ -271,7 +271,7 @@ end
 -- Стадия 1: широкая дуга перед собой
 function barghest_q:DoArc(vDir)
     local hCaster = self:GetCaster()
-    local nRadius = self:GetSpecialValueFor("radius")
+    local nRadius = Barghest_Radius(hCaster, self:GetSpecialValueFor("radius"))
     local nAngle = self:GetSpecialValueFor("arc_angle")
     hCaster:EmitSound(BARGHEST_SND.Q_ARC)
 
@@ -287,7 +287,7 @@ end
      ограничена — курсор задаёт только направление и точку. ]]
 function barghest_q:DoLunge(vDir, vPoint)
     local hCaster = self:GetCaster()
-    local nMax = self:GetSpecialValueFor("lunge_distance")
+    local nMax = Barghest_Dash(hCaster, self:GetSpecialValueFor("lunge_distance"))
     local nMin = self:GetSpecialValueFor("lunge_min_distance")
     local nWant = (vPoint - hCaster:GetAbsOrigin()):Length2D()
     local nDist = math.max(nMin, math.min(nMax, nWant))
@@ -316,7 +316,7 @@ end
 -- Стадия 3: удар вокруг себя
 function barghest_q:DoSpin()
     local hCaster = self:GetCaster()
-    local nRadius = self:GetSpecialValueFor("spin_radius")
+    local nRadius = Barghest_Radius(hCaster, self:GetSpecialValueFor("spin_radius"))
     hCaster:EmitSound(BARGHEST_SND.Q_SPIN)
 
     --[[ ⚠️ Своей анимации здесь НЕТ: вертушку целиком отыгрывает замах из
@@ -324,7 +324,7 @@ function barghest_q:DoSpin()
          Повторный запуск того же клипа сбрасывал его в начало.
          Кольцо по земле вместо дуги: третий удар обязан читаться как «вокруг
          себя», а не как ещё одна дуга вперёд. ]]
-    Barghest_FxRing(BARGHEST_FX.RING, hCaster:GetAbsOrigin(), nRadius)
+    Barghest_FxRing(BARGHEST_FX.RING, hCaster:GetAbsOrigin(), nRadius, hCaster)
 
     local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), hCaster:GetAbsOrigin(), nil,
         nRadius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(),
@@ -395,7 +395,7 @@ function modifier_barghest_q_lunge:OnCreated(tTable)
     -- Скорость ПОСТОЯННАЯ, а не «дистанция за фиксированное время»: иначе
     -- короткий выпад полз бы, а длинный телепортировал.
     self.nSpeed      = self.hAbility:GetSpecialValueFor("lunge_speed")
-    self.nStopRadius = self.hAbility:GetSpecialValueFor("lunge_stop_radius")
+    self.nStopRadius = Barghest_Radius(self.hParent, self.hAbility:GetSpecialValueFor("lunge_stop_radius"))
     self.nNoStop     = self.hAbility:GetSpecialValueFor("lunge_no_stop_distance")
 
     self.hParent:SetForwardVector(self.vDir)
@@ -462,7 +462,7 @@ function modifier_barghest_q_lunge:OnDestroy()
     -- повтор того же движения. Снимаем только заморозку, поставленную там же.
     local hParent  = self.hParent
     local hAbility = self.hAbility
-    local nRadius  = hAbility:GetSpecialValueFor("radius")
+    local nRadius  = Barghest_Radius(hParent, hAbility:GetSpecialValueFor("radius"))
     -- Откуда стартовали: нужно, чтобы добить тех, мимо кого пролетели.
     local vFrom    = self.vStart
 
@@ -500,7 +500,7 @@ function modifier_barghest_q_lunge:OnDestroy()
                 if IsNotNull(hUnit) then tSeen[hUnit:entindex()] = true end
             end
             local tPath = FindUnitsInLine(hParent:GetTeamNumber(), vFrom, vPos, nil,
-                hAbility:GetSpecialValueFor("lunge_path_width"),
+                Barghest_Radius(hParent, hAbility:GetSpecialValueFor("lunge_path_width")),
                 hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
                 hAbility:GetAbilityTargetFlags())
             for _, hUnit in pairs(tPath) do

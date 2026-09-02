@@ -25,7 +25,9 @@
 		"Ability1"					"barghest_q"					// Q
 		"Ability2"					"barghest_w"					// W
 		"Ability3"					"barghest_e"					// E
-		//"Ability4"				""								// D — в концепте не придуман
+		// D в концепте не придуман, и слот пока занимает КОМБО — как придумаем
+		// саму D, комбо переедет отсюда в свой слот.
+		"Ability4"					"barghest_combo"				// D (временно: комбо)
 		"Ability5"					"barghest_f"					// F
 		"Ability6"					"barghest_r"					// R
 		"Ability7"					"barghest_e_release"			// скрытая: «отпустить» рывок E
@@ -33,6 +35,10 @@
 		"Ability9"					"presence_detection_passive"
 		"Ability10"					"attribute_bonus_custom"
 
+		// Что читает таблица счёта, чтобы показать готовность комбо. Сам гейт —
+		// GetComboAvailability (libraries/util.lua).
+		"Combo"						"barghest_combo"
+
 		// Атрибуты покупает Мастер. Объявлены только те, что есть в концепте;
 		// слоты 4-5 пустые — движок подставит fate_empty.
 		"AttributeNumber"			"3"

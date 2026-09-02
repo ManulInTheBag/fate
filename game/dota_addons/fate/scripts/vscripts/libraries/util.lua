@@ -739,6 +739,7 @@ CannotReset = {
     "cu_alter_roar",
 
     "barghest_f",
+    "barghest_combo",
 
     "rasputin_dodge",
 
@@ -1340,6 +1341,55 @@ function PlayBGM(player)
             elseif choice == 7 then EmitSoundOnClient(songName, player) lastChoice = 7 return 184+delayInBetween
         else EmitSoundOnClient(songName, player) lastChoice = 8 return 181+delayInBetween end
     end})
+end
+
+--[[ ОБЩИЙ МАСШТАБ МОДЕЛИ ---------------------------------------------------
+
+     Раньше каждый эффект, меняющий размер юнита, делал одно и то же: запоминал
+     GetModelScale(), ставил своё, а по окончании возвращал запомненное. Пока
+     эффект один — работает. Стоит двум пересечься (гигант Barghest и уменьшение
+     от чаепития Alice), и получается так: второй запоминает УЖЕ РАЗДУТЫЙ размер
+     и по своему окончанию возвращает его насовсем — юнит остаётся гигантом до
+     конца матча.
+
+     Поэтому масштаб теперь общий: у юнита есть база и набор именованных
+     множителей, итог всегда = база * все множители. Снятие своего множителя
+     чужие не трогает, порядок снятия неважен.
+
+     ⚠️ Любой НОВЫЙ эффект, меняющий размер юнита, обязан идти сюда, а не звать
+     SetModelScale напрямую. Прямой вызов затрёт чужой множитель. ]]
+function FateGetBaseModelScale(hUnit)
+    if not IsNotNull(hUnit) then return 1 end
+    if hUnit.fFateScaleBase ~= nil then return hUnit.fFateScaleBase end
+    return hUnit:GetModelScale()
+end
+
+--[[ Поставить (или снять, передав nil) свой множитель размера.
+     sKey — имя эффекта, по нему же он и снимается. ]]
+function FateSetModelScaleMult(hUnit, sKey, fMult)
+    if not IsServer() then return end
+    if not IsNotNull(hUnit) then return end
+
+    if hUnit.tFateScaleMods == nil then
+        hUnit.tFateScaleMods = {}
+        -- Базу снимаем в момент ПЕРВОГО множителя: до этого масштаб ничей.
+        hUnit.fFateScaleBase = hUnit:GetModelScale()
+    end
+    hUnit.tFateScaleMods[sKey] = fMult
+
+    local fScale = hUnit.fFateScaleBase or 1
+    local bAny   = false
+    for _, f in pairs(hUnit.tFateScaleMods) do
+        fScale = fScale * f
+        bAny = true
+    end
+    hUnit:SetModelScale(fScale)
+    -- Множителей не осталось — забываем базу, чтобы следующий эффект снял её заново
+    -- (модель за это время могли сменить скином или трансформацией).
+    if not bAny then
+        hUnit.tFateScaleMods = nil
+        hUnit.fFateScaleBase = nil
+    end
 end
 
 function LevelAllAbility(hero)
@@ -2729,6 +2779,7 @@ local heroCombos = {
     ["npc_dota_hero_ozy"] = "ozy_combo",
     ["npc_dota_hero_axe"] = "cu_alter_combo",
     ["npc_dota_hero_pangolier"] = "rasputin_combo",
+    ["npc_dota_hero_dragon_knight"] = "barghest_combo",
 }
 
 local slotToCombo

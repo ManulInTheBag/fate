@@ -322,6 +322,95 @@
 			"burn_interval"			"0.5"		// как часто тикает
 		}
 	}
+	//=====================================
+	// Combo — Black Dog Galatine
+	//=====================================
+	"barghest_combo"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_combo"
+		// ⚠️ Иконка временная (копия barghest_chains), своего арта ещё нет.
+		"AbilityTextureName"		"custom/barghest/barghest_combo"
+		// OVERSHOOT — курсор задаёт только направление рубящего удара, дальность
+		// каста героя за собой не тащит (так же сделаны Q и R).
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"25"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"120"
+		"AbilityManaCost"			"600"
+		// Замах отыгрывает сама способность (prep_time), поэтому движковый
+		// каст-пойнт нулевой — иначе подготовка шла бы дважды.
+		"AbilityCastPoint"			"0"
+		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
+		"precache"
+		{
+			"particle"			"particles/barghest/barghest_slash_3.vpcf"
+			"particle"			"particles/barghest/barghest_ground_slam.vpcf"
+			"particle"			"particles/barghest/barghest_passive_glow.vpcf"
+			"particle"			"particles/barghest/barghest_small_explosion.vpcf"
+			"particle"			"particles/barghest/barghest_slam.vpcf"
+			"particle"			"particles/barghest/barghest_e_charge.vpcf"
+			// «Гигантские» копии вспышек: пока держится комбо, Q/W/R/само комбо
+			// рисуют их вместо обычных (подмена — Barghest_FxName в shared).
+			// Копии собраны скриптом из оригиналов с удвоенными радиусами; их
+			// дети (barghest_slam*_giant, maou_ground_slam_*_giant) прекешатся
+			// вместе с родителем.
+			"particle"			"particles/barghest/barghest_small_explosion_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slam_giant.vpcf"
+			"particle"			"particles/barghest/barghest_ground_slam_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slash_1_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slash_2_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slash_3_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slash_4_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slash_vertical_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slash_vertical_up_giant.vpcf"
+			"particle"			"particles/barghest/barghest_slash_vertical_up_thin_giant.vpcf"
+			"particle"			"particles/barghest/barghest_e_charge_giant.vpcf"
+			"particle"			"particles/barghest/barghest_rush_e_giant.vpcf"
+			"particle"			"particles/barghest/barghest_rush_e_speed_giant.vpcf"
+			"particle"			"particles/barghest/vector_giant.vpcf"
+		}
+		"AbilityValues"
+		{
+			"prep_time"			"0.8"		// подготовка перед ростом: комбо можно увидеть и отойти
+			"cleave_delay"			"0.35"		// от роста до самого удара
+			"cleave_tail"			"0.6"		// сколько клип удара живёт после урона
+			"cleave_radius"			"700"		// ⚠️ уже посчитан под гиганта: radius_mult к нему НЕ применяется
+			"cleave_angle"			"200"		// «широкий» — сектор шире полукруга
+			"cleave_damage"			"600"
+			"cleave_str_pct"			"100"		// % от силы (уже умноженной на str_mult)
+			"cleave_stun"			"1.2"
+			// Состояние гиганта. Отсчёт идёт ПОСЛЕ удара: модификатор живёт
+			// cleave_delay + giant_duration (см. barghest_combo:Grow).
+			"giant_duration"			"10"
+			"model_scale"			"1.6"		// во столько раз растёт модель
+			// Во столько раз растут радиусы попадания ВСЕХ её способностей.
+			// Читается из barghest_shared (Barghest_Radius) — держать равным model_scale,
+			// иначе зона перестанет совпадать с картинкой.
+			"radius_mult"			"1.6"
+			// Полоска HP считается от модели: у гиганта её надо поднять руками,
+			// иначе висит на уровне пояса. = HealthBarOffset героя (220) * model_scale.
+			"healthbar_offset"			"352"
+			"bonus_armor"			"15"
+			"bonus_mr"			"30"
+			"str_mult"			"2.5"		// сила умножается на столько, снимком в момент роста
+			"bonus_ms_pct"			"25"		// % скорости передвижения: туша большая, шаг длиннее
+			// Во столько раз растёт дальность ВСЕХ её рывков: выпад Q, рывок E,
+			// таран WR. Читается через Barghest_Dash в barghest_shared.
+			"dash_mult"			"1.5"
+			"bonus_vision"			"300"		// прибавка к обзору, пока она большая
+			"base_vision"			"1000"		// запасная база обзора; = VisionDaytimeRange в hero.kv, держать равными
+			// Реальный хитбокс (SetHullRadius) — тем же множителем, что и модель,
+			// иначе визуально гигант, а протискивается как обычный юнит.
+			// Приём взят у пирамиды Озимандиаса (ozy_piramid_barrier).
+			"grow_time"			"0.8"		// за сколько раздувается; = prep_time, рост идёт ВО ВРЕМЯ подготовки
+			"shrink_time"			"0.7"		// за сколько сдувается в конце
+		}
+	}
+
 	//=====================================================================================
 	// Атрибуты. Их покупает и кастует МАСТЕР (AddMasterAbility -> LoopThroughAttr),
 	// мана списывается из пула Мастера. Каждый только поднимает флаг на герое —

@@ -1525,6 +1525,24 @@ function FateGameMode:OnPlayerChat(keys)
     local hero = ply:GetAssignedHero()
 
     -- Match the text against something
+    --[[ Диагностика Barghest: печатает в чат всю цепочку множителя размера.
+         Нужна, когда «эффекты не изменились»: сразу видно, висит ли модификатор
+         гиганта, нашлась ли способность комбо, какой у неё уровень (на нулевом
+         GetSpecialValueFor вернёт 0 и множитель молча станет 1) и какой радиус
+         в итоге отдаёт Q. ]]
+    if text == "-bfx" and hero ~= nil then
+        local combo = hero.FindAbilityByName and hero:FindAbilityByName("barghest_combo")
+        local q     = hero.FindAbilityByName and hero:FindAbilityByName("barghest_q")
+        SendChatToPanorama(string.format(
+            "[bfx] giant=%s mult=%s combo=%s lvl=%s radius_mult=%s q_aoe=%s",
+            tostring(hero:HasModifier("modifier_barghest_combo_giant")),
+            tostring(Barghest_GiantMult and Barghest_GiantMult(hero) or "нет функции"),
+            tostring(combo ~= nil),
+            combo and tostring(combo:GetLevel()) or "-",
+            combo and tostring(combo:GetSpecialValueFor("radius_mult")) or "-",
+            q and tostring(q:GetAOERadius()) or "-"))
+    end
+
     local matchA, matchB = string.match(text, "^-swap%s+(%d)%s+(%d)")
     if matchA ~= nil and matchB ~= nil then
         -- Act on the match
@@ -5009,6 +5027,14 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
         -- Battle drive: во время полёта пропускаем только белый список способностей Хиджикаты
         if type(HijikataRushOrderFilter) == "function" and hUnit:HasModifier("modifier_hijikata_rush") then
             if not HijikataRushOrderFilter(hUnit, hAbility, iOrder) then
+                return false
+            end
+        end
+
+        -- Chain Hunt: в зарядке и в разбеге Barghest пропускаем только движение
+        -- и её собственные кнопки (блинк посреди разбега ломал рывок).
+        if type(BarghestChargeOrderFilter) == "function" then
+            if not BarghestChargeOrderFilter(hUnit, hAbility, iOrder) then
                 return false
             end
         end

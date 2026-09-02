@@ -108,15 +108,20 @@ modifier_tea_party_model = class({})
 function modifier_tea_party_model:OnCreated()
 	if not IsServer() then return end
 	self.parent = self:GetParent()
-	self.oldscale = self.parent:GetModelScale()
-	self.parent:SetModelScale(0.78)
+	--[[ ⚠️ Размер меняем через общий стек масштабов (util.lua), а НЕ запоминанием
+	     GetModelScale с возвратом: поймав цель, раздутую чужим эффектом (комбо
+	     Barghest), старый способ возвращал ей ГИГАНТСКИЙ размер насовсем.
+	     0.78 — абсолютный размер уменьшенной цели, поэтому в стек уходит доля от
+	     её базы: наедине даёт те же 0.78, поверх чужого раздувания перемножается. ]]
+	local fBase = FateGetBaseModelScale(self.parent)
+	FateSetModelScaleMult(self.parent, "tea_party", (fBase > 0) and (0.78 / fBase) or 0.78)
 end
 
 
 function modifier_tea_party_model:OnDestroy()
 	if not IsServer() then return end
  
-	self.parent:SetModelScale(self.oldscale)
+	FateSetModelScaleMult(self.parent, "tea_party", nil)
 end
 
 

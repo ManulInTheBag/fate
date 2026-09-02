@@ -45,23 +45,23 @@ scripts/npc/abilities/scathach/scathach_gait_three.kv:25  MISSING  particles/cus
 scripts/npc/abilities/scathach/scathach_red_creed_combo.kv:26  MISSING  particles/custom/cu_chulainn/gae_bolg_explosion.vpcf
 scripts/npc/abilities/scathach/scathach_red_wind.kv:29  MISSING  particles/custom/scathach/abilityflash.vpcf
 scripts/npc/npc_units_custom.txt:3390  MISSING  models/shirou/shirouanim.vmdl
-scripts/npc/portraits.txt:11803  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
-scripts/npc/portraits.txt:18413  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
-scripts/npc/portraits.txt:19106  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
-scripts/npc/portraits.txt:19254  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
-scripts/npc/portraits.txt:19470  MISSING  models/creeps/nian/nian.vmdl
-scripts/npc/portraits.txt:23424  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
-scripts/npc/portraits.txt:23534  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
-scripts/npc/portraits.txt:23608  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
-scripts/npc/portraits.txt:23867  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
-scripts/npc/portraits.txt:2809  MISSING  models/nero/nero_new.vmdl
-scripts/npc/portraits.txt:4146  MISSING  models/heroes/drow/drow.vmdl
-scripts/npc/portraits.txt:4177  MISSING  models/heroes/drow/drow2.vmdl
-scripts/npc/portraits.txt:5315  MISSING  models/heroes/windrunner/windrunner2.vmdl
-scripts/npc/portraits.txt:5476  MISSING  models/heroes/lina/lina2.vmdl
-scripts/npc/portraits.txt:6255  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
-scripts/npc/portraits.txt:6339  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
-scripts/npc/portraits.txt:7574  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
+scripts/npc/portraits.txt:11834  MISSING  models/creeps/neutral_creeps/n_creep_jungle_stalker/n_creep_jungle_stalker.vmdl
+scripts/npc/portraits.txt:18444  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
+scripts/npc/portraits.txt:19137  MISSING  models/items/wards/eye_of_thunderkeg/eye_of_thunderkeg.vmdl
+scripts/npc/portraits.txt:19285  MISSING  models/items/juggernaut/ward/horse_ward/horse_ward.vmdl
+scripts/npc/portraits.txt:19501  MISSING  models/creeps/nian/nian.vmdl
+scripts/npc/portraits.txt:23455  MISSING  models/items/courier/grim_wolf_radiant/grim_wolf_flying_radiant.vmdl
+scripts/npc/portraits.txt:23565  MISSING  models/items/wards/articwatchtower/articwatchtower.vmdl
+scripts/npc/portraits.txt:23639  MISSING  models/items/wards/handy_watcher/handy_watcher.vmdl
+scripts/npc/portraits.txt:23898  MISSING  models/items/tuskarr/sigil/frostborne_sigil/frostborne_sigil.vmdl
+scripts/npc/portraits.txt:2840  MISSING  models/nero/nero_new.vmdl
+scripts/npc/portraits.txt:4177  MISSING  models/heroes/drow/drow.vmdl
+scripts/npc/portraits.txt:4208  MISSING  models/heroes/drow/drow2.vmdl
+scripts/npc/portraits.txt:5346  MISSING  models/heroes/windrunner/windrunner2.vmdl
+scripts/npc/portraits.txt:5507  MISSING  models/heroes/lina/lina2.vmdl
+scripts/npc/portraits.txt:6286  MISSING  models/heroes/queenofpain/queenofpain2.vmdl
+scripts/npc/portraits.txt:6370  MISSING  models/heroes/skeleton_king/skeleton_king.vmdl
+scripts/npc/portraits.txt:7605  MISSING  models/creeps/lane_creeps/wizard/wizard.vmdl
 scripts/npc/portraits_card.txt:1410  MISSING  models/heroes/drow/drow.vmdl
 scripts/npc/portraits_card.txt:1441  MISSING  models/heroes/drow/drow2.vmdl
 scripts/npc/portraits_card.txt:15645  MISSING  models/items/death_prophet/exorcism/ghost_mugen_aurgurs/ghost_mugen_aurgurs.vmdl
@@ -130,70 +130,7 @@ scripts/vscripts/modules/weather/weather_effects.lua:55  MISSING  particles/aren
 
 === ОШИБКИ: двойные расширения (0) ===
 
-=== ОШИБКИ: битые чилды партиклей (63) ===
-particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_a.vpcf
-particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_b.vpcf
-particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_c.vpcf
-particles/cu_chulain/gae_bolg.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_d.vpcf
-particles/cu_chulain/gae_bolg_b.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_b0.vpcf
-particles/cu_chulain/gae_bolg_c.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_c0.vpcf
-particles/cu_chulain/gae_bolg_c.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_c1.vpcf
-particles/cu_chulain/gae_bolg_throw.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_throw_a.vpcf
-particles/cu_chulain/gae_bolg_throw_a.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_throw_a0.vpcf
-particles/cu_chulain/gae_bolg_throw_a.vpcf  ->  particles/custom/cu_chulainn/gae_bolg_throw_a1.vpcf
-particles/custom/berserker/courage/stun_explosion.vpcf  ->  particles/custom/reference/shield_explosion/explosion_flash.vpcf
-particles/custom/berserker/courage/stun_explosion.vpcf  ->  particles/custom/reference/shield_explosion/explosion_light.vpcf
-particles/custom/berserker/nine_lives/matthias/matthias_ninenew.vpcf  ->  particles/custom/berserker/nine_lives/matthias/matthias_ninenewa.vpcf
-particles/custom/berserker/nine_lives/matthias/matthias_ninenewb.vpcf  ->  particles/custom/berserker/nine_lives/matthias/matthias_ninenewb3.vpcf
-particles/custom/berserker/nine_lives/matthias/matthias_ninenewb.vpcf  ->  particles/custom/berserker/nine_lives/matthias/matthias_ninenewb4.vpcf
-particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_beam_immortal1.vpcf
-particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_ember_column_immortal1.vpcf
-particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_ray_b_immortal1_immortal1.vpcf
-particles/custom/caster/hecatic_graea/ray_vertical.vpcf  ->  particles/custom/caster/hecatic_graea/ray_ray_immortal1.vpcf
-particles/custom/item/oracle_fatesedict_ring.vpcf  ->  particles/units/heroes/hero_oracle/oracle_fatesedict_ring_spiral.vpcf
-particles/custom/lancer/hearbreak/lancer_heart_break_text.vpcf  ->  particles/custom/lancer/ggggg.vpcf
-particles/custom/lancer/lancer_heart_break_text.vpcf  ->  particles/custom/lancer/ggggg.vpcf
-particles/custom/saber/excalibur/shockwave.vpcf  ->  particles/custom/saber/excalibur/shockwave_ground_marker.vpcf
-particles/custom/saber_alter/excalibur/shockwave.vpcf  ->  particles/custom/saber/excalibur/shockwave_ground_marker.vpcf
-particles/custom_game/heroes/guts/guts_indomitable_fervor_count/guts_indomitable_fervor_count_g.vpcf  ->  particles/custom_game/heroes/guts/guts_indomitable_fervor_counter/guts_indomitable_fervor_counter_g.vpcf
-particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a0.vpcf
-particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a1.vpcf
-particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a2.vpcf
-particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a.vpcf  ->  particles/custom_game/heroes/spike/spike_grenade_explosion/spike_grenade_explosion_g0a2a.vpcf
-particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_ambient_eyer.vpcf  ->  particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_ambient_eye_glow_r.vpcf
-particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_dust.vpcf
-particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_dust_swirl.vpcf
-particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_glow.vpcf
-particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_glow_trail.vpcf
-particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_launch.vpcf
-particles/emiya/kb_new.vpcf  ->  particles/heroes/anime_hero_archer/archer_kab_bakuya_trail_c.vpcf
-particles/gawain/galatine_ambient.vpcf  ->  particles/custom/gawain/galatine_ambient_a.vpcf
-particles/gawain/galatine_ambient_trail.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_a.vpcf
-particles/gawain/galatine_ambient_trail.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_b.vpcf
-particles/gawain/galatine_ambient_trail.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_c.vpcf
-particles/gawain/galatine_ambient_trail_a.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_a0.vpcf
-particles/gawain/galatine_ambient_trail_b.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_b0.vpcf
-particles/gawain/galatine_ambient_trail_c.vpcf  ->  particles/custom/gawain/galatine_ambient_trail_c0.vpcf
-particles/kinghassan/combo/combo (1).vpcf  ->  particles/kinghassan/necro_sullen_harvest_scythe_model_streaks.vpcf
-particles/kinghassan/combo/comboslash (1).vpcf  ->  particles/kinghassan/necro_sullen_harvest_scythe_model_streaks.vpcf
-particles/kinghassan/combo/necro_ti7_immortal_scythe_impact_model.vpcf  ->  particles/kinghassan/necro_sullen_harvest_scythe_model_streaks.vpcf
-particles/muramasa/hijikata_ult/hijik_init_ult.vpcf  ->  particles/hijikata/hijikata_ult/hijik_init_ult_circles.vpcf
-particles/newl.vpcf  ->  particles/units/heroes/hero_oracle/oracle_fatesedict_ring_spiral.vpcf
-particles/ozy/piramid/piramid_barrier_newb.vpcf  ->  particles/ozy/piramid/piramid_barrier_newb0.vpcf
-particles/ozy/piramid/piramid_barrier_newb.vpcf  ->  particles/ozy/piramid/piramid_barrier_newb1.vpcf
-particles/ozy/piramid/piramid_barrier_newb.vpcf  ->  particles/ozy/piramid/piramid_barrier_newb2.vpcf
-particles/thd2/heroes/marisa/marisa_01_rocket_a.vpcf  ->  particles/heroes/alice/ability_alice_dash_a1.vpcf
-particles/thd2/heroes/marisa/marisa_01_rocket_a.vpcf  ->  particles/heroes/alice/ability_alice_dash_a2.vpcf
-particles/thd2/heroes/marisa/marisa_02_stars.vpcf  ->  particles/heroes/marisa/marisa_02_stars_a.vpcf
-particles/thd2/heroes/marisa/marisa_02_stars.vpcf  ->  particles/heroes/marisa/marisa_02_stars_b.vpcf
-particles/thd2/heroes/marisa/marisa_02_stars.vpcf  ->  particles/heroes/marisa/marisa_02_stars_c.vpcf
-particles/thd2/heroes/marisa/marisa_02_stars_a.vpcf  ->  particles/heroes/marisa/marisa_02_stars_d.vpcf
-particles/thd2/heroes/marisa/marisa_04_spark.vpcf  ->  particles/heroes/marisa/marisa_04_spark_light.vpcf
-particles/thd2/heroes/marisa/marisa_04_spark_laser.vpcf  ->  particles/heroes/marisa/marisa_04_spark_laser_g.vpcf
-particles/thd2/heroes/marisa/marisa_04_spark_laser.vpcf  ->  particles/heroes/marisa/marisa_04_spark_laser_h.vpcf
-particles/thd2/heroes/marisa/marisa_04_spark_laser.vpcf  ->  particles/heroes/marisa/marisa_04_spark_laser_i.vpcf
-particles/units/heroes/hero_monkey_king/monkey_king_jump_trail_old.vpcf  ->  particles/units/heroes/hero_monkey_king/monkey_king_jump_trail_a.vpcf
-particles/zlodemon/yujiro/yujiro_slamf.vpcf  ->  particles/zlodemon/yujiro/yujiro_slamf0.vpcf
+=== ОШИБКИ: битые чилды партиклей [пропущено --fast] (0) ===
 
 === ПРЕДУПРЕЖДЕНИЯ: регистр путей (603) ===
 ../../../content/dota_addons/fate/soundevents/ally_sounds.vsndevts  CASE  ссылка 'sounds/ally_sound/CuChulain_Ally_Emiya.vsnd' vs файл 'sounds/ally_sound/cuchulain_ally_emiya.vsnd_c'

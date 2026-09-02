@@ -67,6 +67,6 @@ function modifier_barghest_f:OnTakeDamage(keys)
     Timers:CreateTimer(0, function()
         if not Barghest_Alive(hParent) or not hParent:IsAlive() then return end
         hParent:Heal(nHeal, hAbility)
-        Barghest_FxAt(BARGHEST_FX.LIFESTEAL, hParent:GetAbsOrigin())
+        Barghest_FxAt(BARGHEST_FX.LIFESTEAL, hParent:GetAbsOrigin(), hParent)
     end)
 end
