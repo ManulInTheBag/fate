@@ -24,6 +24,7 @@ barghest_e = class({})
 LinkLuaModifier("modifier_barghest_e_charge",  "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_e_dash",    "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_barghest_e_chains",  "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_barghest_e_stun",    "abilities/barghest/barghest_e", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 --[[ Что разрешено нажимать, пока идёт зарядка или сам разбег.
@@ -52,6 +53,38 @@ local BARGHEST_E_ALLOWED = {
     ["barghest_e"]         = true,
     ["barghest_e_release"] = true,
 }
+
+--[[ Блокировка чужих кнопок состояниями движка.
+
+     ⚠️ Одного фильтра приказов оказалось мало (в игре сквозь него всё равно
+     жались способности и предметы), поэтому основной запрет теперь тут, а
+     фильтр ниже остаётся второй линией.
+
+     MUTED режет ТОЛЬКО предметы, способности им не закрыть. SILENCED закрыл бы
+     и нашу же кнопку «отпустить», поэтому в ЗАРЯДКЕ способности гасим поимённо
+     через SetActivated(false), запомнив, что было включено; в РАЗБЕГЕ отпускать
+     уже нечего, там хватает обычного SILENCED. ]]
+local function BarghestLockAbilities(hUnit, tSaved)
+    if not IsServer() then return end
+    for i = 0, hUnit:GetAbilityCount() - 1 do
+        local hAb = hUnit:GetAbilityByIndex(i)
+        if hAb ~= nil and not hAb:IsNull()
+           and not BARGHEST_E_ALLOWED[hAb:GetAbilityName()]
+           and hAb:IsActivated() then
+            table.insert(tSaved, hAb)
+            hAb:SetActivated(false)
+        end
+    end
+end
+
+--[[ ⚠️ Возвращаем ровно те способности, что гасили сами: слепой SetActivated(true)
+     по всему списку включил бы и то, что выключено чужой механикой. ]]
+local function BarghestUnlockAbilities(tSaved)
+    if not IsServer() then return end
+    for _, hAb in pairs(tSaved or {}) do
+        if IsNotNull(hAb) then hAb:SetActivated(true) end
+    end
+end
 
 -- Зовётся из FateGameMode:ExecuteOrderFilter. false = приказ съеден.
 function BarghestChargeOrderFilter(hUnit, hAbility, iOrder)
@@ -165,6 +198,8 @@ function modifier_barghest_e_charge:CheckState()
     return {
         [MODIFIER_STATE_ROOTED]   = true,
         [MODIFIER_STATE_DISARMED] = true,
+        -- предметы (блинк в первую очередь) закрываются именно этим
+        [MODIFIER_STATE_MUTED]    = true,
     }
 end
 
@@ -172,6 +207,15 @@ function modifier_barghest_e_charge:OnCreated()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
     if not IsServer() then return end
+
+    --[[ Чужие кнопки гасим на всю зарядку, свои две оставляем.
+         ⚠️ Только если ещё не гасили: OnRefresh зовёт этот же OnCreated, а на
+         повторном заходе все они уже выключены — список вышел бы пустым, и
+         возвращать в OnDestroy стало бы нечего (кнопки остались бы мёртвыми). ]]
+    if self.tLocked == nil then
+        self.tLocked = {}
+        BarghestLockAbilities(self.hParent, self.tLocked)
+    end
 
     self.nFxIndex = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CHARGE, self.hParent),
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
@@ -214,6 +258,9 @@ end
      ⚠️ Через таймер: OnDestroy может отработать внутри чужого пайплайна. ]]
 function modifier_barghest_e_charge:OnDestroy()
     if not IsServer() then return end
+    BarghestUnlockAbilities(self.tLocked)
+    self.tLocked = nil
+
 
     -- ⚠️ Стрелку прицела чистим РУКАМИ: она сделана CreateParticleForPlayer и в
     -- self:AddParticle не попадает, поэтому сама не удалялась и висела на
@@ -247,6 +294,9 @@ function modifier_barghest_e_dash:CheckState()
     return {
         [MODIFIER_STATE_ROOTED]   = true,
         [MODIFIER_STATE_DISARMED] = true,
+        -- в разбеге отпускать уже нечего: закрываем и способности, и предметы
+        [MODIFIER_STATE_SILENCED] = true,
+        [MODIFIER_STATE_MUTED]    = true,
     }
 end
 
@@ -392,28 +442,66 @@ function modifier_barghest_e_dash:OnDestroy()
         if not hHit:IsAlive() then return end
 
         --[[ Дольше держали заряд — дольше держат цепи. Пол в chain_min_pct:
-             без него рывок «в упор» давал стан в сотые доли секунды, то есть
+             без него рывок «в упор» давал цепи в сотые доли секунды, то есть
              ничего. ]]
         local fMin = hAbility:GetSpecialValueFor("chain_min_pct") * 0.01
         local fDur = hAbility:GetSpecialValueFor("chain_duration")
                      * (fMin + (1 - fMin) * fCharge)
-        --[[ Четвёртый атрибут поднимает ПОЛ длительности: рывок без зарядки
-             давал стан в половину базовой, то есть почти ничего. Именно пол,
-             а не фикс: иначе на высоких уровнях атрибут резал бы длительность
-             полного заряда. ]]
-        if hCaster.BarghestAttr4Acquired then
-            fDur = math.max(fDur, hAbility:GetSpecialValueFor("chain_stun_min"))
-        end
         hHit:AddNewModifier(hCaster, hAbility, "modifier_barghest_e_chains",
             {duration = fDur})
+
+        --[[ СТАН — отдельная и всегда одинаковая величина: stun_duration, на
+             всех уровнях и при любом заряде. Он НЕ часть цепей: цепи держат
+             рутом и жгут ровно столько, сколько накопил заряд, а хард-контроль
+             от их длительности не зависит.
+             ⚠️ Раньше стан был встроен в цепи (их CheckState) и тянулся за
+             зарядом — на пятом уровне выходило до 2 с. Числа врозь и держать. ]]
+        hHit:AddNewModifier(hCaster, hAbility, "modifier_barghest_e_stun",
+            {duration = hAbility:GetSpecialValueFor("stun_duration")})
+
+        --[[ Четвёртый атрибут открывает рекаст-укус, и ровно на время СТАНА:
+             арм подменяет кнопку E, разарм стоит в OnDestroy стана. ]]
+        Barghest_BiteArm(hCaster, hHit, hAbility)
         Barghest_ArmOnHit(hCaster, true, BARGHEST_CONT_E)
     end)
 end
 
 ---------------------------------------------------------------------------------------------------
--- Цепи: оглушают на месте и постепенно жгут
+-- Стан от рывка. Отдельный модификатор, а не часть цепей: он ВСЕГДА длится
+-- stun_duration — на всех уровнях E и при любом заряде. На нём же висит окно
+-- рекаста-укуса (barghest_e_bite), поэтому окно не может пережить стан.
+---------------------------------------------------------------------------------------------------
+modifier_barghest_e_stun = class({})
+
+function modifier_barghest_e_stun:IsHidden()      return false end
+function modifier_barghest_e_stun:IsDebuff()      return true end
+function modifier_barghest_e_stun:IsPurgable()    return true end
+function modifier_barghest_e_stun:RemoveOnDeath() return true end
+
+function modifier_barghest_e_stun:CheckState()
+    return {[MODIFIER_STATE_STUNNED] = true}
+end
+
+function modifier_barghest_e_stun:GetEffectName()
+    return "particles/generic_gameplay/generic_stunned.vpcf"
+end
+
+function modifier_barghest_e_stun:GetEffectAttachType()
+    return PATTACH_OVERHEAD_FOLLOW
+end
+
+--[[ Стан кончился — закрылось и окно укуса. Сюда приходят все случаи разом:
+     истёк, сняли диспелом, жертва умерла. ]]
+function modifier_barghest_e_stun:OnDestroy()
+    if not IsServer() then return end
+    Barghest_BiteDisarm(self:GetCaster(), self:GetParent())
+end
+
+---------------------------------------------------------------------------------------------------
+-- Цепи: держат на месте рутом и постепенно жгут. Хард-контроля тут НЕТ —
+-- он живёт отдельно, в modifier_barghest_e_stun.
 -- ⚠️ Никакого GetOverrideAnimation: анимации на ЧУЖОМ юните в аддоне не
--- проигрываем никогда. Стан и так показывает состояние.
+-- проигрываем никогда.
 ---------------------------------------------------------------------------------------------------
 modifier_barghest_e_chains = class({})
 
@@ -426,11 +514,12 @@ function modifier_barghest_e_chains:GetTexture()
     return "custom/barghest/barghest_chains"
 end
 
--- Столкновение приколачивает цель к земле: не рут, а полноценный стан.
+--[[ Цепи приколачивают цель к земле рутом. Стан из них УБРАН: он отдельный
+     модификатор фиксированной длины (modifier_barghest_e_stun), иначе
+     хард-контроль тянулся бы за длительностью цепей. ]]
 function modifier_barghest_e_chains:CheckState()
     return {
-        [MODIFIER_STATE_STUNNED] = true,
-        [MODIFIER_STATE_ROOTED]  = true,
+        [MODIFIER_STATE_ROOTED] = true,
     }
 end
 

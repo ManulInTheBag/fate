@@ -121,6 +121,16 @@ strongdispellable = {
     "modifier_barghest_w_stance",
     "modifier_barghest_frenzy",
     "modifier_barghest_e_chains",
+    "modifier_barghest_e_stun",
+    -- краденые укусом эффекты (barghest_e_bite): по одному на класс Слуги
+    "modifier_barghest_bite_saber",
+    "modifier_barghest_bite_archer",
+    "modifier_barghest_bite_lancer",
+    "modifier_barghest_bite_rider",
+    "modifier_barghest_bite_assassin",
+    "modifier_barghest_bite_caster",
+    "modifier_barghest_bite_berserker",
+    "modifier_barghest_bite_extra",
 }
 
 deargdispellable = {
@@ -205,6 +215,16 @@ deargdispellable = {
     "modifier_barghest_w_stance",
     "modifier_barghest_frenzy",
     "modifier_barghest_e_chains",
+    "modifier_barghest_e_stun",
+    -- краденые укусом эффекты (barghest_e_bite): по одному на класс Слуги
+    "modifier_barghest_bite_saber",
+    "modifier_barghest_bite_archer",
+    "modifier_barghest_bite_lancer",
+    "modifier_barghest_bite_rider",
+    "modifier_barghest_bite_assassin",
+    "modifier_barghest_bite_caster",
+    "modifier_barghest_bite_berserker",
+    "modifier_barghest_bite_extra",
 }
 
 revokes = {
@@ -740,8 +760,10 @@ CannotReset = {
 
     "barghest_f",
     "barghest_combo",
+    "barghest_e_bite",
 
     "rasputin_dodge",
+    "rasputin_dodge_break",
 
 }
 
@@ -1698,6 +1720,14 @@ function IsSpellBlocked(target, caster)
         EmitSoundWithCooldown("lancelot_eternal_prock", target, 1)
         target:FindModifierByName("modifier_eam_crit_active"):OnLinkenProcked()
         return false
+    elseif target:HasModifier("modifier_barghest_bite_lancer") then
+        -- Краденое чутьё Лансера (barghest_e_bite): съедает одно заклинание и
+        -- откатывается сам, поэтому модификатор НЕ снимаем — он решает сам.
+        local hBiteLinken = target:FindModifierByName("modifier_barghest_bite_lancer")
+        if IsNotNull(hBiteLinken) and hBiteLinken:BlockSpellCheck() then
+            EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+            return true
+        end
     elseif target:HasModifier("modifier_saito_style_active") then
         local hLinkModifier = target:FindModifierByName("modifier_saito_style_active")
         if IsNotNull(hLinkModifier) and hLinkModifier:BlockSpellCheck() then
@@ -1766,6 +1796,9 @@ function IsImmuneToSlow(target)
     if (target:HasModifier("modifier_heracles_berserk") or target:HasModifier("modifier_heracles_berserk_matthias"))and target:HasModifier("modifier_mad_enhancement_attribute") then
         return true 
     elseif target:HasModifier("modifier_forward") then
+        return true
+    -- краденая у Райдера прыть (barghest_e_bite): слоу на неё не вешается
+    elseif target:HasModifier("modifier_barghest_bite_rider") then
         return true
     else
         return false
@@ -2724,6 +2757,91 @@ end
 
 function FindName(name)
     return heroNames[name] or "Undefined"
+end
+
+--[[ Класс Слуги (Saber/Archer/…).
+
+     ⚠️ В самом аддоне класса не было НИГДЕ — ни в KV, ни здесь (tKnightClass и
+     tHorsemanClass — это про механику Karna, а не про класс). Единственным
+     источником правды была админ-панель (HERO_CLASS в app.py + оверрайды
+     hero_classes.json), оттуда эта таблица и переписана; правя класс там,
+     поправить и здесь.
+
+     Ключ — имя ЮНИТА, то есть базовый герой Доты: новые Слуги переопределяют
+     стандартных (override_hero), и движок отдаёт именно его имя — ровно как в
+     heroNames выше.
+
+     Ruler / Avenger / Moon Cancer / Alter Ego пишем как есть; всё, что не
+     разбирает конкретная механика, у неё же и падает в EXTRA. ]]
+local servantClasses = {
+    ["npc_dota_hero_legion_commander"] = "Saber",       -- Arturia Pendragon
+    ["npc_dota_hero_spectre"]          = "Saber",       -- Arturia Alter
+    ["npc_dota_hero_abaddon"]          = "Saber",       -- Mordred
+    ["npc_dota_hero_omniknight"]       = "Saber",       -- Gawain
+    ["npc_dota_hero_lina"]             = "Saber",       -- Nero Claudius
+    ["npc_dota_hero_magnataur"]        = "Saber",       -- Muramasa
+    ["npc_dota_hero_dark_willow"]      = "Saber",       -- Okita Souji
+    ["npc_dota_hero_faceless_void"]    = "Saber",       -- Altera
+    ["npc_dota_hero_terrorblade"]      = "Saber",       -- Saitō Hajime
+    ["npc_dota_hero_dragon_knight"]    = "Saber",       -- Barghest
+    ["npc_dota_hero_ember_spirit"]     = "Archer",      -- EMIYA
+    ["npc_dota_hero_drow_ranger"]      = "Archer",      -- Atalanta
+    ["npc_dota_hero_skywrath_mage"]    = "Archer",      -- Gilgamesh
+    ["npc_dota_hero_clinkz"]           = "Archer",      -- Arash
+    ["npc_dota_hero_sniper"]           = "Archer",      -- Robin Hood
+    ["npc_dota_hero_gyrocopter"]       = "Archer",      -- Oda Nobunaga
+    ["npc_dota_hero_phantom_lancer"]   = "Lancer",      -- Cu Chulainn
+    ["npc_dota_hero_huskar"]           = "Lancer",      -- Diarmuid
+    ["npc_dota_hero_beastmaster"]      = "Lancer",      -- Karna
+    ["npc_dota_hero_venomancer"]       = "Lancer",      -- Leonidas I
+    ["npc_dota_hero_monkey_king"]      = "Lancer",      -- Scathach
+    ["npc_dota_hero_tidehunter"]       = "Lancer",      -- Vlad III
+    ["npc_dota_hero_queenofpain"]      = "Rider",       -- Astolfo
+    ["npc_dota_hero_chen"]             = "Rider",       -- Iskandar
+    ["npc_dota_hero_templar_assassin"] = "Rider",       -- Medusa
+    ["npc_dota_hero_phoenix"]          = "Rider",       -- Ozymandias
+    ["npc_dota_hero_ogre_magi"]        = "Caster",      -- Aozaki Aoko
+    ["npc_dota_hero_shadow_shaman"]    = "Caster",      -- Gilles de Rais
+    ["npc_dota_hero_crystal_maiden"]   = "Caster",      -- Medea
+    ["npc_dota_hero_puck"]             = "Caster",      -- Merlin
+    ["npc_dota_hero_windrunner"]       = "Caster",      -- Nursery Rhyme
+    ["npc_dota_hero_enchantress"]      = "Caster",      -- Tamamo no Mae
+    ["npc_dota_hero_bounty_hunter"]    = "Assassin",    -- Hassan-i-Sabbah
+    ["npc_dota_hero_riki"]             = "Assassin",    -- Jack the Ripper
+    ["npc_dota_hero_skeleton_king"]    = "Assassin",    -- King Hassan
+    ["npc_dota_hero_bloodseeker"]      = "Assassin",    -- Li Shuwen
+    ["npc_dota_hero_night_stalker"]    = "Assassin",    -- Shiki Nanaya
+    ["npc_dota_hero_troll_warlord"]    = "Assassin",    -- Okada Izo
+    ["npc_dota_hero_juggernaut"]       = "Assassin",    -- Sasaki Kojiro
+    ["npc_dota_hero_phantom_assassin"] = "Assassin",    -- Shiki Ryougi
+    ["npc_dota_hero_ursa"]             = "Berserker",   -- Atalanta Alter
+    ["npc_dota_hero_axe"]              = "Berserker",   -- Cú Chulainn Alter
+    ["npc_dota_hero_doom_bringer"]     = "Berserker",   -- Heracles
+    ["npc_dota_hero_spirit_breaker"]   = "Berserker",   -- Hijikata Toshizo
+    ["npc_dota_hero_sven"]             = "Berserker",   -- Lancelot
+    ["npc_dota_hero_centaur"]          = "Berserker",   -- Lu Bu
+    ["npc_dota_hero_mirana"]           = "Ruler",       -- Jeanne d'Arc
+    ["npc_dota_hero_vengefulspirit"]   = "Avenger",     -- Angra Mainyu
+    ["npc_dota_hero_nevermore"]        = "Avenger",     -- Demon King Nobunaga
+    ["npc_dota_hero_treant"]           = "Avenger",     -- Edmond Dantes
+    ["npc_dota_hero_razor"]            = "Avenger",     -- Jeanne d'Arc Alter
+    ["npc_dota_hero_tiny"]             = "Moon Cancer", -- Arcueid
+    ["npc_dota_hero_pangolier"]        = "Alter Ego",   -- Rasputin
+}
+
+--[[ Класс Слуги по юниту. Не Слуга (крип, дамми, чужой герой) — "EXTRA":
+     механикам, которые по классу что-то раздают, нужен рабочий запасной вариант,
+     а не nil. ]]
+FATE_CLASS_EXTRA = "EXTRA"
+
+function GetServantClass(hUnit)
+    if not IsNotNull(hUnit) then return FATE_CLASS_EXTRA end
+    local sName = nil
+    if type(hUnit.GetUnitName) == "function" then sName = hUnit:GetUnitName() end
+    if servantClasses[sName] == nil and type(hUnit.GetName) == "function" then
+        sName = hUnit:GetName()
+    end
+    return servantClasses[sName] or FATE_CLASS_EXTRA
 end
 
 local heroCombos = {

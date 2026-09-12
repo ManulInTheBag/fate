@@ -497,19 +497,6 @@ function rasputin_low_kick:LowKick2()
     )
 
 
-    caster:AddNewModifier(
-        caster,
-        self,
-        "modifier_rasputin_low_kick_lunge",
-        {
-            duration = self:GetSpecialValueFor("micro_dash_duration") + 0.25,
-            direction_x = direction.x,
-            direction_y = direction.y,
-            distance = self:GetSpecialValueFor("micro_dash_distance"),
-            speed = self:GetSpecialValueFor("micro_dash_distance") / self:GetSpecialValueFor("micro_dash_duration")
-        }
-    )
-
     local hitEnemies = {}
 
     local function CheckHits()
@@ -555,7 +542,7 @@ function rasputin_low_kick:LowKick2()
                     "modifier_knockback",
                     {
 
-                        should_stun = 1,
+                        should_stun = 0,
 
                         knockback_duration =
                         self:GetSpecialValueFor(
@@ -598,14 +585,19 @@ function rasputin_low_kick:LowKick2()
                 )
 
 
-                enemy:AddNewModifier(
+                -- вместо стана: рут и димлок на ту же длительность, что и отбрасывание
+                giveUnitDataDrivenModifier(
                     caster,
-                    self,
-                    "modifier_stunned",
-                    {
-                        duration =
-                        self:GetSpecialValueFor("knockback_duration")
-                    }
+                    enemy,
+                    "rooted",
+                    self:GetSpecialValueFor("knockback_duration")
+                )
+
+                giveUnitDataDrivenModifier(
+                    caster,
+                    enemy,
+                    "locked",
+                    self:GetSpecialValueFor("knockback_duration")
                 )
 
             end
@@ -870,19 +862,6 @@ function rasputin_low_kick:DashImpact(direction, refundToken)
             0,
             self,
             false
-        )
-
-
-        enemy:AddNewModifier(
-            caster,
-            self,
-            "modifier_stunned",
-            {
-                Duration =
-                self:GetSpecialValueFor(
-                    "stun_duration"
-                )
-            }
         )
 
 

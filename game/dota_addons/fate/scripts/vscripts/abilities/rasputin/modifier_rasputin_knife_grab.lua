@@ -310,11 +310,8 @@ function modifier_rasputin_knife_grab:DealSlamDamage()
     if not IsNotNull(victim) or not IsNotNull(ability) then return end
 
 
-    local missing = (100 - victim:GetHealthPercent()) / 100
-
     local damage =
     RasputinScaleDamage(caster, ability, ability:GetSpecialValueFor("damage2"))
-    * (1 + missing)
     * ability:GetSpecialValueFor("grab_damage_multiplier")
 
     local impact = victim:GetAbsOrigin()

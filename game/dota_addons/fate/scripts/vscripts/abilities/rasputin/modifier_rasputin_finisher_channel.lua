@@ -188,6 +188,12 @@ function modifier_rasputin_finisher_channel:OnIntervalThink()
     end
 
 
+    -- разлетевшуюся группу отсеиваем перед ударом: по отставшим ни прыжка, ни урона
+    if ability.PruneFarTargets then
+        ability:PruneFarTargets()
+    end
+
+
     local bAnyHit = false
 
     local alive = 0

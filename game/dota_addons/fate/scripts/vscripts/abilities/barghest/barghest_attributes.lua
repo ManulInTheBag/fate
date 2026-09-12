@@ -15,8 +15,9 @@ require("abilities/barghest/barghest_shared")
        3  Galatine's Ember  -> дот горения с веток R, прибавка ко ВСЕМ веткам
                                от силы героя, и ветки R заряжаются даже с
                                промаха (РАБОТАЕТ)
-       4  Fang Unbound      -> рывок E скейлится от силы, стан цепей не короче
-                               chain_stun_min (РАБОТАЕТ, будет дописан)
+       4  Fang Unbound      -> рывок E скейлится от силы, и пока цель в СТАНЕ
+                               от рывка кнопка E подменяется на рекаст-укус
+                               barghest_e_bite (РАБОТАЕТ)
 
      ⚠️ Флаг живёт на ГЕРОЕ, а не на способности: способность у мастера, а
      читать её будут скиллы Слуги. Имена флагов менять нельзя, не поправив
@@ -67,8 +68,13 @@ function barghest_attribute_3:OnSpellStart()
     Acquire(self, "BarghestAttr3Acquired")
 end
 
--- 4 — рывок E: урон от силы и пол длительности цепей. Читается в barghest_e.
--- TODO: сюда допишем остальные эффекты, когда договорим состав атрибута.
+--[[ 4 — рывок E: урон от силы и рекаст-укус (barghest_e_bite). Первое читает
+     barghest_e, укус — Barghest_BiteArm из barghest_shared: пока цель в стане
+     от рывка (modifier_barghest_e_stun), кнопка E подменяется на укус.
+     ⚠️ Длительностью стана атрибут больше НЕ управляет: стан всегда
+     stun_duration, на всех уровнях.
+     ⚠️ Уровень скрытой кнопке ставить не надо: её поднимает LevelAllAbility на
+     спавне, а арм тянет уровень за E. ]]
 function barghest_attribute_4:OnSpellStart()
     Acquire(self, "BarghestAttr4Acquired")
 end

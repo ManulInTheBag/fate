@@ -8,7 +8,6 @@ LinkLuaModifier("modifier_rasputin_combo_field", "abilities/rasputin/rasputin_co
 LinkLuaModifier("modifier_rasputin_combo_haul", "abilities/rasputin/rasputin_combo", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_rasputin_combo_cd", "abilities/rasputin/rasputin_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_curse", "abilities/rasputin/modifier_rasputin_curse", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_rasputin_curse_revoke", "abilities/rasputin/modifier_rasputin_curse", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_reborn", "abilities/rasputin/rasputin_bk", LUA_MODIFIER_MOTION_NONE)
 
 

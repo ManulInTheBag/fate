@@ -666,10 +666,11 @@ function modifier_rasputin_wide_kick_knockback:ApplyWallStun(unit)
 
     self:GrantStackOnce()
 
+    -- урон об стену растёт от уровня героя так же, как основной удар
     DoDamage(
         self.caster,
         unit,
-        ability:GetSpecialValueFor("wallstun_damage"),
+        RasputinScaleDamage(self.caster, ability, ability:GetSpecialValueFor("wallstun_damage")),
         DAMAGE_TYPE_PHYSICAL,
         0,
         ability,
@@ -728,18 +729,9 @@ function modifier_rasputin_wide_kick_knockback:CheckBystanders(unit)
 
             RasputinGrantStack(self.caster, self.ability, enemy, "rasputin_wide_kick:" .. tostring(self.castId))
 
-            local bonusPercent =
-            ability:GetSpecialValueFor("chain_max_hp_damage_percent")
-
-
+            -- подхваченный получает столько же, сколько прилетает от удара о стену
             local damage =
-            RasputinScaleDamage(
-                self.caster,
-                ability,
-                ability:GetSpecialValueFor("damage")
-            )
-            +
-            enemy:GetMaxHealth() * (bonusPercent / 100)
+            RasputinScaleDamage(self.caster, ability, ability:GetSpecialValueFor("wallstun_damage"))
 
             ApplyDamage({
                 victim = enemy,

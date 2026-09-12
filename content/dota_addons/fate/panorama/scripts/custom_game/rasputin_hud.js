@@ -185,9 +185,10 @@ function RasputinHud() {
 }
 
 
-RasputinHud.prototype.Build = function (entity) {
+RasputinHud.prototype.Build = function (entity, foreign) {
 	var panel = $.CreatePanel('Panel', this.root, 'RasputinUnit' + entity);
 	panel.AddClass('RasputinUnitPanel');
+	panel.SetHasClass('Foreign', !!foreign);
 
 
 	var curse = $.CreatePanel('Panel', panel, '');
@@ -229,6 +230,7 @@ RasputinHud.prototype.Build = function (entity) {
 
 	var built = {
 		panel: panel,
+		foreign: !!foreign,
 		curse: curse,
 		curseFill: curseFill,
 		stacks: stacks,
@@ -241,6 +243,13 @@ RasputinHud.prototype.Build = function (entity) {
 		lastChargesShown: null,
 		lastWideLevel: null,
 	};
+
+	// чужому Распутину рисуем только полоску Reborn: стаки и заряды - его личное
+	if (foreign) {
+		stacks.visible = false;
+		charges.visible = false;
+		built.lastChargesShown = false;
+	}
 
 	this.panels[entity] = built;
 
@@ -299,7 +308,7 @@ RasputinHud.prototype.UpdateChargesOffset = function (built, level) {
 RasputinHud.prototype.UpdateCurse = function (built, entity) {
 
 	var reborn = FindModifierTime(entity, REBORN_MODIFIER);
-	var curses = FindModifierStacks(entity, CURSE_MODIFIER);
+	var curses = built.foreign ? null : FindModifierStacks(entity, CURSE_MODIFIER);
 
 
 	var shown = curses !== null || reborn !== null;
@@ -355,9 +364,35 @@ RasputinHud.prototype.IsRasputin = function (entity) {
 };
 
 
+// Чужой Распутин: полоску Reborn видят все, но врагам - только пока он
+// в их видимости (флаг seen кладёт сервер в modifier_rasputin_reborn:PublishSeen,
+// иначе панель повиснет на последней известной точке в тумане)
+RasputinHud.prototype.ForeignRebornShown = function (entity, localTeam) {
+
+	if (FindModifierTime(entity, REBORN_MODIFIER) === null) {
+		return false;
+	}
+
+	var team = Entities.GetTeamNumber(entity);
+
+	if (team === localTeam || (localTeam !== DOTATeam_t.DOTA_TEAM_GOODGUYS
+		&& localTeam !== DOTATeam_t.DOTA_TEAM_BADGUYS)) {
+		return true;
+	}
+
+	var sync = CustomNetTables.GetTableValue('sync', 'rasputin_reborn_' + entity);
+
+	return !!(sync && sync.seen === 1);
+};
+
+
 RasputinHud.prototype.Refresh = function () {
 
-	var localHero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
+	var localPlayer = Players.GetLocalPlayer();
+
+	var localHero = Players.GetPlayerHeroEntityIndex(localPlayer);
+
+	var localTeam = Players.GetTeam(localPlayer);
 
 	var players = Game.GetAllPlayerIDs();
 
@@ -373,12 +408,23 @@ RasputinHud.prototype.Refresh = function () {
 			continue;
 		}
 
-
-		if (entity !== localHero) {
+		if (!this.IsRasputin(entity)) {
 			continue;
 		}
 
-		if (!this.IsRasputin(entity)) {
+
+		if (entity !== localHero) {
+
+			if (!this.ForeignRebornShown(entity, localTeam)) {
+				continue;
+			}
+
+			seen[entity] = true;
+
+			this.tracked.push(entity);
+
+			this.UpdateCurse(this.panels[entity] || this.Build(entity, true), entity);
+
 			continue;
 		}
 
@@ -386,7 +432,7 @@ RasputinHud.prototype.Refresh = function () {
 
 		this.tracked.push(entity);
 
-		var built = this.panels[entity] || this.Build(entity);
+		var built = this.panels[entity] || this.Build(entity, false);
 
 		ReadMaxima(entity);
 

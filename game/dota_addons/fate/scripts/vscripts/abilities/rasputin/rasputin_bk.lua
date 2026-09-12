@@ -247,21 +247,22 @@ function modifier_rasputin_curse_counter:ShouldShowBreak(parent)
 end
 
 
+-- Curse Breakout занимает слот финишера (F), пока Распутин в стане
 function modifier_rasputin_curse_counter:SetBreakShown(parent, break_ability, shown)
 
-    local dodge = parent:FindAbilityByName("rasputin_dodge")
+    local finisher = parent:FindAbilityByName("rasputin_finisher")
 
-    if not dodge then return end
+    if not finisher then return end
 
 
-    self.dodgeSlot = self.dodgeSlot or dodge:GetAbilityIndex()
+    self.breakSlot = self.breakSlot or finisher:GetAbilityIndex()
 
-    if not self.dodgeSlot or self.dodgeSlot < 0 then return end
+    if not self.breakSlot or self.breakSlot < 0 then return end
 
-    local wanted = shown and break_ability or dodge
+    local wanted = shown and break_ability or finisher
 
-    if parent:GetAbilityByIndex(self.dodgeSlot) ~= wanted then
-        parent:SwapAbilities("rasputin_dodge", "rasputin_dodge_break", not shown, shown)
+    if parent:GetAbilityByIndex(self.breakSlot) ~= wanted then
+        parent:SwapAbilities("rasputin_finisher", "rasputin_dodge_break", not shown, shown)
     end
 
     break_ability:SetHidden(not shown)
@@ -318,12 +319,54 @@ function modifier_rasputin_reborn:OnCreated(kv)
 
     end
 
+    -- полоска Reborn в rasputin_hud рисуется у всех игроков; врагам она нужна
+    -- только пока Распутин виден, иначе повиснет на последней известной точке
+    self:PublishSeen()
+    self:StartIntervalThink(0.1)
+
+end
+
+
+function modifier_rasputin_reborn:OnIntervalThink()
+    if not IsServer() then return end
+    self:PublishSeen()
+end
+
+
+function modifier_rasputin_reborn:PublishSeen()
+
+    local parent = self:GetParent()
+
+    if not IsNotNull(parent) then return end
+
+    local seen = parent:CanBeSeenByAnyOpposingTeam() and 1 or 0
+
+    if self.lastSeen == seen then return end
+
+    self.lastSeen = seen
+
+    CustomNetTables:SetTableValue(
+        "sync",
+        "rasputin_reborn_" .. parent:entindex(),
+        { seen = seen }
+    )
+
 end
 
 
 function modifier_rasputin_reborn:OnDestroy()
 
     if not IsServer() then return end
+
+    local seenParent = self:GetParent()
+
+    if IsNotNull(seenParent) then
+        CustomNetTables:SetTableValue(
+            "sync",
+            "rasputin_reborn_" .. seenParent:entindex(),
+            { seen = 0 }
+        )
+    end
 
 
     if self.paid then return end

@@ -64,7 +64,7 @@ LUA_MODIFIER_MOTION_NONE
 )
 
 
-local function FindWideKickTargets(caster)
+local function FindWideKickTargets(caster, radius)
 
     local targets = {}
 
@@ -73,7 +73,7 @@ local function FindWideKickTargets(caster)
         caster:GetTeamNumber(),
         caster:GetAbsOrigin(),
         nil,
-        9999,
+        radius or 9999,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
         DOTA_UNIT_TARGET_HERO +
         DOTA_UNIT_TARGET_BASIC,
@@ -103,9 +103,9 @@ local function FindWideKickTargets(caster)
 end
 
 
-local function FindWideKickGroup(caster, point, groupRadius, clicked)
+local function FindWideKickGroup(caster, point, groupRadius, clicked, castRadius)
 
-    local marked = FindWideKickTargets(caster)
+    local marked = FindWideKickTargets(caster, castRadius)
 
     if #marked == 0 then
         return {}
@@ -151,12 +151,13 @@ local function FindWideKickGroup(caster, point, groupRadius, clicked)
 
     local origin = primary:GetAbsOrigin()
 
-    local group = {}
+    -- основная цель всегда первая: по ней меряется разлёт группы
+    local group = { primary }
 
     for _,enemy in pairs(marked) do
 
-        if enemy == primary
-        or (enemy:GetAbsOrigin() - origin):Length2D() <= groupRadius
+        if enemy ~= primary
+        and (enemy:GetAbsOrigin() - origin):Length2D() <= groupRadius
         then
             table.insert(group, enemy)
         end
@@ -340,6 +341,13 @@ function rasputin_finisher:CastFilterResultLocation(location)
         return UF_SUCCESS
     end
 
+    -- второе нажатие во время серии, но комбо не взведено (мало стаков)
+    if caster:HasModifier("modifier_rasputin_finisher_channel") then
+        self.customCastError =
+        "Combo needs " .. self:GetSpecialValueFor("combo_stacks_required") .. " charges"
+        return UF_FAIL_CUSTOM
+    end
+
 
     local counter =
     caster:FindModifierByName(
@@ -359,8 +367,13 @@ function rasputin_finisher:CastFilterResultLocation(location)
     end
 
 
-    if #FindWideKickTargets(caster) == 0 then
-        self.customCastError = "No enemies"
+    -- цель дальше cast_radius финишером не достаётся
+    if #FindWideKickTargets(
+        caster,
+        self:GetSpecialValueFor("cast_radius")
+    ) == 0
+    then
+        self.customCastError = "No enemies in range"
         return UF_FAIL_CUSTOM
     end
 
@@ -422,12 +435,23 @@ function rasputin_finisher:CreateTerritory(stacks)
     + t * (self:GetSpecialValueFor("territory_radius_max")
          - self:GetSpecialValueFor("territory_radius_min"))
 
-    local regen =
-    self:GetSpecialValueFor("territory_regen_min")
-    + t * (self:GetSpecialValueFor("territory_regen_max")
-         - self:GetSpecialValueFor("territory_regen_min"))
-
     local duration = self:GetSpecialValueFor("territory_duration")
+
+    -- суммарное восстановление за всю территорию на максимальных стаках
+    -- растёт от уровня героя; меньше стаков - пропорционально меньше
+    local total =
+    self:GetSpecialValueFor("territory_heal_total")
+    + self:GetSpecialValueFor("territory_heal_per_level") * math.max(caster:GetLevel() - 1, 0)
+
+    local minPct = self:GetSpecialValueFor("territory_heal_min_pct") / 100
+
+    total = total * (minPct + t * (1 - minPct))
+
+    local regen = 0
+
+    if duration > 0 then
+        regen = total / duration
+    end
 
     local perWave = self:GetSpecialValueFor("territory_stacks_per_wave")
 
@@ -442,6 +466,17 @@ function rasputin_finisher:CreateTerritory(stacks)
 
     if perWave > 0 then
         maxWaves = math.max(math.floor(cap / perWave), 1)
+    end
+
+
+    -- новая территория не продлевает старую, а заменяет её целиком:
+    -- старая гаснет (недоигранная волна очистки срабатывает сразу),
+    -- новая создаётся с нуля со своими радиусом/регеном/волнами/партиклем
+    local old = caster:FindModifierByName("modifier_rasputin_territory")
+
+    if old then
+        old:FinishEarly()
+        old:Destroy()
     end
 
 
@@ -535,7 +570,8 @@ function rasputin_finisher:OnSpellStart()
         caster,
         self:GetCursorPosition(),
         self:GetSpecialValueFor("group_radius"),
-        self:GetCursorTarget()
+        self:GetCursorTarget(),
+        self:GetSpecialValueFor("cast_radius")
     )
 
     if #targets == 0 then
@@ -696,8 +732,13 @@ function rasputin_finisher:OnSpellStart()
     )
 
 
-    self.comboArmedAt =
-    GameRules:GetGameTime() + self:GetSpecialValueFor("combo_press_gap")
+    -- второе нажатие F открывает комбо только с полного счётчика
+    self.comboArmedAt = nil
+
+    if stacks >= self:GetSpecialValueFor("combo_stacks_required") then
+        self.comboArmedAt =
+        GameRules:GetGameTime() + self:GetSpecialValueFor("combo_press_gap")
+    end
 
 
     local seenFor =
@@ -743,10 +784,60 @@ function rasputin_finisher:OnSpellStart()
 end
 
 
+-- Цель, которую унесло дальше drop_radius от основной, выпадает из серии:
+-- Распутин к ней больше не прыгает и не наносит ей урон, включая добивающий.
+function rasputin_finisher:PruneFarTargets()
+
+    local targets = self.targets
+
+    if not targets or #targets < 2 then return end
+
+
+    local anchor
+
+    for _,enemy in pairs(targets) do
+
+        if IsNotNull(enemy) and enemy:IsAlive() then
+            anchor = enemy
+            break
+        end
+
+    end
+
+    if not anchor then return end
+
+
+    local origin = anchor:GetAbsOrigin()
+
+    local limit = self:GetSpecialValueFor("drop_radius")
+
+
+    local kept = {}
+
+    for _,enemy in pairs(targets) do
+
+        if IsNotNull(enemy)
+        and (
+            enemy == anchor
+            or (enemy:GetAbsOrigin() - origin):Length2D() <= limit
+        )
+        then
+            table.insert(kept, enemy)
+        end
+
+    end
+
+    self.targets = kept
+
+end
+
+
 function rasputin_finisher:DealFinishDamage()
 
 
     local caster = self:GetCaster()
+
+    self:PruneFarTargets()
 
 
     if caster and not caster:IsNull() then
@@ -760,12 +851,28 @@ function rasputin_finisher:DealFinishDamage()
     end
 
 
-    local isMaxStacks =
-    (self.stacksUsed or 0) >= 10
+    caster:EmitSound("rasputin_finisher_end")
 
-    if isMaxStacks then
-        caster:EmitSound("rasputin_finisher_end")
-    end
+
+    -- Добивающий удар считается от номинальной суммы серии: сколько зарядов
+    -- потрачено, столько ударов и берём по значению из KV (реально нанесённый
+    -- урон не в счёт), и умножаем на finish_damage_percent.
+    local hits = self.stacksUsed or 0
+
+    local perHit =
+    RasputinScaleDamage(
+        caster,
+        self,
+        self:GetSpecialValueFor("tick_damage")
+    )
+    * (self.tickScale or 1)
+
+
+    local finishDamage =
+    hits
+    * perHit
+    * self:GetSpecialValueFor("finish_damage_percent")
+    / 100
 
     local pushDirection =
     self.pushDirection
@@ -785,19 +892,7 @@ function rasputin_finisher:DealFinishDamage()
             )
 
 
-            local damage =
-            self:GetSpecialValueFor("finish_damage")
-
-            if isMaxStacks then
-
-                local missing =
-                enemy:GetMaxHealth() - enemy:GetHealth()
-
-                damage =
-                damage
-                + missing * self:GetSpecialValueFor("missing_hp_percent")
-
-            end
+            local damage = finishDamage
 
             DoDamage(
                 caster,
@@ -812,21 +907,7 @@ function rasputin_finisher:DealFinishDamage()
             self:HealFromDamage(damage)
 
 
-            if not isMaxStacks then
-
-                enemy:AddNewModifier(
-                    caster,
-                    self,
-                    "modifier_stunned",
-                    {
-                        duration = self:GetSpecialValueFor("finish_stun")
-                    }
-                )
-
-            end
-
-
-            if isMaxStacks then
+            do
 
                 local finishDuration =
                 self:GetSpecialValueFor("finish_push_duration")

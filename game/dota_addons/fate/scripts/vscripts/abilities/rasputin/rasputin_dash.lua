@@ -9,6 +9,7 @@ LinkLuaModifier("modifier_barrier_new", "modifiers/modifier_barrier_new", LUA_MO
 LinkLuaModifier("modifier_rasputin_dash_move", "abilities/rasputin/rasputin_dash", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_rasputin_dash_surge", "abilities/rasputin/rasputin_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_dash_charges", "abilities/rasputin/rasputin_dash", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_protection_from_arrows_active", "abilities/cu_chulain/modifiers/modifier_protection_from_arrows_active", LUA_MODIFIER_MOTION_NONE)
 
 function rasputin_dash:GetIntrinsicModifierName()
 	return "modifier_rasputin_dash_charges"
@@ -110,6 +111,23 @@ function rasputin_dash:OnSpellStart()
 	)
 
 	caster:AddNewModifier(caster, self, "modifier_rasputin_turnrate", {duration = distance / speed})
+
+
+	-- Combat Movement: на время рывка Распутин уходит от снарядов,
+	-- тем же модификатором, что и Protection from Arrows у Ку Хулина
+	if caster.IsRasputinCombatMovementAcquired then
+
+		caster:AddNewModifier(
+			caster,
+			self,
+			"modifier_protection_from_arrows_active",
+			{
+				Duration = distance / speed,
+				silent   = 1,
+			}
+		)
+
+	end
 
 
 	caster:AddNewModifier(caster, self, "modifier_rasputin_dash_move", {
@@ -454,6 +472,15 @@ function modifier_rasputin_dash_surge:OnTakeDamage(args)
 	if args.unit == parent then return end
 	if not args.inflictor then return end
 
+	-- Финишер рывок не тратит: бонус ждёт любой другой скилл
+	local inflictor = args.inflictor
+
+	if type(inflictor.GetAbilityName) == "function"
+	and inflictor:GetAbilityName() == "rasputin_finisher"
+	then
+		return
+	end
+
 	local damage = args.damage or 0
 
 	if damage <= 0 then return end
@@ -467,24 +494,23 @@ function modifier_rasputin_dash_surge:OnTakeDamage(args)
 
 	local mana =
 	ability:GetSpecialValueFor("surge_mana_base")
-	+ damage * ability:GetSpecialValueFor("surge_mana_pct") / 100
+
+	local victim = args.unit
+
+	-- добавка = база + % от максимального здоровья цели (оба растут с уровнем E)
+	local bonusDamage =
+	ability:GetSpecialValueFor("surge_bonus_damage")
+	+ victim:GetMaxHealth() * ability:GetSpecialValueFor("surge_bonus_max_hp_pct") / 100
 
 	local heal = 0
 
+	-- Combat Movement: лечит ровно столько же, сколько добавка урона,
+	-- только процент берётся от максимального здоровья самого Распутина
 	if parent.IsRasputinCombatMovementAcquired then
 
-
-		local pct =
-		ability:GetSpecialValueFor("surge_heal_pct")
-		+ (100 - parent:GetHealthPercent())
-
-		local cap = ability:GetSpecialValueFor("surge_heal_pct_max")
-
-		if pct > cap then
-			pct = cap
-		end
-
-		heal = damage * pct / 100
+		heal =
+		ability:GetSpecialValueFor("surge_bonus_damage")
+		+ parent:GetMaxHealth() * ability:GetSpecialValueFor("surge_bonus_max_hp_pct") / 100
 
 	end
 
@@ -502,6 +528,28 @@ function modifier_rasputin_dash_surge:OnTakeDamage(args)
 		if heal > 0 then
 			parent:Heal(heal, IsNotNull(ability) and ability or parent)
 		end
+
+
+		-- добавка к первому же скиллу после рывка: одна инстанция,
+		-- урон нельзя наносить прямо из колбэка урона, поэтому он здесь
+		if bonusDamage > 0
+		and IsNotNull(ability)
+		and IsNotNull(victim)
+		and victim:IsAlive()
+		then
+
+			DoDamage(
+				parent,
+				victim,
+				bonusDamage,
+				DAMAGE_TYPE_PHYSICAL,
+				0,
+				ability,
+				false
+			)
+
+		end
+
 
 		parent:RemoveModifierByName("modifier_rasputin_dash_surge")
 

@@ -279,6 +279,24 @@ end
 local SHIELD_MODIFIERS = {
 	"modifier_barrier_new",
 	"modifier_leonidas_enomotia_shield",
+	"modifier_aoko_shield",
+	"modifier_aoko_facebreaker_shield",
+	"modifier_aoko_blue_shield",
+	"modifier_aoko_blue_shield_decaying",
+	"modifier_arcueid_what_barrier",
+	"modifier_barghest_w_stance",
+	"modifier_rune_of_protection",
+	"modifier_diarmuid_parry",
+	"modifier_rho_aias_emiya",
+	"modifier_jeanne_mrex",
+	"modifier_jeanne_mrex_allies",
+	"modifier_karna_armor",
+	"modifier_king_hassan_block",
+	"modifier_lancelot_parry",
+	"modifier_argos_shield",
+	"modifier_nero_spectaculi_shield",
+	"modifier_cursed_lance",
+	
 }
 
 
@@ -342,7 +360,23 @@ function rasputin_knife_dash:DamageShields(hTarget)
 					taken = cap - total
 				end
 
-				shield:SetStackCount(math.max(left - taken, 0))
+				local newLeft = math.max(left - taken, 0)
+
+				shield:SetStackCount(newLeft)
+
+				-- most shields mirror the remainder in fBarrierBlock and rebuild the
+				-- stack count from it on refresh (Jeanne, King Hassan, Karna) -
+				-- without the sync a refresh would restore what was just cut.
+				-- Cursed Lance is left alone on purpose: there fBarrierBlock is
+				-- "damage absorbed" and feeds Vlad's explosion.
+				if shield.fBarrierBlock ~= nil and name ~= "modifier_cursed_lance" then
+					shield.fBarrierBlock = newLeft
+				end
+
+				-- Argos shows its remainder through the caster's counter particle
+				if name == "modifier_argos_shield" and IsNotNull(shield:GetCaster()) then
+					shield:GetCaster().argosShieldAmount = newLeft
+				end
 
 				total = total + taken
 

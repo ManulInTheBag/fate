@@ -1,90 +1,94 @@
-"DOTAHeroes"
-{
-	//=================================================================================================================
-	//	Barghest
-	//=================================================================================================================
-	"npc_fate_hero_barghest"
-	{
-		"override_hero"				"npc_dota_hero_dragon_knight"
-		"DisableWearables"			"1"
-		"Model"						"models/barghest/barghest.vmdl"
-		"ModelScale"				"1"
-		"DrawParticlesWhileHidden"	"1"
-		"GameSoundsFile"			"soundevents/hero_barghest.vsndevts"
-		// Реплики Barghest подменяют собой VO Dragon Knight — она его
-		// переопределяет, и движок дёргает события ЕГО именами (четыре набора:
-		// drag/dragon/dk_davion/dk_slyrak, см. сам файл).
-		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
-		// ⚠️ SoundSet НЕ объявляем: набора "Hero_Barghest" не существует, и с ним
-		// у неё пропадала бы вся звуковая мелочь (шаги, замахи, попадания).
-		// Без строки берётся набор Dragon Knight — так же сделано у остальных
-		// Слуг аддона. Заведём свой — впишем сюда.
-		//"SoundSet"				"Hero_Barghest"
-
-		"AbilityLayout"				"6"
-		"Ability1"					"barghest_q"					// Q
-		"Ability2"					"barghest_w"					// W
-		"Ability3"					"barghest_e"					// E
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//	Barghest
+	//=================================================================================================================
+	"npc_fate_hero_barghest"
+	{
+		"override_hero"				"npc_dota_hero_dragon_knight"
+		"DisableWearables"			"1"
+		"Model"						"models/barghest/barghest.vmdl"
+		"ModelScale"				"1"
+		"DrawParticlesWhileHidden"	"1"
+		"GameSoundsFile"			"soundevents/hero_barghest.vsndevts"
+		// Реплики Barghest подменяют собой VO Dragon Knight — она его
+		// переопределяет, и движок дёргает события ЕГО именами (четыре набора:
+		// drag/dragon/dk_davion/dk_slyrak, см. сам файл).
+		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_dragon_knight.vsndevts"
+		// ⚠️ SoundSet НЕ объявляем: набора "Hero_Barghest" не существует, и с ним
+		// у неё пропадала бы вся звуковая мелочь (шаги, замахи, попадания).
+		// Без строки берётся набор Dragon Knight — так же сделано у остальных
+		// Слуг аддона. Заведём свой — впишем сюда.
+		//"SoundSet"				"Hero_Barghest"
+
+		"AbilityLayout"				"6"
+		"Ability1"					"barghest_q"					// Q
+		"Ability2"					"barghest_w"					// W
+		"Ability3"					"barghest_e"					// E
 		// D в концепте не придуман, и слот пока занимает КОМБО — как придумаем
 		// саму D, комбо переедет отсюда в свой слот.
-		"Ability4"					"barghest_combo"				// D (временно: комбо)
-		"Ability5"					"barghest_f"					// F
-		"Ability6"					"barghest_r"					// R
-		"Ability7"					"barghest_e_release"			// скрытая: «отпустить» рывок E
-		"Ability8"					"hero_base_stats_bonus"
-		"Ability9"					"presence_detection_passive"
-		"Ability10"					"attribute_bonus_custom"
-
+		"Ability4"					"barghest_combo"				// D (временно: комбо)
+		"Ability5"					"barghest_f"					// F
+		"Ability6"					"barghest_r"					// R
+		"Ability7"					"barghest_e_release"			// скрытая: «отпустить» рывок E
+		"Ability8"					"hero_base_stats_bonus"
+		"Ability9"					"presence_detection_passive"
+		"Ability10"					"attribute_bonus_custom"
+		// скрытая: рекаст E (укус), открывается атрибутом Fang Unbound.
+		// ⚠️ Слот держать подряд с остальными: LevelAllAbility идёт по индексам
+		// и на первом пустом бросает всё остальное невыровненным.
+		"Ability11"					"barghest_e_bite"
+
 		// Что читает таблица счёта, чтобы показать готовность комбо. Сам гейт —
 		// GetComboAvailability (libraries/util.lua).
 		"Combo"						"barghest_combo"
 
-		// Атрибуты покупает Мастер. Объявлены только те, что есть в концепте;
-		// слоты 4-5 пустые — движок подставит fate_empty.
-		"AttributeNumber"			"3"
-		"Attribute1"				"barghest_attribute_1"		// послеобразы пса на связке (заготовка)
-		"Attribute2"				"barghest_attribute_2"		// усиление пассивки (работает)
+		// Атрибуты покупает Мастер. Объявлены только те, что есть в концепте;
+		// слоты 4-5 пустые — движок подставит fate_empty.
+		"AttributeNumber"			"3"
+		"Attribute1"				"barghest_attribute_1"		// послеобразы пса на связке (заготовка)
+		"Attribute2"				"barghest_attribute_2"		// усиление пассивки (работает)
 		"Attribute3"				"barghest_attribute_3"		// дот горения + скейл R от силы
-		"Attribute4"				"barghest_attribute_4"		// рывок E: скейл от силы и пол стана
-		// Пустые таланты: без них клиент падает при ALT (см. npc_abilities_custom.txt)
-		"Ability18"					"special_bonus_fate_none_1"
-		"Ability19"					"special_bonus_fate_none_2"
-		"Ability20"					"special_bonus_fate_none_3"
-		"Ability21"					"special_bonus_fate_none_4"
-		"Ability22"					"special_bonus_fate_none_5"
-		"Ability23"					"special_bonus_fate_none_6"
-		"Ability24"					"special_bonus_fate_none_7"
-		"Ability25"					"special_bonus_fate_none_8"
-
-		"StatusHealth"				"1400"
-		"StatusHealthRegen"			"7.0"
-		"StatusMana"				"1000"
-		"StatusManaRegen"			"4.0"
-
-		"ArmorPhysical"				"2"
-		"MagicalResistance"			"27"
-
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"75"
-		"AttackDamageMax"			"75"
-		"AttackRate"				"1.7"
-		"AttackAcquisitionRange"	"600"
-		"AttackRange"				"300"
-		"HealthBarOffset"			"220"
-
-		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-		"AttributeBaseStrength"		"0"
-		"AttributeStrengthGain"		"3.2"
-		"AttributeBaseAgility"		"0"
-		"AttributeAgilityGain"		"1.8"
-		"AttributeBaseIntelligence"	"0"
-		"AttributeIntelligenceGain"	"2.0"
-
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"325"
-		"MovementTurnRate"			"0.7"
-
-		"VisionDaytimeRange"		"1000"
-		"VisionNighttimeRange"		"1000"
-	}
-}
+		"Attribute4"				"barghest_attribute_4"		// рывок E: скейл от силы и пол стана
+		// Пустые таланты: без них клиент падает при ALT (см. npc_abilities_custom.txt)
+		"Ability18"					"special_bonus_fate_none_1"
+		"Ability19"					"special_bonus_fate_none_2"
+		"Ability20"					"special_bonus_fate_none_3"
+		"Ability21"					"special_bonus_fate_none_4"
+		"Ability22"					"special_bonus_fate_none_5"
+		"Ability23"					"special_bonus_fate_none_6"
+		"Ability24"					"special_bonus_fate_none_7"
+		"Ability25"					"special_bonus_fate_none_8"
+
+		"StatusHealth"				"1400"
+		"StatusHealthRegen"			"7.0"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"4.0"
+
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"27"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"75"
+		"AttackDamageMax"			"75"
+		"AttackRate"				"1.7"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"300"
+		"HealthBarOffset"			"220"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"
+		"AttributeStrengthGain"		"3.2"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"1.8"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"2.0"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"
+		"MovementTurnRate"			"0.7"
+
+		"VisionDaytimeRange"		"1000"
+		"VisionNighttimeRange"		"1000"
+	}
+}

@@ -961,11 +961,25 @@ end
 RASPUTIN_SHORT_DASH_SOUND = "rasputin_short_dash"
 
 
+-- Рост урона от уровня героя (damage_per_level в KV способности).
+-- У Q/W/R он даётся атрибутом Black Keys; у финишера - базовый.
+RASPUTIN_KEYS_SCALED = {
+    rasputin_knife_dash = true,
+    rasputin_low_kick   = true,
+    rasputin_wide_kick  = true,
+}
+
 function RasputinScaleDamage(caster, ability, base)
 
     if not IsNotNull(caster) then return base end
 
     if not ability or ability:IsNull() then return base end
+
+    if RASPUTIN_KEYS_SCALED[ability:GetAbilityName()]
+    and not caster.IsRasputinKeysAcquired
+    then
+        return base
+    end
 
     local per = ability:GetLevelSpecialValueFor("damage_per_level", 0)
 

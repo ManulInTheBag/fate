@@ -84,7 +84,11 @@ function modifier_rasputin_territory:ScheduleCleanses()
 
     local generation = self.generation
 
+    self.wavesLeft = 0
+
     if not self.waves or self.waves < 1 then return end
+
+    self.wavesLeft = self.waves
 
 
     local ability = self:GetAbility()
@@ -112,11 +116,31 @@ function modifier_rasputin_territory:ScheduleCleanses()
 
             if self.generation ~= generation then return end
 
+            self.wavesLeft = math.max((self.wavesLeft or 0) - 1, 0)
+
             self:Cleanse()
 
         end)
 
     end
+
+end
+
+
+-- Территория снимается досрочно (поверх легла новая): волны очистки, до
+-- которых она не дожила, схлопываются в одну и срабатывают сейчас
+function modifier_rasputin_territory:FinishEarly()
+
+    if not IsServer() then return end
+
+    -- отменяет уже поставленные таймеры волн
+    self.generation = (self.generation or 0) + 1
+
+    if (self.wavesLeft or 0) < 1 then return end
+
+    self.wavesLeft = 0
+
+    self:Cleanse()
 
 end
 

@@ -4,6 +4,11 @@ require('abilities/rasputin/rasputin_knife_dash')
 modifier_rasputin_rush = class({})
 
 
+-- Насколько цель может сместиться за кадр, пока рывок её ещё догоняет.
+-- Обычный бег даёт заметно меньше, блинк и рывки — заметно больше.
+local TARGET_ESCAPE_LIMIT = 300
+
+
 function modifier_rasputin_rush:IsHidden()
     return false
 end
@@ -137,6 +142,38 @@ function modifier_rasputin_rush:UpdateHorizontalMotion(me, dt)
         self:Destroy()
         return
     end
+
+
+    -- цель перестала быть валидной для способности (невидимость к цели, смена команды,
+    -- неуязвимость) — рывок обрывается, как Battle drive у Hijikata
+    if IsNotNull(self.ability) then
+
+        local filter = UnitFilter(
+            self.target,
+            self.ability:GetAbilityTargetTeam(),
+            self.ability:GetAbilityTargetType(),
+            self.ability:GetAbilityTargetFlags(),
+            self.parent:GetTeamNumber()
+        )
+
+        if filter ~= UF_SUCCESS then
+            self:Destroy()
+            return
+        end
+
+    end
+
+
+    -- блинк и любой другой рывок цели прекращают погоню: сверяем позицию цели
+    -- с прошлым кадром, скачок больше порога = обрыв (так же сделано у Hijikata)
+    local target_origin = self.target:GetAbsOrigin()
+
+    if (self.targetpos - target_origin):Length2D() > TARGET_ESCAPE_LIMIT then
+        self:Destroy()
+        return
+    end
+
+    self.targetpos = target_origin
 
 
     -- стан прекращает рывок
@@ -459,17 +496,8 @@ function modifier_rasputin_rush:BOOM()
             if not caster:IsAlive() or not target:IsAlive() then return end
 
 
-            local health_pct =
-            target:GetHealthPercent()
-
-
-            local missing =
-            (100-health_pct)/100
-
-
             local final_damage =
-            self.damage *
-            (1+missing)
+            self.damage
 
 
             RasputinHitFx(target, nil, caster)

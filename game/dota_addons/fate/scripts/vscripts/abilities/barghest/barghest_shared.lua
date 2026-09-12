@@ -281,6 +281,55 @@ function Barghest_ArmOnHit(hCaster, bHit, nBranch)
     end
 end
 
+--[[ Рекаст рывка — укус (barghest_e_bite).
+
+     Кнопка E на время СТАНА от рывка подменяется укусом ровно тем же приёмом,
+     что и «отпустить» в зарядке: SwapAbilities. Живёт это здесь, а не в самой
+     способности укуса, потому что зовут отсюда двое — barghest_e (арм в момент,
+     когда стан лёг) и modifier_barghest_e_stun (разарм, когда стан кончился).
+     ⚠️ Именно СТАН, а не цепи: цепи держат рутом дольше, а окно укуса обязано
+     совпадать с хард-контролем.
+
+     ⚠️ Окно открывается ТОЛЬКО с четвёртым атрибутом (Fang Unbound): без него
+     скрытая кнопка так и остаётся скрытой.
+     ⚠️ Уровень укусу ставим по уровню E — свой он не качает (приём
+     hijikata_dash_recast), иначе читались бы значения первого уровня. ]]
+BARGHEST_BITE_ABILITY = "barghest_e_bite"
+
+function Barghest_BiteArm(hCaster, hTarget, hE)
+    if not IsServer() then return end
+    if not Barghest_Alive(hCaster) or not Barghest_Alive(hTarget) then return end
+    if not hCaster.BarghestAttr4Acquired then return end
+
+    local hBite = hCaster:FindAbilityByName(BARGHEST_BITE_ABILITY)
+    if not Barghest_Alive(hBite) then return end
+
+    if Barghest_Alive(hE) and hE:GetLevel() > 0 then
+        hBite:SetLevel(hE:GetLevel())
+    elseif hBite:GetLevel() < 1 then
+        hBite:SetLevel(1)
+    end
+
+    hCaster.hBarghestBiteTarget = hTarget
+    if hBite:IsHidden() then
+        hCaster:SwapAbilities("barghest_e", BARGHEST_BITE_ABILITY, false, true)
+    end
+end
+
+--[[ Убрать кнопку укуса. hTarget необязателен: с ним разарм срабатывает, только
+     если окно принадлежит ИМЕННО этой цели — иначе слетевшие цепи старой жертвы
+     закрыли бы окно, открытое новым рывком. ]]
+function Barghest_BiteDisarm(hCaster, hTarget)
+    if not IsServer() then return end
+    if not Barghest_Alive(hCaster) then return end
+    if hTarget ~= nil and hCaster.hBarghestBiteTarget ~= hTarget then return end
+
+    hCaster.hBarghestBiteTarget = nil
+    local hBite = hCaster:FindAbilityByName(BARGHEST_BITE_ABILITY)
+    if not Barghest_Alive(hBite) or hBite:IsHidden() then return end
+    hCaster:SwapAbilities("barghest_e", BARGHEST_BITE_ABILITY, true, false)
+end
+
 --[[ Враги в секторе перед точкой: аркой бьют и Q, и Q1R. ]]
 --[[ Запас поиска на габариты цели: у самых толстых юнитов Доты
      GetPaddedCollisionRadius не превышает сотни с небольшим. ]]

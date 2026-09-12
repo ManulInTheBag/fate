@@ -14,8 +14,8 @@
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"				"1"
 		"MaxLevel"							"5"
-		"AbilityCooldown"				    "10 9 8 7 6"
-		"AbilityManaCost"					"100"
+		"AbilityCooldown"				    "10"
+		"AbilityManaCost"					"50"
 		"AbilityCastRange"					"1500"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
@@ -39,7 +39,7 @@
 			"distance"								"1500"
 			"speed"									"2200"
 			"throw_delay"							"0.1"
-			"backstep_distance"						"250"
+			"backstep_distance"						"200"
 			"backstep_duration"						"0.1"
 			"recast_duration"									"4"
 			"vision_linger"							"1"
@@ -47,9 +47,9 @@
 			"damage2"								"200 225 250 275 300"
 			"damage_per_level"						"5"
 			"grab_stack_threshold"					"5"
-			"grab_cooldown"							"10"
-			"grab_cooldown_per_level"				"0.2"
-			"grab_cooldown_min"						"4"
+			"grab_cooldown"							"7"
+			"grab_cooldown_per_level"				"0"
+			"grab_cooldown_min"						"7"
 			"grab_damage_multiplier"				"1.5"
 			"grab_duration"							"0.45"
 			"grab_hero_overshoot"					"250"
@@ -82,8 +82,8 @@
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"							"5"
 		"LevelsBetweenUpgrades"				"1"
-		"AbilityCooldown"				    "25 23 21 19 17"
-		"AbilityManaCost"					"200"
+		"AbilityCooldown"				    "17"
+		"AbilityManaCost"					"150"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastRange"				"99999"
 		"AbilityCastRangeBuffer"		"100"
@@ -103,13 +103,13 @@
 			"w1_marker_bonus"						"200"
 			"w3_impact_offset"						"100"
 			"w3_radius"								"300"
-			"damage_1"									"160 200 240 280 320"
+			"damage_1"									"200 250 300 350 400"
 			"slow_duration"								"2"		
-			"damage_2"									"160 200 240 280 320"
+			"damage_2"									"200 250 300 350 400"
 			"knockback_duration"				"0.5"
 			"knockback_distance"                 "300"
             "knockback_height"                   "300"
-            "damage_3"                         "160 200 240 280 320"
+            "damage_3"                         "200 250 300 350 400"
 			"damage_per_level"						"4"
             "stun_duration" "1"
             "dash_speed"								"1200"
@@ -158,10 +158,10 @@
 			"charge_refund_per_stack"					"2.5"
 			"reborn_dash_speed_pct"						"25"
 			"surge_duration"							"2"
-			"surge_mana_base"							"50 60 70 80 90"
+			"surge_mana_base"							"200"
 			"surge_mana_pct"							"75"
-			"surge_heal_pct"							"50"
-			"surge_heal_pct_max"						"100"
+			"surge_bonus_damage"						"50 62.5 75 87.5 100"
+			"surge_bonus_max_hp_pct"					"5 6.25 7.5 8.75 10"
 		}
 	}
 
@@ -179,7 +179,7 @@
 		"AbilityTextureName"			"custom/rasputin/rasputin_com_mov_attribute"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"15"
 	}
 
 	//=====================================
@@ -195,7 +195,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/rasputin/rasputin_territory_attribute"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"6"
 	}
 
 	//=====================================
@@ -212,6 +212,7 @@
 		"AbilityTextureName"			"custom/rasputin/rasputin_curses_attribute"
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"12"
+		"LinkedAbilities"				"rasputin_dodge_break"
 	}
 
 	//=====================================
@@ -227,11 +228,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/rasputin/rasputin_keys_attribute"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"11"
 	}
 
 	//=====================================
-	// Dodge, replaced while stunned (BK + curses)
+	// Curse Breakout: takes the Finisher slot while stunned (BK + curses)
 	//=====================================
 	"rasputin_dodge_break"
 	{
@@ -276,7 +277,7 @@
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"MaxLevel"							"1"
 		"LevelsBetweenUpgrades"				"1"
-		"AbilityCooldown"				    "15"
+		"AbilityCooldown"				    "20"
 		"AbilityManaCost"					"100"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
@@ -293,6 +294,8 @@
 		"AbilityValues"
 		{
 			"dodge_window"						"0.5"
+			"min_damage"							"50"
+			"max_damage"							"800"
 			"recast_window"						"3"
 			"dodge_distance"					"350"
 			"dodge_duration"					"0.3"
@@ -318,8 +321,8 @@
 		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"					"99999"
 		"MaxLevel"							"1"
-		"AbilityCooldown"				    "0"
-		"AbilityManaCost"					"0"
+		"AbilityCooldown"				    "7"
+		"AbilityManaCost"					"400"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
 		"AnimationPlaybackRate" 		"1.5"
@@ -347,20 +350,24 @@
 		"AbilityValues"
 		{
 			"duration"								"1"
-			"tick_damage"								"50"
+			"tick_damage"								"60"
 			"hit_fx_offset"							"40"
 			"hit_fx_height"							"90"
 			"hit_fx_length"							"130"
 			"hit_wave_offset"						"50"
 			"hit_spark_spread"						"30"
 			"group_radius"							"500"
+			"cast_radius"							"1500"
+			"drop_radius"							"700"
 			"finish_stun_after"						"0.1"
 			"combo_press_gap"						"0.1"
+			"combo_stacks_required"					"10"		// the second F only arms the combo if the first one was cast with this many charges
 			"finish_stun"							"0.2"
 			"vision_linger"							"1"
 			"teleport_offset"						"170"
 			"strike_offset"							"110"
 			"finish_damage"						"300"
+			"finish_damage_percent"					"50"
 			"damage_per_level"						"1"
 			"finish_push_distance"						"350"
 			"finish_push_height"						"300"
@@ -368,7 +375,7 @@
 			"missing_hp_percent"						"0.5"
 			"push_distance_min"						"100"
 			"push_distance_max"						"250"
-			"cooldown_refund_per_stack"					"1.5"
+			"cooldown_refund_per_stack"					"1"
 			"heal_pct"									"50"
 			"heal_pct_max"								"100"
 			"mana_pct"									"50"
@@ -376,8 +383,9 @@
 			"territory_duration"						"6"
 			"territory_radius_min"						"500"
 			"territory_radius_max"						"1400"
-			"territory_regen_min"						"20"
-			"territory_regen_max"						"110"
+			"territory_heal_total"						"300"		// heal+mana per ally over the whole territory at max stacks, hero level 1
+			"territory_heal_per_level"					"30.4"		// added to the total per hero level above 1 (~1000 at level 24)
+			"territory_heal_min_pct"					"20"		// share of the total at one stack; grows linearly to 100% at max stacks
 			"territory_stacks_per_wave"					"5"
 			"territory_wave_tail"						"0.5"
 
@@ -404,8 +412,8 @@
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"				"1"
 		"MaxLevel"							"5"
-		"AbilityCooldown"				    "10 9 8 7 6"
-		"AbilityManaCost"					"100"
+		"AbilityCooldown"				    "17"
+		"AbilityManaCost"					"400"
 		"AbilityCastRange"					"1500"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_DISABLE_ANIMATION"
@@ -418,7 +426,7 @@
 		}
 		"AbilityValues"
 		{
-			"damage"								"200"
+			"damage"								"200 250 300 350 400"
 			"distance"									"900"
 			"speed"								"900"
 			"length"							"450"
@@ -432,9 +440,9 @@
 			"chain_push_distance"				"100"
 			"chain_push_duration"				"0.3"
 			"chain_max_hp_damage_percent"				"10"
-			"thin_wall_max_depth"				"150"
-			"wallstun_damage"						"100"
-			"damage_per_level"						"5"
+			"thin_wall_max_depth"				"100"
+			"wallstun_damage"						"400 500 600 700 800"
+			"damage_per_level"						"8"
 			"wallstun_duration"						"1"
 			"reborn_ult_delay_divisor"				"1.4"
 			"reborn_ult_hitbox_cut_pct"				"29"
@@ -479,7 +487,7 @@
 			"grail_fx_height"						"50"
 			"aura_radius"							"1500"
 			"curse_tick"							"0.1"
-			"field_damage"							"60"
+			"field_damage"							"150"
 			"field_damage_tick"						"0.5"
 			"wave_start_delay"						"1.5"
 
@@ -489,9 +497,9 @@
 			"lift_fall_time"						"0.4"
 			// How far from directly under the grail they are scattered on the
 			// way down, so a group does not come down in one pile.
-			"lift_scatter"							"600"
-			"lift_scatter_min"						"400"
-			"hang_damage"							"250"
+			"lift_scatter"							"150"
+			"lift_scatter_min"						"50"
+			"hang_damage"							"50"
 			"hang_damage_tick"						"0.1"
 
 			// modifier_rasputin_combo_haul:OnCreated.
@@ -500,6 +508,9 @@
 			"curse_gain_time"						"1.5"
 			"curse_decay_time"						"1.5"
 			"curse_max_stacks"						"40"
+			"curse_slow_per_stack"					"2"		// % movement speed per Curse stack
+			"curse_damage_reduction_pct"			"30"		// outgoing damage cut at Curse level 2
+			"curse_root_duration"					"0.05"		// level 3: root on any ability cast (as Ozy cage) to cut dashes short
 		}
 	}
  

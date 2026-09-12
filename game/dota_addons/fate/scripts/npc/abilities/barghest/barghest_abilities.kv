@@ -178,9 +178,12 @@
 			"chain_duration"			"1.0 1.25 1.5 1.75 2.0"
 			"chain_min_pct"			"50"		// % длительности даже при нулевом заряде
 			"chain_damage"			"40 60 80 100 120"
-			// Обе строки читаются только с четвёртым атрибутом (Fang Unbound).
+			// ⚠️ СТАН отдельно от цепей и ВСЕГДА один и тот же — на всех уровнях
+			// и при любом заряде (modifier_barghest_e_stun). Длительность цепей
+			// (рут + горение) считается зарядом и на стан не влияет.
+			"stun_duration"			"0.75"
+			// Читается только с четвёртым атрибутом (Fang Unbound).
 			"e_str_pct"			"50"		// % от силы героя к урону рывка
-			"chain_stun_min"			"0.75"		// пол длительности цепей, с
 			"chain_interval"			"0.5"
 			// Подмена кнопки на «отпустить» — не в тот же кадр, иначе нажатие,
 			// которым начали зарядку, тут же её и оборвёт.
@@ -203,6 +206,79 @@
 		"AbilityCooldown"			"0"
 		"AbilityManaCost"			"0"
 		"AbilityCastPoint"			"0"
+	}
+
+	//=====================================
+	// Bite of the Black Dog — рекаст E (подменяет E, пока цель в цепях)
+	//=====================================
+	"barghest_e_bite"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_e_bite"
+		// ⚠️ Иконка ВРЕМЕННАЯ: копия barghest_f, своего арта пока нет.
+		"AbilityTextureName"		"custom/barghest/barghest_e_bite"
+		// Скрытая и ненаращиваемая: её открывает атрибут Fang Unbound, а
+		// показывает подмена кнопки E на время цепей. ROOT_DISABLES — из-за
+		// рывка к цели.
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		// Уровень тянется за E (Barghest_BiteArm), сам не качается.
+		"LevelsBetweenUpgrades"		"2"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"20"
+		"AbilityManaCost"			"100"
+		"AbilityCastPoint"			"0"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+		"precache"
+		{
+			"particle"			"particles/barghest/barghest_rush_e.vpcf"
+			"particle"			"particles/barghest/barghest_barrier.vpcf"
+			"particle"			"particles/barghest/barghest_lifesteal.vpcf"
+			"particle"			"particles/barghest/barghest_slam.vpcf"
+			"particle"			"particles/barghest/barghest_slash_vertical_up_thin.vpcf"
+			"particle"			"particles/zlodemon/immunity_sphere_buff.vpcf"
+		}
+		"AbilityValues"
+		{
+			"bite_damage"			"150 200 250 300 350"
+			"bite_str_pct"			"60"		// % от силы сверх базового урона
+			"heal_pct"			"80"		// % нанесённого урона возвращается здоровьем
+			"steal_duration"			"10"		// сколько держится краденый эффект
+			"dash_speed"			"1800"
+			"dash_max_distance"			"900"		// дальше цели рывок не тянется
+			"bite_radius"			"150"		// на таком расстоянии рывок кончается укусом
+			"dash_anim_tail"			"0.15"		// запас времени модификатора рывка сверх расчётного
+			// Saber: защита от магии и барьер только против магического урона
+			"saber_mr"			"15"
+			"saber_barrier"			"400 500 600 700 800"
+			// Archer: обзор и истинное зрение
+			"archer_vision"			"500"
+			"archer_true_sight"			"500"
+			// Lancer: съедает одно заклинание, восстанавливается через
+			"lancer_recharge"			"3"
+			// Rider: проход сквозь юнитов, скорость и иммунитет к замедлению
+			"rider_ms_pct"			"30"
+			// Assassin: через сколько секунд покоя невидимость возвращается
+			"assassin_fade"			"1.0"
+			// Caster: регенерация
+			"caster_mana_regen"			"100"
+			"caster_hp_regen"			"50"
+			// Berserker: больше даёт и больше получает
+			"berserker_outgoing_pct"			"20"
+			"berserker_incoming_pct"			"15"
+			"berserker_str"			"25"
+			// EXTRA: понемногу всего
+			"extra_stats"			"15"
+			"extra_armor"			"5"
+			"extra_mr"			"10"
+			"extra_ms_pct"			"8"
+			"extra_attack_damage"			"30"
+			"extra_hp_regen"			"12"
+			"extra_mana_regen"			"12"
+			"extra_vision"			"250"
+		}
 	}
 
 	//=====================================
@@ -480,7 +556,6 @@
 		"AbilityValues"		// только для тултипа, рабочие числа лежат в barghest_e
 		{
 			"e_str_pct"					"50"		// % от силы героя к урону рывка
-			"chain_stun_min"			"0.75"		// пол длительности цепей, с
 		}
 	}
 	"barghest_attribute_3"

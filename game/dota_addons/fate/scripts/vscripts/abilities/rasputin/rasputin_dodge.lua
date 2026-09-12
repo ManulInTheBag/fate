@@ -6,6 +6,7 @@ rasputin_dodge = class({})
 LinkLuaModifier("modifier_rasputin_dodge_stance", "abilities/rasputin/rasputin_dodge", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_dodge_immune", "abilities/rasputin/rasputin_dodge", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_dodge_leap", "abilities/rasputin/rasputin_dodge", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_barrier_new", "modifiers/modifier_barrier_new", LUA_MODIFIER_MOTION_NONE)
 
 
 LinkLuaModifier("modifier_rasputin_finisher_counter", "abilities/rasputin/modifier_rasputin_finisher_counter", LUA_MODIFIER_MOTION_NONE)
@@ -151,7 +152,7 @@ function rasputin_dodge:OpenWindow(caster, window)
 end
 
 
-function rasputin_dodge:PerformDodge(caster, threatOrigin)
+function rasputin_dodge:PerformDodge(caster, threatOrigin, barrierAmount)
 
     caster:EmitSound(RASPUTIN_DODGE_PROC_SOUND)
 
@@ -225,6 +226,26 @@ function rasputin_dodge:PerformDodge(caster, threatOrigin)
                 direction_y = direction.y,
                 distance = distance,
                 speed = distance / duration
+            }
+        )
+
+    end
+
+
+    -- барьер за проглоченный удар живёт ровно столько же, сколько сам скользящий уход
+    if barrierAmount and barrierAmount > 0 then
+
+        caster:AddNewModifier(
+            caster,
+            self,
+            "modifier_barrier_new",
+            {
+                duration = duration,
+                beforeBScroll = false,
+                ShouldEndChannel = false,
+                decreaseDamageOnProck = 0,
+                shield_amount = barrierAmount,
+                HasCounter = false
             }
         )
 
@@ -379,7 +400,7 @@ end
 function modifier_rasputin_dodge_stance:DeclareFunctions()
 
     return {
-        MODIFIER_PROPERTY_AVOID_DAMAGE,
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
         MODIFIER_PROPERTY_DISABLE_TURNING,
     }
 
@@ -404,46 +425,76 @@ function modifier_rasputin_dodge_stance:CheckState()
 end
 
 
-function modifier_rasputin_dodge_stance:GetModifierAvoidDamage(keys)
+-- Порог срабатывания: мелкие тычки стойку не тратят, средний удар гасится целиком
+-- и превращается в барьер, а всё, что больше верхнего порога, просто срезается на него.
+-- Снятие модификатора и рывок нельзя делать прямо здесь (движок идёт по модификаторам
+-- текущего урона), поэтому они уезжают в таймер, как у modifier_barrier_new.
+function modifier_rasputin_dodge_stance:GetModifierIncomingDamageConstant(keys)
 
     if not IsServer() then return 0 end
 
-    if not self.triggered then
-
-        self.triggered = true
+    if self.triggered then return 0 end
 
 
-        local owed = self:GetAbility()
+    local ability = self:GetAbility()
 
-        if IsNotNull(owed) then
-            owed.dodgePending = true
-        end
+    if not IsNotNull(ability) then return 0 end
 
-        local attacker = keys.attacker
 
-        if IsNotNull(attacker) and attacker ~= self:GetParent() then
-            self.threatOrigin = attacker:GetAbsOrigin()
-        end
+    local damage = keys.damage or 0
 
-        local parent = self:GetParent()
-        local ability = self:GetAbility()
-        local threatOrigin = self.threatOrigin
+    if damage <= 0 then return 0 end
 
-        Timers:CreateTimer(FrameTime(), function()
 
-            if not IsNotNull(parent) or not IsNotNull(ability) then
-                return
-            end
+    local minDamage = ability:GetSpecialValueFor("min_damage")
+    local maxDamage = ability:GetSpecialValueFor("max_damage")
 
-            parent:RemoveModifierByName("modifier_rasputin_dodge_stance")
 
-            ability:PerformDodge(parent, threatOrigin)
+    -- слабый урон стойку не проковывает и проходит как есть
+    if damage < minDamage then return 0 end
 
-        end)
 
+    self.triggered = true
+
+    ability.dodgePending = true
+
+
+    local attacker = keys.attacker
+
+    if IsNotNull(attacker) and attacker ~= self:GetParent() then
+        self.threatOrigin = attacker:GetAbsOrigin()
     end
 
-    return 1
+
+    local blocked
+    local barrierAmount
+
+    if damage <= maxDamage then
+        blocked = damage
+        barrierAmount = maxDamage - damage
+    else
+        blocked = maxDamage
+        barrierAmount = nil
+    end
+
+
+    local parent = self:GetParent()
+    local threatOrigin = self.threatOrigin
+
+    Timers:CreateTimer(FrameTime(), function()
+
+        if not IsNotNull(parent) or not IsNotNull(ability) then
+            return
+        end
+
+        parent:RemoveModifierByName("modifier_rasputin_dodge_stance")
+
+        ability:PerformDodge(parent, threatOrigin, barrierAmount)
+
+    end)
+
+
+    return -blocked
 
 end
 
