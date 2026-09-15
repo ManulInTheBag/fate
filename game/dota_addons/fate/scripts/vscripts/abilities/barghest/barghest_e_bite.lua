@@ -25,7 +25,8 @@ require("abilities/barghest/barghest_shared")
 
 barghest_e_bite = class({})
 
-LinkLuaModifier("modifier_barghest_bite_dash",      "abilities/barghest/barghest_e_bite", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_barghest_bite_dash",      "abilities/barghest/barghest_e_bite", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_barghest_bite_hold",      "abilities/barghest/barghest_e_bite", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_bite_saber",     "abilities/barghest/barghest_e_bite", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_bite_archer",    "abilities/barghest/barghest_e_bite", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_bite_lancer",    "abilities/barghest/barghest_e_bite", LUA_MODIFIER_MOTION_NONE)
@@ -101,8 +102,13 @@ function barghest_e_bite:OnSpellStart()
     Barghest_Voice(hCaster, BARGHEST_VO.LAUGH, 2.0)
     hCaster:EmitSound(BARGHEST_SND.E_DASH)
 
-    local nDistance = (hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()):Length2D()
-    local fLife = nDistance / self:Value("dash_speed") + self:Value("dash_anim_tail")
+    --[[ Жизнь рывка — по МАКСИМАЛЬНОЙ дальности, а не по текущей дистанции:
+         цель может убегать, и догонять надо, пока не кончится dash_max_distance.
+         Кто ближе — тот кончится раньше сам (bReached). ]]
+    local fLife = Barghest_Dash(hCaster, self:Value("dash_max_distance")) / self:Value("dash_speed")
+                  + self:Value("dash_anim_tail")
+    print(string.format("[barghest_bite] каст: до цели %d, рывок до %.2f с",
+        (hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()):Length2D(), fLife))
     StartAnimation(hCaster, {duration = fLife, activity = ACT_DOTA_CAST_ABILITY_5, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_bite_dash", {
         duration = fLife,
@@ -111,16 +117,47 @@ function barghest_e_bite:OnSpellStart()
     })
 end
 
---[[ Сам укус: урон, лечение от него и кража эффекта. ]]
+--[[ Доехали до цели: сначала ПОЗА, потом укус.
+     Клип укуса в модели — «havayu_tebya_lol» на ACT_DOTA_CAST_GHOST_SHIP
+     (кадры 805-830, ~0.87 с при 30 fps). Раньше он стартовал вместе с уроном
+     и тут же обрывался: героиня свободна, и первый же приказ/атака перебивали
+     позу. Теперь на длину клипа висит modifier_barghest_bite_hold (рут +
+     дизарм, как в рывке), а зубы смыкаются через bite_hit_delay — тогда и
+     идёт урон. Длина, скорость и момент укуса — в KV. ]]
+function barghest_e_bite:StartBite(hTarget)
+    if not IsServer() then return end
+    local hCaster = self:GetCaster()
+    if not Barghest_Alive(hCaster) or not hCaster:IsAlive() then return end
+    if not Barghest_Alive(hTarget) then return end
+
+    local fRate = self:Value("bite_anim_rate")
+    local fLen  = self:Value("bite_anim_len") / fRate
+
+    local vDir = hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()
+    vDir.z = 0
+    if vDir:Length2D() > 1 then hCaster:SetForwardVector(vDir:Normalized()) end
+
+    hCaster:AddNewModifier(hCaster, self, "modifier_barghest_bite_hold",
+        {duration = fLen, target = hTarget:entindex()})
+    EndAnimation(hCaster)
+    StartAnimation(hCaster, {duration = fLen, activity = ACT_DOTA_CAST_GHOST_SHIP, rate = fRate})
+
+    local hAbility = self
+    Timers:CreateTimer(self:Value("bite_hit_delay"), function()
+        if not Barghest_Alive(hAbility) then return end
+        hAbility:DoBite(hTarget)
+    end)
+end
+
+--[[ Сам укус: урон, лечение от него и кража эффекта. Цель выбрана на касте и
+     по расстоянию тут не проверяется: она в цепях, а пока Barghest стоит в
+     позе, отпускать укус из-за чужого пулла было бы нечестно. ]]
 function barghest_e_bite:DoBite(hTarget)
     if not IsServer() then return end
     local hCaster = self:GetCaster()
     if not Barghest_Alive(hCaster) or not hCaster:IsAlive() then return end
     if not Barghest_Alive(hTarget) or not hTarget:IsAlive() then return end
     if IsSpellBlocked(hTarget, hCaster) then return end
-
-    EndAnimation(hCaster)
-    StartAnimation(hCaster, {duration = 0.6, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
 
     local nDamage = self:Value("bite_damage")
     --[[ Прибавка от силы — как у остальных мест четвёртого атрибута.
@@ -130,9 +167,10 @@ function barghest_e_bite:DoBite(hTarget)
     end
 
     hTarget:EmitSound(BARGHEST_SND.R_HOUND)
-    Barghest_FxAt(BARGHEST_FX.FIRE_HIT, hTarget:GetAbsOrigin(), hCaster)
-    Barghest_FxCutThin(hCaster, Barghest_Radius(hCaster, self:Value("bite_radius")),
-        hTarget:GetAbsOrigin())
+    -- Укус, а не удар мечом: рваный след с брызгами на жертве и кровь, которая
+    -- какое-то время капает с неё (оба — Open Wounds Лайфстилера).
+    Barghest_FxOn(BARGHEST_FX.BITE_HIT, hTarget, 2.0)
+    Barghest_FxOn(BARGHEST_FX.BITE_BLOOD, hTarget, self:Value("bite_blood_duration"))
 
     DoDamage(hCaster, hTarget, nDamage, self:GetAbilityDamageType(), 0, self, false)
 
@@ -180,6 +218,12 @@ function modifier_barghest_bite_dash:CheckState()
     }
 end
 
+--[[ ⚠️ Движение — СВОИМ тиком (SetAbsOrigin из OnIntervalThink), а не через
+     ApplyHorizontalMotionController. С контроллером в игре героиня стояла на
+     месте и доигрывала клип разбега, если цель была дальше радиуса укуса:
+     контроллер либо не применялся, либо его тут же перебивали. Тик + рут —
+     как у arcueid_ready и прочих «ручных» рывков аддона; чужие контроллеры
+     перед стартом гасим. Pathfinding не нужен: цель в цепях, рядом. ]]
 function modifier_barghest_bite_dash:OnCreated(tTable)
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
@@ -195,49 +239,58 @@ function modifier_barghest_bite_dash:OnCreated(tTable)
         self:Destroy()
         return
     end
-    if not self:ApplyHorizontalMotionController() then
-        self:Destroy()
-        return
-    end
+    self.hParent:InterruptMotionControllers(true)
+    self:Face()
 
     self.nFxIndex = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.DASH, self.hParent),
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
+
+    self:StartIntervalThink(FrameTime())
 end
 
 function modifier_barghest_bite_dash:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
 
---[[ Чужой контроллер перехватил движение — рывок на этом кончается, укус
-     отработает из OnDestroy, если цель уже рядом. ]]
-function modifier_barghest_bite_dash:OnHorizontalMotionInterrupted()
-    if not IsServer() then return end
-    self.hParent:RemoveHorizontalMotionController(self)
-    self:Destroy()
+function modifier_barghest_bite_dash:Face()
+    local vDir = self.hTarget:GetAbsOrigin() - self.hParent:GetAbsOrigin()
+    vDir.z = 0
+    if vDir:Length2D() > 1 then self.hParent:SetForwardVector(vDir:Normalized()) end
 end
 
-function modifier_barghest_bite_dash:UpdateHorizontalMotion(hUnit, fTime)
+function modifier_barghest_bite_dash:OnIntervalThink()
     if not IsServer() then return end
-    if not Barghest_Alive(self.hTarget) then
+    local hUnit = self.hParent
+    if not Barghest_Alive(self.hTarget) or not Barghest_Alive(hUnit) then
         self:Destroy()
         return
     end
 
+    -- Направление пересчитываем каждый кадр: цель могли сдвинуть.
     local vTo = self.hTarget:GetAbsOrigin() - hUnit:GetAbsOrigin()
     vTo.z = 0
+    local fDist = vTo:Length2D()
     -- Доехали: дальше решает OnDestroy.
-    if vTo:Length2D() <= self.nStop then
+    if fDist <= self.nStop then
+        self.bReached = true
         self:Destroy()
         return
     end
 
     local vDir  = vTo:Normalized()
-    local fStep = self.nSpeed * fTime
+    -- Последний шаг не перелетает цель: останавливаемся ровно на радиусе укуса.
+    local fStep = math.min(self.nSpeed * FrameTime(), fDist - self.nStop + 1)
     local vNext = hUnit:GetAbsOrigin() + vDir * fStep
     self.fTravelled = self.fTravelled + fStep
-    if not GridNav:IsTraversable(vNext) or GridNav:IsBlocked(vNext)
-       or self.fTravelled > self.nMax then
+    if self.fTravelled > self.nMax then
+        print("[barghest_bite] рывок выдохся: пройдено " .. math.floor(self.fTravelled)
+              .. " > " .. math.floor(self.nMax))
+        self:Destroy()
+        return
+    end
+    if not GridNav:IsTraversable(vNext) or GridNav:IsBlocked(vNext) then
+        print("[barghest_bite] рывок упёрся в непроходимое, до цели " .. math.floor(fDist))
         self:Destroy()
         return
     end
@@ -248,7 +301,6 @@ end
 function modifier_barghest_bite_dash:OnDestroy()
     if not IsServer() then return end
     if Barghest_Alive(self.hParent) then
-        self.hParent:RemoveHorizontalMotionController(self)
         FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true)
     end
     if not Barghest_Alive(self.hAbility) then return end
@@ -259,19 +311,71 @@ function modifier_barghest_bite_dash:OnDestroy()
     --[[ Дотянуться разрешаем чуть дальше радиуса остановки: рывок могли оборвать
          за кадр до касания, и терять из-за этого весь укус нечестно. ]]
     local nReach   = self.nStop * 1.5
+    local bReached = self.bReached
+        or (Barghest_Alive(hTarget)
+            and (hTarget:GetAbsOrigin() - hParent:GetAbsOrigin()):Length2D() <= nReach)
+
+    --[[ Не добежали (цель ушла дальше dash_max_distance, упёрлись в стену,
+         цель умерла): рывок просто кончается — без позы укуса и без удержания
+         героини, клип разбега тоже гасим, чтобы не бежала на месте. ]]
+    if not bReached then
+        print("[barghest_bite] не добежали — укуса нет")
+        EndAnimation(hParent)
+        return
+    end
+    print("[barghest_bite] добежали, поза укуса")
 
     -- ⚠️ Через таймер: рывок обрывается и изнутри чужого пайплайна (смерть,
     -- перехват контроллера), а здесь мы наносим урон и вешаем модификаторы.
     Timers:CreateTimer(0, function()
         if not Barghest_Alive(hAbility) or not Barghest_Alive(hParent) then return end
         if not Barghest_Alive(hTarget) or not hTarget:IsAlive() then return end
-        if (hTarget:GetAbsOrigin() - hParent:GetAbsOrigin()):Length2D() > nReach then return end
-        hAbility:DoBite(hTarget)
+        hAbility:StartBite(hTarget)
     end)
 end
 
 ---------------------------------------------------------------------------------------------------
--- SABER: магическое сопротивление и барьер, который держит только магию.
+-- Поза укуса: держит героиню на месте на длину клипа, чтобы анимацию не перебил
+-- приказ. Не снимается диспелом и не в таблицах util — это техника, не бафф.
+---------------------------------------------------------------------------------------------------
+modifier_barghest_bite_hold = class({})
+
+function modifier_barghest_bite_hold:IsHidden()      return true end
+function modifier_barghest_bite_hold:IsDebuff()      return false end
+function modifier_barghest_bite_hold:IsPurgable()    return false end
+function modifier_barghest_bite_hold:RemoveOnDeath() return true end
+
+function modifier_barghest_bite_hold:CheckState()
+    return {
+        [MODIFIER_STATE_ROOTED]   = true,
+        [MODIFIER_STATE_DISARMED] = true,
+    }
+end
+
+--[[ Смотреть на жертву ВЕСЬ клип: одного SetForwardVector на старте не хватает,
+     движок доворачивает героиню обратно (см. память facing-tied-to-movement —
+     на месте, под рутом, покадровый доворот безопасен). ]]
+function modifier_barghest_bite_hold:OnCreated(tTable)
+    if not IsServer() then return end
+    self.hTarget = EntIndexToHScript(tTable.target)
+    self:Face()
+    self:StartIntervalThink(FrameTime())
+end
+
+function modifier_barghest_bite_hold:OnIntervalThink()
+    self:Face()
+end
+
+function modifier_barghest_bite_hold:Face()
+    local hParent = self:GetParent()
+    if not Barghest_Alive(self.hTarget) or not Barghest_Alive(hParent) then return end
+    local vDir = self.hTarget:GetAbsOrigin() - hParent:GetAbsOrigin()
+    vDir.z = 0
+    if vDir:Length2D() > 1 then hParent:SetForwardVector(vDir:Normalized()) end
+end
+
+---------------------------------------------------------------------------------------------------
+-- SABER: барьер, который держит только магию (магрез убран 14.09.2026 по слову юзера).
 -- Барьер сделан по item_b_scroll (MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT),
 -- но добивающий урон отложен на тик — см. modifier_barrier_new.
 ---------------------------------------------------------------------------------------------------
@@ -299,21 +403,12 @@ function modifier_barghest_bite_saber:OnRefresh()
 end
 
 function modifier_barghest_bite_saber:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-        MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT,
-    }
-end
-
--- ⚠️ Без серверного гарда: сопротивление обязано считаться и на клиенте.
-function modifier_barghest_bite_saber:GetModifierMagicalResistanceBonus()
-    if not Barghest_Alive(self.hAbility) then return 0 end
-    return self.hAbility:Value("saber_mr")
+    return {MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT}
 end
 
 --[[ Остаток барьера показываем стаками — так игрок видит, сколько ещё держит.
-     ⚠️ Пробитый барьер НЕ снимает сам модификатор: сопротивление живёт до конца
-     кражи. Ни Destroy, ни ApplyDamage прямо из колбэка — только тиком позже
+     ⚠️ Пробитый барьер НЕ снимает сам модификатор: иконка кражи живёт до конца
+     срока. Ни Destroy, ни ApplyDamage прямо из колбэка — только тиком позже
      (грабли из modifier_barrier_new). ]]
 function modifier_barghest_bite_saber:GetModifierIncomingSpellDamageConstant(keys)
     if not IsServer() then
@@ -624,7 +719,10 @@ end
 function modifier_barghest_bite_assassin:OnTakeDamage(keys)
     if not IsServer() then return end
     if keys.unit ~= self:GetParent() then return end
-    if keys.damage <= 0 then return end
+    -- Порог как у невидимости Сайто (fls_invis_dmg): мелочь вроде тика дота
+    -- невидимость не сбивает.
+    if not Barghest_Alive(self.hAbility) then return end
+    if keys.damage <= self.hAbility:Value("assassin_reveal_damage") then return end
     Timers:CreateTimer(0, function()
         if not Barghest_Alive(self) then return end
         self:Reveal()

@@ -1,4 +1,5 @@
 require("abilities/barghest/barghest_shared")
+require("abilities/barghest/barghest_vision_cone")
 
 barghest_combo = class({})
 
@@ -82,6 +83,10 @@ function barghest_combo:OnSpellStart()
          за `grow_time`, то есть ровно пока идёт замах, и к удару она уже
          большая. Мгновенный «щелчок» размера читался как баг. ]]
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_combo_giant",
+        {duration = fPrep + fHit + self:Value("giant_duration")})
+    -- Конус обзора (barghest_vision_cone.lua) — ПОКА на всё время гиганта;
+    -- куда переедет, решим позже, поэтому и висит отдельным модификатором.
+    hCaster:AddNewModifier(hCaster, self, "modifier_barghest_vision_cone",
         {duration = fPrep + fHit + self:Value("giant_duration")})
 
     -- Реплика идёт через общий голосовой канал: раньше фраза, крик роста и

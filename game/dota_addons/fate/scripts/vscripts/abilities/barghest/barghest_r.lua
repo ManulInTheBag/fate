@@ -509,7 +509,7 @@ function modifier_barghest_burn:OnIntervalThink()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Разгон: каждое попавшее продолжение ускоряет атаку и усиливает вампиризм F
+-- Разгон: каждое попавшее продолжение даёт силу и усиливает вампиризм F
 ---------------------------------------------------------------------------------------------------
 modifier_barghest_frenzy = class({})
 
@@ -528,6 +528,10 @@ function modifier_barghest_frenzy:OnStackCountChanged(iStackCount)
 end
 
 function modifier_barghest_frenzy:OnCreated()
+    if IsServer() then
+        self:SetHasCustomTransmitterData(true)
+        self:UpdateStrPerStack()
+    end
 	self.particle_unbreak = ParticleManager:CreateParticle("particles/hijikata/barghest_passive.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 							ParticleManager:SetParticleControl(self.particle_unbreak, 0, self:GetParent():GetAbsOrigin())
 							ParticleManager:SetParticleControl(self.particle_unbreak, 1, Vector(self:GetStackCount(),0,0))
@@ -535,13 +539,42 @@ function modifier_barghest_frenzy:OnCreated()
 	self:AddParticle(self.particle_unbreak, false, true, -1, true, false)
 end
 
--- Без IsServer-гарда: бонус обязан считаться и на клиенте.
-function modifier_barghest_frenzy:DeclareFunctions()
-    return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+-- Атрибут могут купить, пока разгон уже висит: цена стака пересчитывается на
+-- каждом продлении (каждое попавшее продолжение делает OnRefresh).
+function modifier_barghest_frenzy:OnRefresh()
+    if IsServer() then
+        self:UpdateStrPerStack()
+        self:SendBuffRefreshToClients()
+    end
 end
 
-function modifier_barghest_frenzy:GetModifierAttackSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("frenzy_as") * self:GetStackCount()
+--[[ Сила за стак: базовая `frenzy_str`, с первым атрибутом (Black Dog's Wake)
+     — `frenzy_str_attr`. ⚠️ Флаг атрибута живёт на герое и ТОЛЬКО на сервере,
+     а бонус к статам должен сходиться и на клиенте (HUD), поэтому число
+     уезжает клиенту через transmitter data (приём nero_imperial). ]]
+function modifier_barghest_frenzy:UpdateStrPerStack()
+    local hAbility = self:GetAbility()
+    local hParent = self:GetParent()
+    if not Barghest_Alive(hAbility) or not Barghest_Alive(hParent) then return end
+    local sKey = hParent.BarghestAttr1Acquired and "frenzy_str_attr" or "frenzy_str"
+    self.nStrPerStack = hAbility:GetSpecialValueFor(sKey)
+end
+
+function modifier_barghest_frenzy:AddCustomTransmitterData()
+    return {str = self.nStrPerStack}
+end
+
+function modifier_barghest_frenzy:HandleCustomTransmitterData(data)
+    self.nStrPerStack = data.str
+end
+
+-- Без IsServer-гарда: бонус обязан считаться и на клиенте.
+function modifier_barghest_frenzy:DeclareFunctions()
+    return {MODIFIER_PROPERTY_STATS_STRENGTH_BONUS}
+end
+
+function modifier_barghest_frenzy:GetModifierBonusStats_Strength()
+    return (self.nStrPerStack or 0) * self:GetStackCount()
 end
 
 ---------------------------------------------------------------------------------------------------

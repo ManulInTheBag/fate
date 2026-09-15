@@ -458,6 +458,11 @@ function Precache( context )
 	PrecacheResource("particle", "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf", context)
 	PrecacheResource("particle", "particles/custom/tamamo/gust_heaven_arc_lightning.vpcf", context)
 	PrecacheResource("particle", "particles/generic_gameplay/generic_purge.vpcf", context)
+	--[[ Звёздочки стана. Не прекешить = стан молча без картинки. Ванильный
+	     modifier_stunned и наши Lua-станы (GetEffectName) рисуют ОДИН этот
+	     партикль, а грузился он раньше только «за компанию» с чужими
+	     способностями — когда в матче есть Слуга, чей KV его прекешит. ]]
+	PrecacheResource("particle", "particles/generic_gameplay/generic_stunned.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf", context)
 	PrecacheResource("particle", "particles/items2_fx/rod_of_atos_debuff_glow.vpcf", context)

@@ -222,8 +222,10 @@ function modifier_barghest_e_charge:OnCreated()
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
 
     -- Линия прицела — только владельцу, как у emiya_caladbolg.
+    -- ⚠️ Один раз: OnRefresh зовёт этот OnCreated повторно, и вторая стрелка
+    -- затёрла бы индекс первой — та осталась бы висеть без хозяина.
     local hOwner = self.hParent:GetPlayerOwner()
-    if hOwner ~= nil then
+    if hOwner ~= nil and self.nAimFx == nil then
         self.nAimFx = ParticleManager:CreateParticleForPlayer(
             Barghest_FxName(BARGHEST_FX.AIM, self.hParent),
             PATTACH_CUSTOMORIGIN, nil, hOwner)
@@ -264,9 +266,11 @@ function modifier_barghest_e_charge:OnDestroy()
 
     -- ⚠️ Стрелку прицела чистим РУКАМИ: она сделана CreateParticleForPlayer и в
     -- self:AddParticle не попадает, поэтому сама не удалялась и висела на
-    -- экране после рывка.
+    -- экране после рывка. Гасим НЕМЕДЛЕННО (второй аргумент true): с false
+    -- движок лишь перестаёт эмитить, а уже выпущенные частицы линии доживают
+    -- своё — стрелка висела ещё 0.3-0.5 с после старта рывка.
     if self.nAimFx ~= nil then
-        ParticleManager:DestroyParticle(self.nAimFx, false)
+        ParticleManager:DestroyParticle(self.nAimFx, true)
         ParticleManager:ReleaseParticleIndex(self.nAimFx)
         self.nAimFx = nil
     end

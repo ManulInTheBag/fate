@@ -62,6 +62,11 @@ BARGHEST_FX = {
     HOUND      = "particles/barghest/barghest_hound_wake.vpcf",
     CHAINS     = "particles/barghest/barghest_e_chains.vpcf",
     LIFESTEAL  = "particles/barghest/barghest_lifesteal.vpcf",
+    -- Укус (barghest_e_bite): удар когтями/зубами с брызгами и кровь на жертве.
+    -- Ванильные партиклы Лайфстилера (Open Wounds) — ближайшее к укусу, что
+    -- есть в игре; своих под это нет.
+    BITE_HIT   = "particles/units/heroes/hero_life_stealer/life_stealer_open_wounds_impact.vpcf",
+    BITE_BLOOD = "particles/units/heroes/hero_life_stealer/life_stealer_open_wounds.vpcf",
     SHIELD_SLASH = "particles/barghest/barghest_slash_3.vpcf",
     -- Линии скорости заряженного рывка E (раньше путь был вписан прямо в barghest_e).
     DASH_SPEED = "particles/barghest/barghest_rush_e_speed.vpcf",

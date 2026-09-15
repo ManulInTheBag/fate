@@ -158,6 +158,7 @@ function modifier_barghest_w_stance:OnCreated()
     self.hAbility = self:GetAbility()
     self.hParent  = self:GetParent()
     self.fLastFeed = nil    -- когда барьер подливали в последний раз
+    self.fGained  = 0       -- сколько барьера уже подлили за эту стойку
     self.bBroken  = false
     self.fAbsorbed = 0      -- сколько урона по ней прошло: решает силу удара
 
@@ -211,10 +212,17 @@ function modifier_barghest_w_stance:FeedBarrier(fDamage)
     end
     self.fLastFeed = fNow
 
-    -- ⚠️ Барьер с потолком: без него толпа наваливала его быстрее, чем успевала
-    -- пробить, и стойку нельзя было сломать в принципе.
-    self:SetStackCount(math.min(hAbility:GetSpecialValueFor("barrier_cap"),
-        self:GetStackCount() + hAbility:GetSpecialValueFor("barrier_per_source")))
+    --[[ ⚠️ Потолок — на СУММУ подпитки за стойку (`barrier_gain_cap`), а не на
+         текущий барьер: без потолка толпа наваливала его быстрее, чем
+         успевала пробить, и стойку нельзя было сломать в принципе. А потолок
+         на текущее значение было легко обходить: урон съедал барьер, и
+         подпитка тут же доливала до кромки снова и снова — итого за стойку
+         она получала сколько угодно. Теперь лимит именно на полученное. ]]
+    local fRoom = hAbility:GetSpecialValueFor("barrier_gain_cap") - self.fGained
+    if fRoom <= 0 then return end
+    local fGain = math.min(fRoom, hAbility:GetSpecialValueFor("barrier_per_source"))
+    self.fGained = self.fGained + fGain
+    self:SetStackCount(self:GetStackCount() + fGain)
 end
 
 --[[ Остаток барьера показываем стаками — так игрок видит, сколько ещё держит.

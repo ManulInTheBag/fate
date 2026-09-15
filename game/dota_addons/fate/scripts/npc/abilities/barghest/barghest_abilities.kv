@@ -122,7 +122,8 @@
 			// удвоить. ⚠️ Он и есть главный ограничитель — скорострельные
 			// источники (пулемёт Ланселота: 10 попаданий в секунду) упираются в
 			// него меньше чем за секунду, и без потолка стойку было бы не пробить.
-			"barrier_cap"			"300 500 700 900 1100"
+			// Потолок на СУММУ подпитки за одну стойку, не на текущий барьер.
+			"barrier_gain_cap"			"300 500 700 900 1100"
 			"barrier_min_damage"			"25"		// удар слабее барьер не кормит
 			"barrier_gain_cd"			"0.03"		// общий кулдаун подпитки — один кадр
 			"slam_damage"			"100 160 220 280 340"
@@ -158,6 +159,7 @@
 		"AbilityCastRange"			"1100"
 		"AbilityCastPoint"			"0.1"
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_2"
+		"LinkedAbilities"			"barghest_e_bite"
 		"precache"
 		{
 			"particle"			"particles/barghest/barghest_rush_e.vpcf"
@@ -236,13 +238,17 @@
 			"particle"			"particles/barghest/barghest_rush_e.vpcf"
 			"particle"			"particles/barghest/barghest_barrier.vpcf"
 			"particle"			"particles/barghest/barghest_lifesteal.vpcf"
-			"particle"			"particles/barghest/barghest_slam.vpcf"
-			"particle"			"particles/barghest/barghest_slash_vertical_up_thin.vpcf"
+			"particle"			"particles/units/heroes/hero_life_stealer/life_stealer_open_wounds_impact.vpcf"
+			"particle"			"particles/units/heroes/hero_life_stealer/life_stealer_open_wounds.vpcf"
 			"particle"			"particles/zlodemon/immunity_sphere_buff.vpcf"
 		}
 		"AbilityValues"
 		{
 			"bite_damage"			"150 200 250 300 350"
+			"bite_anim_len"			"0.87"		// длина клипа укуса (ACT_DOTA_CAST_GHOST_SHIP, кадры 805-830 @30fps)
+			"bite_anim_rate"			"1.0"		// скорость проигрывания; 1.0 = как в модели
+			"bite_hit_delay"			"0.45"		// зубы смыкаются ~на 13 кадре клипа (13/30 с): тогда урон, кража, брызги
+			"bite_blood_duration"			"3.0"		// сколько с жертвы капает кровь
 			"bite_str_pct"			"60"		// % от силы сверх базового урона
 			"heal_pct"			"80"		// % нанесённого урона возвращается здоровьем
 			"steal_duration"			"10"		// сколько держится краденый эффект
@@ -250,8 +256,7 @@
 			"dash_max_distance"			"900"		// дальше цели рывок не тянется
 			"bite_radius"			"150"		// на таком расстоянии рывок кончается укусом
 			"dash_anim_tail"			"0.15"		// запас времени модификатора рывка сверх расчётного
-			// Saber: защита от магии и барьер только против магического урона
-			"saber_mr"			"15"
+			// Saber: барьер только против магического урона
 			"saber_barrier"			"400 500 600 700 800"
 			// Archer: обзор и истинное зрение
 			"archer_vision"			"500"
@@ -262,6 +267,7 @@
 			"rider_ms_pct"			"30"
 			// Assassin: через сколько секунд покоя невидимость возвращается
 			"assassin_fade"			"1.0"
+			"assassin_reveal_damage"			"300"		// урон не больше этого невидимость не сбивает (по слову юзера — всегда 300)
 			// Caster: регенерация
 			"caster_mana_regen"			"100"
 			"caster_hp_regen"			"50"
@@ -289,13 +295,14 @@
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/barghest/barghest_f"
 		"AbilityTextureName"		"custom/barghest/barghest_f"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// NOT_LEARNABLE обязателен: без него при MaxLevel 2 пассивку можно было
+		// вкачать очками. Уровень 2 открывает ТОЛЬКО атрибут barghest_attribute_2
+		// (так же сделано у cu_alter_roar).
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"		"1"
-		// Уровень 2 не качается обычным путём — его открывает атрибут
-		// barghest_attribute_2 (так же сделано у cu_alter_roar).
 		"MaxLevel"					"2"
 		"AbilityCooldown"			"0"
 		"AbilityManaCost"			"0"
@@ -312,7 +319,15 @@
 		"AbilityValues"
 		{
 			// Второе значение — уровень 2, его выдаёт barghest_attribute_2.
-			"bonus_mr"			"8 14"
+			// МР и броня растут с числом вражеских Слуг в enemy_radius:
+			// bonus + per_enemy * N, N не больше max_enemies (5 врагов, ур.1:
+			// 20% МР / 3.5 брони; ур.2: 27% / 5.75). Считает modifier_barghest_f.
+			"bonus_mr"			"5 7"
+			"mr_per_enemy"			"3 4"
+			"bonus_armor"			"1 2"
+			"armor_per_enemy"			"0.5 0.75"
+			"enemy_radius"			"1000"
+			"max_enemies"			"5"
 			"lifesteal_pct"			"12 18"
 			"lifesteal_per_frenzy"			"2 3"
 		}
@@ -387,7 +402,9 @@
 			"wave_ministun"			"0.3"
 			"cd_refund"			"1.0"
 			"frenzy_duration"			"6.0"
-			"frenzy_as"			"8"
+			"frenzy_str"			"5"			// сила за стак разгона
+			"frenzy_str_attr"			"10"		// то же с атрибутом barghest_attribute_1
+														// (копия в атрибуте — ТОЛЬКО для тултипа, держать равными)
 			"frenzy_max"			"5"
 			// Дот горения — включается атрибутом barghest_attribute_3
 			// (флаг BarghestAttr3Acquired на герое). ⚠️ Значения в самом
@@ -502,7 +519,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_chain_1"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_1"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -514,6 +531,7 @@
 		{
 			"hound_str_pct"				"60"		// % от силы героя
 			"hound_delay"				"0.35"		// через сколько бьёт послеобраз
+			"frenzy_str"				"10"		// сила за стак разгона R (рабочее число — frenzy_str_attr в barghest_r)
 		}
 	}
 
@@ -523,7 +541,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_f"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_2"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -533,7 +551,10 @@
 
 		"AbilityValues"		// только для тултипа; рабочие числа — в barghest_f
 		{
-			"bonus_mr"					"14"
+			"bonus_mr"					"7"
+			"mr_per_enemy"				"4"
+			"bonus_armor"				"2"
+			"armor_per_enemy"			"0.75"
 			"lifesteal_pct"				"18"
 			"lifesteal_per_frenzy"		"3"
 		}
@@ -545,7 +566,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_chain_1"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_4"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -562,7 +583,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_cont_3"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_3"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
