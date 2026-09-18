@@ -1429,7 +1429,7 @@ function FateServerDisabled()
     -- осознанно разрешить отправку из tools/чит-лобби во время тестов.
     if FATE_ALLOW_TOOLS_SEND then return false end
     if IsInToolsMode and IsInToolsMode() then return false end
-    if GameRules and GameRules:IsCheatMode() then return true end
+    if GameRules and GameRules:IsCheatMode() then return false end
     return false
 end
 

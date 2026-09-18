@@ -244,8 +244,7 @@ function barghest_q:AdvanceChain(iStage)
     if iStage >= 3 then
         -- Связка отыграна: сбрасываем и уходим в полный кулдаун.
         hCaster:RemoveModifierByName("modifier_barghest_q_chain")
-        self:EndCooldown()
-        self:StartCooldown(self:GetSpecialValueFor("full_cooldown"))
+
         return
     end
     local hChain = hCaster:AddNewModifier(hCaster, self, "modifier_barghest_q_chain",
@@ -343,6 +342,11 @@ function modifier_barghest_q_chain:IsHidden()      return false end
 function modifier_barghest_q_chain:IsDebuff()      return false end
 function modifier_barghest_q_chain:IsPurgable()    return false end
 function modifier_barghest_q_chain:RemoveOnDeath() return true end
+
+function modifier_barghest_q_chain:OnDestroy()
+    self:GetAbility():EndCooldown()
+    self:GetAbility():StartCooldown(self:GetAbility():GetSpecialValueFor("full_cooldown"))
+end
 
 --[[ Иконка показывает, СКОЛЬКО ударов связки уже сделано, то есть какой пойдёт
      следующим. Тестовая: цифра на всю плитку. ]]

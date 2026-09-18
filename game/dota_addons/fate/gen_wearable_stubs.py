@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Generate empty-model stubs for stock wearable vmdl_c of fate's override base heroes.
 
-Usage: python gen_stubs.py [--write]   (default = dry run)
+Usage: python gen_wearable_stubs.py [--write]   (default = dry run)
 """
 import os, re, struct, sys, shutil, zlib
 from collections import defaultdict
@@ -21,7 +21,7 @@ HERO_DIRS = {
         'phantom_lancer','phoenix','puck','queenofpain','razor','rikimaru','shadowshaman',
         'wraith_king','skywrath_mage','sniper','spectre','spirit_breaker','sven','lanaya',
         'terrorblade','tidehunter','tiny','tiny_01','tiny_02','tiny_03','tiny_04',
-        'treant_protector','troll_warlord','ursa','vengeful','venomancer','windrunner',
+        'treant_protector','troll_warlord','ursa','vengeful','venomancer','windrunner', 'dragon_knight', 'pangolier'
     ],
     'items': [
         'abaddon','axe','beastmaster','blood_seeker','bounty_hunter','centaur','chen','clinkz',
@@ -32,7 +32,7 @@ HERO_DIRS = {
         'queenofpain','razor','rikimaru','shadowshaman','skeleton_king','wraith_king',
         'skywrath_mage','sniper','spectre','spirit_breaker','sven','lanaya','templar_assassin',
         'terrorblade','tidehunter','tiny','tiny_01','tiny_02','tiny_03','tiny_04','treant',
-        'troll_warlord','ursa','vengeful','vengefulspirit','venomancer','windrunner',
+        'troll_warlord','ursa','vengeful','vengefulspirit','venomancer','windrunner', 'dragon_knight', 'pangolier'
     ],
 }
 
