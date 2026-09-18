@@ -137,7 +137,8 @@ function barghest_w:Slam(hCaster, fAbsorbed)
         for _, hUnit in pairs(tUnits) do
             if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
                 DoDamage(hCaster, hUnit, nDamage, nDamageType, 0, hAbility, false)
-                Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin(), hCaster)
+                hCaster:FindAbilityByName("barghest_r"):ApplyBurn(hUnit)
+                --Barghest_FxAt(BARGHEST_FX.SHOCK, hUnit:GetAbsOrigin(), hCaster)
             end
         end
     end)

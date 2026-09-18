@@ -48,7 +48,15 @@ local BARGHEST_BITE_BOON = {
     ["Caster"]    = "modifier_barghest_bite_caster",
     ["Berserker"] = "modifier_barghest_bite_berserker",
 }
-
+local BARGHEST_BITE_BOONJOPA = {
+    [1]     = "modifier_barghest_bite_saber",
+    [2]    = "modifier_barghest_bite_archer",
+    [3]    = "modifier_barghest_bite_lancer",
+    [4]     = "modifier_barghest_bite_rider",
+    [5]  = "modifier_barghest_bite_assassin",
+    [6]    = "modifier_barghest_bite_caster",
+    [7] = "modifier_barghest_bite_berserker",
+}
 --[[ Все краденые модификаторы одним списком: перед новой кражей старую снимаем,
      двух сразу быть не должно. ]]
 local BARGHEST_BITE_ALL = {
@@ -173,6 +181,7 @@ function barghest_e_bite:DoBite(hTarget)
     Barghest_FxOn(BARGHEST_FX.BITE_BLOOD, hTarget, self:Value("bite_blood_duration"))
 
     DoDamage(hCaster, hTarget, nDamage, self:GetAbilityDamageType(), 0, self, false)
+    hCaster:FindAbilityByName("barghest_r"):ApplyBurn(hUnit)
 
     --[[ Лечение от нанесённого урона. Считаем от расчётного числа, а не от
          прошедшего: вампиризм пассивки (Blood of the Beast) и так добавит своё
@@ -191,7 +200,8 @@ end
 function barghest_e_bite:StealBoon(hTarget)
     local hCaster = self:GetCaster()
     local sClass  = GetServantClass(hTarget)
-    local sMod    = BARGHEST_BITE_BOON[sClass] or "modifier_barghest_bite_extra"
+    local randomBullshit = math.random(1,7)
+    local sMod    = BARGHEST_BITE_BOON[sClass] or BARGHEST_BITE_BOONJOPA[randomBullshit]
 
     -- Двух краж разом не бывает: старую снимаем.
     for _, sOld in pairs(BARGHEST_BITE_ALL) do

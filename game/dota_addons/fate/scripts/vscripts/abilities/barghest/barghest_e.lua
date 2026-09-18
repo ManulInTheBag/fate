@@ -411,6 +411,7 @@ function modifier_barghest_e_dash:UpdateHorizontalMotion(hUnit, fTime)
             hEnemy:EmitSound(BARGHEST_SND.E_GRAB)
             DoDamage(hCaster, hEnemy, self.nDamage, self.hAbility:GetAbilityDamageType(),
                 0, self.hAbility, false)
+            hCaster:FindAbilityByName("barghest_r"):ApplyBurn(hEnemy)
             self:Destroy()
             return
         end

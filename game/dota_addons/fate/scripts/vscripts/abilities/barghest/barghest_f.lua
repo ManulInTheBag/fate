@@ -21,10 +21,43 @@ barghest_f = class({})
 ]]
 
 LinkLuaModifier("modifier_barghest_f", "abilities/barghest/barghest_f", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_barghest_combo_switch", "abilities/barghest/barghest_f", LUA_MODIFIER_MOTION_NONE)
 function barghest_f:GetIntrinsicModifierName()
     return "modifier_barghest_f"
 end
+
+function barghest_f:OnSpellStart()
+    if type(GetComboAvailability) == "function" then 
+        if GetComboAvailability(self:GetCaster()) ~= 0 then
+            --print("нет статов")
+        else
+            self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_barghest_combo_switch", { duration = 3 })
+        end
+    end
+end
+modifier_barghest_combo_switch = modifier_barghest_combo_switch or class({})
+
+function modifier_barghest_combo_switch:IsHidden()      return true end
+function modifier_barghest_combo_switch:IsPurgable()    return false end
+function modifier_barghest_combo_switch:RemoveOnDeath() return true end
+
+if IsServer() then
+	function modifier_barghest_combo_switch:OnCreated()
+		local caster = self:GetParent()
+		if caster:GetAbilityByIndex(3) and caster:GetAbilityByIndex(3):GetName() == "barghest_d" then
+			caster:SwapAbilities("barghest_d", "barghest_combo", false, true)
+		end
+	end
+
+	function modifier_barghest_combo_switch:OnDestroy()
+		local caster = self:GetParent()
+		if caster:GetAbilityByIndex(3) and caster:GetAbilityByIndex(3):GetName() == "barghest_combo" then
+			caster:SwapAbilities("barghest_d", "barghest_combo", true, false)
+		end
+	end
+end
+
+
 
 modifier_barghest_f = class({})
 

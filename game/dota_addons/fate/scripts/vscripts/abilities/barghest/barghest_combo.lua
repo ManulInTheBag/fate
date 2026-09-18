@@ -1,9 +1,8 @@
 require("abilities/barghest/barghest_shared")
-require("abilities/barghest/barghest_vision_cone")
 
 barghest_combo = class({})
 
---[[ Комбо — Black Dog Galatine (D)
+--[[ Комбо — Black Dog Galatine (слот Ability12; кнопка — из "Combo" в hero.kv)
 
      Barghest после короткой подготовки вырастает в `model_scale` раз и рубит дугой
      перед собой, а дальше `giant_duration` секунд держит это состояние:
@@ -26,7 +25,7 @@ barghest_combo = class({})
 
 LinkLuaModifier("modifier_barghest_combo_lock",  "abilities/barghest/barghest_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_combo_giant", "abilities/barghest/barghest_combo", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_barghest_combo_cd", "abilities/barghest/barghest_combo", LUA_MODIFIER_MOTION_NONE)
 --[[ Значения читаем с ЯВНЫМ индексом уровня, а не через GetSpecialValueFor.
      Комбо живёт на MaxLevel 1, и если его уровень по какой-то причине остался
      нулевым (не прошёл LevelAllAbility, пересоздали способность, отобрал
@@ -62,7 +61,12 @@ function barghest_combo:OnSpellStart()
     if not IsServer() then return end
     local hCaster = self:GetCaster()
     if hCaster:HasModifier("modifier_barghest_combo_lock") then return end
-
+    local masterCombo = hCaster.MasterUnit2 and hCaster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+	if masterCombo then
+		masterCombo:EndCooldown()
+		masterCombo:StartCooldown(self:GetCooldown(self:GetLevel()))
+	end
+	hCaster:AddNewModifier(hCaster, self, "modifier_barghest_combo_cd", { duration = self:GetCooldown(self:GetLevel()) })
     -- Курсор задаёт только направление удара: способность OVERSHOOT, пешком
     -- за курсором она не идёт (так же сделаны Q и R).
     local vDir = self:GetCursorPosition() - hCaster:GetAbsOrigin()
@@ -84,10 +88,7 @@ function barghest_combo:OnSpellStart()
          большая. Мгновенный «щелчок» размера читался как баг. ]]
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_combo_giant",
         {duration = fPrep + fHit + self:Value("giant_duration")})
-    -- Конус обзора (barghest_vision_cone.lua) — ПОКА на всё время гиганта;
-    -- куда переедет, решим позже, поэтому и висит отдельным модификатором.
-    hCaster:AddNewModifier(hCaster, self, "modifier_barghest_vision_cone",
-        {duration = fPrep + fHit + self:Value("giant_duration")})
+    -- Конус обзора (barghest_vision_cone.lua) отсюда переехал на D (barghest_d).
 
     -- Реплика идёт через общий голосовой канал: раньше фраза, крик роста и
     -- крик удара звучали втроём внахлёст.
@@ -352,4 +353,17 @@ function modifier_barghest_combo_giant:OnDestroy()
     end
     -- Ужавшись, она может оказаться внутри чужого хитбокса — расталкиваем.
     FindClearSpaceForUnit(hParent, hParent:GetAbsOrigin(), true)
+end
+
+modifier_barghest_combo_cd = modifier_barghest_combo_cd or class({})
+
+function modifier_barghest_combo_cd:IsHidden()      return false end
+function modifier_barghest_combo_cd:IsDebuff()      return true end
+function modifier_barghest_combo_cd:IsPurgable()    return false end
+function modifier_barghest_combo_cd:RemoveOnDeath() return false end
+
+
+
+function modifier_barghest_combo_cd:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

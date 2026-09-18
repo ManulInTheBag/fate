@@ -35,7 +35,7 @@ local function ServerDisabled()
     if type(f) == "function" then return f() end
     -- запасной вариант — та же логика, что в addon_game_mode.lua
     if _G.FATE_ALLOW_TOOLS_SEND then return false end
-    if IsInToolsMode and IsInToolsMode() then return true end
+    if IsInToolsMode and IsInToolsMode() then return false end
     if GameRules and GameRules.IsCheatMode and GameRules:IsCheatMode() then return true end
     return false
 end

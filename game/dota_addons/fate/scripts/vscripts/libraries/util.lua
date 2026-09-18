@@ -120,6 +120,7 @@ strongdispellable = {
     --"modifier_saito_quickslash_bonus",
     "modifier_barghest_w_stance",
     "modifier_barghest_frenzy",
+    "modifier_barghest_d",
     "modifier_barghest_e_chains",
     "modifier_barghest_e_stun",
     -- краденые укусом эффекты (barghest_e_bite): по одному на класс Слуги
@@ -214,6 +215,7 @@ deargdispellable = {
     "modifier_demon_king_release",
     "modifier_barghest_w_stance",
     "modifier_barghest_frenzy",
+    "modifier_barghest_d",
     "modifier_barghest_e_chains",
     "modifier_barghest_e_stun",
     -- краденые укусом эффекты (barghest_e_bite): по одному на класс Слуги
@@ -761,6 +763,7 @@ CannotReset = {
     "barghest_f",
     "barghest_combo",
     "barghest_e_bite",
+    "barghest_d",
 
     "rasputin_dodge",
     "rasputin_dodge_break",

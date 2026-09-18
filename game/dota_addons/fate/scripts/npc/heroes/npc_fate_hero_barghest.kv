@@ -25,9 +25,7 @@
 		"Ability1"					"barghest_q"					// Q
 		"Ability2"					"barghest_w"					// W
 		"Ability3"					"barghest_e"					// E
-		// D в концепте не придуман, и слот пока занимает КОМБО — как придумаем
-		// саму D, комбо переедет отсюда в свой слот.
-		"Ability4"					"barghest_combo"				// D (временно: комбо)
+		"Ability4"					"barghest_d"					// D
 		"Ability5"					"barghest_f"					// F
 		"Ability6"					"barghest_r"					// R
 		"Ability7"					"barghest_e_release"			// скрытая: «отпустить» рывок E
@@ -38,6 +36,9 @@
 		// ⚠️ Слот держать подряд с остальными: LevelAllAbility идёт по индексам
 		// и на первом пустом бросает всё остальное невыровненным.
 		"Ability11"					"barghest_e_bite"
+		// Комбо — вне ряда QWEDFR (как hijikata_combo в Ability11): кнопку рисует
+		// "Combo" ниже, слот держим подряд с 11 (см. ⚠️ выше).
+		"Ability12"					"barghest_combo"
 
 		// Что читает таблица счёта, чтобы показать готовность комбо. Сам гейт —
 		// GetComboAvailability (libraries/util.lua).
@@ -60,13 +61,13 @@
 		"Ability24"					"special_bonus_fate_none_7"
 		"Ability25"					"special_bonus_fate_none_8"
 
-		"StatusHealth"				"1400"
+		"StatusHealth"				"1300"
 		"StatusHealthRegen"			"7.0"
 		"StatusMana"				"1000"
 		"StatusManaRegen"			"4.0"
 
-		"ArmorPhysical"				"2"
-		"MagicalResistance"			"27"
+		"ArmorPhysical"				"4"
+		"MagicalResistance"			"20"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"75"
@@ -78,14 +79,14 @@
 
 		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"		"0"
-		"AttributeStrengthGain"		"3.2"
+		"AttributeStrengthGain"		"3"
 		"AttributeBaseAgility"		"0"
 		"AttributeAgilityGain"		"1.8"
 		"AttributeBaseIntelligence"	"0"
 		"AttributeIntelligenceGain"	"2.0"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"325"
+		"MovementSpeed"				"350"
 		"MovementTurnRate"			"0.7"
 
 		"VisionDaytimeRange"		"1000"

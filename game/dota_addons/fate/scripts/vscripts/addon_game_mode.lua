@@ -1428,7 +1428,7 @@ function FateServerDisabled()
     -- через script_reload/фейл-файл или временно в fate_secrets.lua), чтобы
     -- осознанно разрешить отправку из tools/чит-лобби во время тестов.
     if FATE_ALLOW_TOOLS_SEND then return false end
-    if IsInToolsMode and IsInToolsMode() then return true end
+    if IsInToolsMode and IsInToolsMode() then return false end
     if GameRules and GameRules:IsCheatMode() then return true end
     return false
 end

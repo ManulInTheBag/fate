@@ -441,7 +441,7 @@ function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
                 self:ApplyBurn(enemy)
                 -- Микростан: сам по себе он ничего не решает, но сбивает касты и
                 -- даёт Barghest время подойти — ради этого ветку и берут.
-                enemy:AddNewModifier(hCaster, self, "modifier_stunned",
+                enemy:AddNewModifier(hCaster, self, "modifier_muted",
                     {duration = fStun})
                 enemy:EmitSound(BARGHEST_SND.R_HOUND)
             end
@@ -711,8 +711,9 @@ function modifier_barghest_r_horn:OnDestroy()
                     DoDamage(hCaster, hEnemy, nDamage, hAbility:GetAbilityDamageType(),
                         0, hAbility, false)
                     hAbility:ApplyBurn(hEnemy)
-                    hEnemy:AddNewModifier(hCaster, hAbility, "modifier_stunned",
-                        {duration = nStun})
+                    -- hEnemy:AddNewModifier(hCaster, hAbility, "modifier_stunned",
+                    --     {duration = nStun})
+                    giveUnitDataDrivenModifier(hCaster, hEnemy, "locked", nStun)
                     return
                 end
             end
