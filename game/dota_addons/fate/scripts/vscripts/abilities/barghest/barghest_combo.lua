@@ -314,6 +314,7 @@ function modifier_barghest_combo_giant:Apply(fT)
             + (self.fBarFull - self.fBarBase) * fT))
     end
     -- Обзор растёт линейно вместе с размером: смотрит она с высоты.
+    
     if self.fDay ~= nil then
         hParent:SetDayTimeVisionRange(self.fDay + self.fVision * fT)
     end
@@ -346,8 +347,8 @@ function modifier_barghest_combo_giant:OnDestroy()
     -- сдувания, и без этого она воскресла бы полугигантом.
     FateSetModelScaleMult(hParent, "barghest_giant", nil)
     if self.fHull  ~= nil then hParent:SetHullRadius(self.fHull) end
-    if self.fDay   ~= nil then hParent:SetDayTimeVisionRange(self.fDay) end
-    if self.fNight ~= nil then hParent:SetNightTimeVisionRange(self.fNight) end
+    if self.fDay   ~= nil then hParent:SetDayTimeVisionRange(self:GetAbility():Value("base_vision")) end
+    if self.fNight ~= nil then hParent:SetNightTimeVisionRange(self:GetAbility():Value("base_vision")) end
     if type(hParent.SetHealthBarOffsetOverride) == "function" then
         hParent:SetHealthBarOffsetOverride(-1)
     end

@@ -111,6 +111,16 @@ function modifier_barghest_vision_cone:OnCreated()
     self:StartIntervalThink(BARGHEST_CONE.interval)
 end
 
+function modifier_barghest_vision_cone:OnDestroy()
+    if not IsServer() then return end
+    if self:GetParent():HasModifier("modifier_barghest_combo_giant") then
+        local modifier = self:GetParent():FindModifierByName("modifier_barghest_combo_giant")
+        modifier.fDay = 1000
+        modifier.fNight = 1000
+    end
+end
+
+
 --[[ Радиус сектора = её базовый обзор (день/ночь). Базовые геттеры серверные
      и появились не так давно — с гардом и запасным числом из таблицы. ]]
 function modifier_barghest_vision_cone:GetConeRange()

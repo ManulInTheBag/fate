@@ -231,7 +231,7 @@ function barghest_q:SpawnHound(vDir)
                 nRadius, nTeam, nTargets, nFlags, FIND_ANY_ORDER, false)) do
             if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
                 DoDamage(hCaster, hUnit, nDamage, nType, 0, hAbility, false)
-                hCaster:FindAbilityByName("barghest_r"):ApplyBurn(hUnit)
+                --hCaster:FindAbilityByName("barghest_r"):ApplyBurn(hUnit)
                 hUnit:EmitSound(BARGHEST_SND.HIT)
             end
         end
