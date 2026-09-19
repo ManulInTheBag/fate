@@ -1402,7 +1402,7 @@ end
 -- pcall: если fate_secrets.lua отсутствует (свежий клон), игра не падает.
 -- ============================================================================
 pcall(require, "fate_secrets")
-FATE_BINDS_HOST = FATE_BINDS_HOST or "http://localhost:8787"
+FATE_BINDS_HOST = "https://fate-binds-server.glebucha1112.workers.dev"-- or "http://localhost:8787"
 FATE_API_KEY = FATE_API_KEY or ""
 
 -- Версия сборки: хеш СОДЕРЖИМОГО геймплейных файлов, генерируется панелью
