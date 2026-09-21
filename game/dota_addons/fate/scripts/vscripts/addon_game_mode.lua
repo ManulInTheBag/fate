@@ -1394,7 +1394,8 @@ end
 -- Bind profiles: save/load to external server (Cloudflare Worker + D1).
 -- The panorama binds panel sends an opaque JSON string (args.data); the server
 -- keys it by SteamAccountID (engine-provided, trusted) and stores it verbatim.
--- HTTP runs on the game server via CreateHTTPRequestScriptVM, like statcollection.
+-- HTTP идёт через FateCreateHTTPRequest (fate_http.lua): нативный запрос, а в
+-- локальном лобби, где движок его больше не даёт, — реле через клиента.
 --
 -- FATE_BINDS_HOST / FATE_API_KEY вынесены в fate_secrets.lua (в .gitignore).
 -- ВАЖНО: этот файл всё равно уходит в клиентский VPK — вынос НЕ защищает от
@@ -1438,6 +1439,9 @@ end
 -- что объявлено в этом файле НИЖЕ точки require. Загруженный отсюда, он видит и
 -- FATE_BINDS_HOST/FATE_API_KEY, и FateServerDisabled. (На всякий случай в самом
 -- fate_mmr.lua эти имена всё равно читаются через _G в момент вызова.)
+-- HTTP-обёртка с реле через клиента (локальные лобби без CreateHTTPRequestScriptVM,
+-- см. fate_http.lua). Должна быть загружена ДО fate_mmr — тот зовёт FateCreateHTTPRequest.
+require('fate_http')
 require('fate_mmr')
 
 -- Пер-игрок гейт на запросы к серверу биндов: не больше FATE_BINDS_REQ_MAX за
@@ -1470,7 +1474,7 @@ function OnPlayerSaveBinds(iSource, args)
     if not FateBindsAllowRequest(playerID) then return end
 
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    local req = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/binds")
+    local req = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/binds")
     req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
     req:SetHTTPRequestGetOrPostParameter("steamid", steamid)
     req:SetHTTPRequestGetOrPostParameter("profile", profile)
@@ -1490,7 +1494,7 @@ function OnPlayerLoadBinds(iSource, args)
     if not FateBindsAllowRequest(playerID) then return end
 
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    local req = CreateHTTPRequestScriptVM("GET", FATE_BINDS_HOST .. "/binds?steamid=" .. steamid)
+    local req = FateCreateHTTPRequest("GET", FATE_BINDS_HOST .. "/binds?steamid=" .. steamid)
     req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
     req:Send(function(res)
         local ply = PlayerResource:GetPlayer(playerID)
@@ -1612,6 +1616,14 @@ function FateGameMode:OnPlayerChat(keys)
 
     if text == "-coords" then
         print(hero:GetAbsOrigin())
+    end
+
+    -- Диагностика HTTP-реле (fate_http.lua): сколько ушло нативно/через клиента,
+    -- кто из клиентов готов, что висит. Ответ в чат всем и в консоль сервера.
+    if text == "-http" then
+        local summary = FateHttp:Summary()
+        print("[FateHttp] " .. summary)
+        GameRules:SendCustomMessage("[HTTP] " .. summary, 0, 0)
     end
 
 
@@ -4833,6 +4845,8 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("player_send_emote", OnPlayerSendEmote )
     CustomGameEventManager:RegisterListener("player_save_binds", OnPlayerSaveBinds )
     CustomGameEventManager:RegisterListener("player_load_binds", OnPlayerLoadBinds )
+    -- Реле HTTP через клиента: ready/response/failure (fate_http.lua)
+    FateHttp:Init()
     -- Кнопка «Шафл по MMR» на экране выбора команд (проверка хоста — внутри)
     CustomGameEventManager:RegisterListener("mmr_shuffle_request", OnMMRShuffleRequest )
     -- Экран выбора команд просит рейтинги сам (он мог создаться позже рассылки)
@@ -6038,7 +6052,7 @@ function my_http_post(winnerTeam)
         end
         local duration = math.ceil(GameRules:GetGameTime())
 
-        local mreq = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/matches")
+        local mreq = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches")
         mreq:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
         mreq:SetHTTPRequestGetOrPostParameter("match_id", matchId)
         mreq:SetHTTPRequestGetOrPostParameter("winner_team", tostring(winnerTeam or 0))
@@ -6075,7 +6089,7 @@ function my_http_post(winnerTeam)
             local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
             if steamid == "0" then return end
 
-            local req = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/matches/player")
+            local req = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches/player")
             req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
             req:SetHTTPRequestGetOrPostParameter("match_id", matchId)
             req:SetHTTPRequestGetOrPostParameter("steamid", steamid)

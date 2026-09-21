@@ -348,7 +348,7 @@ function modifier_rasputin_combo_field:OnIntervalThink()
         nil,
         ability:GetLevelSpecialValueFor("aura_radius", 0),
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false

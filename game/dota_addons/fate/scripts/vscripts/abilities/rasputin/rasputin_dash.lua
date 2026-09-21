@@ -9,6 +9,7 @@ LinkLuaModifier("modifier_barrier_new", "modifiers/modifier_barrier_new", LUA_MO
 LinkLuaModifier("modifier_rasputin_dash_move", "abilities/rasputin/rasputin_dash", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_rasputin_dash_surge", "abilities/rasputin/rasputin_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_dash_charges", "abilities/rasputin/rasputin_dash", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rasputin_dash_charges_ui", "abilities/rasputin/rasputin_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_protection_from_arrows_active", "abilities/cu_chulain/modifiers/modifier_protection_from_arrows_active", LUA_MODIFIER_MOTION_NONE)
 
 function rasputin_dash:GetIntrinsicModifierName()
@@ -180,38 +181,8 @@ function modifier_rasputin_dash_charges:GetMaxStackCount()
 end
 
 
-function modifier_rasputin_dash_charges:OnCreated()
-
-	if not IsServer() then return end
-
-
-	self.progress = 0
-
-	self:SetStackCount(self:GetMaxStackCount())
-
-	self:StartIntervalThink(CHARGE_THINK)
-
-end
-
-
-function modifier_rasputin_dash_charges:OnRefresh()
-	if not IsServer() then return end
-	self:StartIntervalThink(CHARGE_THINK)
-end
-
-
-function modifier_rasputin_dash_charges:OnIntervalThink()
-
-	if not IsServer() then return end
-
-	local max = self:GetMaxStackCount()
-
-	if self:GetStackCount() >= max then
-		self.progress = 0
-		return
-	end
-
-	self.progress = (self.progress or 0) + CHARGE_THINK
+-- Сколько секунд копится один заряд с учётом сокращения кулдаунов.
+function modifier_rasputin_dash_charges:RestoreTime()
 
 	local restore = self:GetAbility():GetSpecialValueFor("charge_restore_time")
 
@@ -228,14 +199,176 @@ function modifier_rasputin_dash_charges:OnIntervalThink()
 		restore = CHARGE_THINK
 	end
 
-	while self.progress >= restore and self:GetStackCount() < max do
-		self.progress = self.progress - restore
-		self:SetStackCount(self:GetStackCount() + 1)
+	return restore
+
+end
+
+
+-- Витрина для баффбара: сам счётчик остаётся скрытым и постоянным (его нельзя
+-- отпускать по длительности - он интринсик, и движок пересоздаст его с полными
+-- зарядами), а видимая копия показывает число зарядов стаками и время до
+-- следующего заряда - длительностью. Полные заряды - длительность -1, без тикания.
+function modifier_rasputin_dash_charges:UpdateDisplay()
+
+	if not IsServer() then return end
+
+	local parent = self:GetParent()
+
+	if not IsNotNull(parent) then return end
+
+
+	local stacks = self:GetStackCount()
+
+	local remaining = -1
+
+	if stacks < self:GetMaxStackCount() then
+
+		remaining = self:RestoreTime() - (self.progress or 0)
+
+		-- не даём длительности дойти до нуля между тиками: иначе витрина
+		-- успевает истечь и пересоздаться, моргая в баффбаре
+		if remaining < CHARGE_THINK then
+			remaining = CHARGE_THINK
+		end
+
 	end
+
+
+	local ui =
+	parent:FindModifierByName("modifier_rasputin_dash_charges_ui")
+
+	if not ui then
+
+		ui =
+		parent:AddNewModifier(
+			parent,
+			self:GetAbility(),
+			"modifier_rasputin_dash_charges_ui",
+			{
+				duration = remaining
+			}
+		)
+
+		self.uiPushed = remaining
+		self.uiPushedAt = GameRules:GetGameTime()
+
+	end
+
+	if not ui then return end
+
+	ui:SetStackCount(stacks)
+
+	self:PushDuration(ui, remaining)
+
+end
+
+
+-- Насколько клиентскому отсчёту позволено разойтись с реальным остатком,
+-- прежде чем мы его поправим.
+local PUSH_EPSILON = 0.3
+
+
+-- ⚠️ Длительность витрины пишется НЕ каждый тик.
+--
+-- Каждая запись SetDuration перезапускает отсчёт на клиенте: кольцо на иконке
+-- начинается заново, и со стороны это выглядит как «полоска всё время
+-- заполняется, а кулдаун не уменьшается». Именно это и было.
+--
+-- Поэтому пишем только когда реальный остаток разошёлся с тем, что клиент
+-- досчитает сам: старт нового заряда, трата заряда и сокращение от пассивки
+-- (RefundChargeRestore). В остальное время клиент тикает сам и показывает
+-- настоящее время до следующего заряда.
+function modifier_rasputin_dash_charges:PushDuration(ui, remaining)
+
+	if not IsServer() then return end
+
+	local now = GameRules:GetGameTime()
+
+
+	-- заряды полные: бессрочная витрина, отсчитывать нечего
+	if remaining < 0 then
+
+		if self.uiPushed == -1 then return end
+
+		ui:SetDuration(-1, true)
+
+		self.uiPushed = -1
+		self.uiPushedAt = now
+
+		return
+
+	end
+
+
+	if self.uiPushed and self.uiPushed >= 0 and self.uiPushedAt then
+
+		local expected = self.uiPushed - (now - self.uiPushedAt)
+
+		if math.abs(expected - remaining) <= PUSH_EPSILON then return end
+
+	end
+
+
+	ui:SetDuration(remaining, true)
+
+	self.uiPushed = remaining
+	self.uiPushedAt = now
+
+end
+
+
+function modifier_rasputin_dash_charges:OnCreated()
+
+	if not IsServer() then return end
+
+
+	self.progress = 0
+
+	self:SetStackCount(self:GetMaxStackCount())
+
+	self:StartIntervalThink(CHARGE_THINK)
+
+	self:UpdateDisplay()
+
+end
+
+
+function modifier_rasputin_dash_charges:OnRefresh()
+	if not IsServer() then return end
+	self:StartIntervalThink(CHARGE_THINK)
+end
+
+
+function modifier_rasputin_dash_charges:OnDestroy()
+
+	if not IsServer() then return end
+
+	local parent = self:GetParent()
+
+	if IsNotNull(parent) then
+		parent:RemoveModifierByName("modifier_rasputin_dash_charges_ui")
+	end
+
+end
+
+
+function modifier_rasputin_dash_charges:OnIntervalThink()
+
+	if not IsServer() then return end
+
+	local max = self:GetMaxStackCount()
 
 	if self:GetStackCount() >= max then
 		self.progress = 0
+		self:UpdateDisplay()
+		return
 	end
+
+	self.progress = (self.progress or 0) + CHARGE_THINK
+
+	self:Advance()
+
+	self:UpdateDisplay()
 
 end
 
@@ -251,6 +384,31 @@ function modifier_rasputin_dash_charges:Spend()
 
 	self:SetStackCount(math.max(self:GetStackCount() - 1, 0))
 
+	self:UpdateDisplay()
+
+end
+
+
+-- Выдать заряды, на которые уже накопилось. Вынесено из тика, чтобы сокращение
+-- кулдаунов от пассивки срабатывало в тот же момент, когда прилетело, а не через
+-- тик - иначе витрина успевает показать «0.1 секунды» вместо реального остатка.
+function modifier_rasputin_dash_charges:Advance()
+
+	if not IsServer() then return end
+
+	local max = self:GetMaxStackCount()
+
+	local restore = self:RestoreTime()
+
+	while (self.progress or 0) >= restore and self:GetStackCount() < max do
+		self.progress = self.progress - restore
+		self:SetStackCount(self:GetStackCount() + 1)
+	end
+
+	if self:GetStackCount() >= max then
+		self.progress = 0
+	end
+
 end
 
 
@@ -264,6 +422,38 @@ function modifier_rasputin_dash_charges:Refund(seconds)
 
 	self.progress = (self.progress or 0) + seconds
 
+	self:Advance()
+
+	self:UpdateDisplay()
+
+end
+
+
+--------------------------------------------------------------------------------
+-- Видимая витрина зарядов E: стаки - сколько зарядов сейчас, длительность -
+-- сколько осталось до следующего. Состояния не хранит, всё ей проставляет
+-- modifier_rasputin_dash_charges:UpdateDisplay.
+--------------------------------------------------------------------------------
+modifier_rasputin_dash_charges_ui = class({})
+
+
+function modifier_rasputin_dash_charges_ui:IsHidden() return false end
+function modifier_rasputin_dash_charges_ui:IsPurgable() return false end
+function modifier_rasputin_dash_charges_ui:IsDebuff() return false end
+function modifier_rasputin_dash_charges_ui:RemoveOnDeath() return false end
+
+
+-- MODIFIER_ATTRIBUTE_PERMANENT тут НЕ ставится намеренно: у постоянного
+-- модификатора клиент не рисует таймер, и заряд копился бы без обратного отсчёта.
+-- Снести витрину диспелом всё равно нельзя - её каждый тик возвращает
+-- modifier_rasputin_dash_charges:UpdateDisplay.
+function modifier_rasputin_dash_charges_ui:GetAttributes()
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+
+function modifier_rasputin_dash_charges_ui:GetTexture()
+	return "custom/rasputin/rasputin_dash"
 end
 
 

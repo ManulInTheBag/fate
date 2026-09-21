@@ -33,6 +33,9 @@
 			"particle"		"particles/rasputin/rasputin_afterimage_back.vpcf"
 			"particle"		"particles/rasputin/rasputin_dash_radius.vpcf"
 			"particle"		"particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf"
+			// захват тоже вешает метку финишера - её партикли нужны и здесь
+			"particle"		"particles/rasputin/rasputin_finisher_mark_enemy.vpcf"
+			"particle"		"particles/rasputin/rasputin_finisher_path.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -315,9 +318,17 @@
 		"ScriptFile"					    "abilities/rasputin/rasputin_finisher"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
 		"AbilityTextureName"				"custom/rasputin/rasputin_finisher"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		// AUTOCAST = «альтернативное использование», как у emiya_change: игрок
+		// переключает его (ALT+F или правый клик по иконке), и тогда финишер
+		// взводит комбо сам - см. GetAutoCastState в rasputin_finisher:OnSpellStart.
+		//
+		// ⚠️ НЕ ставить DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE: движковый альт-каст
+		// стирает иконку способности, слот остаётся пустым.
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		// ALL, а не HERO|BASIC: призывы вроде башни Медеи и кракена Жиля сделаны
+		// на npc_dota_base_additive и под BASIC не попадают
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"					"99999"
 		"MaxLevel"							"1"
@@ -361,7 +372,7 @@
 			"drop_radius"							"700"
 			"finish_stun_after"						"0.1"
 			"combo_press_gap"						"0.1"
-			"combo_stacks_required"					"10"		// the second F only arms the combo if the first one was cast with this many charges
+			"combo_stacks_required"					"5"		// сколько стаков счётчика нужно, чтобы F взвёл комбо (вторым нажатием или через альт-использование)
 			"finish_stun"							"0.2"
 			"vision_linger"							"1"
 			"teleport_offset"						"170"
@@ -410,7 +421,7 @@
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
-		"LevelsBetweenUpgrades"				"1"
+		"LevelsBetweenUpgrades"				"2"
 		"MaxLevel"							"5"
 		"AbilityCooldown"				    "17"
 		"AbilityManaCost"					"400"
@@ -423,6 +434,9 @@
 			"particle"		"particles/rasputin/rasputin_hit.vpcf"
 			"particle"		"particles/rasputin/rasputin_skill_mark_wide.vpcf"
 			"particle"		"particles/rasputin/rasputin_wide_kick.vpcf"
+			// метка финишера, видимая только Распутину (modifier_rasputin_wide_kick_target)
+			"particle"		"particles/rasputin/rasputin_finisher_mark_enemy.vpcf"
+			"particle"		"particles/rasputin/rasputin_finisher_path.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -511,7 +525,9 @@
 			"curse_slow_per_stack"					"2"		// % movement speed per Curse stack
 			"curse_damage_reduction_pct"			"30"		// outgoing damage cut at Curse level 2
 			"curse_root_duration"					"0.05"		// level 3: root on any ability cast (as Ozy cage) to cut dashes short
-			"combo_stacks_required"					"10"
+			// копия порога из rasputin_finisher: логика читает значение оттуда,
+			// а это подставляется в %combo_stacks_required% тултипа комбо - держать в паре
+			"combo_stacks_required"					"5"
 		}
 	}
  

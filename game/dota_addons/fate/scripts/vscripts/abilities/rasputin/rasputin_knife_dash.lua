@@ -251,15 +251,17 @@ function rasputin_knife_dash:KnifeThrow()
 
 			Source = caster,
 
-			bDeleteOnHit = true,
+			-- судьбу снаряда решает OnProjectileHitHandle: нож должен проходить
+			-- сквозь обычных крипов, поэтому движку удалять его на первом
+			-- касании нельзя
+			bDeleteOnHit = false,
 
 
 			iUnitTargetTeam =
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 
 			iUnitTargetType =
-			DOTA_UNIT_TARGET_HERO +
-			DOTA_UNIT_TARGET_BASIC
+			DOTA_UNIT_TARGET_ALL
 		}
 
 		self.projectile =
@@ -301,7 +303,7 @@ local SHIELD_MODIFIERS = {
 
 
 -- нож считается летящим от начала броска и до попадания или конца дистанции;
--- расчётное время полёта - страховка на случай, если OnProjectileHit не придёт
+-- расчётное время полёта - страховка на случай, если OnProjectileHitHandle не придёт
 function rasputin_knife_dash:IsKnifeInFlight()
 
 	if not self.knifeInFlight then return false end
@@ -390,6 +392,38 @@ function rasputin_knife_dash:DamageShields(hTarget)
 end
 
 
+-- Страховка от зависшей метки. Обычно её снимает modifier_rasputin_knife_dash_tracker
+-- в OnDestroy, но если трекер не родился или умер не своей смертью (конец раунда,
+-- Распутин погиб в тот же тик), партикль оставался на цели до её следующей смерти.
+-- Поэтому у метки есть собственный предел жизни, ни от чего больше не зависящий.
+function RasputinWatchKnifeMark(unit, ability, fx)
+
+	if not IsServer() then return end
+
+	if not IsNotNull(unit) or not fx then return end
+
+
+	local life = 1
+
+	if IsNotNull(ability) then
+		life = ability:GetSpecialValueFor("recast_duration") + 0.5
+	end
+
+
+	Timers:CreateTimer(life, function()
+
+		if not IsNotNull(unit) then return end
+
+		-- метку уже сняли или перевесили новым ножом - эта не наша
+		if unit.rasputin_knife_mark_fx ~= fx then return end
+
+		RasputinReleaseKnifeMark(unit, ability)
+
+	end)
+
+end
+
+
 function RasputinReleaseKnifeMark(unit, ability)
 
 	if not IsNotNull(unit) then return end
@@ -423,13 +457,38 @@ function RasputinReleaseKnifeMark(unit, ability)
 end
 
 
-function rasputin_knife_dash:OnProjectileHit(hTarget, vLocation)
+-- Снаряд живёт с bDeleteOnHit = false, поэтому судьбу броска решает эта функция:
+-- false - нож летит дальше, true (+ DestroyLinearProjectile) - гаснет.
+function rasputin_knife_dash:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandle)
 	local hCaster = self:GetCaster()
+
+	if hTarget ~= nil then
+
+		-- обычный крип ножу не помеха: снаряд проходит сквозь него, без урона и
+		-- метки, и летит дальше за героем. Крипы-герои (кракен, дракон, башня,
+		-- пирамида) - цель.
+		if not RasputinIsStackTarget(hTarget) then
+			return false
+		end
+
+		-- Protection from Arrows: нож так же проходит насквозь и летит дальше
+		if hTarget:HasModifier("modifier_protection_from_arrows_active") then
+			return false
+		end
+
+	end
 
 	-- прилетел в цель или выдохся по дистанции - в любом случае бросок закончен
 	self.knifeInFlight = nil
+
  	 if(hTarget ~= nil) then
-	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
+
+	-- цель найдена - гасим снаряд руками: bDeleteOnHit выключен, и для линейных
+	-- снарядов одного return true движку недостаточно
+	if iProjectileHandle then
+		ProjectileManager:DestroyLinearProjectile(iProjectileHandle)
+	end
+
 	hCaster:EmitSound("rasputin_knife_dash_hit")
 
 
@@ -474,6 +533,12 @@ function rasputin_knife_dash:OnProjectileHit(hTarget, vLocation)
 		RasputinFx(hCaster, "particles/rasputin/rasputin_knife_mark.vpcf"),
 		PATTACH_OVERHEAD_FOLLOW,
 		hTarget
+	)
+
+	RasputinWatchKnifeMark(
+		hTarget,
+		self,
+		hTarget.rasputin_knife_mark_fx
 	)
 
 	-- если Q2 уже взведён предыдущим ножом, второй нож переносит метку на новую цель,

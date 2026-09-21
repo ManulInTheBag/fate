@@ -3,6 +3,13 @@ require('abilities/rasputin/rasputin_gesture')
 RASPUTIN_BK_START_SOUND = "rasputin_bk_start"
 RASPUTIN_BREAK_BURST_SOUND = "rasputin_curse_burst"
 
+-- Озвучка Battle Continuation: продление и предупреждение о скором конце.
+RASPUTIN_BK_REFRESH_SOUND = "rasputin_bk_refresh"
+RASPUTIN_BK_ENDING_SOON_SOUND = "rasputin_bk_ending_soon"
+
+-- за сколько секунд до конца BK включается предупреждение
+RASPUTIN_BK_ENDING_SOON_LEAD = 2.5
+
 rasputin_dodge_break = class({})
 
 LinkLuaModifier("modifier_rasputin_reborn", "abilities/rasputin/rasputin_bk", LUA_MODIFIER_MOTION_NONE)
@@ -330,6 +337,56 @@ end
 function modifier_rasputin_reborn:OnIntervalThink()
     if not IsServer() then return end
     self:PublishSeen()
+    self:CheckEndingSoon()
+end
+
+
+-- Предупреждение за RASPUTIN_BK_ENDING_SOON_LEAD секунд до конца BK.
+-- Играется один раз на «срок»: продление сбрасывает флаг (StopEndingSoon),
+-- и когда до нового конца снова останется столько же - прозвучит опять.
+function modifier_rasputin_reborn:CheckEndingSoon()
+
+    if not IsServer() then return end
+
+    if self.endingSoonPlayed then return end
+
+
+    local parent = self:GetParent()
+
+    if not IsNotNull(parent) then return end
+
+    if not parent:IsAlive() then return end
+
+
+    local left = self:GetRemainingTime()
+
+    -- бесконечный BK (длительность -1) предупреждать не о чем
+    if left < 0 then return end
+
+    if left > RASPUTIN_BK_ENDING_SOON_LEAD then return end
+
+
+    self.endingSoonPlayed = true
+
+    parent:EmitSound(RASPUTIN_BK_ENDING_SOON_SOUND)
+
+end
+
+
+-- Глушит предупреждение и снова его взводит: зовётся и при продлении,
+-- и при смерти/снятии BK, чтобы звук не доигрывал в пустоту.
+function modifier_rasputin_reborn:StopEndingSoon()
+
+    if not IsServer() then return end
+
+    local parent = self:GetParent()
+
+    if IsNotNull(parent) and self.endingSoonPlayed then
+        parent:StopSound(RASPUTIN_BK_ENDING_SOON_SOUND)
+    end
+
+    self.endingSoonPlayed = nil
+
 end
 
 
@@ -357,6 +414,9 @@ end
 function modifier_rasputin_reborn:OnDestroy()
 
     if not IsServer() then return end
+
+    -- BK кончился или снят - предупреждение доигрывать незачем
+    self:StopEndingSoon()
 
     local seenParent = self:GetParent()
 
@@ -425,6 +485,13 @@ function modifier_rasputin_reborn:OnDeath(params)
     if window and window > 0 then
         self:SetDuration(window, true)
     end
+
+
+    -- условие выполнено, BK продлён: глушим предупреждение и взводим его заново
+    -- под новый срок, а сверху даём отбивку продления
+    self:StopEndingSoon()
+
+    parent:EmitSound(RASPUTIN_BK_REFRESH_SOUND)
 
 end
 
@@ -579,7 +646,7 @@ function modifier_rasputin_dodge_break:OnIntervalThink()
         nil,
         radius,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -622,7 +689,7 @@ function modifier_rasputin_dodge_break:OnDestroy()
         nil,
         ability:GetSpecialValueFor("break_radius"),
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false

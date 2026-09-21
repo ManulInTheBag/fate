@@ -339,7 +339,7 @@ function rasputin_low_kick:LowKick1()
             nil,
             width,
             DOTA_UNIT_TARGET_TEAM_ENEMY,
-            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            DOTA_UNIT_TARGET_ALL,
             DOTA_UNIT_TARGET_FLAG_NONE
         )
 
@@ -510,7 +510,7 @@ function rasputin_low_kick:LowKick2()
             nil,
             width,
             DOTA_UNIT_TARGET_TEAM_ENEMY,
-            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            DOTA_UNIT_TARGET_ALL,
             DOTA_UNIT_TARGET_FLAG_NONE
         )
 
@@ -835,7 +835,7 @@ function rasputin_low_kick:DashImpact(direction, refundToken)
         nil,
         radius,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false

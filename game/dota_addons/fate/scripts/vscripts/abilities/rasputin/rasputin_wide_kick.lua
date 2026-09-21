@@ -314,7 +314,7 @@ function rasputin_wide_kick:OnSpellStart()
             radius,
             coneAngle,
             DOTA_UNIT_TARGET_TEAM_ENEMY,
-            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            DOTA_UNIT_TARGET_ALL,
             DOTA_UNIT_TARGET_FLAG_NONE,
             self:GetSpecialValueFor("close_radius")
         )
@@ -708,7 +708,7 @@ function modifier_rasputin_wide_kick_knockback:CheckBystanders(unit)
         nil,
         ability:GetSpecialValueFor("chain_radius"),
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false

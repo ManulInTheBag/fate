@@ -286,6 +286,79 @@ function RasputinCastToken(ability)
 end
 
 
+-- Крипы-герои: крупные призывы, которые в аддоне играют роль полноценной цели,
+-- а не мяса. Распутин получает с них стаки счётчика, и нож (Q) в них втыкается,
+-- вместо того чтобы пролетать насквозь, как через обычного крипа.
+-- Единственное место, где этот список задан - дописывать новые призывы сюда.
+RASPUTIN_HERO_CREEPS = {
+    ["caster_5th_ancient_dragon"]      = true,   -- дракон Медеи
+    ["caster_5th_territory"]           = true,   -- башня Медеи
+    ["caster_5th_territory_improved"]  = true,   -- она же, улучшенная
+    ["gille_gigantic_horror"]          = true,   -- кракен Жиля
+    ["ozy_piramid"]                    = true,   -- пирамида Озимандиаса
+}
+
+
+-- Цель, «достойная» стака: герой (включая иллюзии и призванных героев вроде
+-- солдат Искандера) либо крип-герой из списка выше. Обычные крипы - нет.
+function RasputinIsStackTarget(unit)
+
+    if not IsNotNull(unit) then return false end
+
+    if unit:IsHero() then return true end
+
+    return RASPUTIN_HERO_CREEPS[unit:GetUnitName()] == true
+
+end
+
+
+-- Можно ли прямо сейчас нажать F по этой цели. Повторяет гейты
+-- rasputin_finisher:CastFilterResultLocation плюс движковую проверку
+-- (кулдаун, мана, уровень). По этому же ответу гаснут партикли метки:
+-- нет смысла подсвечивать цель, по которой финишер не сработает.
+function RasputinCanFinishTarget(caster, target)
+
+    if not IsNotNull(caster) or not IsNotNull(target) then return false end
+
+    if not caster:IsAlive() or not target:IsAlive() then return false end
+
+
+    local finisher = caster:FindAbilityByName("rasputin_finisher")
+
+    if not IsNotNull(finisher) then return false end
+
+    if not finisher:IsFullyCastable() then return false end
+
+
+    if RasputinIsRooted and RasputinIsRooted(caster) then return false end
+
+
+    -- собственный стан от серии ударов не в счёт: именно в нём жмётся второе F
+    if caster:IsStunned()
+    and not caster:HasModifier("modifier_rasputin_finisher_channel")
+    then
+        return false
+    end
+
+
+    local counter =
+    caster:FindModifierByName("modifier_rasputin_finisher_counter")
+
+    if not counter or counter:GetStackCount() < 1 then return false end
+
+
+    local reach = finisher:GetSpecialValueFor("cast_radius")
+
+    if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > reach then
+        return false
+    end
+
+
+    return true
+
+end
+
+
 function RasputinGrantStack(caster, ability, victim, castToken)
 
     if not IsServer() then return end
@@ -293,9 +366,8 @@ function RasputinGrantStack(caster, ability, victim, castToken)
     if not IsNotNull(caster) then return end
 
 
-    -- за попадание по крипу стак не даётся; крип-герой (иллюзии, призванные
-    -- герои вроде солдат Искандера) считается целью
-    if victim and IsNotNull(victim) and not victim:IsHero() then return end
+    -- за попадание по обычному крипу стак не даётся
+    if victim and IsNotNull(victim) and not RasputinIsStackTarget(victim) then return end
 
 
     if _G.CurrentGameState == "FATE_POST_ROUND" then return end

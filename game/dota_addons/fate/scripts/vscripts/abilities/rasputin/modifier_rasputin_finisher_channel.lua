@@ -284,7 +284,17 @@ function modifier_rasputin_finisher_channel:OnDestroy()
     -- иначе труп доносил урон и швырял цели
     local caster = self:GetCaster()
 
-    if not IsNotNull(caster) or not caster:IsAlive() then return end
+    if not IsNotNull(caster) or not caster:IsAlive() then
+
+        -- взвод снимаем, иначе он повиснет на способности до конца игры
+        -- и заблокирует второе нажатие F («Combo is already armed»)
+        if ability.CancelArmedCombo then
+            ability:CancelArmedCombo()
+        end
+
+        return
+
+    end
 
 
     ability:DealFinishDamage()

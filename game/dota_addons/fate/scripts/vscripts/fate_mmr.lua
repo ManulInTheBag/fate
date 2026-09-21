@@ -213,7 +213,7 @@ function FateMMR:Fetch(callback)
         return
     end
 
-    local req = CreateHTTPRequestScriptVM("GET", BindsHost() .. "/mmr?ids=" .. table.concat(ids, ","))
+    local req = FateCreateHTTPRequest("GET", BindsHost() .. "/mmr?ids=" .. table.concat(ids, ","))
     req:SetHTTPRequestHeaderValue("X-Fate-Key", ApiKey())
     self:Debug("запрос ушёл (" .. #ids .. " аккаунтов)")
     req:Send(function(res)
@@ -746,7 +746,7 @@ function FateMMR:ApplyMatch(matchId, winnerTeam)
     local attempt = 0
     local function send()
         attempt = attempt + 1
-        local req = CreateHTTPRequestScriptVM("POST", BindsHost() .. "/mmr/apply")
+        local req = FateCreateHTTPRequest("POST", BindsHost() .. "/mmr/apply")
         req:SetHTTPRequestHeaderValue("X-Fate-Key", ApiKey())
         req:SetHTTPRequestGetOrPostParameter("match_id", matchId)
         req:SetHTTPRequestGetOrPostParameter("winner_team", tostring(winnerTeam))

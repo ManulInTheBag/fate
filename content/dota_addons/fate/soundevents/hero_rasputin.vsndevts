@@ -567,7 +567,7 @@
                     }
                     "volume"
                     {
-                        "value"        "80.000000"
+                        "value"        "68.000000"
                     }
                     "pitch"
                     {
@@ -1216,6 +1216,72 @@
 					"volume"
 					{
 						"value"		"16.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"rasputin_bk_refresh"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/rasputin/rasputin_bk_refresh.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"18.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"rasputin_bk_ending_soon"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/rasputin/rasputin_bk_ending_soon.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"18.000000"
 					}
 					"pitch"
 					{

@@ -6,6 +6,8 @@
 		<include src="s2r://panorama/scripts/arena_util.vjs_c" />
 		<include src="s2r://panorama/scripts/options.vjs_c" />
 		<include src="s2r://panorama/scripts/custom_ui_manifest.vjs_c" />
+		<!-- HTTP-реле через клиента для локальных лобби (см. fate_http.lua) -->
+		<include src="s2r://panorama/scripts/custom_game/fate_http_relay.vjs_c" />
 
 	</scripts>
 	

@@ -75,8 +75,7 @@ local function FindWideKickTargets(caster, radius)
         nil,
         radius or 9999,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO +
-        DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -169,18 +168,13 @@ local function FindWideKickGroup(caster, point, groupRadius, clicked, castRadius
 end
 
 
-function rasputin_finisher:ComboReady()
+-- Общий гейт комбо: сам скилл на герое, статы добиты, комбо не на кулдауне.
+-- Отдельно от ComboReady, потому что Alt+F взводит комбо в первом же касте,
+-- когда comboArmedAt ещё не выставлен и второго нажатия не будет.
+function rasputin_finisher:ComboAvailable()
 
     local caster = self:GetCaster()
 
-
-    if not caster:HasModifier("modifier_rasputin_finisher_channel") then
-        return false
-    end
-
-    if not self.comboArmedAt then return false end
-
-    if GameRules:GetGameTime() < self.comboArmedAt then return false end
 
     if not caster:FindAbilityByName("rasputin_combo") then
         print("[RASPUTIN combo] rasputin_combo is not on the hero")
@@ -216,13 +210,42 @@ function rasputin_finisher:ComboReady()
 end
 
 
-function rasputin_finisher:TryCombo()
+function rasputin_finisher:ComboReady()
 
-    if not self:ComboReady() then return false end
+    local caster = self:GetCaster()
+
+
+    if not caster:HasModifier("modifier_rasputin_finisher_channel") then
+        return false
+    end
+
+    if not self.comboArmedAt then return false end
+
+    if GameRules:GetGameTime() < self.comboArmedAt then return false end
+
+    return self:ComboAvailable()
+
+end
+
+
+-- Взвести комбо: оно стартует в modifier_rasputin_finisher_channel:OnDestroy
+-- через StartArmedCombo.
+--
+-- ⚠️ Кулдаун здесь НЕ трогается. Раньше он уходил в момент взведения, и любое
+-- взведение, не дошедшее до старта (Распутин умер в серии, серию прервали),
+-- сжигало комбо на 160 секунд впустую - снаружи это выглядело как «комбо не
+-- работает вообще». Теперь кулдаун списывается там же, где комбо реально
+-- стартует, в StartArmedCombo.
+function rasputin_finisher:ArmCombo()
 
     local caster = self:GetCaster()
 
     local combo = caster:FindAbilityByName("rasputin_combo")
+
+    if not combo then
+        print("[RASPUTIN combo] ArmCombo: rasputin_combo не найден на герое")
+        return false
+    end
 
 
     combo.targets = self.targets
@@ -232,13 +255,27 @@ function rasputin_finisher:TryCombo()
 
     self.comboArmed = true
 
+    print("[RASPUTIN combo] взведено, стартует по окончании серии")
+
+    return true
+
+end
+
+
+-- Списать кулдаун комбо. Зовётся из StartArmedCombo, когда комбо уже точно
+-- уходит в работу.
+function rasputin_finisher:SpendComboCooldown(combo)
+
+    if not IsNotNull(combo) then return end
+
+    local caster = self:GetCaster()
 
     local cooldown = combo:GetCooldown(combo:GetLevel())
 
     combo:StartCooldown(cooldown)
 
 
-    if cooldown and cooldown > 0 then
+    if cooldown and cooldown > 0 and IsNotNull(caster) then
 
         caster:AddNewModifier(
             caster,
@@ -251,7 +288,27 @@ function rasputin_finisher:TryCombo()
 
     end
 
-    return true
+end
+
+
+-- Взведённое комбо не состоялось (Распутин погиб в серии): снимаем взвод,
+-- чтобы следующее нажатие F не упёрлось в «Combo is already armed».
+function rasputin_finisher:CancelArmedCombo()
+
+    if not self.comboArmed then return end
+
+    self.comboArmed = nil
+
+    print("[RASPUTIN combo] взвод снят, комбо не состоялось")
+
+end
+
+
+function rasputin_finisher:TryCombo()
+
+    if not self:ComboReady() then return false end
+
+    return self:ArmCombo()
 
 end
 
@@ -266,7 +323,16 @@ function rasputin_finisher:StartArmedCombo()
 
     local combo = caster:FindAbilityByName("rasputin_combo")
 
-    if not combo then return end
+    if not combo then
+        print("[RASPUTIN combo] StartArmedCombo: rasputin_combo не найден")
+        return
+    end
+
+
+    -- комбо точно уходит в работу - вот теперь и платим кулдауном
+    self:SpendComboCooldown(combo)
+
+    print("[RASPUTIN combo] старт")
 
 
     local delay = combo:GetLevelSpecialValueFor("combo_start_delay", 0)
@@ -339,6 +405,14 @@ function rasputin_finisher:CastFilterResultLocation(location)
 
     if self:ComboReady() then
         return UF_SUCCESS
+    end
+
+    -- комбо уже взведено этим же кастом через Alt+F - второе нажатие лишнее
+    if self.comboArmed
+    and caster:HasModifier("modifier_rasputin_finisher_channel")
+    then
+        self.customCastError = "Combo is already armed"
+        return UF_FAIL_CUSTOM
     end
 
     -- второе нажатие во время серии, но комбо не взведено (мало стаков)
@@ -732,10 +806,13 @@ function rasputin_finisher:OnSpellStart()
     )
 
 
-    -- второе нажатие F открывает комбо только с полного счётчика
+    -- второе нажатие F открывает комбо только с достаточного счётчика
     self.comboArmedAt = nil
 
-    if stacks >= self:GetSpecialValueFor("combo_stacks_required") then
+    local comboStacksReady =
+    stacks >= self:GetSpecialValueFor("combo_stacks_required")
+
+    if comboStacksReady then
         self.comboArmedAt =
         GameRules:GetGameTime() + self:GetSpecialValueFor("combo_press_gap")
     end
@@ -773,6 +850,29 @@ function rasputin_finisher:OnSpellStart()
 
 
     self.targets = targets
+
+
+    -- Alt+F: комбо взводится сразу этим же кастом и стартует по окончании серии,
+    -- второе нажатие F не нужно. Стаков не хватило или комбо недоступно -
+    -- каст просто отрабатывает как обычный финишер, без ошибки.
+    -- «Альтернативное использование» = автокаст, как у emiya_change: игрок
+    -- переключает его на иконке F, и тогда комбо взводится этим же кастом и
+    -- стартует по окончании серии, без второго нажатия F.
+    local altCast = self:GetAutoCastState()
+
+    print(string.format(
+        "[RASPUTIN combo] каст F: стаков %d из %d, альт-использование=%s",
+        stacks,
+        self:GetSpecialValueFor("combo_stacks_required"),
+        tostring(altCast)
+    ))
+
+    if comboStacksReady
+    and altCast
+    and self:ComboAvailable()
+    then
+        self:ArmCombo()
+    end
 
 
     if counter then
