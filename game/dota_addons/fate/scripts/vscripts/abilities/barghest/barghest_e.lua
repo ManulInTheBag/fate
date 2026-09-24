@@ -37,16 +37,22 @@ LinkLuaModifier("modifier_barghest_e_stun",    "abilities/barghest/barghest_e", 
      Поэтому приказы фильтруем: пропускаем движение (им она целится) и ровно
      две свои кнопки, всё остальное съедаем.
      ⚠️ Предметы приходят теми же CAST-приказами — блинк отсекается здесь же. ]]
-local BARGHEST_E_CAST_ORDERS = {
-    [DOTA_UNIT_ORDER_CAST_POSITION]          = true,
-    [DOTA_UNIT_ORDER_CAST_TARGET]            = true,
-    [DOTA_UNIT_ORDER_CAST_TARGET_TREE]       = true,
-    [DOTA_UNIT_ORDER_CAST_NO_TARGET]         = true,
-    [DOTA_UNIT_ORDER_CAST_TOGGLE]            = true,
-    [DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO]       = true,
-    [DOTA_UNIT_ORDER_CAST_RUNE]              = true,
-    [DOTA_UNIT_ORDER_VECTOR_TARGET_POSITION] = true,
-}
+-- ⚠️ Собирается проходом с пропуском отсутствующих: часть констант приказов
+-- в текущей Доте не определена, и литерал `[nil] = true` ронял загрузку
+-- всего файла («table index is nil») — E переставала существовать.
+local BARGHEST_E_CAST_ORDERS = {}
+for _, nOrder in pairs({
+    DOTA_UNIT_ORDER_CAST_POSITION or false,
+    DOTA_UNIT_ORDER_CAST_TARGET or false,
+    DOTA_UNIT_ORDER_CAST_TARGET_TREE or false,
+    DOTA_UNIT_ORDER_CAST_NO_TARGET or false,
+    DOTA_UNIT_ORDER_CAST_TOGGLE or false,
+    DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO or false,
+    DOTA_UNIT_ORDER_CAST_RUNE or false,
+    DOTA_UNIT_ORDER_VECTOR_TARGET_POSITION or false,
+}) do
+    if nOrder then BARGHEST_E_CAST_ORDERS[nOrder] = true end
+end
 
 -- Кнопки самой Chain Hunt: ими зарядку и отпускают.
 local BARGHEST_E_ALLOWED = {
@@ -143,16 +149,29 @@ function barghest_e:RestoreButton()
     hCaster:SwapAbilities("barghest_e", "barghest_e_release", true, false)
 end
 
---[[ Отпустили: летим туда, куда СМОТРИМ. ]]
+--[[ Отпустили: летим туда, куда СМОТРИМ.
+     ⚠️ Если в момент выпуска на ней контроль или вражеский рут (свой рут
+     зарядки к этому моменту уже снят), рывок НЕ сгорает, а ждёт, пока она
+     освободится, и выходит тогда. Стан до выпуска сюда почти не доходит —
+     его пережидает сама зарядка (см. modifier_barghest_e_charge). ]]
 function barghest_e:LaunchDash()
     if not IsServer() then return end
     local hCaster = self:GetCaster()
-    EndAnimation(hCaster)
     hCaster:StopSound(BARGHEST_SND.E_CHARGE)
     self:RestoreButton()
 
     if not Barghest_Alive(hCaster) or not hCaster:IsAlive() then return end
-    if hCaster:IsStunned() or hCaster:IsRooted() then return end
+    if Barghest_IsControlled(hCaster) or hCaster:IsRooted() then
+        local hAbility = self
+        Timers:CreateTimer(FrameTime(), function()
+            if not Barghest_Alive(hAbility) or not Barghest_Alive(hCaster) then return end
+            if not hCaster:IsAlive() then return end
+            if Barghest_IsControlled(hCaster) or hCaster:IsRooted() then return FrameTime() end
+            hAbility:LaunchDash()
+        end)
+        return
+    end
+    EndAnimation(hCaster)
 
     local fCharge = self:GetChargeFraction()
     local vDir = hCaster:GetForwardVector()
@@ -243,6 +262,34 @@ end
 function modifier_barghest_e_charge:OnIntervalThink()
     if not IsServer() then return end
     if not Barghest_Alive(self.hParent) or not Barghest_Alive(self.hAbility) then return end
+
+    --[[ Под контролем зарядка НЕ кончается: держим её, пока контроль не
+         спадёт, и выпускаем рывок уже после (решение юзера 24.09.2026).
+         Раньше зарядка истекала посреди стана, LaunchDash видел IsStunned и
+         молча выходил — рывок сгорал. Продлеваем на пару кадров вперёд,
+         пока контроль висит; спал — остаток доживает и модификатор уходит
+         штатно через OnDestroy → LaunchDash. Заряд при этом не растёт выше
+         полного (GetChargeFraction зажат в 1). ]]
+    if Barghest_IsControlled(self.hParent) then
+        self.bWasControlled = true
+        if self:GetRemainingTime() < 0.1 then
+            self:SetDuration(0.1, true)
+        end
+    elseif self.bWasControlled then
+        -- Стан сбил клип зарядки — возвращаем его на остаток.
+        self.bWasControlled = false
+        StartAnimation(self.hParent, {duration = math.max(0.1, self:GetRemainingTime()),
+            activity = ACT_DOTA_CHANNEL_ABILITY_2, rate = 1.0})
+        --[[ ⚠️ И эффект зарядки заводим заново: он рассчитан на charge_time и к
+             концу долгого стана успевал отыграть и погаснуть — дальше зарядка
+             шла без картинки. Старый индекс руками НЕ гасим: он записан в
+             AddParticle, модификатор снимет его сам, а повторный Release по
+             уже отданному индексу мог бы погасить чужой эффект. ]]
+        self.nFxIndex = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CHARGE, self.hParent),
+            PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+        self:AddParticle(self.nFxIndex, false, false, -1, false, false)
+    end
+
     if self.nAimFx == nil then return end
 
     -- Прицел рисуем по ТОЙ ЖЕ дальности, что и полетит рывок (см. LaunchDash).
@@ -301,6 +348,10 @@ function modifier_barghest_e_dash:CheckState()
         -- в разбеге отпускать уже нечего: закрываем и способности, и предметы
         [MODIFIER_STATE_SILENCED] = true,
         [MODIFIER_STATE_MUTED]    = true,
+        --[[ Иммунитет к контролю на весь разбег (решение юзера 24.09.2026):
+             стан посреди рывка отнимал управление, а рывок продолжал ехать.
+             Тот же приём, что у стойки W и modifier_cc_immune аддона. ]]
+        [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
     }
 end
 
@@ -418,11 +469,28 @@ function modifier_barghest_e_dash:UpdateHorizontalMotion(hUnit, fTime)
     end
 end
 
+--[[ ⚠️ DEBUFF_IMMUNE в этой сборке НЕ отбрасывает дебафф, а лишь глушит его
+     состояние, пока иммунитет висит (проверено в игре 24.09.2026: стан в
+     разбеге «ложился», но IsStunned() = false). Стан, повешенный в разбеге,
+     досиживает остаток уже ПОСЛЕ него — так и оставлено намеренно: снимать
+     его в конце рывка юзер запретил («это делает скилл сильнее»). ]]
 function modifier_barghest_e_dash:OnDestroy()
     if not IsServer() then return end
     if Barghest_Alive(self.hParent) then
         self.hParent:RemoveHorizontalMotionController(self)
         FindClearSpaceForUnit(self.hParent, self.hParent:GetAbsOrigin(), true)
+        --[[ Клип бега гасим ВСЕГДА. Раньше EndAnimation стоял только в ветке
+             попадания: рывок, который выдохся или упёрся в стену, оставлял
+             клип доигрывать весь запас fLife (с dash_anim_tail) — героиня
+             стояла и «бежала на месте». ]]
+        EndAnimation(self.hParent)
+        --[[ Стан, пойманный в разбеге, «просыпается» только сейчас (иммунитет
+             его лишь глушил), а висящий приказ движения (им рулили рывок)
+             крутит бег на месте. Сам стан НЕ снимаем — только гасим приказ,
+             дальше клип оглушения движок ставит сам. ]]
+        if self.hParent:IsStunned() then
+            self.hParent:Stop()
+        end
     end
     if not Barghest_Alive(self.hAbility) then return end
 
@@ -437,7 +505,6 @@ function modifier_barghest_e_dash:OnDestroy()
         Barghest_ArmOnHit(hCaster, false, BARGHEST_CONT_E)
         return
     end
-        EndAnimation(hCaster)
     -- ⚠️ Через таймер: рывок может кончиться внутри чужого пайплайна (смерть,
     -- прерывание контроллера, наш же Destroy из UpdateHorizontalMotion), а тут
     -- мы вешаем модификаторы.
@@ -482,6 +549,8 @@ function modifier_barghest_e_stun:IsHidden()      return false end
 function modifier_barghest_e_stun:IsDebuff()      return true end
 function modifier_barghest_e_stun:IsPurgable()    return true end
 function modifier_barghest_e_stun:RemoveOnDeath() return true end
+-- Без этого движок не рисует над целью полоску «Оглушение» (как у modifier_stunned).
+function modifier_barghest_e_stun:IsStunDebuff()  return true end
 
 function modifier_barghest_e_stun:CheckState()
     return {[MODIFIER_STATE_STUNNED] = true}

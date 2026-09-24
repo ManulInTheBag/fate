@@ -61,6 +61,13 @@
 			"grab_height"							"250"
 			"grab_victim_height"					"300"
 			"grab_radius"							"300"
+			// захват взводится и станит цель ещё на подлёте, чтобы она не ушла
+			// блинком в зазор между концом полёта и началом захвата
+			"grab_commit_range"						"300"
+			"grab_commit_stun"						"1.0"
+			// если цель всё-таки телепортировалась дальше этого - не тащим её
+			// назад, но удар засчитываем по новой позиции
+			"grab_escape_limit"						"250"
 			"grab_stun_after"						"0.5"
 			"grab_mark_duration"					"0.5"
 			"reborn_dash_speed_pct"					"25"
@@ -401,10 +408,19 @@
 			"territory_wave_tail"						"0.5"
 
 			// --- BK + curses ----------------------------------------------
-			"curse_stacks_to_revive"					"20"
+			// Перерождение стоит минимум одну метку, а не полный счётчик.
+			// При перерождении счётчик обнуляется целиком, и каждая метка
+			// добавляет reborn_duration_per_stack секунд Battle Continuation:
+			// 20 меток = 6 с, 10 = 3 с и так далее.
+			"curse_stacks_to_revive"					"1"
+			"reborn_curse_cap"							"20"		// потолок счётчика меток (и «полная» полоска в HUD)
+			"reborn_duration_per_stack"					"0.3"
+			// Минимум между двумя перерождениями. Без него Распутин, набрав хотя бы
+			// одну метку прямо во время BK, воскресал снова после денея - и так по кругу.
+			"reborn_cooldown"							"15"
 			"reborn_movespeed"							"550"
 			"reborn_cooldown_pct"						"30"
-			"reborn_kill_window"						"5"
+			"reborn_kill_window"						"6"
 			"reborn_kill_radius"						"300"
 		}
 	}

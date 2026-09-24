@@ -312,6 +312,113 @@ function RasputinIsStackTarget(unit)
 end
 
 
+-- Удар об землю после захвата Q2: урон цели и всем вокруг неё, метки финишера,
+-- стак, звук. Вынесено из modifier_rasputin_knife_grab:DealSlamDamage, потому
+-- что то же самое нужно и когда цель успела телепортироваться - тогда её никуда
+-- не тащат, но по ней всё равно прилетает.
+function RasputinGrabSlam(caster, victim, ability, skipStun)
+
+    if not IsServer() then return end
+
+    if not IsNotNull(caster) then return end
+    if not IsNotNull(victim) then return end
+    if not IsNotNull(ability) then return end
+
+
+    local damage =
+    RasputinScaleDamage(caster, ability, ability:GetSpecialValueFor("damage2"))
+    * ability:GetSpecialValueFor("grab_damage_multiplier")
+
+    local impact = victim:GetAbsOrigin()
+
+
+    RasputinSlam(caster, impact, ability:GetSpecialValueFor("grab_radius"))
+
+
+    ability:DamageShields(victim)
+
+    RasputinHitFx(victim, nil, caster)
+
+    DoDamage(caster, victim, damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+
+
+    local stunAfter = ability:GetSpecialValueFor("grab_stun_after")
+
+    if stunAfter > 0 and not skipStun then
+
+        victim:AddNewModifier(
+            caster,
+            ability,
+            "modifier_stunned",
+            {
+                duration = stunAfter
+            }
+        )
+
+    end
+
+
+    local markDuration = ability:GetSpecialValueFor("grab_mark_duration")
+
+
+    local nearby = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        impact,
+        nil,
+        ability:GetSpecialValueFor("grab_radius"),
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_ALL,
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false
+    )
+
+    if markDuration > 0 then
+
+        victim:AddNewModifier(
+            caster,
+            ability,
+            "modifier_rasputin_wide_kick_target",
+            {
+                duration = markDuration
+            }
+        )
+
+    end
+
+    for _,enemy in pairs(nearby) do
+
+        if enemy ~= victim then
+
+            RasputinHitFx(enemy, nil, caster)
+
+            DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+
+            if markDuration > 0 then
+
+                enemy:AddNewModifier(
+                    caster,
+                    ability,
+                    "modifier_rasputin_wide_kick_target",
+                    {
+                        duration = markDuration
+                    }
+                )
+
+            end
+
+        end
+
+    end
+
+
+    RasputinGrantStack(caster, ability, victim)
+
+    EmitSoundOnLocationWithCaster(impact, "rasputin_knife_dash_recast_hit", caster)
+
+end
+
+
 -- Можно ли прямо сейчас нажать F по этой цели. Повторяет гейты
 -- rasputin_finisher:CastFilterResultLocation плюс движковую проверку
 -- (кулдаун, мана, уровень). По этому же ответу гаснут партикли метки:
@@ -1187,6 +1294,41 @@ local DASH_TRAIL_OFFSET = 20
 local DASH_EFFECT_LINGER = 0.12
 
 
+-- ⚠️ Страховка для «живых» партиклей рывков (трейл, щит, афтеримиджи).
+--
+-- Вызывающие передают предикат вида `function() return not self.destroyed end`,
+-- где self - модификатор. Когда модификатор снимают (рывок сбили дисплейсом,
+-- блинком, станом), его хэндл становится невалидным, обращение к полю кидает
+-- исключение, кадровый таймер умирает вместе с ним - и Finish() не вызывается
+-- никогда. Партикль остаётся висеть: щит на Распутине, трейл (он на
+-- PATTACH_CUSTOMORIGIN) - в последней точке, где ему успели поставить CP.
+--
+-- Поэтому предикат оборачивается: исключение = «уже не бежим», плюс жёсткий
+-- предел жизни на случай, если флаг так и не переключат.
+local FX_MAX_LIFE = 8
+
+
+local function RasputinFxGuard(IsRunning, maxLife)
+
+    local deadline = GameRules:GetGameTime() + (maxLife or FX_MAX_LIFE)
+
+    return function()
+
+        if GameRules:GetGameTime() >= deadline then return false end
+
+        if type(IsRunning) ~= "function" then return false end
+
+        local ok, running = pcall(IsRunning)
+
+        if not ok then return false end
+
+        return running == true
+
+    end
+
+end
+
+
 RASPUTIN_DASH_SHIELD_PARTICLE = "particles/rasputin/rasputin_dash_shield.vpcf"
 
 
@@ -1198,6 +1340,8 @@ function RasputinDashShield(unit, IsRunning, travel)
     if not IsServer() then return end
 
     if not IsNotNull(unit) then return end
+
+    IsRunning = RasputinFxGuard(IsRunning)
 
 
     local fx = ParticleManager:CreateParticle(
@@ -1272,6 +1416,8 @@ function RasputinDashTrail(unit, IsRunning, travel)
 
     if not IsNotNull(unit) then return end
 
+    IsRunning = RasputinFxGuard(IsRunning)
+
     local fx = ParticleManager:CreateParticle(
         RasputinFx(unit, RASPUTIN_DASH_TRAIL_PARTICLE),
         PATTACH_CUSTOMORIGIN,
@@ -1344,6 +1490,8 @@ function RasputinAfterimageTrail(unit, IsRunning, travel, path)
     if not IsServer() then return end
 
     if not IsNotNull(unit) then return end
+
+    IsRunning = RasputinFxGuard(IsRunning)
 
     RasputinAfterimage(unit, travel, path)
 

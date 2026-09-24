@@ -254,12 +254,18 @@ function barghest_q:AdvanceChain(iStage)
     end
 end
 
-function barghest_q:DamageUnits(tUnits)
+-- fStun (необязательный) — оглушить каждого, по кому прошёл урон. Стан
+-- вешается здесь же, после проверки спеллблока: второй вызов IsSpellBlocked
+-- съел бы блок повторно.
+function barghest_q:DamageUnits(tUnits, fStun)
     local hCaster = self:GetCaster()
     local nDamage = self:GetSpecialValueFor("damage")
     local bHit = false
     for _, hUnit in pairs(tUnits) do
         if IsNotNull(hUnit) and not IsSpellBlocked(hUnit, hCaster) then
+            if fStun and fStun > 0 then
+                hUnit:AddNewModifier(hCaster, self, "modifier_stunned", {duration = fStun})
+            end
             DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
             hCaster:FindAbilityByName("barghest_r"):ApplyBurn(hUnit)
             hUnit:EmitSound(BARGHEST_SND.HIT)
@@ -282,6 +288,25 @@ function barghest_q:DoArc(vDir)
         vDir, nRadius, nAngle))
 end
 
+--[[ Есть ли живой враг в радиусе остановки выпада в передней полуплоскости. ]]
+function barghest_q:HasEnemyInFront(vDir)
+    local hCaster = self:GetCaster()
+    local vPos = hCaster:GetAbsOrigin()
+    local nStop = Barghest_Radius(hCaster, self:GetSpecialValueFor("lunge_stop_radius"))
+    for _, hUnit in pairs(FindUnitsInRadius(hCaster:GetTeamNumber(), vPos, nil, nStop,
+            self:GetAbilityTargetTeam(), self:GetAbilityTargetType(),
+            self:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)) do
+        if IsNotNull(hUnit) and hUnit:IsAlive() then
+            local vTo = hUnit:GetAbsOrigin() - vPos
+            vTo.z = 0
+            if vTo:Length2D() < 1 or vTo:Normalized():Dot(vDir) > 0 then
+                return true
+            end
+        end
+    end
+    return false
+end
+
 --[[ Стадия 2: выпад вперёд + удар об землю в точке приземления.
      Точка приземления: КЛИК, если до него ближе lunge_distance, иначе
      lunge_distance по направлению клика. Дальность каста при этом не
@@ -292,6 +317,14 @@ function barghest_q:DoLunge(vDir, vPoint)
     local nMin = self:GetSpecialValueFor("lunge_min_distance")
     local nWant = (vPoint - hCaster:GetAbsOrigin()):Length2D()
     local nDist = math.max(nMin, math.min(nMax, nWant))
+    --[[ Враг уже перед ней в радиусе остановки — бьём на месте, без рывка.
+         Иначе пол дальности и lunge_no_stop_distance всегда протаскивали её
+         вперёд на ~120 даже в упор: героиня проезжала сквозь цель и игрок
+         мазал следующими кнопками. Враги СЗАДИ не в счёт — от них рывок
+         уводит, как и раньше. ]]
+    if self:HasEnemyInFront(vDir) then
+        nDist = 0
+    end
     local fLife = self:GetSpecialValueFor("lunge_duration")
 
     --[[ Клип удара (ACT_4) гонится ДВУМЯ способами сразу, и это намеренно:
@@ -344,6 +377,10 @@ function modifier_barghest_q_chain:IsPurgable()    return false end
 function modifier_barghest_q_chain:RemoveOnDeath() return true end
 
 function modifier_barghest_q_chain:OnDestroy()
+    -- ⚠️ OnDestroy зовётся и в клиентской VM, а там у способности нет
+    -- EndCooldown/StartCooldown — без гарда в консоль летела ошибка на каждом Q3.
+    if not IsServer() then return end
+    if not Barghest_Alive(self:GetAbility()) then return end
     self:GetAbility():EndCooldown()
     self:GetAbility():StartCooldown(self:GetAbility():GetSpecialValueFor("full_cooldown"))
 end
@@ -468,9 +505,11 @@ function modifier_barghest_q_lunge:OnDestroy()
     -- повтор того же движения. Снимаем только заморозку, поставленную там же.
     local hParent  = self.hParent
     local hAbility = self.hAbility
-    local nRadius  = Barghest_Radius(hParent, hAbility:GetSpecialValueFor("radius"))
+    -- Свой радиус круга, а не общий `radius` дуги Q1: их правят раздельно.
+    local nRadius  = Barghest_Radius(hParent, hAbility:GetSpecialValueFor("lunge_slam_radius"))
     -- Откуда стартовали: нужно, чтобы добить тех, мимо кого пролетели.
     local vFrom    = self.vStart
+    local vDir     = self.vDir
 
     --[[ Урон приходит через lunge_slam_delay, а не в тот же кадр, что и
          остановка. Выпад в упор длится меньше десятой доли секунды, и без
@@ -493,6 +532,15 @@ function modifier_barghest_q_lunge:OnDestroy()
             hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
             hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
 
+        -- Меч втыкается резом вперёд: кроме круга вокруг себя бьёт и полоса
+        -- по направлению выпада, с небольшим заступом назад.
+        if vDir then
+            tUnits = Barghest_MergeUnits(tUnits, Barghest_FindInLine(hParent, hAbility, vPos, vDir,
+                Barghest_Radius(hParent, hAbility:GetSpecialValueFor("lunge_line_length")),
+                Barghest_Radius(hParent, hAbility:GetSpecialValueFor("lunge_line_width")),
+                Barghest_Radius(hParent, hAbility:GetSpecialValueFor("lunge_line_back"))))
+        end
+
         --[[ Плюс все, мимо кого пролетели: первые lunge_no_stop_distance единиц
              выпад НЕ тормозит о врагов, поэтому цель, стоявшая вплотную,
              оставалась за спиной и в круг приземления не попадала — со стороны
@@ -512,12 +560,16 @@ function modifier_barghest_q_lunge:OnDestroy()
             for _, hUnit in pairs(tPath) do
                 if IsNotNull(hUnit) and not tSeen[hUnit:entindex()] then
                     tSeen[hUnit:entindex()] = true
-                    hUnit:AddNewModifier(hParent, self, "modifier_stunned", {duration = 0.6})
                     table.insert(tUnits, hUnit)
                 end
             end
         end
 
-        Barghest_ArmOnHit(hParent, hAbility:DamageUnits(tUnits), BARGHEST_CONT_Q2)
+        -- Оглушает ВСЕХ задетых: круг, полосу и коридор. Раньше стан (0.6,
+        -- зашит литералом) доставался только пролетевшим в коридоре, а по
+        -- тем, в кого пришёлся сам удар, его не было.
+        Barghest_ArmOnHit(hParent,
+            hAbility:DamageUnits(tUnits, hAbility:GetSpecialValueFor("lunge_stun")),
+            BARGHEST_CONT_Q2)
     end)
 end

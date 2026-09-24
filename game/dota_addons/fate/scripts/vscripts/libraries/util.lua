@@ -767,6 +767,7 @@ CannotReset = {
 
     "rasputin_dodge",
     "rasputin_dodge_break",
+    "rasputin_combo",
 
 }
 

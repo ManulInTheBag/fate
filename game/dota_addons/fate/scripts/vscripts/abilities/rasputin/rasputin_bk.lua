@@ -14,6 +14,7 @@ rasputin_dodge_break = class({})
 
 LinkLuaModifier("modifier_rasputin_reborn", "abilities/rasputin/rasputin_bk", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_dodge_break", "abilities/rasputin/rasputin_bk", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rasputin_reborn_cd", "abilities/rasputin/rasputin_bk", LUA_MODIFIER_MOTION_NONE)
 
 
 function RasputinIsReborn(unit)
@@ -46,13 +47,70 @@ function modifier_rasputin_curse_counter:OnCreated()
 end
 
 
+-- Сколько меток стоит перерождение. Со снижения порога это минимум,
+-- а не «полный счётчик»: хватает одной.
 function modifier_rasputin_curse_counter:GetThreshold()
+
+    local ability = self:GetAbility()
+
+    if not IsNotNull(ability) then return 1 end
+
+    return math.max(ability:GetSpecialValueFor("curse_stacks_to_revive"), 1)
+
+end
+
+
+-- Потолок счётчика. Раньше совпадал с порогом перерождения, теперь это
+-- отдельное число: порог - 1, а копить можно до 20.
+function modifier_rasputin_curse_counter:GetCap()
 
     local ability = self:GetAbility()
 
     if not IsNotNull(ability) then return 20 end
 
-    return ability:GetSpecialValueFor("curse_stacks_to_revive")
+    local cap = ability:GetSpecialValueFor("reborn_curse_cap")
+
+    if not cap or cap <= 0 then
+        cap = 20
+    end
+
+    return cap
+
+end
+
+
+-- Сколько секунд между двумя перерождениями.
+function modifier_rasputin_curse_counter:GetRebornCooldown()
+
+    local ability = self:GetAbility()
+
+    if not IsNotNull(ability) then return 15 end
+
+    local cd = ability:GetSpecialValueFor("reborn_cooldown")
+
+    if not cd or cd <= 0 then
+        cd = 15
+    end
+
+    return cd
+
+end
+
+
+-- Сколько секунд Battle Continuation даёт накопленный счётчик.
+function modifier_rasputin_curse_counter:RebornDuration(stacks)
+
+    local ability = self:GetAbility()
+
+    if not IsNotNull(ability) then return 0 end
+
+    local per = ability:GetSpecialValueFor("reborn_duration_per_stack")
+
+    if not per or per <= 0 then
+        return ability:GetSpecialValueFor("reborn_kill_window")
+    end
+
+    return math.min(stacks, self:GetCap()) * per
 
 end
 
@@ -64,7 +122,7 @@ function modifier_rasputin_curse_counter:AddStacks(amount)
     if not amount or amount <= 0 then return end
 
     self:SetStackCount(
-        math.min(self:GetStackCount() + amount, self:GetThreshold())
+        math.min(self:GetStackCount() + amount, self:GetCap())
     )
 
 end
@@ -94,10 +152,25 @@ function modifier_rasputin_curse_counter:OnDeath(params)
 
     local ready = self:IsReady()
 
+    -- длительность BK считается по тому, сколько меток было в момент смерти:
+    -- тратятся все, и каждая добавляет свои секунды
+    local rebornDuration = self:RebornDuration(self:GetStackCount())
+
 
     self:SetStackCount(0)
 
     if not ready then return end
+
+
+    -- Перерождения не чаще, чем раз в reborn_cooldown. Иначе одна метка,
+    -- набранная прямо во время BK, поднимала Распутина снова сразу после
+    -- денея - и так бесконечно. Отметка живёт на герое, а не на модификаторе,
+    -- чтобы пережить смерть и респавн.
+    local now = GameRules:GetGameTime()
+
+    if now < (parent.rasputinRebornReadyAt or 0) then return end
+
+    parent.rasputinRebornReadyAt = now + self:GetRebornCooldown()
 
     local ability = self:GetAbility()
     local pos = parent:GetAbsOrigin()
@@ -133,11 +206,30 @@ function modifier_rasputin_curse_counter:OnDeath(params)
                 ability,
                 "modifier_rasputin_reborn",
                 {
-
-
-                    duration = ability:GetSpecialValueFor("reborn_kill_window")
+                    duration = rebornDuration
                 }
             )
+
+
+            -- Витрина кулдауна перерождения. Вешается уже ПОСЛЕ респавна:
+            -- повешенная в момент смерти, она рискует слететь при RespawnHero.
+            -- Сам гейт живёт в parent.rasputinRebornReadyAt, этот модификатор
+            -- только показывает, сколько до него осталось.
+            local left =
+            (parent.rasputinRebornReadyAt or 0) - GameRules:GetGameTime()
+
+            if left > 0 then
+
+                parent:AddNewModifier(
+                    parent,
+                    ability,
+                    "modifier_rasputin_reborn_cd",
+                    {
+                        duration = left
+                    }
+                )
+
+            end
 
         end
 
@@ -197,6 +289,10 @@ function modifier_rasputin_curse_counter:OnIntervalThink()
         if self:GetStackCount() > 0 then
             self:SetStackCount(0)
         end
+
+        -- между раундами перерождение не должно быть «на кулдауне» с прошлого
+        parent.rasputinRebornReadyAt = nil
+        parent:RemoveModifierByName("modifier_rasputin_reborn_cd")
 
 
         if self.breakUsed then
@@ -503,6 +599,35 @@ end
 
 function modifier_rasputin_reborn:GetModifierPercentageCooldown()
     return self:GetAbility():GetSpecialValueFor("reborn_cooldown_pct")
+end
+
+
+--------------------------------------------------------------------------------
+-- Кулдаун перерождения: видимый таймер, пока подняться снова нельзя.
+-- Состояния не хранит - настоящий гейт это parent.rasputinRebornReadyAt в
+-- modifier_rasputin_curse_counter:OnDeath, здесь только показ.
+--------------------------------------------------------------------------------
+modifier_rasputin_reborn_cd = class({})
+
+
+function modifier_rasputin_reborn_cd:IsHidden() return false end
+function modifier_rasputin_reborn_cd:IsPurgable() return false end
+function modifier_rasputin_reborn_cd:IsDebuff() return false end
+
+
+-- переживает смерть: кулдаун идёт и пока Распутин лежит
+function modifier_rasputin_reborn_cd:RemoveOnDeath() return false end
+
+
+-- ⚠️ Без MODIFIER_ATTRIBUTE_PERMANENT: у постоянного модификатора клиент
+-- не рисует таймер, а он тут весь смысл.
+function modifier_rasputin_reborn_cd:GetAttributes()
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+
+function modifier_rasputin_reborn_cd:GetTexture()
+    return "custom/rasputin/rasputin_curses_attribute"
 end
 
 

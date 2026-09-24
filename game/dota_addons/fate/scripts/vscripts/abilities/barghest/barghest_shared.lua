@@ -242,6 +242,19 @@ function Barghest_Radius(hCaster, nRadius)
     return nRadius * Barghest_GiantMult(hCaster)
 end
 
+--[[ Под жёстким контролем ли юнит: стан, превращение, сон, страх, таунт —
+     всё, что отнимает управление целиком. Рут сюда НЕ входит: у зарядки E
+     свой рут, и отличить его от вражеского по состоянию нельзя.
+     ⚠️ Части методов может не быть в текущей версии API — зовём под гардом. ]]
+function Barghest_IsControlled(hUnit)
+    if not Barghest_Alive(hUnit) then return false end
+    for _, sFn in ipairs({"IsStunned", "IsHexed", "IsNightmared", "IsFeared", "IsTaunted"}) do
+        local fn = hUnit[sFn]
+        if type(fn) == "function" and fn(hUnit) then return true end
+    end
+    return false
+end
+
 --[[ Довернуть вектор к цели не больше чем на fMaxRad. Нужен дешам: мгновенный
      разворот на 180° выглядит как телепорт направления. ]]
 function Barghest_TurnToward(vFrom, vTo, fMaxRad)
@@ -378,6 +391,54 @@ function Barghest_FindInArc(hCaster, hAbility, vOrigin, vDir, nRadius, nAngle)
     return tHit
 end
 
+--[[ Враги в прямоугольной полосе вдоль vDir: вертикальные резы (выпад Q2 и
+     удар снизу Q2R) читаются как линия, и бить они должны по линии, а не
+     сектором. Полоса начинается ЗА спиной на nBack (заступ назад: цель,
+     которая стоит вплотную или чуть сбоку-сзади, не проскакивает между
+     героиней и началом реза) и тянется вперёд на nLength; nWidth — ПОЛОВИНА
+     ширины. Как и у дуги, считается край хитбокса цели, а не её центр. ]]
+function Barghest_FindInLine(hCaster, hAbility, vOrigin, vDir, nLength, nWidth, nBack)
+    local tHit = {}
+    nBack = nBack or 0
+    local vFwd = Vector(vDir.x, vDir.y, 0):Normalized()
+    local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vOrigin, nil,
+        math.max(nLength, nBack) + nWidth + BARGHEST_ARC_PAD,
+        hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
+        hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
+    for _, hUnit in pairs(tUnits) do
+        if Barghest_Alive(hUnit) then
+            local vTo = hUnit:GetAbsOrigin() - vOrigin
+            vTo.z = 0
+            local fPad = 0
+            if type(hUnit.GetPaddedCollisionRadius) == "function" then
+                fPad = hUnit:GetPaddedCollisionRadius()
+            end
+            local fAlong = vTo:Dot(vFwd)
+            local fSide  = math.abs(vTo.x * vFwd.y - vTo.y * vFwd.x)
+            if fAlong >= -nBack - fPad and fAlong <= nLength + fPad
+            and fSide <= nWidth + fPad then
+                table.insert(tHit, hUnit)
+            end
+        end
+    end
+    return tHit
+end
+
+--[[ Объединить списки целей без повторов (по entindex): DamageUnits бьёт
+     каждого, кого ей передали, а один юнит легко попадает в две зоны. ]]
+function Barghest_MergeUnits(...)
+    local tOut, tSeen = {}, {}
+    for _, tList in ipairs({...}) do
+        for _, hUnit in pairs(tList) do
+            if IsNotNull(hUnit) and not tSeen[hUnit:entindex()] then
+                tSeen[hUnit:entindex()] = true
+                table.insert(tOut, hUnit)
+            end
+        end
+    end
+    return tOut
+end
+
 --[[ Убрать партикль через fDelay. Эффекты дуг живут своим временем и от
      ReleaseParticleIndex сразу не исчезают — так же убирают их kuro и
      arcueid. ⚠️ Без отложенного Destroy партиклы этих скиллов текут. ]]
@@ -388,16 +449,27 @@ local function ReleaseLater(nFx, fDelay)
     end)
 end
 
---[[ ⚠️ РАЗМЕР КЛИНКОВЫХ ПАРТИКЛЕЙ ИЗ LUA НЕ МЕНЯЕТСЯ. Каждый barghest_slash_*
-     содержит оператор `C_OP_SetControlPointPositions` с `m_nCP1 = 5` и
-     `m_vecCP1Pos = [450, 0, 150]`: партикль КАЖДЫЙ КАДР сам пишет себе CP5, а
-     кольцо берёт из него радиус (`C_INIT_RingWave.m_flInitialRadius = CP5.x *
-     0.7`). Всё, что положат в CP5 снаружи, затирается на следующем кадре —
-     поэтому `SetParticleControl(nFx, 5, ...)` здесь бесполезен (он и стоял в
-     Barghest_FxArc с самого начала, ничего не масштабируя), как и CP10, из
-     которого никто не читает угол.
-     Единственный рабочий способ — заранее собранная копия с домноженными
-     числами: BARGHEST_FX_GIANT + Barghest_FxName ниже. ]]
+--[[ ⚠️ РАЗМЕР КЛИНКОВЫХ ПАРТИКЛЕЙ ЗАДАЁТ LUA ЧЕРЕЗ CP5 (с 24.09.2026).
+     Кольцо каждого barghest_slash_* берёт радиус из CP5
+     (`C_INIT_RingWave.m_flInitialRadius = CP5.x * 0.7`). Раньше оператор
+     `C_OP_SetControlPointPositions` в самих партиклях КАЖДЫЙ КАДР писал в CP5
+     литерал [450, 0, 150] и затирал всё, что приходило из Lua, — поэтому
+     разрезы были одного размера при любых радиусах. Теперь у этого оператора
+     `m_nCP1 = 7` (CP7 и так обнуляется его же CP3), CP5 свободна, и её ставит
+     Barghest_FxSize по настоящему радиусу попадания. Угол дуги (CP10) партикли
+     по-прежнему НЕ читают: он зашит длительностью и частотой эмиттера.
+     Копии BARGHEST_FX_GIANT остались: в них увеличены спрайты и толщина, а
+     радиус приходит из Lua уже домноженным через Barghest_Radius. ]]
+
+--[[ Радиус кольца клинкового партикля = nRadius (см. комментарий выше).
+     CP5.z партикли тоже читают: это начальная скорость частиц кольца и их
+     подъём над землёй (в старом литерале было 150). z = 0 оставлен
+     намеренно: в игре (24.09.2026) кольцо так ложится ровно на зону
+     попадания, а с подъёмом верхняя половина визуально вылезала за неё. ]]
+local BARGHEST_FX_RING_MULT = 0.7
+function Barghest_FxSize(nFx, nRadius)
+    ParticleManager:SetParticleControl(nFx, 5, Vector(nRadius / BARGHEST_FX_RING_MULT, 0, 0))
+end
 
 --[[ Плоские вспышки (`barghest_small_explosion`, `barghest_slam`,
      `barghest_ground_slam`) не читают control point ВООБЩЕ: размер зашит
@@ -434,12 +506,12 @@ function Barghest_FxName(sName, hCaster)
     return sName
 end
 
---[[ Размашистая дуга вокруг героя. Контрольные точки — как в arcueid_ready:
-     CP5 задаёт размер, CP10.z — на сколько градусов метёт. ]]
+--[[ Размашистая дуга вокруг героя. CP5 задаёт радиус (Barghest_FxSize);
+     CP10.z (угол) партикль не читает — оставлен на случай, если научим. ]]
 function Barghest_FxArc(sName, hCaster, nRadius, nAngle)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, hCaster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(nFx, 5, Vector(nRadius + 150, 0, 70))
+    Barghest_FxSize(nFx, nRadius)
     ParticleManager:SetParticleControl(nFx, 10, Vector(0, 0, nAngle))
     ReleaseLater(nFx, 1.0)
     return nFx
@@ -452,6 +524,7 @@ function Barghest_FxCut(hCaster, nRadius, vPos)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUT, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ReleaseLater(nFx, 1.0)
     return nFx
 end
@@ -460,6 +533,7 @@ function Barghest_FxCutThin(hCaster, nRadius, vPos)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUTThin, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ReleaseLater(nFx, 1.0)
     return nFx
 end
@@ -468,6 +542,7 @@ function Barghest_FxCutUp(hCaster, nRadius, vPos)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUT2, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ReleaseLater(nFx, 1.0)
     return nFx
 end
@@ -477,6 +552,7 @@ function Barghest_FxRing(sName, vPos, nRadius, hCaster)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hCaster), PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ParticleManager:ReleaseParticleIndex(nFx)
     return nFx
 end

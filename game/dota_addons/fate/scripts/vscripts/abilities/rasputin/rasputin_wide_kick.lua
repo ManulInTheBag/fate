@@ -677,14 +677,38 @@ function modifier_rasputin_wide_kick_knockback:ApplyWallStun(unit)
         false
     )
 
+    local stun = ability:GetSpecialValueFor("wallstun_duration")
+
+
     unit:AddNewModifier(
         self.caster,
         ability,
         "modifier_stunned",
         {
-            duration = ability:GetSpecialValueFor("wallstun_duration")
+            duration = stun
         }
     )
+
+
+    -- Метка висит ровно столько, сколько враг под контролем. Удар об стену
+    -- обрывает полёт и задаёт свой стан, поэтому метка ПЕРЕЗАДАЁТСЯ под него:
+    -- и когда полётной метки не хватало до конца валлстана, и когда в стену
+    -- влетели сразу после пинка и её остаток оказался бы длиннее стана.
+    -- Снятую диспелом метку не воскрешаем - только перезадаём живую.
+    local mark = unit:FindModifierByName("modifier_rasputin_wide_kick_target")
+
+    if mark then
+
+        unit:AddNewModifier(
+            self.caster,
+            ability,
+            "modifier_rasputin_wide_kick_target",
+            {
+                duration = stun
+            }
+        )
+
+    end
 
 end
 

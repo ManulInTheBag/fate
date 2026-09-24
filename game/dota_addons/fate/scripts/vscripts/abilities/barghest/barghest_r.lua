@@ -260,6 +260,22 @@ function barghest_r:DoBlazingArc(vDir)
 end
 
 -- 2 (Q2) — удар снизу: вертикальный рез снизу вверх, узкий и близкий
+--[[ Картинка R2 (проверено в игре 24.09.2026 поверх отрисовки зон).
+     Зона — полный круг uppercut_radius + полоса uppercut_line_length вперёд,
+     а раньше рез снизу вверх рисовался на радиус круга: мазок только у края
+     круга перед ней, в конце полосы било без картинки. Теперь рез растянут
+     на ДЛИНУ полосы — его огонь кончается ровно у конца полосы.
+     Кольцо на круг (как у Q3) пробовали — юзер решил оставить один
+     вертикальный рез; задняя половина круга остаётся без картинки намеренно.
+     Тонкий рез (CUTThin) тоже пробовали: он встаёт вертикальной дугой в небо
+     и полосу по земле не читает. ]]
+function barghest_r:FxUppercut(vPos)
+    local hCaster = self:GetCaster()
+    local nLength = Barghest_Radius(hCaster, self:GetSpecialValueFor("uppercut_line_length"))
+    Barghest_FxCutUp(hCaster, nLength, vPos)
+    Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
+end
+
 function barghest_r:DoUppercut(vDir)
     local hCaster = self:GetCaster()
     local vPos    = hCaster:GetAbsOrigin()
@@ -272,11 +288,18 @@ function barghest_r:DoUppercut(vDir)
 
     -- Снизу вверх: рез идёт от земли перед ней к небу — это и читается как
     -- подброс, в отличие от горизонтальной дуги Q1R.
-    Barghest_FxCutUp   (hCaster, nRadius, hCaster:GetAbsOrigin())
-    Barghest_FxOn(BARGHEST_FX.BURST, hCaster, 1.5)
+    self:FxUppercut(vPos)
+    -- Рез вертикальный, поэтому бьёт ещё и полосой вперёд (с заступом назад);
+    -- ближний сектор остаётся, чтобы не мазать по стоящему сбоку вплотную.
+    local tTargets = Barghest_MergeUnits(
+        Barghest_FindInArc(hCaster, self, vPos, vDir,
+                           nRadius, self:GetSpecialValueFor("uppercut_arc_angle")),
+        Barghest_FindInLine(hCaster, self, vPos, vDir,
+            Barghest_Radius(hCaster, self:GetSpecialValueFor("uppercut_line_length")),
+            Barghest_Radius(hCaster, self:GetSpecialValueFor("uppercut_line_width")),
+            Barghest_Radius(hCaster, self:GetSpecialValueFor("uppercut_line_back"))))
     local bHit = false
-    for _, hUnit in pairs(Barghest_FindInArc(hCaster, self, vPos, vDir,
-                                             nRadius, self:GetSpecialValueFor("uppercut_arc_angle"))) do
+    for _, hUnit in pairs(tTargets) do
         if not IsSpellBlocked(hUnit, hCaster) then
             DoDamage(hCaster, hUnit, nDamage, self:GetAbilityDamageType(), 0, self, false)
             self:ApplyBurn(hUnit)
@@ -509,7 +532,8 @@ function modifier_barghest_burn:OnIntervalThink()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Разгон: каждое попавшее продолжение даёт силу и усиливает вампиризм F
+-- Разгон: каждое попавшее продолжение даёт силу, скорость, реген маны и
+-- усиливает вампиризм F
 ---------------------------------------------------------------------------------------------------
 modifier_barghest_frenzy = class({})
 
@@ -548,33 +572,50 @@ function modifier_barghest_frenzy:OnRefresh()
     end
 end
 
---[[ Сила за стак: базовая `frenzy_str`, с первым атрибутом (Black Dog's Wake)
-     — `frenzy_str_attr`. ⚠️ Флаг атрибута живёт на герое и ТОЛЬКО на сервере,
-     а бонус к статам должен сходиться и на клиенте (HUD), поэтому число
-     уезжает клиенту через transmitter data (приём nero_imperial). ]]
+--[[ Цена стака: сила `frenzy_str`, плоская скорость `frenzy_ms` и реген маны
+     `frenzy_mana_regen`; с первым атрибутом (Black Dog's Wake) — их `*_attr`.
+     ⚠️ Флаг атрибута живёт на герое и ТОЛЬКО на сервере, а бонусы должны
+     сходиться и на клиенте (HUD, предсказание движения), поэтому числа
+     уезжают клиенту через transmitter data (приём nero_imperial). ]]
 function modifier_barghest_frenzy:UpdateStrPerStack()
     local hAbility = self:GetAbility()
     local hParent = self:GetParent()
     if not Barghest_Alive(hAbility) or not Barghest_Alive(hParent) then return end
-    local sKey = hParent.BarghestAttr1Acquired and "frenzy_str_attr" or "frenzy_str"
-    self.nStrPerStack = hAbility:GetSpecialValueFor(sKey)
+    local sSuffix = hParent.BarghestAttr1Acquired and "_attr" or ""
+    self.nStrPerStack  = hAbility:GetSpecialValueFor("frenzy_str" .. sSuffix)
+    self.nMsPerStack   = hAbility:GetSpecialValueFor("frenzy_ms" .. sSuffix)
+    self.fManaPerStack = hAbility:GetSpecialValueFor("frenzy_mana_regen" .. sSuffix)
 end
 
 function modifier_barghest_frenzy:AddCustomTransmitterData()
-    return {str = self.nStrPerStack}
+    return {str = self.nStrPerStack, ms = self.nMsPerStack, mana = self.fManaPerStack}
 end
 
 function modifier_barghest_frenzy:HandleCustomTransmitterData(data)
-    self.nStrPerStack = data.str
+    self.nStrPerStack  = data.str
+    self.nMsPerStack   = data.ms
+    self.fManaPerStack = data.mana
 end
 
--- Без IsServer-гарда: бонус обязан считаться и на клиенте.
+-- Без IsServer-гарда: бонусы обязаны считаться и на клиенте.
 function modifier_barghest_frenzy:DeclareFunctions()
-    return {MODIFIER_PROPERTY_STATS_STRENGTH_BONUS}
+    return {
+        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+    }
 end
 
 function modifier_barghest_frenzy:GetModifierBonusStats_Strength()
     return (self.nStrPerStack or 0) * self:GetStackCount()
+end
+
+function modifier_barghest_frenzy:GetModifierMoveSpeedBonus_Constant()
+    return (self.nMsPerStack or 0) * self:GetStackCount()
+end
+
+function modifier_barghest_frenzy:GetModifierConstantManaRegen()
+    return (self.fManaPerStack or 0) * self:GetStackCount()
 end
 
 ---------------------------------------------------------------------------------------------------
