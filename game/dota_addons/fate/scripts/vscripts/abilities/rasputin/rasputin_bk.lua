@@ -259,6 +259,9 @@ function RasputinRefreshAbilities(unit)
 
 
         and ability:GetAbilityName() ~= "rasputin_dodge_break"
+
+        -- кулдаун комбо не сбрасывается ничем, в том числе воскрешением
+        and ability:GetAbilityName() ~= "rasputin_combo"
         then
             ability:EndCooldown()
         end

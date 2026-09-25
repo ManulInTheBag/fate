@@ -275,6 +275,19 @@ function rasputin_finisher:SpendComboCooldown(combo)
     combo:StartCooldown(cooldown)
 
 
+    -- копия комбо на втором мастере показывает кулдаун игроку
+    if IsNotNull(caster) and IsNotNull(caster.MasterUnit2) then
+
+        local masterCombo = caster.MasterUnit2:FindAbilityByName(combo:GetAbilityName())
+
+        if masterCombo then
+            masterCombo:EndCooldown()
+            masterCombo:StartCooldown(cooldown)
+        end
+
+    end
+
+
     if cooldown and cooldown > 0 and IsNotNull(caster) then
 
         caster:AddNewModifier(
