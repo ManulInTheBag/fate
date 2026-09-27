@@ -696,7 +696,9 @@ end
 
 -- Начисление за матч. Зовётся из my_http_post (конец матча). Все проверки
 -- порога — ЗДЕСЬ, до отправки: в неполных матчах запрос не уходит вовсе.
-function FateMMR:ApplyMatch(matchId, winnerTeam)
+-- Возвращает true, если запрос ушёл; тогда onDone позовётся ровно один раз —
+-- на окончательный ответ (после повторов на 409).
+function FateMMR:ApplyMatch(matchId, winnerTeam, onDone)
     if self.applied then return end
     if ServerDisabled() then return end
     if not self:IsRatedMap() then
@@ -744,9 +746,19 @@ function FateMMR:ApplyMatch(matchId, winnerTeam)
     local roster = table.concat(parts, ",")
     local leaverList = table.concat(leavers, ",")
     local attempt = 0
+    local notified = false
+    local function notify()
+        if notified then return end
+        notified = true
+        if onDone then onDone() end
+    end
     local function send()
         attempt = attempt + 1
         local req = FateCreateHTTPRequest("POST", BindsHost() .. "/mmr/apply")
+        -- Через реле — двумя копиями разом (см. FateHttpRelayRequest:SendCopies):
+        -- в конце матча доходит только то, что раздано клиентам сразу. Дубль
+        -- воркер отбивает по PK mmr_applied и отвечает «already applied».
+        FateHttpSetCopies(req, 2)
         req:SetHTTPRequestHeaderValue("X-Fate-Key", ApiKey())
         req:SetHTTPRequestGetOrPostParameter("match_id", matchId)
         req:SetHTTPRequestGetOrPostParameter("winner_team", tostring(winnerTeam))
@@ -754,6 +766,11 @@ function FateMMR:ApplyMatch(matchId, winnerTeam)
         req:SetHTTPRequestGetOrPostParameter("alive_end", tostring(alive))
         req:SetHTTPRequestGetOrPostParameter("leavers", leaverList)
         req:SetHTTPRequestGetOrPostParameter("score_sum", tostring(r + d))
+        -- Итог матча целиком: если финальная выгрузка не дошла, воркер поднимет
+        -- последний снимок раунда (match_snapshots) с этим счётом и победителем.
+        req:SetHTTPRequestGetOrPostParameter("radiant_score", tostring(r))
+        req:SetHTTPRequestGetOrPostParameter("dire_score", tostring(d))
+        req:SetHTTPRequestGetOrPostParameter("duration", tostring(math.ceil(GameRules:GetGameTime())))
         req:Send(function(res)
             if res.StatusCode == 200 then
                 FateMMR.applyOk = true
@@ -769,6 +786,8 @@ function FateMMR:ApplyMatch(matchId, winnerTeam)
             -- почему здесь нельзя Timers).
             if res.StatusCode == 409 and attempt < FATE_MMR_APPLY_RETRIES then
                 send()
+            else
+                notify()
             end
         end)
     end
@@ -785,6 +804,7 @@ function FateMMR:ApplyMatch(matchId, winnerTeam)
     -- повтор на 409 из колбэка этого запроса.
     self.pendingSend = send
     send()
+    return true
 end
 
 -- Повторная отправка, если первая не подтвердилась. Зовётся из колбэка

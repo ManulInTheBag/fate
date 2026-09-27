@@ -5499,6 +5499,8 @@ end
 3 : Radiant(by default)
 4 : Dire(by default)]]
 function FateGameMode:FinishRound(IsTimeOut, winner)
+    -- Матч уже решён и ждёт выгрузки (см. EndMatch): новый раунд не начинаем.
+    if self.bMatchEnding then return end
     print("[FATE] Winner decided")
     --UTIL_RemoveImmediate( roundQuest ) -- Stop round timer
     print(self.nRadiantScore)
@@ -5805,9 +5807,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             hero.ServStat:printconsole()
         end)
         GameRules:SendCustomMessage("Red Faction Victory!",0,0)
-        my_http_post(DOTA_TEAM_GOODGUYS)
-        GameRules:SetSafeToLeave( true )
-        GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
+        self:EndMatch(DOTA_TEAM_GOODGUYS)
         return
     elseif self.nDireScore == VICTORY_CONDITION then
         self:LoopOverPlayers(function(player, playerID, playerHero)
@@ -5820,12 +5820,13 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             hero.ServStat:printconsole()
         end)
         GameRules:SendCustomMessage("Black Faction Victory!",0,0)
-        my_http_post(DOTA_TEAM_BADGUYS)
-        GameRules:SetSafeToLeave( true )
-        GameRules:SetGameWinner( DOTA_TEAM_BADGUYS )
+        self:EndMatch(DOTA_TEAM_BADGUYS)
         return
     end
     --SendChatToPanorama("FR8")
+
+    -- матч продолжается: снимок статистики на случай, если игра умрёт
+    FateSendSnapshot(self.nCurrentRound - 1, self.nRadiantScore, self.nDireScore)
 
     Timers:CreateTimer('roundend', {
         endTime = 7,
@@ -6020,39 +6021,153 @@ function FateGameMode:MakeDraw()
     self:FinishRound(false,2)
 end
 
+-- Сколько секунд после победы ждём подтверждения выгрузки, прежде чем
+-- показать экран победы. Меньше round_pause (7 с), чтобы герои не ожили.
+FATE_END_UPLOAD_WAIT = 5
+
+-- Конец матча: сначала выгрузка, экран победы — после её подтверждения.
+-- ⚠️ Зачем: пока матч идёт (до SetGameWinner), реле работает целиком — ответы
+-- клиентов доходят, повторы и таймеры живы. После SetGameWinner доходит
+-- только то, что роздано клиентам сразу (матчи 110–113, 27.09.2026), а люди
+-- выходят с экрана победы за доли секунды — и уносят с собой запросы.
+function FateGameMode:EndMatch(winnerTeam)
+    if self.bMatchEnding then return end
+    self.bMatchEnding = true
+    local finished = false
+    local started = GameRules:GetGameTime()
+    local function finish(reason)
+        if finished then return end
+        finished = true
+        print(string.format("[FateStats] экран победы через %.1f с: %s",
+              GameRules:GetGameTime() - started, reason))
+        GameRules:SetSafeToLeave( true )
+        GameRules:SetGameWinner( winnerTeam )
+    end
+    local waiting = my_http_post(winnerTeam, function() finish("выгрузка подтверждена") end)
+    if not waiting or not (Timers and Timers.CreateTimer) then
+        finish("ждать нечего")
+        return
+    end
+    Timers:CreateTimer(FATE_END_UPLOAD_WAIT, function()
+        finish("таймаут")
+    end)
+end
+
+-- id матча — один на всю игру: им подписаны и снимки по раундам, и финал.
+-- У GameRules в этой сборке нет GetMatchID (метод = nil) -> синтезируем
+-- уникальный id из системного времени; иначе tools-режим падает.
+function FateMatchId()
+    if FATE_MATCH_ID then return FATE_MATCH_ID end
+    local matchId = nil
+    if GameRules.GetMatchID ~= nil then
+        matchId = tostring(GameRules:GetMatchID())
+    end
+    if matchId == nil or matchId == "" or matchId == "0" then
+        matchId = string.gsub(tostring(GetSystemDate()) .. "-" .. tostring(GetSystemTime()) .. "-" .. tostring(RandomInt(1000, 9999)), "[^%w]", "")
+    end
+    FATE_MATCH_ID = matchId
+    return matchId
+end
+
+-- Строки всех игроков для /matches/batch и /matches/snapshot.
+-- Порядок полей = BATCH_ROW_FIELDS в воркере (src/index.js).
+function FateBuildMatchRows()
+    local function num(v) return tostring(math.floor(tonumber(v) or 0)) end
+    local rows = {}
+    LoopOverPlayers(function(player, playerID, playerHero)
+        local hero = playerHero
+        if not hero or not hero.ServStat then return end
+        -- Пропускаем ботов (fake clients): SteamAccountID=0, все схлопнулись бы
+        -- в одну строку steamid=0 и засоряли бы статистику.
+        if PlayerResource:IsFakeClient(playerID) then return end
+        local s = hero.ServStat
+        local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+        if steamid == "0" then return end
+        rows[#rows + 1] = table.concat({
+            steamid,
+            (string.gsub(tostring(s.heroName), "[^%w_]", "")),
+            num(hero:GetTeam()),
+            num(s.kill), num(s.death), num(s.assist),
+            num(s.damageDealtBR), num(s.damageDealt),
+            num(s.damageTakenBR), num(s.damageTaken),
+            num(s.shard1), num(s.shard2), num(s.shard3), num(s.shard4),
+            num(s.qseal), num(s.wseal), num(s.eseal), num(s.rseal),
+            num(s.ward),
+        }, ",")
+    end)
+    return rows
+end
+
+-- Снимок статистики в конце раунда (кроме последнего — там финал).
+-- Зачем: если игра умрёт (хост вышел или упал), финал не уйдёт никогда, а
+-- снимок уже в базе — теряется максимум последний раунд. Пока матч идёт,
+-- реле работает целиком (ответы, повторы), поэтому хватает одной копии.
+-- Сайт снимки не видит: они лежат в match_snapshots; в matches их поднимает
+-- воркер, только если финал не дошёл, а начисление MMR дошло.
+function FateSendSnapshot(round, radiantScore, direScore)
+    if FateServerDisabled() or FATE_MATCH_UPLOADED then return end
+    local ok, err = pcall(function()
+        local rows = FateBuildMatchRows()
+        if #rows == 0 then return end
+        local req = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches/snapshot")
+        req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
+        req:SetHTTPRequestGetOrPostParameter("match_id", FateMatchId())
+        req:SetHTTPRequestGetOrPostParameter("round", tostring(round or 0))
+        req:SetHTTPRequestGetOrPostParameter("duration", tostring(math.ceil(GameRules:GetGameTime())))
+        req:SetHTTPRequestGetOrPostParameter("radiant_score", tostring(radiantScore or 0))
+        req:SetHTTPRequestGetOrPostParameter("dire_score", tostring(direScore or 0))
+        req:SetHTTPRequestGetOrPostParameter("version", tostring(FATE_VERSION or "dev"))
+        req:SetHTTPRequestGetOrPostParameter("rows", table.concat(rows, ";"))
+        req:Send(function(res)
+            print("[FateStats] снимок раунда " .. tostring(round) .. " -> " .. tostring(res.StatusCode))
+        end)
+    end)
+    if not ok then print("[FateStats] снимок не ушёл: " .. tostring(err)) end
+end
+
 -- Выгрузка статистики матча на сервер (Cloudflare Worker + D1). Вызывается один
--- раз при окончании матча (в FinishRound, до SetGameWinner). Данные уже собраны
+-- раз при окончании матча (из EndMatch, до SetGameWinner). Данные уже собраны
 -- в hero.ServStat во время игры. json на сервере Lua нет, поэтому шлём
--- form-параметрами: 1 запрос на мету матча + по 1 на каждого игрока (upsert).
-function my_http_post(winnerTeam)
+-- form-параметрами (upsert).
+-- onDone зовётся один раз, когда и выгрузка, и начисление MMR получили ответ
+-- (любой). Возвращает true, если onDone стоит ждать.
+function my_http_post(winnerTeam, onDone)
     -- Из tools/чит-лобби статистику не выгружаем (тесты/читы не должны попадать в прод-БД).
     if FateServerDisabled() then
         print("[FateStats] tools/cheat lobby -> upload skipped")
-        return
+        return false
     end
     -- Выгрузка ровно одна на матч: кроме победы по очкам её может вызвать
     -- сторож недоигранного матча (см. fate_mmr.lua), и оба пути не должны
     -- сложиться в двойную статистику.
     if FATE_MATCH_UPLOADED then
         print("[FateStats] матч уже выгружен -> повтор пропущен")
-        return
+        return false
     end
     FATE_MATCH_UPLOADED = true
+    -- Счётчик ответов, которых ждём. Начинается с 1 — «жетон» самой функции,
+    -- снимается в конце: иначе ответ, пришедший синхронно (реле без клиентов
+    -- отвечает сразу), закончил бы ожидание раньше, чем ушёл второй запрос.
+    local waiting = 1
+    local function doneOne()
+        waiting = waiting - 1
+        if waiting == 0 and onDone then onDone() end
+    end
     -- Всё в pcall: выгрузка статы НЕ должна ронять завершение матча (my_http_post
     -- зовётся до SetGameWinner). Любая ошибка внутри -> просто лог, игра идёт дальше.
     local ok, err = pcall(function()
-        -- У GameRules в этой сборке нет GetMatchID (метод = nil) -> синтезируем
-        -- уникальный id из системного времени; иначе tools-режим падает.
-        local matchId = nil
-        if GameRules.GetMatchID ~= nil then
-            matchId = tostring(GameRules:GetMatchID())
-        end
-        if matchId == nil or matchId == "" or matchId == "0" then
-            matchId = string.gsub(tostring(GetSystemDate()) .. "-" .. tostring(GetSystemTime()) .. "-" .. tostring(RandomInt(1000, 9999)), "[^%w]", "")
-        end
+        local matchId = FateMatchId()
         local duration = math.ceil(GameRules:GetGameTime())
 
-        local mreq = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches")
+        -- Мета и строки всех игроков — ОДНИМ запросом (/matches/batch), и через
+        -- реле он уходит сразу тремя копиями через разных клиентов. Раньше было
+        -- 16 запросов (мета + по одному на игрока), и в матчах 110–113
+        -- (27.09.2026) до базы доходили только те, что клиенты получили сразу:
+        -- 4–5 строк из 14 пропадали. Копии безопасны — на воркере всё upsert.
+        local rows = FateBuildMatchRows()
+
+        local mreq = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches/batch")
+        FateHttpSetCopies(mreq, 3)
         mreq:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
         mreq:SetHTTPRequestGetOrPostParameter("match_id", matchId)
         mreq:SetHTTPRequestGetOrPostParameter("winner_team", tostring(winnerTeam or 0))
@@ -6064,63 +6179,32 @@ function my_http_post(winnerTeam)
         -- Версия сборки: без неё винрейты смешивают балансы «до» и «после»
         -- правки (при 1-3 коммитах в день это каждая вторая игра).
         mreq:SetHTTPRequestGetOrPostParameter("version", tostring(FATE_VERSION or "dev"))
+        mreq:SetHTTPRequestGetOrPostParameter("rows", table.concat(rows, ";"))
+        waiting = waiting + 1
         mreq:Send(function(res)
-            print("[FateStats] match meta (" .. matchId .. ") -> " .. tostring(res.StatusCode))
+            print("[FateStats] match batch (" .. matchId .. ", " .. #rows .. " players) -> "
+                  .. tostring(res.StatusCode) .. " " .. tostring(res.Body))
             -- Подстраховка: если запрос на начисление ушёл раньше, чем мета
             -- легла в базу, шлём его ещё раз — теперь мета точно там. Повтор
             -- идемпотентен («already applied»).
             local ok2, err2 = pcall(function() FateMMR:RetryApply() end)
             if not ok2 then print("[FateMMR] повтор начисления не запустился: " .. tostring(err2)) end
+            doneOne()
         end)
 
         -- Рейтинг: СИНХРОННО, в том же кадре. Откладывать нечем — таймеры в
         -- POST_GAME не тикают (см. fate_mmr.lua), а полагаться только на колбэк
         -- HTTP не хочется: это единственная ниточка, и она не проверена в бою.
-        local okm, errm = pcall(function() FateMMR:ApplyMatch(matchId, winnerTeam) end)
-        if not okm then print("[FateMMR] начисление не запустилось: " .. tostring(errm)) end
-
-        LoopOverPlayers(function(player, playerID, playerHero)
-            local hero = playerHero
-            if not hero or not hero.ServStat then return end
-            -- Пропускаем ботов (fake clients): SteamAccountID=0, все схлопнулись бы
-            -- в одну строку steamid=0 и засоряли бы статистику.
-            if PlayerResource:IsFakeClient(playerID) then return end
-            local s = hero.ServStat
-            local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-            if steamid == "0" then return end
-
-            local req = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches/player")
-            req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
-            req:SetHTTPRequestGetOrPostParameter("match_id", matchId)
-            req:SetHTTPRequestGetOrPostParameter("steamid", steamid)
-            req:SetHTTPRequestGetOrPostParameter("hero", tostring(s.heroName))
-            req:SetHTTPRequestGetOrPostParameter("team", tostring(hero:GetTeam()))
-            req:SetHTTPRequestGetOrPostParameter("kills", tostring(s.kill))
-            req:SetHTTPRequestGetOrPostParameter("deaths", tostring(s.death))
-            req:SetHTTPRequestGetOrPostParameter("assists", tostring(s.assist))
-            req:SetHTTPRequestGetOrPostParameter("dmg_dealt_pre", tostring(math.floor(s.damageDealtBR)))
-            req:SetHTTPRequestGetOrPostParameter("dmg_dealt_post", tostring(math.floor(s.damageDealt)))
-            req:SetHTTPRequestGetOrPostParameter("dmg_taken_pre", tostring(math.floor(s.damageTakenBR)))
-            req:SetHTTPRequestGetOrPostParameter("dmg_taken_post", tostring(math.floor(s.damageTaken)))
-            req:SetHTTPRequestGetOrPostParameter("grail_avarice", tostring(s.shard1))
-            req:SetHTTPRequestGetOrPostParameter("grail_antimagic", tostring(s.shard2))
-            req:SetHTTPRequestGetOrPostParameter("grail_replenishment", tostring(s.shard3))
-            req:SetHTTPRequestGetOrPostParameter("grail_prosperity", tostring(s.shard4))
-            req:SetHTTPRequestGetOrPostParameter("seals_q", tostring(s.qseal))
-            req:SetHTTPRequestGetOrPostParameter("seals_w", tostring(s.wseal))
-            req:SetHTTPRequestGetOrPostParameter("seals_e", tostring(s.eseal))
-            req:SetHTTPRequestGetOrPostParameter("seals_r", tostring(s.rseal))
-            req:SetHTTPRequestGetOrPostParameter("wards", tostring(s.ward))
-            req:Send(function(res)
-                print("[FateStats] player " .. steamid .. " -> " .. tostring(res.StatusCode))
-            end)
-        end)
-
-        -- (Начисление рейтинга ушло выше — в колбэк POST /matches.)
+        waiting = waiting + 1
+        local okm, sent = pcall(function() return FateMMR:ApplyMatch(matchId, winnerTeam, doneOne) end)
+        if not okm then print("[FateMMR] начисление не запустилось: " .. tostring(sent)) end
+        if not (okm and sent) then doneOne() end   -- начисления нет — его и не ждём
     end)
     if not ok then
         print("[FateStats] upload error: " .. tostring(err))
     end
+    doneOne()   -- жетон функции
+    return true
 end
 
 
