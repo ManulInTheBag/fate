@@ -237,6 +237,87 @@ return {
 			Console:SetVisible(PlayerResource:GetPlayer(playerId))
 		end
 	},
+	-- Проверка ряда эффектов над хелсбаром (libraries/effect_bars.lua): вешает
+	-- стаки Ли, Сайто и Мурамасы на всех юнитов в 1200 вокруг героя.
+	--   -effbars [li] [saito] [mura]  стаки (по умолчанию 25 4 3, 0 = не вешать)
+	--   -effbars me [li] [saito] [mura]  то же, но и на себя
+	--   -effbars boom                 взрыв стаков Ли, как от удара NSS
+	--   -effbars off                  снять всё
+	-- Кастер - свой герой, поэтому потолки без его способностей берутся запасные
+	-- (50 / 10 / 5), а атрибута Ли нет - ступени цвета не включатся.
+	["effbars"] = {
+		level = CUSTOMCHAT_COMMAND_LEVEL_CHEAT_DEVELOPER,
+		f = function(args, hero)
+			if not IsNotNull(hero) then return end
+
+			-- модификаторы связываются в файлах способностей: без этих героев в
+			-- матче они не связаны (повторная связка безвредна)
+			require("libraries/effect_bars")
+			LinkLuaModifier("modifier_nss_shock_stackable", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("saito_formlessness_new_stacks", "abilities/saito/vergil_saito/saito_formlessness_new", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_muramasa_sword_drop_enemy_buff", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
+
+			local LI = "modifier_nss_shock_stackable"
+			local SAITO = "saito_formlessness_new_stacks"
+			local MURA = "modifier_muramasa_sword_drop_enemy_buff"
+
+			local withSelf = args[1] == "me"
+			if withSelf then table.remove(args, 1) end
+
+			local targets = {}
+			for _, unit in pairs(FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, 1200,
+					DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+					FIND_CLOSEST, false)) do
+				if unit ~= hero then
+					table.insert(targets, unit)
+				end
+			end
+			if withSelf then
+				table.insert(targets, hero)
+			end
+
+			if args[1] == "off" then
+				for _, unit in pairs(targets) do
+					unit:RemoveModifierByName(LI)
+					unit:RemoveModifierByName(SAITO)
+					unit:RemoveModifierByName(MURA)
+				end
+				return
+			end
+
+			if args[1] == "boom" then
+				for _, unit in pairs(targets) do
+					if unit:HasModifier(LI) then
+						unit:RemoveModifierByName(LI)
+						EffectBars:Burst(unit, "shuwen")
+					end
+				end
+				return
+			end
+
+			local li = tonumber(args[1]) or 25
+			local saito = tonumber(args[2]) or 4
+			local mura = tonumber(args[3]) or 3
+
+			for _, unit in pairs(targets) do
+				if li > 0 then
+					unit:AddNewModifier(hero, nil, LI, { duration = 15, stacks = li })
+				end
+				if saito > 0 then
+					local mod = unit:AddNewModifier(hero, nil, SAITO, { duration = 8 })
+					if mod then mod:SetStackCount(saito) end
+				end
+				if mura > 0 then
+					local mod = unit:AddNewModifier(hero, nil, MURA, { duration = 20 })
+					if mod then mod:SetStackCount(mura) end
+				end
+			end
+
+			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d",
+				#targets, li, saito, mura), 0, 0)
+		end
+	},
 	-- Диагностика слотов способностей: сколько их у Слуги, что реально лежит в каждом слоте
 	-- и доехали ли пустые таланты special_bonus_fate_none_* (без них клиент падает по ALT).
 	["slots"] = {

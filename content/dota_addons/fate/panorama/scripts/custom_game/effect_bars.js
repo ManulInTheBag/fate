@@ -1,15 +1,17 @@
 'use strict';
 
-// Ряд эффектов со стаками над хелсбаром юнита: медальон с числом, полоска до
-// потолка и линия оставшегося времени. Заменил партикли-счётчики над головой
-// (Li Shuwen, Saito, Muramasa).
+// Ряд эффектов со стаками над хелсбаром юнита: круглый медальон, число стаков
+// по центру и кольцо оставшегося времени по краю. Заменил партикли-счётчики
+// над головой (Li Shuwen, Saito, Muramasa).
 //
 // Кого рисовать, говорит сервер: libraries/effect_bars.lua ведёт nettable
 // effect_bars, по записи на entindex - { on, vis, <доп. поля> }. Стаки и время
 // читаются прямо из баффов, без задержки сети.
 //
+// Разовые эффекты (взрыв стаков Ли на NSS) приходят событием effect_bars_burst.
+//
 // Новый эффект = строка в EFFECTS + EffectBars:Track/Untrack в его модификаторе
-// + цвета темы в effect_bars.css.
+// + тема (медальон и цвета) в effect_bars.css.
 
 var EFFECTS = [
 	{
@@ -18,9 +20,8 @@ var EFFECTS = [
 		ability: 'lishuwen_no_second_strike',
 		maxKey: 'max_stacks',
 		maxFallback: 50,
-		// пороги атрибута рисуются, только если он взят - флаг кладёт сервер
+		// ступени атрибута красят значок, только если он взят - флаг кладёт сервер
 		tiers: { flag: 'nss_sa', keys: ['sa_tier1_stacks', 'sa_tier2_stacks'], fallbacks: [10, 25] },
-		tickEvery: 10,
 	},
 	{
 		theme: 'Saito',
@@ -28,16 +29,20 @@ var EFFECTS = [
 		ability: 'saito_formlessness_new',
 		maxKey: 'max_slashes',
 		maxFallback: 10,
-		cells: true,
 	},
 	{
 		theme: 'Muramasa',
 		modifier: 'modifier_muramasa_sword_drop_enemy_buff',
 		// заряды меча: в KV это sword_stacks атрибута, а атрибут живёт на Мастере
 		maxFallback: 5,
-		cells: true,
 	},
 ];
+
+// Взрывы по kind из события: тема значка, на месте которого он играет, и
+// сколько живёт панель (до конца вспышки иероглифа в effect_bars.css).
+var BURSTS = {
+	shuwen: { modifier: 'modifier_nss_shock_stackable', theme: 'Shuwen', life: 2.3 },
+};
 
 
 var REFRESH_INTERVAL = 0.1;
@@ -49,7 +54,8 @@ var BAR_TOP_Y = -34;
 
 var ROW_GAP = 3;
 var UNIT_WIDTH = 300;   // .EffectUnit в css
-var UNIT_HEIGHT = 30;
+var UNIT_HEIGHT = 44;
+var CHIP_SIZE = 40;     // .EffectChip и .EffectBurst в css
 
 // Над своим Распутиным висит его полоска стаков (rasputin_hud) - ряд выше неё.
 var RASPUTIN_MODIFIER = 'modifier_rasputin_dash_charges';
@@ -57,10 +63,16 @@ var RASPUTIN_LIFT = 21;
 
 var EXPIRING_TIME = 1.5;
 
+// Сколько помнить место снятого значка: событие взрыва и снятие баффа
+// приходят в один тик, но Refresh может успеть удалить значок раньше.
+var GONE_MEMORY = 0.5;
+
 
 var tracked = {};      // entindex -> запись из nettable
 var units = {};        // entindex -> построенные панели
 var visible = [];      // кого двигать каждый кадр
+var gone = {};         // entindex -> { modifier -> { dx, time } } недавно снятые значки
+var bursts = [];       // идущие взрывы
 var lastRefresh = -1;
 var root = $('#EffectBarsRoot');
 
@@ -78,6 +90,24 @@ function ScreenScale() {
 function HealthBarOffset(entity) {
 	var offset = Entities.GetHealthBarOffset(entity);
 	return offset > 0 ? offset : 200;
+}
+
+
+// Центр низа ряда над хелсбаром в координатах панорамы, null - юнит за экраном.
+function Anchor(entity, scale) {
+	var origin = Entities.GetAbsOrigin(entity);
+	var z = origin[2] + HealthBarOffset(entity);
+	var screenX = Game.WorldToScreenX(origin[0], origin[1], z);
+	var screenY = Game.WorldToScreenY(origin[0], origin[1], z);
+
+	if (screenX < 0 || screenY < 0) {
+		return null;
+	}
+
+	return {
+		x: screenX / scale + BAR_CENTER_X,
+		y: screenY / scale + BAR_TOP_Y - ROW_GAP,
+	};
 }
 
 
@@ -121,6 +151,28 @@ function OnNetTable(table, key, data) {
 }
 
 
+// Видит ли локальный игрок юнита: чужие - только пока их команда его видит
+// (маска vis с сервера, бит 2^team - так верно и в FFA с кастомными
+// командами), своя команда и зрители - всегда.
+function TeamSees(entity, vis, localTeam, spectator) {
+	if (spectator || Entities.GetTeamNumber(entity) === localTeam) {
+		return true;
+	}
+	return Math.floor((vis || 0) / Math.pow(2, localTeam)) % 2 === 1;
+}
+
+
+function UnitShown(entity, data, localTeam, spectator) {
+	if (!Entities.IsValidEntity(entity) || !Entities.IsAlive(entity)) {
+		return false;
+	}
+	if (Entities.NoHealthBar(entity)) {
+		return false;
+	}
+	return TeamSees(entity, data.vis, localTeam, spectator);
+}
+
+
 function BuildUnit(entity) {
 	var panel = $.CreatePanel('Panel', root, '');
 	panel.AddClass('EffectUnit');
@@ -139,8 +191,32 @@ function DestroyUnit(entity) {
 	if (!built) {
 		return;
 	}
+	for (var modifier in built.chips) {
+		RememberChip(entity, built, modifier);
+	}
 	built.panel.DeleteAsync(0);
 	delete units[entity];
+}
+
+
+// Смещение центра значка от центра ряда - чтобы взрыв сыграл ровно на его месте.
+function ChipOffset(built, chip) {
+	var scale = ScreenScale();
+	var rowWidth = built.row.actuallayoutwidth / scale;
+	var chipX = chip.actualxoffset / scale;
+	return chipX + CHIP_SIZE / 2 - rowWidth / 2;
+}
+
+
+function RememberChip(entity, built, modifier) {
+	var state = built.chips[modifier];
+	if (!state) {
+		return;
+	}
+	if (!gone[entity]) {
+		gone[entity] = {};
+	}
+	gone[entity][modifier] = { dx: ChipOffset(built, state.panel), time: Game.GetGameTime() };
 }
 
 
@@ -152,65 +228,30 @@ function BuildChip(built, effect, entity, buff) {
 	var medal = $.CreatePanel('Panel', chip, '');
 	medal.AddClass('EffectMedal');
 
-	var count = $.CreatePanel('Label', medal, '');
+	var track = $.CreatePanel('Panel', chip, '');
+	track.AddClass('EffectRingTrack');
+
+	var ring = $.CreatePanel('Panel', chip, '');
+	ring.AddClass('EffectRing');
+
+	var count = $.CreatePanel('Label', chip, '');
 	count.AddClass('EffectCount');
 	count.text = '';
-
-	var side = $.CreatePanel('Panel', chip, '');
-	side.AddClass('EffectSide');
-
-	var bar = $.CreatePanel('Panel', side, '');
-	bar.AddClass('EffectBar');
-
-	var timer = $.CreatePanel('Panel', side, '');
-	timer.AddClass('EffectTimer');
-
-	var timerFill = $.CreatePanel('Panel', timer, '');
-	timerFill.AddClass('EffectTimerFill');
-
-	var max = CasterValue(entity, buff, effect.ability, effect.maxKey, effect.maxFallback);
 
 	var state = {
 		panel: chip,
 		count: count,
-		bar: bar,
-		timerFill: timerFill,
-		max: max,
-		cells: [],
-		fill: null,
+		ring: ring,
+		max: CasterValue(entity, buff, effect.ability, effect.maxKey, effect.maxFallback),
 		tiers: [],
 		lastCount: -1,
-		lastTimer: -1,
-		lastTierFlag: null,
+		lastSweep: -1,
 	};
 
-	if (effect.cells) {
-		bar.AddClass('Cells');
-		for (var i = 0; i < max; i++) {
-			var cell = $.CreatePanel('Panel', bar, '');
-			cell.AddClass('EffectCell');
-			cell.SetHasClass('Last', i === max - 1);
-			state.cells.push(cell);
-		}
-	} else {
-		state.fill = $.CreatePanel('Panel', bar, '');
-		state.fill.AddClass('EffectFill');
-
-		if (effect.tickEvery) {
-			for (var t = effect.tickEvery; t < max; t += effect.tickEvery) {
-				AddTick(bar, t, max, false);
-			}
-		}
-
-		if (effect.tiers) {
-			for (var k = 0; k < effect.tiers.keys.length; k++) {
-				state.tiers.push(CasterValue(entity, buff, effect.ability,
-					effect.tiers.keys[k], effect.tiers.fallbacks[k]));
-			}
-			state.tierTicks = [];
-			for (var n = 0; n < state.tiers.length; n++) {
-				state.tierTicks.push(AddTick(bar, state.tiers[n], max, true));
-			}
+	if (effect.tiers) {
+		for (var k = 0; k < effect.tiers.keys.length; k++) {
+			state.tiers.push(CasterValue(entity, buff, effect.ability,
+				effect.tiers.keys[k], effect.tiers.fallbacks[k]));
 		}
 	}
 
@@ -219,19 +260,10 @@ function BuildChip(built, effect, entity, buff) {
 }
 
 
-function AddTick(bar, value, max, tier) {
-	var tick = $.CreatePanel('Panel', bar, '');
-	tick.AddClass('EffectTick');
-	tick.SetHasClass('TierTick', tier);
-	tick.style.position = (value * 100 / max) + '% 0px 0px';
-	return tick;
-}
-
-
 function UpdateChip(effect, state, entity, buff, data) {
 	var stacks = Buffs.GetStackCount(entity, buff);
 
-	// потолок мог не прочитаться из KV - полоска не должна переливаться
+	// потолок мог не прочитаться из KV - не даём ему быть меньше стаков
 	var max = Math.max(state.max, stacks, 1);
 
 	if (stacks !== state.lastCount) {
@@ -240,25 +272,12 @@ function UpdateChip(effect, state, entity, buff, data) {
 		}
 		state.lastCount = stacks;
 		state.count.text = String(stacks);
-
-		if (state.fill) {
-			state.fill.style.width = (Math.min(stacks, max) * 100 / max) + '%';
-		}
-		for (var i = 0; i < state.cells.length; i++) {
-			state.cells[i].SetHasClass('On', i < stacks);
-		}
 		state.panel.SetHasClass('Max', stacks >= max);
 	}
 
 	if (effect.tiers) {
 		var tierOn = data[effect.tiers.flag] === 1;
-		if (tierOn !== state.lastTierFlag) {
-			state.lastTierFlag = tierOn;
-			for (var t = 0; t < state.tierTicks.length; t++) {
-				state.tierTicks[t].visible = tierOn;
-			}
-		}
-		state.panel.SetHasClass('Tier1', tierOn && stacks >= state.tiers[0] && stacks < max);
+		state.panel.SetHasClass('Tier1', tierOn && stacks >= state.tiers[0] && stacks < state.tiers[1]);
 		state.panel.SetHasClass('Tier2', tierOn && stacks >= state.tiers[1] && stacks < max);
 	}
 
@@ -268,30 +287,14 @@ function UpdateChip(effect, state, entity, buff, data) {
 
 	if (!permanent) {
 		var remaining = Math.max(Buffs.GetRemainingTime(entity, buff), 0);
-		var pct = Math.round(Math.min(remaining / duration, 1) * 1000) / 10;
-		if (pct !== state.lastTimer) {
-			state.lastTimer = pct;
-			state.timerFill.style.width = pct + '%';
+		// дуга от 12 часов по часовой стрелке, убывает к 12 часам
+		var sweep = Math.round(Math.min(remaining / duration, 1) * 3600) / 10;
+		if (sweep !== state.lastSweep) {
+			state.lastSweep = sweep;
+			state.ring.style.clip = 'radial( 50% 50%, 0deg, ' + sweep + 'deg )';
 		}
 		state.panel.SetHasClass('Expiring', remaining <= EXPIRING_TIME);
 	}
-}
-
-
-// Чужие видят ряд, только пока их команда видит юнита (маска vis с сервера,
-// бит 2^team - так верно и в FFA с кастомными командами), своя команда и
-// зрители - всегда.
-function UnitShown(entity, data, localTeam, spectator) {
-	if (!Entities.IsValidEntity(entity) || !Entities.IsAlive(entity)) {
-		return false;
-	}
-	if (Entities.NoHealthBar(entity)) {
-		return false;
-	}
-	if (spectator || Entities.GetTeamNumber(entity) === localTeam) {
-		return true;
-	}
-	return Math.floor((data.vis || 0) / Math.pow(2, localTeam)) % 2 === 1;
 }
 
 
@@ -322,6 +325,7 @@ function Refresh() {
 
 			if (buff === undefined) {
 				if (state) {
+					RememberChip(entity, built, effect.modifier);
 					state.panel.DeleteAsync(0);
 					delete built.chips[effect.modifier];
 				}
@@ -343,7 +347,7 @@ function Refresh() {
 			continue;
 		}
 
-		built.lift =(entity === Players.GetPlayerHeroEntityIndex(localPlayer)
+		built.lift = (entity === Players.GetPlayerHeroEntityIndex(localPlayer)
 			&& buffs[RASPUTIN_MODIFIER] !== undefined) ? RASPUTIN_LIFT : 0;
 
 		seen[entity] = true;
@@ -354,6 +358,79 @@ function Refresh() {
 		if (!seen[index]) {
 			DestroyUnit(index);
 		}
+	}
+
+	var now = Game.GetGameTime();
+	for (var g in gone) {
+		for (var m in gone[g]) {
+			if (now - gone[g][m].time > GONE_MEMORY) {
+				delete gone[g][m];
+			}
+		}
+	}
+}
+
+
+function OnBurst(event) {
+	var kind = BURSTS[event.kind];
+	var entity = event.unit;
+
+	if (!kind || !Entities.IsValidEntity(entity)) {
+		return;
+	}
+
+	var localPlayer = Players.GetLocalPlayer();
+	if (!TeamSees(entity, event.vis, Players.GetTeam(localPlayer), Players.IsSpectator(localPlayer))) {
+		return;
+	}
+
+	// место значка: живой (если бафф ещё не снят на клиенте) или только что снятый
+	var dx = 0;
+	var built = units[entity];
+	if (built && built.chips[kind.modifier]) {
+		dx = ChipOffset(built, built.chips[kind.modifier].panel);
+	} else if (gone[entity] && gone[entity][kind.modifier]) {
+		dx = gone[entity][kind.modifier].dx;
+	}
+
+	var panel = $.CreatePanel('Panel', root, '');
+	panel.AddClass('EffectBurst');
+	panel.AddClass(kind.theme);
+
+	var scaleLayer = $.CreatePanel('Panel', panel, '');
+	scaleLayer.AddClass('BurstScale');
+
+	var spin = $.CreatePanel('Panel', scaleLayer, '');
+	spin.AddClass('BurstSpin');
+
+	var glyph = $.CreatePanel('Panel', panel, '');
+	glyph.AddClass('BurstGlyph');
+
+	var burst = { entity: entity, panel: panel, dx: dx, lift: built ? built.lift : 0 };
+	bursts.push(burst);
+	PlaceBurst(burst, ScreenScale());
+	panel.DeleteAsync(kind.life);
+	$.Schedule(kind.life, function () {
+		for (var i = 0; i < bursts.length; i++) {
+			if (bursts[i].panel === panel) {
+				bursts.splice(i, 1);
+				return;
+			}
+		}
+	});
+}
+
+
+// Взрыв идёт за юнитом, в том числе за умершим от этого удара.
+function PlaceBurst(burst, scale) {
+	var at = Entities.IsValidEntity(burst.entity) ? Anchor(burst.entity, scale) : null;
+
+	burst.panel.SetHasClass('Hidden', !at);
+
+	if (at) {
+		var x = Math.round(at.x + burst.dx - CHIP_SIZE / 2);
+		var y = Math.round(at.y - CHIP_SIZE - burst.lift);
+		burst.panel.style.position = x + 'px ' + y + 'px 0px';
 	}
 }
 
@@ -377,26 +454,25 @@ function Update() {
 			continue;
 		}
 
-		var origin = Entities.GetAbsOrigin(entity);
-		var z = origin[2] + HealthBarOffset(entity);
-		var screenX = Game.WorldToScreenX(origin[0], origin[1], z);
-		var screenY = Game.WorldToScreenY(origin[0], origin[1], z);
+		var anchor = Anchor(entity, scale);
+		built.panel.SetHasClass('Hidden', !anchor);
 
-		if (screenX < 0 || screenY < 0) {
-			built.panel.SetHasClass('Hidden', true);
+		if (!anchor) {
 			continue;
 		}
 
-		built.panel.SetHasClass('Hidden', false);
-
-		var x = Math.round(screenX / scale + BAR_CENTER_X - UNIT_WIDTH / 2);
-		var y = Math.round(screenY / scale + BAR_TOP_Y - ROW_GAP - UNIT_HEIGHT - built.lift);
+		var x = Math.round(anchor.x - UNIT_WIDTH / 2);
+		var y = Math.round(anchor.y - UNIT_HEIGHT - built.lift);
 
 		if (x !== built.x || y !== built.y) {
 			built.x = x;
 			built.y = y;
 			built.panel.style.position = x + 'px ' + y + 'px 0px';
 		}
+	}
+
+	for (var b = 0; b < bursts.length; b++) {
+		PlaceBurst(bursts[b], scale);
 	}
 }
 
@@ -407,5 +483,6 @@ function Update() {
 		OnNetTable('effect_bars', all[i].key, all[i].value);
 	}
 	CustomNetTables.SubscribeNetTableListener('effect_bars', OnNetTable);
+	GameEvents.Subscribe('effect_bars_burst', OnBurst);
 	Update();
 })();

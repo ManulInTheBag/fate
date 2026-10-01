@@ -120,6 +120,23 @@ function EffectBars:SetExtra(unit, key, value)
 end
 
 
+-- Разовый эффект на месте значка (взрыв стаков Ли на NSS). Шлём всем с маской
+-- vis на момент события: панорама покажет его тем же, кому показала бы ряд
+-- (своей команде, зрителям и врагам, видящим юнита). Стаки к этому моменту уже
+-- сняты, поэтому маска считается здесь, а не берётся из записи.
+function EffectBars:Burst(unit, kind)
+    if not IsServer() then return end
+
+    if not IsNotNull(unit) then return end
+
+    CustomGameEventManager:Send_ServerToAllClients("effect_bars_burst", {
+        unit = unit:entindex(),
+        kind = kind,
+        vis = VisMask(unit, TeamViewers()),
+    })
+end
+
+
 function EffectBars:StartThink()
     if self.thinking then return end
 

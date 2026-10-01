@@ -448,14 +448,11 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 		end
 	end
 	hTarget:RemoveModifierByName("modifier_nss_shock_stackable")
-	self.counterfxExplosion =   ParticleManager:CreateParticle( "particles/li_shuwen/li_shuwen_stacks_jopa.vpcf", PATTACH_OVERHEAD_FOLLOW, hTarget )
-	ParticleManager:SetParticleControl( self.counterfxExplosion , 3,hTarget:GetAbsOrigin() + Vector(0,0,150)  )
-	ParticleManager:ReleaseParticleIndex(self.counterfxExplosion )
-	Timers:CreateTimer(3, function()
-			--ParticleManager:DestroyParticle(self.counterfxExplosion , true)
-			
-	
-	end)
+	-- взрыв стаков рисует ряд эффектов на месте значка (effect_bars.js),
+	-- раньше это был партикль li_shuwen_stacks_jopa над головой
+	if stacks > 0 then
+		EffectBars:Burst(hTarget, "shuwen")
+	end
 	if caster:HasModifier("modifier_berserk") then
 		DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	else
