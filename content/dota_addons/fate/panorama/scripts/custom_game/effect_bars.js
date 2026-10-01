@@ -3,7 +3,8 @@
 // Ряд эффектов со стаками над хелсбаром юнита: круглый медальон, число стаков
 // по центру и кольцо оставшегося времени по краю. Заменил партикли-счётчики
 // над головой (Li Shuwen, Saito, Muramasa) и добавил яд Robin Hood,
-// проклятия Gae Bolg Скатах и Аталанты Альтер, стрелы Аталанты.
+// проклятия Gae Bolg Скатах и Аталанты Альтер, стрелы Аталанты, кровотечения
+// Влада и Медузы, яд Хассана. Плюс полоски над своим героем (OWN_BARS).
 //
 // Кого рисовать, говорит сервер: libraries/effect_bars.lua ведёт nettable
 // effect_bars, по записи на entindex - { on, vis, <доп. поля> }. Стаки и время
@@ -65,7 +66,61 @@ var EFFECTS = [
 		// стаки стрел с атрибута Calydonian Snipe, потолка нет
 		maxFallback: 0,
 	},
+	{
+		theme: 'Vlad',
+		modifier: 'modifier_bleed',
+		// кровотечение Влада (passive rending), потолка нет
+		maxFallback: 0,
+	},
+	{
+		theme: 'Medusa',
+		modifier: 'modifier_medusa_bleed',
+		// кровотечение с атрибута цепей Медузы, потолка нет
+		maxFallback: 0,
+	},
+	{
+		theme: 'Hassan',
+		modifier: 'modifier_dirk_poison_slow',
+		// стаки яда кинжалов Хассана: по ним считается урон modifier_dirk_poison
+		maxFallback: 0,
+	},
 ];
+
+
+// Полоски над СВОИМ героем, как у Распутина (rasputin_hud): стаки, которые
+// видит только владелец. Потолок - из KV своей способности или с сервера
+// (capExtra в записи nettable, когда он зависит от атрибута).
+var OWN_BARS = [
+	{
+		theme: 'Hijikata',
+		modifier: 'modifier_hijikata_ult_stacks',
+		// стаки = накопленный урон в % от порога; с атрибутом BC потолок выше
+		// 100 - сервер кладёт его в hijikata_cap (hijikata_ult.lua)
+		capExtra: 'hijikata_cap',
+		maxFallback: 100,
+		tickEvery: 25,
+		markAt: 100,
+		label: function (stacks) { return stacks + '%'; },
+	},
+	{
+		theme: 'Nobunaga',
+		// стаки, которые тратит D (demon_king_release)
+		modifier: 'modifier_demon_king_materialization',
+		ability: 'demon_king_materialization',
+		maxKey: 'maximum_stack_count',
+		maxFallback: 10,
+		tickEvery: 1,
+		label: function (stacks, max) { return stacks + ' / ' + max; },
+	},
+];
+
+// Геометрия полоски Распутина (rasputin_hud.js): 131x15, низ на 3px выше
+// хелсбара. Каждая следующая полоска и ряд значков над ней - выше на OWN_BAR_STEP.
+var OWN_BAR_WIDTH = 131;
+var OWN_BAR_HEIGHT = 15;
+var OWN_BAR_X = -60.5;  // левый край от Anchor().x
+var OWN_BAR_Y = -18;    // верх от Anchor().y
+var OWN_BAR_STEP = 21;
 
 // Взрывы по kind из события: тема значка, на месте которого он играет, и
 // сколько живёт панель (до конца вспышки иероглифа в effect_bars.css).
@@ -109,6 +164,8 @@ var tracked = {};      // entindex -> запись из nettable
 var units = {};        // entindex -> построенные панели
 var visible = [];      // кого двигать каждый кадр
 var bursts = [];       // идущие взрывы
+var ownBars = {};      // modifier -> полоска над своим героем
+var ownShown = 0;      // сколько полосок сейчас над своим героем
 var lastRefresh = -1;
 var root = $('#EffectBarsRoot');
 
@@ -367,8 +424,132 @@ function UpdateChip(effect, state, entity, buff, data) {
 }
 
 
+function OwnValue(entity, abilityName, key, fallback) {
+	if (!abilityName || !key) {
+		return fallback;
+	}
+	var ability = Entities.GetAbilityByName(entity, abilityName);
+	if (ability === undefined || ability === -1) {
+		return fallback;
+	}
+	var value = Abilities.GetSpecialValueFor(ability, key);
+	return value > 0 ? value : fallback;
+}
+
+
+function BuildOwnBar(bar) {
+	var panel = $.CreatePanel('Panel', root, '');
+	panel.AddClass('EffectOwnBar');
+	panel.AddClass(bar.theme);
+
+	var fill = $.CreatePanel('Panel', panel, '');
+	fill.AddClass('EffectOwnFill');
+
+	var ticks = $.CreatePanel('Panel', panel, '');
+	ticks.AddClass('EffectOwnTicks');
+
+	var label = $.CreatePanel('Label', panel, '');
+	label.AddClass('EffectOwnLabel');
+
+	return { panel: panel, fill: fill, ticks: ticks, label: label, max: -1, lastStacks: -1 };
+}
+
+
+// Деления: каждые tickEvery стаков, яркое - на markAt (порог внутри потолка).
+function BuildTicks(state, bar, max) {
+	state.ticks.RemoveAndDeleteChildren();
+	for (var t = bar.tickEvery; t < max; t += bar.tickEvery) {
+		var tick = $.CreatePanel('Panel', state.ticks, '');
+		tick.AddClass('EffectOwnTick');
+		tick.SetHasClass('Mark', t === bar.markAt);
+		tick.style.position = (t * 100 / max) + '% 0px 0px';
+	}
+	if (bar.markAt && bar.markAt < max && bar.markAt % bar.tickEvery !== 0) {
+		var mark = $.CreatePanel('Panel', state.ticks, '');
+		mark.AddClass('EffectOwnTick');
+		mark.AddClass('Mark');
+		mark.style.position = (bar.markAt * 100 / max) + '% 0px 0px';
+	}
+}
+
+
+function RefreshOwnBars(hero) {
+	var buffs = hero !== -1 && Entities.IsValidEntity(hero) && Entities.IsAlive(hero)
+		? BuffsByName(hero) : {};
+	var data = tracked[hero] || {};
+
+	ownShown = 0;
+
+	for (var i = 0; i < OWN_BARS.length; i++) {
+		var bar = OWN_BARS[i];
+		var buff = buffs[bar.modifier];
+		var state = ownBars[bar.modifier];
+
+		if (buff === undefined) {
+			if (state) {
+				state.panel.DeleteAsync(0);
+				delete ownBars[bar.modifier];
+			}
+			continue;
+		}
+
+		if (!state) {
+			state = ownBars[bar.modifier] = BuildOwnBar(bar);
+		}
+
+		var max = bar.capExtra && data[bar.capExtra] > 0
+			? data[bar.capExtra]
+			: OwnValue(hero, bar.ability, bar.maxKey, bar.maxFallback);
+		var stacks = Buffs.GetStackCount(hero, buff);
+
+		if (max !== state.max) {
+			state.max = max;
+			state.lastStacks = -1;
+			BuildTicks(state, bar, max);
+		}
+
+		if (stacks !== state.lastStacks) {
+			state.lastStacks = stacks;
+			state.fill.style.width = (Math.min(stacks, max) * 100 / max) + '%';
+			state.label.text = bar.label(stacks, max);
+			state.panel.SetHasClass('Max', stacks >= max);
+			state.panel.SetHasClass('Empty', stacks <= 0);
+		}
+
+		state.slot = ownShown;
+		ownShown++;
+	}
+}
+
+
+function PlaceOwnBars(hero, scale) {
+	var at = null;
+	if (ownShown > 0 && Entities.IsValidEntity(hero)) {
+		at = Anchor(hero, scale);
+	}
+
+	for (var modifier in ownBars) {
+		var state = ownBars[modifier];
+		state.panel.SetHasClass('Hidden', !at);
+		if (!at) {
+			continue;
+		}
+		var x = Math.round(at.x + OWN_BAR_X);
+		var y = Math.round(at.y + OWN_BAR_Y - state.slot * OWN_BAR_STEP);
+		if (x !== state.x || y !== state.y) {
+			state.x = x;
+			state.y = y;
+			state.panel.style.position = x + 'px ' + y + 'px 0px';
+		}
+	}
+}
+
+
 function Refresh() {
 	var localPlayer = Players.GetLocalPlayer();
+
+	RefreshOwnBars(Players.GetPlayerHeroEntityIndex(localPlayer));
+
 	var localTeam = Players.GetTeam(localPlayer);
 	var spectator = Players.IsSpectator(localPlayer);
 	var now = Game.GetGameTime();
@@ -431,8 +612,11 @@ function Refresh() {
 
 		LayoutRows(built);
 
-		built.lift = (entity === Players.GetPlayerHeroEntityIndex(localPlayer)
-			&& buffs[RASPUTIN_MODIFIER] !== undefined) ? RASPUTIN_LIFT : 0;
+		built.lift = 0;
+		if (entity === Players.GetPlayerHeroEntityIndex(localPlayer)) {
+			built.lift = (buffs[RASPUTIN_MODIFIER] !== undefined ? RASPUTIN_LIFT : 0)
+				+ ownShown * OWN_BAR_STEP;
+		}
 
 		seen[entity] = true;
 		visible.push(entity);
@@ -560,6 +744,8 @@ function Update() {
 	for (var b = 0; b < bursts.length; b++) {
 		PlaceBurst(bursts[b], scale);
 	}
+
+	PlaceOwnBars(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), scale);
 }
 
 

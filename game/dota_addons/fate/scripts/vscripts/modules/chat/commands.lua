@@ -240,8 +240,10 @@ return {
 	-- Проверка ряда эффектов над хелсбаром (libraries/effect_bars.lua): вешает
 	-- стаки Ли, Сайто, Мурамасы, яд Робина, проклятия Скатах и Аталанты Альтер,
 	-- стрелы Аталанты на всех юнитов в 1200 вокруг героя.
-	--   -effbars [li] [saito] [mura] [robin] [scathach] [alter] [atalanta]
-	--       стаки (по умолчанию 25 4 3 12 6 37 23, 0 = не вешать)
+	--   -effbars [li] [saito] [mura] [robin] [scathach] [alter] [atalanta] [vlad] [medusa] [hassan]
+	--       стаки (по умолчанию 25 4 3 12 6 37 23 14 5 3, 0 = не вешать);
+	--       проклятие Альтер, кровь Влада и Медузы - только от этих героев:
+	--       их модификаторы берут данные из своих способностей
 	--   -effbars me [...]             то же, но и на себя
 	--   -effbars boom                 взрыв Ли, как от удара NSS (и без стаков)
 	--   -effbars off                  снять всё
@@ -263,6 +265,9 @@ return {
 			LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("modifier_atalanta_curse", "abilities/alter_atalanta/atalanta_curse", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("modifier_celestial_arrow_stacking_debuff", "abilities/atalanta/celestial_arrow", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_bleed", "abilities/vlad/modifier_bleed", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_medusa_bleed", "abilities/medusa/medusa_nail_hook", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_dirk_poison_slow", "abilities/true_assassin/modifiers/modifier_dirk_poison_slow", LUA_MODIFIER_MOTION_NONE)
 
 			local LI = "modifier_nss_shock_stackable"
 			local SAITO = "saito_formlessness_new_stacks"
@@ -271,6 +276,9 @@ return {
 			local SCATHACH = "modifier_stachach_gae_bolg_curse"
 			local ALTER = "modifier_atalanta_curse"
 			local ATALANTA = "modifier_celestial_arrow_stacking_debuff"
+			local VLAD = "modifier_bleed"
+			local MEDUSA = "modifier_medusa_bleed"
+			local HASSAN = "modifier_dirk_poison_slow"
 
 			local withSelf = args[1] == "me"
 			if withSelf then table.remove(args, 1) end
@@ -297,6 +305,9 @@ return {
 					unit:RemoveModifierByName(SCATHACH)
 					unit:RemoveModifierByName(ALTER)
 					unit:RemoveModifierByName(ATALANTA)
+					unit:RemoveModifierByName(VLAD)
+					unit:RemoveModifierByName(MEDUSA)
+					unit:RemoveModifierByName(HASSAN)
 				end
 				return
 			end
@@ -317,6 +328,11 @@ return {
 			local scathach = tonumber(args[5]) or 6
 			local alter = tonumber(args[6]) or 37
 			local atalanta = tonumber(args[7]) or 23
+			local vlad = tonumber(args[8]) or 14
+			local medusa = tonumber(args[9]) or 5
+			local hassan = tonumber(args[10]) or 3
+			local rending = hero:FindAbilityByName("vlad_passive_rending")
+			local chains = hero.MasterUnit2 and hero.MasterUnit2:FindAbilityByName("medusa_chain_attribute")
 
 			for _, unit in pairs(targets) do
 				if li > 0 then
@@ -350,11 +366,25 @@ return {
 					local mod = unit:AddNewModifier(hero, nil, ATALANTA, { duration = 7 })
 					if mod then mod:SetStackCount(atalanta) end
 				end
+				if vlad > 0 and rending then
+					local mod = unit:AddNewModifier(hero, rending, VLAD, { duration = 10 })
+					if mod then mod:SetStackCount(vlad) end
+				end
+				if medusa > 0 and chains then
+					local mod = unit:AddNewModifier(hero, chains, MEDUSA, { duration = 7 })
+					if mod then mod:SetStackCount(medusa) end
+				end
+				if hassan > 0 then
+					local mod = unit:AddNewModifier(hero, nil, HASSAN, { duration = 10 })
+					if mod then mod:SetStackCount(hassan) end
+				end
 			end
 
-			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d, Робин %d, Скатах %d, Альтер %d%s, Аталанта %d",
-				#targets, li, saito, mura, robin, scathach, alter,
-				hero:FindAbilityByName("atalanta_curse") and "" or " (нужна Альтер)", atalanta), 0, 0)
+			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d, Робин %d, Скатах %d, Альтер %d%s, Аталанта %d, Влад %d%s, Медуза %d%s, Хассан %d",
+				#targets, li, saito, mura, robin, scathach,
+				alter, hero:FindAbilityByName("atalanta_curse") and "" or " (нужна Альтер)", atalanta,
+				vlad, rending and "" or " (нужен Влад)", medusa, chains and "" or " (нужна Медуза с атрибутом цепей)",
+				hassan), 0, 0)
 		end
 	},
 	-- Диагностика слотов способностей: сколько их у Слуги, что реально лежит в каждом слоте

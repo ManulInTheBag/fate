@@ -87,6 +87,9 @@
 .Scathach .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/scathach_png.vtex"); }
 .AtalantaAlter .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/atalanta_alter_png.vtex"); }
 .Atalanta .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/atalanta_png.vtex"); }
+.Vlad .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/vlad_png.vtex"); }
+.Medusa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/medusa_png.vtex"); }
+.Hassan .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/hassan_png.vtex"); }
 
 
 /* Кольцо времени: тёмная подложка во весь круг и цветная дуга поверх неё.
@@ -121,6 +124,9 @@
 .Scathach .EffectRing { border-color: #ff2a46ff; }
 .AtalantaAlter .EffectRing { border-color: #a64dffff; }
 .Atalanta .EffectRing { border-color: #2ee6beff; }
+.Vlad .EffectRing { border-color: #d0101cff; }
+.Medusa .EffectRing { border-color: #ff5ab4ff; }
+.Hassan .EffectRing { border-color: #c4e632ff; }
 
 /* последние секунды - дуга мигает */
 .EffectChip.Expiring .EffectRing
@@ -162,6 +168,9 @@
 .Scathach .EffectCount { color: #ff8a9aff; }
 .AtalantaAlter .EffectCount { color: #d7a6ffff; }
 .Atalanta .EffectCount { color: #a6fff0ff; }
+.Vlad .EffectCount { color: #ff6b6bff; }
+.Medusa .EffectCount { color: #ffb0dcff; }
+.Hassan .EffectCount { color: #e4ff8aff; }
 
 /* три цифры (стаки без потолка) */
 .EffectCount.Wide { font-size: 14px; }
@@ -300,4 +309,95 @@
 	60% { transform: scale3d( 2.0, 2.0, 1.0 ); opacity: 1; }
 	99% { transform: scale3d( 2.0, 2.0, 1.0 ); opacity: 1; }
 	100% { transform: scale3d( 2.0, 2.0, 1.0 ); opacity: 0; }
+}
+
+
+/* --- Полоски над своим героем (OWN_BARS в effect_bars.js) ---
+   Геометрия и вид - как у полоски стаков Распутина (rasputin_hud.css). */
+.EffectOwnBar
+{
+	position: 0px 0px 0px;
+	width: 131px;
+	height: 15px;
+	border: 1px solid #cfd6dbdd;
+	background-color: #10131699;
+	overflow: noclip;
+}
+
+.EffectOwnBar.Hidden
+{
+	visibility: collapse;
+}
+
+.EffectOwnFill
+{
+	position: 0px 0px 0px;
+	width: 0%;
+	height: 100%;
+	transition: width 0.1s linear 0s;
+}
+
+.EffectOwnTicks
+{
+	position: 0px 0px 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.EffectOwnTick
+{
+	position: 0px 0px 0px;
+	width: 1px;
+	height: 100%;
+	background-color: #00000099;
+}
+
+/* порог внутри потолка (100% у Хиджикаты с атрибутом BC) */
+.EffectOwnTick.Mark
+{
+	width: 2px;
+	background-color: #ffffffee;
+}
+
+.EffectOwnLabel
+{
+	horizontal-align: center;
+	vertical-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ffffffff;
+	text-shadow: 0px 0px 2px 2.0 #000000ff;
+}
+
+.EffectOwnBar.Empty .EffectOwnLabel
+{
+	opacity: 0.6;
+}
+
+/* Хиджиката: голубой хаори Синсэнгуми */
+.Hijikata .EffectOwnFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #9fdcffff ), to( #2f86e0ff ) ); }
+
+/* Нобунага: пламя Короля демонов */
+.Nobunaga .EffectOwnFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffb347ff ), to( #d6300aff ) ); }
+
+/* потолок: рамка светится, заливка пульсирует - как MaxReady у Распутина */
+.EffectOwnBar.Max
+{
+	border: 1px solid #ffd8b0ff;
+	box-shadow: #ff9a3399 0px 0px 7px 0px;
+}
+
+.Hijikata.Max
+{
+	border: 1px solid #d6f0ffff;
+	box-shadow: #4fa8ff99 0px 0px 7px 0px;
+}
+
+.EffectOwnBar.Max .EffectOwnFill
+{
+	animation-name: EffectMaxPulse;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
