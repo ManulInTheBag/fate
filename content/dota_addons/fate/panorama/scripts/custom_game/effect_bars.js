@@ -40,8 +40,11 @@ var EFFECTS = [
 
 // Взрывы по kind из события: тема значка, на месте которого он играет, и
 // сколько живёт панель (до конца вспышки иероглифа в effect_bars.css).
+// glyphDrop - на сколько мировых единиц иероглиф ниже центра инь-яна: в
+// партиклях li_shuwen_stacks_jopa спавнится на CP3 + z 400, а вспышка
+// li_shuwen_stacksflash на CP3 + z 300 - символ падает под точку «импакта».
 var BURSTS = {
-	shuwen: { modifier: 'modifier_nss_shock_stackable', theme: 'Shuwen', life: 2.3 },
+	shuwen: { modifier: 'modifier_nss_shock_stackable', theme: 'Shuwen', life: 2.3, glyphDrop: 100 },
 };
 
 
@@ -56,6 +59,8 @@ var ROW_GAP = 3;
 var UNIT_WIDTH = 300;   // .EffectUnit в css
 var UNIT_HEIGHT = 44;
 var CHIP_SIZE = 40;     // .EffectChip и .EffectBurst в css
+var GLYPH_X = -25;      // .BurstGlyph position в css: центр иероглифа = центр значка
+var GLYPH_Y = -2;
 
 // Над своим Распутиным висит его полоска стаков (rasputin_hud) - ряд выше неё.
 var RASPUTIN_MODIFIER = 'modifier_rasputin_dash_charges';
@@ -107,6 +112,8 @@ function Anchor(entity, scale) {
 	return {
 		x: screenX / scale + BAR_CENTER_X,
 		y: screenY / scale + BAR_TOP_Y - ROW_GAP,
+		world: [origin[0], origin[1], z],
+		screenY: screenY,
 	};
 }
 
@@ -409,7 +416,7 @@ function OnBurst(event) {
 	var glyph = $.CreatePanel('Panel', panel, '');
 	glyph.AddClass('BurstGlyph');
 
-	var burst = { entity: entity, panel: panel, dx: dx, lift: built ? built.lift : 0 };
+	var burst = { entity: entity, panel: panel, glyph: glyph, kind: kind, dx: dx, lift: built ? built.lift : 0 };
 	bursts.push(burst);
 	PlaceBurst(burst, ScreenScale());
 	panel.DeleteAsync(kind.life);
@@ -434,6 +441,14 @@ function PlaceBurst(burst, scale) {
 		var x = Math.round(at.x + burst.dx - CHIP_SIZE / 2);
 		var y = Math.round(at.y - CHIP_SIZE - burst.lift);
 		burst.panel.style.position = x + 'px ' + y + 'px 0px';
+
+		// мировой сдвиг вниз в пиксели при текущей камере
+		var w = at.world;
+		var drop = Math.round((Game.WorldToScreenY(w[0], w[1], w[2] - burst.kind.glyphDrop) - at.screenY) / scale);
+		if (drop !== burst.drop) {
+			burst.drop = drop;
+			burst.glyph.style.position = GLYPH_X + 'px ' + (GLYPH_Y + drop) + 'px 0px';
+		}
 	}
 }
 

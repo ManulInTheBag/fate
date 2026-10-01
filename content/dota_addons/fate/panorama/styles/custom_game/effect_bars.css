@@ -51,7 +51,7 @@
 	background-repeat: no-repeat;
 }
 
-.Shuwen .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/shuwen.vtex"); }
+.Shuwen .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/shuwen_png.vtex"); }
 
 /* Инь-ян Ли всё время медленно крутится, как у старого счётчика
    (li_shuwen_stacksb). Скорость = один оборот за animation-duration. */
@@ -71,8 +71,8 @@
 	75% { transform: rotateZ( 270deg ); }
 	100% { transform: rotateZ( 360deg ); }
 }
-.Saito .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/saito.vtex"); }
-.Muramasa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/muramasa.vtex"); }
+.Saito .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/saito_png.vtex"); }
+.Muramasa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/muramasa_png.vtex"); }
 
 
 /* Кольцо времени: тёмная подложка во весь круг и цветная дуга поверх неё.
@@ -229,7 +229,7 @@
 	height: 100%;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-image: url("s2r://panorama/images/custom_game/effect_bars/shuwen.vtex");
+	background-image: url("s2r://panorama/images/custom_game/effect_bars/shuwen_png.vtex");
 	animation-name: BurstSpin;
 	animation-duration: 1.8s;
 	animation-timing-function: linear;
@@ -260,7 +260,7 @@
 	transform-origin: 53.2% 26.4%;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-image: url("s2r://panorama/images/custom_game/effect_bars/li_death.vtex");
+	background-image: url("s2r://panorama/images/custom_game/effect_bars/li_death_png.vtex");
 	opacity: 0;
 	animation-name: BurstGlyph;
 	animation-delay: 1.8s;
