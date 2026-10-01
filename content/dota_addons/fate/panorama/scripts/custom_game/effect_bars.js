@@ -40,11 +40,10 @@ var EFFECTS = [
 
 // Взрывы по kind из события: тема значка, на месте которого он играет, и
 // сколько живёт панель (до конца вспышки иероглифа в effect_bars.css).
-// glyphDrop - на сколько мировых единиц иероглиф ниже центра инь-яна: в
-// партиклях li_shuwen_stacks_jopa спавнится на CP3 + z 400, а вспышка
-// li_shuwen_stacksflash на CP3 + z 300 - символ падает под точку «импакта».
+// Пока взрыв идёт, значок держит своё место в ряду пустым - соседи не
+// съезжают, взрыв и иероглиф играют ровно на нём.
 var BURSTS = {
-	shuwen: { modifier: 'modifier_nss_shock_stackable', theme: 'Shuwen', life: 2.3, glyphDrop: 100 },
+	shuwen: { modifier: 'modifier_nss_shock_stackable', theme: 'Shuwen', life: 2.3 },
 };
 
 
@@ -59,8 +58,6 @@ var ROW_GAP = 3;
 var UNIT_WIDTH = 300;   // .EffectUnit в css
 var UNIT_HEIGHT = 44;
 var CHIP_SIZE = 40;     // .EffectChip и .EffectBurst в css
-var GLYPH_X = -25;      // .BurstGlyph position в css: центр иероглифа = центр значка
-var GLYPH_Y = -2;
 
 // Над своим Распутиным висит его полоска стаков (rasputin_hud) - ряд выше неё.
 var RASPUTIN_MODIFIER = 'modifier_rasputin_dash_charges';
@@ -68,15 +65,14 @@ var RASPUTIN_LIFT = 21;
 
 var EXPIRING_TIME = 1.5;
 
-// Сколько помнить место снятого значка: событие взрыва и снятие баффа
-// приходят в один тик, но Refresh может успеть удалить значок раньше.
-var GONE_MEMORY = 0.5;
+// Сколько держать место снятого значка в ожидании взрыва: событие и снятие
+// баффа приходят в один тик, но Refresh может увидеть снятие раньше.
+var BURST_WAIT = 0.5;
 
 
 var tracked = {};      // entindex -> запись из nettable
 var units = {};        // entindex -> построенные панели
 var visible = [];      // кого двигать каждый кадр
-var gone = {};         // entindex -> { modifier -> { dx, time } } недавно снятые значки
 var bursts = [];       // идущие взрывы
 var lastRefresh = -1;
 var root = $('#EffectBarsRoot');
@@ -112,8 +108,6 @@ function Anchor(entity, scale) {
 	return {
 		x: screenX / scale + BAR_CENTER_X,
 		y: screenY / scale + BAR_TOP_Y - ROW_GAP,
-		world: [origin[0], origin[1], z],
-		screenY: screenY,
 	};
 }
 
@@ -198,9 +192,6 @@ function DestroyUnit(entity) {
 	if (!built) {
 		return;
 	}
-	for (var modifier in built.chips) {
-		RememberChip(entity, built, modifier);
-	}
 	built.panel.DeleteAsync(0);
 	delete units[entity];
 }
@@ -212,18 +203,6 @@ function ChipOffset(built, chip) {
 	var rowWidth = built.row.actuallayoutwidth / scale;
 	var chipX = chip.actualxoffset / scale;
 	return chipX + CHIP_SIZE / 2 - rowWidth / 2;
-}
-
-
-function RememberChip(entity, built, modifier) {
-	var state = built.chips[modifier];
-	if (!state) {
-		return;
-	}
-	if (!gone[entity]) {
-		gone[entity] = {};
-	}
-	gone[entity][modifier] = { dx: ChipOffset(built, state.panel), time: Game.GetGameTime() };
 }
 
 
@@ -249,6 +228,7 @@ function BuildChip(built, effect, entity, buff) {
 	count.text = '';
 
 	var state = {
+		modifier: effect.modifier,
 		panel: chip,
 		count: count,
 		ring: ring,
@@ -312,6 +292,7 @@ function Refresh() {
 	var localPlayer = Players.GetLocalPlayer();
 	var localTeam = Players.GetTeam(localPlayer);
 	var spectator = Players.IsSpectator(localPlayer);
+	var now = Game.GetGameTime();
 	var seen = {};
 
 	visible = [];
@@ -334,11 +315,20 @@ function Refresh() {
 			var state = built && built.chips[effect.modifier];
 
 			if (buff === undefined) {
-				if (state) {
-					RememberChip(entity, built, effect.modifier);
-					state.panel.DeleteAsync(0);
-					delete built.chips[effect.modifier];
+				if (!state) {
+					continue;
 				}
+				// место пустует до взрыва (или его ожидания), потом значок уходит
+				if (!state.leaveAt) {
+					state.leaveAt = now + BURST_WAIT;
+				}
+				if (now < Math.max(state.leaveAt, state.burstUntil || 0)) {
+					state.panel.AddClass('Gone');
+					any = true;
+					continue;
+				}
+				state.panel.DeleteAsync(0);
+				delete built.chips[effect.modifier];
 				continue;
 			}
 
@@ -349,6 +339,9 @@ function Refresh() {
 				state = BuildChip(built, effect, entity, buff);
 			}
 
+			// новые стаки во время взрыва покажутся, когда он доиграет
+			state.leaveAt = 0;
+			state.panel.SetHasClass('Gone', now < (state.burstUntil || 0));
 			UpdateChip(effect, state, entity, buff, data);
 			any = true;
 		}
@@ -369,15 +362,6 @@ function Refresh() {
 			DestroyUnit(index);
 		}
 	}
-
-	var now = Game.GetGameTime();
-	for (var g in gone) {
-		for (var m in gone[g]) {
-			if (now - gone[g][m].time > GONE_MEMORY) {
-				delete gone[g][m];
-			}
-		}
-	}
 }
 
 
@@ -394,13 +378,15 @@ function OnBurst(event) {
 		return;
 	}
 
-	// место значка: живой (если бафф ещё не снят на клиенте) или только что снятый
-	var dx = 0;
+	// взрыв играет на значке и держит его место пустым до конца; значка
+	// нет (взрыв без стаков) - по центру ряда
 	var built = units[entity];
-	if (built && built.chips[kind.modifier]) {
-		dx = ChipOffset(built, built.chips[kind.modifier].panel);
-	} else if (gone[entity] && gone[entity][kind.modifier]) {
-		dx = gone[entity][kind.modifier].dx;
+	var chip = built && built.chips[kind.modifier];
+	var dx = 0;
+	if (chip) {
+		chip.burstUntil = Game.GetGameTime() + kind.life;
+		chip.panel.AddClass('Gone');
+		dx = ChipOffset(built, chip.panel);
 	}
 
 	var panel = $.CreatePanel('Panel', root, '');
@@ -416,7 +402,7 @@ function OnBurst(event) {
 	var glyph = $.CreatePanel('Panel', panel, '');
 	glyph.AddClass('BurstGlyph');
 
-	var burst = { entity: entity, panel: panel, glyph: glyph, kind: kind, dx: dx, lift: built ? built.lift : 0 };
+	var burst = { entity: entity, panel: panel, chip: chip, dx: dx, lift: built ? built.lift : 0 };
 	bursts.push(burst);
 	PlaceBurst(burst, ScreenScale());
 	panel.DeleteAsync(kind.life);
@@ -437,19 +423,20 @@ function PlaceBurst(burst, scale) {
 
 	burst.panel.SetHasClass('Hidden', !at);
 
-	if (at) {
-		var x = Math.round(at.x + burst.dx - CHIP_SIZE / 2);
-		var y = Math.round(at.y - CHIP_SIZE - burst.lift);
-		burst.panel.style.position = x + 'px ' + y + 'px 0px';
-
-		// мировой сдвиг вниз в пиксели при текущей камере
-		var w = at.world;
-		var drop = Math.round((Game.WorldToScreenY(w[0], w[1], w[2] - burst.kind.glyphDrop) - at.screenY) / scale);
-		if (drop !== burst.drop) {
-			burst.drop = drop;
-			burst.glyph.style.position = GLYPH_X + 'px ' + (GLYPH_Y + drop) + 'px 0px';
-		}
+	if (!at) {
+		return;
 	}
+
+	// ряд мог сдвинуться из-за чужого значка - взрыв идёт за своим местом
+	var built = units[burst.entity];
+	if (burst.chip && built && built.chips[burst.chip.modifier] === burst.chip) {
+		burst.dx = ChipOffset(built, burst.chip.panel);
+		burst.lift = built.lift;
+	}
+
+	var x = Math.round(at.x + burst.dx - CHIP_SIZE / 2);
+	var y = Math.round(at.y - CHIP_SIZE - burst.lift);
+	burst.panel.style.position = x + 'px ' + y + 'px 0px';
 }
 
 

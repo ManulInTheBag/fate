@@ -43,6 +43,16 @@
 	overflow: noclip;
 }
 
+/* Значок ушёл или поверх него идёт взрыв: место в ряду держится пустым,
+   чтобы соседи не съезжали, пока взрыв не доиграет. */
+.EffectChip.Gone .EffectMedalWrap,
+.EffectChip.Gone .EffectRingTrack,
+.EffectChip.Gone .EffectRing,
+.EffectChip.Gone .EffectCount
+{
+	visibility: collapse;
+}
+
 .EffectMedal
 {
 	width: 100%;
