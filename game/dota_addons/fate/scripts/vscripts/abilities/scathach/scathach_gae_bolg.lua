@@ -3,6 +3,8 @@ LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduc
 LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 scathach_gae_bolg = class({})
 
+require("libraries/effect_bars")
+
 function scathach_gae_bolg:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())
@@ -151,9 +153,15 @@ function modifier_stachach_gae_bolg_curse:GetModifierTotalDamageOutgoing_Percent
         end
     end
 end
+-- Стаки показывает ряд эффектов над хелсбаром (libraries/effect_bars.lua +
+-- panorama effect_bars.js); потолок 10 - в OnRefresh ниже.
 if IsServer() then
 	function modifier_stachach_gae_bolg_curse:OnCreated(tTable)
 		self:SetStackCount(1)
+		EffectBars:Track(self)
+	end
+	function modifier_stachach_gae_bolg_curse:OnDestroy()
+		EffectBars:Untrack(self)
 	end
 	function modifier_stachach_gae_bolg_curse:OnRefresh(tTable)
 		if self:GetStackCount() == 1 then
