@@ -225,7 +225,10 @@ function BuildChip(built, effect, entity, buff) {
 	chip.AddClass('EffectChip');
 	chip.AddClass(effect.theme);
 
-	var medal = $.CreatePanel('Panel', chip, '');
+	var medalWrap = $.CreatePanel('Panel', chip, '');
+	medalWrap.AddClass('EffectMedalWrap');
+
+	var medal = $.CreatePanel('Panel', medalWrap, '');
 	medal.AddClass('EffectMedal');
 
 	var track = $.CreatePanel('Panel', chip, '');

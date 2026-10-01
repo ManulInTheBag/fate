@@ -241,7 +241,7 @@ return {
 	-- стаки Ли, Сайто и Мурамасы на всех юнитов в 1200 вокруг героя.
 	--   -effbars [li] [saito] [mura]  стаки (по умолчанию 25 4 3, 0 = не вешать)
 	--   -effbars me [li] [saito] [mura]  то же, но и на себя
-	--   -effbars boom                 взрыв стаков Ли, как от удара NSS
+	--   -effbars boom                 взрыв Ли, как от удара NSS (и без стаков)
 	--   -effbars off                  снять всё
 	-- Кастер - свой герой, поэтому потолки без его способностей берутся запасные
 	-- (50 / 10 / 5), а атрибута Ли нет - ступени цвета не включатся.
@@ -286,12 +286,11 @@ return {
 				return
 			end
 
+			-- как удар NSS: взрыв и на целях без стаков
 			if args[1] == "boom" then
 				for _, unit in pairs(targets) do
-					if unit:HasModifier(LI) then
-						unit:RemoveModifierByName(LI)
-						EffectBars:Burst(unit, "shuwen")
-					end
+					unit:RemoveModifierByName(LI)
+					EffectBars:Burst(unit, "shuwen")
 				end
 				return
 			end
