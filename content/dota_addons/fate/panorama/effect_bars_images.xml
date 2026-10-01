@@ -1,0 +1,18 @@
+<root>
+<!-- Картинки ряда эффектов (layout/custom_game/effect_bars.xml): ссылки
+     file://{images}/...png отсюда Asset Compiler (Scan and compile) собирает
+     в game/.../effect_bars/<name>_png.vtex_c - их читает effect_bars.css. -->
+<Panel class="AddonLoadingRoot">
+<Image src="file://{images}/custom_game/effect_bars/atalanta.png" />
+<Image src="file://{images}/custom_game/effect_bars/atalanta_alter.png" />
+<Image src="file://{images}/custom_game/effect_bars/hassan.png" />
+<Image src="file://{images}/custom_game/effect_bars/li_death.png" />
+<Image src="file://{images}/custom_game/effect_bars/medusa.png" />
+<Image src="file://{images}/custom_game/effect_bars/muramasa.png" />
+<Image src="file://{images}/custom_game/effect_bars/robin.png" />
+<Image src="file://{images}/custom_game/effect_bars/saito.png" />
+<Image src="file://{images}/custom_game/effect_bars/scathach.png" />
+<Image src="file://{images}/custom_game/effect_bars/shuwen.png" />
+<Image src="file://{images}/custom_game/effect_bars/vlad.png" />
+</Panel>
+</root>
