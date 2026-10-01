@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/effect_bars.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/effect_bars.vjs_c" />
+	</scripts>
+
+	<!--
+		Ряд эффектов со стаками над хелсбаром юнитов (Li Shuwen, Saito, Muramasa).
+		Панели строит скрипт и кладёт в контейнер ниже; он на весь экран и ввод
+		не принимает. У корня id быть не может - компилятор не даёт, поэтому
+		контейнер вложен (как в rasputin_hud.xml).
+	-->
+	<Panel class="EffectBarsRoot" hittest="false" hittestchildren="false">
+		<Panel id="EffectBarsRoot" class="EffectBarsRoot" hittest="false" hittestchildren="false">
+		</Panel>
+	</Panel>
+</root>

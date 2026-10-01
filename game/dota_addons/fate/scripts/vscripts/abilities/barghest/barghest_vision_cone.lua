@@ -157,6 +157,9 @@ function modifier_barghest_vision_cone:OnIntervalThink()
     local fRadius  = fStep * 0.75
     local fLife    = BARGHEST_CONE.interval + 0.1
     local fMaxZ    = GetGroundHeight(vOrigin, hParent) + BARGHEST_CONE.cliff_step
+    -- Гигант (комбо) смотрит с высоты: конус без препятствий и без отсечки
+    -- обрывов — это его fly vision (сам гигант при конусе круг не ставит).
+    local bGiant   = hParent:HasModifier("modifier_barghest_combo_giant")
 
     -- x — вперёд от неё, y — вбок. Столбец при x=0 не нужен: пятачок `near`
     -- и так её собственный.
@@ -168,8 +171,8 @@ function modifier_barghest_vision_cone:OnIntervalThink()
             local tSides = (y == 0) and { 0 } or { y, -y }
             for _, fSide in ipairs(tSides) do
                 local vPos = vOrigin + vFwd * x + vRight * fSide
-                if GetGroundHeight(vPos, hParent) <= fMaxZ then
-                    AddFOWViewer(nTeam, vPos, fRadius, fLife, true)
+                if bGiant or GetGroundHeight(vPos, hParent) <= fMaxZ then
+                    AddFOWViewer(nTeam, vPos, fRadius, fLife, not bGiant)
                 end
             end
             y = y + fStep

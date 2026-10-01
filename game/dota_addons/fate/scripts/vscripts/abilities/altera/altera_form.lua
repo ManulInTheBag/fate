@@ -39,27 +39,16 @@ end]]
 function altera_form_open:OnSpellStart()
 	--self:OpenSezame()
 	local caster = self:GetCaster()
-	if self:GetCurrentForm() == 1 then
-		caster:RemoveModifierByName("modifier_altera_form_str")
-		caster:RemoveModifierByName("modifier_altera_form_agi")
-		caster:RemoveModifierByName("modifier_altera_form_int")
-		caster:AddNewModifier(caster, self, "modifier_altera_form_agi", {})
-	elseif self:GetCurrentForm() == 2 then
-		caster:RemoveModifierByName("modifier_altera_form_str")
-		caster:RemoveModifierByName("modifier_altera_form_agi")
-		caster:RemoveModifierByName("modifier_altera_form_int")
-		caster:AddNewModifier(caster, self, "modifier_altera_form_int", {})
-	elseif self:GetCurrentForm() == 3 then
-		caster:RemoveModifierByName("modifier_altera_form_str")
-		caster:RemoveModifierByName("modifier_altera_form_agi")
-		caster:RemoveModifierByName("modifier_altera_form_int")
-		caster:AddNewModifier(caster, self, "modifier_altera_form_str", {})
-	elseif self:GetCurrentForm() == 4 then
-		caster:RemoveModifierByName("modifier_altera_form_str")
-		caster:RemoveModifierByName("modifier_altera_form_agi")
-		caster:RemoveModifierByName("modifier_altera_form_int")
-		caster:AddNewModifier(caster, self, "modifier_altera_form_str", {})
-	end
+	-- str -> agi -> int -> str; без стойки -> str
+	local tNext = { "agi", "int", "str", "str" }
+	local sNext = tNext[self:GetCurrentForm()]
+
+	caster:RemoveModifierByName("modifier_altera_form_str")
+	caster:RemoveModifierByName("modifier_altera_form_agi")
+	caster:RemoveModifierByName("modifier_altera_form_int")
+	-- бонус статов (str_bonus/agi_bonus/int_bonus) лежит в KV способности стойки,
+	-- у altera_form_open их нет — вешать от неё значит дать +0
+	caster:AddNewModifier(caster, caster:FindAbilityByName("altera_form_" .. sNext), "modifier_altera_form_" .. sNext, {})
 end
 
 function altera_form_open:GetCurrentForm()

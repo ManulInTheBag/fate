@@ -12,10 +12,11 @@ barghest_d = class({})
      Главное — СЧЁТЧИК полученного урона. Пока баф висит, весь входящий урон
      складывается; как только накопилось `threshold_pct`% от её максимального
      здоровья (не за удар и не порог текущего HP — именно сумма), срабатывает
-     «рывок»: кулдауны Q/W/E/R укорачиваются на `cd_reduce` секунд и с неё
-     снимаются негативные эффекты (HardCleanse из util). Срабатывать может
+     «рывок»: кулдауны Q/W/E/R укорачиваются на `cd_reduce` секунд, с неё
+     снимаются негативные эффекты (HardCleanse из util) и заливается
+     `mana_restore` маны. Срабатывать может
      сколько угодно раз за длительность, но каждый следующий порог на
-     `threshold_step`% ниже, не ниже `threshold_min`%: 80 → 60 → 40 → 30 → 30…
+     `threshold_step`% ниже, не ниже `threshold_min`%: 50 → 40 → 30 → 20 → 20…
      Остаток счётчика сверх порога переносится на следующий порог.
 
      ⚠️ Из колбэка урона ничего не снимаем и не трогаем: движок в этот момент
@@ -125,10 +126,25 @@ function modifier_barghest_d:OnTakeDamage(keys)
     if keys.unit ~= hParent then return end
     if keys.damage <= 0 then return end
     if keys.attacker == hParent then return end     -- урон по себе не считаем
+    self:AddDamage(keys.damage)
+end
+
+--[[ Засчитать fAmount урона в счётчик. Зовут двое: OnTakeDamage (урон, дошедший
+     до HP) и барьер W (barghest_w_stance) — то, что съел барьер: до HP оно не
+     доходит, и OnTakeDamage его не видит (на полностью заблоченном ударе
+     событие не приходит вовсе). Друг друга они не дублируют.
+     ⚠️ Барьер зовёт отсюда ИЗ пайплайна урона: здесь можно только считать и
+     ставить стаки, всё остальное — через Timers (так и сделано ниже). ]]
+function modifier_barghest_d:AddDamage(fAmount)
+    if not IsServer() then return end
+    local hParent = self:GetParent()
+    if not fAmount or fAmount <= 0 then return end
     if not hParent:IsAlive() then return end
+    -- Гард: при вызове из барьера W ошибка Lua оставила бы удар без блока.
+    if not Barghest_Alive(self:GetAbility()) then return end
     if self.fDamage == nil then self:Reset() end
 
-    self.fDamage = self.fDamage + keys.damage
+    self.fDamage = self.fDamage + fAmount
 
     local fNeed = hParent:GetMaxHealth() * self.nThreshold * 0.01
     if self.fDamage < fNeed then
@@ -154,6 +170,7 @@ function modifier_barghest_d:OnTakeDamage(keys)
             ReduceCooldown(hParent:FindAbilityByName(sName), fCd)
         end
         HardCleanse(hParent)
+        hParent:GiveMana(hAbility:GetSpecialValueFor("mana_restore"))
         hParent:EmitSound(BARGHEST_SND.HIT)
         Barghest_FxOn(BARGHEST_FX.BURST, hParent, 1.5)
     end)

@@ -1,0 +1,238 @@
+.EffectBarsRoot
+{
+	width: 100%;
+	height: 100%;
+	overflow: noclip;
+}
+
+
+/* Панель юнита: фиксированной ширины, ряд внутри центрируется - так скрипту
+   не нужно знать, сколько в ряду значков. */
+.EffectUnit
+{
+	position: 0px 0px 0px;
+	width: 300px;
+	height: 30px;
+	overflow: noclip;
+}
+
+.EffectUnit.Hidden
+{
+	visibility: collapse;
+}
+
+.EffectRow
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+	flow-children: right;
+	overflow: noclip;
+}
+
+
+/* Значок эффекта: медальон с числом + полоска до потолка + линия времени. */
+.EffectChip
+{
+	margin-left: 2px;
+	margin-right: 2px;
+	flow-children: right;
+	overflow: noclip;
+}
+
+.EffectChip.Hidden
+{
+	visibility: collapse;
+}
+
+.EffectMedal
+{
+	width: 28px;
+	height: 28px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	overflow: noclip;
+}
+
+.Shuwen .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/shuwen.vtex"); }
+.Saito .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/saito.vtex"); }
+.Muramasa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/muramasa.vtex"); }
+
+.EffectCount
+{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffffff;
+	text-shadow: 0px 0px 2px 2.5 #000000ff;
+}
+
+/* цвета цифр - как у партиклей-счётчиков, которые этот ряд заменил */
+.Shuwen .EffectCount { color: #ffff00ff; }
+.Saito .EffectCount { color: #9ed6ffff; }
+.Muramasa .EffectCount { color: #fab300ff; }
+
+/* «выпрыгивание» цифры на новом стаке: партикль тоже рождал цифру крупной */
+.EffectCount.Pop
+{
+	animation-name: EffectCountPop;
+	animation-duration: 0.25s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'EffectCountPop'
+{
+	0%
+	{
+		transform: scale3d( 1.6, 1.6, 1.0 );
+	}
+
+	100%
+	{
+		transform: scale3d( 1.0, 1.0, 1.0 );
+	}
+}
+
+
+.EffectSide
+{
+	width: 44px;
+	margin-left: 2px;
+	vertical-align: center;
+	flow-children: down;
+}
+
+.EffectBar
+{
+	width: 100%;
+	height: 7px;
+	border: 1px solid #000000cc;
+	background-color: #101316aa;
+	overflow: noclip;
+}
+
+.EffectBar.Cells
+{
+	flow-children: right;
+	padding: 1px;
+	background-color: #101316cc;
+}
+
+.EffectFill
+{
+	position: 0px 0px 0px;
+	width: 0%;
+	height: 100%;
+	transition: width 0.1s linear 0s;
+}
+
+.EffectCell
+{
+	width: fill-parent-flow( 1.0 );
+	height: 100%;
+	margin-right: 1px;
+	background-color: #ffffff14;
+}
+
+.EffectCell.Last
+{
+	margin-right: 0px;
+}
+
+.EffectTick
+{
+	position: 0px 0px 0px;
+	width: 1px;
+	height: 100%;
+	background-color: #00000099;
+}
+
+/* пороги атрибута Ли - ярче обычных делений */
+.EffectTick.TierTick
+{
+	width: 2px;
+	background-color: #fff2c8ee;
+}
+
+.EffectTimer
+{
+	width: 100%;
+	height: 2px;
+	margin-top: 2px;
+	background-color: #00000088;
+}
+
+.EffectTimerFill
+{
+	width: 100%;
+	height: 100%;
+	transition: width 0.1s linear 0s;
+}
+
+.EffectChip.Permanent .EffectTimer
+{
+	visibility: collapse;
+}
+
+.EffectChip.Expiring .EffectTimerFill
+{
+	animation-name: EffectExpiring;
+	animation-duration: 0.3s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'EffectExpiring'
+{
+	0% { opacity: 1.0; }
+	100% { opacity: 0.25; }
+}
+
+
+/* --- Li Shuwen: жёлтый -> оранжевый -> красный по ступеням атрибута --- */
+.Shuwen .EffectFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffe14aff ), to( #f49a00ff ) ); }
+.Shuwen.Tier1 .EffectFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffa333ff ), to( #f46900ff ) ); }
+.Shuwen.Tier2 .EffectFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #ff6a3aff ), to( #d93a00ff ) ); }
+.Shuwen.Max .EffectFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #ff4a3aff ), to( #b40f0fff ) ); }
+.Shuwen .EffectTimerFill { background-color: #f49a00ff; }
+
+/* --- Saito: синий --- */
+.Saito .EffectCell.On { background-color: gradient( linear, 0% 0%, 0% 100%, from( #8fd0ffff ), to( #2f6bffff ) ); }
+.Saito .EffectTimerFill { background-color: #6fa8ffff; }
+
+/* --- Muramasa: оранжевый --- */
+.Muramasa .EffectCell.On { background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffc24aff ), to( #ff5a00ff ) ); }
+.Muramasa .EffectTimerFill { background-color: #ff9a2aff; }
+
+
+/* потолок: пульс заливки и свечение рамки */
+.EffectChip.Max .EffectBar
+{
+	border: 1px solid #ffe2b0ff;
+	box-shadow: #ff8a2a99 0px 0px 5px 0px;
+}
+
+.Saito.Max .EffectBar
+{
+	border: 1px solid #cfe6ffff;
+	box-shadow: #4f8bff99 0px 0px 5px 0px;
+}
+
+.EffectChip.Max .EffectFill,
+.EffectChip.Max .EffectCell.On
+{
+	animation-name: EffectMaxPulse;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'EffectMaxPulse'
+{
+	0% { brightness: 1.0; }
+	100% { brightness: 1.6; }
+}

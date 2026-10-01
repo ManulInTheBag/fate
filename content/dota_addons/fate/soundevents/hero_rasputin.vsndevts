@@ -51,7 +51,7 @@
                     }
                     "volume"
                     {
-                        "value"        "40.000000"
+                        "value"        "22.500000"
                     }
                     "pitch"
                     {
@@ -83,7 +83,7 @@
                     }
                     "volume"
                     {
-                        "value"        "15.000000"
+                        "value"        "8.500000"
                     }
                     "pitch"
                     {
@@ -115,7 +115,7 @@
                     }
                     "volume"
                     {
-                        "value"        "15.000000"
+                        "value"        "8.500000"
                     }
                     "pitch"
                     {
@@ -147,7 +147,7 @@
                     }
                     "volume"
                     {
-                        "value"        "15.000000"
+                        "value"        "8.500000"
                     }
                     "pitch"
                     {
@@ -179,7 +179,7 @@
                     }
                     "volume"
                     {
-                        "value"        "15.000000"
+                        "value"        "8.500000"
                     }
                     "pitch"
                     {
@@ -211,7 +211,7 @@
                     }
                     "volume"
                     {
-                        "value"        "15.000000"
+                        "value"        "8.500000"
                     }
                     "pitch"
                     {
@@ -1119,7 +1119,7 @@
 					}
 					"volume"
 					{
-						"value"		"18.000000"
+						"value"		"11.000000"
 					}
 					"pitch"
 					{
@@ -1291,4 +1291,142 @@
 			}
 		}
 	}
+}
+// ---- Голос Распутина на редких способностях (FGO, Слуга №369, VA Nakata Jouji) ----
+// F Flurry Hits с 5+ стаков: «Now, rest» / «Judgment is nigh» / «Too late» / «Show me your malice»
+"rasputin_vo_finisher"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/rasputin/vo/s369_stage1_extraattack3.vsnd"
+                            "value1"        "sounds/rasputin/vo/s369_stage1_extraattack6.vsnd"
+                            "value2"        "sounds/rasputin/vo/s369_stage3_attack9.vsnd"
+                            "value3"        "sounds/rasputin/vo/s369_stage3_extraattack2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "9.800000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Комбо Holy Grail, старт: 「遍く願いを此処に」 (Let all wishes gather here)
+"rasputin_vo_combo_start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/rasputin/vo/s369_stage3_selectnp1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Комбо, выкрик NP: 「零れ氾く暗黒心臓」 (Zazhiganiye, Angra Mainiiu) / 「Помилуй нас, Господи」
+"rasputin_vo_combo_shout"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/rasputin/vo/rasputin_np_zazhiganiye.vsnd"
+                            "value1"        "sounds/rasputin/vo/rasputin_np_pomiluj.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Battle Continuation, воскрешение: 「この程度で死ねる体ではない」 / смех
+"rasputin_vo_bk_revive"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/rasputin/vo/rasputin_bk_revive.vsnd"
+                            "value1"        "sounds/rasputin/vo/s369_stage3_damagenp1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "11.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
 }

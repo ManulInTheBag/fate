@@ -226,6 +226,16 @@ function modifier_barghest_w_stance:FeedBarrier(fDamage)
     self:SetStackCount(self:GetStackCount() + fGain)
 end
 
+--[[ Съеденное барьером засчитываем в счётчик D (Hound's Fury): до HP оно не
+     доходит, и сам D его не увидел бы. Пробившую барьер часть D ловит сам. ]]
+function modifier_barghest_w_stance:CountForFury(keys, fBlocked)
+    if keys.attacker == self.hParent then return end    -- как в D: урон по себе не в счёт
+    local hFury = self.hParent:FindModifierByName("modifier_barghest_d")
+    if hFury ~= nil and hFury.AddDamage ~= nil then
+        hFury:AddDamage(fBlocked)
+    end
+end
+
 --[[ Остаток барьера показываем стаками — так игрок видит, сколько ещё держит.
      На клиенте возвращаем стаки, чтобы цифра совпадала с сервером. ]]
 function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
@@ -246,8 +256,10 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
     local nBlock = self:GetStackCount()
     if nBlock > fIncoming then
         self:SetStackCount(nBlock - fIncoming)
+        self:CountForFury(keys, fIncoming)
         return -fIncoming
     end
+    self:CountForFury(keys, nBlock)
 
     -- Барьер пробит. ⚠️ Ни урона, ни Destroy, ни EndChannel прямо отсюда —
     -- только на следующий тик.
@@ -285,7 +297,11 @@ function modifier_barghest_w_stance:GetModifierIncomingDamageConstant(keys)
         end
     end)
 
-    return -nBlock
+    --[[ ⚠️ Блокируем удар ЦЕЛИКОМ, а остаток (nLeftover) наносится отдельно
+         следующим тиком (ApplyDamage выше) — как в modifier_barrier_new и Rho
+         Aias. Было `return -nBlock`: остаток проходил и в самом ударе, и ещё
+         раз через ApplyDamage — двойной урон при каждом пробитии. ]]
+    return -fIncoming
 end
 
 --[[ Иммунитет к дебаффам на время стойки И на ответный удар.

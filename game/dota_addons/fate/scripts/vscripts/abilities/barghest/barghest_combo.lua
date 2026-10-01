@@ -272,10 +272,12 @@ function modifier_barghest_combo_giant:OnCreated()
     --[[ ⚠️ Геттера обзора в API может не оказаться — тогда берём базу из KV
          (`base_vision`, держать равным VisionDaytimeRange в hero.kv).
          Без этого прибавка обзора молча не работала бы. ]]
-    self.fDay    = (type(hParent.GetDayTimeVisionRange) == "function")
-                   and hParent:GetDayTimeVisionRange() or hAbility:Value("base_vision")
-    self.fNight  = (type(hParent.GetNightTimeVisionRange) == "function")
-                   and hParent:GetNightTimeVisionRange() or hAbility:Value("base_vision")
+    --[[ ⚠️ Именно БАЗОВЫЙ обзор, а не GetDayTimeVisionRange: тот отдаёт текущий,
+         и под конусом D (FIXED-обзор 200) гигант раздувал 200 вместо 1000. ]]
+    self.fDay    = (type(hParent.GetBaseDayTimeVisionRange) == "function")
+                   and hParent:GetBaseDayTimeVisionRange() or hAbility:Value("base_vision")
+    self.fNight  = (type(hParent.GetBaseNightTimeVisionRange) == "function")
+                   and hParent:GetBaseNightTimeVisionRange() or hAbility:Value("base_vision")
 
     self.fMult   = hAbility:Value("model_scale")
     self.fGrow   = hAbility:Value("grow_time")
@@ -323,6 +325,8 @@ function modifier_barghest_combo_giant:Apply(fT)
     end
 end
 
+local COMBO_FLY_INTERVAL = 0.5   -- как часто обновляем fly vision гиганта
+
 function modifier_barghest_combo_giant:OnIntervalThink()
     if not IsServer() then return end
     if not Barghest_Alive(self:GetParent()) then return end
@@ -337,6 +341,23 @@ function modifier_barghest_combo_giant:OnIntervalThink()
         fT = math.max(0, fLeft / self.fShrink)
     end
     self:Apply(fT)
+
+    --[[ Fly vision, пока она гигант: смотрит поверх деревьев и обрывов.
+         MODIFIER_STATE_FLYING обзор сквозь препятствия больше не даёт (апдейт
+         Доты 18.07.2026), работает только AddFOWViewer с obstructed = false —
+         тот же катящийся вьювер, что в modifier_fate_flying_vision.
+         ⚠️ Под конусом D круг не ставим — обзор остаётся конусом, но конус
+         сам смотрит сквозь препятствия, пока она гигант (barghest_vision_cone),
+         а его радиус растёт вместе с её обзором. ]]
+    if fNow >= (self.fNextFly or 0) then
+        self.fNextFly = fNow + COMBO_FLY_INTERVAL
+        local hParent = self:GetParent()
+        if not hParent:HasModifier("modifier_barghest_vision_cone") then
+            local fBase = GameRules:IsDaytime() and self.fDay or self.fNight
+            AddFOWViewer(hParent:GetTeamNumber(), hParent:GetAbsOrigin(),
+                fBase + self.fVision * fT, COMBO_FLY_INTERVAL + 0.1, false)
+        end
+    end
 end
 
 function modifier_barghest_combo_giant:OnDestroy()

@@ -4,6 +4,10 @@ require('abilities/rasputin/rasputin_bk')
 RASPUTIN_FINISH_TRAIL_PARTICLE =
 "particles/rasputin/rasputin_fall_trail_finisher.vpcf"
 
+-- Реплика на серии звучит только с этого числа зарядов: на коротких сериях
+-- голос был бы спамом.
+RASPUTIN_FINISHER_VO_STACKS = 5
+
 rasputin_finisher = class({})
 
 
@@ -885,6 +889,13 @@ function rasputin_finisher:OnSpellStart()
     and self:ComboAvailable()
     then
         self:ArmCombo()
+    end
+
+
+    -- Голос серии. Если этим же кастом взведено комбо - молчим, у комбо своя
+    -- реплика (а если комбо взведут вторым нажатием, оно само оборвёт эту).
+    if stacks >= RASPUTIN_FINISHER_VO_STACKS and not self.comboArmed then
+        caster:EmitSound("rasputin_vo_finisher")
     end
 
 

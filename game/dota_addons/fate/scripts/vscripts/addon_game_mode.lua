@@ -875,6 +875,10 @@ function Precache( context )
     PrecacheResource("particle",  "particles/fbt_incident_12.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_13.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_14.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_15.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_16.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_17.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_17_small.vpcf", context)
     
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
@@ -1275,7 +1279,8 @@ end
 -- "#N" chat command and the emote wheel route through TriggerEmote, so the rate
 -- limit and the spam punishment apply no matter how the emote was requested.
 -- ============================================================================
-local EMOTE_MAX          = 14   -- fbt_incident_1..14 (9..14 added 2026-07-21)
+local EMOTE_MAX          = 17   -- fbt_incident_1..17 (9..14 added 2026-07-21, 15-17 added 2026-10-01)
+local EMOTE_SKELETON     = 17   -- dancing skeleton: Medea's skeletons dance along
 local EMOTE_COOLDOWN     = 2    -- seconds between emotes
 local EMOTE_RATE_MAX     = 3    -- at most this many sent emotes...
 local EMOTE_RATE_WINDOW  = 10   -- ...within this window; extras are silently dropped
@@ -1372,10 +1377,26 @@ function FateGameMode:TriggerEmote(plyID, num)
     end
 
     -- Accepted: spawn the particle and release it shortly after so it doesn't leak.
-    local fx = ParticleManager:CreateParticle(
-        string.format("particles/fbt_incident_%d.vpcf", num), PATTACH_ABSORIGIN_FOLLOW, hero)
-    ParticleManager:SetParticleControl(fx, 0, hero:GetAbsOrigin())
-    Timers:CreateTimer(3.0, function() ParticleManager:ReleaseParticleIndex(fx) end)
+    local function SpawnEmote(unit, particle)
+        local fx = ParticleManager:CreateParticle(
+            particle or string.format("particles/fbt_incident_%d.vpcf", num), PATTACH_ABSORIGIN_FOLLOW, unit)
+        ParticleManager:SetParticleControl(fx, 0, unit:GetAbsOrigin())
+        Timers:CreateTimer(3.0, function() ParticleManager:ReleaseParticleIndex(fx) end)
+    end
+    SpawnEmote(hero)
+
+    -- Прикол: танцующий скелет (#17) у Медеи пляшет ещё и над каждым её скелетом.
+    if num == EMOTE_SKELETON then
+        local units = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE,
+            DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+        for _, unit in pairs(units) do
+            local name = unit:GetUnitName()
+            if (name == "caster_5th_skeleton_warrior" or name == "caster_5th_skeleton_archer")
+                and unit:IsAlive() and unit:GetOwner() == hero then
+                SpawnEmote(unit, "particles/fbt_incident_17_small.vpcf")  -- уменьшенная и пониже
+            end
+        end
+    end
 
     state.last = now
     table.insert(state.sent, now)

@@ -421,6 +421,7 @@ function modifier_rasputin_reborn:OnCreated(kv)
 
         if IsNotNull(parent) then
             parent:EmitSound(RASPUTIN_BK_START_SOUND)
+            parent:EmitSound("rasputin_vo_bk_revive")
         end
 
     end

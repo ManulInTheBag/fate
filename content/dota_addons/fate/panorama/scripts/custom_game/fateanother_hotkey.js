@@ -377,13 +377,13 @@ function ApplyEmoteBind()
 // ============================================================================
 // Emote-wheel layout editor.
 //
-// The wheel has 8 slots; each can hold any of the 14 emotes. The loadout lives
+// The wheel has 8 slots; each can hold any of the 17 emotes. The loadout lives
 // in CustomUIConfig().fate_emote_wheel_loadout (shared with the emote-wheel
 // panel, which reads it on open) and travels inside the bind profile so it saves
 // to / loads from the server with everything else.
 // ============================================================================
 var EMOTE_SLOTS = 8;
-var EMOTE_TOTAL = 14;
+var EMOTE_TOTAL = 17;
 
 function EmoteDefaultLoadout() { return [1, 2, 3, 4, 5, 6, 7, 8]; }
 
@@ -403,7 +403,7 @@ function EmoteIconUrl(num)
 	return "url('s2r://panorama/images/custom_game/emotes/emote_" + num + ".vtex')";
 }
 
-// Builds the 8 slot panels and the 14-emote palette once (lazily on first open).
+// Builds the 8 slot panels and the 17-emote palette once (lazily on first open).
 function BuildEmoteConfig()
 {
 	if (CMD.emoteConfigBuilt) { return; }
@@ -488,7 +488,7 @@ function CloseEmoteConfig()
 	if (p) { p.visible = false; }
 }
 
-// Validates a loadout array from a loaded profile: exactly 8 ints in 1..14.
+// Validates a loadout array from a loaded profile: exactly 8 ints in 1..17.
 function SanitizeEmoteLoadout(arr)
 {
 	if (!arr || arr.length !== EMOTE_SLOTS) { return null; }

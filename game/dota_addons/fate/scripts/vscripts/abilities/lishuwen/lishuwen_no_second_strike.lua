@@ -9,23 +9,21 @@ LinkLuaModifier("modifier_shuwen_passive_nss_attack_stacking", "abilities/lishuw
 
 LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_heal_reduction_tier_3", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
+
+require("libraries/effect_bars")
+
 function lishuwen_no_second_strike:AddShock(target, amount)
 	local caster = self:GetCaster()
 	local stacks = 0
 
-	if not target or not target:IsAlive() or target:IsNull() then return end
+	if not target or target:IsNull() or not target:IsAlive() then return end
 
 	if target:HasModifier("modifier_nss_shock_stackable") then
 		stacks = target:FindModifierByName("modifier_nss_shock_stackable"):GetStackCount()
 	end
-	if (stacks + amount) > 50 then 
-		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration"), stacks = 50})
-		--target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(50)
-	else
-		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration"), stacks = stacks + amount})
-		--target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(stacks + amount)
-
-	end
+	-- потолок в KV: его же читает полоска стаков в effect_bars.js
+	local maxStacks = self:GetSpecialValueFor("max_stacks")
+	target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration"), stacks = math.min(stacks + amount, maxStacks)})
 
 end
 
@@ -111,95 +109,108 @@ end
 
 
 function modifier_nss_shock_stackable:GetModifierPhysicalArmorBonus()
-
-	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
-		return -self.armor_reduction
-	elseif IsClient() then
-		local armor_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").armor_reduction
-		return armor_reduction_jopa
-	end
+	return -(self.armor_reduction or 0)
 end
 
 function modifier_nss_shock_stackable:GetModifierMagicalResistanceBonus()
-	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
-		return -self.mr_reduction
-	elseif IsClient() then
-		local mr_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").mr_reduction
-		return mr_reduction_jopa
-	end
+	return -(self.mr_reduction or 0)
 end
+
+function modifier_nss_shock_stackable:GetModifierMoveSpeedBonus_Percentage()
+	return -(self.slow_power or 0)
+end
+
+
+-- Пороги атрибута действуют столько секунд после последнего удара (стаки
+-- живут дольше - stacks_duration). Отсчёт свой у каждой цели: раньше это был
+-- один глобальный таймер на всех, и удар по второй цели отменял сброс у первой.
+local NSS_TIER_LINGER = 3
+
 function modifier_nss_shock_stackable:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
-	self:SetStackCount(tTable.stacks)
-	self.stacks = self:GetStackCount()
+	self:ResetTiers()
+
+	if not IsServer() then return end
+
+	-- клиенту пороги нужны для брони/МР/скорости в интерфейсе
+	self:SetHasCustomTransmitterData(true)
+
+	EffectBars:Track(self)
+
+	self:ApplyStacks(tTable.stacks)
+end
+
+function modifier_nss_shock_stackable:OnRefresh(tTable)
+	if not IsServer() then return end
+	self:ApplyStacks(tTable.stacks)
+end
+
+function modifier_nss_shock_stackable:ResetTiers()
 	self.reduction = 0
 	self.slow_power = 0
 	self.armor_reduction = 0
 	self.mr_reduction = 0
-	self.heal_reduction = 0
-	self.parent = self:GetParent()
-	if  self.counterfx == nil then
-		self.counterfx =   ParticleManager:CreateParticle( "particles/li_shuwen/li_shuwen_stacks.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
-	end
-	if self.stacks < 10 then 
-		ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
-		ParticleManager:SetParticleControl( self.counterfx , 2, Vector(self.stacks,0,0) )
-	else
-		ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
-		ParticleManager:SetParticleControl( self.counterfx , 2, Vector(self.stacks % 10,0,0) )
-		ParticleManager:SetParticleControl( self.counterfx , 7, Vector( math.floor(self.stacks / 10),0,0) )
-	end
-	if IsServer() then
-		Timers:RemoveTimer("liShuwenDebuffsTimer")
-	end
-	if self.hCaster.LiShuwenNewSa then 
-		if self.stacks >= 10 then
+end
+
+function modifier_nss_shock_stackable:ApplyStacks(stacks)
+	self:SetStackCount(stacks or 1)
+	self.stacks = self:GetStackCount()
+	self:ResetTiers()
+
+	local sa = IsNotNull(self.hCaster) and self.hCaster.LiShuwenNewSa and true or false
+
+	-- полоска рисует пороги только при атрибуте, а флаг живёт на сервере
+	EffectBars:SetExtra(self.hParent, "nss_sa", sa and 1 or 0)
+
+	if sa and IsNotNull(self.hAbility) and IsNotNull(self.hParent) then
+		local tier1 = self.hAbility:GetSpecialValueFor("sa_tier1_stacks")
+		local tier2 = self.hAbility:GetSpecialValueFor("sa_tier2_stacks")
+		local tier3 = self.hAbility:GetSpecialValueFor("max_stacks")
+		if self.stacks >= tier1 then
 			self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction_1")
 		end
-		if self.stacks>= 25 then
+		if self.stacks >= tier2 then
 			self.slow_power = self.hAbility:GetSpecialValueFor("slow_power")
-			--self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_1")
-			 self.hParent:AddNewModifier( self.hCaster ,  self.hAbility, "modifier_heal_reduction_tier_2", { Duration = 3 })
+			self.hParent:AddNewModifier( self.hCaster ,  self.hAbility, "modifier_heal_reduction_tier_2", { Duration = NSS_TIER_LINGER })
 		end
-		if self.stacks >= 50 then
+		if self.stacks >= tier3 then
 			self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction_2")
 			self.armor_reduction = self.hAbility:GetSpecialValueFor("armor_reduction")
 			self.mr_reduction = self.hAbility:GetSpecialValueFor("mr_reduction")
-			--self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_2")
-			 self.hParent:AddNewModifier( self.hCaster ,  self.hAbility, "modifier_heal_reduction_tier_3", { Duration = 3 })
-			 self.hCaster:RemoveModifierByNameAndCaster("modifier_heal_reduction_tier_2", self.hCaster)
+			self.hParent:AddNewModifier( self.hCaster ,  self.hAbility, "modifier_heal_reduction_tier_3", { Duration = NSS_TIER_LINGER })
+			-- третья ступень заменяет вторую на цели (раньше снималось с кастера)
+			self.hParent:RemoveModifierByNameAndCaster("modifier_heal_reduction_tier_2", self.hCaster)
 		end
-		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
-
 	end
-	Timers:CreateTimer("liShuwenDebuffsTimer", {
-		endTime = 3,
-		callback = function()
-			self.reduction = 0
-			self.slow_power = 0
-			self.armor_reduction = 0
-			self.mr_reduction = 0
-			self.heal_reduction = 0
-			CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  0, mr_reduction =0, armor_reduction = 0 })
-		return end
-	})
-end
-function modifier_nss_shock_stackable:OnRefresh(tTable)
-    self:OnCreated(tTable)
+
+	-- перезапуск отсчёта: сброс через NSS_TIER_LINGER после последнего удара
+	self:StartIntervalThink(NSS_TIER_LINGER)
+	self:SendBuffRefreshToClients()
 end
 
-function modifier_nss_shock_stackable:GetModifierMoveSpeedBonus_Percentage()
-	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
-		return  -self.slow_power
-	elseif IsClient() then
-		local ms_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").ms_reduction
-		return ms_reduction_jopa
-	end
+function modifier_nss_shock_stackable:OnIntervalThink()
+	if not IsServer() then return end
+	self:StartIntervalThink(-1)
+	self:ResetTiers()
+	self:SendBuffRefreshToClients()
+end
+
+function modifier_nss_shock_stackable:AddCustomTransmitterData()
+	return {
+		reduction = self.reduction,
+		slow = self.slow_power,
+		armor = self.armor_reduction,
+		mr = self.mr_reduction,
+	}
+end
+
+function modifier_nss_shock_stackable:HandleCustomTransmitterData(data)
+	self.reduction = data.reduction
+	self.slow_power = data.slow
+	self.armor_reduction = data.armor
+	self.mr_reduction = data.mr
 end
 
 
@@ -209,10 +220,7 @@ end
 
 function modifier_nss_shock_stackable:OnDestroy()
 	if not IsServer() then return end
-	ParticleManager:DestroyParticle(self.counterfx , true)
-	ParticleManager:ReleaseParticleIndex(self.counterfx )
-
-
+	EffectBars:Untrack(self)
 end
 
 

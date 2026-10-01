@@ -31,7 +31,6 @@
 			"particle"			"particles/custom_game/heroes/kenshiro/kenshiro_ganzan_hit/kenshiro_ganzan_hit_j.vpcf"
 			"particle"			"particles/zlodemon/shuwen_jopa_1.vpcf"
 			"particle"			"particles/zlodemon/shuwen_jopa_2.vpcf"
-			"particle"			"particles/li_shuwen/li_shuwen_stacks.vpcf"
 			"particle"			"particles/li_shuwen/li_shuwen_stacks_jopa.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
@@ -61,6 +60,9 @@
             "attribute_revoke_duration" "2.00"
             "attribute_kb_distance" "250"
             "stacks_duration" "15"
+            "max_stacks" "50"            // потолок стаков и третья ступень атрибута (его же читает effect_bars.js)
+            "sa_tier1_stacks" "10"       // ступень 1: magical_damage_reduction_1
+            "sa_tier2_stacks" "25"       // ступень 2: slow_power + heal_reduction_1
             "damage_per_nss_stack" "12"
             "sa_bonus_damage_per_stack" "8"
             "magical_damage_reduction_1" "20"

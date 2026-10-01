@@ -6,6 +6,7 @@ LinkLuaModifier("modifier_muramasa_no_sword","abilities/muramasa/muramasa_sword_
 LinkLuaModifier("modifier_muramasa_sword_drop_enemy", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_muramasa_sword_drop_enemy_buff", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
+require("libraries/effect_bars")
 --LinkLuaModifier("modifier_muramasa_rush_mr","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 
 function muramasa_sword_creation:GetIntrinsicModifierName()
@@ -98,48 +99,45 @@ end
 
 modifier_muramasa_sword_drop_enemy_buff = class({})
 
--- counterfx создаётся только на сервере, а OnDestroy/OnRefresh зовутся и на клиенте:
--- там индекс nil, и DestroyParticle падал с "expected integer but got void"
-function modifier_muramasa_sword_drop_enemy_buff:DestroyCounterFx()
-    if not self.counterfx then return end
-    ParticleManager:DestroyParticle(self.counterfx, true)
-    ParticleManager:ReleaseParticleIndex(self.counterfx)
-    self.counterfx = nil
-end
-
+-- Заряды показывает ряд эффектов над хелсбаром (libraries/effect_bars.lua +
+-- panorama effect_bars.js), партикля над головой больше нет.
 function modifier_muramasa_sword_drop_enemy_buff:OnDestroy()
-    self:DestroyCounterFx()
+    if not IsServer() then return end
+    EffectBars:Untrack(self)
 end
 function modifier_muramasa_sword_drop_enemy_buff:OnRefresh(args)
-    self:DestroyCounterFx()
     self:OnCreated(args)
 end
 
 function modifier_muramasa_sword_drop_enemy_buff:OnCreated(args)
     self.parent = self:GetParent()
     self.caster = self:GetCaster()
-    self.ability = self:GetCaster():FindAbilityByName("muramasa_sword_creation")
-    if IsServer() then 
-        self.parent:Heal(self.parent:GetMaxHealth()*0.25, self:GetAbility())
-        self.parent:GiveMana(self.parent:GetMaxMana()*0.25)
-        self.counterfx =   ParticleManager:CreateParticle( "particles/muramasa/soul_sword_counter/muramasa_soul_sword_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
-        ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
-        ParticleManager:SetParticleControl( self.counterfx , 2, Vector(5,0,0) )
-    end
-    self:SetStackCount(5)
+    -- IsNotNull на клиенте не определена: проверка через IsNull
+    self.ability = self.caster and not self.caster:IsNull() and self.caster:FindAbilityByName("muramasa_sword_creation")
     self.isReady = true
+    if not IsServer() then return end
+    self.parent:Heal(self.parent:GetMaxHealth()*0.25, self:GetAbility())
+    self.parent:GiveMana(self.parent:GetMaxMana()*0.25)
+    self:SetStackCount(5)
+    EffectBars:Track(self)
 end
-  
-  
+
+-- Без этого OnAttackLanded не вызывался вовсе: заряды не тратились, меч не бил.
+function modifier_muramasa_sword_drop_enemy_buff:DeclareFunctions()
+    return { MODIFIER_EVENT_ON_ATTACK_LANDED }
+end
+
 function modifier_muramasa_sword_drop_enemy_buff:OnAttackLanded(args)
+    if not IsServer() then return end
     local stackCount = self:GetStackCount()
     if self.isReady == false then return end
     if args.attacker ~= self:GetParent() then return end
+    if not IsNotNull(args.target) or args.target:GetTeamNumber() == args.attacker:GetTeamNumber() then return end
     self.isReady = false
 
     ----idk if its needed
     local position = args.target:GetAbsOrigin() + (args.target:GetAbsOrigin() - args.attacker:GetAbsOrigin() ):Normalized() * 100
-	self.Dummy = CreateUnitByName("dummy_unit", args.target:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
+	self.Dummy = CreateUnitByName("dummy_unit", args.target:GetAbsOrigin(), false, nil, nil, args.attacker:GetTeamNumber())
 	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.Dummy:SetAbsOrigin(args.target:GetAbsOrigin())
 
@@ -158,11 +156,14 @@ function modifier_muramasa_sword_drop_enemy_buff:OnAttackLanded(args)
  
     local hTarget = args.target
     Timers:CreateTimer(0.5, function()
-       if stackCount <= 1 then
-        -- партикл снимет сам OnDestroy, вручную его больше не рвём (было двойное уничтожение)
-        self:Destroy()
+       -- бафф мог истечь за эти полсекунды: методы снятого модификатора не звать
+       if not self:IsNull() then
+           if stackCount <= 1 then
+            self:Destroy()
+           else
+            self.isReady = true
+           end
        end
-       self.isReady = true
         if IsNotNull(dummy) then
             if IsNotNull(hTarget) then
                 dummy:SetForwardVector((    hTarget:GetAbsOrigin() - position ):Normalized())
@@ -177,16 +178,13 @@ function modifier_muramasa_sword_drop_enemy_buff:OnAttackLanded(args)
         end
     end)
 	Timers:CreateTimer(0.25, function()
-                if not (IsNotNull(self.parent) and IsNotNull(hTarget) and IsNotNull(self.ability)) then return end
+                if not (IsNotNull(self.parent) and IsNotNull(hTarget) and hTarget:IsAlive() and IsNotNull(self.ability)) then return end
                 DoDamage(self.parent, hTarget, (self.ability:GetSpecialValueFor("soul_sa_sword_damage") +self.ability:GetSpecialValueFor("soul_sa_sword_damage_per_level") * self.parent:GetLevel() ), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)
 
 	end)
 
     --DoDamage(self.parent, args.target, self.parent:GetAttackDamage(), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)   
 	self:SetStackCount(stackCount-1)
-    if self.counterfx then
-        ParticleManager:SetParticleControl( self.counterfx , 2, Vector((stackCount-1),0,0) )
-    end
 end
 
 function modifier_muramasa_sword_drop_enemy_buff:IsHidden()

@@ -27,6 +27,9 @@ local HAUL_CLAIM_GRACE = 0.6
 
 local FALL_TRAIL_LINGER = 0.1
 
+-- Выкрик имени NP идёт после стартовой реплики (она ~2.1 с), чтобы не наложиться.
+local COMBO_VO_SHOUT_DELAY = 2.4
+
 
 modifier_rasputin_combo_cd = class({})
 
@@ -118,6 +121,22 @@ function rasputin_combo:OnSpellStart()
     self.grail = grail
 
     caster:EmitSound("rasputin_finisher_end")
+
+
+    -- Голос комбо слышат все, как у комбо остальных Слуг. Реплику серии F
+    -- обрываем, иначе при старте комбо вторым нажатием F они наложатся.
+    caster:StopSound("rasputin_vo_finisher")
+    EmitGlobalSound("rasputin_vo_combo_start")
+
+    Timers:CreateTimer(COMBO_VO_SHOUT_DELAY, function()
+
+        if not IsNotNull(caster) or not caster:IsAlive() then return end
+
+        if not caster:HasModifier("modifier_rasputin_combo_field") then return end
+
+        EmitGlobalSound("rasputin_vo_combo_shout")
+
+    end)
 
 
     if caster.IsRasputinBkCursesAcquired then
@@ -236,10 +255,13 @@ function modifier_rasputin_combo_field:OnCreated(kv)
 
     self.ambientToken = parent.rasputinComboAmbient
 
+    -- Эффекты поля - без владельца (WORLDORIGIN, nil): эффект с владельцем-героем
+    -- клиент не получает, пока сам герой ему не виден, и ShouldCheckFoW(false)
+    -- тут не спасает - враг из тумана не видел комбо.
     self.fx = ParticleManager:CreateParticle(
         "particles/kirei/kirei_dragon/kirei_dragon_ring_base.vpcf",
-        PATTACH_CUSTOMORIGIN,
-        self:GetParent()
+        PATTACH_WORLDORIGIN,
+        nil
     )
 
 
@@ -261,8 +283,8 @@ function modifier_rasputin_combo_field:OnCreated(kv)
 
     self.groundFx = ParticleManager:CreateParticle(
         "particles/rasputin/rasputin_combo_territory.vpcf",
-        PATTACH_CUSTOMORIGIN,
-        self:GetParent()
+        PATTACH_WORLDORIGIN,
+        nil
     )
 
     ParticleManager:SetParticleShouldCheckFoW(self.groundFx, false)
@@ -314,8 +336,8 @@ function modifier_rasputin_combo_field:PlayWave()
 
     local fx = ParticleManager:CreateParticle(
         "particles/rasputin/rasputin_combo_test.vpcf",
-        PATTACH_CUSTOMORIGIN,
-        parent
+        PATTACH_WORLDORIGIN,
+        nil
     )
 
 
@@ -715,6 +737,9 @@ function modifier_rasputin_combo_haul:OnIntervalThink()
 
     if not IsNotNull(self.parent) or not self.parent:IsAlive() then return end
 
+    -- унесло в другое измерение - урон и проклятье в висе больше не идут
+    if self.done or self:LeftRealm(self.parent) then return end
+
     local elapsed = self:Elapsed()
 
 
@@ -787,7 +812,28 @@ function modifier_rasputin_combo_haul:Sample()
 end
 
 
+-- Цель перенесло в другое измерение (кончился или начался UBW, AotK и т.п.):
+-- подъём её больше не трогает. Позиции считаются от абсолютных координат
+-- Грааля, и без этой проверки конец UBW возвращал цель обратно в арену, а
+-- после последнего прохода EndUBW она там и оставалась.
+function modifier_rasputin_combo_haul:LeftRealm(unit)
+
+    if self.realmLost then return true end
+
+    if IsInSameRealm(unit:GetAbsOrigin(), self.dest) then return false end
+
+    self.realmLost = true
+
+    self:Finish()
+
+    return true
+
+end
+
+
 function modifier_rasputin_combo_haul:UpdateHorizontalMotion(unit, dt)
+
+    if self.done or self:LeftRealm(unit) then return end
 
     local _, drawn, dropping = self:Sample()
 
@@ -849,6 +895,8 @@ end
 
 
 function modifier_rasputin_combo_haul:UpdateVerticalMotion(unit, dt)
+
+    if self.done or self:LeftRealm(unit) then return end
 
     local height = self:Sample()
 

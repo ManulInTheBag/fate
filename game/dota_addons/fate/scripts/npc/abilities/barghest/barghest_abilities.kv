@@ -14,7 +14,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"2"
 		"MaxLevel"					"5"
 		// Кулдаун МЕЖДУ ударами связки. Полный (`full_cooldown`) ставится кодом
@@ -104,7 +104,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"1"
 		"MaxLevel"					"5"
 		"AbilityCooldown"			"15 14 13 12 11"
@@ -125,18 +125,18 @@
 		{
 			"duration"			"2.0"
 			"barrier_base"			"400"
-			"barrier_per_source"			"30 50 70 90 110"
+			"barrier_per_source"			"55 69 83 96 110"
 			// Потолок ровно вдвое от базы: подпиткой барьер можно самое большее
 			// удвоить. ⚠️ Он и есть главный ограничитель — скорострельные
 			// источники (пулемёт Ланселота: 10 попаданий в секунду) упираются в
 			// него меньше чем за секунду, и без потолка стойку было бы не пробить.
 			// Потолок на СУММУ подпитки за одну стойку, не на текущий барьер.
-			"barrier_gain_cap"			"300 500 700 900 1100"
+			"barrier_gain_cap"			"550 690 825 960 1100"
 			"barrier_min_damage"			"25"		// удар слабее барьер не кормит
 			"barrier_gain_cd"			"0.03"		// общий кулдаун подпитки — один кадр
 			"slam_damage"			"200 250 300 350 400"
 			"slam_from_absorbed"			"50"		// % поглощённого уходит в удар
-			"slam_bonus_cap"			"200 300 400 500 600"
+			"slam_bonus_cap"			"300 375 450 525 600"
 			"slam_radius"			"350"
 			"slam_delay"			"0.15"		// замах: урон приходит не мгновенно
 			"slam_arc_angle"			"180"		// сектор эффекта удара: полукруг перед собой
@@ -159,7 +159,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"1"
 		"MaxLevel"					"5"
 		"AbilityCooldown"			"16 15 14 13 12"
@@ -181,8 +181,8 @@
 		{
 			"charge_time"			"2.0"
 			"min_distance"			"350"
-			"max_distance"			"1700"
-			"speed"			"1700"
+			"max_distance"			"2000"
+			"speed"			"2000"
 			"grab_radius"			"120"		// на таком расстоянии рывок врезается во врага
 			"turn_rate"			"260"		// градусов в секунду: доворот ПО ХОДУ рывка
 			"chain_duration"			"1.0 1.25 1.5 1.75 2.0"
@@ -233,7 +233,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		// Уровень тянется за E (Barghest_BiteArm), сам не качается.
 		"LevelsBetweenUpgrades"		"2"
 		"MaxLevel"					"5"
@@ -318,17 +318,18 @@
 		}
 		"AbilityValues"
 		{
-			"duration"			"8"
+			"duration"			"10"
 			"bonus_str"			"30"
 			"bonus_ms_pct"			"20"		// % скорости передвижения
 			// Счётчик урона: сработка, когда за время бафа СУММАРНО получено
 			// threshold_pct % макс. HP. Каждый следующий порог ниже на threshold_step,
-			// но не ниже threshold_min (80 -> 60 -> 40 -> 30 -> 30...). Остаток сверх
+			// но не ниже threshold_min (50 -> 40 -> 30 -> 20 -> 20...). Остаток сверх
 			// порога переносится дальше. Считает modifier_barghest_d.
-			"threshold_pct"			"80"
-			"threshold_step"			"20"
-			"threshold_min"			"30"
+			"threshold_pct"			"50"
+			"threshold_step"			"10"
+			"threshold_min"			"20"
 			"cd_reduce"			"5"		// на сколько секунд режутся кулдауны Q/W/E/R за сработку
+			"mana_restore"			"100"		// сколько маны заливает каждая сработка
 		}
 	}
 
@@ -346,7 +347,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"1"
 		"MaxLevel"					"2"
 		"AbilityCooldown"			"0"
@@ -391,7 +392,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"2"
 		"MaxLevel"					"5"
 		"AbilityCooldown"			"0.5"

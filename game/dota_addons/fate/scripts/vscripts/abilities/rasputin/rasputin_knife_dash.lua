@@ -37,8 +37,10 @@ end
 function rasputin_knife_dash:CastFilterResultLocation(location)
     local caster = self:GetCaster()
 
-    if RasputinIsRooted(caster) then
-        self.customCastError = "Cannot use while rooted"
+    -- В руте нож бросить можно (Q1 идёт с места, без отскока назад),
+    -- а рвануть к цели (Q2) - нет.
+    if RasputinIsRooted(caster) and self:CheckSequence() == 1 then
+        self.customCastError = "Cannot dash while rooted"
         return UF_FAIL_CUSTOM
     end
 
@@ -181,12 +183,15 @@ function rasputin_knife_dash:KnifeThrow()
 	)
 
 
-	RasputinRetreat(
-		caster,
-		direction,
-		self:GetSpecialValueFor("backstep_distance"),
-		self:GetSpecialValueFor("backstep_duration")
-	)
+	-- в руте бросок идёт с места: отскок назад - тоже перемещение
+	if not RasputinIsRooted(caster) then
+		RasputinRetreat(
+			caster,
+			direction,
+			self:GetSpecialValueFor("backstep_distance"),
+			self:GetSpecialValueFor("backstep_duration")
+		)
+	end
 
 
 	local windup = self:GetSpecialValueFor("throw_delay")
