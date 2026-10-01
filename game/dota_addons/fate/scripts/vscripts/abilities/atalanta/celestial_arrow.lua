@@ -1,4 +1,5 @@
 atalanta_celestial_arrow = class({})
+require("libraries/effect_bars")
 LinkLuaModifier("modifier_celestial_arrow", "abilities/atalanta/modifier_celestial_arrow", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_celestial_arrow_stacking_debuff", "abilities/atalanta/celestial_arrow", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_celestial_arrow_onhit", "abilities/atalanta/modifier_celestial_arrow_onhit", LUA_MODIFIER_MOTION_NONE)
@@ -351,7 +352,15 @@ modifier_celestial_arrow_stacking_debuff = class({})
 function modifier_celestial_arrow_stacking_debuff:IsDebuff() return true end
 function modifier_celestial_arrow_stacking_debuff:RemoveOnDeath() return true end
 function modifier_celestial_arrow_stacking_debuff:IsHidden() return false end
+-- Стаки стрел (атрибут Calydonian Snipe) показывает ряд эффектов над
+-- хелсбаром (libraries/effect_bars.lua + panorama effect_bars.js); потолка нет.
 function modifier_celestial_arrow_stacking_debuff:OnCreated(args)
+	if not IsServer() then return end
+	EffectBars:Track(self)
+end
+function modifier_celestial_arrow_stacking_debuff:OnDestroy()
+	if not IsServer() then return end
+	EffectBars:Untrack(self)
 end
 function modifier_celestial_arrow_stacking_debuff:OnRefresh(args)
 

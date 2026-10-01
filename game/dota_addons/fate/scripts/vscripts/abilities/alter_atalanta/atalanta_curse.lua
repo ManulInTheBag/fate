@@ -3,6 +3,8 @@ LinkLuaModifier("modifier_atalanta_curse_passive", "abilities/alter_atalanta/ata
 
 atalanta_curse = class({})
 
+require("libraries/effect_bars")
+
 function atalanta_curse:GetIntrinsicModifierName()
 	return "modifier_atalanta_curse_passive"
 end
@@ -64,7 +66,14 @@ function modifier_atalanta_curse:GetTexture()
     return "custom/alter_atalanta/atalanta_curse_rofl"
 end
 
+-- Стаки показывает ряд эффектов над хелсбаром (libraries/effect_bars.lua +
+-- panorama effect_bars.js). Потолка нет; со 100 стаков при атрибуте Vision
+-- Альтер видит цель - флаг атрибута живёт на кастере, его кладёт сервер.
 function modifier_atalanta_curse:OnCreated()
+	if IsServer() then
+		EffectBars:Track(self)
+		self:PublishVision()
+	end
 	self.parent = self:GetParent()
 	self.particle_4stacks = "particles/units/heroes/hero_shadow_demon/shadow_demon_shadow_poison_4stack.vpcf"
 	if not self.particle_4stacks_fx then
@@ -72,6 +81,17 @@ function modifier_atalanta_curse:OnCreated()
         ParticleManager:SetParticleControl(self.particle_4stacks_fx, 0, self.parent:GetAbsOrigin())
         self:AddParticle(self.particle_4stacks_fx, true, false, -1, false, false)        
     end
+end
+
+function modifier_atalanta_curse:OnRefresh()
+	if not IsServer() then return end
+	self:PublishVision()
+end
+
+function modifier_atalanta_curse:PublishVision()
+	local hCaster = self:GetCaster()
+	local vision = IsNotNull(hCaster) and hCaster.VisionAcquired and 1 or 0
+	EffectBars:SetExtra(self:GetParent(), "atalanta_vision", vision)
 end
 
 function modifier_atalanta_curse:GetModifierProvidesFOWVision()
@@ -96,6 +116,7 @@ end
 
 function modifier_atalanta_curse:OnDestroy()
 	if not IsServer() then return end
+	EffectBars:Untrack(self)
 	DoDamage(self:GetCaster(), self:GetParent(), (self:GetAbility():GetSpecialValueFor("detonate_damage") + (self:GetCaster().VisionAcquired and 2.5 or 0))*self:GetStackCount(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
     local particle_kill = "particles/units/heroes/hero_shadow_demon/shadow_demon_shadow_poison_kill.vpcf"
 	local particle_kill_fx = ParticleManager:CreateParticle(particle_kill, PATTACH_ABSORIGIN, self:GetParent())        

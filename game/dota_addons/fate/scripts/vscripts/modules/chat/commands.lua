@@ -238,15 +238,15 @@ return {
 		end
 	},
 	-- Проверка ряда эффектов над хелсбаром (libraries/effect_bars.lua): вешает
-	-- стаки Ли, Сайто, Мурамасы, яд Робина и проклятие Скатах на всех юнитов в
-	-- 1200 вокруг героя.
-	--   -effbars [li] [saito] [mura] [robin] [scathach]  стаки (по умолчанию
-	--       25 4 3 12 6, 0 = не вешать)
+	-- стаки Ли, Сайто, Мурамасы, яд Робина, проклятия Скатах и Аталанты Альтер,
+	-- стрелы Аталанты на всех юнитов в 1200 вокруг героя.
+	--   -effbars [li] [saito] [mura] [robin] [scathach] [alter] [atalanta]
+	--       стаки (по умолчанию 25 4 3 12 6 37 23, 0 = не вешать)
 	--   -effbars me [...]             то же, но и на себя
 	--   -effbars boom                 взрыв Ли, как от удара NSS (и без стаков)
 	--   -effbars off                  снять всё
 	-- Кастер - свой герой, поэтому потолки без его способностей берутся запасные
-	-- (50 / 10 / 5 / 30 / 10), а атрибутов Ли и Робина нет - ступени цвета Ли не
+	-- (50 / 10 / 5 / 30 / 10, у Аталант потолка нет), а атрибутов Ли и Робина нет - ступени цвета Ли не
 	-- включатся, потолок яда 30.
 	["effbars"] = {
 		level = CUSTOMCHAT_COMMAND_LEVEL_CHEAT_DEVELOPER,
@@ -261,12 +261,16 @@ return {
 			LinkLuaModifier("modifier_muramasa_sword_drop_enemy_buff", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("modifier_robin_poison_stack", "abilities/robin/modifiers/modifier_robin_poison_stack", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_atalanta_curse", "abilities/alter_atalanta/atalanta_curse", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_celestial_arrow_stacking_debuff", "abilities/atalanta/celestial_arrow", LUA_MODIFIER_MOTION_NONE)
 
 			local LI = "modifier_nss_shock_stackable"
 			local SAITO = "saito_formlessness_new_stacks"
 			local MURA = "modifier_muramasa_sword_drop_enemy_buff"
 			local ROBIN = "modifier_robin_poison_stack"
 			local SCATHACH = "modifier_stachach_gae_bolg_curse"
+			local ALTER = "modifier_atalanta_curse"
+			local ATALANTA = "modifier_celestial_arrow_stacking_debuff"
 
 			local withSelf = args[1] == "me"
 			if withSelf then table.remove(args, 1) end
@@ -291,6 +295,8 @@ return {
 					unit:RemoveModifierByName(MURA)
 					unit:RemoveModifierByName(ROBIN)
 					unit:RemoveModifierByName(SCATHACH)
+					unit:RemoveModifierByName(ALTER)
+					unit:RemoveModifierByName(ATALANTA)
 				end
 				return
 			end
@@ -309,6 +315,8 @@ return {
 			local mura = tonumber(args[3]) or 3
 			local robin = tonumber(args[4]) or 12
 			local scathach = tonumber(args[5]) or 6
+			local alter = tonumber(args[6]) or 37
+			local atalanta = tonumber(args[7]) or 23
 
 			for _, unit in pairs(targets) do
 				if li > 0 then
@@ -330,10 +338,23 @@ return {
 					local mod = unit:AddNewModifier(hero, nil, SCATHACH, { duration = 10 })
 					if mod then mod:SetStackCount(math.min(scathach, 10)) end
 				end
+				-- проклятие Альтер берёт урон от GetAbility() в OnDestroy и в
+				-- GetModifierIncomingDamage_Percentage, без способности упадёт -
+				-- вешаем, только если она у героя есть
+				local curse = hero:FindAbilityByName("atalanta_curse")
+				if alter > 0 and curse then
+					local mod = unit:AddNewModifier(hero, curse, ALTER, { duration = 10 })
+					if mod then mod:SetStackCount(alter) end
+				end
+				if atalanta > 0 then
+					local mod = unit:AddNewModifier(hero, nil, ATALANTA, { duration = 7 })
+					if mod then mod:SetStackCount(atalanta) end
+				end
 			end
 
-			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d, Робин %d, Скатах %d",
-				#targets, li, saito, mura, robin, scathach), 0, 0)
+			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d, Робин %d, Скатах %d, Альтер %d%s, Аталанта %d",
+				#targets, li, saito, mura, robin, scathach, alter,
+				hero:FindAbilityByName("atalanta_curse") and "" or " (нужна Альтер)", atalanta), 0, 0)
 		end
 	},
 	-- Диагностика слотов способностей: сколько их у Слуги, что реально лежит в каждом слоте

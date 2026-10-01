@@ -2,8 +2,8 @@
 
 // Ряд эффектов со стаками над хелсбаром юнита: круглый медальон, число стаков
 // по центру и кольцо оставшегося времени по краю. Заменил партикли-счётчики
-// над головой (Li Shuwen, Saito, Muramasa) и добавил яд Robin Hood и
-// проклятие Gae Bolg Скатах.
+// над головой (Li Shuwen, Saito, Muramasa) и добавил яд Robin Hood,
+// проклятия Gae Bolg Скатах и Аталанты Альтер, стрелы Аталанты.
 //
 // Кого рисовать, говорит сервер: libraries/effect_bars.lua ведёт nettable
 // effect_bars, по записи на entindex - { on, vis, <доп. поля> }. Стаки и время
@@ -51,6 +51,20 @@ var EFFECTS = [
 		// потолок проклятия Gae Bolg зашит в OnRefresh модификатора
 		maxFallback: 10,
 	},
+	{
+		theme: 'AtalantaAlter',
+		modifier: 'modifier_atalanta_curse',
+		// потолка нет; со 100 стаков при атрибуте Vision Альтер видит цель -
+		// значок на этом пороге пульсирует, флаг кладёт сервер (atalanta_curse.lua)
+		maxFallback: 0,
+		maxFlag: { flag: 'atalanta_vision', value: 100 },
+	},
+	{
+		theme: 'Atalanta',
+		modifier: 'modifier_celestial_arrow_stacking_debuff',
+		// стаки стрел с атрибута Calydonian Snipe, потолка нет
+		maxFallback: 0,
+	},
 ];
 
 // Взрывы по kind из события: тема значка, на месте которого он играет, и
@@ -73,6 +87,12 @@ var ROW_GAP = 3;
 var UNIT_WIDTH = 300;   // .EffectUnit в css
 var UNIT_HEIGHT = 44;
 var CHIP_SIZE = 40;     // .EffectChip и .EffectBurst в css
+
+// Больше ROW_MAX значков - перенос: нижний ряд держит первые ROW_MAX эффектов
+// (в порядке EFFECTS), остальные встают рядом выше, каждый ряд по центру.
+// 4 значка ~ 176px - в полтора хелсбара.
+var ROW_MAX = 4;
+var ROW_STEP = 44;      // от низа ряда до низа следующего: значок + зазор
 
 // Над своим Распутиным висит его полоска стаков (rasputin_hud) - ряд выше неё.
 var RASPUTIN_MODIFIER = 'modifier_rasputin_dash_charges';
@@ -193,12 +213,45 @@ function BuildUnit(entity) {
 	var panel = $.CreatePanel('Panel', root, '');
 	panel.AddClass('EffectUnit');
 
-	var row = $.CreatePanel('Panel', panel, '');
-	row.AddClass('EffectRow');
-
-	var built = { panel: panel, row: row, chips: {} };
+	var built = { panel: panel, rows: [], chips: {}, layout: '' };
 	units[entity] = built;
 	return built;
+}
+
+
+// Ряд k снизу (0 - нижний). Ряды не в потоке: каждый прижат к низу панели
+// юнита и поднят отступом.
+function Row(built, k) {
+	while (built.rows.length <= k) {
+		var row = $.CreatePanel('Panel', built.panel, '');
+		row.AddClass('EffectRow');
+		row.style.marginBottom = (built.rows.length * ROW_STEP) + 'px';
+		built.rows.push(row);
+	}
+	return built.rows[k];
+}
+
+
+// Раскладка значков по рядам. Перекладывает только когда меняется набор
+// эффектов - значки не прыгают, пока набор тот же.
+function LayoutRows(built) {
+	var order = [];
+	for (var e = 0; e < EFFECTS.length; e++) {
+		if (built.chips[EFFECTS[e].modifier]) {
+			order.push(EFFECTS[e].modifier);
+		}
+	}
+
+	var layout = order.join(',');
+	if (layout === built.layout) {
+		return;
+	}
+	built.layout = layout;
+
+	// по порядку: SetParent кладёт в конец ряда
+	for (var i = 0; i < order.length; i++) {
+		built.chips[order[i]].panel.SetParent(Row(built, Math.floor(i / ROW_MAX)));
+	}
 }
 
 
@@ -213,16 +266,20 @@ function DestroyUnit(entity) {
 
 
 // Смещение центра значка от центра ряда - чтобы взрыв сыграл ровно на его месте.
+// Центр значка относительно точки Anchor (низ-центр ряда), в px панорамы:
+// взрыв играет ровно на нём, в каком бы ряду он ни стоял.
 function ChipOffset(built, chip) {
 	var scale = ScreenScale();
-	var rowWidth = built.row.actuallayoutwidth / scale;
-	var chipX = chip.actualxoffset / scale;
-	return chipX + CHIP_SIZE / 2 - rowWidth / 2;
+	var row = chip.GetParent();
+	return {
+		x: (row.actualxoffset + chip.actualxoffset) / scale + CHIP_SIZE / 2 - UNIT_WIDTH / 2,
+		y: (row.actualyoffset + chip.actualyoffset) / scale + CHIP_SIZE / 2 - UNIT_HEIGHT,
+	};
 }
 
 
 function BuildChip(built, effect, entity, buff) {
-	var chip = $.CreatePanel('Panel', built.row, '');
+	var chip = $.CreatePanel('Panel', Row(built, 0), '');
 	chip.AddClass('EffectChip');
 	chip.AddClass(effect.theme);
 
@@ -268,10 +325,12 @@ function BuildChip(built, effect, entity, buff) {
 function UpdateChip(effect, state, entity, buff, data) {
 	var stacks = Buffs.GetStackCount(entity, buff);
 
-	var base = (effect.maxFlag && data[effect.maxFlag.flag] === 1) ? effect.maxFlag.value : state.max;
+	// 0 = без потолка (проклятие Альтер, стрелы Аталанты); maxFlag - другой
+	// потолок или порог, пока на сервере стоит флаг атрибута
+	var cap = (effect.maxFlag && data[effect.maxFlag.flag] === 1) ? effect.maxFlag.value : state.max;
 
 	// потолок мог не прочитаться из KV - не даём ему быть меньше стаков
-	var max = Math.max(base, stacks, 1);
+	var max = cap > 0 ? Math.max(cap, stacks, 1) : Infinity;
 
 	if (stacks !== state.lastCount) {
 		if (stacks > state.lastCount && state.lastCount >= 0) {
@@ -279,8 +338,11 @@ function UpdateChip(effect, state, entity, buff, data) {
 		}
 		state.lastCount = stacks;
 		state.count.text = String(stacks);
-		state.panel.SetHasClass('Max', stacks >= max);
+		// три цифры в 40px влезают только мельче
+		state.count.SetHasClass('Wide', stacks >= 100);
 	}
+
+	state.panel.SetHasClass('Max', stacks >= max);
 
 	if (effect.tiers) {
 		var tierOn = data[effect.tiers.flag] === 1;
@@ -367,6 +429,8 @@ function Refresh() {
 			continue;
 		}
 
+		LayoutRows(built);
+
 		built.lift = (entity === Players.GetPlayerHeroEntityIndex(localPlayer)
 			&& buffs[RASPUTIN_MODIFIER] !== undefined) ? RASPUTIN_LIFT : 0;
 
@@ -399,11 +463,11 @@ function OnBurst(event) {
 	// нет (взрыв без стаков) - по центру ряда
 	var built = units[entity];
 	var chip = built && built.chips[kind.modifier];
-	var dx = 0;
+	var off = { x: 0, y: -CHIP_SIZE / 2 };
 	if (chip) {
 		chip.burstUntil = Game.GetGameTime() + kind.life;
 		chip.panel.AddClass('Gone');
-		dx = ChipOffset(built, chip.panel);
+		off = ChipOffset(built, chip.panel);
 	}
 
 	var panel = $.CreatePanel('Panel', root, '');
@@ -419,7 +483,7 @@ function OnBurst(event) {
 	var glyph = $.CreatePanel('Panel', panel, '');
 	glyph.AddClass('BurstGlyph');
 
-	var burst = { entity: entity, panel: panel, chip: chip, dx: dx, lift: built ? built.lift : 0 };
+	var burst = { entity: entity, panel: panel, chip: chip, off: off, lift: built ? built.lift : 0 };
 	bursts.push(burst);
 	PlaceBurst(burst, ScreenScale());
 	panel.DeleteAsync(kind.life);
@@ -447,12 +511,12 @@ function PlaceBurst(burst, scale) {
 	// ряд мог сдвинуться из-за чужого значка - взрыв идёт за своим местом
 	var built = units[burst.entity];
 	if (burst.chip && built && built.chips[burst.chip.modifier] === burst.chip) {
-		burst.dx = ChipOffset(built, burst.chip.panel);
+		burst.off = ChipOffset(built, burst.chip.panel);
 		burst.lift = built.lift;
 	}
 
-	var x = Math.round(at.x + burst.dx - CHIP_SIZE / 2);
-	var y = Math.round(at.y - CHIP_SIZE - burst.lift);
+	var x = Math.round(at.x + burst.off.x - CHIP_SIZE / 2);
+	var y = Math.round(at.y + burst.off.y - CHIP_SIZE / 2 - burst.lift);
 	burst.panel.style.position = x + 'px ' + y + 'px 0px';
 }
 
