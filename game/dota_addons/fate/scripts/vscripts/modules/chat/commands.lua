@@ -243,7 +243,9 @@ return {
 	--   -effbars [li] [saito] [mura] [robin] [scathach] [alter] [atalanta] [vlad] [medusa] [hassan]
 	--       стаки (по умолчанию 25 4 3 12 6 37 23 14 5 3, 0 = не вешать);
 	--       проклятие Альтер, кровь Влада и Медузы - только от этих героев:
-	--       их модификаторы берут данные из своих способностей
+	--       их модификаторы берут данные из своих способностей. Яд Хассана:
+	--       скрытый яд (урон) на 6 с, стаки на 12 с - значок первые 6 с
+	--       яркий, потом тусклый (стаки есть, урон не идёт)
 	--   -effbars me [...]             то же, но и на себя
 	--   -effbars boom                 взрыв Ли, как от удара NSS (и без стаков)
 	--   -effbars off                  снять всё
@@ -268,6 +270,7 @@ return {
 			LinkLuaModifier("modifier_bleed", "abilities/vlad/modifier_bleed", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("modifier_medusa_bleed", "abilities/medusa/medusa_nail_hook", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("modifier_dirk_poison_slow", "abilities/true_assassin/modifiers/modifier_dirk_poison_slow", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_dirk_poison", "abilities/true_assassin/modifiers/modifier_dirk_poison", LUA_MODIFIER_MOTION_NONE)
 
 			local LI = "modifier_nss_shock_stackable"
 			local SAITO = "saito_formlessness_new_stacks"
@@ -279,6 +282,7 @@ return {
 			local VLAD = "modifier_bleed"
 			local MEDUSA = "modifier_medusa_bleed"
 			local HASSAN = "modifier_dirk_poison_slow"
+			local HASSAN_DOT = "modifier_dirk_poison"
 
 			local withSelf = args[1] == "me"
 			if withSelf then table.remove(args, 1) end
@@ -308,6 +312,7 @@ return {
 					unit:RemoveModifierByName(VLAD)
 					unit:RemoveModifierByName(MEDUSA)
 					unit:RemoveModifierByName(HASSAN)
+					unit:RemoveModifierByName(HASSAN_DOT)
 				end
 				return
 			end
@@ -375,7 +380,10 @@ return {
 					if mod then mod:SetStackCount(medusa) end
 				end
 				if hassan > 0 then
-					local mod = unit:AddNewModifier(hero, nil, HASSAN, { duration = 10 })
+					-- урон 0: проверяем только отображение
+					unit:AddNewModifier(hero, nil, HASSAN_DOT, { duration = 6, PoisonDamage = 0, PoisonSlow = 0 })
+					unit:RemoveModifierByName(HASSAN)
+					local mod = unit:AddNewModifier(hero, nil, HASSAN, { duration = 12 })
 					if mod then mod:SetStackCount(hassan) end
 				end
 			end

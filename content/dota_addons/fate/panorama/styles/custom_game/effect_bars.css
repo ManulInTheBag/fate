@@ -172,6 +172,19 @@
 .Medusa .EffectCount { color: #ffb0dcff; }
 .Hassan .EffectCount { color: #e4ff8aff; }
 
+/* эффект висит, но урон не идёт (яд Хассана без скрытого яда или с 0 стаков) */
+.EffectChip.Idle .EffectMedalWrap
+{
+	opacity: 0.4;
+	saturation: 0.15;
+}
+
+.EffectChip.Idle .EffectRing,
+.EffectChip.Idle .EffectCount
+{
+	opacity: 0.45;
+}
+
 /* три цифры (стаки без потолка) */
 .EffectCount.Wide { font-size: 14px; }
 

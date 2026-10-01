@@ -80,8 +80,13 @@ var EFFECTS = [
 	},
 	{
 		theme: 'Hassan',
-		modifier: 'modifier_dirk_poison_slow',
-		// стаки яда кинжалов Хассана: по ним считается урон modifier_dirk_poison
+		// Яд Хассана собран из трёх модификаторов: урон наносит скрытый
+		// modifier_dirk_poison, умножая на стаки slow + venom, а стаки живут
+		// в других модификаторах (slow снимается иммунитетом/снятием
+		// замедлений, яд при этом остаётся). Число = настоящий множитель урона;
+		// значок тусклый (Idle), пока урон не идёт: яда нет или стаков 0.
+		modifier: 'modifier_dirk_poison',
+		parts: ['modifier_dirk_poison_slow', 'modifier_weakening_venom'],
 		maxFallback: 0,
 	},
 ];
@@ -379,8 +384,42 @@ function BuildChip(built, effect, entity, buff) {
 }
 
 
-function UpdateChip(effect, state, entity, buff, data) {
-	var stacks = Buffs.GetStackCount(entity, buff);
+// Бафф, стаки и «идёт ли урон» эффекта. Обычно это один модификатор; с parts
+// стаки складываются из частей, а modifier - тот, без которого они не бьют.
+// null - на юните ничего из этого нет.
+function ReadEffect(effect, entity, buffs) {
+	var main = buffs[effect.modifier];
+
+	if (!effect.parts) {
+		return main === undefined ? null
+			: { buff: main, stacks: Buffs.GetStackCount(entity, main), idle: false };
+	}
+
+	var timer = main;
+	var stacks = 0;
+	for (var i = 0; i < effect.parts.length; i++) {
+		var part = buffs[effect.parts[i]];
+		if (part !== undefined) {
+			stacks += Buffs.GetStackCount(entity, part);
+			if (timer === undefined) {
+				timer = part;
+			}
+		}
+	}
+
+	if (timer === undefined) {
+		return null;
+	}
+
+	return { buff: timer, stacks: stacks, idle: main === undefined || stacks <= 0 };
+}
+
+
+function UpdateChip(effect, state, entity, read, data) {
+	var buff = read.buff;
+	var stacks = read.stacks;
+
+	state.panel.SetHasClass('Idle', read.idle);
 
 	// 0 = без потолка (проклятие Альтер, стрелы Аталанты); maxFlag - другой
 	// потолок или порог, пока на сервере стоит флаг атрибута
@@ -571,10 +610,10 @@ function Refresh() {
 
 		for (var e = 0; e < EFFECTS.length; e++) {
 			var effect = EFFECTS[e];
-			var buff = buffs[effect.modifier];
+			var read = ReadEffect(effect, entity, buffs);
 			var state = built && built.chips[effect.modifier];
 
-			if (buff === undefined) {
+			if (!read) {
 				if (!state) {
 					continue;
 				}
@@ -596,13 +635,13 @@ function Refresh() {
 				built = BuildUnit(entity);
 			}
 			if (!state) {
-				state = BuildChip(built, effect, entity, buff);
+				state = BuildChip(built, effect, entity, read.buff);
 			}
 
 			// новые стаки во время взрыва покажутся, когда он доиграет
 			state.leaveAt = 0;
 			state.panel.SetHasClass('Gone', now < (state.burstUntil || 0));
-			UpdateChip(effect, state, entity, buff, data);
+			UpdateChip(effect, state, entity, read, data);
 			any = true;
 		}
 
