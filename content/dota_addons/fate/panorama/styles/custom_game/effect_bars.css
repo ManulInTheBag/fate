@@ -248,10 +248,16 @@
 	100% { transform: rotateZ( 210deg ); wash-color: #f00000ff; }
 }
 
+/* li_death.png - оригинал materials/lishuen/death.png 500x500: иероглиф там
+   не по центру, а в рамке x 148..385, y 12..252 (центр 53.2% / 26.4%).
+   Панель 84px - иероглиф в ней ~40px, как значок; сдвиг ставит его центр в
+   центр значка (20, 20), и масштаб идёт вокруг него же. */
 .BurstGlyph
 {
-	width: 100%;
-	height: 100%;
+	position: -25px -2px 0px;
+	width: 84px;
+	height: 84px;
+	transform-origin: 53.2% 26.4%;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-image: url("s2r://panorama/images/custom_game/effect_bars/li_death.vtex");
