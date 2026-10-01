@@ -1,0 +1,546 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "material_0.vmat"
+								to = "goa/models/tests/deltarune/material_0_basecolor.vmat"
+							},
+							{
+								from = "material_1.vmat"
+								to = "materials/dev/hero_black.vmat"
+							},
+							{
+								from = "material_2.vmat"
+								to = "goa/models/tests/deltarune/material_2_basecolor.vmat"
+							},
+							{
+								from = "material_3.vmat"
+								to = "goa/models/tests/deltarune/material_3_basecolor.vmat"
+							},
+							{
+								from = "body.vmat"
+								to = "models/kama/1.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "models/kama/1.vmat"
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_ORIGIN"
+						parent_bone = ""
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "chest"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "FOLLOW_OVERHEAD"
+						parent_bone = "head"
+						relative_origin = [ 0.0038851602, 82.12924, 1.4480472 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HEAD"
+						parent_bone = "head"
+						relative_origin = [ 0.0014601694, 22.287094, -0.9911766 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "mantle2"
+								parent_bone = "mantle2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -32.453995, -0.5, -3.4374962 ]
+								hitbox_maxs = [ 32.45405, 33.343735, 3.437523 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "mantle3"
+								parent_bone = "mantle3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -39.430073, -0.5, -3.4374924 ]
+								hitbox_maxs = [ 39.430164, 34.37504, 3.4375114 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "mantle4"
+								parent_bone = "mantle4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -42.05873, -0.6875, -3.4374847 ]
+								hitbox_maxs = [ 42.058846, 32.312504, 3.4375267 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "chest"
+								parent_bone = "chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -49.60616, -135.42726, -43.71666 ]
+								hitbox_maxs = [ 42.37975, 73.0119, 33.16944 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "arm_l"
+								parent_bone = "arm_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.331741, -3.7812538, -9.417737 ]
+								hitbox_maxs = [ 9.503677, 37.051952, 9.417689 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "forarm_l"
+								parent_bone = "forarm_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.138611, -0.5, -10.224587 ]
+								hitbox_maxs = [ 10.310516, 40.906246, 10.224538 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "arm_r"
+								parent_bone = "arm_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.503685, -3.781231, -9.417674 ]
+								hitbox_maxs = [ 9.331726, 37.051968, 9.417752 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "forarm_r"
+								parent_bone = "forarm_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.310532, -0.5, -10.224491 ]
+								hitbox_maxs = [ 10.138596, 40.906246, 10.224634 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "leg_l"
+								parent_bone = "leg_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.39357, -0.68748474, -9.461857 ]
+								hitbox_maxs = [ 9.565472, 38.111664, 10.223562 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "shin_l"
+								parent_bone = "shin_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.00836, -0.5, -9.919176 ]
+								hitbox_maxs = [ 9.180269, 49.704735, 8.962107 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "leg_r"
+								parent_bone = "leg_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.565443, -0.6874924, -9.461855 ]
+								hitbox_maxs = [ 9.393599, 38.111652, 10.223566 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "shin_r"
+								parent_bone = "shin_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.180231, -0.5, -9.919176 ]
+								hitbox_maxs = [ 9.008398, 49.70474, 8.962107 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/kama/kama.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "stand"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 80
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 100
+						end_frame = 121
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "stand_ready"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 141
+						end_frame = 189
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 209
+						end_frame = 239
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_one"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 259
+						end_frame = 289
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_two"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 309
+						end_frame = 339
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_slam"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 359
+						end_frame = 395
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 415
+						end_frame = 480
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 500
+						end_frame = 537
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_three"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 557
+						end_frame = 643
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "animated_katzura_rin"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama/kama.fbx"
+						import_bone_scales = false
+						start_frame = 768
+						end_frame = 769
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

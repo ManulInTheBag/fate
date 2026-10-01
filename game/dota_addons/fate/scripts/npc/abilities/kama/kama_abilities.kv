@@ -1,0 +1,236 @@
+"DOTAAbilities"
+{
+
+	//=====================================
+	// Kama Q
+	//=====================================
+	"kama_q"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_q"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"12"
+		"AbilityManaCost"			"100"
+		"AbilityCastRange"			"700"
+		"AbilityCastPoint"			"0.2"
+		"AbilityValues"
+		{
+			"damage"			"100 150 200 250 300"
+			"radius"			"300"
+		}
+	}
+
+	//=====================================
+	// Kama W
+	//=====================================
+	"kama_w"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_w"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"14 13 12 11 10"
+		"AbilityManaCost"			"100"
+		"AbilityCastRange"			"800"
+		"AbilityCastPoint"			"0.1"
+		"AbilityValues"
+		{
+			"distance"			"600 650 700 750 800"
+			"speed"			"1400"
+			"radius"			"150"
+			"damage"			"80 120 160 200 240"
+		}
+	}
+
+	//=====================================
+	// Kama E
+	//=====================================
+	"kama_e"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_e"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"12"
+		"AbilityManaCost"			"100"
+		"AbilityCastRange"			"600"
+		"AbilityCastPoint"			"0.2"
+		"AbilityValues"
+		{
+			"damage"			"100 150 200 250 300"
+		}
+	}
+
+	//=====================================
+	// Kama D
+	//=====================================
+	"kama_d"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_d"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"20"
+		"AbilityManaCost"			"100"
+		"AbilityCastPoint"			"0"
+		"AbilityValues"
+		{
+			"duration"			"6 7 8 9 10"
+			"bonus_ms_pct"			"10 15 20 25 30"
+			"bonus_damage"			"20 30 40 50 60"
+		}
+	}
+
+	//=====================================
+	// Kama F
+	//=====================================
+	"kama_f"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_f"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		"AbilityValues"
+		{
+			"bonus_damage"			"10 20 30 40 50"
+		}
+	}
+
+	//=====================================
+	// Kama R
+	//=====================================
+	"kama_r"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_r"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"12"
+		"AbilityManaCost"			"100"
+		"AbilityCastPoint"			"0.2"
+		"AbilityValues"
+		{
+			"damage"			"100 150 200 250 300"
+			"radius"			"400"
+		}
+	}
+
+	//=====================================
+	// Kama Combo
+	//=====================================
+	"kama_combo"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_combo"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"130"
+		"AbilityManaCost"			"600"
+		"AbilityCastRange"			"600"
+		"AbilityCastPoint"			"0"
+		"AbilityValues"
+		{
+			"damage"			"800"
+			"radius"			"600"
+			"stun_duration"			"1.5"
+			"delay"			"0.3"
+		}
+	}
+
+	//=====================================
+	// Kama SA1
+	//=====================================
+	"kama_sa_1"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_sa_1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"9999"
+		"AbilityManaCost"			"14"
+	}
+
+	//=====================================
+	// Kama SA2
+	//=====================================
+	"kama_sa_2"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_sa_2"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"9999"
+		"AbilityManaCost"			"14"
+	}
+
+	//=====================================
+	// Kama SA3
+	//=====================================
+	"kama_sa_3"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_sa_3"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"9999"
+		"AbilityManaCost"			"14"
+	}
+
+	//=====================================
+	// Kama SA4
+	//=====================================
+	"kama_sa_4"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/kama/kama_sa_4"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"LevelsBetweenUpgrades"		"1"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"9999"
+		"AbilityManaCost"			"14"
+	}
+}

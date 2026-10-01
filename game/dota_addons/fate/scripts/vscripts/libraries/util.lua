@@ -796,6 +796,7 @@ femaleservant = {
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_nevermore",
     "npc_dota_hero_dragon_knight",  -- Barghest
+    "npc_dota_hero_enigma",  -- Kama
 }
 
 tCannotDetect = {
@@ -807,6 +808,7 @@ tCannotDetect = {
     "npc_dota_hero_night_stalker",
     "npc_dota_hero_phantom_assassin",
     "npc_dota_hero_troll_warlord",
+    "npc_dota_hero_enigma",  -- Kama
 }
 
 tDangerousBuffs = {
@@ -878,6 +880,7 @@ tDivineHeroes = {
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_phoenix",
     "npc_dota_hero_axe",
+    "npc_dota_hero_enigma",  -- Kama
 }
 
 tKnightClass = {
@@ -932,6 +935,7 @@ tHorsemanClass = {
     "npc_dota_hero_axe",
     "npc_dota_hero_centaur",         -- Lu Bu
     "npc_dota_hero_spirit_breaker",  -- Hijikata Toshizo
+    "npc_dota_hero_enigma",  -- Kama
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -2744,6 +2748,7 @@ local heroNames = {
     ["npc_dota_hero_axe"] = "Cú Chulainn (Alter)",
     ["npc_dota_hero_dragon_knight"] = "Barghest",  -- barghest
     ["npc_dota_hero_pangolier"] = "Rasputin",
+    ["npc_dota_hero_enigma"] = "Kama",  -- kama
 }
 
  
