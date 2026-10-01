@@ -238,13 +238,14 @@ return {
 		end
 	},
 	-- Проверка ряда эффектов над хелсбаром (libraries/effect_bars.lua): вешает
-	-- стаки Ли, Сайто и Мурамасы на всех юнитов в 1200 вокруг героя.
-	--   -effbars [li] [saito] [mura]  стаки (по умолчанию 25 4 3, 0 = не вешать)
-	--   -effbars me [li] [saito] [mura]  то же, но и на себя
+	-- стаки Ли, Сайто, Мурамасы и яд Робина на всех юнитов в 1200 вокруг героя.
+	--   -effbars [li] [saito] [mura] [robin]  стаки (по умолчанию 25 4 3 12, 0 = не вешать)
+	--   -effbars me [li] [saito] [mura] [robin]  то же, но и на себя
 	--   -effbars boom                 взрыв Ли, как от удара NSS (и без стаков)
 	--   -effbars off                  снять всё
 	-- Кастер - свой герой, поэтому потолки без его способностей берутся запасные
-	-- (50 / 10 / 5), а атрибута Ли нет - ступени цвета не включатся.
+	-- (50 / 10 / 5 / 30), а атрибутов Ли и Робина нет - ступени цвета Ли не
+	-- включатся, потолок яда 30.
 	["effbars"] = {
 		level = CUSTOMCHAT_COMMAND_LEVEL_CHEAT_DEVELOPER,
 		f = function(args, hero)
@@ -256,10 +257,12 @@ return {
 			LinkLuaModifier("modifier_nss_shock_stackable", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("saito_formlessness_new_stacks", "abilities/saito/vergil_saito/saito_formlessness_new", LUA_MODIFIER_MOTION_NONE)
 			LinkLuaModifier("modifier_muramasa_sword_drop_enemy_buff", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_robin_poison_stack", "abilities/robin/modifiers/modifier_robin_poison_stack", LUA_MODIFIER_MOTION_NONE)
 
 			local LI = "modifier_nss_shock_stackable"
 			local SAITO = "saito_formlessness_new_stacks"
 			local MURA = "modifier_muramasa_sword_drop_enemy_buff"
+			local ROBIN = "modifier_robin_poison_stack"
 
 			local withSelf = args[1] == "me"
 			if withSelf then table.remove(args, 1) end
@@ -282,6 +285,7 @@ return {
 					unit:RemoveModifierByName(LI)
 					unit:RemoveModifierByName(SAITO)
 					unit:RemoveModifierByName(MURA)
+					unit:RemoveModifierByName(ROBIN)
 				end
 				return
 			end
@@ -298,6 +302,7 @@ return {
 			local li = tonumber(args[1]) or 25
 			local saito = tonumber(args[2]) or 4
 			local mura = tonumber(args[3]) or 3
+			local robin = tonumber(args[4]) or 12
 
 			for _, unit in pairs(targets) do
 				if li > 0 then
@@ -311,10 +316,14 @@ return {
 					local mod = unit:AddNewModifier(hero, nil, MURA, { duration = 20 })
 					if mod then mod:SetStackCount(mura) end
 				end
+				if robin > 0 then
+					local mod = unit:AddNewModifier(hero, nil, ROBIN, { duration = 15 })
+					if mod then mod:SetStackCount(robin) end
+				end
 			end
 
-			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d",
-				#targets, li, saito, mura), 0, 0)
+			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d, Робин %d",
+				#targets, li, saito, mura, robin), 0, 0)
 		end
 	},
 	-- Диагностика слотов способностей: сколько их у Слуги, что реально лежит в каждом слоте

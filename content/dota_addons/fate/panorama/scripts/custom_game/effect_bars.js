@@ -2,7 +2,7 @@
 
 // Ряд эффектов со стаками над хелсбаром юнита: круглый медальон, число стаков
 // по центру и кольцо оставшегося времени по краю. Заменил партикли-счётчики
-// над головой (Li Shuwen, Saito, Muramasa).
+// над головой (Li Shuwen, Saito, Muramasa) и добавил яд Robin Hood.
 //
 // Кого рисовать, говорит сервер: libraries/effect_bars.lua ведёт nettable
 // effect_bars, по записи на entindex - { on, vis, <доп. поля> }. Стаки и время
@@ -35,6 +35,14 @@ var EFFECTS = [
 		modifier: 'modifier_muramasa_sword_drop_enemy_buff',
 		// заряды меча: в KV это sword_stacks атрибута, а атрибут живёт на Мастере
 		maxFallback: 5,
+	},
+	{
+		theme: 'Robin',
+		modifier: 'modifier_robin_poison_stack',
+		// потолок яда зашит в способностях Робина: 30, с атрибутом Yew Bow - 50;
+		// флаг атрибута кладёт сервер (modifier_robin_poison_stack.lua)
+		maxFallback: 30,
+		maxFlag: { flag: 'robin_sa', value: 50 },
 	},
 ];
 
@@ -253,8 +261,10 @@ function BuildChip(built, effect, entity, buff) {
 function UpdateChip(effect, state, entity, buff, data) {
 	var stacks = Buffs.GetStackCount(entity, buff);
 
+	var base = (effect.maxFlag && data[effect.maxFlag.flag] === 1) ? effect.maxFlag.value : state.max;
+
 	// потолок мог не прочитаться из KV - не даём ему быть меньше стаков
-	var max = Math.max(state.max, stacks, 1);
+	var max = Math.max(base, stacks, 1);
 
 	if (stacks !== state.lastCount) {
 		if (stacks > state.lastCount && state.lastCount >= 0) {

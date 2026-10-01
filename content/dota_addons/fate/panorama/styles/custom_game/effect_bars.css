@@ -83,6 +83,7 @@
 }
 .Saito .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/saito_png.vtex"); }
 .Muramasa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/muramasa_png.vtex"); }
+.Robin .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/robin_png.vtex"); }
 
 
 /* Кольцо времени: тёмная подложка во весь круг и цветная дуга поверх неё.
@@ -113,6 +114,7 @@
 .Shuwen.Max .EffectRing { border-color: #f00000ff; }
 .Saito .EffectRing { border-color: #6fb4ffff; }
 .Muramasa .EffectRing { border-color: #ff9a2aff; }
+.Robin .EffectRing { border-color: #5ee04aff; }
 
 /* последние секунды - дуга мигает */
 .EffectChip.Expiring .EffectRing
@@ -150,6 +152,7 @@
 .Shuwen.Max .EffectCount { color: #ff4a3aff; }
 .Saito .EffectCount { color: #9ed6ffff; }
 .Muramasa .EffectCount { color: #fab300ff; }
+.Robin .EffectCount { color: #b8ff8cff; }
 
 /* «выпрыгивание» цифры на новом стаке: партикль тоже рождал цифру крупной */
 .EffectCount.Pop
