@@ -160,6 +160,14 @@ var RASPUTIN_LIFT = 21;
 
 var EXPIRING_TIME = 1.5;
 
+// Значок «переживёт смертельный удар» (Battle Continuation и похожие
+// пассивки) справа от хелсбара героя. Есть ли он и его перезарядку считает
+// сервер (libraries/survival_icons.lua, nettable survival_icons): флаги
+// атрибутов клиент не видит. Время в записи абсолютное, отсчёт идёт здесь.
+var SURVIVAL_SIZE = 26;  // .SurvivalIcon в css
+var SURVIVAL_X = 73;     // левый край от Anchor().x: правый край хелсбара (OWN_BAR_X + OWN_BAR_WIDTH) + 2.5px
+var SURVIVAL_Y = -1;     // верх от Anchor().y: по центру полоски HP
+
 // Сколько держать место снятого значка в ожидании взрыва: событие и снятие
 // баффа приходят в один тик, но Refresh может увидеть снятие раньше.
 var BURST_WAIT = 0.5;
@@ -173,6 +181,9 @@ var ownBars = {};      // modifier -> полоска над своим геро�
 var ownShown = 0;      // сколько полосок сейчас над своим героем
 var lastRefresh = -1;
 var iconsOff = false;    // значки выключены в настройках (fateanother_config.js)
+var survivalOff = false; // значок выживания выключен там же отдельным тумблером
+var survivalTracked = {};  // entindex -> запись из nettable survival_icons
+var survivalUnits = {};    // entindex -> панель значка
 var root = $('#EffectBarsRoot');
 
 
@@ -595,6 +606,8 @@ function Refresh() {
 	var now = Game.GetGameTime();
 	var seen = {};
 
+	RefreshSurvival(localTeam, spectator, now);
+
 	visible = [];
 
 	for (var key in tracked) {
@@ -665,6 +678,157 @@ function Refresh() {
 	for (var index in units) {
 		if (!seen[index]) {
 			DestroyUnit(index);
+		}
+	}
+}
+
+
+function OnSurvivalNetTable(table, key, data) {
+	var entity = parseInt(key, 10);
+	if (data && data.on === 1) {
+		survivalTracked[entity] = data;
+	} else {
+		delete survivalTracked[entity];
+	}
+}
+
+
+function BuildSurvival(entity) {
+	var panel = $.CreatePanel('Panel', root, '');
+	panel.AddClass('SurvivalIcon');
+
+	var medal = $.CreatePanel('Panel', panel, '');
+	medal.AddClass('SurvivalMedal');
+
+	// перезарядка: тёмный сектор на оставшуюся долю, как у иконок способностей
+	var shade = $.CreatePanel('Panel', panel, '');
+	shade.AddClass('SurvivalShade');
+
+	// после срабатывания: кольцо оставшегося времени баффа
+	var ring = $.CreatePanel('Panel', panel, '');
+	ring.AddClass('SurvivalRing');
+
+	var count = $.CreatePanel('Label', panel, '');
+	count.AddClass('SurvivalCount');
+	count.text = '';
+
+	var state = { panel: panel, shade: shade, ring: ring, count: count, kind: '', mode: '', lastCount: -1, lastSweep: -1 };
+	survivalUnits[entity] = state;
+	return state;
+}
+
+
+function DestroySurvival(entity) {
+	var state = survivalUnits[entity];
+	if (!state) {
+		return;
+	}
+	state.panel.DeleteAsync(0);
+	delete survivalUnits[entity];
+}
+
+
+// Доля оставшегося времени в градусах дуги от 12 часов по часовой стрелке.
+function Sweep(remaining, length) {
+	if (!(length > 0)) {
+		return 360;
+	}
+	return Math.round(Math.min(remaining / length, 1) * 3600) / 10;
+}
+
+
+function UpdateSurvival(state, data, now) {
+	if (data.kind !== state.kind) {
+		if (state.kind) {
+			state.panel.RemoveClass('Kind_' + state.kind);
+		}
+		state.kind = data.kind;
+		state.panel.AddClass('Kind_' + data.kind);
+	}
+
+	var mode = 'Ready';
+	var remaining = 0;
+	var length = 0;
+	if (data.act_end > now) {
+		mode = 'Active';
+		remaining = data.act_end - now;
+		length = data.act_len;
+	} else if (data.cd_end > now) {
+		mode = 'Cooldown';
+		remaining = data.cd_end - now;
+		length = data.cd_len;
+	}
+
+	if (mode !== state.mode) {
+		state.panel.SetHasClass('Ready', mode === 'Ready');
+		state.panel.SetHasClass('Active', mode === 'Active');
+		state.panel.SetHasClass('Cooldown', mode === 'Cooldown');
+		if (mode === 'Ready' && state.mode === 'Cooldown') {
+			state.panel.TriggerClass('Refreshed');
+		}
+		state.mode = mode;
+		state.lastSweep = -1;
+	}
+
+	var sweep = mode === 'Ready' ? 0 : Sweep(remaining, length);
+	if (sweep !== state.lastSweep) {
+		state.lastSweep = sweep;
+		var clip = 'radial( 50% 50%, 0deg, ' + sweep + 'deg )';
+		state.shade.style.clip = clip;
+		state.ring.style.clip = clip;
+	}
+
+	// секунды - только на перезарядке, на баффе хватает кольца
+	var shown = mode === 'Cooldown' ? Math.ceil(remaining) : -1;
+	if (shown !== state.lastCount) {
+		state.lastCount = shown;
+		state.count.text = shown > 0 ? String(shown) : '';
+		state.count.SetHasClass('Wide', shown >= 100);
+	}
+}
+
+
+function RefreshSurvival(localTeam, spectator, now) {
+	var seen = {};
+
+	for (var key in survivalTracked) {
+		var entity = parseInt(key, 10);
+		var data = survivalTracked[key];
+
+		if (!UnitShown(entity, data, localTeam, spectator)) {
+			continue;
+		}
+
+		var state = survivalUnits[entity] || BuildSurvival(entity);
+		UpdateSurvival(state, data, now);
+		seen[entity] = true;
+	}
+
+	for (var index in survivalUnits) {
+		if (!seen[index]) {
+			DestroySurvival(index);
+		}
+	}
+}
+
+
+function PlaceSurvival(scale) {
+	for (var key in survivalUnits) {
+		var state = survivalUnits[key];
+		var entity = parseInt(key, 10);
+		var at = Entities.IsValidEntity(entity) ? Anchor(entity, scale) : null;
+
+		state.panel.SetHasClass('Hidden', !at);
+		if (!at) {
+			continue;
+		}
+
+		var x = Math.round(at.x + SURVIVAL_X);
+		var y = Math.round(at.y + SURVIVAL_Y);
+		if (x !== state.x || y !== state.y) {
+			state.x = x;
+			state.y = y;
+			state.panel.style.position = x + 'px ' + y + 'px 0px';
 		}
 	}
 }
@@ -755,6 +919,13 @@ function Update() {
 		root.SetHasClass('IconsOff', off);
 	}
 
+	// значок выживания - отдельным тумблером
+	var survivalHidden = GameUI.CustomUIConfig().fateSurvivalIconsHidden === true;
+	if (survivalHidden !== survivalOff) {
+		survivalOff = survivalHidden;
+		root.SetHasClass('SurvivalOff', survivalHidden);
+	}
+
 	var now = Game.GetGameTime();
 	if (now - lastRefresh >= REFRESH_INTERVAL || now < lastRefresh) {
 		lastRefresh = now;
@@ -793,6 +964,7 @@ function Update() {
 	}
 
 	PlaceOwnBars(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), scale);
+	PlaceSurvival(scale);
 }
 
 
@@ -802,6 +974,11 @@ function Update() {
 		OnNetTable('effect_bars', all[i].key, all[i].value);
 	}
 	CustomNetTables.SubscribeNetTableListener('effect_bars', OnNetTable);
+	var survival = CustomNetTables.GetAllTableValues('survival_icons') || [];
+	for (var k = 0; k < survival.length; k++) {
+		OnSurvivalNetTable('survival_icons', survival[k].key, survival[k].value);
+	}
+	CustomNetTables.SubscribeNetTableListener('survival_icons', OnSurvivalNetTable);
 	GameEvents.Subscribe('effect_bars_burst', OnBurst);
 	Update();
 })();
