@@ -284,6 +284,10 @@ return {
 			local HASSAN = "modifier_dirk_poison_slow"
 			local HASSAN_DOT = "modifier_dirk_poison"
 
+			-- foe: кастер - ближайший другой юнит, а не свой герой (проверка
+			-- фильтров «чьи эффекты показывать» во вкладке Effects)
+			local foe = args[1] == "foe"
+			if foe then table.remove(args, 1) end
 			local withSelf = args[1] == "me"
 			if withSelf then table.remove(args, 1) end
 
@@ -321,9 +325,14 @@ return {
 			if args[1] == "boom" then
 				for _, unit in pairs(targets) do
 					unit:RemoveModifierByName(LI)
-					EffectBars:Burst(unit, "shuwen")
+					EffectBars:Burst(unit, "shuwen", hero)
 				end
 				return
+			end
+
+			local owner = hero
+			if foe and targets[1] then
+				owner = targets[1]
 			end
 
 			local li = tonumber(args[1]) or 25
@@ -341,22 +350,22 @@ return {
 
 			for _, unit in pairs(targets) do
 				if li > 0 then
-					unit:AddNewModifier(hero, nil, LI, { duration = 15, stacks = li })
+					unit:AddNewModifier(owner, nil, LI, { duration = 15, stacks = li })
 				end
 				if saito > 0 then
-					local mod = unit:AddNewModifier(hero, nil, SAITO, { duration = 8 })
+					local mod = unit:AddNewModifier(owner, nil, SAITO, { duration = 8 })
 					if mod then mod:SetStackCount(saito) end
 				end
 				if mura > 0 then
-					local mod = unit:AddNewModifier(hero, nil, MURA, { duration = 20 })
+					local mod = unit:AddNewModifier(owner, nil, MURA, { duration = 20 })
 					if mod then mod:SetStackCount(mura) end
 				end
 				if robin > 0 then
-					local mod = unit:AddNewModifier(hero, nil, ROBIN, { duration = 15 })
+					local mod = unit:AddNewModifier(owner, nil, ROBIN, { duration = 15 })
 					if mod then mod:SetStackCount(robin) end
 				end
 				if scathach > 0 then
-					local mod = unit:AddNewModifier(hero, nil, SCATHACH, { duration = 10 })
+					local mod = unit:AddNewModifier(owner, nil, SCATHACH, { duration = 10 })
 					if mod then mod:SetStackCount(math.min(scathach, 10)) end
 				end
 				-- проклятие Альтер берёт урон от GetAbility() в OnDestroy и в
@@ -364,26 +373,26 @@ return {
 				-- вешаем, только если она у героя есть
 				local curse = hero:FindAbilityByName("atalanta_curse")
 				if alter > 0 and curse then
-					local mod = unit:AddNewModifier(hero, curse, ALTER, { duration = 10 })
+					local mod = unit:AddNewModifier(owner, curse, ALTER, { duration = 10 })
 					if mod then mod:SetStackCount(alter) end
 				end
 				if atalanta > 0 then
-					local mod = unit:AddNewModifier(hero, nil, ATALANTA, { duration = 7 })
+					local mod = unit:AddNewModifier(owner, nil, ATALANTA, { duration = 7 })
 					if mod then mod:SetStackCount(atalanta) end
 				end
 				if vlad > 0 and rending then
-					local mod = unit:AddNewModifier(hero, rending, VLAD, { duration = 10 })
+					local mod = unit:AddNewModifier(owner, rending, VLAD, { duration = 10 })
 					if mod then mod:SetStackCount(vlad) end
 				end
 				if medusa > 0 and chains then
-					local mod = unit:AddNewModifier(hero, chains, MEDUSA, { duration = 7 })
+					local mod = unit:AddNewModifier(owner, chains, MEDUSA, { duration = 7 })
 					if mod then mod:SetStackCount(medusa) end
 				end
 				if hassan > 0 then
 					-- урон 0: проверяем только отображение
-					unit:AddNewModifier(hero, nil, HASSAN_DOT, { duration = 6, PoisonDamage = 0, PoisonSlow = 0 })
+					unit:AddNewModifier(owner, nil, HASSAN_DOT, { duration = 6, PoisonDamage = 0, PoisonSlow = 0 })
 					unit:RemoveModifierByName(HASSAN)
-					local mod = unit:AddNewModifier(hero, nil, HASSAN, { duration = 12 })
+					local mod = unit:AddNewModifier(owner, nil, HASSAN, { duration = 12 })
 					if mod then mod:SetStackCount(hassan) end
 				end
 			end

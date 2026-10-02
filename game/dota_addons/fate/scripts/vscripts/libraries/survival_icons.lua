@@ -8,7 +8,7 @@
 --
 -- Есть ли эффект, решают флаги атрибутов на герое - клиент их не видит, -
 -- поэтому состояние считает сервер. В nettable survival_icons по записи на
--- entindex героя: { on, vis, kind, cd_end, cd_len, act_end, act_len }.
+-- entindex героя: { on, vis, kind, cd_end, cd_len, act_end, act_len, spent }.
 -- Время - абсолютное игровое, клиент сам ведёт отсчёт, так что запись
 -- меняется только при срабатывании, а не каждый тик.
 --
@@ -57,7 +57,8 @@ end
 
 
 -- has: есть ли эффект сейчас; cd: перезарядка; active: бафф после
--- срабатывания, пока он идёт (кольцо времени на значке).
+-- срабатывания, пока он идёт (кольцо времени на значке); spent: заряд
+-- израсходован без отсчёта (значок погашен до нового заряда).
 local KINDS = {
     {
         kind = "cu",
@@ -101,9 +102,12 @@ local KINDS = {
         cd = function(hero) return AbilityTime(hero, "gawain_blessing_of_fairy") end,
     },
     {
-        -- God Hand без перезарядки: значок есть, пока есть заряд
+        -- God Hand без перезарядки: заряд на раунд (modifier_god_hand_stock
+        -- снимается при воскрешении, выдаётся в InitializeRound) - после
+        -- воскрешения значок погашен до следующего раунда
         kind = "heracles",
-        has = function(hero) return hero:HasModifier("modifier_god_hand_stock") end,
+        has = function(hero) return Learned(hero, "berserker_5th_god_hand") end,
+        spent = function(hero) return not hero:HasModifier("modifier_god_hand_stock") end,
     },
     {
         kind = "lancelot",
@@ -164,7 +168,8 @@ local function State(hero, now)
 
     for _, def in ipairs(KINDS) do
         if def.has(hero) then
-            local value = { on = 1, kind = def.kind, cd_end = 0, cd_len = 0, act_end = 0, act_len = 0 }
+            local value = { on = 1, kind = def.kind, cd_end = 0, cd_len = 0, act_end = 0, act_len = 0, spent = 0 }
+            if def.spent and def.spent(hero) then value.spent = 1 end
 
             local remaining, length = nil, nil
             if def.cd then remaining, length = def.cd(hero) end
@@ -190,7 +195,7 @@ end
 local function Same(a, b)
     if a == nil or b == nil then return a == b end
     return a.kind == b.kind and a.vis == b.vis
-        and a.cd_end == b.cd_end and a.act_end == b.act_end
+        and a.cd_end == b.cd_end and a.act_end == b.act_end and a.spent == b.spent
 end
 
 

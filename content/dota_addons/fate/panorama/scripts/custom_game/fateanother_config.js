@@ -140,24 +140,8 @@ function OnConfigZoneMsgToggle(){
     panel.SetHasClass("ZoneMsgHidden", !toggle.checked);
 }
 
-// Значки эффектов над хелсбаром (effect_bars.js), по умолчанию включены.
-// Флаг лежит в CustomUIConfig: его читает effect_bars.js, и он переживает
-// перезагрузку панели конфига, как и прочее состояние там.
-function OnConfigEffectIconsToggle(){
-    var configPanel = $.GetContextPanel();
-    var toggle = configPanel.FindChildTraverse("optionEffectIcons");
-    if (!toggle) return;
-    GameUI.CustomUIConfig().fateEffectIconsHidden = !toggle.checked;
-}
-
-// Значок Battle Continuation справа от хелсбара (effect_bars.js), отдельно
-// от значков эффектов; по умолчанию включён.
-function OnConfigSurvivalIconsToggle(){
-    var configPanel = $.GetContextPanel();
-    var toggle = configPanel.FindChildTraverse("optionSurvivalIcons");
-    if (!toggle) return;
-    GameUI.CustomUIConfig().fateSurvivalIconsHidden = !toggle.checked;
-}
+// Тумблеры значков эффектов и значка выживания живут во вкладке Effects
+// (fateanother_effects.js) и сохраняются на сервере вместе с фильтрами.
 
 function OnConfig9Toggle()
 {
@@ -530,16 +514,6 @@ function RegisterAllMasterUnits(data) {
     if (zoneMsg) {
         zoneMsg.checked = true;
         OnConfigZoneMsgToggle();
-    }
-    var effectIcons = $.GetContextPanel().FindChildTraverse("optionEffectIcons");
-    if (effectIcons) {
-        effectIcons.checked = GameUI.CustomUIConfig().fateEffectIconsHidden !== true;
-        OnConfigEffectIconsToggle();
-    }
-    var survivalIcons = $.GetContextPanel().FindChildTraverse("optionSurvivalIcons");
-    if (survivalIcons) {
-        survivalIcons.checked = GameUI.CustomUIConfig().fateSurvivalIconsHidden !== true;
-        OnConfigSurvivalIconsToggle();
     }
     var zonePos = $.GetContextPanel().FindChildTraverse("FateConfigZonePos");
     if (zonePos) {

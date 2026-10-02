@@ -451,7 +451,7 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 	-- взрыв стаков рисует ряд эффектов на месте значка (effect_bars.js),
 	-- раньше это был партикль li_shuwen_stacks_jopa над головой; играет и
 	-- на цели без стаков - тогда по центру ряда
-	EffectBars:Burst(hTarget, "shuwen")
+	EffectBars:Burst(hTarget, "shuwen", caster)
 	if caster:HasModifier("modifier_berserk") then
 		DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	else

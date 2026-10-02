@@ -1,0 +1,50 @@
+<!-- Вкладка Effects окна настроек: что показывать в ряду значков над
+     хелсбарами (effect_bars.js). Состояние и сохранение на сервер ведёт
+     effect_bars.js, эта панель только правит профиль - см. fateanother_effects.js. -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/fateanother_effects.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/fateanother_effects.vjs_c" />
+	</scripts>
+	<Panel class="EffectsRoot" hittest="false">
+		<Panel id="EffectsLeft" class="EffectsColumn" hittest="false">
+			<Label class="EffectsHeader" text="#FA_Effects_Title" hittest="false" />
+			<ToggleButton id="EffIcons" class="EffectsOption" text="#FA_Config_EffectIcons" onactivate="OnEffIconsToggle()" />
+			<ToggleButton id="EffSurvival" class="EffectsOption" text="#FA_Config_SurvivalIcons" onactivate="OnEffSurvivalToggle()" />
+
+			<Label class="EffectsSubHeader" text="#FA_Effects_Scope" hittest="false" />
+			<RadioButton id="EffScope_all" group="EffScope" class="EffectsOption" text="#FA_Effects_Scope_all" onactivate="OnEffScope('all')" />
+			<RadioButton id="EffScope_from_me" group="EffScope" class="EffectsOption" text="#FA_Effects_Scope_from_me" onactivate="OnEffScope('from_me')" />
+			<RadioButton id="EffScope_on_me" group="EffScope" class="EffectsOption" text="#FA_Effects_Scope_on_me" onactivate="OnEffScope('on_me')" />
+			<RadioButton id="EffScope_enemies" group="EffScope" class="EffectsOption" text="#FA_Effects_Scope_enemies" onactivate="OnEffScope('enemies')" />
+			<RadioButton id="EffScope_allies" group="EffScope" class="EffectsOption" text="#FA_Effects_Scope_allies" onactivate="OnEffScope('allies')" />
+
+			<ToggleButton id="EffOwn" class="EffectsOption EffectsOwn" text="#FA_Effects_Own" onactivate="OnEffOwnToggle()" />
+			<Label class="EffectsHint" text="#FA_Effects_Own_Hint" hittest="false" />
+
+			<Panel class="EffectsSaveRow" hittest="false">
+				<Button id="EffSave" class="EffectsSaveButton" onactivate="OnEffSave()">
+					<Label text="#FA_Effects_Save" />
+				</Button>
+				<Label id="EffStatus" class="EffectsStatus" text="" hittest="false" />
+			</Panel>
+			<Label class="EffectsHint" text="#FA_Effects_Site" hittest="false" />
+		</Panel>
+		<Panel id="EffectsRight" class="EffectsColumn" hittest="false">
+			<Panel class="EffectsListHead" hittest="false">
+				<Label class="EffectsHeader" text="#FA_Effects_List" hittest="false" />
+				<Button class="EffectsSmallButton" onactivate="OnEffAll(true)">
+					<Label text="#FA_Effects_AllOn" />
+				</Button>
+				<Button class="EffectsSmallButton" onactivate="OnEffAll(false)">
+					<Label text="#FA_Effects_AllOff" />
+				</Button>
+			</Panel>
+			<Label class="EffectsHint" text="#FA_Effects_List_Hint" hittest="false" />
+			<Panel id="EffList" class="EffectsList" />
+		</Panel>
+	</Panel>
+</root>

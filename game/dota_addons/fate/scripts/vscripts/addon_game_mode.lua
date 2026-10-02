@@ -47,11 +47,14 @@ require('blink')
 require('wrappers')
 -- fate_mmr требуется НИЖЕ (рядом с FateServerDisabled) — см. комментарий там
 
-_G.IsPickPhase = true
-_G.IsPreRound = true
-_G.RoundStartTime = 0
+-- Фаза раунда переживает script_reload: иначе перезагрузка посреди раунда
+-- ставит FATE_PRE_GAME, и до следующего раунда не работает всё, что ждёт
+-- FATE_ROUND_ONGOING (God Hand Геракла перестаёт воскрешать)
+if _G.IsPickPhase == nil then _G.IsPickPhase = true end
+if _G.IsPreRound == nil then _G.IsPreRound = true end
+_G.RoundStartTime = _G.RoundStartTime or 0
 _G.nCountdown = 0
-_G.CurrentGameState = "FATE_PRE_GAME"
+_G.CurrentGameState = _G.CurrentGameState or "FATE_PRE_GAME"
 _G.GameMap = ""
 _G.LaPucelleActivated = false
 _G.FIRST_BLOOD_TRIGGERED = false
@@ -1426,6 +1429,7 @@ end
 -- ============================================================================
 pcall(require, "fate_secrets")
 FATE_BINDS_HOST = "https://fate-binds-server.glebucha1112.workers.dev"-- or "http://localhost:8787"
+FATE_BINDS_HOST = "http://localhost:8787" -- ZT_DEBUG: временно, тест настроек эффектов на локальном воркере
 FATE_API_KEY = FATE_API_KEY or ""
 
 -- Версия сборки: хеш СОДЕРЖИМОГО геймплейных файлов, генерируется панелью
@@ -1465,6 +1469,8 @@ end
 -- см. fate_http.lua). Должна быть загружена ДО fate_mmr — тот зовёт FateCreateHTTPRequest.
 require('fate_http')
 require('fate_mmr')
+-- настройки игрока (фильтры значков эффектов) на том же сервере, что и бинды
+require('fate_settings')
 
 -- Пер-игрок гейт на запросы к серверу биндов: не больше FATE_BINDS_REQ_MAX за
 -- FATE_BINDS_REQ_WINDOW секунд. Клиентский лок обходится хакнутым клиентом —
@@ -4870,6 +4876,8 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("player_send_emote", OnPlayerSendEmote )
     CustomGameEventManager:RegisterListener("player_save_binds", OnPlayerSaveBinds )
     CustomGameEventManager:RegisterListener("player_load_binds", OnPlayerLoadBinds )
+    -- настройки игрока: player_save_settings / player_load_settings (fate_settings.lua)
+    FateSettings:Init()
     -- Реле HTTP через клиента: ready/response/failure (fate_http.lua)
     FateHttp:Init()
     -- Кнопка «Шафл по MMR» на экране выбора команд (проверка хоста — внутри)

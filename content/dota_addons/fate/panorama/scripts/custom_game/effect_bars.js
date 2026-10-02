@@ -17,6 +17,8 @@
 
 var EFFECTS = [
 	{
+		id: 'shuwen',
+		hero: 'npc_dota_hero_bloodseeker',
 		theme: 'Shuwen',
 		modifier: 'modifier_nss_shock_stackable',
 		ability: 'lishuwen_no_second_strike',
@@ -26,6 +28,8 @@ var EFFECTS = [
 		tiers: { flag: 'nss_sa', keys: ['sa_tier1_stacks', 'sa_tier2_stacks'], fallbacks: [10, 25] },
 	},
 	{
+		id: 'saito',
+		hero: 'npc_dota_hero_terrorblade',
 		theme: 'Saito',
 		modifier: 'saito_formlessness_new_stacks',
 		ability: 'saito_formlessness_new',
@@ -33,12 +37,16 @@ var EFFECTS = [
 		maxFallback: 10,
 	},
 	{
+		id: 'muramasa',
+		hero: 'npc_dota_hero_magnataur',
 		theme: 'Muramasa',
 		modifier: 'modifier_muramasa_sword_drop_enemy_buff',
 		// заряды меча: в KV это sword_stacks атрибута, а атрибут живёт на Мастере
 		maxFallback: 5,
 	},
 	{
+		id: 'robin',
+		hero: 'npc_dota_hero_sniper',
 		theme: 'Robin',
 		modifier: 'modifier_robin_poison_stack',
 		// потолок яда зашит в способностях Робина: 30, с атрибутом Yew Bow - 50;
@@ -47,12 +55,16 @@ var EFFECTS = [
 		maxFlag: { flag: 'robin_sa', value: 50 },
 	},
 	{
+		id: 'scathach',
+		hero: 'npc_dota_hero_monkey_king',
 		theme: 'Scathach',
 		modifier: 'modifier_stachach_gae_bolg_curse',
 		// потолок проклятия Gae Bolg зашит в OnRefresh модификатора
 		maxFallback: 10,
 	},
 	{
+		id: 'atalanta_alter',
+		hero: 'npc_dota_hero_ursa',
 		theme: 'AtalantaAlter',
 		modifier: 'modifier_atalanta_curse',
 		// потолка нет; со 100 стаков при атрибуте Vision Альтер видит цель -
@@ -61,24 +73,32 @@ var EFFECTS = [
 		maxFlag: { flag: 'atalanta_vision', value: 100 },
 	},
 	{
+		id: 'atalanta',
+		hero: 'npc_dota_hero_drow_ranger',
 		theme: 'Atalanta',
 		modifier: 'modifier_celestial_arrow_stacking_debuff',
 		// стаки стрел с атрибута Calydonian Snipe, потолка нет
 		maxFallback: 0,
 	},
 	{
+		id: 'vlad',
+		hero: 'npc_dota_hero_tidehunter',
 		theme: 'Vlad',
 		modifier: 'modifier_bleed',
 		// кровотечение Влада (passive rending), потолка нет
 		maxFallback: 0,
 	},
 	{
+		id: 'medusa',
+		hero: 'npc_dota_hero_templar_assassin',
 		theme: 'Medusa',
 		modifier: 'modifier_medusa_bleed',
 		// кровотечение с атрибута цепей Медузы, потолка нет
 		maxFallback: 0,
 	},
 	{
+		id: 'hassan',
+		hero: 'npc_dota_hero_bounty_hunter',
 		theme: 'Hassan',
 		// Яд Хассана собран из трёх модификаторов: урон наносит скрытый
 		// modifier_dirk_poison, умножая на стаки slow + venom, а стаки живут
@@ -97,6 +117,8 @@ var EFFECTS = [
 // (capExtra в записи nettable, когда он зависит от атрибута).
 var OWN_BARS = [
 	{
+		id: 'hijikata',
+		hero: 'npc_dota_hero_spirit_breaker',
 		theme: 'Hijikata',
 		modifier: 'modifier_hijikata_ult_stacks',
 		// стаки = накопленный урон в % от порога; с атрибутом BC потолок выше
@@ -108,6 +130,8 @@ var OWN_BARS = [
 		label: function (stacks) { return stacks + '%'; },
 	},
 	{
+		id: 'nobunaga',
+		hero: 'npc_dota_hero_nevermore',
 		theme: 'Nobunaga',
 		// стаки, которые тратит D (demon_king_release)
 		modifier: 'modifier_demon_king_materialization',
@@ -132,7 +156,7 @@ var OWN_BAR_STEP = 21;
 // Пока взрыв идёт, значок держит своё место в ряду пустым - соседи не
 // съезжают, взрыв и иероглиф играют ровно на нём.
 var BURSTS = {
-	shuwen: { modifier: 'modifier_nss_shock_stackable', theme: 'Shuwen', life: 2.3 },
+	shuwen: { id: 'shuwen', modifier: 'modifier_nss_shock_stackable', theme: 'Shuwen', life: 2.3 },
 };
 
 
@@ -164,9 +188,9 @@ var EXPIRING_TIME = 1.5;
 // пассивки) справа от хелсбара героя. Есть ли он и его перезарядку считает
 // сервер (libraries/survival_icons.lua, nettable survival_icons): флаги
 // атрибутов клиент не видит. Время в записи абсолютное, отсчёт идёт здесь.
-var SURVIVAL_SIZE = 26;  // .SurvivalIcon в css
+var SURVIVAL_SIZE = 34;  // .SurvivalIcon в css
 var SURVIVAL_X = 73;     // левый край от Anchor().x: правый край хелсбара (OWN_BAR_X + OWN_BAR_WIDTH) + 2.5px
-var SURVIVAL_Y = -1;     // верх от Anchor().y: по центру полоски HP
+var SURVIVAL_Y = -5;     // верх от Anchor().y: по центру полоски HP
 
 // Сколько держать место снятого значка в ожидании взрыва: событие и снятие
 // баффа приходят в один тик, но Refresh может увидеть снятие раньше.
@@ -180,11 +204,323 @@ var bursts = [];       // идущие взрывы
 var ownBars = {};      // modifier -> полоска над своим героем
 var ownShown = 0;      // сколько полосок сейчас над своим героем
 var lastRefresh = -1;
-var iconsOff = false;    // значки выключены в настройках (fateanother_config.js)
-var survivalOff = false; // значок выживания выключен там же отдельным тумблером
+var iconsOff = false;    // значки выключены в настройках (icons в профиле, вкладка Effects)
+var survivalOff = false; // значок выживания выключен там же отдельным тумблером (survival)
 var survivalTracked = {};  // entindex -> запись из nettable survival_icons
 var survivalUnits = {};    // entindex -> панель значка
 var root = $('#EffectBarsRoot');
+
+
+// --- Что показывать: настройки игрока ---------------------------------------
+//
+// Правятся во вкладке Effects окна настроек (fateanother_effects.js) и на
+// сайте (/me/effects), хранятся на сервере статистики по steamid
+// (fate_settings.lua -> /settings). Профиль:
+//   scope    - чьи эффекты видны: all | from_me | on_me | enemies | allies;
+//   own      - наложенные моим героем видны всегда, поверх off и scope;
+//   off      - id выключенных эффектов: новый эффект по умолчанию включён;
+//   icons    - значки над хелсбарами вообще; survival - значок выживания.
+//
+// Состояние живёт в CustomUIConfig().fateEffects: его читают этот файл и
+// вкладка, и оно переживает перезагрузку панелей. Загрузку ведёт этот файл -
+// HUD жив весь матч, вкладка может быть ни разу не открыта. Правка
+// применяется сразу, а на сервер уходит по кнопке Save во вкладке.
+
+var SCOPES = ['all', 'from_me', 'on_me', 'enemies', 'allies'];
+var SETTINGS_SAVE_TIMEOUT = 15;
+var SETTINGS_LOAD_TIMEOUT = 20;   // с: реле в начале матча может быть не готово
+var SETTINGS_LOAD_TRIES = 3;
+var SETTINGS_MAX_OFF = 64;
+
+
+// по умолчанию - только эффекты на своём герое (и свои, own): чужие стаки на
+// чужих героях у новичка забивали бы экран
+function DefaultSettings() {
+	return { v: 1, scope: 'on_me', own: 1, off: [], icons: 1, survival: 1 };
+}
+
+
+function Flag(value) {
+	return value === 0 || value === false ? 0 : 1;
+}
+
+
+// Незнакомые id в off не выбрасываются: их мог выключить сайт или версия
+// аддона новее этой.
+function SanitizeSettings(raw) {
+	var s = DefaultSettings();
+	if (!raw || typeof raw !== 'object') {
+		return s;
+	}
+	if (SCOPES.indexOf(raw.scope) >= 0) {
+		s.scope = raw.scope;
+	}
+	s.own = Flag(raw.own);
+	s.icons = Flag(raw.icons);
+	s.survival = Flag(raw.survival);
+	if (raw.off && raw.off.length) {
+		for (var i = 0; i < raw.off.length && s.off.length < SETTINGS_MAX_OFF; i++) {
+			var id = raw.off[i];
+			if (typeof id === 'string' && /^[a-z0-9_]{1,32}$/.test(id) && s.off.indexOf(id) < 0) {
+				s.off.push(id);
+			}
+		}
+	}
+	return s;
+}
+
+
+// Список для вкладки: id, герой (имя - из его токена локализации), подпись
+// эффекта и медальон (у полосок над своим героем медальона нет).
+function Catalog() {
+	var list = [];
+	for (var e = 0; e < EFFECTS.length; e++) {
+		list.push({ id: EFFECTS[e].id, hero: EFFECTS[e].hero, name: '#FA_Effect_' + EFFECTS[e].id, medal: EFFECTS[e].id, own: false });
+	}
+	for (var b = 0; b < OWN_BARS.length; b++) {
+		list.push({ id: OWN_BARS[b].id, hero: OWN_BARS[b].hero, name: '#FA_Effect_' + OWN_BARS[b].id, medal: '', own: true });
+	}
+	return list;
+}
+
+
+function Store() {
+	var config = GameUI.CustomUIConfig();
+	if (!config.fateEffects) {
+		config.fateEffects = {
+			settings: DefaultSettings(),
+			offMap: {},
+			load: 'idle',      // idle | loading | loaded | none (на сервере пусто) | failed | local
+			loadTry: 0,        // номер запроса: ответ таймера сверяет, что он про свой
+			loadTries: 0,      // попыток в текущей серии
+			save: 'idle',      // idle | pending | saving | saved | failed
+			saveSeq: 0,
+			dirty: false,      // есть правки, которых нет на сервере
+			saveQueued: false, // Save нажат, пока шла загрузка: сохранить после неё
+			lastSaved: null,   // строка, которая точно лежит на сервере
+			pendingJson: null,
+			onChange: null,    // вкладка вешает сюда обновление своей панели
+		};
+	}
+	return config.fateEffects;
+}
+
+
+function Notify(store) {
+	if (typeof store.onChange === 'function') {
+		try {
+			store.onChange();
+		} catch (err) {
+			store.onChange = null;   // панель вкладки удалена
+		}
+	}
+}
+
+
+function ApplySettings(store, settings) {
+	store.settings = settings;
+	store.offMap = {};
+	for (var i = 0; i < settings.off.length; i++) {
+		store.offMap[settings.off[i]] = true;
+	}
+	lastRefresh = -1;   // перечитать значки в ближайший кадр
+	Notify(store);
+}
+
+
+function LocalCanSave() {
+	var player = Players.GetLocalPlayer();
+	return player >= 0 && !Players.IsSpectator(player);
+}
+
+
+function SaveSettingsNow(store) {
+	if (store.load === 'loading') {
+		// иначе ответ загрузки пришёл бы после и сравнивал со старым
+		store.saveQueued = true;
+		Notify(store);
+		return;
+	}
+	store.saveQueued = false;
+	if (!LocalCanSave()) {
+		store.save = 'idle';
+		Notify(store);
+		return;
+	}
+
+	var json = JSON.stringify(store.settings);
+	if (json === store.lastSaved) {
+		store.dirty = false;
+		store.save = 'saved';
+		Notify(store);
+		return;
+	}
+
+	store.save = 'saving';
+	store.pendingJson = json;
+	var seq = ++store.saveSeq;
+	GameEvents.SendCustomGameEventToServer('player_save_settings', { data: json });
+	Notify(store);
+
+	$.Schedule(SETTINGS_SAVE_TIMEOUT, function () {
+		var s = Store();
+		if (s.save === 'saving' && s.saveSeq === seq) {
+			s.save = 'failed';
+			Notify(s);
+		}
+	});
+}
+
+
+// Вкладка зовёт это на каждую правку: применяется сразу, на сервер - по
+// кнопке Save (SaveSettingsNow). Вернул как было - правок снова нет.
+function ChangeSettings(next) {
+	var store = Store();
+	ApplySettings(store, SanitizeSettings(next));
+	if (store.save !== 'saving') {
+		store.dirty = JSON.stringify(store.settings) !== store.lastSaved;
+		store.save = store.dirty ? 'pending' : (store.lastSaved !== null ? 'saved' : 'idle');
+	} else {
+		store.dirty = true;
+	}
+	Notify(store);
+}
+
+
+// retry - повтор по таймауту; без него начинается новая серия попыток.
+function RequestSettingsLoad(retry) {
+	var store = Store();
+	var player = Players.GetLocalPlayer();
+	if (player < 0) {
+		$.Schedule(1, RequestSettingsLoad);   // игрок ещё не назначен
+		return;
+	}
+	if (Players.IsSpectator(player)) {
+		store.load = 'local';
+		Notify(store);
+		return;
+	}
+
+	store.load = 'loading';
+	store.loadTries = retry ? store.loadTries + 1 : 1;
+	var attempt = ++store.loadTry;
+	GameEvents.SendCustomGameEventToServer('player_load_settings', {});
+	Notify(store);
+
+	$.Schedule(SETTINGS_LOAD_TIMEOUT, function () {
+		var s = Store();
+		if (s.load !== 'loading' || s.loadTry !== attempt) {
+			return;
+		}
+		if (s.loadTries < SETTINGS_LOAD_TRIES) {
+			RequestSettingsLoad(true);
+			return;
+		}
+		s.load = 'failed';
+		Notify(s);
+		if (s.saveQueued) {
+			SaveSettingsNow(s);
+		}
+	});
+}
+
+
+function OnSettingsLoaded(data) {
+	var store = Store();
+	var ok = data && data.ok == 1 && typeof data.data === 'string';
+
+	if (ok) {
+		var parsed = null;
+		try {
+			parsed = JSON.parse(data.data);
+		} catch (err) {
+			parsed = null;
+		}
+		var settings = SanitizeSettings(parsed);
+		store.lastSaved = JSON.stringify(settings);
+		store.load = 'loaded';
+		// правки, сделанные, пока шла загрузка, важнее сохранённого
+		if (!store.dirty) {
+			ApplySettings(store, settings);
+			store.save = 'saved';
+		}
+	} else if (data && data.status == 404) {
+		store.load = 'none';
+	} else {
+		store.load = 'failed';
+	}
+
+	Notify(store);
+	if (store.saveQueued) {
+		SaveSettingsNow(store);
+	}
+}
+
+
+function OnSettingsSaveResult(data) {
+	var store = Store();
+	if (store.save !== 'saving') {
+		return;
+	}
+	if (data && data.ok == 1) {
+		store.lastSaved = store.pendingJson;
+		// правки, сделанные пока шло сохранение, ждут следующего нажатия
+		store.dirty = JSON.stringify(store.settings) !== store.lastSaved;
+		store.save = store.dirty ? 'pending' : 'saved';
+	} else {
+		store.save = 'failed';
+	}
+	Notify(store);
+}
+
+
+// Кто смотрит - один раз на Refresh, а не на каждый значок.
+function ViewContext() {
+	var store = Store();
+	var localPlayer = Players.GetLocalPlayer();
+	return {
+		settings: store.settings,
+		offMap: store.offMap,
+		localPlayer: localPlayer,
+		localHero: Players.GetPlayerHeroEntityIndex(localPlayer),
+		localTeam: Players.GetTeam(localPlayer),
+		spectator: Players.IsSpectator(localPlayer),
+	};
+}
+
+
+// «Мой» эффект - наложенный юнитом моего игрока: герой, Мастер, призванные.
+function FromLocalPlayer(caster, view) {
+	return view.localPlayer >= 0 && caster !== undefined && caster !== null && caster !== -1 &&
+		Entities.IsValidEntity(caster) && Entities.GetPlayerOwnerID(caster) === view.localPlayer;
+}
+
+
+// Виден ли эффект id на юните unit, наложенный caster. У зрителя нет ни
+// своего героя, ни своей команды: «враги» и «союзники» для него - все.
+function EffectAllowed(id, unit, caster, view) {
+	var settings = view.settings;
+	var mine = FromLocalPlayer(caster, view);
+
+	if (settings.own && mine) {
+		return true;
+	}
+	if (view.offMap[id]) {
+		return false;
+	}
+
+	switch (settings.scope) {
+		case 'from_me':
+			return mine;
+		case 'on_me':
+			return unit === view.localHero;
+		case 'enemies':
+			return view.spectator || Entities.GetTeamNumber(unit) !== view.localTeam;
+		case 'allies':
+			return view.spectator || Entities.GetTeamNumber(unit) === view.localTeam;
+	}
+	return true;
+}
 
 
 function ScreenScale() {
@@ -524,7 +860,7 @@ function BuildTicks(state, bar, max) {
 }
 
 
-function RefreshOwnBars(hero) {
+function RefreshOwnBars(hero, view) {
 	var buffs = hero !== -1 && Entities.IsValidEntity(hero) && Entities.IsAlive(hero)
 		? BuffsByName(hero) : {};
 	var data = tracked[hero] || {};
@@ -535,6 +871,10 @@ function RefreshOwnBars(hero) {
 		var bar = OWN_BARS[i];
 		var buff = buffs[bar.modifier];
 		var state = ownBars[bar.modifier];
+
+		if (buff !== undefined && !EffectAllowed(bar.id, hero, Buffs.GetCaster(hero, buff), view)) {
+			buff = undefined;
+		}
 
 		if (buff === undefined) {
 			if (state) {
@@ -599,7 +939,8 @@ function PlaceOwnBars(hero, scale) {
 function Refresh() {
 	var localPlayer = Players.GetLocalPlayer();
 
-	RefreshOwnBars(Players.GetPlayerHeroEntityIndex(localPlayer));
+	var view = ViewContext();
+	RefreshOwnBars(view.localHero, view);
 
 	var localTeam = Players.GetTeam(localPlayer);
 	var spectator = Players.IsSpectator(localPlayer);
@@ -625,6 +966,9 @@ function Refresh() {
 		for (var e = 0; e < EFFECTS.length; e++) {
 			var effect = EFFECTS[e];
 			var read = ReadEffect(effect, entity, buffs);
+			if (read && !EffectAllowed(effect.id, entity, Buffs.GetCaster(entity, read.buff), view)) {
+				read = null;
+			}
 			var state = built && built.chips[effect.modifier];
 
 			if (!read) {
@@ -704,7 +1048,10 @@ function BuildSurvival(entity) {
 	var shade = $.CreatePanel('Panel', panel, '');
 	shade.AddClass('SurvivalShade');
 
-	// после срабатывания: кольцо оставшегося времени баффа
+	// после срабатывания: кольцо оставшегося времени баффа на тёмной дорожке
+	var track = $.CreatePanel('Panel', panel, '');
+	track.AddClass('SurvivalRingTrack');
+
 	var ring = $.CreatePanel('Panel', panel, '');
 	ring.AddClass('SurvivalRing');
 
@@ -753,6 +1100,9 @@ function UpdateSurvival(state, data, now) {
 		mode = 'Active';
 		remaining = data.act_end - now;
 		length = data.act_len;
+	} else if (data.spent === 1) {
+		// заряд израсходован без отсчёта (God Hand до следующего раунда)
+		mode = 'Spent';
 	} else if (data.cd_end > now) {
 		mode = 'Cooldown';
 		remaining = data.cd_end - now;
@@ -763,14 +1113,15 @@ function UpdateSurvival(state, data, now) {
 		state.panel.SetHasClass('Ready', mode === 'Ready');
 		state.panel.SetHasClass('Active', mode === 'Active');
 		state.panel.SetHasClass('Cooldown', mode === 'Cooldown');
-		if (mode === 'Ready' && state.mode === 'Cooldown') {
+		state.panel.SetHasClass('Spent', mode === 'Spent');
+		if (mode === 'Ready' && (state.mode === 'Cooldown' || state.mode === 'Spent')) {
 			state.panel.TriggerClass('Refreshed');
 		}
 		state.mode = mode;
 		state.lastSweep = -1;
 	}
 
-	var sweep = mode === 'Ready' ? 0 : Sweep(remaining, length);
+	var sweep = mode === 'Ready' ? 0 : mode === 'Spent' ? 360 : Sweep(remaining, length);
 	if (sweep !== state.lastSweep) {
 		state.lastSweep = sweep;
 		var clip = 'radial( 50% 50%, 0deg, ' + sweep + 'deg )';
@@ -778,8 +1129,8 @@ function UpdateSurvival(state, data, now) {
 		state.ring.style.clip = clip;
 	}
 
-	// секунды - только на перезарядке, на баффе хватает кольца
-	var shown = mode === 'Cooldown' ? Math.ceil(remaining) : -1;
+	// секунды - на перезарядке и пока бафф идёт (одно кольцо в бою читается плохо)
+	var shown = mode === 'Cooldown' || mode === 'Active' ? Math.ceil(remaining) : -1;
 	if (shown !== state.lastCount) {
 		state.lastCount = shown;
 		state.count.text = shown > 0 ? String(shown) : '';
@@ -795,12 +1146,20 @@ function RefreshSurvival(localTeam, spectator, now) {
 		var entity = parseInt(key, 10);
 		var data = survivalTracked[key];
 
-		if (!UnitShown(entity, data, localTeam, spectator)) {
+		// Battle Continuation Кухулина сам прячет хелсбар
+		// (modifier_battle_cont_active) - значок нужен именно тогда, поэтому
+		// пока эффект сработал, он остаётся и встаёт на место бара
+		var noBar = Entities.IsValidEntity(entity) && Entities.NoHealthBar(entity);
+		var shown = noBar && data.act_end > now
+			? Entities.IsAlive(entity) && TeamSees(entity, data.vis, localTeam, spectator)
+			: UnitShown(entity, data, localTeam, spectator);
+		if (!shown) {
 			continue;
 		}
 
 		var state = survivalUnits[entity] || BuildSurvival(entity);
 		UpdateSurvival(state, data, now);
+		state.noBar = noBar;
 		seen[entity] = true;
 	}
 
@@ -823,7 +1182,8 @@ function PlaceSurvival(scale) {
 			continue;
 		}
 
-		var x = Math.round(at.x + SURVIVAL_X);
+		// без хелсбара - по центру, где был бар, а не сбоку от пустоты
+		var x = Math.round(at.x + (state.noBar ? -SURVIVAL_SIZE / 2 : SURVIVAL_X));
 		var y = Math.round(at.y + SURVIVAL_Y);
 		if (x !== state.x || y !== state.y) {
 			state.x = x;
@@ -844,6 +1204,9 @@ function OnBurst(event) {
 
 	var localPlayer = Players.GetLocalPlayer();
 	if (!TeamSees(entity, event.vis, Players.GetTeam(localPlayer), Players.IsSpectator(localPlayer))) {
+		return;
+	}
+	if (!EffectAllowed(kind.id, entity, event.caster, ViewContext())) {
 		return;
 	}
 
@@ -913,14 +1276,15 @@ function Update() {
 	$.Schedule(0, Update);
 
 	// значки и взрывы прячет класс на корне, полоски над своим героем остаются
-	var off = GameUI.CustomUIConfig().fateEffectIconsHidden === true;
+	var settings = Store().settings;
+	var off = settings.icons === 0;
 	if (off !== iconsOff) {
 		iconsOff = off;
 		root.SetHasClass('IconsOff', off);
 	}
 
 	// значок выживания - отдельным тумблером
-	var survivalHidden = GameUI.CustomUIConfig().fateSurvivalIconsHidden === true;
+	var survivalHidden = settings.survival === 0;
 	if (survivalHidden !== survivalOff) {
 		survivalOff = survivalHidden;
 		root.SetHasClass('SurvivalOff', survivalHidden);
@@ -980,5 +1344,20 @@ function Update() {
 	}
 	CustomNetTables.SubscribeNetTableListener('survival_icons', OnSurvivalNetTable);
 	GameEvents.Subscribe('effect_bars_burst', OnBurst);
+
+	// настройки: вкладка Effects берёт отсюда список и функцию правки
+	var store = Store();
+	store.catalog = Catalog();
+	store.change = ChangeSettings;
+	store.saveNow = function () { SaveSettingsNow(Store()); };
+	store.sanitize = SanitizeSettings;
+	ApplySettings(store, SanitizeSettings(store.settings));
+	GameEvents.Subscribe('fate_settings_loaded', OnSettingsLoaded);
+	GameEvents.Subscribe('fate_settings_save_result', OnSettingsSaveResult);
+	// загрузка - раз за матч; после перезагрузки панели посреди загрузки
+	// её таймер умер вместе со старым контекстом - начинаем заново
+	if (store.load === 'idle' || store.load === 'loading') {
+		RequestSettingsLoad();
+	}
 	Update();
 })();

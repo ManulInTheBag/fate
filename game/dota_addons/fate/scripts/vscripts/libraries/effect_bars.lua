@@ -124,7 +124,9 @@ end
 -- vis на момент события: панорама покажет его тем же, кому показала бы ряд
 -- (своей команде, зрителям и врагам, видящим юнита). Стаки к этому моменту уже
 -- сняты, поэтому маска считается здесь, а не берётся из записи.
-function EffectBars:Burst(unit, kind)
+-- caster - чей эффект взорвался: клиент фильтрует взрыв теми же
+-- настройками, что и значки («только мои эффекты» и т.п.)
+function EffectBars:Burst(unit, kind, caster)
     if not IsServer() then return end
 
     if not IsNotNull(unit) then return end
@@ -132,6 +134,7 @@ function EffectBars:Burst(unit, kind)
     CustomGameEventManager:Send_ServerToAllClients("effect_bars_burst", {
         unit = unit:entindex(),
         kind = kind,
+        caster = IsNotNull(caster) and caster:entindex() or -1,
         vis = VisMask(unit, TeamViewers()),
     })
 end
