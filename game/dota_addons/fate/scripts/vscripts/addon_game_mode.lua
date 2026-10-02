@@ -40,6 +40,7 @@ require("data/kv_data")
 require("data/globals")
 require("libraries/keyvalues")
 require('libraries/cameramodule')
+require('libraries/survival_icons')
 
 require('blink')
 --require('unit_voice')
@@ -3098,6 +3099,9 @@ function FateGameMode:OnHeroInGame(hero)
         print((hero:GetPlayerID()) .." is a bot!")
         self.vPlayerList[hero:GetPlayerID()] = hero:GetPlayerID()
     end
+    -- значок Battle Continuation у хелсбара (libraries/survival_icons.lua)
+    SurvivalIcons:Start()
+
     if hero:GetName() == "npc_dota_hero_wisp" then
         local dummyPause = hero:GetAbilityByIndex(0)
         dummyPause:SetLevel(1)

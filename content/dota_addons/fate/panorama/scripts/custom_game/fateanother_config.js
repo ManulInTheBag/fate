@@ -150,6 +150,15 @@ function OnConfigEffectIconsToggle(){
     GameUI.CustomUIConfig().fateEffectIconsHidden = !toggle.checked;
 }
 
+// Значок Battle Continuation справа от хелсбара (effect_bars.js), отдельно
+// от значков эффектов; по умолчанию включён.
+function OnConfigSurvivalIconsToggle(){
+    var configPanel = $.GetContextPanel();
+    var toggle = configPanel.FindChildTraverse("optionSurvivalIcons");
+    if (!toggle) return;
+    GameUI.CustomUIConfig().fateSurvivalIconsHidden = !toggle.checked;
+}
+
 function OnConfig9Toggle()
 {
     g_GameConfig.bIsConfig9On = !g_GameConfig.bIsConfig9On;
@@ -526,6 +535,11 @@ function RegisterAllMasterUnits(data) {
     if (effectIcons) {
         effectIcons.checked = GameUI.CustomUIConfig().fateEffectIconsHidden !== true;
         OnConfigEffectIconsToggle();
+    }
+    var survivalIcons = $.GetContextPanel().FindChildTraverse("optionSurvivalIcons");
+    if (survivalIcons) {
+        survivalIcons.checked = GameUI.CustomUIConfig().fateSurvivalIconsHidden !== true;
+        OnConfigSurvivalIconsToggle();
     }
     var zonePos = $.GetContextPanel().FindChildTraverse("FateConfigZonePos");
     if (zonePos) {
