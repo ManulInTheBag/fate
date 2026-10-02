@@ -1135,6 +1135,22 @@ function Sweep(remaining, length) {
 }
 
 
+// Состояние значка: Active (сработал, идёт бафф), Spent (заряд израсходован
+// без отсчёта - God Hand до следующего раунда), Cooldown, Ready.
+function SurvivalMode(data, now) {
+	if (data.act_end > now) {
+		return { mode: 'Active', remaining: data.act_end - now, length: data.act_len };
+	}
+	if (data.spent === 1) {
+		return { mode: 'Spent', remaining: 0, length: 0 };
+	}
+	if (data.cd_end > now) {
+		return { mode: 'Cooldown', remaining: data.cd_end - now, length: data.cd_len };
+	}
+	return { mode: 'Ready', remaining: 0, length: 0 };
+}
+
+
 function UpdateSurvival(state, data, now) {
 	if (data.kind !== state.kind) {
 		if (state.kind) {
@@ -1144,21 +1160,10 @@ function UpdateSurvival(state, data, now) {
 		state.panel.AddClass('Kind_' + data.kind);
 	}
 
-	var mode = 'Ready';
-	var remaining = 0;
-	var length = 0;
-	if (data.act_end > now) {
-		mode = 'Active';
-		remaining = data.act_end - now;
-		length = data.act_len;
-	} else if (data.spent === 1) {
-		// заряд израсходован без отсчёта (God Hand до следующего раунда)
-		mode = 'Spent';
-	} else if (data.cd_end > now) {
-		mode = 'Cooldown';
-		remaining = data.cd_end - now;
-		length = data.cd_len;
-	}
+	var current = SurvivalMode(data, now);
+	var mode = current.mode;
+	var remaining = current.remaining;
+	var length = current.length;
 
 	if (mode !== state.mode) {
 		state.panel.SetHasClass('Ready', mode === 'Ready');
@@ -1206,6 +1211,16 @@ function RefreshSurvival(localTeam, spectator, now) {
 			: UnitShown(entity, data, localTeam, spectator);
 		if (!shown) {
 			continue;
+		}
+
+		// Перезарядку видят только сам игрок и его союзники (и зрители). Врагу -
+		// только «есть сейчас или нет»: значок виден, пока BC готов или
+		// сработал, и пропадает на перезарядке / после израсходованного заряда.
+		if (!spectator && Entities.GetTeamNumber(entity) !== localTeam) {
+			var enemyMode = SurvivalMode(data, now).mode;
+			if (enemyMode === 'Cooldown' || enemyMode === 'Spent') {
+				continue;
+			}
 		}
 
 		var state = survivalUnits[entity] || BuildSurvival(entity);
