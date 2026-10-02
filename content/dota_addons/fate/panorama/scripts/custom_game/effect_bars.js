@@ -172,6 +172,7 @@ var bursts = [];       // идущие взрывы
 var ownBars = {};      // modifier -> полоска над своим героем
 var ownShown = 0;      // сколько полосок сейчас над своим героем
 var lastRefresh = -1;
+var iconsOff = false;    // значки выключены в настройках (fateanother_config.js)
 var root = $('#EffectBarsRoot');
 
 
@@ -746,6 +747,13 @@ function PlaceBurst(burst, scale) {
 
 function Update() {
 	$.Schedule(0, Update);
+
+	// значки и взрывы прячет класс на корне, полоски над своим героем остаются
+	var off = GameUI.CustomUIConfig().fateEffectIconsHidden === true;
+	if (off !== iconsOff) {
+		iconsOff = off;
+		root.SetHasClass('IconsOff', off);
+	}
 
 	var now = Game.GetGameTime();
 	if (now - lastRefresh >= REFRESH_INTERVAL || now < lastRefresh) {

@@ -140,6 +140,16 @@ function OnConfigZoneMsgToggle(){
     panel.SetHasClass("ZoneMsgHidden", !toggle.checked);
 }
 
+// Значки эффектов над хелсбаром (effect_bars.js), по умолчанию включены.
+// Флаг лежит в CustomUIConfig: его читает effect_bars.js, и он переживает
+// перезагрузку панели конфига, как и прочее состояние там.
+function OnConfigEffectIconsToggle(){
+    var configPanel = $.GetContextPanel();
+    var toggle = configPanel.FindChildTraverse("optionEffectIcons");
+    if (!toggle) return;
+    GameUI.CustomUIConfig().fateEffectIconsHidden = !toggle.checked;
+}
+
 function OnConfig9Toggle()
 {
     g_GameConfig.bIsConfig9On = !g_GameConfig.bIsConfig9On;
@@ -511,6 +521,11 @@ function RegisterAllMasterUnits(data) {
     if (zoneMsg) {
         zoneMsg.checked = true;
         OnConfigZoneMsgToggle();
+    }
+    var effectIcons = $.GetContextPanel().FindChildTraverse("optionEffectIcons");
+    if (effectIcons) {
+        effectIcons.checked = GameUI.CustomUIConfig().fateEffectIconsHidden !== true;
+        OnConfigEffectIconsToggle();
     }
     var zonePos = $.GetContextPanel().FindChildTraverse("FateConfigZonePos");
     if (zonePos) {

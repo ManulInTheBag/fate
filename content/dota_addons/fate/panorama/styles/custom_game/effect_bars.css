@@ -23,6 +23,13 @@
 	visibility: collapse;
 }
 
+/* Значки выключены в настройках fate (тумблер optionEffectIcons). */
+.IconsOff .EffectUnit,
+.IconsOff .EffectBurst
+{
+	visibility: collapse;
+}
+
 .EffectRow
 {
 	horizontal-align: center;
