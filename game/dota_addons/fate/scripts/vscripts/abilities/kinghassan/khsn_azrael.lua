@@ -1,6 +1,7 @@
 --1.630 3.250 1.380 2.210 (1.370 hit maybe) bell 2.040
 LinkLuaModifier("modifier_khsn_azrael", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_death_door", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_NONE)
+require("libraries/effect_bars")
 LinkLuaModifier("modifier_death_door_pepeg", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_azrael_move", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_azrael_stun", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_NONE)
@@ -180,6 +181,11 @@ function modifier_death_door:OnCreated(kappa)
 
 	self.received_damage = kappa.damage*self.mult/100
 
+	-- значок над хелсбаром (effect_bars.js, по умолчанию выключен в настройках):
+	-- число = накопленный бонус Азраэля, dd_state = то же, что цвет черепа
+	self:SetStackCount(math.floor(self.received_damage))
+	EffectBars:Track(self)
+
 	self.fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_azrael_skull/khsn_death_door_overhead_dynamic.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
 	ParticleManager:SetParticleControl(self.fx, 1, Vector(0, 0, 0)) --x enables particle (radius), y 0 == base skull 1 == exploding skull (seq), z == shaking strength (0 stop, 1 do)
 	ParticleManager:SetParticleControl(self.fx, 2, Vector(0, 0, 0)) --color, 0 240 0 green 240 0 0 red
@@ -198,16 +204,27 @@ function modifier_death_door:OnIntervalThink()
 	local execute_check = self.threshold/100*self.parent:GetMaxHealth()
 	local health_check = CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, self.received_damage, self.parent) + execute_check
 
+	local state = 0
 	if self.parent:GetHealth() < execute_check then
+		state = 2
 		ParticleManager:SetParticleControl(self.fx, 1, Vector(1, 1, 1))
 		ParticleManager:SetParticleControl(self.fx, 2, Vector(240, 0, 0))
 	elseif self.parent:GetHealth() < health_check then
+		state = 1
 		ParticleManager:SetParticleControl(self.fx, 1, Vector(1, 0, 0))
 		ParticleManager:SetParticleControl(self.fx, 2, Vector(0, 240, 0))
 	else
 		ParticleManager:SetParticleControl(self.fx, 1, Vector(0, 0, 0))
 		ParticleManager:SetParticleControl(self.fx, 2, Vector(0, 0, 0))
 	end
+	-- 1 - Азраэль добьёт, 2 - уже ниже порога казни; в сеть уходит только смена
+	EffectBars:SetExtra(self.parent, "dd_state", state)
+end
+
+function modifier_death_door:OnDestroy()
+	if not IsServer() then return end
+	EffectBars:SetExtra(self.parent, "dd_state", 0)
+	EffectBars:Untrack(self)
 end
 
 function modifier_death_door:OnTakeDamage(args)
@@ -221,6 +238,7 @@ function modifier_death_door:OnTakeDamage(args)
 	if self.max_store < self.received_damage then
 		self.received_damage = self.max_store
 	end
+	self:SetStackCount(math.floor(self.received_damage))
 end
 
 modifier_death_door_pepeg = class({})

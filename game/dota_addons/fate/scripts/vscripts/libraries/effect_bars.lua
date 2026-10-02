@@ -12,6 +12,10 @@
 --
 -- Запись не удаляется, а выключается { on = 0 }: entindex переиспользуется,
 -- следующий Track её перезапишет.
+--
+-- c_<имя модификатора> = PlayerID владельца кастера (-1 - ничей): по нему
+-- клиент фильтрует «эффекты от моего героя». Сам клиент кастера не знает -
+-- Buffs.GetCaster в панораме для этих баффов отдаёт -1 (проверено в игре).
 
 EffectBars = EffectBars or {}
 EffectBars.units = EffectBars.units or {}
@@ -57,6 +61,13 @@ function EffectBars:Publish(index, entry)
 end
 
 
+local function CasterPlayer(modifier)
+    local caster = modifier:GetCaster()
+    if not IsNotNull(caster) or not caster.GetPlayerOwnerID then return -1 end
+    return caster:GetPlayerOwnerID()
+end
+
+
 function EffectBars:Track(modifier)
     if not IsServer() then return end
 
@@ -73,6 +84,7 @@ function EffectBars:Track(modifier)
     end
 
     entry.mods[modifier:GetName()] = true
+    entry.extra["c_" .. modifier:GetName()] = CasterPlayer(modifier)
 
     self:Publish(index, entry)
     self:StartThink()
@@ -92,8 +104,12 @@ function EffectBars:Untrack(modifier)
     if not entry or entry.unit ~= unit then return end
 
     entry.mods[modifier:GetName()] = nil
+    entry.extra["c_" .. modifier:GetName()] = nil
 
-    if next(entry.mods) ~= nil then return end
+    if next(entry.mods) ~= nil then
+        self:Publish(index, entry)
+        return
+    end
 
     self.units[index] = nil
     CustomNetTables:SetTableValue(NET_TABLE, tostring(index), { on = 0 })
@@ -125,7 +141,7 @@ end
 -- (своей команде, зрителям и врагам, видящим юнита). Стаки к этому моменту уже
 -- сняты, поэтому маска считается здесь, а не берётся из записи.
 -- caster - чей эффект взорвался: клиент фильтрует взрыв теми же
--- настройками, что и значки («только мои эффекты» и т.п.)
+-- настройками, что и значки («только мои эффекты» и т.п.), по PlayerID
 function EffectBars:Burst(unit, kind, caster)
     if not IsServer() then return end
 
@@ -134,7 +150,7 @@ function EffectBars:Burst(unit, kind, caster)
     CustomGameEventManager:Send_ServerToAllClients("effect_bars_burst", {
         unit = unit:entindex(),
         kind = kind,
-        caster = IsNotNull(caster) and caster:entindex() or -1,
+        caster_pid = IsNotNull(caster) and caster:GetPlayerOwnerID() or -1,
         vis = VisMask(unit, TeamViewers()),
     })
 end

@@ -99,6 +99,11 @@
 	background-color: #c8a35a88;
 }
 
+.EffectsLoadButton
+{
+	margin-left: 8px;
+}
+
 .EffectsSaveButton:disabled
 {
 	opacity: 0.4;

@@ -82,6 +82,14 @@ function OnEffSave() {
 }
 
 
+function OnEffLoad() {
+	var store = Store();
+	if (store && typeof store.loadNow === 'function') {
+		store.loadNow();
+	}
+}
+
+
 function OnEffAll(on) {
 	var store = Store();
 	if (!store || !store.catalog) {
@@ -153,6 +161,10 @@ function StatusText(store) {
 	if (store.saveQueued) {
 		return $.Localize('#FA_Effects_Status_Saving');
 	}
+	// несохранённые правки важнее идущей загрузки: их надо не забыть сохранить
+	if (store.load === 'loading' && store.save !== 'pending') {
+		return $.Localize('#FA_Effects_Status_Loading');
+	}
 	switch (store.save) {
 		case 'pending':
 			return $.Localize('#FA_Effects_Status_Pending');
@@ -203,6 +215,7 @@ function Sync() {
 	// кнопка подсвечена, пока есть что сохранять
 	$('#EffSave').SetHasClass('Dirty', store.dirty === true);
 	$('#EffSave').enabled = store.load !== 'local';
+	$('#EffLoad').enabled = store.load !== 'local' && store.load !== 'loading' && store.save !== 'saving';
 
 	var status = $('#EffStatus');
 	status.text = StatusText(store);

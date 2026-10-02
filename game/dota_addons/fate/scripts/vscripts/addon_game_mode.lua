@@ -1429,7 +1429,6 @@ end
 -- ============================================================================
 pcall(require, "fate_secrets")
 FATE_BINDS_HOST = "https://fate-binds-server.glebucha1112.workers.dev"-- or "http://localhost:8787"
-FATE_BINDS_HOST = "http://localhost:8787" -- ZT_DEBUG: временно, тест настроек эффектов на локальном воркере
 FATE_API_KEY = FATE_API_KEY or ""
 
 -- Версия сборки: хеш СОДЕРЖИМОГО геймплейных файлов, генерируется панелью

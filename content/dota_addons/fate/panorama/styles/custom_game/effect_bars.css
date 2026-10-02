@@ -103,6 +103,7 @@
 .Vlad .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/vlad_png.vtex"); }
 .Medusa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/medusa_png.vtex"); }
 .Hassan .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/hassan_png.vtex"); }
+.KingHassan .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/king_hassan_png.vtex"); }
 
 
 /* Кольцо времени: тёмная подложка во весь круг и цветная дуга поверх неё.
@@ -140,6 +141,10 @@
 .Vlad .EffectRing { border-color: #d0101cff; }
 .Medusa .EffectRing { border-color: #ff5ab4ff; }
 .Hassan .EffectRing { border-color: #c4e632ff; }
+.KingHassan .EffectRing { border-color: #a58cffff; }
+/* Death Door: как череп над целью - зелёный «Азраэль добьёт», красный «казнь» */
+.KingHassan.Lethal .EffectRing { border-color: #3cf05aff; }
+.KingHassan.Execute .EffectRing { border-color: #f01e1eff; }
 
 /* последние секунды - дуга мигает */
 .EffectChip.Expiring .EffectRing
@@ -184,6 +189,19 @@
 .Vlad .EffectCount { color: #ff6b6bff; }
 .Medusa .EffectCount { color: #ffb0dcff; }
 .Hassan .EffectCount { color: #e4ff8aff; }
+.KingHassan .EffectCount { color: #e2d9ffff; }
+.KingHassan.Lethal .EffectCount { color: #8dff9cff; }
+.KingHassan.Execute .EffectCount { color: #ff7a6aff; }
+
+.KingHassan.Lethal .EffectMedalWrap,
+.KingHassan.Execute .EffectMedalWrap
+{
+	animation-name: EffectMaxPulse;
+	animation-duration: 0.45s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
 
 /* эффект висит, но урон не идёт (яд Хассана без скрытого яда или с 0 стаков) */
 .EffectChip.Idle .EffectMedalWrap

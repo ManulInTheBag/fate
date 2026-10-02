@@ -29,6 +29,9 @@
 				<Button id="EffSave" class="EffectsSaveButton" onactivate="OnEffSave()">
 					<Label text="#FA_Effects_Save" />
 				</Button>
+				<Button id="EffLoad" class="EffectsSaveButton EffectsLoadButton" onactivate="OnEffLoad()">
+					<Label text="#FA_Effects_Load" />
+				</Button>
 				<Label id="EffStatus" class="EffectsStatus" text="" hittest="false" />
 			</Panel>
 			<Label class="EffectsHint" text="#FA_Effects_Site" hittest="false" />

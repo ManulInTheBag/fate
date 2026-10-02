@@ -97,6 +97,18 @@ var EFFECTS = [
 		maxFallback: 0,
 	},
 	{
+		// Death Door King Hassan: число - накопленный бонус к урону Азраэля,
+		// цвет - как у черепа над целью (dd_state кладёт сервер, khsn_azrael.lua):
+		// зелёный - Азраэль добьёт, красный - уже ниже порога казни.
+		// По умолчанию выключен (DefaultSettings): череп над целью и так есть.
+		id: 'king_hassan',
+		hero: 'npc_dota_hero_skeleton_king',
+		theme: 'KingHassan',
+		modifier: 'modifier_death_door',
+		maxFallback: 0,
+		states: { flag: 'dd_state', classes: ['', 'Lethal', 'Execute'] },
+	},
+	{
 		id: 'hassan',
 		hero: 'npc_dota_hero_bounty_hunter',
 		theme: 'Hassan',
@@ -234,9 +246,13 @@ var SETTINGS_MAX_OFF = 64;
 
 
 // по умолчанию - только эффекты на своём герое (и свои, own): чужие стаки на
-// чужих героях у новичка забивали бы экран
+// чужих героях у новичка забивали бы экран. В off - эффекты, выключенные по
+// умолчанию (Death Door: череп над целью и так виден). Сохранённый профиль
+// хранит свой off целиком, так что умолчания на него не влияют.
+var DEFAULT_OFF = ['king_hassan'];
+
 function DefaultSettings() {
-	return { v: 1, scope: 'on_me', own: 1, off: [], icons: 1, survival: 1 };
+	return { v: 1, scope: 'on_me', own: 1, off: DEFAULT_OFF.slice(), icons: 1, survival: 1 };
 }
 
 
@@ -258,7 +274,9 @@ function SanitizeSettings(raw) {
 	s.own = Flag(raw.own);
 	s.icons = Flag(raw.icons);
 	s.survival = Flag(raw.survival);
-	if (raw.off && raw.off.length) {
+	// свой список выключенных заменяет умолчания целиком, даже пустой
+	if (raw.off && typeof raw.off.length === 'number') {
+		s.off = [];
 		for (var i = 0; i < raw.off.length && s.off.length < SETTINGS_MAX_OFF; i++) {
 			var id = raw.off[i];
 			if (typeof id === 'string' && /^[a-z0-9_]{1,32}$/.test(id) && s.off.indexOf(id) < 0) {
@@ -297,6 +315,7 @@ function Store() {
 			saveSeq: 0,
 			dirty: false,      // есть правки, которых нет на сервере
 			saveQueued: false, // Save нажат, пока шла загрузка: сохранить после неё
+			manualLoad: false, // загрузка по кнопке Load: сервер важнее несохранённых правок
 			lastSaved: null,   // строка, которая точно лежит на сервере
 			pendingJson: null,
 			onChange: null,    // вкладка вешает сюда обновление своей панели
@@ -446,9 +465,15 @@ function OnSettingsLoaded(data) {
 		}
 	} else if (data && data.status == 404) {
 		store.load = 'none';
+		// по кнопке Load «на сервере пусто» = вернуть умолчания
+		if (store.manualLoad && !store.dirty) {
+			store.lastSaved = null;
+			ApplySettings(store, DefaultSettings());
+		}
 	} else {
 		store.load = 'failed';
 	}
+	store.manualLoad = false;
 
 	Notify(store);
 	if (store.saveQueued) {
@@ -489,18 +514,28 @@ function ViewContext() {
 }
 
 
-// «Мой» эффект - наложенный юнитом моего игрока: герой, Мастер, призванные.
-function FromLocalPlayer(caster, view) {
-	return view.localPlayer >= 0 && caster !== undefined && caster !== null && caster !== -1 &&
-		Entities.IsValidEntity(caster) && Entities.GetPlayerOwnerID(caster) === view.localPlayer;
+// PlayerID владельца кастера эффекта - кладёт сервер (c_<модификатор> в
+// записи nettable, libraries/effect_bars.lua). Buffs.GetCaster тут не
+// помощник: для этих баффов панорама отдаёт -1. У эффекта из частей (яд
+// Хассана) - первый известный кастер. -1 - неизвестно / ничей.
+function CasterPlayer(effect, data) {
+	var names = [effect.modifier].concat(effect.parts || []);
+	for (var i = 0; i < names.length; i++) {
+		var pid = data['c_' + names[i]];
+		if (typeof pid === 'number' && pid >= 0) {
+			return pid;
+		}
+	}
+	return -1;
 }
 
 
-// Виден ли эффект id на юните unit, наложенный caster. У зрителя нет ни
-// своего героя, ни своей команды: «враги» и «союзники» для него - все.
-function EffectAllowed(id, unit, caster, view) {
+// Виден ли эффект id на юните unit от игрока casterPid. «Мой» - наложенный
+// юнитом моего игрока (герой, Мастер, призванные). У зрителя нет ни своего
+// героя, ни своей команды: «враги» и «союзники» для него - все.
+function EffectAllowed(id, unit, casterPid, view) {
 	var settings = view.settings;
-	var mine = FromLocalPlayer(caster, view);
+	var mine = view.localPlayer >= 0 && casterPid === view.localPlayer;
 
 	if (settings.own && mine) {
 		return true;
@@ -623,7 +658,7 @@ function BuildUnit(entity) {
 	var panel = $.CreatePanel('Panel', root, '');
 	panel.AddClass('EffectUnit');
 
-	var built = { panel: panel, rows: [], chips: {}, layout: '' };
+	var built = { panel: panel, rows: [], chips: {}, layout: '', height: UNIT_HEIGHT };
 	units[entity] = built;
 	return built;
 }
@@ -658,6 +693,14 @@ function LayoutRows(built) {
 	}
 	built.layout = layout;
 
+	// Панель растёт вверх на каждый ряд: ряд за её границей Panorama не рисует,
+	// даже с overflow: noclip (проверено в игре - пятый и дальше значки
+	// пропадали). Низ панели остаётся на месте - его держит Update по height.
+	var rows = Math.max(1, Math.ceil(order.length / ROW_MAX));
+	built.height = UNIT_HEIGHT + (rows - 1) * ROW_STEP;
+	built.panel.style.height = built.height + 'px';
+	built.y = null;
+
 	// по порядку: SetParent кладёт в конец ряда
 	for (var i = 0; i < order.length; i++) {
 		built.chips[order[i]].panel.SetParent(Row(built, Math.floor(i / ROW_MAX)));
@@ -683,7 +726,7 @@ function ChipOffset(built, chip) {
 	var row = chip.GetParent();
 	return {
 		x: (row.actualxoffset + chip.actualxoffset) / scale + CHIP_SIZE / 2 - UNIT_WIDTH / 2,
-		y: (row.actualyoffset + chip.actualyoffset) / scale + CHIP_SIZE / 2 - UNIT_HEIGHT,
+		y: (row.actualyoffset + chip.actualyoffset) / scale + CHIP_SIZE / 2 - built.height,
 	};
 }
 
@@ -788,6 +831,13 @@ function UpdateChip(effect, state, entity, read, data) {
 
 	state.panel.SetHasClass('Max', stacks >= max);
 
+	if (effect.states) {
+		var current = data[effect.states.flag] || 0;
+		for (var c = 1; c < effect.states.classes.length; c++) {
+			state.panel.SetHasClass(effect.states.classes[c], current === c);
+		}
+	}
+
 	if (effect.tiers) {
 		var tierOn = data[effect.tiers.flag] === 1;
 		state.panel.SetHasClass('Tier1', tierOn && stacks >= state.tiers[0] && stacks < state.tiers[1]);
@@ -872,7 +922,8 @@ function RefreshOwnBars(hero, view) {
 		var buff = buffs[bar.modifier];
 		var state = ownBars[bar.modifier];
 
-		if (buff !== undefined && !EffectAllowed(bar.id, hero, Buffs.GetCaster(hero, buff), view)) {
+		// полоска - стаки своего героя от него же
+		if (buff !== undefined && !EffectAllowed(bar.id, hero, view.localPlayer, view)) {
 			buff = undefined;
 		}
 
@@ -966,7 +1017,7 @@ function Refresh() {
 		for (var e = 0; e < EFFECTS.length; e++) {
 			var effect = EFFECTS[e];
 			var read = ReadEffect(effect, entity, buffs);
-			if (read && !EffectAllowed(effect.id, entity, Buffs.GetCaster(entity, read.buff), view)) {
+			if (read && !EffectAllowed(effect.id, entity, CasterPlayer(effect, data), view)) {
 				read = null;
 			}
 			var state = built && built.chips[effect.modifier];
@@ -1003,7 +1054,7 @@ function Refresh() {
 			any = true;
 		}
 
-		if (!any) {
+			if (!any) {
 			continue;
 		}
 
@@ -1206,7 +1257,7 @@ function OnBurst(event) {
 	if (!TeamSees(entity, event.vis, Players.GetTeam(localPlayer), Players.IsSpectator(localPlayer))) {
 		return;
 	}
-	if (!EffectAllowed(kind.id, entity, event.caster, ViewContext())) {
+	if (!EffectAllowed(kind.id, entity, event.caster_pid, ViewContext())) {
 		return;
 	}
 
@@ -1314,7 +1365,7 @@ function Update() {
 		}
 
 		var x = Math.round(anchor.x - UNIT_WIDTH / 2);
-		var y = Math.round(anchor.y - UNIT_HEIGHT - built.lift);
+		var y = Math.round(anchor.y - built.height - built.lift);
 
 		if (x !== built.x || y !== built.y) {
 			built.x = x;
@@ -1350,14 +1401,30 @@ function Update() {
 	store.catalog = Catalog();
 	store.change = ChangeSettings;
 	store.saveNow = function () { SaveSettingsNow(Store()); };
+	// кнопка Load: забрать версию с сервера, несохранённые правки - отбросить
+	store.loadNow = function () {
+		var s = Store();
+		if (s.load === 'loading' || s.save === 'saving') {
+			return;
+		}
+		s.dirty = false;
+		s.saveQueued = false;
+		s.manualLoad = true;
+		s.save = 'idle';
+		RequestSettingsLoad();
+	};
 	store.sanitize = SanitizeSettings;
 	ApplySettings(store, SanitizeSettings(store.settings));
 	GameEvents.Subscribe('fate_settings_loaded', OnSettingsLoaded);
 	GameEvents.Subscribe('fate_settings_save_result', OnSettingsSaveResult);
-	// загрузка - раз за матч; после перезагрузки панели посреди загрузки
-	// её таймер умер вместе со старым контекстом - начинаем заново
-	if (store.load === 'idle' || store.load === 'loading') {
-		RequestSettingsLoad();
+	// загрузка - при каждом старте HUD, то есть в каждом матче: CustomUIConfig
+	// живёт, пока запущен клиент, и переживает переход между матчами - по
+	// флагу «уже загружено» второй матч не увидел бы правку с сайта.
+	// Несохранённые правки при этом не теряются (OnSettingsLoaded их не трогает).
+	store.saveQueued = false;
+	if (store.save === 'saving') {
+		store.save = store.dirty ? 'pending' : 'idle';   // ответ на тот запрос уже не придёт
 	}
+	RequestSettingsLoad();
 	Update();
 })();

@@ -50,6 +50,14 @@ local function SteamID(playerID)
 end
 
 
+-- Адрес сервера; nil, если fate_secrets.lua в сборке нет (свежий клон).
+local function Host()
+    local host = _G.FATE_BINDS_HOST
+    if type(host) ~= "string" or host == "" then return nil end
+    return host
+end
+
+
 local function Reply(playerID, event, data)
     local ply = PlayerResource:GetPlayer(playerID)
     if ply then
@@ -72,7 +80,13 @@ function FateSettings:OnSave(args)
         return
     end
 
-    local req = _G.FateCreateHTTPRequest("POST", _G.FATE_BINDS_HOST .. "/settings")
+    local host = Host()
+    if not host then
+        Reply(playerID, "fate_settings_save_result", { ok = 0, status = 0 })
+        return
+    end
+
+    local req = _G.FateCreateHTTPRequest("POST", host .. "/settings")
     req:SetHTTPRequestHeaderValue("X-Fate-Key", _G.FATE_API_KEY)
     req:SetHTTPRequestGetOrPostParameter("steamid", steamid)
     req:SetHTTPRequestGetOrPostParameter("profile", profile)
@@ -94,7 +108,13 @@ function FateSettings:OnLoad(args)
         return
     end
 
-    local req = _G.FateCreateHTTPRequest("GET", _G.FATE_BINDS_HOST .. "/settings?steamid=" .. steamid)
+    local host = Host()
+    if not host then
+        Reply(playerID, "fate_settings_loaded", { ok = 0, status = 0 })
+        return
+    end
+
+    local req = _G.FateCreateHTTPRequest("GET", host .. "/settings?steamid=" .. steamid)
     req:SetHTTPRequestHeaderValue("X-Fate-Key", _G.FATE_API_KEY)
     req:Send(function(res)
         if res.StatusCode == 200 and res.Body and res.Body ~= "" then
