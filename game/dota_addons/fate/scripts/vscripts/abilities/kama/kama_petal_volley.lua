@@ -9,6 +9,10 @@ kama_petal_volley = kama_petal_volley or class({})
      Samsara: способность по цели — в неё летят все лазеры, а в каждого врага
      рядом с ней ещё по одному.
      От вида стрел зависит и способ наведения (GetBehavior).
+     Клоны поглощаются сразу при нажатии, а выстрел идёт после зарядки
+     (charge_time). Кама стоит на месте и ничего не может и во время зарядки,
+     и пока не выпустит всю очередь — иначе блинк посреди очереди переносил бы
+     оставшиеся стрелы на новое место.
 ]]
 
 -- Временные эффекты до своих партиклей: стрела Мираны и стрела Дроу.
@@ -53,12 +57,26 @@ function kama_petal_volley:GetCustomCastErrorTarget(hTarget)
     return "#Must be in same realm"
 end
 
+-- Живые клоны W (пусто, если W ещё нет).
+function kama_petal_volley:GetClones()
+    local hEmbrace = self:GetCaster():FindAbilityByName("kama_embrace_of_dreams")
+    if not Kama_Alive(hEmbrace) or hEmbrace:GetLevel() < 1 then return {} end
+    return hEmbrace:GetClones()
+end
+
+-- Сколько длится очередь из nArrows выстрелов, от первого до последнего.
+function kama_petal_volley:VolleyTime(nArrows)
+    return (nArrows - 1) * self:GetSpecialValueFor("arrow_interval")
+end
+
 --[[ Анимация spell_4: замах, пауза и резкий выпуск на 14-15 кадре (0.5 с в
      родном темпе). От нажатия до выстрела проходит кастпоинт + charge_time =
-     0.6 с, отсюда rate 0.85. Меняешь эти времена — пересчитай rate. ]]
+     0.6 с, отсюда rate 0.85. Меняешь эти времена — пересчитай rate.
+     Длится, пока идёт очередь: стрел будет столько, сколько сейчас клонов. ]]
 function kama_petal_volley:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
-    StartAnimation(self:GetCaster(), {duration = fShot + 0.4,
+    local fVolley = self:VolleyTime(1 + #self:GetClones())
+    StartAnimation(self:GetCaster(), {duration = fShot + fVolley + 0.4,
         activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.85})
     return true
 end
@@ -67,8 +85,6 @@ function kama_petal_volley:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
 end
 
---[[ Клоны поглощаются сразу при нажатии, а выстрел идёт после зарядки
-     (charge_time): всё это время Кама стоит на месте и ничего не может. ]]
 function kama_petal_volley:OnSpellStart()
     local caster = self:GetCaster()
     local nArrows = 1 + self:AbsorbClones()
@@ -86,19 +102,19 @@ function kama_petal_volley:OnSpellStart()
         else
             self:FireVolley(vDirection, nArrows)
         end
-    end)
+    end, self:VolleyTime(nArrows))
 end
 
 -- Забрать всех клонов W. Поглощение не считается уничтожением клона.
 function kama_petal_volley:AbsorbClones()
-    local hEmbrace = self:GetCaster():FindAbilityByName("kama_embrace_of_dreams")
-    if not Kama_Alive(hEmbrace) or hEmbrace:GetLevel() < 1 then return 0 end
-
     -- копия списка: RemoveClone правит сам список
     local tClones = {}
-    for _, hClone in ipairs(hEmbrace:GetClones()) do
+    for _, hClone in ipairs(self:GetClones()) do
         table.insert(tClones, hClone)
     end
+    if #tClones < 1 then return 0 end
+
+    local hEmbrace = self:GetCaster():FindAbilityByName("kama_embrace_of_dreams")
     for _, hClone in ipairs(tClones) do
         hEmbrace:RemoveClone(hClone, KAMA_CLONE_ABSORBED)
     end

@@ -19,36 +19,31 @@ local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powe
 -- заряды, с ними ReduceCooldowns работает отдельно.
 local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
 
---[[ Анимация выстрела — обычная атака модели в родном темпе: тетива срывается
-     на 5-6 кадре (~0.17 с), то есть как раз к концу кастпоинта.
-     Кама и клоны W играют её ОДНИМ способом — серверным жестом с явной
-     скоростью, — поэтому замахиваются одновременно и одинаково быстро.
-     StartAnimation здесь не годится: он идёт через модификатор на клиенте,
-     стоящий юнит подхватывает его с опозданием, а при частых отменах каста он
-     ещё и запускает анимацию уже после отмены.
-     Доиграть жест после выстрела Каме не даёт любой новый приказ
-     (Kama_FadeRecovery), как обычный бэксвинг. ]]
-local function PlayShot(hUnit)
-    hUnit:RemoveGesture(ACT_DOTA_ATTACK)
-    hUnit:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, 1.0)
-end
+--[[ Анимация выстрела — секвенция q_shot модели (те же кадры, что у обычной
+     атаки, но своя активность, чтобы движок не подгонял её под скорость атаки).
+     Тетива срывается на 5-6 кадре (~0.17 с), то есть как раз к концу кастпоинта.
+     У самой Камы её играет движок: AbilityCastAnimation в KV. Он же обрывает
+     её при отмене каста и когда Кама после выстрела идёт дальше.
+     Клонам W тот же жест включаем сами — в тот же момент и с той же скоростью.
+     StartAnimation тут не годится ни Каме, ни клонам: он идёт через модификатор
+     на клиенте, стоящий юнит подхватывает его с опозданием, а при частых
+     отменах каста он запускает анимацию уже после отмены. ]]
+local SHOT_ACTIVITY = ACT_DOTA_CAST_ABILITY_6
 
 function kama_arrow_shot:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local vPoint = self:GetCursorPosition()
-    PlayShot(caster)
     for _, hClone in ipairs(self:GetClones()) do
         hClone:SetForwardVector(self:CloneDirection(hClone, vPoint, caster:GetForwardVector()))
-        PlayShot(hClone)
+        Kama_Gesture(hClone, SHOT_ACTIVITY, 0.1)
     end
     return true
 end
 
--- Каст отменили: замах бросают и Кама, и клоны.
+-- Каст отменили: клоны бросают замах вместе с Камой.
 function kama_arrow_shot:OnAbilityPhaseInterrupted()
-    self:GetCaster():FadeGesture(ACT_DOTA_ATTACK)
     for _, hClone in ipairs(self:GetClones()) do
-        hClone:FadeGesture(ACT_DOTA_ATTACK)
+        hClone:FadeGesture(SHOT_ACTIVITY)
     end
 end
 

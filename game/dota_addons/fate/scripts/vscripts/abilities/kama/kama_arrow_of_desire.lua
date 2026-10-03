@@ -38,13 +38,13 @@ function kama_arrow_of_desire:OnAbilityPhaseStart()
     return true
 end
 
--- Замедленный замах снимаем и с того же кадра доигрываем возврат лука.
--- Жест оборвётся первым же новым приказом (Kama_FadeRecovery).
+-- Замедленный замах снимаем и с того же кадра доигрываем возврат лука:
+-- 25 кадров attack_2_recover, 0.83 с. Пошла или начала что-то делать — жест
+-- гаснет сразу (Kama_PlayRecovery).
 function kama_arrow_of_desire:PlayRecovery()
     local caster = self:GetCaster()
     EndAnimation(caster)
-    caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_7)
-    caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_7, 1.0)
+    Kama_PlayRecovery(caster, ACT_DOTA_CAST_ABILITY_7, 0.83)
 end
 
 function kama_arrow_of_desire:OnAbilityPhaseInterrupted()

@@ -41,26 +41,44 @@ function KamaOnSealRefresh(hHero)
     if hCharges then hCharges:Refill() end
 end
 
---[[ Жесты, которыми Кама доигрывает выстрел после того, как стрела ушла
-     (возврат лука у Q и у D). Любой новый приказ их обрывает — как обычный
-     бэксвинг, иначе Кама ехала бы по земле в позе стрельбы. Ловит приказы
-     скрытая пассивка лука (kama_sugarcane_bow). ]]
-local RECOVERY_GESTURES = {ACT_DOTA_ATTACK, ACT_DOTA_CAST_ABILITY_7}
+--[[ Жест с плавным входом и выходом и явной скоростью 1.0.
+     ⚠️ Именно этот вызов, а не StartGesture/StartGestureWithPlaybackRate: у тех
+     жест кончается без затухания, и модель в конце дёргается — рывком
+     возвращается из позы с поднятым луком в стойку. ]]
+function Kama_Gesture(hUnit, nActivity, fFadeIn)
+    hUnit:RemoveGesture(nActivity)
+    hUnit:StartGestureWithFadeAndPlaybackRate(nActivity, fFadeIn, 0.4, 1.0)
+end
 
-function Kama_FadeRecovery(hCaster)
+--[[ Доиграть анимацию «после выстрела» жестом nActivity длиной fDuration.
+     К концу жест гаснет сам. Если Кама пошла, начала атаку или новый каст —
+     гасим его сразу, иначе она ехала бы по земле в позе стрельбы.
+     Следим именно за тем, что Кама ДЕЛАЕТ, а не за приказами: приказ, отданный
+     ещё во время зарядки, движок выполняет после неё молча, без нового события. ]]
+function Kama_PlayRecovery(hCaster, nActivity, fDuration)
     if not IsServer() or not Kama_Alive(hCaster) then return end
-    for _, nActivity in ipairs(RECOVERY_GESTURES) do
-        hCaster:FadeGesture(nActivity)
-    end
+    Kama_Gesture(hCaster, nActivity, 0)
+
+    local fEnd = GameRules:GetGameTime() + fDuration
+    Timers:CreateTimer(0.03, function()
+        if not Kama_Alive(hCaster) or GameRules:GetGameTime() >= fEnd then return end
+        if not hCaster:IsAlive() or hCaster:IsMoving() or hCaster:IsAttacking()
+            or hCaster:GetCurrentActiveAbility() ~= nil then
+            hCaster:FadeGesture(nActivity)
+            return
+        end
+        return 0.03
+    end)
 end
 
 --[[ Зарядка выстрела (D и E): Кама замирает на fTime секунд, потом вызывается
      fnRelease. Замирает через pause_sealenabled — обычный для аддона «стан с
      доступом к печатям», под ним анимация из StartAnimation продолжает играть.
-     Погибла за это время — выстрела не будет. ]]
-function Kama_Charge(hCaster, hAbility, fTime, fnRelease)
+     fHold — сколько ещё держать Каму на месте после fnRelease (очередь стрел E).
+     Погибла за время зарядки — выстрела не будет. ]]
+function Kama_Charge(hCaster, hAbility, fTime, fnRelease, fHold)
     if not IsServer() then return end
-    giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", fTime)
+    giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", fTime + (fHold or 0))
     Timers:CreateTimer(fTime, function()
         if not Kama_Alive(hCaster) or not Kama_Alive(hAbility) or not hCaster:IsAlive() then return end
         fnRelease()

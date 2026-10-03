@@ -38,14 +38,7 @@ function modifier_kama_sugarcane_bow:DeclareFunctions()
     return {
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_RESPAWN,
-        MODIFIER_EVENT_ON_ORDER,
     }
-end
-
--- Новый приказ обрывает анимацию «после выстрела» (см. Kama_FadeRecovery).
-function modifier_kama_sugarcane_bow:OnOrder(keys)
-    if not IsServer() or keys.unit ~= self:GetParent() then return end
-    Kama_FadeRecovery(self:GetParent())
 end
 
 -- Метку вида стрел могло снести общей зачисткой модификаторов: возвращаем ту
