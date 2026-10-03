@@ -41,6 +41,19 @@ function KamaOnSealRefresh(hHero)
     if hCharges then hCharges:Refill() end
 end
 
+--[[ Зарядка выстрела (D и E): Кама замирает на fTime секунд, потом вызывается
+     fnRelease. Замирает через pause_sealenabled — обычный для аддона «стан с
+     доступом к печатям», под ним анимация из StartAnimation продолжает играть.
+     Погибла за это время — выстрела не будет. ]]
+function Kama_Charge(hCaster, hAbility, fTime, fnRelease)
+    if not IsServer() then return end
+    giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", fTime)
+    Timers:CreateTimer(fTime, function()
+        if not Kama_Alive(hCaster) or not Kama_Alive(hAbility) or not hCaster:IsAlive() then return end
+        fnRelease()
+    end)
+end
+
 --=========================================================================--
 -- Вид стрел
 --=========================================================================--

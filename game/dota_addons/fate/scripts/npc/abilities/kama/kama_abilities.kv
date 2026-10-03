@@ -106,8 +106,7 @@
 		"AbilityManaCost"			"400"
 		// дальность до цели в Samsara; Floral стреляет по направлению на range
 		"AbilityCastRange"			"1200"
-		"AbilityCastPoint"			"0.3"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"			"0.1"
 
 		"precache"
 		{
@@ -118,6 +117,7 @@
 		"AbilityValues"
 		{
 			"damage"				"150 190 230 270 310"	// за одну стрелу или лазер
+			"charge_time"			"0.5"	// зарядка после каста: Кама стоит и ничего не может
 			"arrow_interval"		"0.12"	// пауза между выстрелами очереди
 			// Floral
 			"range"					"1400"
@@ -149,7 +149,7 @@
 		"AbilityManaCost"			"400"
 		// стрела летит сама: герой не идёт «в радиус», см. GetCastRange
 		"AbilityCastRange"			"99999"
-		"AbilityCastPoint"			"0.5"
+		"AbilityCastPoint"			"0.1"
 
 		"precache"
 		{
@@ -159,6 +159,7 @@
 		}
 		"AbilityValues"
 		{
+			"charge_time"			"0.5"	// зарядка после каста: Кама стоит и ничего не может
 			"range"					"1600"
 			// Floral
 			"damage"				"300"
@@ -167,7 +168,7 @@
 			"width"					"110"
 			// Samsara
 			"max_targets"			"3"
-			"drag_speed"			"1400"
+			"drag_speed"			"4000"
 			"drag_width"			"150"
 			"drag_damage"			"100"
 			"drag_slow"				"50"

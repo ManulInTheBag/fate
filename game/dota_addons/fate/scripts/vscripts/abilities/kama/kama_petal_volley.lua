@@ -53,19 +53,40 @@ function kama_petal_volley:GetCustomCastErrorTarget(hTarget)
     return "#Must be in same realm"
 end
 
+--[[ Анимация spell_4: замах, пауза и резкий выпуск на 14-15 кадре (0.5 с в
+     родном темпе). От нажатия до выстрела проходит кастпоинт + charge_time =
+     0.6 с, отсюда rate 0.85. Меняешь эти времена — пересчитай rate. ]]
+function kama_petal_volley:OnAbilityPhaseStart()
+    local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
+    StartAnimation(self:GetCaster(), {duration = fShot + 0.4,
+        activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.85})
+    return true
+end
+
+function kama_petal_volley:OnAbilityPhaseInterrupted()
+    EndAnimation(self:GetCaster())
+end
+
+--[[ Клоны поглощаются сразу при нажатии, а выстрел идёт после зарядки
+     (charge_time): всё это время Кама стоит на месте и ничего не может. ]]
 function kama_petal_volley:OnSpellStart()
     local caster = self:GetCaster()
     local nArrows = 1 + self:AbsorbClones()
+    -- прицел и вид стрел фиксируются в момент нажатия
+    local bSamsara = Kama_IsSamsara(caster)
+    local hTarget = self:GetCursorTarget()
+    local vDirection = self:GetCursorPosition() - caster:GetAbsOrigin()
+    vDirection.z = 0
+    vDirection = vDirection:Length2D() < 1 and caster:GetForwardVector() or vDirection:Normalized()
 
-    caster:EmitSound("Ability.Powershot.Alt")
-    if Kama_IsSamsara(caster) then
-        self:FireLasers(self:GetCursorTarget(), nArrows)
-    else
-        local vDirection = self:GetCursorPosition() - caster:GetAbsOrigin()
-        vDirection.z = 0
-        if vDirection:Length2D() < 1 then vDirection = caster:GetForwardVector() end
-        self:FireVolley(vDirection:Normalized(), nArrows)
-    end
+    Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
+        caster:EmitSound("Ability.Powershot.Alt")
+        if bSamsara then
+            self:FireLasers(hTarget, nArrows)
+        else
+            self:FireVolley(vDirection, nArrows)
+        end
+    end)
 end
 
 -- Забрать всех клонов W. Поглощение не считается уничтожением клона.

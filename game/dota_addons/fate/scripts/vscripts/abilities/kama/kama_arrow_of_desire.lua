@@ -2,7 +2,9 @@ require("abilities/kama/kama_shared")
 
 kama_arrow_of_desire = kama_arrow_of_desire or class({})
 
---[[ D — Arrow of Desire. Усиленная стрела после короткого замаха.
+--[[ D — Arrow of Desire. Усиленная стрела.
+     Кастпоинт короткий, но сам выстрел идёт после зарядки (charge_time): всё
+     это время Кама стоит на месте и ничего не может (Kama_Charge).
      Floral: летит по направлению, останавливается на первой цели и сразу
      даёт ей большую порцию Charm.
      Samsara: массивная стрела летит в указанную точку, подхватывает до
@@ -20,11 +22,14 @@ LinkLuaModifier("modifier_kama_desire_slow", "abilities/kama/kama_arrow_of_desir
 local FX_FLORAL  = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
 
---[[ Замах — вторая анимация выстрела, замедленная под длинный кастпоинт:
-     тетива у модели срывается на 5-6 кадре, при rate 0.4 это как раз ~0.46 с. ]]
+--[[ Анимация — второй выстрел модели, замедленный так, чтобы тетива сорвалась
+     ровно к концу зарядки. У модели это 5-6 кадр из 30 (~0.18 с в родном
+     темпе), а от нажатия до выстрела проходит кастпоинт + charge_time = 0.6 с,
+     отсюда rate 0.3. Меняешь эти времена — пересчитай rate. ]]
 function kama_arrow_of_desire:OnAbilityPhaseStart()
-    StartAnimation(self:GetCaster(), {duration = self:GetCastPoint() + 0.4,
-        activity = ACT_DOTA_ATTACK2, rate = 0.4})
+    local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
+    StartAnimation(self:GetCaster(), {duration = fShot + 0.2,
+        activity = ACT_DOTA_ATTACK2, rate = 0.3})
     return true
 end
 
@@ -69,16 +74,20 @@ end
 
 function kama_arrow_of_desire:OnSpellStart()
     local caster = self:GetCaster()
-    local vOrigin = caster:GetAbsOrigin()
+    -- прицел и вид стрелы фиксируются в момент нажатия
     local vDirection, fDistance = self:Aim(self:GetCursorPosition())
+    local bSamsara = Kama_IsSamsara(caster)
 
-    caster:EmitSound("Ability.Powershot.Alt")
-    if Kama_IsSamsara(caster) then
-        -- стрела долетает до точки, но не дальше своей дальности
-        self:FireDragArrow(vOrigin, vDirection, fDistance)
-    else
-        self:FireCharmArrow(vOrigin, vDirection)
-    end
+    Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
+        local vOrigin = caster:GetAbsOrigin()
+        caster:EmitSound("Ability.Powershot.Alt")
+        if bSamsara then
+            -- стрела долетает до точки, но не дальше своей дальности
+            self:FireDragArrow(vOrigin, vDirection, fDistance)
+        else
+            self:FireCharmArrow(vOrigin, vDirection)
+        end
+    end)
 end
 
 --=========================================================================--
