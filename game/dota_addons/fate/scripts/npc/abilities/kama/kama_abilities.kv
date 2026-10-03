@@ -55,6 +55,7 @@
 		// кулдауна нет: ограничивают заряды (charge_restore_time)
 		"AbilityCooldown"			"0"
 		"AbilityManaCost"			"200"
+		// клик дальше не ведёт Каму в радиус: клон встаёт на предельной дистанции
 		"AbilityCastRange"			"1000"
 		"AbilityCastPoint"			"0.1"
 
@@ -72,8 +73,9 @@
 			"clone_factor"			"50"	// % урона, Charm и снятия кулдауна у выстрела клона
 			// обмен местами: приказ атаки в землю не дальше swap_radius от клона
 			"swap_radius"			"150"
-			"swap_cooldown"			"1"
-			// взрыв на прежнем месте Камы
+			"swap_cooldown"			"0"		// пауза между двумя обменами
+			// взрыв на прежнем месте Камы, через blast_delay после обмена
+			"blast_delay"			"0.3"
 			"blast_radius"			"250"
 			"blast_damage"			"50"
 			"blast_pull_duration"	"0.2"

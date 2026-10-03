@@ -19,14 +19,45 @@ local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powe
 -- заряды, с ними ReduceCooldowns работает отдельно.
 local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
 
+-- Анимация обычного выстрела в родном темпе: тетива у модели срывается на
+-- 5-6 кадре (~0.17 с), то есть как раз к концу кастпоинта. Остальное —
+-- плавный возврат лука, его обрезаем не раньше 0.7 с.
+local SHOT_ANIMATION = {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.0}
+
+-- Клоны W замахиваются вместе с Камой, с самого начала каста, и вместе с ней
+-- бросают замах, если каст отменили.
 function kama_arrow_shot:OnAbilityPhaseStart()
-    -- анимация обычного выстрела, ускоренная под кастпоинт
-    StartAnimation(self:GetCaster(), {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2.0})
+    local caster = self:GetCaster()
+    local vPoint = self:GetCursorPosition()
+    StartAnimation(caster, SHOT_ANIMATION)
+    for _, hClone in ipairs(self:GetClones()) do
+        hClone:SetForwardVector(self:CloneDirection(hClone, vPoint, caster:GetForwardVector()))
+        StartAnimation(hClone, SHOT_ANIMATION)
+    end
     return true
 end
 
 function kama_arrow_shot:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
+    for _, hClone in ipairs(self:GetClones()) do
+        EndAnimation(hClone)
+    end
+end
+
+-- Живые клоны W (пусто, если W ещё нет).
+function kama_arrow_shot:GetClones()
+    local hEmbrace = self:GetCaster():FindAbilityByName("kama_embrace_of_dreams")
+    if not Kama_Alive(hEmbrace) or hEmbrace:GetLevel() < 1 then return {} end
+    return hEmbrace:GetClones()
+end
+
+-- Куда стреляет клон: в точку, куда целилась Кама. Точка прямо под клоном —
+-- тогда в запасном направлении vFallback.
+function kama_arrow_shot:CloneDirection(hClone, vPoint, vFallback)
+    local vDirection = vPoint - hClone:GetAbsOrigin()
+    vDirection.z = 0
+    if vDirection:Length2D() < 1 then return vFallback end
+    return vDirection:Normalized()
 end
 
 -- Каждый живой клон W делает Q дороже. Число клонов лежит в стаках
@@ -59,18 +90,14 @@ end
 --[[ Клоны W повторяют выстрел: каждый стреляет со своего места в ту же ТОЧКУ,
      куда целилась Кама, с долей clone_factor. ]]
 function kama_arrow_shot:FireFromClones(vPoint, vFallback)
+    local tClones = self:GetClones()
+    if #tClones < 1 then return end
     local hEmbrace = self:GetCaster():FindAbilityByName("kama_embrace_of_dreams")
-    if not Kama_Alive(hEmbrace) or hEmbrace:GetLevel() < 1 then return end
     local fFactor = hEmbrace:GetSpecialValueFor("clone_factor") / 100
 
-    for _, hClone in ipairs(hEmbrace:GetClones()) do
-        local vDirection = vPoint - hClone:GetAbsOrigin()
-        vDirection.z = 0
-        -- точка прямо под клоном — стреляет туда же, куда Кама
-        vDirection = vDirection:Length2D() < 1 and vFallback or vDirection:Normalized()
-
+    for _, hClone in ipairs(tClones) do
+        local vDirection = self:CloneDirection(hClone, vPoint, vFallback)
         hClone:SetForwardVector(vDirection)
-        StartAnimation(hClone, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2.0})
         self:FireArrow(hClone:GetAbsOrigin() + Vector(0, 0, 100), vDirection, fFactor)
     end
 end

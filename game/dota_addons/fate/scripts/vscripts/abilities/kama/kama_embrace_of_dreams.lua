@@ -4,8 +4,8 @@ kama_embrace_of_dreams = kama_embrace_of_dreams or class({})
 
 --[[ W — Embrace of Dreams. Ставит клона в точку.
      Клон — НЕ иллюзия и не герой: неуязвимый некликабельный объект с моделью
-     Камы (юнит kama_clone с dummy_unit_passive). Сам он ничего не делает,
-     только повторяет Q — этим занимается kama_arrow_shot.
+     Камы (юнит kama_clone). Сам он ничего не делает, только повторяет Q —
+     этим занимается kama_arrow_shot.
      Способность на зарядах. Заряды свои, а не движковые: попадания Q должны
      сокращать время восстановления, а у движковых зарядов такого доступа нет.
      Приказ атаки в землю рядом с клоном меняет Каму с ним местами.
@@ -39,9 +39,28 @@ function kama_embrace_of_dreams:HasCharge()
     return caster:GetModifierStackCount("modifier_kama_embrace_charges", caster) > 0
 end
 
+--[[ Клик дальше дальности каста не заставляет Каму идти: клон просто встаёт
+     на предельной дистанции (ClampPoint). Поэтому серверу дальность отдаём
+     «бесконечную», а клиенту — настоящую из KV, чтобы круг дальности не врал. ]]
+function kama_embrace_of_dreams:GetCastRange(vLocation, hTarget)
+    if IsServer() then return 99999 end
+    return self.BaseClass.GetCastRange(self, vLocation, hTarget)
+end
+
+-- Точка каста, поджатая к настоящей дальности (AbilityCastRange из KV).
+function kama_embrace_of_dreams:ClampPoint(vPoint)
+    local vOrigin = self:GetCaster():GetAbsOrigin()
+    local vOffset = vPoint - vOrigin
+    vOffset.z = 0
+    local nRange = self.BaseClass.GetCastRange(self, vPoint, nil)
+    if vOffset:Length2D() <= nRange then return vPoint end
+    return vOrigin + vOffset:Normalized() * nRange
+end
+
 function kama_embrace_of_dreams:CastFilterResultLocation(vLocation)
     if not self:HasCharge() then return UF_FAIL_CUSTOM end
-    if IsServer() and not IsInSameRealm(self:GetCaster():GetAbsOrigin(), vLocation) then
+    if IsServer() and not IsInSameRealm(self:GetCaster():GetAbsOrigin(),
+        self:ClampPoint(vLocation)) then
         return UF_FAIL_CUSTOM
     end
     return UF_SUCCESS
@@ -56,7 +75,7 @@ function kama_embrace_of_dreams:OnSpellStart()
     local caster = self:GetCaster()
     local hCharges = caster:FindModifierByName("modifier_kama_embrace_charges")
     if hCharges then hCharges:Spend() end
-    self:SpawnClone(self:GetCursorPosition())
+    self:SpawnClone(self:ClampPoint(self:GetCursorPosition()))
 end
 
 --=========================================================================--
@@ -86,11 +105,10 @@ function kama_embrace_of_dreams:SpawnClone(vPoint)
         nil, nil, caster:GetTeamNumber())
     if not Kama_Alive(hClone) then return end
 
-    local hPassive = hClone:FindAbilityByName("dummy_unit_passive")
-    if hPassive then hPassive:SetLevel(1) end
     hClone:SetForwardVector(caster:GetForwardVector())
     hClone:SetRenderColor(255, 170, 215)
-    -- клон живёт ровно столько, сколько этот модификатор: он же его и убирает
+    -- клон живёт ровно столько, сколько этот модификатор: он же его и убирает,
+    -- и он же делает его неуязвимым и некликабельным
     local hLife = hClone:AddNewModifier(caster, self, "modifier_kama_dream_clone",
         {duration = self:GetSpecialValueFor("clone_duration")})
     if not hLife then
@@ -171,21 +189,32 @@ function kama_embrace_of_dreams:TrySwap(vPoint)
     self:SwapBlast(vFrom)
 end
 
+-- Взрыв на прежнем месте Камы. Срабатывает с задержкой blast_delay: всё это
+-- время кольцо показывает, куда он придётся.
 function kama_embrace_of_dreams:SwapBlast(vCenter)
+    local caster = self:GetCaster()
+    local fDelay = self:GetSpecialValueFor("blast_delay")
+
+    local nFx = ParticleManager:CreateParticle(FX_BLAST, PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(nFx, 0, vCenter)
+    ParticleManager:SetParticleControl(nFx, 1, Vector(1, 0.4, 0.7))
+    ParticleManager:SetParticleControl(nFx, 2,
+        Vector(self:GetSpecialValueFor("blast_radius"), fDelay, 0))
+
+    Timers:CreateTimer(fDelay, function()
+        ParticleManager:DestroyParticle(nFx, false)
+        ParticleManager:ReleaseParticleIndex(nFx)
+        if not Kama_Alive(self) or not Kama_Alive(caster) then return end
+        self:BlastHit(vCenter)
+    end)
+end
+
+function kama_embrace_of_dreams:BlastHit(vCenter)
     local caster = self:GetCaster()
     local nRadius = self:GetSpecialValueFor("blast_radius")
     local nDamage = self:GetSpecialValueFor("blast_damage")
     local fPull = self:GetSpecialValueFor("blast_pull_duration")
     local fSlow = self:GetSpecialValueFor("blast_slow_duration")
-
-    local nFx = ParticleManager:CreateParticle(FX_BLAST, PATTACH_WORLDORIGIN, nil)
-    ParticleManager:SetParticleControl(nFx, 0, vCenter)
-    ParticleManager:SetParticleControl(nFx, 1, Vector(1, 0.4, 0.7))
-    ParticleManager:SetParticleControl(nFx, 2, Vector(nRadius, 0.4, 0))
-    Timers:CreateTimer(0.5, function()
-        ParticleManager:DestroyParticle(nFx, false)
-        ParticleManager:ReleaseParticleIndex(nFx)
-    end)
 
     local tEnemies = FindUnitsInRadius(caster:GetTeamNumber(), vCenter, nil, nRadius,
         DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
@@ -331,6 +360,18 @@ modifier_kama_dream_clone = class({})
 
 function modifier_kama_dream_clone:IsHidden()   return true end
 function modifier_kama_dream_clone:IsPurgable() return false end
+
+-- Те же состояния, что даёт dummy_unit_passive, но БЕЗ FLYING: с ним клон
+-- всплывал в воздух, стоило ему повернуться для выстрела.
+function modifier_kama_dream_clone:CheckState()
+    return {
+        [MODIFIER_STATE_UNSELECTABLE]      = true,
+        [MODIFIER_STATE_INVULNERABLE]      = true,
+        [MODIFIER_STATE_NOT_ON_MINIMAP]    = true,
+        [MODIFIER_STATE_NO_HEALTH_BAR]     = true,
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    }
+end
 
 function modifier_kama_dream_clone:OnCreated()
     if not IsServer() then return end
