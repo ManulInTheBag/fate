@@ -8,8 +8,8 @@ kama_arrow_of_desire = kama_arrow_of_desire or class({})
      Floral: летит по направлению, останавливается на первой цели и сразу
      даёт ей большую порцию Charm.
      Samsara: массивная стрела летит в указанную точку, подхватывает до
-     max_targets врагов и тащит их с собой; в конце — небольшой урон и
-     замедление.
+     max_targets врагов и тащит их с собой, а в конце пути взрывается:
+     совсем небольшой урон и лёгкое замедление всем врагам рядом.
      Кулдаун печатью Мастера не сбрасывается (CannotReset в util.lua).
 ]]
 
@@ -21,6 +21,8 @@ LinkLuaModifier("modifier_kama_desire_slow", "abilities/kama/kama_arrow_of_desir
 -- Временные эффекты до своих партиклей: стрела Мираны и выстрел Виндрейнджер.
 local FX_FLORAL  = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+-- кольцо по радиусу взрыва (CP1 — цвет, CP2 — радиус и время)
+local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
 
 --[[ Анимация — второй выстрел модели, замедленный так, чтобы тетива сорвалась
      ровно к концу зарядки. У модели это 5-6 кадр из 30 (~0.18 с в родном
@@ -178,28 +180,25 @@ function kama_arrow_of_desire:OnProjectileHit_ExtraData(hTarget, vLocation, tDat
     self.tDragged = self.tDragged or {}
     local tUnits = self.tDragged[tData.arrow] or {}
 
-    -- стрела долетела: всех, кого тащила, отпускает
+    -- стрела долетела: отпускает всех, кого тащила, и взрывается
     if not Kama_Alive(hTarget) then
         self.tDragged[tData.arrow] = nil
+        local tDraggedHere = {}
         for _, hUnit in ipairs(tUnits) do
             if Kama_Alive(hUnit) then
                 -- снятие захвата само ставит цель на проходимое место
                 hUnit:RemoveModifierByName("modifier_kama_desire_drag")
-                self:Impact(hUnit)
+                tDraggedHere[hUnit] = true
             end
         end
+        self:Explode(vLocation, tDraggedHere)
         return true
     end
 
-    if IsSpellBlocked(hTarget, caster) then return false end
-
-    -- кого сдвинуть нельзя, того стрела просто бьёт на месте
-    if IsKnockbackImmune(hTarget) then
-        self:Impact(hTarget)
-        return false
-    end
-
-    if #tUnits < self:GetSpecialValueFor("max_targets") then
+    -- кого сдвинуть нельзя, мимо того стрела просто пролетает; блок заклинаний
+    -- тратится, только когда стрела и правда собирается подхватить цель
+    if not IsKnockbackImmune(hTarget) and #tUnits < self:GetSpecialValueFor("max_targets")
+        and not IsSpellBlocked(hTarget, caster) then
         local hDrag = hTarget:AddNewModifier(caster, self, "modifier_kama_desire_drag",
             {duration = tData.flight + 0.3})
         if hDrag then
@@ -210,20 +209,40 @@ function kama_arrow_of_desire:OnProjectileHit_ExtraData(hTarget, vLocation, tDat
     return false
 end
 
--- Конец пути: небольшой урон и замедление. Считается попаданием стрелы.
-function kama_arrow_of_desire:Impact(hUnit)
+--[[ Взрыв в конце пути: совсем небольшой урон и лёгкое замедление всем врагам
+     рядом. Для каждого задетого считается попаданием стрелы.
+     tDraggedHere — кого стрела притащила: их блок заклинаний уже проверен. ]]
+function kama_arrow_of_desire:Explode(vCenter, tDraggedHere)
     local caster = self:GetCaster()
-    if not hUnit:IsAlive() then return end
+    local nRadius = self:GetSpecialValueFor("explosion_radius")
+    vCenter = GetGroundPosition(vCenter, nil)
 
-    DoDamage(caster, hUnit, self:GetSpecialValueFor("drag_damage"),
-        self:GetAbilityDamageType(), 0, self, false)
-    if not Kama_Alive(hUnit) or not hUnit:IsAlive() then return end
+    local nFx = ParticleManager:CreateParticle(FX_EXPLOSION, PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(nFx, 0, vCenter)
+    ParticleManager:SetParticleControl(nFx, 1, Vector(1, 0.4, 0.7))
+    ParticleManager:SetParticleControl(nFx, 2, Vector(nRadius, 0.3, 0))
+    Timers:CreateTimer(0.4, function()
+        ParticleManager:DestroyParticle(nFx, false)
+        ParticleManager:ReleaseParticleIndex(nFx)
+    end)
 
-    if not IsImmuneToSlow(hUnit) then
-        hUnit:AddNewModifier(caster, self, "modifier_kama_desire_slow",
-            {duration = self:GetSpecialValueFor("drag_slow_duration")})
+    local tEnemies = FindUnitsInRadius(caster:GetTeamNumber(), vCenter, nil, nRadius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    for _, hEnemy in pairs(tEnemies) do
+        if Kama_Alive(hEnemy) and (tDraggedHere[hEnemy] or not IsSpellBlocked(hEnemy, caster)) then
+            DoDamage(caster, hEnemy, self:GetSpecialValueFor("explosion_damage"),
+                self:GetAbilityDamageType(), 0, self, false)
+
+            if Kama_Alive(hEnemy) and hEnemy:IsAlive() then
+                if not IsImmuneToSlow(hEnemy) then
+                    hEnemy:AddNewModifier(caster, self, "modifier_kama_desire_slow",
+                        {duration = self:GetSpecialValueFor("explosion_slow_duration")})
+                end
+                Kama_ArrowHit(caster, hEnemy, {})
+            end
+        end
     end
-    Kama_ArrowHit(caster, hUnit, {})
 end
 
 --=========================================================================--
@@ -265,5 +284,5 @@ function modifier_kama_desire_slow:DeclareFunctions()
 end
 
 function modifier_kama_desire_slow:GetModifierMoveSpeedBonus_Percentage()
-    return -self:GetAbility():GetSpecialValueFor("drag_slow")
+    return -self:GetAbility():GetSpecialValueFor("explosion_slow")
 end

@@ -155,6 +155,7 @@
 		{
 			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 			"particle"	"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
 		}
 		"AbilityValues"
@@ -170,9 +171,11 @@
 			"max_targets"			"3"
 			"drag_speed"			"4000"
 			"drag_width"			"150"
-			"drag_damage"			"100"
-			"drag_slow"				"50"
-			"drag_slow_duration"	"2"
+			// взрыв в конце пути
+			"explosion_radius"		"300"
+			"explosion_damage"		"40"
+			"explosion_slow"			"25"
+			"explosion_slow_duration"	"2"
 		}
 	}
 
