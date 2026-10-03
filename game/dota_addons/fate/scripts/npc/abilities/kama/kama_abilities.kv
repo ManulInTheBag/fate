@@ -2,26 +2,40 @@
 {
 
 	//=====================================
-	// Kama Q
+	// Q - Arrow Shot: выстрел стрелой по направлению.
+	// Floral даёт Charm, Samsara пробивает насквозь.
 	//=====================================
 	"kama_arrow_shot"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/kama/kama_arrow_shot"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"		"1"
 		"MaxLevel"					"5"
-		"AbilityCooldown"			"12"
+		"AbilityCooldown"			"7 6.5 6 5.5 5"
 		"AbilityManaCost"			"100"
-		"AbilityCastRange"			"700"
+		// стрела летит по направлению на свою дальность: герой не идёт «в радиус»
+		"AbilityCastRange"			"99999"
 		"AbilityCastPoint"			"0.2"
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"particle"	"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
+		}
 		"AbilityValues"
 		{
-			"damage"			"100 150 200 250 300"
-			"radius"			"300"
+			"damage"				"120 160 200 240 280"
+			"range"					"1400"
+			"speed"					"2200"
+			"width"					"90"
+			"charm"					"10"	// Charm за попадание стрелой Floral
+			"cd_reduction"			"1"		// сколько секунд кулдауна Q/W/E снимает попадание
+			"cd_reduction_attr"		"2"		// то же с атрибутом 4
 		}
 	}
 
