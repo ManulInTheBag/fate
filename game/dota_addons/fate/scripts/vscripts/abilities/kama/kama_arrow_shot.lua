@@ -24,15 +24,19 @@ local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
 -- плавный возврат лука, его обрезаем не раньше 0.7 с.
 local SHOT_ANIMATION = {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.0}
 
--- Клоны W замахиваются вместе с Камой, с самого начала каста, и вместе с ней
--- бросают замах, если каст отменили.
+--[[ Клоны W замахиваются вместе с Камой, с самого начала каста, и вместе с ней
+     бросают замах, если каст отменили.
+     Клонам анимацию включаем серверным жестом, а не StartAnimation: тот идёт
+     через модификатор на клиенте, и стоящий юнит подхватывал его с опозданием —
+     при быстрой отмене клоны не успевали даже начать. ]]
 function kama_arrow_shot:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local vPoint = self:GetCursorPosition()
     StartAnimation(caster, SHOT_ANIMATION)
     for _, hClone in ipairs(self:GetClones()) do
         hClone:SetForwardVector(self:CloneDirection(hClone, vPoint, caster:GetForwardVector()))
-        StartAnimation(hClone, SHOT_ANIMATION)
+        hClone:RemoveGesture(ACT_DOTA_ATTACK)
+        hClone:StartGesture(ACT_DOTA_ATTACK)
     end
     return true
 end
@@ -40,7 +44,7 @@ end
 function kama_arrow_shot:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
     for _, hClone in ipairs(self:GetClones()) do
-        EndAnimation(hClone)
+        hClone:FadeGesture(ACT_DOTA_ATTACK)
     end
 end
 
