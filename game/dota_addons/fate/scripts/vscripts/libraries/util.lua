@@ -2817,6 +2817,7 @@ local servantClasses = {
     ["npc_dota_hero_enchantress"]      = "Caster",      -- Tamamo no Mae
     ["npc_dota_hero_bounty_hunter"]    = "Assassin",    -- Hassan-i-Sabbah
     ["npc_dota_hero_riki"]             = "Assassin",    -- Jack the Ripper
+    ["npc_dota_hero_enigma"]           = "Assassin",    -- Kama
     ["npc_dota_hero_skeleton_king"]    = "Assassin",    -- King Hassan
     ["npc_dota_hero_bloodseeker"]      = "Assassin",    -- Li Shuwen
     ["npc_dota_hero_night_stalker"]    = "Assassin",    -- Shiki Nanaya

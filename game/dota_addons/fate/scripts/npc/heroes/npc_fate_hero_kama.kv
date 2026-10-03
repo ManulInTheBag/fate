@@ -7,11 +7,13 @@
 	{
 		"override_hero"				"npc_dota_hero_enigma"
 		"DisableWearables"			"1"
-		"Model"						"models\maounobu\maounobu.vmdl"
-		"ModelScale"				"1.0"
+		// Третье вознесение (с луком). Запасная модель - models/kama/kama.vmdl.
+		"Model"						"models/kama_big/kama_big.vmdl"
+		"ModelScale"				"1.1"
 		"DrawParticlesWhileHidden"	"1"
 		"GameSoundsFile"			"soundevents/hero_kama.vsndevts"
-		"SoundSet"					"Hero_Kama"
+		// SoundSet не объявляем: набора "Hero_Kama" нет, с ним пропали бы шаги и
+		// звуки попаданий. Без строки берётся набор базового героя.
 
 		"AbilityLayout"				"6"
 		"Ability1"				"kama_q"		// Q
@@ -20,10 +22,19 @@
 		"Ability4"				"kama_d"		// D
 		"Ability5"				"kama_f"		// F
 		"Ability6"				"kama_r"		// R
-		"Ability7"				"hero_base_stats_bonus"
-		"Ability8"				"presence_detection_passive"
-		"Ability9"				"attribute_bonus_custom"
-		"Ability10"				"kama_combo"		// Combo
+		"Ability7"				"kama_combo"	// Combo
+		"Ability8"				"hero_base_stats_bonus"
+		"Ability9"				"presence_detection_passive"
+		"Ability10"				"attribute_bonus_custom"
+		// Пустые таланты: без них клиент падает при ALT (см. npc_abilities_custom.txt)
+		"Ability18"				"special_bonus_fate_none_1"
+		"Ability19"				"special_bonus_fate_none_2"
+		"Ability20"				"special_bonus_fate_none_3"
+		"Ability21"				"special_bonus_fate_none_4"
+		"Ability22"				"special_bonus_fate_none_5"
+		"Ability23"				"special_bonus_fate_none_6"
+		"Ability24"				"special_bonus_fate_none_7"
+		"Ability25"				"special_bonus_fate_none_8"
 		"Combo"						"kama_combo"
 		"AttributeNumber"			"4"
 		"Attribute1"				"kama_sa_1"
@@ -31,33 +42,36 @@
 		"Attribute3"				"kama_sa_3"
 		"Attribute4"				"kama_sa_4"
 
-		"StatusHealth"				"1200"
-		"StatusHealthRegen"			"6.0"
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"5.0"
 		"StatusMana"				"1000"
-		"StatusManaRegen"			"4.0"
+		"StatusManaRegen"			"5.0"
 
-		"ArmorPhysical"				"2"
-		"MagicalResistance"			"25"
+		"ArmorPhysical"				"5"
+		"MagicalResistance"			"15"
 
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"70"
-		"AttackDamageMax"			"70"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"45"
+		"AttackDamageMax"			"45"
 		"AttackRate"				"1.7"
-		"AttackAcquisitionRange"	"600"
-		"AttackRange"				"150"
-		"HealthBarOffset"			"220"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"700"
+		"ProjectileModel"			"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+		"ProjectileSpeed"			"1500"
+		"HealthBarOffset"			"250"
 
-		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"		"0"
-		"AttributeStrengthGain"		"3.0"
+		"AttributeStrengthGain"		"1.65"
 		"AttributeBaseAgility"		"0"
-		"AttributeAgilityGain"		"2.0"
+		"AttributeAgilityGain"		"2.2"
 		"AttributeBaseIntelligence"	"0"
-		"AttributeIntelligenceGain"	"2.0"
+		"AttributeIntelligenceGain"	"1.65"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"330"
-		"MovementTurnRate"			"0.7"
+		"MovementSpeed"				"340"
+		"MovementTurnRate"			"0.8"
 
 		"VisionDaytimeRange"		"1000"
 		"VisionNighttimeRange"		"1000"

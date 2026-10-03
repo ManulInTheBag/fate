@@ -192,7 +192,7 @@ model_lookup["npc_dota_hero_riki"] = "models/jtr/jtr.vmdl"
 model_lookup["npc_dota_hero_centaur"] = "models/lu_bu/lu_bu.vmdl"
 model_lookup["npc_dota_hero_sniper"] = "models/robin/robin.vmdl"
 model_lookup["npc_dota_hero_dragon_knight"] = "models/barghest/barghest.vmdl"  -- Barghest
-model_lookup["npc_dota_hero_enigma"] = "models/maounobu/maounobu.vmdl"  -- Kama
+model_lookup["npc_dota_hero_enigma"] = "models/kama_big/kama_big.vmdl"  -- Kama
 
 DoNotKillAtTheEndOfRound = {
     "tamamo_charm",
@@ -255,6 +255,7 @@ end
 
 function Precache( context )
 	-- [panel] precache героев, добавлено панелью
+	PrecacheResource("model", "models/kama_big/kama_big.vmdl", context)
 	PrecacheResource("soundfile", "soundevents/hero_kama.vsndevts", context)
 	PrecacheResource("model", "models/barghest/barghest.vmdl", context)
 	PrecacheResource("soundfile", "soundevents/hero_barghest.vsndevts", context)
