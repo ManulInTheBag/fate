@@ -35,7 +35,7 @@ end
 -- Анимацию каста играет движок (AbilityCastAnimation); остатки прошлого
 -- выстрела перед ней гасим, чтобы две анимации не накладывались.
 function kama_blooming_ground:OnAbilityPhaseStart()
-    Kama_FadeGestures(self:GetCaster())
+    Kama_StopAnimations(self:GetCaster())
     return true
 end
 

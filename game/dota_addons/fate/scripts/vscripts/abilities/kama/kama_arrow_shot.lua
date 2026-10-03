@@ -26,6 +26,8 @@ local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
      только так замах у них совпадает до кадра. Поэтому AbilityCastAnimation в
      KV у Q нет: движок играл бы выстрел Камы со своими настройками, чуть иначе,
      чем у клонов.
+     После выстрела Кама доигрывает жест под бэксвингом (Kama_Backswing): не
+     начинает автоатаку, пока жест не кончится или игрок не отдаст приказ.
      StartAnimation тут не годится: он идёт через модификатор на клиенте,
      стоящий юнит подхватывает его с опозданием, а при частых отменах каста он
      запускает анимацию уже после отмены. ]]
@@ -36,8 +38,9 @@ local SHOT_AFTER_CAST = 0.8
 function kama_arrow_shot:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local vPoint = self:GetCursorPosition()
-    caster:FadeGesture(KAMA_RECOVERY_GESTURE)
+    Kama_StopAnimations(caster)
     Kama_Gesture(caster, KAMA_SHOT_GESTURE, SHOT_FADE_IN)
+    Kama_Trace("Q shot gesture start, clones " .. #self:GetClones())
     for _, hClone in ipairs(self:GetClones()) do
         hClone:SetForwardVector(self:CloneDirection(hClone, vPoint, caster:GetForwardVector()))
         Kama_Gesture(hClone, KAMA_SHOT_GESTURE, SHOT_FADE_IN)
@@ -95,11 +98,7 @@ function kama_arrow_shot:OnSpellStart()
     self:FireArrow(vOrigin, vDirection, 1)
     self:FireFromClones(vPoint, vDirection)
 
-    -- возврат лука доигрывается стоя; пошла, атакует или получила приказ —
-    -- жест гаснет
-    Kama_StopWhenBusy(caster, SHOT_AFTER_CAST, function()
-        caster:FadeGesture(KAMA_SHOT_GESTURE)
-    end)
+    Kama_Backswing(caster, self, SHOT_AFTER_CAST, KAMA_SHOT_GESTURE)
 end
 
 --[[ Клоны W повторяют выстрел: каждый стреляет со своего места в ту же ТОЧКУ,

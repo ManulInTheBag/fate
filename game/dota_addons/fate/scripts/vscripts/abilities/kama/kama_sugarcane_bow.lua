@@ -39,28 +39,22 @@ function modifier_kama_sugarcane_bow:DeclareFunctions()
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_RESPAWN,
         MODIFIER_EVENT_ON_ORDER,
+        MODIFIER_EVENT_ON_ATTACK_START,
     }
 end
 
--- Приказы, после которых Кама занята делом и доигрывать выстрел ей некогда.
-local function IsActionOrder(nOrder)
-    return nOrder == DOTA_UNIT_ORDER_MOVE_TO_POSITION
-        or nOrder == DOTA_UNIT_ORDER_MOVE_TO_TARGET
-        or nOrder == DOTA_UNIT_ORDER_MOVE_TO_DIRECTION
-        or nOrder == DOTA_UNIT_ORDER_ATTACK_MOVE
-        or nOrder == DOTA_UNIT_ORDER_ATTACK_TARGET
-        or nOrder == DOTA_UNIT_ORDER_CAST_POSITION
-        or nOrder == DOTA_UNIT_ORDER_CAST_TARGET
-        or nOrder == DOTA_UNIT_ORDER_CAST_NO_TARGET
-        or nOrder == DOTA_UNIT_ORDER_PICKUP_ITEM
-end
-
--- Запоминаем время такого приказа: его читает Kama_OrderedSince.
+-- Запоминаем, когда игрок в последний раз приказал Каме действовать: это
+-- читает Kama_OrderedSince.
 function modifier_kama_sugarcane_bow:OnOrder(keys)
     if not IsServer() or keys.unit ~= self:GetParent() then return end
-    if IsActionOrder(keys.order_type) then
+    if Kama_IsActionOrder(keys.order_type) then
         self:GetParent().fKamaLastOrder = GameRules:GetGameTime()
     end
+end
+
+function modifier_kama_sugarcane_bow:OnAttackStart(keys)
+    if not IsServer() or keys.attacker ~= self:GetParent() then return end
+    Kama_Trace("attack start")
 end
 
 -- Метку вида стрел могло снести общей зачисткой модификаторов: возвращаем ту

@@ -24,40 +24,41 @@ local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powe
 -- кольцо по радиусу взрыва (CP1 — цвет, CP2 — радиус и время)
 local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
 
---[[ Анимация в две части.
-     Зарядка — второй выстрел модели, замедленный так, чтобы тетива сорвалась
-     ровно к концу зарядки. У модели это 5-6 кадр из 30 (~0.18 с в родном
-     темпе), а от нажатия до выстрела проходит кастпоинт + charge_time = 0.6 с,
-     отсюда rate 0.3. Меняешь эти времена — пересчитай rate.
-     После выстрела — возврат лука (PlayRecovery): отдельная секвенция
-     attack_2_recover, те же кадры с 6-го и до конца. ]]
+--[[ Анимация в две части, обе из второго выстрела модели (attack_2).
+     Зарядка — только натяг лука, первые 4 кадра, растянутые на всё время от
+     нажатия до выстрела (кастпоинт + charge_time = 0.6 с), отсюда rate 0.2.
+     Меняешь эти времена — пересчитай rate: (4 / 30) / время.
+     Выстрел и возврат (PlayRecovery) — секвенция attack_2_recover: те же кадры
+     с 4-го и до конца, в родном темпе. Срыв тетивы (кадры 4-6) приходится
+     ровно на вылет стрелы и идёт уже не в замедлении. ]]
 function kama_arrow_of_desire:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
-    Kama_FadeGestures(self:GetCaster())
-    Kama_Pose(self:GetCaster(), {duration = fShot + 0.1,
-        activity = ACT_DOTA_ATTACK2, rate = 0.3})
+    Kama_StopAnimations(self:GetCaster())
+    StartAnimation(self:GetCaster(), {duration = fShot + 0.1,
+        activity = ACT_DOTA_ATTACK2, rate = 0.2})
     return true
 end
 
--- Возврат лука: 25 кадров attack_2_recover. В родном темпе у него быстрый
--- отскок и долгое вялое доведение, поэтому играем в полтора раза быстрее.
-local RECOVERY_RATE = 1.5
-local RECOVERY_TIME = 25 / 30 / RECOVERY_RATE
-local RECOVERY_FADE = 0.3
+-- attack_2_recover: 26 кадров в родном темпе и с тем же затуханием, что у
+-- выстрела Q, — чтобы лук после D возвращался так же, как после Q.
+local RECOVERY_TIME = 26 / 30
 
---[[ Замедленный замах снимаем и с того же кадра доигрываем возврат лука.
+--[[ Замедленный замах снимаем и с того же кадра доигрываем возврат лука под
+     бэксвингом (Kama_Backswing).
      fChargeStart — когда началась зарядка. Если игрок за это время уже
      приказал Каме что-то делать, возврат не играем вовсе: она сразу пойдёт,
      и поза возврата только тянулась бы за ней. ]]
 function kama_arrow_of_desire:PlayRecovery(fChargeStart)
     local caster = self:GetCaster()
     EndAnimation(caster)
-    if Kama_OrderedSince(caster, fChargeStart) then return end
+    if Kama_OrderedSince(caster, fChargeStart) then
+        Kama_Trace("D release: ordered during charge, no recovery")
+        return
+    end
 
-    Kama_Gesture(caster, KAMA_RECOVERY_GESTURE, 0, RECOVERY_FADE, RECOVERY_RATE)
-    Kama_StopWhenBusy(caster, RECOVERY_TIME, function()
-        caster:FadeGesture(KAMA_RECOVERY_GESTURE)
-    end)
+    Kama_Trace("D release: recovery gesture start")
+    Kama_Gesture(caster, KAMA_RECOVERY_GESTURE, 0)
+    Kama_Backswing(caster, self, RECOVERY_TIME, KAMA_RECOVERY_GESTURE)
 end
 
 function kama_arrow_of_desire:OnAbilityPhaseInterrupted()

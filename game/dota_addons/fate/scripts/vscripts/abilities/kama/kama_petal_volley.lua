@@ -79,8 +79,8 @@ end
 function kama_petal_volley:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
     local fVolley = self:VolleyTime(1 + #self:GetClones())
-    Kama_FadeGestures(self:GetCaster())
-    Kama_Pose(self:GetCaster(), {duration = fShot + fVolley + POSE_AFTER_VOLLEY,
+    Kama_StopAnimations(self:GetCaster())
+    StartAnimation(self:GetCaster(), {duration = fShot + fVolley + POSE_AFTER_VOLLEY,
         activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.85})
     return true
 end
@@ -108,7 +108,7 @@ function kama_petal_volley:OnSpellStart()
         if Kama_OrderedSince(caster, fChargeStart) then
             EndAnimation(caster)
         else
-            Kama_StopWhenBusy(caster, POSE_AFTER_VOLLEY, function() EndAnimation(caster) end)
+            Kama_Backswing(caster, self, POSE_AFTER_VOLLEY, nil)
         end
     end)
 

@@ -11,6 +11,7 @@ LinkLuaModifier("modifier_kama_samsara", "abilities/kama/kama_shared", LUA_MODIF
 LinkLuaModifier("modifier_kama_charm", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kama_charmed", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kama_charm_immune", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_kama_backswing", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
 
 -- F: переключатель стрел. В его AbilityValues лежат и общие числа Charm.
 KAMA_BOW = "kama_sugarcane_bow"
@@ -41,11 +42,14 @@ function KamaOnSealRefresh(hHero)
     if hCharges then hCharges:Refill() end
 end
 
--- Каждая анимация, запущенная на юните отсюда, получает номер. По нему слежка
--- (Kama_StopWhenBusy) видит, что анимацию уже сменили и останавливать её не ей.
-local function NextAnimationRun(hUnit)
-    hUnit.nKamaAnimationRun = (hUnit.nKamaAnimationRun or 0) + 1
+--[[ Отладка анимаций. В Workshop Tools пишет в консоль, что и когда делает
+     код ниже (строки «[KamaAnim …]»); в обычной игре молчит. ]]
+local function Trace(sText)
+    if IsServer() and IsInToolsMode() then
+        print(string.format("[KamaAnim %.2f] %s", GameRules:GetGameTime(), sText))
+    end
 end
+Kama_Trace = Trace
 
 --[[ Жест с плавным входом и выходом и явной скоростью (по умолчанию 1.0).
      ⚠️ Именно этот вызов, а не StartGesture/StartGestureWithPlaybackRate: у тех
@@ -55,14 +59,6 @@ end
 function Kama_Gesture(hUnit, nActivity, fFadeIn, fFadeOut, fRate)
     hUnit:RemoveGesture(nActivity)
     hUnit:StartGestureWithFadeAndPlaybackRate(nActivity, fFadeIn, fFadeOut or 0.4, fRate or 1.0)
-    NextAnimationRun(hUnit)
-end
-
--- Поза через StartAnimation (замах на зарядке у D и E): под станом зарядки
--- проверена именно она.
-function Kama_Pose(hCaster, tAnimation)
-    StartAnimation(hCaster, tAnimation)
-    NextAnimationRun(hCaster)
 end
 
 -- Жесты Камы, которые доигрываются уже после выстрела: выстрел Q и возврат
@@ -70,44 +66,108 @@ end
 KAMA_SHOT_GESTURE     = ACT_DOTA_CAST_ABILITY_6
 KAMA_RECOVERY_GESTURE = ACT_DOTA_CAST_ABILITY_7
 
--- Погасить то, что Кама доигрывает с прошлого выстрела. Зовётся в начале
--- каста других способностей, чтобы две анимации не накладывались.
-function Kama_FadeGestures(hCaster)
-    if not IsServer() or not Kama_Alive(hCaster) then return end
-    hCaster:FadeGesture(KAMA_SHOT_GESTURE)
-    hCaster:FadeGesture(KAMA_RECOVERY_GESTURE)
+-- Приказ, после которого Кама занята делом: идти, бить, кастовать по цели или
+-- точке, подбирать. Мгновенные способности без цели (смена стрел на F) сюда
+-- не входят: они ничего не прерывают.
+function Kama_IsActionOrder(nOrder)
+    return nOrder == DOTA_UNIT_ORDER_MOVE_TO_POSITION
+        or nOrder == DOTA_UNIT_ORDER_MOVE_TO_TARGET
+        or nOrder == DOTA_UNIT_ORDER_MOVE_TO_DIRECTION
+        or nOrder == DOTA_UNIT_ORDER_ATTACK_MOVE
+        or nOrder == DOTA_UNIT_ORDER_ATTACK_TARGET
+        or nOrder == DOTA_UNIT_ORDER_CAST_POSITION
+        or nOrder == DOTA_UNIT_ORDER_CAST_TARGET
+        or nOrder == DOTA_UNIT_ORDER_PICKUP_ITEM
 end
 
--- Отдал ли игрок Каме приказ действовать (идти, бить, кастовать) не раньше
--- момента fTime. Время приказа пишет скрытая пассивка лука.
+-- Отдал ли игрок Каме такой приказ не раньше момента fTime. Время приказа
+-- пишет скрытая пассивка лука.
 function Kama_OrderedSince(hCaster, fTime)
     return (hCaster.fKamaLastOrder or 0) >= fTime
 end
 
---[[ fDuration секунд следить, не занялась ли Кама делом: пошла, начала атаку
-     или получила приказ. Если да — один раз вызвать fnStop, он убирает
-     анимацию, которая доигрывается после выстрела. Иначе Кама ехала бы по
-     земле в позе стрельбы.
-     Смотрим и на приказы, и на то, что она делает: автоатака начинается без
-     приказа, а приказ, отданный во время стана зарядки, движок выполняет после
-     него молча — поэтому вызывающий сам проверяет Kama_OrderedSince за время
-     зарядки, прежде чем что-то запускать. ]]
-function Kama_StopWhenBusy(hCaster, fDuration, fnStop)
+--[[ Дать Каме доиграть выстрел fDuration секунд (см. modifier_kama_backswing).
+     nGesture — жест, который доигрывается; nil — поза через StartAnimation. ]]
+function Kama_Backswing(hCaster, hAbility, fDuration, nGesture)
     if not IsServer() or not Kama_Alive(hCaster) then return end
-    local nRun = hCaster.nKamaAnimationRun
-    local fStart = GameRules:GetGameTime()
+    hCaster:AddNewModifier(hCaster, hAbility, "modifier_kama_backswing",
+        {duration = fDuration, gesture = nGesture or -1})
+end
 
-    Timers:CreateTimer(0.03, function()
-        if not Kama_Alive(hCaster) or GameRules:GetGameTime() >= fStart + fDuration then return end
-        -- анимацию уже сменили: за новой следит своя слежка
-        if hCaster.nKamaAnimationRun ~= nRun then return end
-        if not hCaster:IsAlive() or hCaster:IsMoving() or hCaster:IsAttacking()
-            or Kama_OrderedSince(hCaster, fStart) then
-            fnStop()
-            return
-        end
-        return 0.03
-    end)
+-- Убрать всё, что Кама доигрывает с прошлого выстрела. Зовётся в начале каста
+-- любой её способности, чтобы две анимации не накладывались.
+function Kama_StopAnimations(hCaster)
+    if not IsServer() or not Kama_Alive(hCaster) then return end
+    hCaster:RemoveModifierByName("modifier_kama_backswing")
+    hCaster:FadeGesture(KAMA_SHOT_GESTURE)
+    hCaster:FadeGesture(KAMA_RECOVERY_GESTURE)
+end
+
+--[[ Бэксвинг: Кама доигрывает выстрел. То же, что делает движок после обычной
+     способности с анимацией каста.
+     Пока он висит, Кама сама не начинает автоатаку. Без этого под жестом сразу
+     стартует анимация атаки по ближайшему врагу, и возврат лука выходит рваным;
+     у клонов, которые не атакуют, тот же жест ровный. С бэксвингом Кама после
+     выстрела стоит в стойке, как клон, и жест доигрывается одинаково.
+     Игрок обрывает его приказом (идти, бить, кастовать) — тогда анимация
+     гасится сразу; то же, если Кама уже идёт по приказу из очереди. ]]
+modifier_kama_backswing = class({})
+
+function modifier_kama_backswing:IsHidden()      return true end
+function modifier_kama_backswing:IsPurgable()    return false end
+function modifier_kama_backswing:RemoveOnDeath() return true end
+
+function modifier_kama_backswing:OnCreated(keys)
+    if not IsServer() then return end
+    self:Setup(keys)
+    self:StartIntervalThink(0.03)
+end
+
+function modifier_kama_backswing:OnRefresh(keys)
+    if not IsServer() then return end
+    self:Setup(keys)
+end
+
+function modifier_kama_backswing:Setup(keys)
+    self.nGesture = nil
+    if keys.gesture and keys.gesture >= 0 then self.nGesture = keys.gesture end
+    Trace("backswing start, " .. string.format("%.2f", self:GetDuration()) .. " s")
+end
+
+function modifier_kama_backswing:DeclareFunctions()
+    return {
+        MODIFIER_EVENT_ON_ORDER,
+        MODIFIER_PROPERTY_DISABLE_AUTOATTACK,
+    }
+end
+
+function modifier_kama_backswing:GetDisableAutoAttack()
+    return 1
+end
+
+function modifier_kama_backswing:OnIntervalThink()
+    if self:GetParent():IsMoving() then self:Cancel("moving") end
+end
+
+function modifier_kama_backswing:OnOrder(keys)
+    if not IsServer() or keys.unit ~= self:GetParent() then return end
+    if Kama_IsActionOrder(keys.order_type) then self:Cancel("order " .. tostring(keys.order_type)) end
+end
+
+function modifier_kama_backswing:Cancel(sWhy)
+    local hParent = self:GetParent()
+    Trace("backswing cancelled: " .. sWhy)
+    if self.nGesture then
+        hParent:FadeGesture(self.nGesture)
+    else
+        EndAnimation(hParent)
+    end
+    self:Destroy()
+end
+
+function modifier_kama_backswing:OnDestroy()
+    if not IsServer() then return end
+    Trace("backswing over")
 end
 
 --[[ Зарядка выстрела (D и E): Кама замирает на fTime секунд, потом вызывается
