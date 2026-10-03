@@ -1,38 +1,38 @@
-kama_w = class({})
+kama_embrace_of_dreams = class({})
 
 --[[ Kama W
-     Создано панелью. ScriptFile: abilities/kama/kama_w
+     Создано панелью. ScriptFile: abilities/kama/kama_embrace_of_dreams
      Блокируется рутом (ROOT_DISABLES), движение — motion controller
 ]]
 
-LinkLuaModifier("modifier_kama_w_motion", "abilities/kama/kama_w",
+LinkLuaModifier("modifier_kama_embrace_of_dreams_motion", "abilities/kama/kama_embrace_of_dreams",
     LUA_MODIFIER_MOTION_HORIZONTAL)
 
-function kama_w:GetAOERadius()
+function kama_embrace_of_dreams:GetAOERadius()
     return self:GetSpecialValueFor("distance")
 end
 
-function kama_w:OnSpellStart()
+function kama_embrace_of_dreams:OnSpellStart()
     local caster = self:GetCaster()
-    --caster:EmitSound("kama_w_cast")
+    --caster:EmitSound("kama_embrace_of_dreams_cast")
     -- запас 0.1 c: на последнем шаге контроллер ещё доезжает
     local duration = (self:GetAOERadius() / self:GetSpecialValueFor("speed")) + 0.1
-    caster:AddNewModifier(caster, self, "modifier_kama_w_motion", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_kama_embrace_of_dreams_motion", {duration = duration})
 end
 
 --=========================================================================--
 -- Модификатор движения. ⚠️ Деш обязан блокироваться рутом — за это отвечает
 -- DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES в KV, а состояния ниже не дают кастеру
 -- бить и колдовать в полёте.
-modifier_kama_w_motion = class({})
+modifier_kama_embrace_of_dreams_motion = class({})
 
-function modifier_kama_w_motion:IsHidden()         return true end
-function modifier_kama_w_motion:IsDebuff()         return false end
-function modifier_kama_w_motion:IsPurgable()       return false end
-function modifier_kama_w_motion:IsPurgeException() return false end
-function modifier_kama_w_motion:RemoveOnDeath()    return true end
+function modifier_kama_embrace_of_dreams_motion:IsHidden()         return true end
+function modifier_kama_embrace_of_dreams_motion:IsDebuff()         return false end
+function modifier_kama_embrace_of_dreams_motion:IsPurgable()       return false end
+function modifier_kama_embrace_of_dreams_motion:IsPurgeException() return false end
+function modifier_kama_embrace_of_dreams_motion:RemoveOnDeath()    return true end
 
-function modifier_kama_w_motion:CheckState()
+function modifier_kama_embrace_of_dreams_motion:CheckState()
     return {
         [MODIFIER_STATE_ROOTED]   = true,
         [MODIFIER_STATE_DISARMED] = true,
@@ -41,7 +41,7 @@ function modifier_kama_w_motion:CheckState()
     }
 end
 
-function modifier_kama_w_motion:OnCreated(tTable)
+function modifier_kama_embrace_of_dreams_motion:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
@@ -60,7 +60,7 @@ function modifier_kama_w_motion:OnCreated(tTable)
     self.tHit = {}
 
     --StartAnimation(self.hParent, {duration = 0.4, activity = ACT_DOTA_RUN, rate = 1.4})
-    --self.nFx = ParticleManager:CreateParticle("particles/kama/kama_w.vpcf",
+    --self.nFx = ParticleManager:CreateParticle("particles/kama/kama_embrace_of_dreams.vpcf",
     --    PATTACH_ABSORIGIN_FOLLOW, self.hParent)
     --self:AddParticle(self.nFx, false, false, -1, false, false)
 
@@ -69,19 +69,19 @@ function modifier_kama_w_motion:OnCreated(tTable)
     end
 end
 
-function modifier_kama_w_motion:OnRefresh(tTable)
+function modifier_kama_embrace_of_dreams_motion:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
 
 -- ⚠️ Обязательно: без этого чужой motion controller оставит нас висеть.
-function modifier_kama_w_motion:OnHorizontalMotionInterrupted()
+function modifier_kama_embrace_of_dreams_motion:OnHorizontalMotionInterrupted()
     if IsServer() then
         self.hParent:RemoveHorizontalMotionController(self)
         self:Destroy()
     end
 end
 
-function modifier_kama_w_motion:UpdateHorizontalMotion(hUnit, nTime)
+function modifier_kama_embrace_of_dreams_motion:UpdateHorizontalMotion(hUnit, nTime)
     if not IsServer() then return end
     if self.hParent:IsStunned() then return nil end
 
@@ -101,7 +101,7 @@ end
 
 -- Урон по пути: каждого задеваем ОДИН раз (tHit), иначе цель у самой траектории
 -- получит урон на каждом кадре.
-function modifier_kama_w_motion:DoEffect(vPosition)
+function modifier_kama_embrace_of_dreams_motion:DoEffect(vPosition)
     local enemies = FindUnitsInRadius(self.hCaster:GetTeamNumber(), vPosition, nil,
         self.nRadius, self.hAbility:GetAbilityTargetTeam(),
         self.hAbility:GetAbilityTargetType(), self.hAbility:GetAbilityTargetFlags(),
@@ -112,13 +112,13 @@ function modifier_kama_w_motion:DoEffect(vPosition)
             if not IsSpellBlocked(hEnemy, self.hCaster) then
                 DoDamage(self.hCaster, hEnemy, self.nDamage,
                     self.hAbility:GetAbilityDamageType(), 0, self.hAbility, false)
-                --hEnemy:EmitSound("kama_w_hit")
+                --hEnemy:EmitSound("kama_embrace_of_dreams_hit")
             end
         end
     end
 end
 
-function modifier_kama_w_motion:OnDestroy()
+function modifier_kama_embrace_of_dreams_motion:OnDestroy()
     if not IsServer() then return end
     self.hParent:InterruptMotionControllers(true)
     -- ⚠️ Без этого герой остаётся стоять в текстуре

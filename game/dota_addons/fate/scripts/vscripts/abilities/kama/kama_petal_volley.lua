@@ -1,13 +1,13 @@
-kama_e = class({})
+kama_petal_volley = class({})
 
 --[[ Kama E
-     Создано панелью. ScriptFile: abilities/kama/kama_e
+     Создано панелью. ScriptFile: abilities/kama/kama_petal_volley
      
 ]]
 
 -- Цель нельзя брать сквозь измерение и по залоченному кастеру: те же проверки
 -- стоят у всех прицельных способностей аддона.
-function kama_e:CastFilterResultTarget(hTarget)
+function kama_petal_volley:CastFilterResultTarget(hTarget)
     local caster = self:GetCaster()
     if IsServer() and (IsLocked(caster)
         or not IsInSameRealm(caster:GetAbsOrigin(), hTarget:GetAbsOrigin())) then
@@ -16,21 +16,21 @@ function kama_e:CastFilterResultTarget(hTarget)
     return UF_SUCCESS
 end
 
-function kama_e:GetCustomCastErrorTarget(hTarget)
+function kama_petal_volley:GetCustomCastErrorTarget(hTarget)
     return "#Is_Locked"
 end
 
-function kama_e:OnAbilityPhaseStart()
+function kama_petal_volley:OnAbilityPhaseStart()
     StartAnimation(self:GetCaster(), {duration = self:GetCastPoint(),
         activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.0})
     return true
 end
 
-function kama_e:OnAbilityPhaseInterrupted()
+function kama_petal_volley:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
 end
 
-function kama_e:OnSpellStart()
+function kama_petal_volley:OnSpellStart()
     if not IsServer() then return end
     local caster = self:GetCaster()
     local target = self:GetCursorTarget()
@@ -38,7 +38,7 @@ function kama_e:OnSpellStart()
     if not IsNotNull(target) then return end
     -- ⚠️ Блок способностей проверяем ДО эффекта (util.lua:IsSpellBlocked)
     if IsSpellBlocked(target, caster) then return end
-    --caster:EmitSound("kama_e_cast")
+    --caster:EmitSound("kama_petal_volley_cast")
 
     DoDamage(caster, target, self:GetSpecialValueFor("damage"),
         self:GetAbilityDamageType(), 0, self, false)
