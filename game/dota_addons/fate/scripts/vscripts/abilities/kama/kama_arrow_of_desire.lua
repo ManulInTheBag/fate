@@ -30,23 +30,34 @@ local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
      темпе), а от нажатия до выстрела проходит кастпоинт + charge_time = 0.6 с,
      отсюда rate 0.3. Меняешь эти времена — пересчитай rate.
      После выстрела — возврат лука (PlayRecovery): отдельная секвенция
-     attack_2_recover, те же кадры с 6-го и до конца, уже в родном темпе. ]]
+     attack_2_recover, те же кадры с 6-го и до конца. ]]
 function kama_arrow_of_desire:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
     Kama_FadeGestures(self:GetCaster())
-    StartAnimation(self:GetCaster(), {duration = fShot + 0.1,
+    Kama_Pose(self:GetCaster(), {duration = fShot + 0.1,
         activity = ACT_DOTA_ATTACK2, rate = 0.3})
     return true
 end
 
--- Замедленный замах снимаем и с того же кадра доигрываем возврат лука:
--- 25 кадров attack_2_recover, 0.83 с. Жест сходит на нет почти на всей своей
--- длине, поэтому лук опускается ровно, а не «быстро, потом медленно».
--- Пошла или атакует — жест гаснет сразу (Kama_PlayRecovery).
-function kama_arrow_of_desire:PlayRecovery()
+-- Возврат лука: 25 кадров attack_2_recover. В родном темпе у него быстрый
+-- отскок и долгое вялое доведение, поэтому играем в полтора раза быстрее.
+local RECOVERY_RATE = 1.5
+local RECOVERY_TIME = 25 / 30 / RECOVERY_RATE
+local RECOVERY_FADE = 0.3
+
+--[[ Замедленный замах снимаем и с того же кадра доигрываем возврат лука.
+     fChargeStart — когда началась зарядка. Если игрок за это время уже
+     приказал Каме что-то делать, возврат не играем вовсе: она сразу пойдёт,
+     и поза возврата только тянулась бы за ней. ]]
+function kama_arrow_of_desire:PlayRecovery(fChargeStart)
     local caster = self:GetCaster()
     EndAnimation(caster)
-    Kama_PlayRecovery(caster, KAMA_RECOVERY_GESTURE, 0.83, 0.8)
+    if Kama_OrderedSince(caster, fChargeStart) then return end
+
+    Kama_Gesture(caster, KAMA_RECOVERY_GESTURE, 0, RECOVERY_FADE, RECOVERY_RATE)
+    Kama_StopWhenBusy(caster, RECOVERY_TIME, function()
+        caster:FadeGesture(KAMA_RECOVERY_GESTURE)
+    end)
 end
 
 function kama_arrow_of_desire:OnAbilityPhaseInterrupted()
@@ -93,11 +104,12 @@ function kama_arrow_of_desire:OnSpellStart()
     -- прицел и вид стрелы фиксируются в момент нажатия
     local vDirection, fDistance = self:Aim(self:GetCursorPosition())
     local bSamsara = Kama_IsSamsara(caster)
+    local fChargeStart = GameRules:GetGameTime()
 
     Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
         local vOrigin = caster:GetAbsOrigin()
         caster:EmitSound("Ability.Powershot.Alt")
-        self:PlayRecovery()
+        self:PlayRecovery(fChargeStart)
         if bSamsara then
             -- стрела долетает до точки, но не дальше своей дальности
             self:FireDragArrow(vOrigin, vDirection, fDistance)

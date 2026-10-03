@@ -95,8 +95,11 @@ function kama_arrow_shot:OnSpellStart()
     self:FireArrow(vOrigin, vDirection, 1)
     self:FireFromClones(vPoint, vDirection)
 
-    -- возврат лука доигрывается стоя; пошла или атакует — жест гаснет
-    Kama_WatchGesture(caster, KAMA_SHOT_GESTURE, SHOT_AFTER_CAST)
+    -- возврат лука доигрывается стоя; пошла, атакует или получила приказ —
+    -- жест гаснет
+    Kama_StopWhenBusy(caster, SHOT_AFTER_CAST, function()
+        caster:FadeGesture(KAMA_SHOT_GESTURE)
+    end)
 end
 
 --[[ Клоны W повторяют выстрел: каждый стреляет со своего места в ту же ТОЧКУ,

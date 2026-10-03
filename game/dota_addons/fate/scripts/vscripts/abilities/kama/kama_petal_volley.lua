@@ -57,6 +57,9 @@ function kama_petal_volley:GetCustomCastErrorTarget(hTarget)
     return "#Must be in same realm"
 end
 
+-- Сколько анимация ещё доигрывается после последней стрелы очереди.
+local POSE_AFTER_VOLLEY = 0.4
+
 -- Живые клоны W (пусто, если W ещё нет).
 function kama_petal_volley:GetClones()
     local hEmbrace = self:GetCaster():FindAbilityByName("kama_embrace_of_dreams")
@@ -77,7 +80,7 @@ function kama_petal_volley:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
     local fVolley = self:VolleyTime(1 + #self:GetClones())
     Kama_FadeGestures(self:GetCaster())
-    StartAnimation(self:GetCaster(), {duration = fShot + fVolley + 0.4,
+    Kama_Pose(self:GetCaster(), {duration = fShot + fVolley + POSE_AFTER_VOLLEY,
         activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.85})
     return true
 end
@@ -95,6 +98,19 @@ function kama_petal_volley:OnSpellStart()
     local vDirection = self:GetCursorPosition() - caster:GetAbsOrigin()
     vDirection.z = 0
     vDirection = vDirection:Length2D() < 1 and caster:GetForwardVector() or vDirection:Normalized()
+
+    -- Кама снова свободна после зарядки и очереди. Если игрок уже приказал ей
+    -- что-то делать — анимацию обрываем сразу, иначе даём доиграть стоя.
+    local fChargeStart = GameRules:GetGameTime()
+    local fLocked = self:GetSpecialValueFor("charge_time") + self:VolleyTime(nArrows)
+    Timers:CreateTimer(fLocked, function()
+        if not Kama_Alive(caster) then return end
+        if Kama_OrderedSince(caster, fChargeStart) then
+            EndAnimation(caster)
+        else
+            Kama_StopWhenBusy(caster, POSE_AFTER_VOLLEY, function() EndAnimation(caster) end)
+        end
+    end)
 
     Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
         caster:EmitSound("Ability.Powershot.Alt")
