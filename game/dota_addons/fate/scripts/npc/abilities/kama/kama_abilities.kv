@@ -37,6 +37,7 @@
 			"cd_reduction"			"1"		// сколько секунд кулдауна Q/W/E снимает попадание
 			"cd_reduction_attr"		"2"		// то же с атрибутом 4
 			"mana_per_clone"		"50"	// надбавка к цене Q за каждого живого клона W
+			"bloom_mana"				"100"	// мана за попадание по цели в области R
 		}
 	}
 
@@ -157,25 +158,38 @@
 	}
 
 	//=====================================
-	// Kama R
+	// R - Blooming Ground: область в точке. Враги в ней замедлены, а любая
+	// стрела Камы по цели в области отнимает долю текущего здоровья и
+	// добавляет замедление.
 	//=====================================
 	"kama_blooming_ground"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/kama/kama_blooming_ground"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
-		"LevelsBetweenUpgrades"		"1"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"LevelsBetweenUpgrades"		"2"
 		"MaxLevel"					"5"
-		"AbilityCooldown"			"12"
-		"AbilityManaCost"			"100"
-		"AbilityCastPoint"			"0.2"
+		"AbilityCooldown"			"65 60 55 50 45"
+		"AbilityManaCost"			"800"
+		"AbilityCastRange"			"2000"
+		"AbilityCastPoint"			"0.3"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+
+		"precache"
+		{
+			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
+		}
 		"AbilityValues"
 		{
-			"damage"			"100 150 200 250 300"
-			"radius"			"400"
+			"radius"				"350"
+			"duration"				"5"
+			"slow"					"50"
+			"arrow_hp_damage"		"5"		// % текущего здоровья за каждую стрелу
+			"arrow_slow"			"5"		// добавка к замедлению за каждую стрелу
+			"arrow_slow_max"		"100"	// предел этой добавки
 		}
 	}
 

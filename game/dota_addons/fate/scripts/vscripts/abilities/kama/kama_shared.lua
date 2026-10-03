@@ -191,12 +191,19 @@ end
 --[[ Единая точка «стрела Камы попала в цель». Через неё идёт ЛЮБАЯ стрела:
      автоатака, Q, выстрелы клонов, E, D, комбо — чтобы эффекты, которые
      срабатывают от стрел, жили в одном месте.
-     tArrow.charm — сколько Charm даёт эта стрела (nil — нисколько). ]]
+     tArrow.charm — сколько Charm даёт эта стрела (nil — нисколько).
+     tArrow.mana  — сколько маны вернуть Каме, если цель стоит в области R. ]]
 function Kama_ArrowHit(hCaster, hTarget, tArrow)
     if not IsServer() then return end
     if not Kama_Alive(hCaster) or not Kama_Alive(hTarget) then return end
+    tArrow = tArrow or {}
 
-    if tArrow and tArrow.charm then
+    if tArrow.charm then
         Kama_AddCharm(hCaster, hTarget, tArrow.charm)
     end
+
+    -- Blooming Ground: цель в области R — стрела отнимает долю здоровья и
+    -- добавляет замедление (kama_blooming_ground.lua)
+    local hBloom = hTarget:FindModifierByName("modifier_kama_blooming_ground")
+    if hBloom then hBloom:OnKamaArrow(hCaster, tArrow) end
 end

@@ -161,7 +161,8 @@ function kama_arrow_shot:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
         DoDamage(caster, hTarget, self:GetSpecialValueFor("damage") * tData.factor,
             self:GetAbilityDamageType(), 0, self, false)
 
-        local tArrow = {}
+        -- мана возвращается, только если цель стоит в области R
+        local tArrow = {mana = self:GetSpecialValueFor("bloom_mana") * tData.factor}
         if not bSamsara then
             tArrow.charm = self:GetSpecialValueFor("charm") * tData.factor
         end

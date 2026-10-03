@@ -482,6 +482,7 @@ slowmodifier = {
     "modifier_cu_alter_spear_slow",
     "modifier_rasputin_low_kick_slow",
     "modifier_kama_charmed",
+    "modifier_kama_blooming_ground",
     "modifier_kama_swap_blast_slow",
 }
 
