@@ -45,30 +45,58 @@ end
      ⚠️ Именно этот вызов, а не StartGesture/StartGestureWithPlaybackRate: у тех
      жест кончается без затухания, и модель в конце дёргается — рывком
      возвращается из позы с поднятым луком в стойку. ]]
-function Kama_Gesture(hUnit, nActivity, fFadeIn)
+function Kama_Gesture(hUnit, nActivity, fFadeIn, fFadeOut)
     hUnit:RemoveGesture(nActivity)
-    hUnit:StartGestureWithFadeAndPlaybackRate(nActivity, fFadeIn, 0.4, 1.0)
+    hUnit:StartGestureWithFadeAndPlaybackRate(nActivity, fFadeIn, fFadeOut or 0.4, 1.0)
+    -- номер запуска: по нему слежка (Kama_WatchGesture) видит, что жест уже
+    -- перезапустили и гасить его больше не ей
+    hUnit.tKamaGestureRun = hUnit.tKamaGestureRun or {}
+    hUnit.tKamaGestureRun[nActivity] = (hUnit.tKamaGestureRun[nActivity] or 0) + 1
 end
 
---[[ Доиграть анимацию «после выстрела» жестом nActivity длиной fDuration.
-     К концу жест гаснет сам. Если Кама пошла, начала атаку или новый каст —
-     гасим его сразу, иначе она ехала бы по земле в позе стрельбы.
+-- Жесты Камы, которые доигрываются уже после выстрела: выстрел Q и возврат
+-- лука после D.
+KAMA_SHOT_GESTURE     = ACT_DOTA_CAST_ABILITY_6
+KAMA_RECOVERY_GESTURE = ACT_DOTA_CAST_ABILITY_7
+
+-- Погасить то, что Кама доигрывает с прошлого выстрела. Зовётся в начале
+-- каста других способностей, чтобы две анимации не накладывались.
+function Kama_FadeGestures(hCaster)
+    if not IsServer() or not Kama_Alive(hCaster) then return end
+    hCaster:FadeGesture(KAMA_SHOT_GESTURE)
+    hCaster:FadeGesture(KAMA_RECOVERY_GESTURE)
+end
+
+--[[ Следить за жестом nActivity ещё fDuration секунд: если Кама пошла или
+     начала атаку — погасить его сразу, иначе она ехала бы по земле в позе
+     стрельбы. К концу жест гаснет сам.
      Следим именно за тем, что Кама ДЕЛАЕТ, а не за приказами: приказ, отданный
      ещё во время зарядки, движок выполняет после неё молча, без нового события. ]]
-function Kama_PlayRecovery(hCaster, nActivity, fDuration)
+function Kama_WatchGesture(hCaster, nActivity, fDuration)
     if not IsServer() or not Kama_Alive(hCaster) then return end
-    Kama_Gesture(hCaster, nActivity, 0)
-
+    hCaster.tKamaGestureRun = hCaster.tKamaGestureRun or {}
+    local nRun = hCaster.tKamaGestureRun[nActivity]
     local fEnd = GameRules:GetGameTime() + fDuration
+
     Timers:CreateTimer(0.03, function()
         if not Kama_Alive(hCaster) or GameRules:GetGameTime() >= fEnd then return end
-        if not hCaster:IsAlive() or hCaster:IsMoving() or hCaster:IsAttacking()
-            or hCaster:GetCurrentActiveAbility() ~= nil then
+        -- жест уже перезапустили: за новым следит своя слежка
+        if hCaster.tKamaGestureRun[nActivity] ~= nRun then return end
+        if not hCaster:IsAlive() or hCaster:IsMoving() or hCaster:IsAttacking() then
             hCaster:FadeGesture(nActivity)
             return
         end
         return 0.03
     end)
+end
+
+--[[ Доиграть анимацию «после выстрела» жестом nActivity длиной fDuration.
+     fFadeOut — за сколько жест сходит на нет; если равен почти всей длине,
+     поза ровно перетекает в стойку на всём протяжении, без «быстро-медленно». ]]
+function Kama_PlayRecovery(hCaster, nActivity, fDuration, fFadeOut)
+    if not IsServer() or not Kama_Alive(hCaster) then return end
+    Kama_Gesture(hCaster, nActivity, 0, fFadeOut)
+    Kama_WatchGesture(hCaster, nActivity, fDuration)
 end
 
 --[[ Зарядка выстрела (D и E): Кама замирает на fTime секунд, потом вызывается

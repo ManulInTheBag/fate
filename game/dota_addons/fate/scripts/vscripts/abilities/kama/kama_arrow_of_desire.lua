@@ -33,18 +33,20 @@ local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
      attack_2_recover, те же кадры с 6-го и до конца, уже в родном темпе. ]]
 function kama_arrow_of_desire:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
+    Kama_FadeGestures(self:GetCaster())
     StartAnimation(self:GetCaster(), {duration = fShot + 0.1,
         activity = ACT_DOTA_ATTACK2, rate = 0.3})
     return true
 end
 
 -- Замедленный замах снимаем и с того же кадра доигрываем возврат лука:
--- 25 кадров attack_2_recover, 0.83 с. Пошла или начала что-то делать — жест
--- гаснет сразу (Kama_PlayRecovery).
+-- 25 кадров attack_2_recover, 0.83 с. Жест сходит на нет почти на всей своей
+-- длине, поэтому лук опускается ровно, а не «быстро, потом медленно».
+-- Пошла или атакует — жест гаснет сразу (Kama_PlayRecovery).
 function kama_arrow_of_desire:PlayRecovery()
     local caster = self:GetCaster()
     EndAnimation(caster)
-    Kama_PlayRecovery(caster, ACT_DOTA_CAST_ABILITY_7, 0.83)
+    Kama_PlayRecovery(caster, KAMA_RECOVERY_GESTURE, 0.83, 0.8)
 end
 
 function kama_arrow_of_desire:OnAbilityPhaseInterrupted()

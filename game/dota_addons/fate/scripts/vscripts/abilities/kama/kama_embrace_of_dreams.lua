@@ -101,12 +101,17 @@ function kama_embrace_of_dreams:SpawnClone(vPoint)
         self:RemoveClone(tClones[1], KAMA_CLONE_REPLACED)
     end
 
-    local hClone = CreateUnitByName("kama_clone", GetGroundPosition(vPoint, nil), false,
+    -- true: движок сам сдвигает нового юнита из стен, деревьев и других юнитов.
+    -- Клонов он при этом не видит (у них нет столкновений), от них отодвигаем сами.
+    local hClone = CreateUnitByName("kama_clone",
+        GetGroundPosition(self:AwayFromClones(vPoint), nil), true,
         nil, nil, caster:GetTeamNumber())
     if not Kama_Alive(hClone) then return end
 
     hClone:SetForwardVector(caster:GetForwardVector())
     hClone:SetRenderColor(255, 170, 215)
+    -- размер как у самой Камы: масштаб из KV юнита даёт клона чуть меньше героя
+    hClone:SetModelScale(FateGetBaseModelScale(caster))
     -- клон живёт ровно столько, сколько этот модификатор: он же его и убирает,
     -- и он же делает его неуязвимым и некликабельным
     local hLife = hClone:AddNewModifier(caster, self, "modifier_kama_dream_clone",
@@ -118,6 +123,27 @@ function kama_embrace_of_dreams:SpawnClone(vPoint)
 
     table.insert(tClones, hClone)
     self:SyncCloneCount()
+end
+
+-- Точка для нового клона не ближе clone_spacing к уже стоящим: два клона в
+-- одном месте сливаются в одного.
+function kama_embrace_of_dreams:AwayFromClones(vPoint)
+    local nSpacing = self:GetSpecialValueFor("clone_spacing")
+    for _, hOther in ipairs(self:GetClones()) do
+        local vOther = hOther:GetAbsOrigin()
+        local vOffset = vPoint - vOther
+        vOffset.z = 0
+        if vOffset:Length2D() < nSpacing then
+            -- точка прямо в клоне — отодвигаем в сторону Камы
+            if vOffset:Length2D() < 1 then
+                vOffset = self:GetCaster():GetAbsOrigin() - vOther
+                vOffset.z = 0
+            end
+            if vOffset:Length2D() < 1 then vOffset = Vector(1, 0, 0) end
+            vPoint = vOther + vOffset:Normalized() * nSpacing
+        end
+    end
+    return vPoint
 end
 
 function kama_embrace_of_dreams:RemoveClone(hClone, nReason)

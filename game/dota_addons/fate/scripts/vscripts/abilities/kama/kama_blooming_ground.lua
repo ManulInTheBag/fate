@@ -32,6 +32,13 @@ function kama_blooming_ground:GetCustomCastErrorLocation(vLocation)
     return "#Must be in same realm"
 end
 
+-- Анимацию каста играет движок (AbilityCastAnimation); остатки прошлого
+-- выстрела перед ней гасим, чтобы две анимации не накладывались.
+function kama_blooming_ground:OnAbilityPhaseStart()
+    Kama_FadeGestures(self:GetCaster())
+    return true
+end
+
 function kama_blooming_ground:OnSpellStart()
     local caster = self:GetCaster()
     local hZone = CreateModifierThinker(caster, self, "modifier_kama_blooming_ground_thinker",

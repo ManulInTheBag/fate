@@ -22,28 +22,34 @@ local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
 --[[ Анимация выстрела — секвенция q_shot модели (те же кадры, что у обычной
      атаки, но своя активность, чтобы движок не подгонял её под скорость атаки).
      Тетива срывается на 5-6 кадре (~0.17 с), то есть как раз к концу кастпоинта.
-     У самой Камы её играет движок: AbilityCastAnimation в KV. Он же обрывает
-     её при отмене каста и когда Кама после выстрела идёт дальше.
-     Клонам W тот же жест включаем сами — в тот же момент и с той же скоростью.
-     StartAnimation тут не годится ни Каме, ни клонам: он идёт через модификатор
-     на клиенте, стоящий юнит подхватывает его с опозданием, а при частых
-     отменах каста он запускает анимацию уже после отмены. ]]
-local SHOT_ACTIVITY = ACT_DOTA_CAST_ABILITY_6
+     Кама и клоны W играют её ОДНИМ И ТЕМ ЖЕ вызовом в один и тот же момент —
+     только так замах у них совпадает до кадра. Поэтому AbilityCastAnimation в
+     KV у Q нет: движок играл бы выстрел Камы со своими настройками, чуть иначе,
+     чем у клонов.
+     StartAnimation тут не годится: он идёт через модификатор на клиенте,
+     стоящий юнит подхватывает его с опозданием, а при частых отменах каста он
+     запускает анимацию уже после отмены. ]]
+local SHOT_FADE_IN = 0.1
+-- секвенция длится 1 с, кастпоинт из неё уже прошёл
+local SHOT_AFTER_CAST = 0.8
 
 function kama_arrow_shot:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local vPoint = self:GetCursorPosition()
+    caster:FadeGesture(KAMA_RECOVERY_GESTURE)
+    Kama_Gesture(caster, KAMA_SHOT_GESTURE, SHOT_FADE_IN)
     for _, hClone in ipairs(self:GetClones()) do
         hClone:SetForwardVector(self:CloneDirection(hClone, vPoint, caster:GetForwardVector()))
-        Kama_Gesture(hClone, SHOT_ACTIVITY, 0.1)
+        Kama_Gesture(hClone, KAMA_SHOT_GESTURE, SHOT_FADE_IN)
     end
     return true
 end
 
--- Каст отменили: клоны бросают замах вместе с Камой.
+-- Каст отменили: замах бросают и Кама, и клоны.
 function kama_arrow_shot:OnAbilityPhaseInterrupted()
+    self:GetCaster():FadeGesture(KAMA_SHOT_GESTURE)
     for _, hClone in ipairs(self:GetClones()) do
-        hClone:FadeGesture(SHOT_ACTIVITY)
+        hClone:FadeGesture(KAMA_SHOT_GESTURE)
     end
 end
 
@@ -88,6 +94,9 @@ function kama_arrow_shot:OnSpellStart()
     caster:EmitSound("Ability.Powershot.Alt")
     self:FireArrow(vOrigin, vDirection, 1)
     self:FireFromClones(vPoint, vDirection)
+
+    -- возврат лука доигрывается стоя; пошла или атакует — жест гаснет
+    Kama_WatchGesture(caster, KAMA_SHOT_GESTURE, SHOT_AFTER_CAST)
 end
 
 --[[ Клоны W повторяют выстрел: каждый стреляет со своего места в ту же ТОЧКУ,
