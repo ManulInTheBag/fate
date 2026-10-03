@@ -257,6 +257,31 @@
 					},
 					{
 						_class = "AnimFile"
+						name = "attack_2_recover"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.4
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama_big/kama_big.fbx"
+						import_bone_scales = false
+						start_frame = 366
+						end_frame = 391
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
 						name = "spell_1_1"
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"

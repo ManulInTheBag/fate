@@ -24,15 +24,27 @@ local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powe
 -- кольцо по радиусу взрыва (CP1 — цвет, CP2 — радиус и время)
 local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
 
---[[ Анимация — второй выстрел модели, замедленный так, чтобы тетива сорвалась
+--[[ Анимация в две части.
+     Зарядка — второй выстрел модели, замедленный так, чтобы тетива сорвалась
      ровно к концу зарядки. У модели это 5-6 кадр из 30 (~0.18 с в родном
      темпе), а от нажатия до выстрела проходит кастпоинт + charge_time = 0.6 с,
-     отсюда rate 0.3. Меняешь эти времена — пересчитай rate. ]]
+     отсюда rate 0.3. Меняешь эти времена — пересчитай rate.
+     После выстрела — возврат лука (PlayRecovery): отдельная секвенция
+     attack_2_recover, те же кадры с 6-го и до конца, уже в родном темпе. ]]
 function kama_arrow_of_desire:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
-    StartAnimation(self:GetCaster(), {duration = fShot + 0.2,
+    StartAnimation(self:GetCaster(), {duration = fShot + 0.1,
         activity = ACT_DOTA_ATTACK2, rate = 0.3})
     return true
+end
+
+-- Замедленный замах снимаем и с того же кадра доигрываем возврат лука.
+-- Жест оборвётся первым же новым приказом (Kama_FadeRecovery).
+function kama_arrow_of_desire:PlayRecovery()
+    local caster = self:GetCaster()
+    EndAnimation(caster)
+    caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_7)
+    caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_7, 1.0)
 end
 
 function kama_arrow_of_desire:OnAbilityPhaseInterrupted()
@@ -83,6 +95,7 @@ function kama_arrow_of_desire:OnSpellStart()
     Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
         local vOrigin = caster:GetAbsOrigin()
         caster:EmitSound("Ability.Powershot.Alt")
+        self:PlayRecovery()
         if bSamsara then
             -- стрела долетает до точки, но не дальше своей дальности
             self:FireDragArrow(vOrigin, vDirection, fDistance)

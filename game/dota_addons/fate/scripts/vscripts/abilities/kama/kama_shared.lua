@@ -41,6 +41,19 @@ function KamaOnSealRefresh(hHero)
     if hCharges then hCharges:Refill() end
 end
 
+--[[ Жесты, которыми Кама доигрывает выстрел после того, как стрела ушла
+     (возврат лука у Q и у D). Любой новый приказ их обрывает — как обычный
+     бэксвинг, иначе Кама ехала бы по земле в позе стрельбы. Ловит приказы
+     скрытая пассивка лука (kama_sugarcane_bow). ]]
+local RECOVERY_GESTURES = {ACT_DOTA_ATTACK, ACT_DOTA_CAST_ABILITY_7}
+
+function Kama_FadeRecovery(hCaster)
+    if not IsServer() or not Kama_Alive(hCaster) then return end
+    for _, nActivity in ipairs(RECOVERY_GESTURES) do
+        hCaster:FadeGesture(nActivity)
+    end
+end
+
 --[[ Зарядка выстрела (D и E): Кама замирает на fTime секунд, потом вызывается
      fnRelease. Замирает через pause_sealenabled — обычный для аддона «стан с
      доступом к печатям», под ним анимация из StartAnimation продолжает играть.
