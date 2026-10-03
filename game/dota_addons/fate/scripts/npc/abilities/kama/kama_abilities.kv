@@ -99,21 +99,26 @@
 	}
 
 	//=====================================
-	// Kama F
+	// F - Sugarcane Bow: переключатель стрел Floral / Samsara.
+	// Здесь же общие числа Charm: их читают Q, клоны W и D.
 	//=====================================
 	"kama_sugarcane_bow"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/kama/kama_sugarcane_bow"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"LevelsBetweenUpgrades"		"1"
-		"MaxLevel"					"5"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"0.5"
+		"AbilityManaCost"			"0"
+		"AbilityCastPoint"			"0"
 		"AbilityValues"
 		{
-			"bonus_damage"			"10 20 30 40 50"
+			"charm_max"				"100"	// шкала Charm, на которой цель становится Charmed
+			"charm_duration"		"5"		// сколько живёт шкала без новых стаков
+			"charmed_duration"		"1.5"
+			"charmed_slow"			"80"
+			"charm_immunity"		"6"		// сколько после Charmed цель не набирает Charm
 		}
 	}
 

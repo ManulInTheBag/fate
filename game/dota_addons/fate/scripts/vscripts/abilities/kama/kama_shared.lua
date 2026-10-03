@@ -1,0 +1,186 @@
+--[[ Общее для всех способностей Kama: вид стрел (Floral / Samsara), шкала Charm
+     и единая точка «стрела попала в цель».
+     ⚠️ Каждый ScriptFile грузится в свою среду, поэтому общий код подключается
+     через require (так же сделано у barghest_shared).
+     ⚠️ Файл подключается и в КЛИЕНТСКОЙ VM, а там нет libraries/util — на
+     уровне файла и в функциях, которые зовёт клиент, ничего серверного.
+]]
+
+LinkLuaModifier("modifier_kama_floral", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_kama_samsara", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_kama_charm", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_kama_charmed", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_kama_charm_immune", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
+
+-- F: переключатель стрел. В его AbilityValues лежат и общие числа Charm.
+KAMA_BOW = "kama_sugarcane_bow"
+
+--[[ Живой ли хэндл. Своя копия: IsNotNull из util есть не во всех VM. ]]
+function Kama_Alive(hScript)
+    local sType = type(hScript)
+    if sType == "nil" then return false end
+    if sType == "table" and type(hScript.IsNull) == "function" then
+        return not hScript:IsNull()
+    end
+    return true
+end
+
+--=========================================================================--
+-- Вид стрел
+--=========================================================================--
+
+--[[ Стреляет ли Кама сейчас стрелами Samsara. Нет модификатора — значит Floral:
+     это вид по умолчанию. Зовётся и на клиенте (GetBehavior способностей). ]]
+function Kama_IsSamsara(hCaster)
+    if not Kama_Alive(hCaster) or type(hCaster.HasModifier) ~= "function" then return false end
+    return hCaster:HasModifier("modifier_kama_samsara")
+end
+
+function Kama_SetStance(hCaster, bSamsara)
+    if not IsServer() or not Kama_Alive(hCaster) then return end
+    local sOn  = bSamsara and "modifier_kama_samsara" or "modifier_kama_floral"
+    local sOff = bSamsara and "modifier_kama_floral" or "modifier_kama_samsara"
+    hCaster:RemoveModifierByName(sOff)
+    if not hCaster:HasModifier(sOn) then
+        hCaster:AddNewModifier(hCaster, hCaster:FindAbilityByName(KAMA_BOW), sOn, {})
+    end
+end
+
+-- Оба модификатора ничего не делают сами: это видимая игроку метка, которую
+-- читают Q, E и D.
+modifier_kama_floral = class({})
+
+function modifier_kama_floral:IsHidden()      return false end
+function modifier_kama_floral:IsDebuff()      return false end
+function modifier_kama_floral:IsPurgable()    return false end
+function modifier_kama_floral:RemoveOnDeath() return false end
+function modifier_kama_floral:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT end
+
+modifier_kama_samsara = class({})
+
+function modifier_kama_samsara:IsHidden()      return false end
+function modifier_kama_samsara:IsDebuff()      return false end
+function modifier_kama_samsara:IsPurgable()    return false end
+function modifier_kama_samsara:RemoveOnDeath() return false end
+function modifier_kama_samsara:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT end
+
+--=========================================================================--
+-- Charm
+--=========================================================================--
+
+function Kama_IsCharmed(hTarget)
+    if not Kama_Alive(hTarget) or type(hTarget.HasModifier) ~= "function" then return false end
+    return hTarget:HasModifier("modifier_kama_charmed")
+end
+
+--[[ Добавить цели Charm. Шкала копится в стаках modifier_kama_charm; каждый
+     новый стак продлевает её. На charm_max шкала сбрасывается, цель становится
+     Charmed и на charm_immunity секунд перестаёт набирать Charm. ]]
+function Kama_AddCharm(hCaster, hTarget, nAmount)
+    if not IsServer() then return end
+    if not Kama_Alive(hCaster) or not Kama_Alive(hTarget) or not hTarget:IsAlive() then return end
+    if not nAmount or nAmount <= 0 then return end
+    if hTarget:HasModifier("modifier_kama_charm_immune") then return end
+
+    local hBow = hCaster:FindAbilityByName(KAMA_BOW)
+    if not Kama_Alive(hBow) then return end
+
+    local hCharm = hTarget:AddNewModifier(hCaster, hBow, "modifier_kama_charm",
+        {duration = hBow:GetSpecialValueFor("charm_duration")})
+    if not Kama_Alive(hCharm) then return end
+
+    local nCharm = hCharm:GetStackCount() + nAmount
+    if nCharm < hBow:GetSpecialValueFor("charm_max") then
+        hCharm:SetStackCount(nCharm)
+        return
+    end
+
+    hCharm:Destroy()
+    hTarget:AddNewModifier(hCaster, hBow, "modifier_kama_charm_immune",
+        {duration = hBow:GetSpecialValueFor("charm_immunity")})
+    hTarget:AddNewModifier(hCaster, hBow, "modifier_kama_charmed",
+        {duration = hBow:GetSpecialValueFor("charmed_duration")})
+end
+
+-- Шкала Charm на цели: число стаков = набранный Charm.
+modifier_kama_charm = class({})
+
+function modifier_kama_charm:IsHidden()      return false end
+function modifier_kama_charm:IsDebuff()      return true end
+function modifier_kama_charm:IsPurgable()    return true end
+function modifier_kama_charm:RemoveOnDeath() return true end
+
+-- Метка «Charm сейчас не набирается».
+modifier_kama_charm_immune = class({})
+
+function modifier_kama_charm_immune:IsHidden()      return false end
+function modifier_kama_charm_immune:IsDebuff()      return false end
+function modifier_kama_charm_immune:IsPurgable()    return false end
+function modifier_kama_charm_immune:RemoveOnDeath() return true end
+
+--[[ Charmed: цель замедлена и сама идёт к Каме.
+     Управление отбирается так же, как у modifier_cu_alter_fear: приказ идти
+     переиздаётся каждый тик, а действовать не дают датадривен silenced/disarmed.
+     MODIFIER_STATE_COMMAND_RESTRICTED нельзя — он блокирует и наш приказ. ]]
+modifier_kama_charmed = class({})
+
+function modifier_kama_charmed:IsHidden()      return false end
+function modifier_kama_charmed:IsDebuff()      return true end
+function modifier_kama_charmed:IsPurgable()    return true end
+function modifier_kama_charmed:RemoveOnDeath() return true end
+
+function modifier_kama_charmed:DeclareFunctions()
+    return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
+end
+
+-- Стак 1 = цель иммунна к замедлению (выставляется на сервере, читается везде).
+function modifier_kama_charmed:GetModifierMoveSpeedBonus_Percentage()
+    if self:GetStackCount() == 1 then return 0 end
+    return -self:GetAbility():GetSpecialValueFor("charmed_slow")
+end
+
+function modifier_kama_charmed:OnCreated()
+    if not IsServer() then return end
+    self.hKama = self:GetCaster()
+    if IsImmuneToSlow(self:GetParent()) then self:SetStackCount(1) end
+    self:Lure()
+    self:StartIntervalThink(0.1)
+end
+
+function modifier_kama_charmed:OnIntervalThink()
+    self:Lure()
+end
+
+function modifier_kama_charmed:Lure()
+    local hParent = self:GetParent()
+    if not Kama_Alive(self.hKama) or not Kama_Alive(hParent) then return end
+    -- Кама мертва — идти не к кому: цель просто остаётся замедленной до конца.
+    if not self.hKama:IsAlive() then return end
+
+    giveUnitDataDrivenModifier(self.hKama, hParent, "silenced", 0.4)
+    giveUnitDataDrivenModifier(self.hKama, hParent, "disarmed", 0.4)
+
+    ExecuteOrderFromTable({
+        UnitIndex = hParent:entindex(),
+        OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+        Position  = self.hKama:GetAbsOrigin(),
+        Queue     = false,
+    })
+end
+
+--=========================================================================--
+-- Попадание стрелы
+--=========================================================================--
+
+--[[ Единая точка «стрела Камы попала в цель». Через неё идёт ЛЮБАЯ стрела:
+     автоатака, Q, выстрелы клонов, E, D, комбо — чтобы эффекты, которые
+     срабатывают от стрел, жили в одном месте.
+     tArrow.charm — сколько Charm даёт эта стрела (nil — нисколько). ]]
+function Kama_ArrowHit(hCaster, hTarget, tArrow)
+    if not IsServer() then return end
+    if not Kama_Alive(hCaster) or not Kama_Alive(hTarget) then return end
+
+    if tArrow and tArrow.charm then
+        Kama_AddCharm(hCaster, hTarget, tArrow.charm)
+    end
+end

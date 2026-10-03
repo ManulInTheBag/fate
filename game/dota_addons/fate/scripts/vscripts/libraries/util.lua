@@ -424,6 +424,8 @@ cleansable = {
     "modifier_cu_alter_fear",
     "modifier_rasputin_wide_kick_target",
     "modifier_rasputin_low_kick_slow",
+    "modifier_kama_charm",
+    "modifier_kama_charmed",
     "modifier_muted"
 }
 
@@ -478,6 +480,7 @@ slowmodifier = {
     "modifier_hijikata_slow",
     "modifier_cu_alter_spear_slow",
     "modifier_rasputin_low_kick_slow",
+    "modifier_kama_charmed",
 }
 
 donotlevel = {
