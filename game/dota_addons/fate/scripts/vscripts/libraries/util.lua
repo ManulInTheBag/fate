@@ -427,6 +427,7 @@ cleansable = {
     "modifier_kama_charm",
     "modifier_kama_charmed",
     "modifier_kama_swap_blast_slow",
+    "modifier_kama_desire_slow",
     "modifier_muted"
 }
 
@@ -484,6 +485,7 @@ slowmodifier = {
     "modifier_kama_charmed",
     "modifier_kama_blooming_ground",
     "modifier_kama_swap_blast_slow",
+    "modifier_kama_desire_slow",
 }
 
 donotlevel = {
@@ -763,6 +765,7 @@ CannotReset = {
     "ozy_teleport_boat",
     "ozy_mystic_eyes",
     "cu_alter_combo",
+    "kama_arrow_of_desire",
     "cu_alter_warcry",
     "cu_alter_roar",
 

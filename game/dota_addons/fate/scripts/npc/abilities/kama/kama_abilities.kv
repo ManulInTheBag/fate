@@ -131,26 +131,47 @@
 	}
 
 	//=====================================
-	// Kama D
+	// D - Arrow of Desire: усиленная стрела. Floral сразу даёт цели половину
+	// шкалы Charm, Samsara тащит до трёх врагов в указанную точку.
+	// Кулдаун фиксированный и печатью не сбрасывается (CannotReset в util.lua).
 	//=====================================
 	"kama_arrow_of_desire"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/kama/kama_arrow_of_desire"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"		"1"
-		"MaxLevel"					"5"
-		"AbilityCooldown"			"20"
-		"AbilityManaCost"			"100"
-		"AbilityCastPoint"			"0"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"90"
+		"AbilityManaCost"			"400"
+		// стрела летит сама: герой не идёт «в радиус», см. GetCastRange
+		"AbilityCastRange"			"99999"
+		"AbilityCastPoint"			"0.5"
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"particle"	"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
+		}
 		"AbilityValues"
 		{
-			"duration"			"6 7 8 9 10"
-			"bonus_ms_pct"			"10 15 20 25 30"
-			"bonus_damage"			"20 30 40 50 60"
+			"range"					"1600"
+			// Floral
+			"damage"				"300"
+			"charm"					"50"
+			"speed"					"2400"
+			"width"					"110"
+			// Samsara
+			"max_targets"			"3"
+			"drag_speed"			"1400"
+			"drag_width"			"150"
+			"drag_damage"			"100"
+			"drag_slow"				"50"
+			"drag_slow_duration"	"2"
 		}
 	}
 
