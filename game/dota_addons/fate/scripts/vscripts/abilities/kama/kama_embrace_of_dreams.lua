@@ -180,6 +180,7 @@ function kama_embrace_of_dreams:TrySwap(vPoint)
 
     local vFrom = caster:GetAbsOrigin()
     local vTo = hNearest:GetAbsOrigin()
+    if (vTo - vFrom):Length2D() > self:GetSpecialValueFor("swap_range") then return end
     if not IsInSameRealm(vFrom, vTo) then return end
 
     self.fSwapReadyAt = fNow + self:GetSpecialValueFor("swap_cooldown")
