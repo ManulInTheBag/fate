@@ -15,6 +15,14 @@ LinkLuaModifier("modifier_kama_charm_immune", "abilities/kama/kama_shared", LUA_
 -- F: переключатель стрел. В его AbilityValues лежат и общие числа Charm.
 KAMA_BOW = "kama_sugarcane_bow"
 
+-- Почему исчез клон W. От причины зависит, оставит ли он цветок (атрибут 1):
+-- оставляют EXPIRED, REPLACED и SWAPPED.
+KAMA_CLONE_EXPIRED  = 1   -- вышло время
+KAMA_CLONE_REPLACED = 2   -- вытеснен новым клоном
+KAMA_CLONE_SWAPPED  = 3   -- Кама поменялась с ним местами
+KAMA_CLONE_ABSORBED = 4   -- поглощён E
+KAMA_CLONE_LOST     = 5   -- Кама ушла дальше clone_leash
+
 --[[ Живой ли хэндл. Своя копия: IsNotNull из util есть не во всех VM. ]]
 function Kama_Alive(hScript)
     local sType = type(hScript)
@@ -23,6 +31,14 @@ function Kama_Alive(hScript)
         return not hScript:IsNull()
     end
     return true
+end
+
+--[[ Печать Мастера обновила способности (ResetAbilities в master_ability.lua).
+     Заряды W живут в стаках модификатора, одного EndCooldown им мало. ]]
+function KamaOnSealRefresh(hHero)
+    if not IsServer() or not Kama_Alive(hHero) then return end
+    local hCharges = hHero:FindModifierByName("modifier_kama_embrace_charges")
+    if hCharges then hCharges:Refill() end
 end
 
 --=========================================================================--

@@ -15,8 +15,9 @@ kama_arrow_shot = kama_arrow_shot or class({})
 local FX_FLORAL  = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
 
--- Способности, с которых попадание Q снимает кулдаун.
-local CDR_ABILITIES = {"kama_arrow_shot", "kama_embrace_of_dreams", "kama_petal_volley"}
+-- Способности, с которых попадание Q снимает кулдаун. W сюда не входит: у неё
+-- заряды, с ними ReduceCooldowns работает отдельно.
+local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
 
 function kama_arrow_shot:OnAbilityPhaseStart()
     -- анимация обычного выстрела, ускоренная под кастпоинт
@@ -28,11 +29,22 @@ function kama_arrow_shot:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
 end
 
+-- Каждый живой клон W делает Q дороже. Число клонов лежит в стаках
+-- модификатора на Каме — так его видит и клиент.
+function kama_arrow_shot:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    local nClones = caster:GetModifierStackCount("modifier_kama_dream_clones", caster)
+    return self.BaseClass.GetManaCost(self, iLevel)
+        + nClones * self:GetSpecialValueFor("mana_per_clone")
+end
+
 function kama_arrow_shot:OnSpellStart()
     local caster = self:GetCaster()
-    local vDirection = self:GetCursorPosition() - caster:GetAbsOrigin()
+    local vPoint = self:GetCursorPosition()
+    local vDirection = vPoint - caster:GetAbsOrigin()
     vDirection.z = 0
     if vDirection:Length2D() < 1 then vDirection = caster:GetForwardVector() end
+    vDirection = vDirection:Normalized()
 
     -- стрела вылетает из руки с луком; у модели без такого крепления — от груди
     local nAttach = caster:ScriptLookupAttachment("attach_attack1")
@@ -40,7 +52,27 @@ function kama_arrow_shot:OnSpellStart()
         or caster:GetAbsOrigin() + Vector(0, 0, 100)
 
     caster:EmitSound("Ability.Powershot.Alt")
-    self:FireArrow(vOrigin, vDirection:Normalized(), 1)
+    self:FireArrow(vOrigin, vDirection, 1)
+    self:FireFromClones(vPoint, vDirection)
+end
+
+--[[ Клоны W повторяют выстрел: каждый стреляет со своего места в ту же ТОЧКУ,
+     куда целилась Кама, с долей clone_factor. ]]
+function kama_arrow_shot:FireFromClones(vPoint, vFallback)
+    local hEmbrace = self:GetCaster():FindAbilityByName("kama_embrace_of_dreams")
+    if not Kama_Alive(hEmbrace) or hEmbrace:GetLevel() < 1 then return end
+    local fFactor = hEmbrace:GetSpecialValueFor("clone_factor") / 100
+
+    for _, hClone in ipairs(hEmbrace:GetClones()) do
+        local vDirection = vPoint - hClone:GetAbsOrigin()
+        vDirection.z = 0
+        -- точка прямо под клоном — стреляет туда же, куда Кама
+        vDirection = vDirection:Length2D() < 1 and vFallback or vDirection:Normalized()
+
+        hClone:SetForwardVector(vDirection)
+        StartAnimation(hClone, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2.0})
+        self:FireArrow(hClone:GetAbsOrigin() + Vector(0, 0, 100), vDirection, fFactor)
+    end
 end
 
 --[[ Пустить одну стрелу. fFactor — доля урона, Charm и снятия кулдауна
@@ -127,4 +159,8 @@ function kama_arrow_shot:ReduceCooldowns(fFactor)
             if fLeft > 0 then hAbility:StartCooldown(fLeft) end
         end
     end
+
+    -- у W вместо кулдауна заряды: сокращается время до следующего заряда
+    local hCharges = caster:FindModifierByName("modifier_kama_embrace_charges")
+    if hCharges then hCharges:Reduce(fSeconds) end
 end

@@ -34,6 +34,10 @@ function ResetAbilities(hero)
 	if hero:GetName() == "npc_dota_hero_pangolier" and RasputinOnSealRefresh then
 		RasputinOnSealRefresh(hero)
 	end
+	-- Кама: заряды W лежат в стаках модификатора
+	if hero:GetName() == "npc_dota_hero_enigma" and KamaOnSealRefresh then
+		KamaOnSealRefresh(hero)
+	end
 end
 
 function ResetItems(hero)

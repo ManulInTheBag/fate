@@ -36,32 +36,49 @@
 			"charm"					"10"	// Charm за попадание стрелой Floral
 			"cd_reduction"			"1"		// сколько секунд кулдауна Q/W/E снимает попадание
 			"cd_reduction_attr"		"2"		// то же с атрибутом 4
+			"mana_per_clone"		"50"	// надбавка к цене Q за каждого живого клона W
 		}
 	}
 
 	//=====================================
-	// Kama W
+	// W - Embrace of Dreams: клон-объект в точке. Повторяет Q, служит точкой
+	// для обмена местами. Работает на зарядах (свои, в стаках модификатора).
 	//=====================================
 	"kama_embrace_of_dreams"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/kama/kama_embrace_of_dreams"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"		"1"
 		"MaxLevel"					"5"
-		"AbilityCooldown"			"14 13 12 11 10"
-		"AbilityManaCost"			"100"
-		"AbilityCastRange"			"800"
+		// кулдауна нет: ограничивают заряды (charge_restore_time)
+		"AbilityCooldown"			"0"
+		"AbilityManaCost"			"200"
+		"AbilityCastRange"			"1000"
 		"AbilityCastPoint"			"0.1"
+
+		"precache"
+		{
+			"particle"	"particles/zlodemon/zlodemon_basic_circle.vpcf"
+		}
 		"AbilityValues"
 		{
-			"distance"			"600 650 700 750 800"
-			"speed"			"1400"
-			"radius"			"150"
-			"damage"			"80 120 160 200 240"
+			"max_charges"			"2"
+			"charge_restore_time"	"14 13 12 11 10"
+			"max_clones"			"2"
+			"clone_duration"		"10"
+			"clone_leash"			"2500"	// дальше этого от Камы клон исчезает
+			"clone_factor"			"50"	// % урона, Charm и снятия кулдауна у выстрела клона
+			// обмен местами: приказ атаки в землю не дальше swap_radius от клона
+			"swap_radius"			"150"
+			"swap_cooldown"			"1"
+			// взрыв на прежнем месте Камы
+			"blast_radius"			"250"
+			"blast_damage"			"50"
+			"blast_pull_duration"	"0.2"
+			"blast_slow"			"40"
+			"blast_slow_duration"	"0.75"
 		}
 	}
 
