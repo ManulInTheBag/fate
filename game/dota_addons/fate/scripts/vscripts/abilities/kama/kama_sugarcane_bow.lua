@@ -20,8 +20,8 @@ function kama_sugarcane_bow:OnSpellStart()
 end
 
 --=========================================================================--
--- Скрытая пассивка лука: выставляет вид стрел по умолчанию и проводит
--- автоатаки через общую точку попадания стрелы.
+-- Скрытая пассивка лука: выставляет вид стрел по умолчанию, проводит автоатаки
+-- через общую точку попадания стрелы и играет анимацию автоатаки.
 modifier_kama_sugarcane_bow = class({})
 
 function modifier_kama_sugarcane_bow:IsHidden()      return true end
@@ -39,7 +39,34 @@ function modifier_kama_sugarcane_bow:DeclareFunctions()
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_RESPAWN,
         MODIFIER_EVENT_ON_ORDER,
+        MODIFIER_EVENT_ON_ATTACK_START,
+        MODIFIER_EVENT_ON_ATTACK_CANCELLED,
     }
+end
+
+--[[ Анимация автоатаки — тот же жест, что у выстрела Q (секвенция q_shot).
+     В модели НЕТ секвенции на ACT_DOTA_ATTACK: движок играл бы её основной
+     анимацией и после выстрела держал бы последний кадр до следующей атаки —
+     Кама замирала с поднятым луком. Жест поверх обычной стойки гаснет сам, и
+     между выстрелами она возвращается в стойку, как после Q.
+     Скорость жеста — множитель скорости атаки: срыв тетивы (5-6 кадр) попадает
+     на момент выстрела (AttackAnimationPoint 0.17 в KV героя). ]]
+function modifier_kama_sugarcane_bow:OnAttackStart(keys)
+    if not IsServer() or keys.attacker ~= self:GetParent() then return end
+    local parent = self:GetParent()
+    local fRate = parent:GetAttackSpeed(true)
+    if not fRate or fRate <= 0 then fRate = 1 end
+
+    Kama_StopAnimations(parent, true)
+    -- затухания делим на скорость, чтобы на быстрой атаке жест не гас раньше срыва
+    Kama_Gesture(parent, KAMA_SHOT_GESTURE, 0.1 / fRate, 0.4 / fRate, fRate)
+    Kama_Backswing(parent, self:GetAbility(), KAMA_SHOT_LENGTH / fRate, KAMA_SHOT_GESTURE, true)
+end
+
+-- Атака сорвалась до выстрела: замах бросаем.
+function modifier_kama_sugarcane_bow:OnAttackCancelled(keys)
+    if not IsServer() or keys.attacker ~= self:GetParent() then return end
+    Kama_StopAnimations(self:GetParent())
 end
 
 -- Запоминаем, когда игрок в последний раз приказал Каме действовать: это

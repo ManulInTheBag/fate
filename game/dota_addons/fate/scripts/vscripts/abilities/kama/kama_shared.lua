@@ -65,6 +65,8 @@ end
 -- лука после D.
 KAMA_SHOT_GESTURE     = ACT_DOTA_CAST_ABILITY_6
 KAMA_RECOVERY_GESTURE = ACT_DOTA_CAST_ABILITY_7
+-- длина секвенции q_shot: 25 кадров
+KAMA_SHOT_LENGTH      = 25 / 30
 
 -- Приказ, после которого Кама занята делом: идти, бить, кастовать по цели или
 -- точке, подбирать. Мгновенные способности без цели (смена стрел на F) сюда
@@ -87,11 +89,13 @@ function Kama_OrderedSince(hCaster, fTime)
 end
 
 --[[ Дать Каме доиграть выстрел fDuration секунд (см. modifier_kama_backswing).
-     nGesture — жест, который доигрывается; nil — поза через StartAnimation. ]]
-function Kama_Backswing(hCaster, hAbility, fDuration, nGesture)
+     nGesture — жест, который доигрывается; nil — поза через StartAnimation.
+     bIgnoreOrders — приказы игрока анимацию не обрывают, только движение
+     (автоатака: повторный правый клик по той же цели выстрел не отменяет). ]]
+function Kama_Backswing(hCaster, hAbility, fDuration, nGesture, bIgnoreOrders)
     if not IsServer() or not Kama_Alive(hCaster) then return end
     hCaster:AddNewModifier(hCaster, hAbility, "modifier_kama_backswing",
-        {duration = fDuration, gesture = nGesture or -1})
+        {duration = fDuration, gesture = nGesture or -1, orders = bIgnoreOrders and 0 or 1})
 end
 
 --[[ Убрать всё, что Кама доигрывает с прошлого каста. Зовётся в начале каста
@@ -132,6 +136,7 @@ end
 function modifier_kama_backswing:Setup(keys)
     self.nGesture = nil
     if keys.gesture and keys.gesture >= 0 then self.nGesture = keys.gesture end
+    self.bOrders = keys.orders ~= 0
     Trace("backswing start, " .. string.format("%.2f", self:GetDuration()) .. " s")
 end
 
@@ -144,7 +149,7 @@ function modifier_kama_backswing:OnIntervalThink()
 end
 
 function modifier_kama_backswing:OnOrder(keys)
-    if not IsServer() or keys.unit ~= self:GetParent() then return end
+    if not IsServer() or not self.bOrders or keys.unit ~= self:GetParent() then return end
     if Kama_IsActionOrder(keys.order_type) then self:Cancel("order " .. tostring(keys.order_type)) end
 end
 

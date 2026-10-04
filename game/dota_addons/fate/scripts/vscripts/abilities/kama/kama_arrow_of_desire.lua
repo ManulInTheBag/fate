@@ -24,8 +24,9 @@ local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powe
 -- кольцо по радиусу взрыва (CP1 — цвет, CP2 — радиус и время)
 local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
 
---[[ Анимация в две части, обе из второго выстрела модели (attack_2).
-     Зарядка — только натяг лука, первые 4 кадра, растянутые на всё время от
+--[[ Анимация в две части, обе из одного клипа выстрела.
+     Зарядка — секвенция d_draw (ACT_DOTA_OVERRIDE_ABILITY_1), из неё нужен
+     только натяг лука: первые 4 кадра, растянутые на всё время от
      нажатия до выстрела (кастпоинт + charge_time = 0.6 с), отсюда rate 0.2.
      Меняешь эти времена — пересчитай rate: (4 / 30) / время.
      Выстрел и возврат (PlayRecovery) — секвенция attack_2_recover: те же кадры
@@ -38,7 +39,7 @@ function kama_arrow_of_desire:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
     Kama_StopAnimations(self:GetCaster(), true)
     StartAnimation(self:GetCaster(), {duration = fShot + 0.1,
-        activity = ACT_DOTA_ATTACK2, rate = 0.2})
+        activity = ACT_DOTA_OVERRIDE_ABILITY_1, rate = 0.2})
     return true
 end
 

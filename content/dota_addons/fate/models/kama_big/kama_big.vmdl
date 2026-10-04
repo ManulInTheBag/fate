@@ -207,31 +207,6 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "attack_1"
-						is_default_idle_anim = false
-						activity_name = "ACT_DOTA_ATTACK"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.4
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						delete_from_compiled_model = false
-						source_filename = "models/kama_big/kama_big.fbx"
-						import_bone_scales = false
-						start_frame = 311
-						end_frame = 336
-						framerate = -1.0
-						reverse = false
-						additional_anim_files = [  ]
-					},
-					{
-						_class = "AnimFile"
 						name = "q_shot"
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
@@ -257,9 +232,9 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "attack_2"
+						name = "d_draw"
 						is_default_idle_anim = false
-						activity_name = "ACT_DOTA_ATTACK2"
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2

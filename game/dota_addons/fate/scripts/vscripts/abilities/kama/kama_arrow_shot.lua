@@ -34,8 +34,8 @@ local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
      стоящий юнит подхватывает его с опозданием, а при частых отменах каста он
      запускает анимацию уже после отмены. ]]
 local SHOT_FADE_IN = 0.1
--- секвенция длится 25 кадров, кастпоинт (0.2 с) из неё уже прошёл
-local SHOT_AFTER_CAST = 25 / 30 - 0.2
+-- кастпоинт (0.2 с) из секвенции уже прошёл
+local SHOT_AFTER_CAST = KAMA_SHOT_LENGTH - 0.2
 
 function kama_arrow_shot:OnAbilityPhaseStart()
     local caster = self:GetCaster()
