@@ -30,18 +30,21 @@ local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
      Меняешь эти времена — пересчитай rate: (4 / 30) / время.
      Выстрел и возврат (PlayRecovery) — секвенция attack_2_recover: те же кадры
      с 4-го и до конца, в родном темпе. Срыв тетивы (кадры 4-6) приходится
-     ровно на вылет стрелы и идёт уже не в замедлении. ]]
+     ровно на вылет стрелы и идёт уже не в замедлении.
+     ⚠️ В KV у D стоит AbilityCastAnimation = ACT_INVALID. Без этой строки
+     движок сам играл поверх всего этого анимацию по номеру слота (у D это
+     ACT_DOTA_CAST_ABILITY_4, клип spell_4), и своей анимации D не было видно. ]]
 function kama_arrow_of_desire:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
-    Kama_StopAnimations(self:GetCaster())
+    Kama_StopAnimations(self:GetCaster(), true)
     StartAnimation(self:GetCaster(), {duration = fShot + 0.1,
         activity = ACT_DOTA_ATTACK2, rate = 0.2})
     return true
 end
 
--- attack_2_recover: 26 кадров в родном темпе и с тем же затуханием, что у
+-- attack_2_recover: 21 кадр в родном темпе и с тем же затуханием, что у
 -- выстрела Q, — чтобы лук после D возвращался так же, как после Q.
-local RECOVERY_TIME = 26 / 30
+local RECOVERY_TIME = 21 / 30
 
 --[[ Замедленный замах снимаем и с того же кадра доигрываем возврат лука под
      бэксвингом (Kama_Backswing).

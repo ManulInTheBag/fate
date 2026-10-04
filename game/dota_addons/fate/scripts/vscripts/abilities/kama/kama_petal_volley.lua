@@ -79,7 +79,7 @@ end
 function kama_petal_volley:OnAbilityPhaseStart()
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
     local fVolley = self:VolleyTime(1 + #self:GetClones())
-    Kama_StopAnimations(self:GetCaster())
+    Kama_StopAnimations(self:GetCaster(), true)
     StartAnimation(self:GetCaster(), {duration = fShot + fVolley + POSE_AFTER_VOLLEY,
         activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.85})
     return true

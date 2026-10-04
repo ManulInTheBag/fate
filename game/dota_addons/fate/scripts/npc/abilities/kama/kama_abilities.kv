@@ -20,6 +20,8 @@
 		// стрела летит по направлению на свою дальность: герой не идёт «в радиус»
 		"AbilityCastRange"			"99999"
 		"AbilityCastPoint"			"0.2"
+		// без этой строки движок сам играет анимацию по номеру слота поверх нашей (жест в OnAbilityPhaseStart)
+		"AbilityCastAnimation"		"ACT_INVALID"
 
 		"precache"
 		{
@@ -59,6 +61,8 @@
 		// клик дальше не ведёт Каму в радиус: клон встаёт на предельной дистанции
 		"AbilityCastRange"			"1000"
 		"AbilityCastPoint"			"0.1"
+		// та же, что движок брал бы по слоту; записана явно
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 
 		"precache"
 		{
@@ -108,6 +112,8 @@
 		// дальность до цели в Samsara; Floral стреляет по направлению на range
 		"AbilityCastRange"			"1200"
 		"AbilityCastPoint"			"0.1"
+		// без этой строки движок сам играет анимацию по номеру слота поверх нашей (поза в OnAbilityPhaseStart)
+		"AbilityCastAnimation"		"ACT_INVALID"
 
 		"precache"
 		{
@@ -151,6 +157,8 @@
 		// стрела летит сама: герой не идёт «в радиус», см. GetCastRange
 		"AbilityCastRange"			"99999"
 		"AbilityCastPoint"			"0.1"
+		// без этой строки движок сам играет анимацию по номеру слота поверх нашей (поза в OnAbilityPhaseStart)
+		"AbilityCastAnimation"		"ACT_INVALID"
 
 		"precache"
 		{
@@ -194,6 +202,8 @@
 		"AbilityCooldown"			"0.5"
 		"AbilityManaCost"			"0"
 		"AbilityCastPoint"			"0"
+		// смена стрел ничего не анимирует
+		"AbilityCastAnimation"		"ACT_INVALID"
 		"AbilityValues"
 		{
 			"charm_max"				"100"	// шкала Charm, на которой цель становится Charmed
@@ -257,6 +267,8 @@
 		"AbilityManaCost"			"600"
 		"AbilityCastRange"			"600"
 		"AbilityCastPoint"			"0"
+		// заготовка: своей анимации пока нет
+		"AbilityCastAnimation"		"ACT_INVALID"
 		"AbilityValues"
 		{
 			"damage"			"800"

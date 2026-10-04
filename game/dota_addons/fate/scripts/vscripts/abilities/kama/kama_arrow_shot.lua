@@ -23,22 +23,24 @@ local CDR_ABILITIES = {"kama_arrow_shot", "kama_petal_volley"}
      атаки, но своя активность, чтобы движок не подгонял её под скорость атаки).
      Тетива срывается на 5-6 кадре (~0.17 с), то есть как раз к концу кастпоинта.
      Кама и клоны W играют её ОДНИМ И ТЕМ ЖЕ вызовом в один и тот же момент —
-     только так замах у них совпадает до кадра. Поэтому AbilityCastAnimation в
-     KV у Q нет: движок играл бы выстрел Камы со своими настройками, чуть иначе,
-     чем у клонов.
-     После выстрела Кама доигрывает жест под бэксвингом (Kama_Backswing): не
-     начинает автоатаку, пока жест не кончится или игрок не отдаст приказ.
+     только так замах у них совпадает до кадра.
+     ⚠️ В KV у Q стоит AbilityCastAnimation = ACT_INVALID. Без этой строки
+     движок сам играет на Каме анимацию по номеру слота (у Q это
+     ACT_DOTA_CAST_ABILITY_1, клип spell_1_1) поверх нашего жеста — у клонов её
+     нет, отсюда и была вся разница между ними и Камой.
+     После выстрела жест доигрывается под Kama_Backswing: приказ игрока или
+     движение его гасят.
      StartAnimation тут не годится: он идёт через модификатор на клиенте,
      стоящий юнит подхватывает его с опозданием, а при частых отменах каста он
      запускает анимацию уже после отмены. ]]
 local SHOT_FADE_IN = 0.1
--- секвенция длится 1 с, кастпоинт из неё уже прошёл
-local SHOT_AFTER_CAST = 0.8
+-- секвенция длится 25 кадров, кастпоинт (0.2 с) из неё уже прошёл
+local SHOT_AFTER_CAST = 25 / 30 - 0.2
 
 function kama_arrow_shot:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local vPoint = self:GetCursorPosition()
-    Kama_StopAnimations(caster)
+    Kama_StopAnimations(caster, true)
     Kama_Gesture(caster, KAMA_SHOT_GESTURE, SHOT_FADE_IN)
     Kama_Trace("Q shot gesture start, clones " .. #self:GetClones())
     for _, hClone in ipairs(self:GetClones()) do

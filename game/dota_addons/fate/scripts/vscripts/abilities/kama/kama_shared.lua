@@ -94,23 +94,24 @@ function Kama_Backswing(hCaster, hAbility, fDuration, nGesture)
         {duration = fDuration, gesture = nGesture or -1})
 end
 
--- Убрать всё, что Кама доигрывает с прошлого выстрела. Зовётся в начале каста
--- любой её способности, чтобы две анимации не накладывались.
-function Kama_StopAnimations(hCaster)
+--[[ Убрать всё, что Кама доигрывает с прошлого каста. Зовётся в начале каста
+     способностей, чтобы две анимации не накладывались.
+     bEngineToo — гасить и анимации каста, которые играет сам движок (W и R).
+     R зовёт без него: иначе погасил бы свою же, только что начатую. ]]
+function Kama_StopAnimations(hCaster, bEngineToo)
     if not IsServer() or not Kama_Alive(hCaster) then return end
     hCaster:RemoveModifierByName("modifier_kama_backswing")
     hCaster:FadeGesture(KAMA_SHOT_GESTURE)
     hCaster:FadeGesture(KAMA_RECOVERY_GESTURE)
+    if bEngineToo then
+        hCaster:FadeGesture(ACT_DOTA_CAST_ABILITY_2)
+        hCaster:FadeGesture(ACT_DOTA_CAST_ABILITY_5)
+    end
 end
 
---[[ Бэксвинг: Кама доигрывает выстрел. То же, что делает движок после обычной
-     способности с анимацией каста.
-     Пока он висит, Кама сама не начинает автоатаку. Без этого под жестом сразу
-     стартует анимация атаки по ближайшему врагу, и возврат лука выходит рваным;
-     у клонов, которые не атакуют, тот же жест ровный. С бэксвингом Кама после
-     выстрела стоит в стойке, как клон, и жест доигрывается одинаково.
-     Игрок обрывает его приказом (идти, бить, кастовать) — тогда анимация
-     гасится сразу; то же, если Кама уже идёт по приказу из очереди. ]]
+--[[ Кама доигрывает выстрел. Пока модификатор висит, анимацию обрывает приказ
+     игрока (идти, бить, кастовать по цели) или само движение — иначе Кама
+     ехала бы по земле в позе стрельбы. Больше он ничего не делает. ]]
 modifier_kama_backswing = class({})
 
 function modifier_kama_backswing:IsHidden()      return true end
@@ -135,14 +136,7 @@ function modifier_kama_backswing:Setup(keys)
 end
 
 function modifier_kama_backswing:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_ORDER,
-        MODIFIER_PROPERTY_DISABLE_AUTOATTACK,
-    }
-end
-
-function modifier_kama_backswing:GetDisableAutoAttack()
-    return 1
+    return {MODIFIER_EVENT_ON_ORDER}
 end
 
 function modifier_kama_backswing:OnIntervalThink()
