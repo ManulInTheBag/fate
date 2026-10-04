@@ -58,8 +58,8 @@ function modifier_kama_sugarcane_bow:OnAttackStart(keys)
     if not fRate or fRate <= 0 then fRate = 1 end
 
     Kama_StopAnimations(parent, true)
-    -- затухания делим на скорость, чтобы на быстрой атаке жест не гас раньше срыва
-    Kama_Gesture(parent, KAMA_SHOT_GESTURE, 0.1 / fRate, 0.4 / fRate, fRate)
+    -- те же затухания, что у Q: от него вид автоатаки отличается только скоростью
+    Kama_Gesture(parent, KAMA_SHOT_GESTURE, 0.1, 0.4, fRate)
     Kama_Backswing(parent, self:GetAbility(), KAMA_SHOT_LENGTH / fRate, KAMA_SHOT_GESTURE, true)
 end
 
