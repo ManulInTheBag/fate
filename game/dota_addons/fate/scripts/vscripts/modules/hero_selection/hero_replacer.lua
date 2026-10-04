@@ -237,6 +237,10 @@ function modifier_hero_selection_skin:OnCreated(hTable)
     self.hAbility = self:GetAbility()
     self.skinNumber = hTable.skinNumber
     if IsServer() then
+    	-- Номер скина дублируем в стаки: они сетевые, а таблица OnCreated на
+    	-- клиент не приходит (там skinNumber = nil). Модификатор скрытый —
+    	-- стаков в UI не видно. Нужно клиентским эффектам скинов (Barghest/Guts).
+    	self:SetStackCount(self.skinNumber or 0)
     	local tableData = PlayerTables:GetTableValue("hero_selection_heroes_data", self.hCaster:GetUnitName())
     	local skinData = tableData.skins["skin_"..self.skinNumber]
     	

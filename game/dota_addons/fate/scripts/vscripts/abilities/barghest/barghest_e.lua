@@ -602,7 +602,7 @@ function modifier_barghest_e_chains:OnCreated()
     if not IsServer() then return end
     self:StartIntervalThink(self.hAbility:GetSpecialValueFor("chain_interval"))
 
-    self.nFxIndex = ParticleManager:CreateParticle(BARGHEST_FX.CHAINS,
+    self.nFxIndex = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.CHAINS, self:GetCaster()),
         PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
 end

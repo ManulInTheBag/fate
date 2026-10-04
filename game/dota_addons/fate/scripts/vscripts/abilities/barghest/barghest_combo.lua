@@ -98,7 +98,7 @@ function barghest_combo:OnSpellStart()
         activity = ACT_DOTA_CHANNEL_ABILITY_1, rate = 1.0})
 
     -- Подготовка: свечение растёт на самой Barghest, снимаем его в момент роста.
-    local nPrepFx = ParticleManager:CreateParticle(BARGHEST_FX.CHARGE,
+    local nPrepFx = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.CHARGE, hCaster),
         PATTACH_ABSORIGIN_FOLLOW, hCaster)
 
     local hAbility = self

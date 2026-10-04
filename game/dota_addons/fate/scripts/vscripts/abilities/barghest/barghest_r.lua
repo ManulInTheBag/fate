@@ -388,15 +388,28 @@ function barghest_r:DoHoundWave(vDir)
     local nDist   = self:GetSpecialValueFor("wave_distance")
     local nSpeed  = self:GetSpecialValueFor("wave_speed")
     local nWidth  = Barghest_Radius(hCaster, self:GetSpecialValueFor("wave_width"))
-    hCaster:EmitSound(BARGHEST_SND.R_WAVE)
+
+    --[[ Guts: та же волна (чёрные линии и шлейф пса остаются), но вместо
+         модели пса летит пуля из пушки, плюс вспышка выстрела и звук пушки.
+         См. GUTS_CANNON в shared. ]]
+    local bGuts = Barghest_IsGutsSkin(hCaster)
+    if bGuts then
+        hCaster:EmitSound(GUTS_CANNON.SND)
+        hCaster:EmitSound(GUTS_CANNON.SND2)
+        self:FxCannonMuzzle(vOrigin, vDir, nDist)
+    else
+        hCaster:EmitSound(BARGHEST_SND.R_WAVE)
+    end
 
     Barghest_FxLine(hCaster, vDir, nDist, nWidth)
 
     --[[ Пёс — ОТДЕЛЬНЫЙ партикль, а не EffectName проджектайла: скорость он
          берёт с CP1, точку исчезновения с CP6, и движковый снаряд их не задаёт.
          Поэтому обоим даём одну и ту же wave_speed — разъедутся, и урон пойдёт
-         мимо картинки. ]]
-    local sParticle = "particles/barghest/barghest_black_dog_proj.vpcf"
+         мимо картинки. У Guts это копия без модели пса (guts_cannon_proj),
+         а пулю рисует сам снаряд (EffectName) — из той же точки и с той же
+         скоростью, поэтому пуля идёт ровно по шлейфу. ]]
+    local sParticle = bGuts and GUTS_CANNON.PROJ or "particles/barghest/barghest_black_dog_proj.vpcf"
      self.nParticle =  ParticleManager:CreateParticle(sParticle, PATTACH_WORLDORIGIN, nil)
 
     ParticleManager:SetParticleControl( self.nParticle, 0, vOrigin)
@@ -414,7 +427,7 @@ function barghest_r:DoHoundWave(vDir)
 		end
     end)
     local tProjectile = {
-		EffectName = "",            -- картинку рисует партикль пса выше
+		EffectName = bGuts and GUTS_CANNON.BULLET or "",  -- пса рисует партикль выше
 		Ability = self,
 		vSpawnOrigin = hCaster:GetAbsOrigin(),
 		vVelocity = vDir * nSpeed ,
@@ -435,6 +448,25 @@ function barghest_r:DoHoundWave(vDir)
 	}  
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
     return true
+end
+
+--[[ Вспышка выстрела Guts (ульта Hijikata). Её лучи тянутся от CP0 до CP10,
+     поэтому ставим их ровно на ось волны: старт — у героя, конец — в конце
+     линии, без бокового сдвига к руке (иначе луч шёл параллельно чёрным
+     линиям, а не по ним). Высота одна у обоих концов — луч не ныряет в землю. ]]
+GUTS_CANNON_HEIGHT = 60
+function barghest_r:FxCannonMuzzle(vOrigin, vDir, nDist)
+    local vUp    = Vector(0, 0, GUTS_CANNON_HEIGHT)
+    local vStart = vOrigin + vUp
+    local vEnd   = vOrigin + vDir * nDist + vUp
+    local nFx = ParticleManager:CreateParticle(GUTS_CANNON.MUZZLE, PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControlTransformForward(nFx, 0, vStart, vDir)
+    ParticleManager:SetParticleControlTransformForward(nFx, 1, vStart, vDir)
+    ParticleManager:SetParticleControl(nFx, 3, vStart)
+    ParticleManager:SetParticleControlTransformForward(nFx, 9, vStart, vDir)
+    ParticleManager:SetParticleControl(nFx, 10, vEnd)
+    ParticleManager:SetParticleShouldCheckFoW(nFx, false)
+    ParticleManager:ReleaseParticleIndex(nFx)
 end
 
 --[[ Попадание волны. Бьёт не по одной цели, а по всем в wave_hit_radius вокруг
@@ -466,7 +498,7 @@ function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
                 -- даёт Barghest время подойти — ради этого ветку и берут.
                 enemy:AddNewModifier(hCaster, self, "modifier_muted",
                     {duration = fStun})
-                enemy:EmitSound(BARGHEST_SND.R_HOUND)
+                enemy:EmitSound(Barghest_IsGutsSkin(hCaster) and GUTS_CANNON.SND_HIT or BARGHEST_SND.R_HOUND)
             end
         end
     end
@@ -492,18 +524,19 @@ function modifier_barghest_burn:GetTexture()
     return "custom/barghest/barghest_cont_3"
 end
 
--- Пламя на цели. ⚠️ Партикль чужой (muramasa), поэтому он прекешится в KV R.
-function modifier_barghest_burn:GetEffectName()
-    return "particles/muramasa/muramasa_rush_burn.vpcf"
-end
-
-function modifier_barghest_burn:GetEffectAttachType()
-    return PATTACH_ABSORIGIN_FOLLOW
-end
-
+--[[ Пламя на цели. ⚠️ Партикль чужой (muramasa), поэтому он прекешится в KV R.
+     Не через GetEffectName: у скина Guts пламя своё, тёмно-красное, а номер
+     скина знает только сервер (GetEffectName зовётся и на клиенте). Поэтому
+     эффект заводим здесь, на сервере, и отдаём модификатору через AddParticle —
+     он снимется вместе с горением. Один раз: OnRefresh зовёт OnCreated. ]]
 function modifier_barghest_burn:OnCreated()
     self.hAbility = self:GetAbility()
     if not IsServer() then return end
+    if self.nBurnFx == nil then
+        self.nBurnFx = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.BURN, self:GetCaster()),
+            PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        self:AddParticle(self.nBurnFx, false, false, -1, false, false)
+    end
     self:StartIntervalThink(self.hAbility:GetSpecialValueFor("burn_interval"))
 end
 
@@ -547,20 +580,33 @@ function modifier_barghest_frenzy:GetTexture()
 end
 
 function modifier_barghest_frenzy:OnStackCountChanged(iStackCount)
-    ParticleManager:SetParticleControl(self.particle_unbreak, 1, Vector((iStackCount + 1)*2,0,0))
-
+    if self.tFrenzyFx == nil then return end
+    for _, nFx in ipairs(self.tFrenzyFx) do
+        ParticleManager:SetParticleControl(nFx, 1, Vector((iStackCount + 1)*2,0,0))
+    end
 end
 
 function modifier_barghest_frenzy:OnCreated()
-    if IsServer() then
-        self:SetHasCustomTransmitterData(true)
-        self:UpdateStrPerStack()
-    end
-	self.particle_unbreak = ParticleManager:CreateParticle("particles/hijikata/barghest_passive.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-							ParticleManager:SetParticleControl(self.particle_unbreak, 0, self:GetParent():GetAbsOrigin())
-							ParticleManager:SetParticleControl(self.particle_unbreak, 1, Vector(self:GetStackCount(),0,0))
+    if not IsServer() then return end
+    self:SetHasCustomTransmitterData(true)
+    self:UpdateStrPerStack()
 
-	self:AddParticle(self.particle_unbreak, false, true, -1, true, false)
+    --[[ Ауру создаёт ТОЛЬКО сервер. Раньше её создавали и сервер, и клиент
+         (две копии одна поверх другой), а на клиенте скин Guts не распознавался —
+         поверх чёрной копии сервера горела обычная оранжевая (проверено в игре
+         04.10.2026). У Barghest оставлены две копии с сервера: так её аура
+         выглядит как раньше. У Guts одна: чёрная копия и так плотная. ]]
+    local hParent = self:GetParent()
+    local nCopies = Barghest_IsGutsSkin(hParent) and 1 or 2
+    self.tFrenzyFx = {}
+    for i = 1, nCopies do
+        local nFx = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.FRENZY, hParent),
+            PATTACH_ABSORIGIN_FOLLOW, hParent)
+        ParticleManager:SetParticleControl(nFx, 0, hParent:GetAbsOrigin())
+        ParticleManager:SetParticleControl(nFx, 1, Vector(self:GetStackCount(),0,0))
+        self:AddParticle(nFx, false, true, -1, true, false)
+        self.tFrenzyFx[i] = nFx
+    end
 end
 
 -- Атрибут могут купить, пока разгон уже висит: цена стака пересчитывается на
@@ -655,7 +701,7 @@ function modifier_barghest_r_horn:OnCreated(tTable)
         return
     end
 
-    self.nFxIndex = ParticleManager:CreateParticle(BARGHEST_FX.DASH,
+    self.nFxIndex = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.DASH, self.hParent),
         PATTACH_ABSORIGIN_FOLLOW, self.hParent)
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
 end

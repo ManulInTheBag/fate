@@ -179,7 +179,10 @@ function modifier_death_door:OnCreated(kappa)
 	self.threshold = self.ability:GetSpecialValueFor("health_threshold")
 	self.max_store = self.ability:GetSpecialValueFor("maximum_stored")
 
-	self.received_damage = kappa.damage*self.mult/100
+	-- удар, повесивший дебафф, засчитает OnTakeDamage ниже: TakeDamageCentralized
+	-- зовётся сначала на атакующем (тут создаётся модификатор), потом на цели -
+	-- и уже находит этот модификатор. Посчитать kappa.damage здесь = первый удар дважды
+	self.received_damage = 0
 
 	-- значок над хелсбаром (effect_bars.js, по умолчанию выключен в настройках):
 	-- число = накопленный бонус Азраэля, dd_state = то же, что цвет черепа

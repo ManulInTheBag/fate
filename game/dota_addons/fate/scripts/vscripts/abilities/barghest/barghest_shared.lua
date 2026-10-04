@@ -132,10 +132,46 @@ BARGHEST_VO = {
     LAUGH      = "barghest_vo_laugh",
 }
 
+--[[ Голос скина skin_1 «Guts»: Berserk and the Band of the Hawk (Koei Tecmo,
+     VA Iwanaga Hiroaki). Клипы вырезаны из записей игры с YouTube, голос
+     отделён от музыки и ударов Demucs; лежат в sounds/barghest/guts/, события —
+     в том же hero_barghest.vsndevts. Подмена — в Barghest_VoiceEvent, поэтому
+     способности по-прежнему зовут BARGHEST_VO.* и про скин не знают.
+     Нет ключа в таблице — играет голос Barghest. ]]
+BARGHEST_VO_GUTS = {
+    [BARGHEST_VO.Q]        = "guts_vo_q",
+    [BARGHEST_VO.R]        = "guts_vo_r",
+    [BARGHEST_VO.W]        = "guts_vo_w",
+    [BARGHEST_VO.E]        = "guts_vo_e",
+    [BARGHEST_VO.D]        = "guts_vo_d",
+    [BARGHEST_VO.NP_START] = "guts_vo_np_start",
+    [BARGHEST_VO.NP_SHOUT] = "guts_vo_np_shout",
+    [BARGHEST_VO.LAUGH]    = "guts_vo_laugh",
+}
+
+-- Длина самого длинного клипа события Guts: реплика скина может быть длиннее
+-- той, под которую способность занимает голос (fLength у Barghest_Voice).
+BARGHEST_VO_GUTS_LEN = {
+    guts_vo_w        = 1.75,
+    guts_vo_e        = 1.25,
+    guts_vo_d        = 2.5,
+    guts_vo_np_start = 2.5,
+    guts_vo_np_shout = 1.5,
+    guts_vo_laugh    = 1.45,
+}
+
+function Barghest_VoiceEvent(hCaster, sEvent)
+    if sEvent ~= nil and Barghest_IsGutsSkin(hCaster) then
+        return BARGHEST_VO_GUTS[sEvent] or sEvent
+    end
+    return sEvent
+end
+
 --[[ Самый длинный клип в пуле выкриков (см. hero_barghest.vsndevts). Ровно на
      столько выкрик и «занимает голос»: Q и R жмут ЧЕРЕДУЯ (ротация qrqrqr), и
      без этого второй выкрик ложился бы поверх первого — каша из двух голосов.
-     ⚠️ Держать не меньше длины самого длинного клипа своего события. ]]
+     ⚠️ Держать не меньше длины самого длинного клипа своего события —
+     и у Barghest, и у Guts (guts_vo_q/guts_vo_r режутся под те же пределы). ]]
 BARGHEST_GRUNT_LEN = {
     [1] = 0.7,      -- пул Q: короткие «Хм!»/«Ха!», самый длинный 0.65 c
     [2] = 1.05,     -- пул R: выкрики потяжелее, самый длинный 1.01 c
@@ -156,6 +192,8 @@ function Barghest_Voice(hCaster, sEvent, fLength)
     if not IsServer() then return end
     if not Barghest_Alive(hCaster) then return end
     if sEvent == nil then return end
+    sEvent = Barghest_VoiceEvent(hCaster, sEvent)
+    fLength = math.max(fLength or 2.0, BARGHEST_VO_GUTS_LEN[sEvent] or 0)
 
     -- Играющую реплику обрываем: обрезанная фраза читается лучше, чем две разом.
     if hCaster.sBarghestVoiceEvent ~= nil then
@@ -179,6 +217,7 @@ function Barghest_Grunt(hCaster, sEvent, nPool)
         return
     end
     hCaster.fBarghestGruntUntil = fNow + (BARGHEST_GRUNT_LEN[nPool] or 1.0)
+    sEvent = Barghest_VoiceEvent(hCaster, sEvent)
     hCaster.sBarghestVoiceEvent = sEvent
     hCaster:EmitSound(sEvent)
 end
@@ -501,9 +540,103 @@ BARGHEST_FX_GIANT = {
      прежнего размера. ]]
 function Barghest_FxName(sName, hCaster)
     if Barghest_GiantMult(hCaster) > 1 then
-        return BARGHEST_FX_GIANT[sName] or sName
+        sName = BARGHEST_FX_GIANT[sName] or sName
+    end
+    return Barghest_SkinFx(sName, hCaster)
+end
+
+-- Подмена ТОЛЬКО по скину, без гигантской: для мест, где размер нарочно не
+-- раздувается (подготовка комбо, горение на жертве).
+function Barghest_SkinFx(sName, hCaster)
+    if Barghest_IsGutsSkin(hCaster) then
+        return BARGHEST_FX_GUTS[sName] or sName
     end
     return sName
+end
+
+--[[ Скин skin_1 «Guts» (models/zlodemon/guts): у него чёрный Драконобой,
+     поэтому ВСЕ разрезы — чёрные. Копии лежат в particles/barghest/guts/ под
+     теми же именами: цвета рендеров почти чёрные, m_flAddSelfAmount 0 и
+     m_flOverbrightFactor 1 (иначе тёмный цвет светится/выгорает). Таблица
+     покрывает и гигантские копии — подмена идёт ПОСЛЕ подмены на гиганта.
+     Номер скина живёт только на сервере (поле модификатора), а партиклы
+     Баргеста и создаются на сервере. ]]
+BARGHEST_FX_GUTS = {}
+for _, sBase in ipairs({ "barghest_slash_1", "barghest_slash_2", "barghest_slash_3", "barghest_slash_4",
+                         "barghest_slash_vertical", "barghest_slash_vertical_up", "barghest_slash_vertical_up_thin" }) do
+    for _, sSuffix in ipairs({ "", "_giant" }) do
+        BARGHEST_FX_GUTS["particles/barghest/" .. sBase .. sSuffix .. ".vpcf"] =
+            "particles/barghest/guts/" .. sBase .. sSuffix .. ".vpcf"
+    end
+end
+-- Зарядка E (чёрная, см. ниже) и горение (тёмно-красное, а не оранжевое).
+-- Горение перекрашено скриптом: в аддитивных слоях цвет = (0.62·v, 0.05·v,
+-- 0.04·v) от яркости оригинала, MOD2X-слой огня Doom — (150,40,30), почти
+-- чёрный дым не тронут. Дети ванильного Doom декомпилированы из pak01 и лежат
+-- копиями там же.
+BARGHEST_FX_GUTS[BARGHEST_FX.CHARGE] = "particles/barghest/guts/barghest_e_charge.vpcf"
+BARGHEST_FX_GUTS["particles/barghest/barghest_e_charge_giant.vpcf"] = "particles/barghest/guts/barghest_e_charge_giant.vpcf"
+BARGHEST_FX.BURN = "particles/muramasa/muramasa_rush_burn.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.BURN] = "particles/barghest/guts/barghest_burn.vpcf"
+-- Взрыв веток R (Q3R и др.) — тёмно-красный: огненные слои (0.62v,0.05v,0.04v),
+-- серые пыль/камни/трещины не тронуты.
+BARGHEST_FX_GUTS[BARGHEST_FX.BURST]    = "particles/barghest/guts/barghest_small_explosion.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.FIRE_HIT] = "particles/barghest/guts/barghest_slam.vpcf"
+BARGHEST_FX_GUTS["particles/barghest/barghest_small_explosion_giant.vpcf"] = "particles/barghest/guts/barghest_small_explosion_giant.vpcf"
+BARGHEST_FX_GUTS["particles/barghest/barghest_slam_giant.vpcf"]            = "particles/barghest/guts/barghest_slam_giant.vpcf"
+-- ЧЁРНЫЕ: цепи E, аура стаков R (frenzy) и зарядка E (раньше была красной —
+-- «красная не оч»). Аддитив чёрным не бывает: слои переведены в ALPHA, свет
+-- выкинут, у текстур со сплошной альфой прозрачность из R (MIX_RALPHA) + 2 прохода.
+BARGHEST_FX_GUTS[BARGHEST_FX.CHAINS] = "particles/barghest/guts/barghest_e_chains.vpcf"
+BARGHEST_FX.FRENZY = "particles/hijikata/barghest_passive.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.FRENZY] = "particles/barghest/guts/barghest_passive.vpcf"
+-- Бег (разбег E, рывок укуса, таран WR) — огненный след стал чёрным тем же
+-- fxconvert 'black'; копируются и дети (ea/ea0/ea1/eb/footprints).
+for _, sName in ipairs({ "barghest_rush_e", "barghest_rush_e_speed",
+                         "barghest_rush_e_giant", "barghest_rush_e_speed_giant" }) do
+    BARGHEST_FX_GUTS["particles/barghest/" .. sName .. ".vpcf"] = "particles/barghest/guts/" .. sName .. ".vpcf"
+end
+-- Стойка W: щит и барьер — чёрные (fxconvert 'black').
+BARGHEST_FX.BARRIER = "particles/barghest/barghest_barrier.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.STANCE]  = "particles/barghest/guts/barghest_w_shield.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.BARRIER] = "particles/barghest/guts/barghest_barrier.vpcf"
+-- Атрибут 1: вместо чёрного пса бежит призрак (models/custom_game/units/guts_ghost).
+-- Копия barghest_hound_wake: модель заменена, оверрайды материала волка сняты
+-- (у призрака свой), второй рендер-градиент выключен, модель поднята на 40.
+-- Последовательность 1 у обоих — бег (у призрака: attack, run, slow1, slow2).
+BARGHEST_FX_GUTS[BARGHEST_FX.HOUND] = "particles/barghest/guts/guts_ghost_wake.vpcf"
+
+--[[ Ветка ER у Guts — выстрел из пушки поверх той же волны: чёрные линии по
+     земле и шлейф пса остаются (PROJ — копия barghest_black_dog_proj с
+     выключенными рендерами модели пса), пулю рисует сам снаряд (снаряд и
+     вспышка — ульта Hijikata, оригиналы не тронуты), звуки пушки — свои
+     события на тех же файлах, чтобы не зависеть от того, кто ещё в матче.
+     Механика та же: тот же линейный снаряд, скорость, ширина, урон. ]]
+GUTS_CANNON = {
+    PROJ    = "particles/barghest/guts/guts_cannon_proj.vpcf",
+    BULLET  = "particles/hijikata/hijikata_bullet_combo.vpcf",
+    MUZZLE  = "particles/units/hijikata/ult/hijikata_ult_combo.vpcf",
+    SND     = "guts_sfx_cannon",
+    SND2    = "guts_sfx_cannon_shot",
+    SND_HIT = "guts_sfx_cannon_hit",
+}
+
+-- Работает и на клиенте: там skinNumber нет (таблица OnCreated не приходит),
+-- но hero_replacer дублирует номер скина в стаки модификатора.
+-- В клиентской VM у юнита нет FindModifierByName (см. barghest_r), зато есть
+-- GetModifierStackCount — через него и читаем. Модификатор скина вешается
+-- самим героем на себя, поэтому кастер = hCaster.
+function Barghest_IsGutsSkin(hCaster)
+    if not hCaster then return false end
+    if type(hCaster.FindModifierByName) == "function" then
+        local hSkin = hCaster:FindModifierByName("modifier_hero_selection_skin")
+        if hSkin == nil then return false end
+        return (hSkin.skinNumber or hSkin:GetStackCount()) == 1
+    end
+    if type(hCaster.GetModifierStackCount) == "function" then
+        return hCaster:GetModifierStackCount("modifier_hero_selection_skin", hCaster) == 1
+    end
+    return false
 end
 
 --[[ Размашистая дуга вокруг героя. CP5 задаёт радиус (Barghest_FxSize);
@@ -600,10 +733,10 @@ end
      где пёс должен исчезнуть.
      ⚠️ Партикль сам не умирает — снимаем руками чуть раньше прибытия, иначе он
      зависнет в конце пробега (ровно эта грабля была у волны ER). ]]
-function Barghest_FxHound(vFrom, vDir, nDistance, nSpeed)
+function Barghest_FxHound(vFrom, vDir, nDistance, nSpeed, hCaster)
     if not IsServer() then return end
     local vOrigin = vFrom
-    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.HOUND, PATTACH_WORLDORIGIN, nil)
+    local nFx = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.HOUND, hCaster), PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(nFx, 0, vOrigin)
     ParticleManager:SetParticleControl(nFx, 1, vDir * nSpeed)
     ParticleManager:SetParticleControl(nFx, 6, vOrigin + vDir * nDistance)

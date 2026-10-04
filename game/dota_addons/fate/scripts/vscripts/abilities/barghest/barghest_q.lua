@@ -207,7 +207,7 @@ function barghest_q:SpawnHound(vDir)
         vBite = vFrom + vDir * nDistance
     end
 
-    Barghest_FxHound(vFrom, vRun, nDistance, self:GetSpecialValueFor("hound_speed"))
+    Barghest_FxHound(vFrom, vRun, nDistance, self:GetSpecialValueFor("hound_speed"), hCaster)
 
     --[[ Укус считается от СИЛЫ героя, а не от урона удара: Barghest —
          STR-танк, и послеобраз должен расти вместе с её основным статом.

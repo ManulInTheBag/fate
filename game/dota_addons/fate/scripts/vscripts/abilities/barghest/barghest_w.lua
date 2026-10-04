@@ -166,11 +166,11 @@ function modifier_barghest_w_stance:OnCreated()
     if not IsServer() then return end
     self:SetStackCount(self.hAbility:GetSpecialValueFor("barrier_base"))
 
-    self.nFxIndex = ParticleManager:CreateParticle(BARGHEST_FX.STANCE,
+    self.nFxIndex = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.STANCE, self.hParent),
         PATTACH_CUSTOMORIGIN_FOLLOW , self.hParent)
     ParticleManager:SetParticleControlTransformForward(self.nFxIndex, 0, self.hParent:GetAbsOrigin() + self.hParent:GetForwardVector() * 150 + Vector(0,0,150), self.hParent:GetForwardVector())
     self:AddParticle(self.nFxIndex, false, false, -1, false, false)
-    self.nFxIndex2 = ParticleManager:CreateParticle("particles/barghest/barghest_barrier.vpcf",
+    self.nFxIndex2 = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.BARRIER, self.hParent),
     PATTACH_CUSTOMORIGIN_FOLLOW , self.hParent)
     self:AddParticle(self.nFxIndex2, true, false, -1, false, false)
 end
