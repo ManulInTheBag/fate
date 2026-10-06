@@ -1,0 +1,2240 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = ""
+								to = "models/renvor/eggman/eggman_texture/eggman_beard.vmat"
+							},
+							{
+								from = "body.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_face.vmat"
+							},
+							{
+								from = "glasses.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_glass.vmat"
+							},
+							{
+								from = "gloves.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_hand.vmat"
+							},
+							{
+								from = "head brow.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_face.vmat"
+							},
+							{
+								from = "head.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_face.vmat"
+							},
+							{
+								from = "outfit.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_body.vmat"
+							},
+							{
+								from = "stache.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_beard.vmat"
+							},
+							{
+								from = "egg_gun.vmat"
+								to = "models/renvor/eggman/egg_gun_texture/egg_gun.vmat"
+							},
+							{
+								from = "headlight glass.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_glass.vmat"
+							},
+							{
+								from = "main headlight.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+							{
+								from = "main seat.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+							{
+								from = "main.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+							{
+								from = "windshield glass.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_glass.vmat"
+							},
+							{
+								from = "main controls.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+							{
+								from = "egg_emerald.vmat"
+								to = "models/renvor/eggman/egg_emerald_texture/egg_emerald.vmat"
+							},
+							{
+								from = "rule_breaker.vmat"
+								to = "models/renvor/eggman/rule_breaker_texture/rule_breaker.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "caster_default"
+						filename = "models/renvor/eggman/eggman.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"egg_mobile",
+								"rule_breaker",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "caster_rb"
+						filename = "models/renvor/eggman/eggman.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"EGGGUN00",
+								"Object_0",
+								"egg_mobile",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "hecatic"
+						filename = "models/renvor/eggman/eggman.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"rule_breaker",
+								"EGGGUN00",
+								"Object_0",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_book_firewall"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_book_firewall.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = 15
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_book_rays"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_9"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_book_rays.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 24.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_book_sacrifice_cast"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_12"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_book_sacrifice_cast.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_book_sacrifice_channel"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CHANNEL_ABILITY_12"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_book_sacrifice_channel.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_book_sacrifice_end"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CHANNEL_END_ABILITY_12"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_book_sacrifice_end.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_book_silience"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_8"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_book_silience.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_item_construction"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_item_construction.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_rule_breaker"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 1
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_rule_breaker.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_shield"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_shield.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_attack"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_attack.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_death.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_death_long"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE_SPECIAL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_death_long.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_idle_1"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "healthy"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_idle_1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_idle_2"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_idle_2.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_idle_injured"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "injured"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_idle_injured.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_run"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "healthy_fast"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_run.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_run_injured"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "injured_fast"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_run_injured.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_spawn"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_SPAWN_STATUE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_spawn.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_stun"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_STUN_STATUE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_stun.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_walk"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "healthy_slow"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_walk.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_walk_injured"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "injured_slow"
+								activity_weight = 1
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_walk_injured.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_hecatic"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 2
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 46
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggmobile animations/eggmobile_cast.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggman_ability_tower"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_BODYGROUP_SET_VALUE"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									bodygroup = "weapons"
+									value = 0
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggman animations/eggman_ability_book_rays.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 24.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "UpperBody"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon"
+						parent_bone = "egggun"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack"
+						parent_bone = "Wrist_R"
+						relative_origin = [ -14.739059, -82.808304, -12.173759 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "ParentNode"
+						relative_origin = [ 1.841625, -14.000757, -13.62475 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "Wrist_R"
+						relative_origin = [ -14.739059, -82.808304, -12.173759 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "Wrist_R"
+						relative_origin = [ -14.739059, -82.808304, -12.173759 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "LowerBody"
+								parent_bone = "LowerBody"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -90.52963, -84.86006, -92.63427 ]
+								hitbox_maxs = [ 103.54606, 118.65691, 89.57132 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_Hip"
+								parent_bone = "Right_Hip"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -29.692022, -15.855682, -49.906986 ]
+								hitbox_maxs = [ 6.140234, 60.529514, 7.6730843 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg01_R"
+								parent_bone = "Leg01_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.098446, -4.0109787, -6.288538 ]
+								hitbox_maxs = [ 5.7290173, 0.5, 6.5599957 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg02_R"
+								parent_bone = "Leg02_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.2813935, -4.01355, -5.562255 ]
+								hitbox_maxs = [ 5.0986934, 0.5, 5.833705 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg03_R"
+								parent_bone = "Leg03_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.834223, -3.9966927, -5.2108674 ]
+								hitbox_maxs = [ 4.847024, 0.5, 5.4822984 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg04_R"
+								parent_bone = "Leg04_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.387051, -4.033161, -4.859464 ]
+								hitbox_maxs = [ 4.5953565, 0.5, 5.130876 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg05_R"
+								parent_bone = "Leg05_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.939912, -3.9683876, -4.508038 ]
+								hitbox_maxs = [ 4.3436785, 0.5, 4.7794766 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg06_R"
+								parent_bone = "Leg06_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.758759, -3.9970818, -4.4227138 ]
+								hitbox_maxs = [ 4.357961, 0.5, 4.694011 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg07_R"
+								parent_bone = "Leg07_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.673323, -4.0262947, -4.3943624 ]
+								hitbox_maxs = [ 4.357862, 0.5, 4.6451025 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg08_R"
+								parent_bone = "Leg08_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.657838, -3.986145, -4.422762 ]
+								hitbox_maxs = [ 4.4266205, 0.5, 4.7088356 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg09_R"
+								parent_bone = "Leg09_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.7649174, -4.0303936, -4.57212 ]
+								hitbox_maxs = [ 4.6164083, 0.5, 4.7947373 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg10_R"
+								parent_bone = "Leg10_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.9533386, -5.144245, -4.808614 ]
+								hitbox_maxs = [ 4.88945, 0.5, 4.9621477 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg11_R"
+								parent_bone = "Leg11_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.390186, -6.973442, -5.3102813 ]
+								hitbox_maxs = [ 5.413999, 0.5, 5.6345105 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "AnkleD_R"
+								parent_bone = "AnkleD_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.276316, -4.619522, -4.617113 ]
+								hitbox_maxs = [ 10.408773, 28.628517, 20.071766 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_Hip"
+								parent_bone = "Left_Hip"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.132861, -15.861656, -49.912807 ]
+								hitbox_maxs = [ 29.677502, 60.529366, 7.672329 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg01_L"
+								parent_bone = "Leg01_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.721608, -4.011078, -6.285801 ]
+								hitbox_maxs = [ 7.105859, 0.5, 6.5627327 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg02_L"
+								parent_bone = "Leg02_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.088135, -4.013546, -5.559458 ]
+								hitbox_maxs = [ 6.291957, 0.5, 5.836504 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg03_L"
+								parent_bone = "Leg03_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.835662, -3.9966965, -5.2080774 ]
+								hitbox_maxs = [ 5.845586, 0.5, 5.4850893 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg04_L"
+								parent_bone = "Leg04_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.583214, -4.0331383, -4.856679 ]
+								hitbox_maxs = [ 5.3992233, 0.5, 5.133662 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg05_L"
+								parent_bone = "Leg05_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.3307695, -3.9684296, -4.5052943 ]
+								hitbox_maxs = [ 4.952792, 0.5, 4.7822213 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg06_L"
+								parent_bone = "Leg06_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.3443594, -3.9966698, -4.419889 ]
+								hitbox_maxs = [ 4.7723656, 0.5, 4.6968055 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg07_L"
+								parent_bone = "Leg07_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.343446, -4.0266457, -4.3915854 ]
+								hitbox_maxs = [ 4.687744, 0.5, 4.6478815 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg08_L"
+								parent_bone = "Leg08_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.411393, -3.986145, -4.420025 ]
+								hitbox_maxs = [ 4.673064, 0.5, 4.7115726 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg09_L"
+								parent_bone = "Leg09_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.6010966, -4.0303707, -4.5694265 ]
+								hitbox_maxs = [ 4.780166, 0.5, 4.797432 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg10_L"
+								parent_bone = "Leg10_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.873385, -5.144129, -4.805894 ]
+								hitbox_maxs = [ 4.9694076, 0.5, 4.964838 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Leg11_L"
+								parent_bone = "Leg11_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.3969626, -6.973398, -5.307597 ]
+								hitbox_maxs = [ 5.4072194, 0.5, 5.6371965 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "AnkleD_L"
+								parent_bone = "AnkleD_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.392363, -5.5618324, -4.6206746 ]
+								hitbox_maxs = [ 10.292761, 28.62947, 20.068192 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "UpperBody2"
+								parent_bone = "UpperBody2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -58.214554, -40.90975, -58.606625 ]
+								hitbox_maxs = [ 58.211563, 58.36753, 58.245457 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Neck"
+								parent_bone = "Neck"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.81397, -4.1806946, -24.632786 ]
+								hitbox_maxs = [ 19.800402, 9.421982, 19.545795 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Head"
+								parent_bone = "Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -24.83446, -4.545807, -22.332561 ]
+								hitbox_maxs = [ 24.821592, 33.983612, 19.836983 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "TeethLow"
+								parent_bone = "TeethLow"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.68939, -4.0039673, -15.016748 ]
+								hitbox_maxs = [ 17.668692, 1.1341553, 4.043413 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "TeethUp"
+								parent_bone = "TeethUp"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.106544, -2.3600616, -5.5660768 ]
+								hitbox_maxs = [ 18.092705, 5.1808167, 13.37956 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Tongue1"
+								parent_bone = "Tongue1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.8511605, -0.5, -1.66893 ]
+								hitbox_maxs = [ 7.865768, 10.452492, 2.7412567 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Nose"
+								parent_bone = "Nose"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -38.447884, -9.458588, -6.9132404 ]
+								hitbox_maxs = [ 38.42855, 5.056595, 8.622097 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Mustache_R"
+								parent_bone = "Mustache_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.3614635, -0.9871025, -13.4865265 ]
+								hitbox_maxs = [ 18.033884, 51.197685, 14.92804 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "MustacheUp_R"
+								parent_bone = "MustacheUp_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.5639877, -1.9399948, -27.80458 ]
+								hitbox_maxs = [ 9.868431, 48.925793, 0.6816101 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Mustache1_R"
+								parent_bone = "Mustache1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.1173067, -22.888592, -9.560165 ]
+								hitbox_maxs = [ 11.734924, 33.606224, 18.854385 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Mustache_L"
+								parent_bone = "Mustache_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.037153, -1.0067139, -13.485153 ]
+								hitbox_maxs = [ 3.3581295, 51.17842, 14.929047 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "MustacheUp_L"
+								parent_bone = "MustacheUp_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.879639, -1.9547501, -27.782593 ]
+								hitbox_maxs = [ 6.554085, 48.915627, 0.6970215 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Mustache1_L"
+								parent_bone = "Mustache1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.739473, -22.90569, -9.549835 ]
+								hitbox_maxs = [ 3.1130514, 33.589172, 18.864334 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Glasses"
+								parent_bone = "Glasses"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.300131, -4.4487762, -2.4018993 ]
+								hitbox_maxs = [ 11.279524, 6.29805, 1.2581882 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Shoulder_L"
+								parent_bone = "Shoulder_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -57.54639, -0.5, -42.081818 ]
+								hitbox_maxs = [ 57.37467, 62.83847, 41.210472 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm01_L"
+								parent_bone = "Arm01_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.433758, -13.0937805, -21.619238 ]
+								hitbox_maxs = [ 12.284538, 22.05635, 20.86135 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm02_L"
+								parent_bone = "Arm02_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.017395, -11.5243225, -18.173746 ]
+								hitbox_maxs = [ 8.455872, 11.704056, 17.982325 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm03_L"
+								parent_bone = "Arm03_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.526905, -11.102371, -17.459631 ]
+								hitbox_maxs = [ 8.256191, 11.208832, 17.268473 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm04_L"
+								parent_bone = "Arm04_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.224611, -10.7234955, -16.679993 ]
+								hitbox_maxs = [ 7.9747696, 10.808868, 16.479103 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm05_L"
+								parent_bone = "Arm05_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.898411, -13.22422, -15.900281 ]
+								hitbox_maxs = [ 11.737146, 10.391159, 15.689771 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm06_L"
+								parent_bone = "Arm06_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.878088, -11.4279785, -15.510357 ]
+								hitbox_maxs = [ 9.465818, 11.797836, 15.295155 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm07_L"
+								parent_bone = "Arm07_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.857268, -9.633087, -15.120366 ]
+								hitbox_maxs = [ 7.1947317, 13.203751, 14.90064 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm08_L"
+								parent_bone = "Arm08_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.9614406, -9.246475, -13.561066 ]
+								hitbox_maxs = [ 6.9038243, 9.171677, 13.321896 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm09_L"
+								parent_bone = "Arm09_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.6455765, -8.877533, -12.781244 ]
+								hitbox_maxs = [ 6.6361256, 8.762032, 12.532679 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm10_L"
+								parent_bone = "Arm10_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.326554, -13.537422, -12.227011 ]
+								hitbox_maxs = [ 13.59108, 8.350502, 12.070185 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Wrist_L"
+								parent_bone = "Wrist_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.687922, -12.713287, -18.4228 ]
+								hitbox_maxs = [ 9.91065, 6.2249985, 5.219326 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LittleFinger1_L"
+								parent_bone = "LittleFinger1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.7252588, -3.8870087, -4.310951 ]
+								hitbox_maxs = [ 4.4904604, 6.0641785, 3.3151245 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LittleFinger2_L"
+								parent_bone = "LittleFinger2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.1645346, -0.8851929, -2.5459824 ]
+								hitbox_maxs = [ 2.349598, 3.9597626, 2.3889008 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "MiddleFinger1_L"
+								parent_bone = "MiddleFinger1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.731595, -1.2284317, -3.9543457 ]
+								hitbox_maxs = [ 3.093772, 7.7534065, 3.487442 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "MiddleFinger2_L"
+								parent_bone = "MiddleFinger2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.6211243, -1.1404419, -3.0982437 ]
+								hitbox_maxs = [ 2.8122602, 5.3892784, 2.838829 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "IndexFinger1_L"
+								parent_bone = "IndexFinger1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.0454464, -4.7847366, -3.7489471 ]
+								hitbox_maxs = [ 3.525651, 7.7175293, 3.751175 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "IndexFinger2_L"
+								parent_bone = "IndexFinger2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.7074847, -0.97247314, -3.0798264 ]
+								hitbox_maxs = [ 2.725626, 5.0504303, 2.8204117 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RingFinger1_L"
+								parent_bone = "RingFinger1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.0459912, -4.7072906, -5.080536 ]
+								hitbox_maxs = [ 2.6227834, 7.069458, 3.785759 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RingFinger2_L"
+								parent_bone = "RingFinger2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.4157, -0.9681587, -2.9695053 ]
+								hitbox_maxs = [ 2.6226163, 5.1051025, 2.5294266 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Thumb0_L"
+								parent_bone = "Thumb0_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.3057404, -2.7220497, -4.7856674 ]
+								hitbox_maxs = [ 4.130043, 11.37867, 7.2388916 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Thumb1_L"
+								parent_bone = "Thumb1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.312401, -4.9742775, -4.7851562 ]
+								hitbox_maxs = [ 4.11911, 7.746971, 6.726883 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Shoulder_R"
+								parent_bone = "Shoulder_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -57.54538, -0.5, -41.202606 ]
+								hitbox_maxs = [ 57.375687, 62.833336, 42.1047 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm01_R"
+								parent_bone = "Arm01_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.300004, -13.119034, -21.618898 ]
+								hitbox_maxs = [ 8.406442, 22.036255, 20.862055 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm02_R"
+								parent_bone = "Arm02_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.472363, -11.551605, -18.174257 ]
+								hitbox_maxs = [ 9.00962, 11.670242, 17.98184 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm03_R"
+								parent_bone = "Arm03_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.270666, -11.132874, -17.460434 ]
+								hitbox_maxs = [ 8.520807, 11.172058, 17.267704 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm04_R"
+								parent_bone = "Arm04_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.987542, -10.755905, -16.681242 ]
+								hitbox_maxs = [ 8.219928, 10.770462, 16.477896 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm05_R"
+								parent_bone = "Arm05_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.746994, -13.260689, -15.901947 ]
+								hitbox_maxs = [ 7.895235, 10.3508, 15.68816 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm06_R"
+								parent_bone = "Arm06_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.473923, -11.4664, -15.512194 ]
+								hitbox_maxs = [ 9.876293, 11.755432, 15.293386 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm07_R"
+								parent_bone = "Arm07_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.201577, -9.673286, -15.122543 ]
+								hitbox_maxs = [ 11.856311, 13.159515, 14.898533 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm08_R"
+								parent_bone = "Arm08_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.9089165, -9.289177, -13.563829 ]
+								hitbox_maxs = [ 6.963253, 9.123825, 13.319208 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm09_R"
+								parent_bone = "Arm09_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.6395235, -8.922272, -12.784458 ]
+								hitbox_maxs = [ 6.6489973, 8.712639, 12.529545 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Arm10_R"
+								parent_bone = "Arm10_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.58979, -13.587448, -12.230719 ]
+								hitbox_maxs = [ 6.3318157, 8.29863, 12.066586 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Wrist_R"
+								parent_bone = "Wrist_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.689615, -12.775436, -5.226978 ]
+								hitbox_maxs = [ 9.905857, 6.168297, 18.414036 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "MiddleFinger1_R"
+								parent_bone = "MiddleFinger1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.736483, -1.1961288, -3.4309006 ]
+								hitbox_maxs = [ 3.0860648, 7.7817726, 4.0118637 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "MiddleFinger2_R"
+								parent_bone = "MiddleFinger2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.6284614, -1.11129, -2.7784271 ]
+								hitbox_maxs = [ 2.8049269, 5.418648, 3.1584396 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Thumb0_R"
+								parent_bone = "Thumb0_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.3362503, -2.6993523, -7.1917725 ]
+								hitbox_maxs = [ 4.098465, 11.399799, 4.829727 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Thumb1_R"
+								parent_bone = "Thumb1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.343338, -4.9505463, -6.680908 ]
+								hitbox_maxs = [ 4.087681, 7.770439, 4.829529 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RingFinger1_R"
+								parent_bone = "RingFinger1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.049051, -4.682373, -3.7305908 ]
+								hitbox_maxs = [ 2.6208317, 7.09935, 5.134186 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "RingFinger2_R"
+								parent_bone = "RingFinger2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.4176593, -0.93818665, -2.4674377 ]
+								hitbox_maxs = [ 2.620708, 5.135639, 3.0312958 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "IndexFinger1_R"
+								parent_bone = "IndexFinger1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.0529947, -4.751175, -3.6960678 ]
+								hitbox_maxs = [ 3.5177612, 7.741432, 3.8040085 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "IndexFinger2_R"
+								parent_bone = "IndexFinger2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.7188506, -0.94950867, -2.7617798 ]
+								hitbox_maxs = [ 2.714426, 5.073826, 3.1383438 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LittleFinger1_R"
+								parent_bone = "LittleFinger1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.7279215, -3.8550186, -3.261673 ]
+								hitbox_maxs = [ 4.484527, 6.098915, 4.364105 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "LittleFinger2_R"
+								parent_bone = "LittleFinger2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.1586037, -0.85025024, -2.3337173 ]
+								hitbox_maxs = [ 2.3555632, 3.9959793, 2.6010284 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "CollarSide3_R"
+								parent_bone = "CollarSide3_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5141945, -11.400436, -14.796061 ]
+								hitbox_maxs = [ 21.930021, 12.566513, 21.678995 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "CollarSide2_R"
+								parent_bone = "CollarSide2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.9522743, -14.591507, -41.905586 ]
+								hitbox_maxs = [ 21.80888, 6.3376465, 28.64286 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "CollarBack"
+								parent_bone = "CollarBack"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -38.741913, -23.927261, -17.70671 ]
+								hitbox_maxs = [ 38.735046, 39.722748, 2.4711761 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Collar1_L"
+								parent_bone = "Collar1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.0596466, -14.033157, -14.490288 ]
+								hitbox_maxs = [ 5.7398224, 31.68486, 22.13078 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "CollarSide2_L"
+								parent_bone = "CollarSide2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.822874, -14.584915, -41.898956 ]
+								hitbox_maxs = [ 2.9382038, 6.3442383, 28.649473 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Collar1_R"
+								parent_bone = "Collar1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.7446136, -14.029144, -14.473461 ]
+								hitbox_maxs = [ 7.053238, 31.690834, 22.147125 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "CollarSide3_L"
+								parent_bone = "CollarSide3_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.937166, -11.393433, -14.78855 ]
+								hitbox_maxs = [ 0.5069847, 12.573517, 21.686386 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "egggun"
+								parent_bone = "egggun"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.287495, -22.60774, -18.782478 ]
+								hitbox_maxs = [ 18.46191, 62.21068, 52.948227 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "eggemerald"
+								parent_bone = "eggemerald"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.25324, -0.5, -13.253227 ]
+								hitbox_maxs = [ 13.253236, 40.303425, 13.25325 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "rule_breaker"
+								parent_bone = "rule_breaker"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.8275933, -12.656308, -37.38722 ]
+								hitbox_maxs = [ 2.6917586, 10.819797, 24.032421 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "weapons"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "default"
+								meshes = 
+								[
+									"caster_default",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "rb"
+								meshes = 
+								[
+									"caster_rb",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "hecatic"
+								meshes = 
+								[
+									"hecatic",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

@@ -581,9 +581,34 @@
 							},
 							{
 								_class = "AnimFile"
-								name = "caster_anim_cast_two"
+								name = "caster_anim_item_construction"
 								is_default_idle_anim = false
-								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_name = "ACT_DOTA_CAST_ABILITY_5"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/caster/caster_anim.FBX"
+								import_bone_scales = false
+								start_frame = 230
+								end_frame = 270
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "caster_anim_tower"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
@@ -606,9 +631,9 @@
 							},
 							{
 								_class = "AnimFile"
-								name = "caster_anim_ascend"
+								name = "caster_anim_argos"
 								is_default_idle_anim = false
-								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
@@ -623,8 +648,108 @@
 								delete_from_compiled_model = false
 								source_filename = "models/caster/caster_anim.FBX"
 								import_bone_scales = false
-								start_frame = 395
-								end_frame = 450
+								start_frame = 230
+								end_frame = 270
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "caster_anim_wall_of_flame"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_7"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/caster/caster_anim.FBX"
+								import_bone_scales = false
+								start_frame = 230
+								end_frame = 270
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "caster_anim_silience"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_8"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/caster/caster_anim.FBX"
+								import_bone_scales = false
+								start_frame = 670
+								end_frame = 710
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "caster_anim_divine_words"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_9"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/caster/caster_anim.FBX"
+								import_bone_scales = false
+								start_frame = 670
+								end_frame = 710
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "caster_anim_sacrfice_cast"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_12"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/caster/caster_anim.FBX"
+								import_bone_scales = false
+								start_frame = 30
+								end_frame = 100
 								framerate = 30.0
 								reverse = false
 								additional_anim_files = [  ]
@@ -650,6 +775,31 @@
 								import_bone_scales = false
 								start_frame = 570
 								end_frame = 640
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "caster_anim_ascend"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/caster/caster_anim.FBX"
+								import_bone_scales = false
+								start_frame = 395
+								end_frame = 450
 								framerate = 30.0
 								reverse = false
 								additional_anim_files = [  ]

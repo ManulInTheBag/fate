@@ -1,0 +1,141 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "hero.vfx"
+
+	//---- Effect Proxies ----
+	F_USE_HERO_EFFECTS_PROXY 1
+	F_USE_STATUS_EFFECTS_PROXY 1
+
+	//---- Masks ----
+	F_MASKS_2 1
+
+	//---- Blend To Full ----
+	g_flEnvMapBlendToFull "0.000"
+	g_flMetalnessBlendToFull "0.000"
+	g_flReflectionsTintByBaseBlendToNone "0.000"
+	g_flSelfIllumBlendToFull "0.000"
+	g_flSpecularBlendToFull "0.000"
+	g_flSpecularExponentBlendToFull "0.000"
+
+	//---- Cloak ----
+	g_flCloakBlurAmount "0.005"
+	g_flCloakIntensity "0.850"
+	g_flCloakRefractAmount "0.100"
+	g_flMaterialCloakFactor "0.000"
+	g_vCloakColorTint "[1.000 1.000 1.000]"
+
+	//---- Color ----
+	g_flDiffuseModulationAmount "1.000"
+	g_flTexCoordRotation "0.000"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "models/renvor/eggman/eggman_texture/chr_classic_eggman_body_dif_hd.png"
+
+	//---- Detail 1 ----
+	g_flDetailTexCoordRotation "0.000"
+	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vDetailTexCoordOffset "[0.000 0.000]"
+	g_vDetailTexCoordScale "[1.000 1.000]"
+
+	//---- Detail 2 ----
+	g_flDetail2BlendFactor "0.000"
+	TextureDetail2 "materials/default/default_detail2.tga"
+
+	//---- Fresnel ----
+	g_flFresnelModulatesAlpha "0.000"
+	TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"
+	TextureFresnelWarpRim "models/renvor/eggman/eggman_texture/chr_classic_eggman_body_fal_hd.png"
+	TextureFresnelWarpSpec "materials/default/default_fresnelwarpspec.tga"
+
+	//---- Lighting ----
+	g_flAmbientScale "1.000"
+	g_flBloomScale "0.000"
+	g_flBloomShift "0.000"
+	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Mask 2 ----
+	TextureRimMask "[0.000000 0.000000 0.000000 0.000000]"
+	TextureSpecularExponent "models/renvor/eggman/eggman_texture/chr_classic_eggman_body_pow_hd.png"
+	TextureSpecularMask "models/renvor/eggman/eggman_texture/chr_classic_eggman_body_spc_hd.png"
+	TextureTintByBaseMask "materials/default/default_basetintmask.tga"
+
+	//---- Normal Map ----
+	TextureNormal "materials/default/default_normal.tga"
+
+	//---- Rim ----
+	g_flRimLightScale "1.000"
+	g_vRimLightColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Specular ----
+	g_flSpecularExponent "32.000"
+	g_flSpecularScale "1.000"
+	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	UnusedVariables
+	{
+		"g_flOpacityScale" "1"
+		"g_flAlphaTestReference" "0.699"
+		"TextureTranslucency" "models/renvor/eggman/chr_classic_eggman_body_spc_hd.png"
+		"g_flGradientBottom" "1392.64"
+		"g_flGradientColorMultiplier" "1"
+		"g_flGradientTop" "20.48"
+		"g_vAmbientOcclusionColor" "[0.000000 0.000000 0.000000 0.000000]"
+		"g_vGradientBottomColor" "[0.000000 0.000000 0.000000 0.000000]"
+		"g_vGradientTopColor" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureAmbientOcclusionMap" "models/renvor/eggman/chr_classic_eggman_body_spc_hd.png"
+		"g_flBumpStrength" "0.113"
+		"g_vColorTint3" "[1.000000 1.000000 1.000000 0.000000]"
+		"g_vColorTint4" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureTintMask2" "models/renvor/eggman/chr_classic_eggman_body_pow_hd.png"
+		"g_flDetailBlendToFull" "0"
+		"g_flDetailBlendFactor" "1"
+		"g_vDetail1ColorTint" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureDetail" ""
+		"TextureDetailMask" "materials/default/default_detailmask.tga"
+		"TextureDiffuseWarpMask" "materials/default/default_diffusemask.tga"
+		"TextureMetalnessMask" "materials/default/default_metalnessmask.tga"
+		"TextureSelfIllumMask" "materials/default/default_selfillummask.tga"
+	}
+
+
+	VariableState
+	{
+		"Blend To Full"
+		{
+		}
+		"Cloak"
+		{
+		}
+		"Color"
+		{
+		}
+		"Detail 1"
+		{
+		}
+		"Detail 2"
+		{
+		}
+		"Fresnel"
+		{
+		}
+		"Lighting"
+		{
+			"Ambient" 0
+			"Bloom" 0
+		}
+		"Mask 2"
+		{
+		}
+		"Normal Map"
+		{
+		}
+		"Rim"
+		{
+		}
+		"Specular"
+		{
+		}
+	}
+}

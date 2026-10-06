@@ -1,0 +1,39 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Do not Cast Shadows ----
+	F_DO_NOT_CAST_SHADOWS 1
+
+	//---- Do not Reflect ----
+	F_DO_NOT_REFLECT 1
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Color ----
+	g_vColorTint "[0.000000 1.000000 0.000000 1.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor ""
+
+	//---- Normal Map ----
+	g_flBumpStrength "1.000"
+	TextureNormal ""
+
+	UnusedVariables
+	{
+		"g_flOpacityScale" "1"
+		"g_flAlphaTestReference" "0.7"
+		"TextureTranslucency" ""
+		"TextureSelfIllumMask" ""
+		"g_flSpecularBloom" "0"
+		"g_flSpecularIntensity" "1"
+		"TextureBloom" ""
+		"TextureReflectance" ""
+		"g_vColorTint2" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureTintMask" ""
+	}
+}
