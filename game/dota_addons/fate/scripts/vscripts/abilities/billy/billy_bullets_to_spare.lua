@@ -16,6 +16,12 @@ function billy_bullets_to_spare:GetIntrinsicModifierName()
     return "modifier_billy_bullets"
 end
 
+-- иконка по тумблеру: выкл — обычный револьвер, вкл — светящийся
+function billy_bullets_to_spare:GetAbilityTextureName()
+    return self:GetToggleState() and "custom/billy/billy_bullets_to_spare"
+        or "custom/billy/billy_bullets_to_spare_pomenyayu_potom"
+end
+
 function billy_bullets_to_spare:OnToggle()
     if not IsServer() then return end
     -- вкл — взвод курка, выкл — спуск
@@ -54,7 +60,11 @@ function modifier_billy_bullets:RemoveOnDeath() return false end
 function modifier_billy_bullets:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
-function modifier_billy_bullets:GetTexture() return "custom/billy/billy_bullets_to_spare" end
+function modifier_billy_bullets:GetTexture()
+    local ab = self:GetAbility()
+    if ab and not ab:IsNull() then return ab:GetAbilityTextureName() end
+    return "custom/billy/billy_bullets_to_spare_pomenyayu_potom"
+end
 
 function modifier_billy_bullets:DeclareFunctions()
     return {

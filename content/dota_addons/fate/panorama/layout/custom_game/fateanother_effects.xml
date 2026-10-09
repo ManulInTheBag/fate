@@ -58,7 +58,7 @@
 
 			<Panel class="EffectsHeroCard" hittest="false">
 				<Panel class="EffectsHeroHead" hittest="false">
-					<Image class="EffectsHeroPortrait" src="file://{images}/heroes/npc_dota_hero_muerta.png" hittest="false" />
+					<Image class="EffectsHeroPortrait" src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_muerta_png.vtex" scaling="stretch" hittest="false" />
 					<Label class="EffectsHeroName" text="#npc_dota_hero_muerta" hittest="false" />
 				</Panel>
 

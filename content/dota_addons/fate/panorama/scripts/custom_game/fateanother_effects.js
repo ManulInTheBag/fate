@@ -133,7 +133,10 @@ function BuildRow(list, item) {
 
 	var portrait = $.CreatePanel('Image', row, '');
 	portrait.AddClass('EffectsPortrait');
-	portrait.SetImage('file://{images}/heroes/' + item.hero + '.png');
+	// Свой путь, как у табло: images/heroes/* в обычном клиенте берутся из VPK
+	// доты (наши подменяются только в Tools) - были бы портреты базовых героев.
+	portrait.SetImage('s2r://panorama/images/custom_game/portrait/' + item.hero + '_png.vtex');
+	portrait.SetScaling('stretch');
 	portrait.hittest = false;
 
 	var medal = $.CreatePanel('Image', row, '');
