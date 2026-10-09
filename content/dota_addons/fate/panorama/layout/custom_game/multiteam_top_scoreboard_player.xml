@@ -21,8 +21,18 @@
                 </Panel>
             </Button>
             <Image hittest="false" id="DisconnectionIndicator" src="s2r://panorama/images/custom_game/icon_disconnect_png.vtex" />
+            <!-- Billy the Kid, Young Outlaw Leader: плакат WANTED поверх портрета цели
+                 (классы ставит shared_scoreboard_updater.js) -->
+            <Panel hittest="false" id="WantedPoster">
+                <Panel hittest="false" id="WantedBacking" />
+                <Image hittest="false" id="WantedPortrait" scaling="stretch-to-cover-preserve-aspect" />
+                <Image hittest="false" id="WantedPaper" src="s2r://panorama/images/custom_game/billy/wanted_poster_png.vtex" />
+                <Image hittest="false" id="WantedHoles" src="s2r://panorama/images/custom_game/billy/wanted_holes_png.vtex" />
+            </Panel>
         </Panel>
         <Label hittest="false" id="PlayerID" text="111"/>
+        <!-- Billy the Kid, Young Outlaw Leader: прицел выбора цели над портретом -->
+        <Panel hittest="false" id="WantedPickMark" />
         <Panel hittest="false" id="UltimateIndicatorContainer">
             <Panel hittest="false" id="UltimateIndicatorBG" class="UltimateIndicatorShared" />
             <Panel hittest="false" id="UltimateIndicator" class="UltimateIndicatorShared" />

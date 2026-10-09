@@ -1,7 +1,8 @@
 'use strict';
 
 // Вкладка Effects окна настроек (fateanother_options.js): чьи эффекты видны
-// над хелсбарами, «мои всегда», и какие эффекты выключены.
+// над хелсбарами, «мои всегда», какие эффекты выключены, и настройки героев
+// (сейчас только Билли: подсказка награды, счётчик пуль, анимация перезарядки).
 //
 // Своего состояния у вкладки нет. Профиль, список эффектов и функции правки
 // и сохранения держит effect_bars.js в CustomUIConfig().fateEffects: правка
@@ -25,6 +26,9 @@ function Copy(settings) {
 		off: settings.off.slice(),
 		icons: settings.icons,
 		survival: settings.survival,
+		billy_hint: settings.billy_hint,
+		billy_drum: settings.billy_drum,
+		billy_reload: settings.billy_reload,
 	};
 }
 
@@ -60,6 +64,24 @@ function OnEffIconsToggle() {
 function OnEffSurvivalToggle() {
 	var on = $('#EffSurvival').checked;
 	Change(function (s) { s.survival = on ? 1 : 0; });
+}
+
+
+function OnEffBillyHintToggle() {
+	var on = $('#EffBillyHint').checked;
+	Change(function (s) { s.billy_hint = on ? 1 : 0; });
+}
+
+
+// Настройки героев: Билли - счётчик пуль у хелсбара (billy_hud.js).
+function OnEffBillyDrum(mode) {
+	Change(function (s) { s.billy_drum = mode; });
+}
+
+
+function OnEffBillyReloadToggle() {
+	var on = $('#EffBillyReload').checked;
+	Change(function (s) { s.billy_reload = on ? 1 : 0; });
 }
 
 
@@ -199,6 +221,14 @@ function Sync() {
 
 	$('#EffIcons').checked = s.icons !== 0;
 	$('#EffSurvival').checked = s.survival !== 0;
+	$('#EffBillyHint').checked = s.billy_hint !== 0;
+	$('#EffBillyReload').checked = s.billy_reload !== 0;
+	// анимация перезарядки есть только у барабана
+	$('#EffBillyReload').enabled = s.billy_drum === 'drum';
+	var drumRadio = $('#EffBillyDrum_' + s.billy_drum);
+	if (drumRadio) {
+		drumRadio.checked = true;
+	}
 	$('#EffOwn').checked = s.own !== 0;
 
 	var radio = $('#EffScope_' + s.scope);

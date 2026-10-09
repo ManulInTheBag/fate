@@ -104,6 +104,8 @@
 .Medusa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/medusa_png.vtex"); }
 .Hassan .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/hassan_png.vtex"); }
 .KingHassan .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/king_hassan_png.vtex"); }
+.Billy .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/billy_png.vtex"); }
+.BillyHeadshot .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/billy_headshot_png.vtex"); }
 
 
 /* Кольцо времени: тёмная подложка во весь круг и цветная дуга поверх неё.
@@ -142,6 +144,12 @@
 .Medusa .EffectRing { border-color: #ff5ab4ff; }
 .Hassan .EffectRing { border-color: #c4e632ff; }
 .KingHassan .EffectRing { border-color: #a58cffff; }
+/* Билли: кольцо = зарядка Highnoon, на 100 % золотое */
+.Billy .EffectRing { border-color: #ff3a26ff; }
+.Billy.Max .EffectRing { border-color: #ffe08aff; }
+/* Хедшот Билли: латунь, пока копится; на полных (следующий выстрел критует) - красный */
+.BillyHeadshot .EffectRing { border-color: #e0a040ff; }
+.BillyHeadshot.Max .EffectRing { border-color: #ff2a1aff; }
 /* Death Door: как череп над целью - зелёный «Азраэль добьёт», красный «казнь» */
 .KingHassan.Lethal .EffectRing { border-color: #3cf05aff; }
 .KingHassan.Execute .EffectRing { border-color: #f01e1eff; }
@@ -190,6 +198,27 @@
 .Medusa .EffectCount { color: #ffb0dcff; }
 .Hassan .EffectCount { color: #e4ff8aff; }
 .KingHassan .EffectCount { color: #e2d9ffff; }
+.Billy .EffectCount { color: #ffd2c8ff; }
+.Billy.Max .EffectCount { color: #ffe08aff; }
+.BillyHeadshot .EffectCount { color: #ffe6c2ff; }
+.BillyHeadshot.Max .EffectCount { color: #ff5a40ff; }
+
+/* хедшот заряжен: пульс чаще и с красным отливом, чтобы читался в драке
+   (.EffectChip впереди - перебить общий .EffectChip.Max ниже по файлу) */
+.EffectChip.BillyHeadshot.Max .EffectMedalWrap
+{
+	animation-name: BillyHeadshotReady;
+	animation-duration: 0.35s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'BillyHeadshotReady'
+{
+	0% { brightness: 1.0; wash-color: #ff000000; }
+	100% { brightness: 1.9; wash-color: #ff200070; }
+}
 .KingHassan.Lethal .EffectCount { color: #8dff9cff; }
 .KingHassan.Execute .EffectCount { color: #ff7a6aff; }
 

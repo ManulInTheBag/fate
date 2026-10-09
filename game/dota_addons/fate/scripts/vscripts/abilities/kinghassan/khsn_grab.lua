@@ -7,6 +7,7 @@ khsn_grab = class({})
 function khsn_grab:OnSpellStart()
 	local caster = self:GetCaster()
 	self.target = self:GetCursorTarget()
+	self.bTargetFreed = false
 
 	local stopOrder_self = {
 		UnitIndex = caster:entindex(), 
@@ -29,6 +30,16 @@ function khsn_grab:OnSpellStart()
 
 	caster:AddNewModifier(caster, self, "modifier_khsn_grab", {duration = self:GetSpecialValueFor("channel_duration")})
 	self.target:AddNewModifier(caster, self, "modifier_khsn_grab_target", {duration = self:GetSpecialValueFor("channel_duration")})
+end
+
+-- стан с цели пропал (D-печать, диспел, смерть, истёк) - ченнел без стана
+-- не нужен. AbilityChannelTime = channel_duration. Прерываем отсюда, а не из OnDestroy модификатора: тот может
+-- сработать внутри урона/чужого колбэка
+function khsn_grab:OnChannelThink(flInterval)
+	if self.bTargetFreed then
+		self.bTargetFreed = false
+		self:GetCaster():InterruptChannel()
+	end
 end
 
 function khsn_grab:OnChannelFinish(bInterrupted)
@@ -141,6 +152,11 @@ end
 
 function modifier_khsn_grab_target:OnDestroy()
 	if not IsServer() then return end
+
+	-- стана больше нет - пусть OnChannelThink оборвёт ченнел
+	if IsValidEntity(self.ability) then
+		self.ability.bTargetFreed = true
+	end
 
 	if IsValidEntity(self.dummy_1) then
 		self.dummy_1:RemoveSelf()

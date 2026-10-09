@@ -43,6 +43,81 @@ function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
 
 
 //=============================================================================
+// Billy the Kid, атрибут Young Outlaw Leader («награда за голову»). Сервер
+// (abilities/billy/billy_wanted.lua) кладёт в нет-таблицу sync/billy_wanted:
+//   hunters[playerID Билли] = { target, claimed (0/1), pick_end, team }, gold.
+// Портрет цели в топ-баре заменяет плакат WANTED (после убийства — с пулевыми
+// дырками); Билли, пока открыт выбор, кликом по
+// портрету врага назначает цель (событие billy_wanted_pick).
+//=============================================================================
+function _BillyWanted_Data()
+{
+	return CustomNetTables.GetTableValue( "sync", "billy_wanted" );
+}
+
+// Запись локального игрока, если он Билли с открытым выбором цели, иначе null.
+function _BillyWanted_LocalPick( data )
+{
+	if ( !data || !data.hunters )
+		return null;
+	var h = data.hunters[ String( Game.GetLocalPlayerID() ) ];
+	if ( !h || h.target != -1 || Game.GetGameTime() > h.pick_end )
+		return null;
+	return h;
+}
+
+// Клик по портрету: true — клик съеден выбором цели. С Alt/Ctrl — обычные
+// сообщения в чат, выбор не трогаем.
+function _BillyWanted_TryPick( playerId )
+{
+	if ( GameUI.IsAltDown() || GameUI.IsControlDown() )
+		return false;
+	var h = _BillyWanted_LocalPick( _BillyWanted_Data() );
+	if ( !h )
+		return false;
+	var info = Game.GetPlayerInfo( playerId );
+	if ( !info || info.player_team_id == h.team || info.player_selected_hero_id == -1 )
+		return false;
+	GameEvents.SendCustomGameEventToServer( "billy_wanted_pick", { target: playerId } );
+	return true;
+}
+
+function _BillyWanted_UpdatePanel( playerPanel, playerId, playerInfo )
+{
+	var data = _BillyWanted_Data();
+	var wanted = false;
+	var claimed = false;
+	if ( data && data.hunters )
+	{
+		for ( var key in data.hunters )
+		{
+			var h = data.hunters[ key ];
+			if ( h.target == playerId )
+			{
+				wanted = true;
+				claimed = claimed || h.claimed == 1;
+			}
+		}
+	}
+	var pick = _BillyWanted_LocalPick( data );
+	var pickable = !!pick && playerInfo.player_team_id != pick.team && playerInfo.player_selected_hero_id != -1;
+
+	playerPanel.SetHasClass( "billy_wanted", wanted );
+	playerPanel.SetHasClass( "billy_wanted_claimed", wanted && claimed );
+	playerPanel.SetHasClass( "billy_pickable", pickable );
+	if ( !wanted )
+		return;
+
+	var portrait = playerPanel.FindChildInLayoutFile( "WantedPortrait" );
+	var hero = playerInfo.player_selected_hero;
+	if ( portrait && hero && portrait.BillyHero !== hero )
+	{
+		portrait.BillyHero = hero;
+		portrait.SetImage( "s2r://panorama/images/custom_game/portrait/" + hero + "_png.vtex" );
+	}
+}
+
+//=============================================================================
 //=============================================================================
 function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId )
 {
@@ -57,6 +132,10 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		playerPanel.SetPanelEvent(
 			"onactivate",
 			function() {
+				// Билли выбирает цель награды — клик уходит туда, а не в камеру
+				if (_BillyWanted_TryPick(playerId)) {
+					return;
+				}
 				if (GameUI.IsAltDown()) {
 					var playerInfo = Game.GetPlayerInfo(playerId);
 					var isDead = playerInfo.player_respawn_seconds >= 0;
@@ -160,6 +239,8 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 				playerPortrait.SetImage( "file://{images}/custom_game/unassigned.png" );
 			}
 		}
+
+		_BillyWanted_UpdatePanel( playerPanel, playerId, playerInfo );
 		
 		if ( playerInfo.player_selected_hero_id == -1 )
 		{

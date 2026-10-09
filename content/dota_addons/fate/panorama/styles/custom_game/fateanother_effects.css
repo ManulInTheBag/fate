@@ -1,5 +1,6 @@
 /* Вкладка Effects окна настроек (fateanother_effects.xml): слева тумблеры
-   и выбор, чьи эффекты видны; справа список эффектов с прокруткой. */
+   и выбор, чьи эффекты видны; посередине список эффектов с прокруткой;
+   справа настройки героев (карточки Слуг). */
 
 .EffectsRoot
 {
@@ -25,6 +26,12 @@
 #EffectsRight
 {
 	width: 600px;
+}
+
+/* третья колонка - настройки героев (карточка на Слугу) */
+#EffectsHeroes
+{
+	width: 420px;
 }
 
 .EffectsHeader
@@ -238,4 +245,60 @@
 {
 	vertical-align: center;
 	margin-right: 4px;
+}
+
+
+/* Настройки героев: карточка Слуги - портрет и имя, под ними его опции */
+.EffectsHeroesHint
+{
+	margin-left: 0px;
+	margin-bottom: 8px;
+}
+
+.EffectsHeroCard
+{
+	flow-children: down;
+	width: 100%;
+	padding: 10px 12px 12px 12px;
+	background-color: #00000055;
+	border-radius: 3px;
+}
+
+.EffectsHeroHead
+{
+	flow-children: right;
+	width: 100%;
+}
+
+.EffectsHeroPortrait
+{
+	width: 64px;
+	height: 36px;
+	vertical-align: center;
+	border-radius: 2px;
+}
+
+.EffectsHeroName
+{
+	font-size: 18px;
+	font-weight: bold;
+	color: #ffffff;
+	margin-left: 12px;
+	vertical-align: center;
+}
+
+.EffectsHeroSub
+{
+	margin-top: 12px;
+}
+
+.EffectsHeroToggle
+{
+	margin-top: 12px;
+}
+
+/* анимация перезарядки есть только у барабана - при другом режиме тумблер приглушён */
+.EffectsHeroToggle:disabled
+{
+	opacity: 0.4;
 }

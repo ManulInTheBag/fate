@@ -155,6 +155,9 @@ modifier_death_door = class({})
 
 function modifier_death_door:IsHidden() return false end
 function modifier_death_door:IsDebuff() return true end
+-- не диспелится: в списки util.lua (slowmodifier/cleansable/...) не вписывать
+function modifier_death_door:IsPurgable() return false end
+function modifier_death_door:IsPurgeException() return false end
 function modifier_death_door:RemoveOnDeath() return true end
 function modifier_death_door:DeclareFunctions()
 	return {	--MODIFIER_EVENT_ON_TAKEDAMAGE,

@@ -1,0 +1,80 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//	Billy the Kid (Archer)
+	//=================================================================================================================
+	"npc_dota_hero_billy"
+	{
+		"override_hero"			"npc_dota_hero_muerta"
+		"DisableWearables" 			"1"
+		"Model"					"models/billy_kid/billy.vmdl"
+		// Реплики Билли (FGO, Слуга №105) подменяют VO Муэрты: движок дёргает события
+		// её именами (muerta_muerta_*, muerta_eth_muerta_*, см. сам файл).
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_muerta.vsndevts"
+		"AbilityLayout"			"6"
+		"DrawParticlesWhileHidden" "1"
+		"ModelScale"			"1.0"
+
+		"Ability1"				"billy_trickshot"			// Q
+		"Ability2"				"billy_triple_shot"			// W
+		"Ability3"				"billy_skedaddle"			// E
+		"Ability4"				"billy_bullets_to_spare"	// D
+		"Ability5"				"billy_reload"				// F
+		"Ability6"				"billy_highnoon"			// R
+		"Ability7"				"billy_combo"				// Combo (Q -> R)
+		"Ability8"				"hero_base_stats_bonus"
+		"Ability9"				"presence_detection_passive"
+		"Ability10"				"attribute_bonus_custom"
+		// Пустые таланты: без них клиент падает при ALT (см. npc_abilities_custom.txt)
+		"Ability18"				"special_bonus_fate_none_1"
+		"Ability19"				"special_bonus_fate_none_2"
+		"Ability20"				"special_bonus_fate_none_3"
+		"Ability21"				"special_bonus_fate_none_4"
+		"Ability22"				"special_bonus_fate_none_5"
+		"Ability23"				"special_bonus_fate_none_6"
+		"Ability24"				"special_bonus_fate_none_7"
+		"Ability25"				"special_bonus_fate_none_8"
+		"Combo"						"billy_combo"
+		"AttributeNumber"			"5"
+		"Attribute1"				"billy_attribute_1"		// Young Outlaw Leader
+		"Attribute2"				"billy_attribute_2"		// Quick Solver
+		"Attribute3"				"billy_attribute_3"		// Here Is an Old Trick
+		"Attribute4"				"billy_attribute_4"		// Different Approach
+		"Attribute5"				"billy_attribute_5"		// Natural Perception
+
+		"StatusHealth"					"1000"
+		"StatusHealthRegen"				"5.0"
+		"StatusMana"					"1000"
+		"StatusManaRegen"				"6.0"
+
+		"ArmorPhysical"					"11"
+		"MagicalResistance"				"10"
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"				"40"
+		"AttackDamageMax"				"40"
+		"AttackRate"					"2"		// плохой БАТ: не автоатакер (юзер 08.10.2026)
+		"AttackAnimationPoint"			"0.3"
+		"AttackAcquisitionRange"		"1000"
+		"AttackRange"					"700"
+		// снаряд атаки невидимый: пулю Билли рисует modifier_billy_bullets:OnAttack
+		// (Billy_AttackBulletFx), как у скиллов — стоковая пуля Муэрты не нужна
+		"ProjectileModel"				""
+		"ProjectileSpeed"				"3500"
+		"HealthBarOffset"				"220"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"1.8"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"3"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"2"
+
+		"MovementSpeed"					"330"
+		"MovementTurnRate"				"0.8"
+
+		"VisionDaytimeRange"			"1000"
+		"VisionNighttimeRange"			"1000"
+	}
+}

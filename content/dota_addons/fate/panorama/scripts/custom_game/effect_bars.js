@@ -121,6 +121,32 @@ var EFFECTS = [
 		parts: ['modifier_dirk_poison_slow', 'modifier_weakening_venom'],
 		maxFallback: 0,
 	},
+	{
+		// Highnoon Билли: зарядка залпа по этой цели, 0-100 % (стаки ставит
+		// billy_highnoon.lua). Кольцо показывает зарядку, а не время.
+		id: 'billy',
+		hero: 'npc_dota_hero_muerta',
+		theme: 'Billy',
+		modifier: 'modifier_billy_highnoon_charge',
+		maxFallback: 100,
+		ringByStacks: true,
+		// растёт каждые 0.1 с - «выпрыгивание» цифры дёргало бы значок
+		noPop: true,
+		suffix: '%',
+	},
+	{
+		// Хедшот Билли (атрибут Here Is an Old Trick): стаки от попаданий
+		// способностями, на полных следующий выстрел критует - значок
+		// пульсирует (Max). Потолок head_stacks кладёт сервер в billy_head_max
+		// (billy_shared.lua): KV чужого героя на клиенте не прочитать.
+		id: 'billy_headshot',
+		hero: 'npc_dota_hero_muerta',
+		theme: 'BillyHeadshot',
+		modifier: 'modifier_billy_headshot',
+		maxFallback: 3,
+		maxExtra: 'billy_head_max',
+		showMax: true,
+	},
 ];
 
 
@@ -231,7 +257,12 @@ var root = $('#EffectBarsRoot');
 //   scope    - чьи эффекты видны: all | from_me | on_me | enemies | allies;
 //   own      - наложенные моим героем видны всегда, поверх off и scope;
 //   off      - id выключенных эффектов: новый эффект по умолчанию включён;
-//   icons    - значки над хелсбарами вообще; survival - значок выживания.
+//   icons    - значки над хелсбарами вообще; survival - значок выживания;
+//   billy_hint - баннер выбора цели атрибута Билли Young Outlaw Leader (billy_hud.js);
+//   billy_drum - счётчик пуль Билли у хелсбара: drum (барабан с числом) | number
+//                (только число) | none; billy_reload - анимация перезарядки барабана.
+//   Настройки Билли - блок «Настройки героев» во вкладке; сам счётчик виден только
+//   игроку, который играет Билли.
 //
 // Состояние живёт в CustomUIConfig().fateEffects: его читают этот файл и
 // вкладка, и оно переживает перезагрузку панелей. Загрузку ведёт этот файл -
@@ -239,6 +270,7 @@ var root = $('#EffectBarsRoot');
 // применяется сразу, а на сервер уходит по кнопке Save во вкладке.
 
 var SCOPES = ['all', 'from_me', 'on_me', 'enemies', 'allies'];
+var BILLY_DRUM_MODES = ['drum', 'number', 'none'];
 var SETTINGS_SAVE_TIMEOUT = 15;
 var SETTINGS_LOAD_TIMEOUT = 20;   // с: реле в начале матча может быть не готово
 var SETTINGS_LOAD_TRIES = 3;
@@ -252,7 +284,8 @@ var SETTINGS_MAX_OFF = 64;
 var DEFAULT_OFF = ['king_hassan'];
 
 function DefaultSettings() {
-	return { v: 1, scope: 'on_me', own: 1, off: DEFAULT_OFF.slice(), icons: 1, survival: 1 };
+	return { v: 1, scope: 'on_me', own: 1, off: DEFAULT_OFF.slice(), icons: 1, survival: 1, billy_hint: 1,
+		billy_drum: 'drum', billy_reload: 1 };
 }
 
 
@@ -274,6 +307,11 @@ function SanitizeSettings(raw) {
 	s.own = Flag(raw.own);
 	s.icons = Flag(raw.icons);
 	s.survival = Flag(raw.survival);
+	s.billy_hint = Flag(raw.billy_hint);
+	if (BILLY_DRUM_MODES.indexOf(raw.billy_drum) >= 0) {
+		s.billy_drum = raw.billy_drum;
+	}
+	s.billy_reload = Flag(raw.billy_reload);
 	// свой список выключенных заменяет умолчания целиком, даже пустой
 	if (raw.off && typeof raw.off.length === 'number') {
 		s.off = [];
@@ -815,18 +853,26 @@ function UpdateChip(effect, state, entity, read, data) {
 	// 0 = без потолка (проклятие Альтер, стрелы Аталанты); maxFlag - другой
 	// потолок или порог, пока на сервере стоит флаг атрибута
 	var cap = (effect.maxFlag && data[effect.maxFlag.flag] === 1) ? effect.maxFlag.value : state.max;
+	// maxExtra - потолок, который кладёт сервер (зависит от KV владельца)
+	if (effect.maxExtra && data[effect.maxExtra] > 0) {
+		cap = data[effect.maxExtra];
+	}
 
 	// потолок мог не прочитаться из KV - не даём ему быть меньше стаков
 	var max = cap > 0 ? Math.max(cap, stacks, 1) : Infinity;
 
-	if (stacks !== state.lastCount) {
-		if (stacks > state.lastCount && state.lastCount >= 0) {
+	if (stacks !== state.lastCount || max !== state.lastMax) {
+		if (stacks > state.lastCount && state.lastCount >= 0 && !effect.noPop) {
 			state.count.TriggerClass('Pop');
 		}
 		state.lastCount = stacks;
-		state.count.text = String(stacks);
-		// три цифры в 40px влезают только мельче
-		state.count.SetHasClass('Wide', stacks >= 100);
+		state.lastMax = max;
+		// showMax - «2/3»: сколько осталось до порога
+		var text = (effect.showMax && max !== Infinity ? stacks + '/' + max : String(stacks))
+			+ (effect.suffix || '');
+		state.count.text = text;
+		// три знака в 40px влезают только мельче
+		state.count.SetHasClass('Wide', text.length >= 3);
 	}
 
 	state.panel.SetHasClass('Max', stacks >= max);
@@ -842,6 +888,16 @@ function UpdateChip(effect, state, entity, read, data) {
 		var tierOn = data[effect.tiers.flag] === 1;
 		state.panel.SetHasClass('Tier1', tierOn && stacks >= state.tiers[0] && stacks < state.tiers[1]);
 		state.panel.SetHasClass('Tier2', tierOn && stacks >= state.tiers[1] && stacks < max);
+	}
+
+	if (effect.ringByStacks) {
+		state.panel.SetHasClass('Permanent', false);
+		var filled = Math.round(Math.min(stacks / (max === Infinity ? 1 : max), 1) * 3600) / 10;
+		if (filled !== state.lastSweep) {
+			state.lastSweep = filled;
+			state.ring.style.clip = 'radial( 50% 50%, 0deg, ' + filled + 'deg )';
+		}
+		return;
 	}
 
 	var duration = Buffs.GetDuration(entity, buff);

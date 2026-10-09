@@ -424,6 +424,10 @@ cleansable = {
     "modifier_cu_alter_fear",
     "modifier_rasputin_wide_kick_target",
     "modifier_rasputin_low_kick_slow",
+    "modifier_billy_triple_shot_slow",
+    "modifier_billy_highnoon_slow",
+    "modifier_billy_highnoon_d_slow",
+    "modifier_billy_combo_slow",
     "modifier_muted"
 }
 
@@ -462,7 +466,6 @@ slowmodifier = {
     "modifier_sex_scroll_slow",
     "modifier_rosa_slow",
     "modifier_dirk_poison_slow",
-    "modifier_death_door",
     "modifier_khsn_blink_slow",
     "modifier_roar_slow",
     "modifier_morgan_slow",
@@ -478,6 +481,10 @@ slowmodifier = {
     "modifier_hijikata_slow",
     "modifier_cu_alter_spear_slow",
     "modifier_rasputin_low_kick_slow",
+    "modifier_billy_triple_shot_slow",
+    "modifier_billy_highnoon_slow",
+    "modifier_billy_highnoon_d_slow",
+    "modifier_billy_combo_slow",
 }
 
 donotlevel = {
@@ -769,6 +776,9 @@ CannotReset = {
     "rasputin_dodge_break",
     "rasputin_combo",
 
+    "billy_reload",
+    "billy_combo",
+
 }
 
 
@@ -904,6 +914,7 @@ tKnightClass = {
     "npc_dota_hero_sniper",
     "npc_dota_hero_monkey_king",
     "npc_dota_hero_dragon_knight",  -- Barghest
+    "npc_dota_hero_muerta",         -- Billy the Kid
 }
 
 tHorsemanClass = {
@@ -2744,6 +2755,7 @@ local heroNames = {
     ["npc_dota_hero_axe"] = "Cú Chulainn (Alter)",
     ["npc_dota_hero_dragon_knight"] = "Barghest",  -- barghest
     ["npc_dota_hero_pangolier"] = "Rasputin",
+    ["npc_dota_hero_muerta"] = "Billy the Kid",
 }
 
  
@@ -2794,6 +2806,7 @@ local servantClasses = {
     ["npc_dota_hero_clinkz"]           = "Archer",      -- Arash
     ["npc_dota_hero_sniper"]           = "Archer",      -- Robin Hood
     ["npc_dota_hero_gyrocopter"]       = "Archer",      -- Oda Nobunaga
+    ["npc_dota_hero_muerta"]           = "Archer",      -- Billy the Kid
     ["npc_dota_hero_phantom_lancer"]   = "Lancer",      -- Cu Chulainn
     ["npc_dota_hero_huskar"]           = "Lancer",      -- Diarmuid
     ["npc_dota_hero_beastmaster"]      = "Lancer",      -- Karna
@@ -2902,6 +2915,7 @@ local heroCombos = {
     ["npc_dota_hero_axe"] = "cu_alter_combo",
     ["npc_dota_hero_pangolier"] = "rasputin_combo",
     ["npc_dota_hero_dragon_knight"] = "barghest_combo",
+    ["npc_dota_hero_muerta"] = "billy_combo",
 }
 
 local slotToCombo

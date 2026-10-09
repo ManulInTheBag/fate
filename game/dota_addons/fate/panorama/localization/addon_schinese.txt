@@ -111,6 +111,15 @@
 		"FA_Config_ZoneMsg"				"显示战斗区域加时赛提示"
 		"FA_Config_EffectIcons"			"在血条上方显示效果图标"
 		"FA_Config_SurvivalIcons"		"在血条旁显示战斗续行图标"
+		"FA_Effects_BillyHint"					"显示悬赏提示（年轻的亡命之徒首领）"
+		// вкладка Effects: настройки героев (Билли - счётчик пуль, billy_hud.js)
+		"FA_Effects_Heroes"						"英雄设置"
+		"FA_Effects_Heroes_Hint"					"仅在使用该从者时生效。"
+		"FA_Effects_BillyDrum"					"生命条旁的子弹计数"
+		"FA_Effects_BillyDrum_drum"				"转轮弹巢加数字"
+		"FA_Effects_BillyDrum_number"			"仅数字"
+		"FA_Effects_BillyDrum_none"				"隐藏"
+		"FA_Effects_BillyReload"					"装填时播放弹巢旋转动画"
 
 		// вкладка Effects (fateanother_effects.xml) и подписи эффектов (effect_bars.js)
 		"FA_Effects_Title"						"效果图标"
@@ -150,6 +159,8 @@
 		"FA_Effect_hassan"						"匕首 毒素"
 		"FA_Effect_hijikata"					"新选组 伤害条（自身）"
 		"FA_Effect_nobunaga"					"显现 层数条（自身）"
+		"FA_Effect_billy"						"正午：目标蓄力"
+		"FA_Effect_billy_headshot"				"爆头 层数（满层暴击）"
 
 		"FA_Config_Cmd1"	"向你的队友传送一条需求金钱的消息。"
 		"FA_Config_Cmd2"	"控制背景音乐的开关。"

@@ -268,6 +268,10 @@ function Precache( context )
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts", context)
 	PrecacheResource("particle_folder", "particles/rasputin", context)
 	PrecacheResource("particle_folder", "particles/kirei/kirei_dragon", context)
+	-- [billy] модель и голос (партиклы прекешатся из KV способностей)
+	PrecacheResource("model", "models/billy_kid/billy.vmdl", context)
+	PrecacheResource("soundfile", "soundevents/hero_billy.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_muerta.vsndevts", context)
 	-- [barghest] партиклы базекита (пути собраны в abilities/barghest/barghest_shared.lua)
 	PrecacheResource("particle", "particles/arcueid/arcueid_slash.vpcf", context)
 	PrecacheResource("particle", "particles/arcueid/arcueid_slash_red.vpcf", context)
@@ -4468,6 +4472,10 @@ function FateGameMode:OnEntityKilled( keys )
             -- Display gold message
             local assistString = "plus <font color='#FFFF66'>" .. #assistTable * 400 .. "</font> gold split between contributors!"
             --GameRules:SendCustomMessage("<font color='#FF5050'>" .. killerEntity.name .. "</font> has slain <font color='#FF5050'>" .. killedUnit.name .. "</font> for <font color='#FFFF66'>" .. bounty .. "</font> gold, " .. assistString, 0, 0)
+            -- Billy the Kid, Young Outlaw Leader: награда за голову цели (глобал есть, только если Билли в игре)
+            if Billy_OnHeroKilled then
+                xpcall(function() Billy_OnHeroKilled(killedUnit, killerEntity, assistTable) end, FateSafeTraceback)
+            end
             -- Convert to entindex before sending kill event to panorama
             for i=1, #assistTable do
                 assistTable[i] = assistTable[i]:entindex()
@@ -5087,6 +5095,22 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
             end
         end
 
+        -- Билли: первые 0.3 с стойки комбо и ченнела ульты приказы съедаются — случайный
+        -- клик сразу после каста их не отменяет (раньше фильтра W: рекаст тоже ждёт)
+        if type(BillyGraceOrderFilter) == "function" then
+            if not BillyGraceOrderFilter(hUnit, iOrder) then
+                return false
+            end
+        end
+
+        -- Shatter Shot Билли: пока пуля W летит, любой каст W — разрыв (рекаст решает
+        -- сервер, а не то, каким поведение W успело дойти до клиента через пинг)
+        if type(BillyTripleShotOrderFilter) == "function" then
+            if not BillyTripleShotOrderFilter(hUnit, hAbility, iOrder) then
+                return false
+            end
+        end
+
         -- Chain Hunt: в зарядке и в разбеге Barghest пропускаем только движение
         -- и её собственные кнопки (блинк посреди разбега ломал рывок).
         if type(BarghestChargeOrderFilter) == "function" then
@@ -5226,6 +5250,8 @@ function FateGameMode:InitializeRound()
     FateCrumb("C: InitializeRound " .. tostring(self.nCurrentRound) .. " entered")
     if ControlZones then ControlZones:OnPreRound(self.nCurrentRound, self.nRadiantScore, self.nDireScore, self) end
     FateCrumb("D: zones hook done")
+    -- Billy the Kid, Young Outlaw Leader: окно выбора цели (глобал есть, только если Билли в игре)
+    if Billy_OnPreRound then xpcall(function() Billy_OnPreRound(self.nCurrentRound) end, FateSafeTraceback) end
 
     --SendChatToPanorama("IR1")
     CreateUITimer("Pre-Round", PRE_ROUND_DURATION, "pregame_timer")
@@ -5544,6 +5570,8 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
     _G.CurrentGameState = "FATE_POST_ROUND"
 
     if ControlZones then ControlZones:OnRoundEnd() end
+    -- Billy the Kid, Young Outlaw Leader: закрыть невыбранное окно выбора цели
+    if Billy_OnRoundEnd then xpcall(Billy_OnRoundEnd, FateSafeTraceback) end
 
     CreateUITimer(("Round " .. self.nCurrentRound), 0, "round_timer" .. self.nCurrentRound)
     CreateUITimer("Pre-Round", 0, "pregame_timer")

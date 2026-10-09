@@ -553,6 +553,38 @@
 		}
 	}
 
+	"models/billy_kid/billy.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"254 240 220"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"120 110 100"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"255 230 200"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/billy_fon.vmat"
+		"PortraitBackgroundColor1"		"1 1 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"260 -40 180"
+				"PortraitAngles"		"0 170 0.00"
+				"PortraitFOV"		"24"
+			}
+		}
+	}
+
 	"models/hijikata/hijikata_0_14_idle.vmdl"
 	{
 		"PortraitLightPosition"		"112.73 -41.13 174.53"

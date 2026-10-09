@@ -49,5 +49,27 @@
 			<Label class="EffectsHint" text="#FA_Effects_List_Hint" hittest="false" />
 			<Panel id="EffList" class="EffectsList" />
 		</Panel>
+
+		<!-- Настройки героев: по карточке на Слугу со своими опциями HUD.
+		     Применяются, только когда играешь этим Слугой. -->
+		<Panel id="EffectsHeroes" class="EffectsColumn" hittest="false">
+			<Label class="EffectsHeader" text="#FA_Effects_Heroes" hittest="false" />
+			<Label class="EffectsHint EffectsHeroesHint" text="#FA_Effects_Heroes_Hint" hittest="false" />
+
+			<Panel class="EffectsHeroCard" hittest="false">
+				<Panel class="EffectsHeroHead" hittest="false">
+					<Image class="EffectsHeroPortrait" src="file://{images}/heroes/npc_dota_hero_muerta.png" hittest="false" />
+					<Label class="EffectsHeroName" text="#npc_dota_hero_muerta" hittest="false" />
+				</Panel>
+
+				<Label class="EffectsSubHeader EffectsHeroSub" text="#FA_Effects_BillyDrum" hittest="false" />
+				<RadioButton id="EffBillyDrum_drum" group="EffBillyDrum" class="EffectsOption" text="#FA_Effects_BillyDrum_drum" onactivate="OnEffBillyDrum('drum')" />
+				<RadioButton id="EffBillyDrum_number" group="EffBillyDrum" class="EffectsOption" text="#FA_Effects_BillyDrum_number" onactivate="OnEffBillyDrum('number')" />
+				<RadioButton id="EffBillyDrum_none" group="EffBillyDrum" class="EffectsOption" text="#FA_Effects_BillyDrum_none" onactivate="OnEffBillyDrum('none')" />
+				<ToggleButton id="EffBillyReload" class="EffectsOption EffectsHeroToggle" text="#FA_Effects_BillyReload" onactivate="OnEffBillyReloadToggle()" />
+
+				<ToggleButton id="EffBillyHint" class="EffectsOption EffectsHeroToggle" text="#FA_Effects_BillyHint" onactivate="OnEffBillyHintToggle()" />
+			</Panel>
+		</Panel>
 	</Panel>
 </root>

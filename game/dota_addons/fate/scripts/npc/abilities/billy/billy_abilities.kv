@@ -1,0 +1,532 @@
+"DOTAAbilities"
+{
+	//=====================================================================================
+	// Q - Trickshot  (выстрел в точку, рикошет в ближайшего; с D — больше рикошетов)
+	//=====================================================================================
+	"billy_trickshot"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_trickshot"
+		"AbilityTextureName"			"custom/billy/billy_trickshot"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"LevelsBetweenUpgrades"			"1"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"3"
+		"AbilityManaCost"				"100"
+		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+			"particle"	"particles/billy/billy_bullet.vpcf"
+			"particle"	"particles/billy/billy_blood_s.vpcf"
+			"particle"	"particles/billy/billy_bullet_1.vpcf"
+			"particle"	"particles/billy/billy_trail.vpcf"
+			"particle"	"particles/billy/billy_bullet_d.vpcf"
+			"particle"	"particles/billy/billy_trail_d.vpcf"
+			"particle"	"particles/billy/billy_burst_d.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_core.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_trail_core.vpcf"
+			"particle"	"particles/billy/billy_gunflash.vpcf"
+			"particle"	"particles/billy/billy_ricochet_dust.vpcf"
+			"particle"	"particles/units/heroes/hero_muerta/muerta_base_attack.vpcf"
+			"particle"	"particles/billy/billy_hitsparks.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage"					"150 188 225 263 300"
+			"turn_pct"				"300"		// после выстрела разворот быстрее на столько % (модификатор быстрого разворота)
+			"turn_duration"			"1.5"
+			"range"						"1000"
+			"ricochet_range"			"400"
+			"ricochet_speed"			"6000"		// скорость рикошетов (самонаводящаяся пуля Муэрты)
+			"base_ricochets"			"1"
+			"extra_ricochets"			"3"	// с включённой D
+			"bullet_cost"				"1"
+			"speed"						"7000"
+			"width"						"90"
+			// атрибут Here Is an Old Trick (хедшот живёт здесь, его читают все способности и атака)
+			"head_cdr"					"1"
+			"head_stacks"				"3"
+			"head_crit"					"200"
+			"head_duration"				"8"
+			// атрибут Natural Perception: чистый урон за единицу ловкости на каждое попадание
+			"np_agi_damage"				"1"
+			"vo_chance"					"35"		// % шанс фразы на выстрел
+		}
+	}
+
+	//=====================================================================================
+	// W - Shatter Shot  (крупная пуля насквозь; рекаст — разрыв пули на дробь)
+	//=====================================================================================
+	"billy_triple_shot"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_triple_shot"
+		"AbilityTextureName"			"custom/billy/billy_triple_shot"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"LevelsBetweenUpgrades"			"1"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"13 12 11 10 9"
+		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"	// анимация Q (юзер 07.10.2026)
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+			"particle"	"particles/billy/billy_bullet.vpcf"
+			"particle"	"particles/billy/billy_blood_s.vpcf"
+			"particle"	"particles/billy/billy_ricochet_dust.vpcf"
+			"particle"	"particles/billy/billy_bullet_1.vpcf"
+			"particle"	"particles/billy/billy_trail.vpcf"
+			"particle"	"particles/billy/billy_bullet_d.vpcf"
+			"particle"	"particles/billy/billy_trail_d.vpcf"
+			"particle"	"particles/billy/billy_burst_d.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_core.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_trail_core.vpcf"
+			"particle"	"particles/billy/billy_gunflash.vpcf"
+			"particle"	"particles/billy/billy_hitsparks.vpcf"
+			"particle"	"particles/billy/billy_combo_bullet.vpcf"
+			"particle"	"particles/billy/billy_combo_trail.vpcf"
+			"particle"	"particles/billy/billy_combo_bullet_d.vpcf"
+			"particle"	"particles/billy/billy_combo_trail_d.vpcf"
+		}
+		"AbilityValues"
+		{
+			"cast_point"				"0.2"		// = AbilityCastPoint (GetCastPoint переопределён: у рекаста 0)
+			// крупная пуля: прошивает всех на пути, каждого один раз
+			"damage"					"200 250 300 350 400"
+			"range"						"1000"
+			"width"						"100"
+			"speed"						"2000"
+			// рекаст W, пока пуля летит: разрыв на дробь конусом из точки пули
+			"pellets"					"6"
+			"cone_angle"				"45"		// весь конус, крайние дробинки на ±половину
+			"pellet_range"				"400"
+			"pellet_damage"				"150 188 225 263 300"	// за дробинку, гаснет на первом враге
+			"max_hits"				"3"		// попаданий одного каста (пуля + дробь) по одной цели, не больше
+			"turn_pct"				"300"		// после выстрела разворот быстрее на столько % (модификатор быстрого разворота)
+			"turn_duration"			"1.5"
+			"pellet_width"				"50"
+			"pellet_speed"				"3000"
+			"slow_per_stack"			"8"			// % скорости за стак, стак — каждая дробинка
+			"slow_max_stacks"			"6"
+			"slow_duration"				"2"
+			// с включённой D: пуля списывается на касте, усиливает дробь на разрыве
+			"bullet_cost"				"1"
+			"d_max_hp_pct"				"3"	// % макс. хп цели за дробинку
+			"d_lock_duration"			"1"
+		}
+	}
+
+	//=====================================================================================
+	// E - Skedaddle  (прыжок назад; с D — перед ним три пули веером, NP — дым)
+	//=====================================================================================
+	"billy_skedaddle"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_skedaddle"
+		"AbilityTextureName"			"custom/billy/billy_skedaddle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"LevelsBetweenUpgrades"			"1"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"10000"	// направление прыжка: к точке не подходит
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+			"particle"	"particles/billy/billy_bullet.vpcf"
+			"particle"	"particles/billy/billy_blood_s.vpcf"
+			"particle"	"particles/billy/billy_ricochet_dust.vpcf"
+			"particle"	"particles/billy/billy_bullet_1.vpcf"
+			"particle"	"particles/billy/billy_trail.vpcf"
+			"particle"	"particles/billy/billy_bullet_d.vpcf"
+			"particle"	"particles/billy/billy_trail_d.vpcf"
+			"particle"	"particles/billy/billy_burst_d.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_core.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_trail_core.vpcf"
+			"particle"	"particles/billy/billy_gunflash.vpcf"
+			"particle"	"particles/billy/billy_hitsparks.vpcf"
+			"particle"	"particles/billy/billy_smoke.vpcf"
+		}
+		"AbilityValues"
+		{
+			"distance"					"600"		// рывок проходит сквозь стены и деревья
+			"dash_speed"				"2000"
+			// после нажатия на buff_duration: +distance к дальности Q и W и к обзору, + ловкость
+			"buff_duration"				"3"
+			"bonus_agi"					"20 25 30 35 40"
+			"shot_damage"				"133 166 200 233 267"	// за пулю, с включённой D
+			"shot_range"				"900"
+			"spread_angle"				"7.5"
+			"width"						"70"
+			"speed"						"7000"
+			"bullet_cost"				"1"
+			// атрибут Natural Perception: дым там, где пуля остановилась
+			"np_smoke_radius"			"250"
+			"np_smoke_duration"			"2"
+			"np_smoke_vision"			"150"		// обзор врага внутри дыма
+		}
+	}
+
+	//=====================================================================================
+	// D - Bullets to Spare  (переключатель: пули тратятся на усиление способностей и атак)
+	//=====================================================================================
+	"billy_bullets_to_spare"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_bullets_to_spare"
+		"AbilityTextureName"			"custom/billy/billy_bullets_to_spare"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+			"particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"	// чутьё цели Young Outlaw Leader
+			// автоатака и доп. выстрелы — пуля Билли (Billy_AttackBulletFx), снаряд невидимый
+			"particle"	"particles/billy/billy_bullet_1.vpcf"
+			"particle"	"particles/billy/billy_trail.vpcf"
+			"particle"	"particles/billy/billy_bullet_d.vpcf"
+			"particle"	"particles/billy/billy_trail_d.vpcf"
+			"particle"	"particles/billy/billy_burst_d.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_core.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_trail_core.vpcf"
+			"particle"	"particles/billy/billy_hitsparks.vpcf"
+		}
+		"AbilityValues"
+		{
+			"base_bullets"				"6"		// всегда ровно столько: не растёт ни с уровнем, ни от атрибута (юзер 08.10.2026)
+			"attack_bullet_cost"		"1"
+			"attack_extra_shots"		"2"
+			"attack_shot_damage_pct"	"50"	// % урона атаки за доп. выстрел
+			"attack_shot_speed_step"	"10"		// доп. выстрелы вылетают разом, i-й медленнее на столько % — прилетают очередью
+			"run_speed"					"500"	// анимация бега только выше этой скорости, иначе ходьба
+			// атрибут Young Outlaw Leader (награда за голову, billy_wanted.lua)
+			"wanted_pick_time"			"15"	// выбор цели: весь пре-раунд + столько секунд боя
+			"wanted_sense_radius"		"2000"
+			"wanted_sense_interval"		"5"
+			"wanted_sense_show"			"2"		// знак Track над целью + линия от Билли от пассивного чутья (только если цель не видна; юзер 09.10.2026: 1→2)
+			"wanted_sense_show_resonator"	"3"		// то же по Presence Resonator (юзер 09.10.2026: 2→3)
+			"wanted_gold_billy"		"1500"	// Билли за голову цели
+			"wanted_gold"				"500"	// остальным участникам убийства
+			"wanted_reward_radius"		"1500"
+			"wanted_barrier"			"600"
+			"wanted_ms"					"30"
+			"wanted_reward_duration"	"10"
+		}
+	}
+
+	//=====================================================================================
+	// F - Reload!  (перезарядка пуль)
+	//=====================================================================================
+	"billy_reload"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_reload"
+		"AbilityTextureName"			"custom/billy/billy_reload"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"20"	// фактический КД — GetCooldown: от уровня героя, см. cd_max/cd_min
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0"
+
+		"AbilityValues"
+		{
+			"cd_max"					"20"	// КД на 1-м уровне героя
+			"cd_min"					"10"	// КД на max_hero_level, между ними — линейно
+			"max_hero_level"			"24"	// = MAX_LEVEL в addon_game_mode.lua
+			// атрибут Quick Solver
+			"quick_ms"					"600"
+			"quick_duration"			"2"
+			"quick_cdr"					"5"
+		}
+	}
+
+	//=====================================================================================
+	// R - Highnoon  (ченнел: метки в сужающемся конусе, залп по отпусканию)
+	//=====================================================================================
+	"billy_highnoon"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_highnoon"
+		"AbilityTextureName"			"custom/billy/billy_highnoon"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"LevelsBetweenUpgrades"			"2"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"800"
+		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityChannelTime"			"2"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_6"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+			"particle"	"particles/billy/billy_highnoon_cone.vpcf"
+			"particle"	"particles/billy/billy_standoff_floor.vpcf"
+			"particle"	"particles/billy/billy_highnoon_wall.vpcf"
+			"particle"	"particles/billy/billy_highnoon_wall_sparks.vpcf"
+			"particle"	"particles/billy/billy_standoff_line.vpcf"
+			"particle"	"particles/billy/billy_standoff_edge.vpcf"
+			"particle"	"particles/billy/billy_standoff_wall_top.vpcf"
+			"particle"	"particles/billy/billy_blood_m.vpcf"
+			"particle"	"particles/billy/billy_ricochet_dust.vpcf"
+			"particle"	"particles/billy/billy_bullet.vpcf"
+			"particle"	"particles/billy/billy_bullet_1.vpcf"
+			"particle"	"particles/billy/billy_trail.vpcf"
+			"particle"	"particles/billy/billy_bullet_d.vpcf"
+			"particle"	"particles/billy/billy_trail_d.vpcf"
+			"particle"	"particles/billy/billy_burst_d.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_core.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_trail_core.vpcf"
+			"particle"	"particles/billy/billy_gunflash.vpcf"
+			"particle"	"particles/billy/billy_hitsparks.vpcf"
+			"particle"	"particles/billy/billy_crosshair.vpcf"
+			"particle"	"particles/billy/billy_crosshair_c.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage"					"200 275 350 425 500"	// за одну метку
+			"max_mult"					"4"			// множитель при всех метках за полный ченнел
+			"radius"					"2000"
+			"channel_time"				"2"
+			"cancel_grace"			"0.3"		// столько секунд после начала приказы её не отменяют
+			"mark_interval"				"0.1"
+			"cone_start"				"150"
+			"cone_end"					"30"
+			"fire_delay"				"0.25"
+			"shot_interval"				"0.03"		// залп — очередь: пауза между целями (~1 кадр сервера)
+			"max_range"					"3000"		// цель из очереди дальше этого от Билли — выстрела по ней нет
+			"fire_anim_time"			"0.55"		// анимация выстрела после релиза (атака 0.54 с), всё это время стоит
+			// с включённой D: каждый выстрел тратит bullet_cost пуль — замедление + часть урона чистым
+			"bullet_cost"				"1"
+			"d_slow"					"30"		// % скорости
+			"d_slow_duration"			"3"
+			"d_pure_pct"				"15"		// % урона выстрела идёт чистым вместо физического
+			// атрибут Different Approach
+			"da_slow_min"				"10"
+			"da_slow_max"				"30"
+			"da_agi_damage"				"1"		// + ловкость × это к каждому выстрелу
+			// атрибут Natural Perception
+			"np_damage_reduction"		"35"
+		}
+	}
+
+	//=====================================================================================
+	// COMBO - Thunderer: Thunderbolt of Broken Sound  (Q -> R)
+	//=====================================================================================
+	"billy_combo"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_combo"
+		"AbilityTextureName"			"custom/billy/billy_combo"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"LevelsBetweenUpgrades"			"25"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"600"
+		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"	// вынимает револьвер (замах Highnoon)
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+			"particle"	"particles/billy/billy_bullet.vpcf"
+			"particle"	"particles/billy/billy_ricochet_dust.vpcf"
+			"particle"	"particles/billy/billy_bullet_1.vpcf"
+			"particle"	"particles/billy/billy_trail.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_core.vpcf"
+			"particle"	"particles/billy/billy_bullet_1_trail_core.vpcf"
+			"particle"	"particles/billy/billy_gunflash.vpcf"
+			"particle"	"particles/billy/billy_hitsparks.vpcf"
+			"particle"	"particles/billy/billy_combo_shot.vpcf"
+			"particle"	"particles/billy/billy_combo_shot_trail.vpcf"
+			"particle"	"particles/billy/billy_highnoon_cone.vpcf"
+			"particle"	"particles/billy/billy_standoff_floor.vpcf"
+			"particle"	"particles/billy/billy_standoff_wall.vpcf"
+			"particle"	"particles/billy/billy_standoff_line.vpcf"
+			"particle"	"particles/billy/billy_standoff_edge.vpcf"
+			"particle"	"particles/billy/billy_standoff_wall_top.vpcf"
+			"particle"	"particles/billy/billy_standoff_wall_sparks.vpcf"
+			"particle"	"particles/billy/billy_crosshair.vpcf"
+			"particle"	"particles/billy/billy_crosshair_c.vpcf"
+			"particle"	"particles/billy/billy_combo_aura.vpcf"
+			"particle"	"particles/billy/billy_combo_ring_burst.vpcf"
+			"particle"	"particles/billy/billy_combo_mark_1.vpcf"
+			"particle"	"particles/billy/billy_combo_mark_2.vpcf"
+			"particle"	"particles/billy/billy_combo_mark_3.vpcf"
+			"particle"	"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+			"particle"	"particles/units/heroes/hero_brewmaster/brewmaster_storm_ambient_dust.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_assassin_persona/pa_persona_crit_impact.vpcf"
+			"particle"	"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
+		}
+		"AbilityValues"
+		{
+			"channel_time"				"6"		// стойка-засада, до отмены любым приказом
+			"cancel_grace"			"0.3"		// столько секунд после начала приказы её не отменяют
+			"range"						"2500"		// длина конуса
+			"grow_time"					"1"		// конус дорастает от Билли до range, с
+			"cone_angle"					"30"		// полный угол конуса, градусы
+			"shot_delay"					"0.1"		// пауза между пулями очереди, с
+			"fire_delay"					"0.2"		// от срабатывания до первой пули: под отдачу анимации выстрела
+			"fire_anim_rate"				"1.25"		// скорость анимации атаки: отдача (0.25 с при 1.0) / 1.25 = fire_delay
+			"speed"						"8000"
+			"stun_duration"				"1"
+			"shots"						"3"
+			"shot_damage"				"500"
+			"mark_duration"				"3"
+			"mark_slow"					"100"		// % скорости передвижения
+			"mark_damage_amp"			"50"		// % входящего урона
+			"mark_vision"				"200"		// радиус обзора вокруг помеченного
+		}
+	}
+
+	//=====================================================================================
+	// Атрибуты (мана Мастера). Числа для тултипа — копии из KV способностей.
+	//=====================================================================================
+	"billy_attribute_1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_attributes"
+		"AbilityTextureName"			"custom/billy/billy_attribute_1"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"6"
+
+		"AbilityValues"		// только тултип — играет billy_bullets_to_spare (billy_wanted.lua)
+		{
+			"wanted_pick_time"			"15"	// выбор цели: весь пре-раунд + столько секунд боя
+			"wanted_sense_radius"		"2000"
+			"wanted_sense_interval"		"5"
+			"wanted_sense_show"			"2"		// знак Track над целью + линия от Билли от пассивного чутья (только если цель не видна; юзер 09.10.2026: 1→2)
+			"wanted_sense_show_resonator"	"3"		// то же по Presence Resonator (юзер 09.10.2026: 2→3)
+			"wanted_gold_billy"		"1500"	// Билли за голову цели
+			"wanted_gold"				"500"	// остальным участникам убийства
+			"wanted_reward_radius"		"1500"
+			"wanted_barrier"			"600"
+			"wanted_ms"					"30"
+			"wanted_reward_duration"	"10"
+		}
+	}
+	"billy_attribute_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_attributes"
+		"AbilityTextureName"			"custom/billy/billy_attribute_2"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"AbilityValues"		// только тултип — играет billy_reload
+		{
+			"quick_ms"					"600"
+			"quick_duration"			"2"
+			"quick_cdr"					"5"
+		}
+	}
+	"billy_attribute_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_attributes"
+		"AbilityTextureName"			"custom/billy/billy_attribute_3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"8"
+
+		"AbilityValues"		// только тултип — играет billy_trickshot
+		{
+			"head_cdr"					"1"
+			"head_stacks"				"3"
+			"head_crit"					"200"
+			"head_duration"				"8"
+		}
+	}
+	"billy_attribute_4"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_attributes"
+		"AbilityTextureName"			"custom/billy/billy_attribute_4"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"AbilityValues"		// только тултип — играет billy_highnoon
+		{
+			"da_slow_min"				"10"
+			"da_slow_max"				"30"
+			"da_agi_damage"				"1"
+		}
+	}
+	"billy_attribute_5"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/billy/billy_attributes"
+		"AbilityTextureName"			"custom/billy/billy_attribute_5"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"AbilityValues"		// только тултип — играют billy_trickshot / billy_triple_shot / billy_highnoon
+		{
+			"np_agi_damage"				"1"
+			"np_smoke_duration"			"2"
+			"np_damage_reduction"		"35"
+		}
+	}
+}

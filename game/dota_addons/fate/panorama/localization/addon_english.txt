@@ -149,6 +149,15 @@
 		"FA_Config_ZoneMsg"				"Show battle zone overtime announcements"
 		"FA_Config_EffectIcons"			"Show effect icons above health bars"
 		"FA_Config_SurvivalIcons"		"Show Battle Continuation icon next to health bars"
+		"FA_Effects_BillyHint"					"Show the bounty hint (Young Outlaw Leader)"
+		// вкладка Effects: настройки героев (Билли - счётчик пуль, billy_hud.js)
+		"FA_Effects_Heroes"						"Hero settings"
+		"FA_Effects_Heroes_Hint"					"Apply only while you play that Servant."
+		"FA_Effects_BillyDrum"					"Bullet counter next to the health bar"
+		"FA_Effects_BillyDrum_drum"				"Revolver cylinder with a number"
+		"FA_Effects_BillyDrum_number"			"Number only"
+		"FA_Effects_BillyDrum_none"				"Hide"
+		"FA_Effects_BillyReload"					"Animate the cylinder on reload"
 
 		// вкладка Effects (fateanother_effects.xml) и подписи эффектов (effect_bars.js)
 		"FA_Effects_Title"						"Effect icons"
@@ -188,6 +197,8 @@
 		"FA_Effect_hassan"						"Dirk poison"
 		"FA_Effect_hijikata"					"Shinsengumi damage bar (own hero)"
 		"FA_Effect_nobunaga"					"Materialization stacks bar (own hero)"
+		"FA_Effect_billy"						"Highnoon: shot charge on target"
+		"FA_Effect_billy_headshot"				"Headshot stacks (crit when full)"
 
 		"FA_Config_Cmd1"	"Pops a message that asks for gold to your team."
 		"FA_Config_Cmd2"	"Turns BGM on/off."
