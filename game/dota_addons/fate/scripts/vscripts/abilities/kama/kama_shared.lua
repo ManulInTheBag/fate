@@ -66,6 +66,21 @@ end
 KAMA_SHOT_GESTURE = ACT_DOTA_CAST_ABILITY_6
 -- длина секвенции q_shot: кадры 311-335
 KAMA_SHOT_LENGTH  = 24 / 30
+-- D: лук натянут и ждёт (секвенция d_hold), затем срыв тетивы и возврат
+-- (d_release) — см. kama_arrow_of_desire.lua
+KAMA_HOLD_GESTURE    = ACT_DOTA_OVERRIDE_ABILITY_1
+KAMA_RELEASE_GESTURE = ACT_DOTA_CAST_ABILITY_7
+
+--[[ Мгновенно развернуть Каму лицом к точке. Зовётся в начале каста: движок
+     начинает каст, не дожидаясь конца разворота, и после клика за спину Кама
+     замахивалась ещё боком к цели. ]]
+function Kama_FacePoint(hCaster, vPoint)
+    if not IsServer() or not Kama_Alive(hCaster) or not vPoint then return end
+    local vDirection = vPoint - hCaster:GetAbsOrigin()
+    vDirection.z = 0
+    if vDirection:Length2D() < 1 then return end
+    hCaster:SetForwardVector(vDirection:Normalized())
+end
 
 -- Приказ, после которого Кама занята делом: идти, бить, кастовать по цели или
 -- точке, подбирать. Мгновенные способности без цели (смена стрел на F) сюда
@@ -110,6 +125,8 @@ function Kama_StopAnimations(hCaster, bEngineToo, bShotNext)
     if not IsServer() or not Kama_Alive(hCaster) then return end
     hCaster:RemoveModifierByName("modifier_kama_backswing")
     if not bShotNext then hCaster:FadeGesture(KAMA_SHOT_GESTURE) end
+    hCaster:FadeGesture(KAMA_HOLD_GESTURE)
+    hCaster:FadeGesture(KAMA_RELEASE_GESTURE)
     if bEngineToo then
         hCaster:FadeGesture(ACT_DOTA_CAST_ABILITY_2)
         hCaster:FadeGesture(ACT_DOTA_CAST_ABILITY_5)

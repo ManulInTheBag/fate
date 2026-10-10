@@ -25,44 +25,44 @@ local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powe
 -- кольцо по радиусу взрыва (CP1 — цвет, CP2 — радиус и время)
 local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
 
---[[ Анимация — тот же жест выстрела, что у Q, запущенный тем же вызовом, но
-     с остановкой посередине (так же замирает King Hassan в khsn_slash).
-     За кастпоинт (0.1 с) Кама успевает натянуть лук — на этом кадре анимация
-     замораживается (FreezeAnimation) и стоит всю зарядку. За RELEASE_LEAD до
-     вылета стрелы заморозка снимается, и жест доигрывается сам, как после Q:
-     срыв тетивы приходится на вылет стрелы, дальше лук опускается.
-     ⚠️ Тетива срывается на 5-6 кадре жеста (0.17-0.2 с от его начала).
-     Меняешь кастпоинт — пересчитай RELEASE_LEAD: 0.18 минус кастпоинт.
+--[[ Анимация — тот же клип выстрела, что у Q, разрезанный в модели на два
+     жеста по моменту срыва тетивы (в клипе это 5-й кадр → 6-й).
+     d_hold (KAMA_HOLD_GESTURE) — два кадра прямо перед срывом: лук поднят и
+     натянут. Играется сильно замедленно, так что Кама быстро вскидывает лук
+     (это вход жеста, 0.1 с) и всю зарядку стоит с натянутой тетивой, чуть
+     дотягивая её. Скорость считается от времени до выстрела.
+     d_release (KAMA_RELEASE_GESTURE) — срыв тетивы и возврат лука в родном
+     темпе, с тем же затуханием, что у Q. Запускается за RELEASE_LEAD до вылета
+     стрелы: срыв приходится на первый кадр жеста.
+     Заморозки анимации (FreezeAnimation) тут нет намеренно: она ловит тот
+     кадр, который в этот момент показывает клиент, а не нужный.
      ⚠️ В KV у D стоит AbilityCastAnimation = ACT_INVALID: иначе движок сам
      играет поверх жеста анимацию по номеру слота (клип spell_4). ]]
-local RELEASE_LEAD = 0.08
+local HOLD_CLIP      = 2 / 30    -- длина d_hold: кадры 364-366
+local RELEASE_LENGTH = 19 / 30   -- длина d_release: кадры 366-385
+local RELEASE_LEAD   = 0.03
 
 function kama_arrow_of_desire:OnAbilityPhaseStart()
     local caster = self:GetCaster()
-    Kama_StopAnimations(caster, true, true)
-    Kama_Gesture(caster, KAMA_SHOT_GESTURE, 0.1)
+    local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
+    Kama_StopAnimations(caster, true)
+    Kama_FacePoint(caster, self:GetCursorPosition())
+    -- с запасом 0.1 с: жест не должен кончиться раньше, чем начнётся срыв
+    Kama_Gesture(caster, KAMA_HOLD_GESTURE, 0.1, 0.1, HOLD_CLIP / (fShot + 0.1))
     return true
 end
 
 function kama_arrow_of_desire:OnAbilityPhaseInterrupted()
-    self:GetCaster():FadeGesture(KAMA_SHOT_GESTURE)
+    self:GetCaster():FadeGesture(KAMA_HOLD_GESTURE)
 end
 
--- Лук натянут: держим кадр до выстрела, потом отпускаем жест доигрываться.
-function kama_arrow_of_desire:HoldDraw(fCharge)
+-- Срыв тетивы: натянутый лук сменяется выстрелом и возвратом.
+function kama_arrow_of_desire:ReleaseDraw()
     local caster = self:GetCaster()
-    local fHold = math.max(fCharge - RELEASE_LEAD, 0.03)
-    -- со своим сроком: если Кама погибнет, заморозка снимется сама
-    FreezeAnimation(caster, fHold)
-    Kama_Trace("D draw frozen for " .. string.format("%.2f", fHold) .. " s")
-
-    Timers:CreateTimer(fHold, function()
-        if not Kama_Alive(caster) or not Kama_Alive(self) then return end
-        UnfreezeAnimation(caster)
-        if not caster:IsAlive() then return end
-        Kama_Trace("D draw released")
-        Kama_Backswing(caster, self, KAMA_SHOT_LENGTH - self:GetCastPoint(), KAMA_SHOT_GESTURE)
-    end)
+    Kama_Trace("D release gesture start")
+    Kama_Gesture(caster, KAMA_RELEASE_GESTURE, 0)
+    caster:FadeGesture(KAMA_HOLD_GESTURE)
+    Kama_Backswing(caster, self, RELEASE_LENGTH, KAMA_RELEASE_GESTURE)
 end
 
 -- Стрела летит сама, идти «в радиус» незачем: серверу дальность отдаём
@@ -107,7 +107,10 @@ function kama_arrow_of_desire:OnSpellStart()
     local bSamsara = Kama_IsSamsara(caster)
     local fCharge = self:GetSpecialValueFor("charge_time")
 
-    self:HoldDraw(fCharge)
+    Timers:CreateTimer(math.max(fCharge - RELEASE_LEAD, 0), function()
+        if not Kama_Alive(caster) or not Kama_Alive(self) or not caster:IsAlive() then return end
+        self:ReleaseDraw()
+    end)
     Kama_Charge(caster, self, fCharge, function()
         local vOrigin = caster:GetAbsOrigin()
         caster:EmitSound("Ability.Powershot.Alt")

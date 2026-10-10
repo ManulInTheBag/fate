@@ -25,6 +25,19 @@ local FX_ARROW = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
      через FALL_TIME после появления стрелы: меняешь одно — меняй и другое. ]]
 local FX_SKY_ARROW = "particles/kama/kama_e_aoe.vpcf"
 local FALL_TIME = 0.35
+-- сдвиг точки появления, зашитый в партикле: его надо вычесть, чтобы
+-- поставить стрелу со своей стороны
+local FX_SKY_OFFSET = Vector(-500, 0, 0)
+-- На каждое попадание с неба падает столько стрел подряд. Урон наносит
+-- только первая, остальные — чтобы было видно, что это ливень.
+local SKY_FALLS = 3
+local SKY_FALL_INTERVAL = 0.12
+-- Samsara: Кама стреляет в небо. Своей анимации для этого у модели нет,
+-- поэтому играется обычный выстрел, а сама Кама на это время запрокинута
+-- назад на SKY_PITCH градусов.
+local SKY_PITCH = -40
+-- срыв тетивы в жесте выстрела — через столько секунд после его начала
+local SHOT_RELEASE = 0.17
 
 function kama_petal_volley:GetBehavior()
     if Kama_IsSamsara(self:GetCaster()) then
@@ -84,16 +97,44 @@ end
      0.6 с, отсюда rate 0.85. Меняешь эти времена — пересчитай rate.
      Длится, пока идёт очередь: стрел будет столько, сколько сейчас клонов. ]]
 function kama_petal_volley:OnAbilityPhaseStart()
+    local caster = self:GetCaster()
+    local hTarget = self:GetCursorTarget()
+    Kama_StopAnimations(caster, true)
+    Kama_FacePoint(caster, hTarget and hTarget:GetAbsOrigin() or self:GetCursorPosition())
+    -- у Samsara своя анимация, она начинается позже (SkyShot)
+    if Kama_IsSamsara(caster) then return true end
+
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
     local fVolley = self:VolleyTime(1 + #self:GetClones())
-    Kama_StopAnimations(self:GetCaster(), true)
-    StartAnimation(self:GetCaster(), {duration = fShot + fVolley + POSE_AFTER_VOLLEY,
+    StartAnimation(caster, {duration = fShot + fVolley + POSE_AFTER_VOLLEY,
         activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.85})
     return true
 end
 
 function kama_petal_volley:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
+end
+
+-- Samsara: запрокинуться и выстрелить в небо.
+function kama_petal_volley:SkyShot()
+    local caster = self:GetCaster()
+    self:Tilt(SKY_PITCH, 0.12)
+    Kama_Gesture(caster, KAMA_SHOT_GESTURE, 0.1)
+end
+
+-- Плавно наклонить Каму до fPitch градусов (0 — стоит прямо) за fTime секунд.
+function kama_petal_volley:Tilt(fPitch, fTime)
+    local caster = self:GetCaster()
+    local fFrom = caster:GetAnglesAsVector().x
+    local nSteps = math.max(math.floor(fTime / 0.03), 1)
+    local nStep = 0
+    Timers:CreateTimer(function()
+        if not Kama_Alive(caster) then return end
+        nStep = nStep + 1
+        local vAngles = caster:GetAnglesAsVector()
+        caster:SetAngles(fFrom + (fPitch - fFrom) * nStep / nSteps, vAngles.y, vAngles.z)
+        if nStep < nSteps then return 0.03 end
+    end)
 end
 
 function kama_petal_volley:OnSpellStart()
@@ -109,15 +150,29 @@ function kama_petal_volley:OnSpellStart()
     -- Кама снова свободна после зарядки и очереди. Если игрок уже приказал ей
     -- что-то делать — анимацию обрываем сразу, иначе даём доиграть стоя.
     local fChargeStart = GameRules:GetGameTime()
-    local fLocked = self:GetSpecialValueFor("charge_time") + self:VolleyTime(nArrows)
+    local fCharge = self:GetSpecialValueFor("charge_time")
+    local fLocked = fCharge + self:VolleyTime(nArrows)
+    -- у Samsara доигрывается жест выстрела, у Floral — поза из StartAnimation
+    local nGesture = bSamsara and KAMA_SHOT_GESTURE or nil
     Timers:CreateTimer(fLocked, function()
         if not Kama_Alive(caster) then return end
-        if Kama_OrderedSince(caster, fChargeStart) then
-            EndAnimation(caster)
+        if bSamsara then self:Tilt(0, 0.2) end
+        if not Kama_OrderedSince(caster, fChargeStart) then
+            Kama_Backswing(caster, self, POSE_AFTER_VOLLEY, nGesture)
+        elseif nGesture then
+            caster:FadeGesture(nGesture)
         else
-            Kama_Backswing(caster, self, POSE_AFTER_VOLLEY, nil)
+            EndAnimation(caster)
         end
     end)
+
+    if bSamsara then
+        -- срыв тетивы должен прийтись на конец зарядки
+        Timers:CreateTimer(math.max(fCharge - SHOT_RELEASE, 0), function()
+            if not Kama_Alive(caster) or not Kama_Alive(self) or not caster:IsAlive() then return end
+            self:SkyShot()
+        end)
+    end
 
     Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
         caster:EmitSound("Ability.Powershot.Alt")
@@ -213,21 +268,41 @@ function kama_petal_volley:FireLasers(hTarget, nArrows)
     end
 end
 
---[[ Одна стрела с неба в hTarget. Это не снаряд: стрела — партикль, а
-     попадание наступает через FALL_TIME, куда бы цель ни ушла (партикль
-     следует за ней). Увернуться от неё нельзя.
+--[[ Одно попадание с неба в hTarget. Это не снаряд: стрелы — партикли
+     (SKY_FALLS штук подряд), а попадание наступает через FALL_TIME после
+     первой, куда бы цель ни ушла. Увернуться от него нельзя.
      bChecked: блок заклинаний у цели уже проверен при касте. ]]
 function kama_petal_volley:FireLaser(hTarget, bChecked)
     local caster = self:GetCaster()
-    local nFx = ParticleManager:CreateParticle(FX_SKY_ARROW, PATTACH_ABSORIGIN_FOLLOW, hTarget)
-    ParticleManager:SetParticleControl(nFx, 1, hTarget:GetAbsOrigin())
-    ParticleManager:ReleaseParticleIndex(nFx)
+    self:SkyArrowFx(hTarget)
+    for i = 1, SKY_FALLS - 1 do
+        Timers:CreateTimer(i * SKY_FALL_INTERVAL, function()
+            if not Kama_Alive(caster) or not Kama_Alive(hTarget) or not hTarget:IsAlive() then return end
+            self:SkyArrowFx(hTarget)
+        end)
+    end
 
     Timers:CreateTimer(FALL_TIME, function()
         if not Kama_Alive(self) or not Kama_Alive(caster) then return end
         if not Kama_Alive(hTarget) or not hTarget:IsAlive() then return end
         self:ArrowHit(hTarget, true, bChecked)
     end)
+end
+
+--[[ Партикль одной падающей стрелы. Падает со стороны Камы: точка появления
+     — над линией «цель → Кама», с небольшим разбросом, чтобы стрелы одного
+     ливня не шли след в след. ]]
+function kama_petal_volley:SkyArrowFx(hTarget)
+    local caster = self:GetCaster()
+    local vTarget = hTarget:GetAbsOrigin()
+    local vToKama = caster:GetAbsOrigin() - vTarget
+    vToKama.z = 0
+    vToKama = vToKama:Length2D() < 1 and -caster:GetForwardVector() or vToKama:Normalized()
+    vToKama = RotatePosition(Vector(0, 0, 0), QAngle(0, RandomFloat(-20, 20), 0), vToKama)
+
+    local nFx = ParticleManager:CreateParticle(FX_SKY_ARROW, PATTACH_ABSORIGIN_FOLLOW, hTarget)
+    ParticleManager:SetParticleControl(nFx, 1, vTarget - FX_SKY_OFFSET + vToKama * FX_SKY_OFFSET:Length2D())
+    ParticleManager:ReleaseParticleIndex(nFx)
 end
 
 --=========================================================================--

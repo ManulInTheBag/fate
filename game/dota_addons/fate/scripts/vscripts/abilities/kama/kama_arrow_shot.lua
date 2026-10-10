@@ -41,6 +41,7 @@ function kama_arrow_shot:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local vPoint = self:GetCursorPosition()
     Kama_StopAnimations(caster, true, true)
+    Kama_FacePoint(caster, vPoint)
     Kama_Gesture(caster, KAMA_SHOT_GESTURE, SHOT_FADE_IN)
     Kama_Trace("Q shot gesture start, clones " .. #self:GetClones())
     for _, hClone in ipairs(self:GetClones()) do
