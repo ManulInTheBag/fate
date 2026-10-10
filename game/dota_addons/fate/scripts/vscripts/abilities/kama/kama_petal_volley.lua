@@ -28,10 +28,6 @@ local FALL_TIME = 0.35
 -- сдвиг точки появления, зашитый в партикле: его надо вычесть, чтобы
 -- поставить стрелу со своей стороны
 local FX_SKY_OFFSET = Vector(-500, 0, 0)
--- На каждое попадание с неба падает столько стрел подряд. Урон наносит
--- только первая, остальные — чтобы было видно, что это ливень.
-local SKY_FALLS = 3
-local SKY_FALL_INTERVAL = 0.12
 -- Samsara: Кама стреляет в небо. Своей анимации для этого у модели нет,
 -- поэтому играется обычный выстрел, а сама Кама на это время запрокинута
 -- назад на SKY_PITCH градусов.
@@ -268,19 +264,15 @@ function kama_petal_volley:FireLasers(hTarget, nArrows)
     end
 end
 
---[[ Одно попадание с неба в hTarget. Это не снаряд: стрелы — партикли
-     (SKY_FALLS штук подряд), а попадание наступает через FALL_TIME после
-     первой, куда бы цель ни ушла. Увернуться от него нельзя.
+--[[ Одна стрела с неба в hTarget: одна видимая стрела = одно попадание,
+     так что в главную цель их падает столько, сколько выстрелов (своя и по
+     одной за каждого поглощённого клона). Это не снаряд: стрела — партикль,
+     а попадание наступает через FALL_TIME, куда бы цель ни ушла. Увернуться
+     от неё нельзя.
      bChecked: блок заклинаний у цели уже проверен при касте. ]]
 function kama_petal_volley:FireLaser(hTarget, bChecked)
     local caster = self:GetCaster()
     self:SkyArrowFx(hTarget)
-    for i = 1, SKY_FALLS - 1 do
-        Timers:CreateTimer(i * SKY_FALL_INTERVAL, function()
-            if not Kama_Alive(caster) or not Kama_Alive(hTarget) or not hTarget:IsAlive() then return end
-            self:SkyArrowFx(hTarget)
-        end)
-    end
 
     Timers:CreateTimer(FALL_TIME, function()
         if not Kama_Alive(self) or not Kama_Alive(caster) then return end
@@ -291,7 +283,7 @@ end
 
 --[[ Партикль одной падающей стрелы. Падает со стороны Камы: точка появления
      — над линией «цель → Кама», с небольшим разбросом, чтобы стрелы одного
-     ливня не шли след в след. ]]
+     залпа не шли след в след и их можно было сосчитать. ]]
 function kama_petal_volley:SkyArrowFx(hTarget)
     local caster = self:GetCaster()
     local vTarget = hTarget:GetAbsOrigin()
