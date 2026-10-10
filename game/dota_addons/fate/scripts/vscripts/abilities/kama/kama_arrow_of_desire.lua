@@ -4,7 +4,8 @@ kama_arrow_of_desire = kama_arrow_of_desire or class({})
 
 --[[ D — Arrow of Desire. Усиленная стрела.
      Кастпоинт короткий, но сам выстрел идёт после зарядки (charge_time): всё
-     это время Кама стоит на месте и ничего не может (Kama_Charge).
+     это время Кама стоит на месте с натянутым луком и ничего не может
+     (Kama_Charge).
      Floral: летит по направлению, останавливается на первой цели и сразу
      даёт ей большую порцию Charm.
      Samsara: массивная стрела летит в указанную точку, подхватывает до
@@ -24,49 +25,44 @@ local FX_SAMSARA = "particles/units/heroes/hero_windrunner/windrunner_spell_powe
 -- кольцо по радиусу взрыва (CP1 — цвет, CP2 — радиус и время)
 local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
 
---[[ Анимация в две части, обе из одного клипа выстрела.
-     Зарядка — секвенция d_draw (ACT_DOTA_OVERRIDE_ABILITY_1), из неё нужен
-     только натяг лука: первые 4 кадра, растянутые на всё время от
-     нажатия до выстрела (кастпоинт + charge_time = 0.6 с), отсюда rate 0.2.
-     Меняешь эти времена — пересчитай rate: (4 / 30) / время.
-     Выстрел и возврат (PlayRecovery) — секвенция attack_2_recover: те же кадры
-     с 4-го и до конца, в родном темпе. Срыв тетивы (кадры 4-6) приходится
-     ровно на вылет стрелы и идёт уже не в замедлении.
-     ⚠️ В KV у D стоит AbilityCastAnimation = ACT_INVALID. Без этой строки
-     движок сам играл поверх всего этого анимацию по номеру слота (у D это
-     ACT_DOTA_CAST_ABILITY_4, клип spell_4), и своей анимации D не было видно. ]]
+--[[ Анимация — тот же жест выстрела, что у Q, запущенный тем же вызовом, но
+     с остановкой посередине (так же замирает King Hassan в khsn_slash).
+     За кастпоинт (0.1 с) Кама успевает натянуть лук — на этом кадре анимация
+     замораживается (FreezeAnimation) и стоит всю зарядку. За RELEASE_LEAD до
+     вылета стрелы заморозка снимается, и жест доигрывается сам, как после Q:
+     срыв тетивы приходится на вылет стрелы, дальше лук опускается.
+     ⚠️ Тетива срывается на 5-6 кадре жеста (0.17-0.2 с от его начала).
+     Меняешь кастпоинт — пересчитай RELEASE_LEAD: 0.18 минус кастпоинт.
+     ⚠️ В KV у D стоит AbilityCastAnimation = ACT_INVALID: иначе движок сам
+     играет поверх жеста анимацию по номеру слота (клип spell_4). ]]
+local RELEASE_LEAD = 0.08
+
 function kama_arrow_of_desire:OnAbilityPhaseStart()
-    local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
-    Kama_StopAnimations(self:GetCaster(), true)
-    StartAnimation(self:GetCaster(), {duration = fShot + 0.1,
-        activity = ACT_DOTA_OVERRIDE_ABILITY_1, rate = 0.2})
+    local caster = self:GetCaster()
+    Kama_StopAnimations(caster, true, true)
+    Kama_Gesture(caster, KAMA_SHOT_GESTURE, 0.1)
     return true
 end
 
--- attack_2_recover: 21 кадр в родном темпе и с тем же затуханием, что у
--- выстрела Q, — чтобы лук после D возвращался так же, как после Q.
-local RECOVERY_TIME = 21 / 30
-
---[[ Замедленный замах снимаем и с того же кадра доигрываем возврат лука под
-     бэксвингом (Kama_Backswing).
-     fChargeStart — когда началась зарядка. Если игрок за это время уже
-     приказал Каме что-то делать, возврат не играем вовсе: она сразу пойдёт,
-     и поза возврата только тянулась бы за ней. ]]
-function kama_arrow_of_desire:PlayRecovery(fChargeStart)
-    local caster = self:GetCaster()
-    EndAnimation(caster)
-    if Kama_OrderedSince(caster, fChargeStart) then
-        Kama_Trace("D release: ordered during charge, no recovery")
-        return
-    end
-
-    Kama_Trace("D release: recovery gesture start")
-    Kama_Gesture(caster, KAMA_RECOVERY_GESTURE, 0)
-    Kama_Backswing(caster, self, RECOVERY_TIME, KAMA_RECOVERY_GESTURE)
+function kama_arrow_of_desire:OnAbilityPhaseInterrupted()
+    self:GetCaster():FadeGesture(KAMA_SHOT_GESTURE)
 end
 
-function kama_arrow_of_desire:OnAbilityPhaseInterrupted()
-    EndAnimation(self:GetCaster())
+-- Лук натянут: держим кадр до выстрела, потом отпускаем жест доигрываться.
+function kama_arrow_of_desire:HoldDraw(fCharge)
+    local caster = self:GetCaster()
+    local fHold = math.max(fCharge - RELEASE_LEAD, 0.03)
+    -- со своим сроком: если Кама погибнет, заморозка снимется сама
+    FreezeAnimation(caster, fHold)
+    Kama_Trace("D draw frozen for " .. string.format("%.2f", fHold) .. " s")
+
+    Timers:CreateTimer(fHold, function()
+        if not Kama_Alive(caster) or not Kama_Alive(self) then return end
+        UnfreezeAnimation(caster)
+        if not caster:IsAlive() then return end
+        Kama_Trace("D draw released")
+        Kama_Backswing(caster, self, KAMA_SHOT_LENGTH - self:GetCastPoint(), KAMA_SHOT_GESTURE)
+    end)
 end
 
 -- Стрела летит сама, идти «в радиус» незачем: серверу дальность отдаём
@@ -109,12 +105,12 @@ function kama_arrow_of_desire:OnSpellStart()
     -- прицел и вид стрелы фиксируются в момент нажатия
     local vDirection, fDistance = self:Aim(self:GetCursorPosition())
     local bSamsara = Kama_IsSamsara(caster)
-    local fChargeStart = GameRules:GetGameTime()
+    local fCharge = self:GetSpecialValueFor("charge_time")
 
-    Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
+    self:HoldDraw(fCharge)
+    Kama_Charge(caster, self, fCharge, function()
         local vOrigin = caster:GetAbsOrigin()
         caster:EmitSound("Ability.Powershot.Alt")
-        self:PlayRecovery(fChargeStart)
         if bSamsara then
             -- стрела долетает до точки, но не дальше своей дальности
             self:FireDragArrow(vOrigin, vDirection, fDistance)

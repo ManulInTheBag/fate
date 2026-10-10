@@ -12,6 +12,7 @@ LinkLuaModifier("modifier_kama_charm", "abilities/kama/kama_shared", LUA_MODIFIE
 LinkLuaModifier("modifier_kama_charmed", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kama_charm_immune", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kama_backswing", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_kama_charging", "abilities/kama/kama_shared", LUA_MODIFIER_MOTION_NONE)
 
 -- F: переключатель стрел. В его AbilityValues лежат и общие числа Charm.
 KAMA_BOW = "kama_sugarcane_bow"
@@ -61,12 +62,10 @@ function Kama_Gesture(hUnit, nActivity, fFadeIn, fFadeOut, fRate)
     hUnit:StartGestureWithFadeAndPlaybackRate(nActivity, fFadeIn, fFadeOut or 0.4, fRate or 1.0)
 end
 
--- Жесты Камы, которые доигрываются уже после выстрела: выстрел Q и возврат
--- лука после D.
-KAMA_SHOT_GESTURE     = ACT_DOTA_CAST_ABILITY_6
-KAMA_RECOVERY_GESTURE = ACT_DOTA_CAST_ABILITY_7
--- длина секвенции q_shot: 25 кадров
-KAMA_SHOT_LENGTH      = 25 / 30
+-- Жест выстрела (секвенция q_shot): им стреляют Q, D, автоатака и клоны W.
+KAMA_SHOT_GESTURE = ACT_DOTA_CAST_ABILITY_6
+-- длина секвенции q_shot: кадры 311-335
+KAMA_SHOT_LENGTH  = 24 / 30
 
 -- Приказ, после которого Кама занята делом: идти, бить, кастовать по цели или
 -- точке, подбирать. Мгновенные способности без цели (смена стрел на F) сюда
@@ -90,8 +89,10 @@ end
 
 --[[ Дать Каме доиграть выстрел fDuration секунд (см. modifier_kama_backswing).
      nGesture — жест, который доигрывается; nil — поза через StartAnimation.
-     bIgnoreOrders — приказы игрока анимацию не обрывают, только движение
-     (автоатака: повторный правый клик по той же цели выстрел не отменяет). ]]
+     bIgnoreOrders — это выстрел автоатаки: приказы игрока его не обрывают,
+     только движение (повторный правый клик по той же цели выстрел не
+     отменяет). Без него это доигрывание способности, и пока оно идёт, Кама
+     сама автоатаку не начинает (см. modifier_kama_backswing). ]]
 function Kama_Backswing(hCaster, hAbility, fDuration, nGesture, bIgnoreOrders)
     if not IsServer() or not Kama_Alive(hCaster) then return end
     hCaster:AddNewModifier(hCaster, hAbility, "modifier_kama_backswing",
@@ -101,12 +102,14 @@ end
 --[[ Убрать всё, что Кама доигрывает с прошлого каста. Зовётся в начале каста
      способностей, чтобы две анимации не накладывались.
      bEngineToo — гасить и анимации каста, которые играет сам движок (W и R).
-     R зовёт без него: иначе погасил бы свою же, только что начатую. ]]
-function Kama_StopAnimations(hCaster, bEngineToo)
+     R зовёт без него: иначе погасил бы свою же, только что начатую.
+     bShotNext — следом сразу запускается жест выстрела. Тогда прежний не
+     гасим: Kama_Gesture сам его снимет, а «погасить» и «запустить» одну и ту
+     же активность в одном кадре у клонов не бывает — пусть и у Камы не будет. ]]
+function Kama_StopAnimations(hCaster, bEngineToo, bShotNext)
     if not IsServer() or not Kama_Alive(hCaster) then return end
     hCaster:RemoveModifierByName("modifier_kama_backswing")
-    hCaster:FadeGesture(KAMA_SHOT_GESTURE)
-    hCaster:FadeGesture(KAMA_RECOVERY_GESTURE)
+    if not bShotNext then hCaster:FadeGesture(KAMA_SHOT_GESTURE) end
     if bEngineToo then
         hCaster:FadeGesture(ACT_DOTA_CAST_ABILITY_2)
         hCaster:FadeGesture(ACT_DOTA_CAST_ABILITY_5)
@@ -115,7 +118,11 @@ end
 
 --[[ Кама доигрывает выстрел. Пока модификатор висит, анимацию обрывает приказ
      игрока (идти, бить, кастовать по цели) или само движение — иначе Кама
-     ехала бы по земле в позе стрельбы. Больше он ничего не делает. ]]
+     ехала бы по земле в позе стрельбы.
+     После способности (не после автоатаки) Кама ещё и не начинает автоатаку
+     сама: её начало перезапускает жест выстрела, и доигрывание Q рвалось бы
+     посередине — у клонов, которые не атакуют, оно идёт до конца. Прямой
+     приказ атаковать работает как обычно. ]]
 modifier_kama_backswing = class({})
 
 function modifier_kama_backswing:IsHidden()      return true end
@@ -141,7 +148,11 @@ function modifier_kama_backswing:Setup(keys)
 end
 
 function modifier_kama_backswing:DeclareFunctions()
-    return {MODIFIER_EVENT_ON_ORDER}
+    return {MODIFIER_EVENT_ON_ORDER, MODIFIER_PROPERTY_DISABLE_AUTOATTACK}
+end
+
+function modifier_kama_backswing:GetDisableAutoAttack()
+    return self.bOrders and 1 or 0
 end
 
 function modifier_kama_backswing:OnIntervalThink()
@@ -170,17 +181,43 @@ function modifier_kama_backswing:OnDestroy()
 end
 
 --[[ Зарядка выстрела (D и E): Кама замирает на fTime секунд, потом вызывается
-     fnRelease. Замирает через pause_sealenabled — обычный для аддона «стан с
-     доступом к печатям», под ним анимация из StartAnimation продолжает играть.
+     fnRelease. Держит её modifier_kama_charging.
      fHold — сколько ещё держать Каму на месте после fnRelease (очередь стрел E).
      Погибла за время зарядки — выстрела не будет. ]]
 function Kama_Charge(hCaster, hAbility, fTime, fnRelease, fHold)
     if not IsServer() then return end
-    giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", fTime + (fHold or 0))
+    hCaster:AddNewModifier(hCaster, hAbility, "modifier_kama_charging",
+        {duration = fTime + (fHold or 0)})
     Timers:CreateTimer(fTime, function()
         if not Kama_Alive(hCaster) or not Kama_Alive(hAbility) or not hCaster:IsAlive() then return end
         fnRelease()
     end)
+end
+
+--[[ Кама заряжает выстрел: стоит на месте, не поворачивается, не атакует, не
+     кастует и не жмёт предметы. Это НЕ стан — сделано по образцу
+     modifier_merlin_self_stun. ]]
+modifier_kama_charging = class({})
+
+function modifier_kama_charging:IsHidden()      return true end
+function modifier_kama_charging:IsPurgable()    return false end
+function modifier_kama_charging:RemoveOnDeath() return true end
+
+function modifier_kama_charging:DeclareFunctions()
+    return {MODIFIER_PROPERTY_DISABLE_TURNING}
+end
+
+function modifier_kama_charging:GetModifierDisableTurning()
+    return 1
+end
+
+function modifier_kama_charging:CheckState()
+    return {
+        [MODIFIER_STATE_ROOTED]   = true,
+        [MODIFIER_STATE_DISARMED] = true,
+        [MODIFIER_STATE_SILENCED] = true,
+        [MODIFIER_STATE_MUTED]    = true,
+    }
 end
 
 --=========================================================================--

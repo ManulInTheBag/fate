@@ -6,8 +6,8 @@ kama_petal_volley = kama_petal_volley or class({})
      ещё по одной за каждого поглощённого.
      Floral: стрелы летят очередью по направлению, каждая останавливается на
      первой цели; по Charmed-целям бьют критом.
-     Samsara: способность по цели — в неё летят все лазеры, а в каждого врага
-     рядом с ней ещё по одному.
+     Samsara: способность по цели — стрелы падают на неё с неба: в цель все,
+     а в каждого врага рядом с ней ещё по одной.
      От вида стрел зависит и способ наведения (GetBehavior).
      Клоны поглощаются сразу при нажатии, а выстрел идёт после зарядки
      (charge_time). Кама стоит на месте и ничего не может и во время зарядки,
@@ -15,9 +15,16 @@ kama_petal_volley = kama_petal_volley or class({})
      оставшиеся стрелы на новое место.
 ]]
 
--- Временные эффекты до своих партиклей: стрела Мираны и стрела Дроу.
+-- Стрела Floral — временная, до своего партикля: стрела Мираны.
 local FX_ARROW = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-local FX_LASER = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+--[[ Стрела Samsara падает на цель с неба. CP0 — куда падает (следует за
+     целью), CP1 — точка, над которой она появляется (партикль сам поднимает
+     её на 1100 и сдвигает на 500 вбок).
+     ⚠️ FALL_TIME — время падения, оно зашито в партикле (m_flTravelTime в
+     kama_e_aoea.vpcf; вспышка удара — m_flDelay 0.3 там же). Урон наносится
+     через FALL_TIME после появления стрелы: меняешь одно — меняй и другое. ]]
+local FX_SKY_ARROW = "particles/kama/kama_e_aoe.vpcf"
+local FALL_TIME = 0.35
 
 function kama_petal_volley:GetBehavior()
     if Kama_IsSamsara(self:GetCaster()) then
@@ -175,12 +182,11 @@ function kama_petal_volley:FireArrow(vDirection)
         iUnitTargetTeam  = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetType  = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        ExtraData        = {samsara = 0, checked = 0},
     })
 end
 
 --=========================================================================--
--- Samsara: лазеры по цели и по одному во всех врагов рядом
+-- Samsara: стрелы с неба — в цель и по одной во всех врагов рядом
 --=========================================================================--
 
 function kama_petal_volley:FireLasers(hTarget, nArrows)
@@ -207,31 +213,38 @@ function kama_petal_volley:FireLasers(hTarget, nArrows)
     end
 end
 
--- bChecked: блок заклинаний у цели уже проверен при касте.
+--[[ Одна стрела с неба в hTarget. Это не снаряд: стрела — партикль, а
+     попадание наступает через FALL_TIME, куда бы цель ни ушла (партикль
+     следует за ней). Увернуться от неё нельзя.
+     bChecked: блок заклинаний у цели уже проверен при касте. ]]
 function kama_petal_volley:FireLaser(hTarget, bChecked)
-    ProjectileManager:CreateTrackingProjectile({
-        Ability           = self,
-        Source            = self:GetCaster(),
-        Target            = hTarget,
-        EffectName        = FX_LASER,
-        iMoveSpeed        = self:GetSpecialValueFor("laser_speed"),
-        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
-        bDodgeable        = true,
-        ExtraData         = {samsara = 1, checked = bChecked and 1 or 0},
-    })
+    local caster = self:GetCaster()
+    local nFx = ParticleManager:CreateParticle(FX_SKY_ARROW, PATTACH_ABSORIGIN_FOLLOW, hTarget)
+    ParticleManager:SetParticleControl(nFx, 1, hTarget:GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(nFx)
+
+    Timers:CreateTimer(FALL_TIME, function()
+        if not Kama_Alive(self) or not Kama_Alive(caster) then return end
+        if not Kama_Alive(hTarget) or not hTarget:IsAlive() then return end
+        self:ArrowHit(hTarget, true, bChecked)
+    end)
 end
 
 --=========================================================================--
 
+-- Стрела Floral долетела до цели.
 function kama_petal_volley:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     if not Kama_Alive(hTarget) or not hTarget:IsAlive() then return true end
-    local caster = self:GetCaster()
-    if not Kama_Alive(caster) then return true end
+    if not Kama_Alive(self:GetCaster()) then return true end
+    self:ArrowHit(hTarget, false, false)
+    return true
+end
 
-    local bSamsara = tData.samsara == 1
-    -- лазеры в главную цель уже прошли проверку блока при касте; стрелы Floral
-    -- и лазеры в соседей проверяем на попадании
-    if tData.checked ~= 1 and IsSpellBlocked(hTarget, caster) then return true end
+--[[ Попадание стрелы E. bChecked — блок заклинаний у цели уже проверен при
+     касте (стрелы Samsara в главную цель); у остальных проверяется здесь. ]]
+function kama_petal_volley:ArrowHit(hTarget, bSamsara, bChecked)
+    local caster = self:GetCaster()
+    if not bChecked and IsSpellBlocked(hTarget, caster) then return end
 
     local nDamage = self:GetSpecialValueFor("damage")
     if not bSamsara and Kama_IsCharmed(hTarget) then
@@ -239,5 +252,4 @@ function kama_petal_volley:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     end
     DoDamage(caster, hTarget, nDamage, self:GetAbilityDamageType(), 0, self, false)
     Kama_ArrowHit(caster, hTarget, {})
-    return true
 end
