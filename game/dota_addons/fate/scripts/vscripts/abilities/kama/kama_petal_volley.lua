@@ -29,11 +29,12 @@ local FALL_TIME = 0.35
 -- поставить стрелу со своей стороны
 local FX_SKY_OFFSET = Vector(-500, 0, 0)
 -- Samsara: Кама стреляет в небо. Своей анимации для этого у модели нет,
--- поэтому играется обычный выстрел, а сама Кама на это время запрокинута
--- назад на SKY_PITCH градусов.
+-- поэтому играется заряженный выстрел (Kama_DrawBow), а сама Кама на это
+-- время запрокинута назад на SKY_PITCH градусов.
 local SKY_PITCH = -40
--- срыв тетивы в жесте выстрела — через столько секунд после его начала
-local SHOT_RELEASE = 0.17
+-- стрела, улетающая в небо в момент выстрела: скорость и сколько её видно
+local SKY_ARROW_SPEED = 2600
+local SKY_ARROW_TIME = 0.5
 
 function kama_petal_volley:GetBehavior()
     if Kama_IsSamsara(self:GetCaster()) then
@@ -97,10 +98,14 @@ function kama_petal_volley:OnAbilityPhaseStart()
     local hTarget = self:GetCursorTarget()
     Kama_StopAnimations(caster, true)
     Kama_FacePoint(caster, hTarget and hTarget:GetAbsOrigin() or self:GetCursorPosition())
-    -- у Samsara своя анимация, она начинается позже (SkyShot)
-    if Kama_IsSamsara(caster) then return true end
-
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
+    -- Samsara: запрокинуться и растянуть лук в небо
+    if Kama_IsSamsara(caster) then
+        self:Tilt(SKY_PITCH, 0.12)
+        Kama_DrawBow(caster, self, fShot, caster:GetAbsOrigin() + Vector(0, 0, 1000))
+        return true
+    end
+
     local fVolley = self:VolleyTime(1 + #self:GetClones())
     StartAnimation(caster, {duration = fShot + fVolley + POSE_AFTER_VOLLEY,
         activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.85})
@@ -108,14 +113,31 @@ function kama_petal_volley:OnAbilityPhaseStart()
 end
 
 function kama_petal_volley:OnAbilityPhaseInterrupted()
-    EndAnimation(self:GetCaster())
+    local caster = self:GetCaster()
+    EndAnimation(caster)
+    if Kama_IsSamsara(caster) then
+        Kama_CancelDraw(caster)
+        self:Tilt(0, 0.1)
+    end
 end
 
--- Samsara: запрокинуться и выстрелить в небо.
-function kama_petal_volley:SkyShot()
+-- Samsara: в момент выстрела от лука в небо улетает стрела. Только картинка:
+-- урон наносят стрелы, которые потом падают на цели.
+function kama_petal_volley:SkyArrowUp()
     local caster = self:GetCaster()
-    self:Tilt(SKY_PITCH, 0.12)
-    Kama_Gesture(caster, KAMA_SHOT_GESTURE, 0.1)
+    local nAttach = caster:ScriptLookupAttachment("attach_attack1")
+    local vOrigin = nAttach > 0 and caster:GetAttachmentOrigin(nAttach)
+        or caster:GetAbsOrigin() + Vector(0, 0, 100)
+    local vDirection = (caster:GetForwardVector() * 0.6 + Vector(0, 0, 1)):Normalized()
+
+    -- партикль линейного снаряда: CP0 — откуда, CP1 — скорость
+    local nFx = ParticleManager:CreateParticle(FX_ARROW, PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(nFx, 0, vOrigin)
+    ParticleManager:SetParticleControl(nFx, 1, vDirection * SKY_ARROW_SPEED)
+    Timers:CreateTimer(SKY_ARROW_TIME, function()
+        ParticleManager:DestroyParticle(nFx, false)
+        ParticleManager:ReleaseParticleIndex(nFx)
+    end)
 end
 
 -- Плавно наклонить Каму до fPitch градусов (0 — стоит прямо) за fTime секунд.
@@ -148,31 +170,22 @@ function kama_petal_volley:OnSpellStart()
     local fChargeStart = GameRules:GetGameTime()
     local fCharge = self:GetSpecialValueFor("charge_time")
     local fLocked = fCharge + self:VolleyTime(nArrows)
-    -- у Samsara доигрывается жест выстрела, у Floral — поза из StartAnimation
-    local nGesture = bSamsara and KAMA_SHOT_GESTURE or nil
     Timers:CreateTimer(fLocked, function()
         if not Kama_Alive(caster) then return end
-        if bSamsara then self:Tilt(0, 0.2) end
-        if not Kama_OrderedSince(caster, fChargeStart) then
-            Kama_Backswing(caster, self, POSE_AFTER_VOLLEY, nGesture)
-        elseif nGesture then
-            caster:FadeGesture(nGesture)
-        else
+        -- Samsara: лук опускает сам заряженный выстрел, остаётся выпрямиться
+        if bSamsara then
+            self:Tilt(0, 0.2)
+        elseif Kama_OrderedSince(caster, fChargeStart) then
             EndAnimation(caster)
+        else
+            Kama_Backswing(caster, self, POSE_AFTER_VOLLEY, nil)
         end
     end)
-
-    if bSamsara then
-        -- срыв тетивы должен прийтись на конец зарядки
-        Timers:CreateTimer(math.max(fCharge - SHOT_RELEASE, 0), function()
-            if not Kama_Alive(caster) or not Kama_Alive(self) or not caster:IsAlive() then return end
-            self:SkyShot()
-        end)
-    end
 
     Kama_Charge(caster, self, self:GetSpecialValueFor("charge_time"), function()
         caster:EmitSound("Ability.Powershot.Alt")
         if bSamsara then
+            self:SkyArrowUp()
             self:FireLasers(hTarget, nArrows)
         else
             self:FireVolley(vDirection, nArrows)

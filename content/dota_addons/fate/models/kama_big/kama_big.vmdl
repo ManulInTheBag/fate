@@ -232,7 +232,7 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "d_hold"
+						name = "d_draw"
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
 						activity_weight = 1
@@ -249,8 +249,33 @@
 						delete_from_compiled_model = false
 						source_filename = "models/kama_big/kama_big.fbx"
 						import_bone_scales = false
-						start_frame = 364
-						end_frame = 366
+						start_frame = 361
+						end_frame = 369
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "d_hold"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/kama_big/kama_big.fbx"
+						import_bone_scales = false
+						start_frame = 369
+						end_frame = 371
 						framerate = -1.0
 						reverse = false
 						additional_anim_files = [  ]
@@ -274,7 +299,7 @@
 						delete_from_compiled_model = false
 						source_filename = "models/kama_big/kama_big.fbx"
 						import_bone_scales = false
-						start_frame = 366
+						start_frame = 371
 						end_frame = 385
 						framerate = -1.0
 						reverse = false

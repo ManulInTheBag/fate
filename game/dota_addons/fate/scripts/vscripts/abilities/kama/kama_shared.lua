@@ -66,10 +66,81 @@ end
 KAMA_SHOT_GESTURE = ACT_DOTA_CAST_ABILITY_6
 -- длина секвенции q_shot: кадры 311-335
 KAMA_SHOT_LENGTH  = 24 / 30
--- D: лук натянут и ждёт (секвенция d_hold), затем срыв тетивы и возврат
--- (d_release) — см. kama_arrow_of_desire.lua
-KAMA_HOLD_GESTURE    = ACT_DOTA_OVERRIDE_ABILITY_1
+--[[ Заряженный выстрел (D и Samsara E) — тот же клип, что у q_shot, разрезанный
+     в модели на три жеста:
+       d_draw    — Кама вскидывает лук и растягивает его до упора (8 кадров);
+       d_hold    — стоит с растянутым луком (2 кадра, играются очень медленно);
+       d_release — отпускает и опускает лук (14 кадров).
+     Ведёт их Kama_DrawBow. ]]
+KAMA_DRAW_GESTURE    = ACT_DOTA_OVERRIDE_ABILITY_1
+KAMA_HOLD_GESTURE    = ACT_DOTA_OVERRIDE_ABILITY_2
 KAMA_RELEASE_GESTURE = ACT_DOTA_CAST_ABILITY_7
+local DRAW_LENGTH    = 8 / 30
+local HOLD_CLIP      = 2 / 30
+local RELEASE_LENGTH = 14 / 30
+-- Свечение на луке, пока он растянут. Временное, до своего партикля: зарядка
+-- Powershot Виндрейнджер (CP0 — лук, CP1 — куда целится).
+local FX_BOW_CHARGE = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot_channel.vpcf"
+
+local function StopBowFx(hCaster)
+    if hCaster.nKamaBowFx then
+        ParticleManager:DestroyParticle(hCaster.nKamaBowFx, false)
+        ParticleManager:ReleaseParticleIndex(hCaster.nKamaBowFx)
+        hCaster.nKamaBowFx = nil
+    end
+end
+
+--[[ Бросить заряженный выстрел на полпути (каст отменён, начат другой).
+     Уже запланированные шаги Kama_DrawBow после этого не сработают. ]]
+function Kama_CancelDraw(hCaster)
+    if not IsServer() or not Kama_Alive(hCaster) then return end
+    hCaster.nKamaDraw = (hCaster.nKamaDraw or 0) + 1
+    hCaster:FadeGesture(KAMA_DRAW_GESTURE)
+    hCaster:FadeGesture(KAMA_HOLD_GESTURE)
+    StopBowFx(hCaster)
+end
+
+--[[ Заряженный выстрел: Кама растягивает лук, замирает с ним и отпускает
+     ровно через fShot секунд — в этот момент должна вылететь стрела.
+     Растягивает она в родном темпе клипа, поэтому при любом fShot меняется
+     только то, сколько она стоит с растянутым луком.
+     vAim — куда целится (для свечения на луке). ]]
+function Kama_DrawBow(hCaster, hAbility, fShot, vAim)
+    if not IsServer() or not Kama_Alive(hCaster) then return end
+    Kama_CancelDraw(hCaster)
+    local nRun = hCaster.nKamaDraw
+    local function Stale()
+        return not Kama_Alive(hCaster) or hCaster.nKamaDraw ~= nRun
+    end
+
+    Kama_Gesture(hCaster, KAMA_DRAW_GESTURE, 0.1, 0.1)
+
+    local nFx = ParticleManager:CreateParticle(FX_BOW_CHARGE, PATTACH_CUSTOMORIGIN_FOLLOW, hCaster)
+    ParticleManager:SetParticleControlEnt(nFx, 0, hCaster, PATTACH_POINT_FOLLOW, "attach_attack1",
+        hCaster:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControl(nFx, 1, vAim or hCaster:GetAbsOrigin() + hCaster:GetForwardVector() * 500)
+    hCaster.nKamaBowFx = nFx
+
+    -- жест натяга вот-вот кончится: подменяем его «стоит с растянутым луком»
+    local fHoldAt = math.min(DRAW_LENGTH - 0.03, fShot)
+    Timers:CreateTimer(fHoldAt, function()
+        if Stale() or not hCaster:IsAlive() then return end
+        -- с запасом 0.2 с: жест не должен кончиться раньше выстрела
+        Kama_Gesture(hCaster, KAMA_HOLD_GESTURE, 0, 0.1, HOLD_CLIP / (fShot - fHoldAt + 0.2))
+        hCaster:FadeGesture(KAMA_DRAW_GESTURE)
+    end)
+
+    Timers:CreateTimer(fShot, function()
+        if Stale() then return end
+        StopBowFx(hCaster)
+        if not hCaster:IsAlive() then return end
+        Trace("bow released")
+        Kama_Gesture(hCaster, KAMA_RELEASE_GESTURE, 0)
+        hCaster:FadeGesture(KAMA_HOLD_GESTURE)
+        hCaster:FadeGesture(KAMA_DRAW_GESTURE)
+        Kama_Backswing(hCaster, hAbility, RELEASE_LENGTH, KAMA_RELEASE_GESTURE)
+    end)
+end
 
 --[[ Мгновенно развернуть Каму лицом к точке. Зовётся в начале каста: движок
      начинает каст, не дожидаясь конца разворота, и после клика за спину Кама
@@ -125,7 +196,7 @@ function Kama_StopAnimations(hCaster, bEngineToo, bShotNext)
     if not IsServer() or not Kama_Alive(hCaster) then return end
     hCaster:RemoveModifierByName("modifier_kama_backswing")
     if not bShotNext then hCaster:FadeGesture(KAMA_SHOT_GESTURE) end
-    hCaster:FadeGesture(KAMA_HOLD_GESTURE)
+    Kama_CancelDraw(hCaster)
     hCaster:FadeGesture(KAMA_RELEASE_GESTURE)
     if bEngineToo then
         hCaster:FadeGesture(ACT_DOTA_CAST_ABILITY_2)
