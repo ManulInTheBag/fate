@@ -32,9 +32,10 @@ local FX_SKY_OFFSET = Vector(-500, 0, 0)
 -- поэтому играется заряженный выстрел (Kama_DrawBow), а сама Кама на это
 -- время запрокинута назад на SKY_PITCH градусов.
 local SKY_PITCH = -40
--- стрела, улетающая в небо в момент выстрела: скорость и сколько её видно
-local SKY_ARROW_SPEED = 2600
-local SKY_ARROW_TIME = 0.5
+-- розовый луч в небо в момент выстрела (CP0 — от лука, CP1 — куда); гаснет
+-- сам за полсекунды
+local FX_SKY_BEAM = "particles/kama/kama_sky_beam.vpcf"
+local SKY_BEAM_LENGTH = 1800
 
 function kama_petal_volley:GetBehavior()
     if Kama_IsSamsara(self:GetCaster()) then
@@ -96,7 +97,7 @@ end
 function kama_petal_volley:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
-    Kama_StopAnimations(caster, true)
+    Kama_StopAnimations(caster, true, Kama_IsSamsara(caster))
     Kama_FacePoint(caster, hTarget and hTarget:GetAbsOrigin() or self:GetCursorPosition())
     local fShot = self:GetCastPoint() + self:GetSpecialValueFor("charge_time")
     -- Samsara: запрокинуться и растянуть лук в небо
@@ -121,23 +122,19 @@ function kama_petal_volley:OnAbilityPhaseInterrupted()
     end
 end
 
--- Samsara: в момент выстрела от лука в небо улетает стрела. Только картинка:
--- урон наносят стрелы, которые потом падают на цели.
+-- Samsara: в момент выстрела от лука в небо бьёт луч. Только картинка: урон
+-- наносят стрелы, которые потом падают на цели.
 function kama_petal_volley:SkyArrowUp()
     local caster = self:GetCaster()
     local nAttach = caster:ScriptLookupAttachment("attach_attack1")
     local vOrigin = nAttach > 0 and caster:GetAttachmentOrigin(nAttach)
         or caster:GetAbsOrigin() + Vector(0, 0, 100)
-    local vDirection = (caster:GetForwardVector() * 0.6 + Vector(0, 0, 1)):Normalized()
+    local vDirection = (caster:GetForwardVector() * 0.35 + Vector(0, 0, 1)):Normalized()
 
-    -- партикль линейного снаряда: CP0 — откуда, CP1 — скорость
-    local nFx = ParticleManager:CreateParticle(FX_ARROW, PATTACH_CUSTOMORIGIN, nil)
+    local nFx = ParticleManager:CreateParticle(FX_SKY_BEAM, PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(nFx, 0, vOrigin)
-    ParticleManager:SetParticleControl(nFx, 1, vDirection * SKY_ARROW_SPEED)
-    Timers:CreateTimer(SKY_ARROW_TIME, function()
-        ParticleManager:DestroyParticle(nFx, false)
-        ParticleManager:ReleaseParticleIndex(nFx)
-    end)
+    ParticleManager:SetParticleControl(nFx, 1, vOrigin + vDirection * SKY_BEAM_LENGTH)
+    ParticleManager:ReleaseParticleIndex(nFx)
 end
 
 -- Плавно наклонить Каму до fPitch градусов (0 — стоит прямо) за fTime секунд.

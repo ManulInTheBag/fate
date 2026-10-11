@@ -33,7 +33,7 @@ local FX_EXPLOSION = "particles/zlodemon/zlodemon_basic_circle.vpcf"
 function kama_arrow_of_desire:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local vPoint = self:GetCursorPosition()
-    Kama_StopAnimations(caster, true)
+    Kama_StopAnimations(caster, true, true)
     Kama_FacePoint(caster, vPoint)
     Kama_DrawBow(caster, self, self:GetCastPoint() + self:GetSpecialValueFor("charge_time"), vPoint)
     return true
