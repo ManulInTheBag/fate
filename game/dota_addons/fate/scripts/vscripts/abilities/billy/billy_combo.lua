@@ -22,6 +22,11 @@
 require("abilities/billy/billy_shared")
 
 billy_combo = billy_combo or class({})
+
+-- дальность каста = дальность выстрела, см. BILLY_CAST_RANGE в billy_shared
+function billy_combo:GetCastRange(location, target)
+    return Billy_CastRange(self)
+end
 LinkLuaModifier("modifier_billy_combo_cd",     "abilities/billy/billy_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_combo_aura",   "abilities/billy/billy_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_combo_stance", "abilities/billy/billy_combo", LUA_MODIFIER_MOTION_NONE)
@@ -78,6 +83,25 @@ function billy_combo:ComboDir()
     return dir:Normalized()
 end
 
+-- Highnoon (R) на КД — комбо не нажать (окно в Q и так не откроется, это на случай,
+-- если R ушла на КД, пока окно висит). Считается и на клиенте.
+function billy_combo:HighnoonReady()
+    local caster = self:GetCaster()
+    if not caster or type(caster.FindAbilityByName) ~= "function" then return true end
+    local r = caster:FindAbilityByName("billy_highnoon")
+    return not r or r:IsCooldownReady()
+end
+
+function billy_combo:CastFilterResultLocation(location)
+    if not self:HighnoonReady() then return UF_FAIL_CUSTOM end
+    return UF_SUCCESS
+end
+
+function billy_combo:GetCustomCastErrorLocation(location)
+    if not self:HighnoonReady() then return "Highnoon is on cooldown" end
+    return ""
+end
+
 -- Голос (на всю карту): на замахе быстрое 「喰らいな！」, на выстреле 「ファイア！！」.
 function billy_combo:OnAbilityPhaseStart()
     local caster = self:GetCaster()
@@ -120,6 +144,13 @@ function billy_combo:OnSpellStart()
         masterCombo:StartCooldown(cd)
     end
     caster:AddNewModifier(caster, self, "modifier_billy_combo_cd", { duration = cd })
+
+    -- комбо уводит Highnoon (R) на её полный КД (как robin_yew_tree_combo)
+    local r = caster:FindAbilityByName("billy_highnoon")
+    if r then
+        r:EndCooldown()
+        r:StartCooldown(r:GetCooldown(r:GetLevel()))
+    end
 end
 
 -- Каждый кадр стойки (modifier_billy_combo_stance:OnIntervalThink).

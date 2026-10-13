@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 cu_chulain_rune_of_protection = class({})
 
 LinkLuaModifier("modifier_rune_of_protection", "abilities/cu_chulain/modifiers/modifier_rune_of_protection", LUA_MODIFIER_MOTION_NONE)
@@ -39,8 +40,8 @@ function cu_chulain_rune_of_protection:OnRuneProck()
         caster:RemoveModifierByName("pause_sealenabled")
 		return
 	 end
-     caster:StopSound("cu_protection_1") 
-     caster:EmitSound("cu_protection_2") 
+     caster:StopSound(SkinSound(caster, "cu_protection_1")) 
+     caster:EmitSound(SkinSound(caster, "cu_protection_2")) 
 	local target = targets[1]
 	caster.dash_target = target
 	caster:AddNewModifier(caster, self, "modifier_cu_rotation_lock", {Duration = 0.1})
@@ -60,7 +61,7 @@ function cu_chulain_rune_of_protection:OnSpellStart()
 	caster.dash_target = nil
 	caster:AddNewModifier(caster, self, "modifier_rune_of_protection", { Duration = self:GetSpecialValueFor("duration") })
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.9)  
-    caster:EmitSound("cu_protection_1") 
+    caster:EmitSound(SkinSound(caster, "cu_protection_1")) 
 end
 
 
@@ -126,12 +127,12 @@ function modifier_cu_rush:OnDestroy()
     local direction = self.targetpos - pos
     direction.z = 0     
    
-	local particle = ParticleManager:CreateParticle("particles/cu_chulain/gae_bolg_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local particle = ParticleManager:CreateParticle(SkinParticle(self:GetParent(), "particles/cu_chulain/gae_bolg_pierce.vpcf"), PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlTransformForward(particle, 0, self.parent:GetAbsOrigin() + Vector(0,0,130)+self.parent:GetRightVector() * - 20,self.parent:GetForwardVector())
     ParticleManager:SetParticleControlTransformForward(particle, 1, self.parent:GetAbsOrigin()+ Vector(0,0,130)+self.parent:GetRightVector() * - 20,self.parent:GetForwardVector())
 	ParticleManager:SetParticleControlTransformForward(particle, 5, self.parent:GetAbsOrigin()+ Vector(0,0,130) + self.parent:GetForwardVector() *  50,self.parent:GetForwardVector())
     ParticleManager:ReleaseParticleIndex(particle)
-	local blow_fx =     ParticleManager:CreateParticle("particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf", PATTACH_CUSTOMORIGIN, self.target)
+	local blow_fx =     ParticleManager:CreateParticle(SkinParticle(self:GetParent(), "particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf"), PATTACH_CUSTOMORIGIN, self.target)
 	ParticleManager:SetParticleControl(blow_fx, 0, position)
 	ParticleManager:ReleaseParticleIndex(blow_fx)
 	--ParticleManager:SetParticleControlTransformForward(attackFx, 0, self.parent:GetAbsOrigin(), direction)
@@ -197,8 +198,8 @@ function modifier_cu_rush:BOOM()
     	if not self.target:IsMagicImmune() then
             Timers:CreateTimer(0.1, function()
                 DoDamage(self.parent, self.target, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-                self.target:EmitSound("cu_pierce_new")
-                self.target:EmitSound("cu_pierce_new_2")
+                self.target:EmitSound(SkinSound(self.parent, "cu_pierce_new"))
+                self.target:EmitSound(SkinSound(self.parent, "cu_pierce_new_2"))
 				giveUnitDataDrivenModifier(self.parent, self.target, "silenced", self.ability:GetSpecialValueFor("silence_duration"))
                 if self.parent:GetHealth() < self.parent:GetMaxHealth() then
                     local diff = self.parent:GetMaxHealth() - self.parent:GetHealth()
@@ -235,7 +236,7 @@ function modifier_cu_rush:OnHorizontalMotionInterrupted()
 end
 
 function modifier_cu_rush:GetEffectName()
-    return "particles/hijikata/hijikata_run_test.vpcf"
+    return SkinParticle(self:GetParent(), "particles/hijikata/hijikata_run_test.vpcf")
 end
 
 function modifier_cu_rush:GetEffectAttachType()

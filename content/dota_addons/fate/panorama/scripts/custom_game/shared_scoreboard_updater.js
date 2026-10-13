@@ -61,7 +61,8 @@ function _BillyWanted_LocalPick( data )
 	if ( !data || !data.hunters )
 		return null;
 	var h = data.hunters[ String( Game.GetLocalPlayerID() ) ];
-	if ( !h || h.target != -1 || Game.GetGameTime() > h.pick_end )
+	// окно открыто и с назначенной целью: её можно сменить каждый раунд (юзер 12.10.2026)
+	if ( !h || Game.GetGameTime() > h.pick_end )
 		return null;
 	return h;
 }
@@ -76,7 +77,7 @@ function _BillyWanted_TryPick( playerId )
 	if ( !h )
 		return false;
 	var info = Game.GetPlayerInfo( playerId );
-	if ( !info || info.player_team_id == h.team || info.player_selected_hero_id == -1 )
+	if ( !info || info.player_team_id == h.team || info.player_selected_hero_id == -1 || playerId == h.target )
 		return false;
 	GameEvents.SendCustomGameEventToServer( "billy_wanted_pick", { target: playerId } );
 	return true;
@@ -100,7 +101,8 @@ function _BillyWanted_UpdatePanel( playerPanel, playerId, playerInfo )
 		}
 	}
 	var pick = _BillyWanted_LocalPick( data );
-	var pickable = !!pick && playerInfo.player_team_id != pick.team && playerInfo.player_selected_hero_id != -1;
+	var pickable = !!pick && playerInfo.player_team_id != pick.team && playerInfo.player_selected_hero_id != -1
+		&& playerId != pick.target;
 
 	playerPanel.SetHasClass( "billy_wanted", wanted );
 	playerPanel.SetHasClass( "billy_wanted_claimed", wanted && claimed );

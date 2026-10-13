@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 modifier_rune_of_flame = class({})
 
 if IsServer() then
@@ -24,12 +25,12 @@ if IsServer() then
 
 			end
 
-			parent:EmitSound("Hero_TemplarAssassin.Trap.Explode")
+			parent:EmitSound(SkinSound(self:GetCaster(), "Hero_TemplarAssassin.Trap.Explode"))
 
 			local fxDummy = CreateUnitByName("dummy_unit", parent:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 			fxDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)	
 
-			local trapFX = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf", PATTACH_ABSORIGIN_FOLLOW, fxDummy)
+			local trapFX = ParticleManager:CreateParticle(SkinParticle(caster, "particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf"), PATTACH_ABSORIGIN_FOLLOW, fxDummy)
 			ParticleManager:SetParticleControl(trapFX, 0, fxDummy:GetAbsOrigin())
 
 			Timers:CreateTimer(2, function()

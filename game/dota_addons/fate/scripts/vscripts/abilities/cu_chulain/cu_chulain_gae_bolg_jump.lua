@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 cu_chulain_gae_bolg_jump = class({})
 
 LinkLuaModifier("modifier_self_disarm", "abilities/cu_chulain/modifiers/modifier_self_disarm", LUA_MODIFIER_MOTION_NONE)
@@ -40,7 +41,7 @@ end
 
 function cu_chulain_gae_bolg_jump:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	self.GBCastFx = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	self.GBCastFx = ParticleManager:CreateParticle(SkinParticle(caster, "particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"), PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(self.GBCastFx, 1, caster:GetAbsOrigin()) -- target effect location
 	ParticleManager:SetParticleControl(self.GBCastFx, 2, caster:GetAbsOrigin()) -- circle effect location
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.7})
@@ -57,7 +58,7 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 	local ascendCount = 0
 	local descendCount = 0	
 
-	EmitGlobalSound("lancer_gae_bolg_2")
+	EmitGlobalSound(SkinSound(caster, "lancer_gae_bolg_2"))
 	self.oldfw = caster:GetForwardVector()
 	local newfw = -(caster:GetAbsOrigin() - targetPoint):Normalized()
 	--newfw.z =
@@ -86,7 +87,7 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 		projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		projectile:SetAbsOrigin(projectileOrigin)
 
-		local particle_name = "particles/cu_chulain/gae_bolg_proj.vpcf"
+		local particle_name = SkinParticle(caster, "particles/cu_chulain/gae_bolg_proj.vpcf")
 		local throw_particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, projectile)
 		ParticleManager:SetParticleControl(throw_particle, 1, (targetPoint - projectileOrigin):Normalized() * projectileSpeed)
 
@@ -163,14 +164,14 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 	        v:AddNewModifier(v, nil, "modifier_knockback", modifierKnockback )
 	    end
 	    projectile:SetAbsOrigin(targetPoint)
-	    local fire = ParticleManager:CreateParticle("particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf", PATTACH_ABSORIGIN, projectile)
-		local crack = ParticleManager:CreateParticle("particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf", PATTACH_ABSORIGIN, projectile)
-		local explodeFx1 = ParticleManager:CreateParticle("particles/custom/lancer/lancer_gae_bolg_hit.vpcf", PATTACH_ABSORIGIN, projectile )
+	    local fire = ParticleManager:CreateParticle(SkinParticle(caster, "particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf"), PATTACH_ABSORIGIN, projectile)
+		local crack = ParticleManager:CreateParticle(SkinParticle(caster, "particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf"), PATTACH_ABSORIGIN, projectile)
+		local explodeFx1 = ParticleManager:CreateParticle(SkinParticle(caster, "particles/custom/lancer/lancer_gae_bolg_hit.vpcf"), PATTACH_ABSORIGIN, projectile )
 		ParticleManager:SetParticleControl( fire, 0, projectile:GetAbsOrigin())
 		ParticleManager:SetParticleControl( crack, 0, projectile:GetAbsOrigin())
 		ParticleManager:SetParticleControl( explodeFx1, 0, projectile:GetAbsOrigin())
 		ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
-		caster:EmitSound("Misc.Crash")
+		caster:EmitSound(SkinSound(caster, "Misc.Crash"))
 	    Timers:CreateTimer( 3.0, function()
 			ParticleManager:DestroyParticle( crack, false )
 			ParticleManager:DestroyParticle( fire, false )
@@ -192,7 +193,7 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 	        Source = hCaster.gbDummy,
 	        Ability = self,
 	        level = 0,
-	        EffectName = "particles/custom/lancer/soaring/spear.vpcf",
+	        EffectName = SkinParticle(caster, "particles/custom/lancer/soaring/spear.vpcf"),
 	        iMoveSpeed = 3000,
 	        vSourceLoc = hCaster.gbDummy:GetAbsOrigin(),
 	        bDodgeable = false,
@@ -211,7 +212,7 @@ function cu_chulain_gae_bolg_jump:OnProjectileHit_ExtraData(hTarget, vLocation, 
 	hTarget:RemoveModifierByName("modifier_self_disarm")
 	caster.gbDummy:RemoveSelf()
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START, rate=2})
-	caster:EmitSound("cu_chulain_gae_bolg_retrieve")
+	caster:EmitSound(SkinSound(caster, "cu_chulain_gae_bolg_retrieve"))
 	Timers:CreateTimer(0.033,function()
 		ProjectileManager:DestroyLinearProjectile(caster.gbProjectile)
    end)

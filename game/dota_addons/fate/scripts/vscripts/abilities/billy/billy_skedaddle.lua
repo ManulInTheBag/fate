@@ -12,6 +12,11 @@
 require("abilities/billy/billy_shared")
 
 billy_skedaddle = billy_skedaddle or class({})
+
+-- дальность каста = дальность выстрела, см. BILLY_CAST_RANGE в billy_shared
+function billy_skedaddle:GetCastRange(location, target)
+    return Billy_CastRange(self)
+end
 LinkLuaModifier("modifier_billy_skedaddle_motion", "abilities/billy/billy_skedaddle", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_billy_smoke_thinker",    "abilities/billy/billy_skedaddle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_smoke_blind",      "abilities/billy/billy_skedaddle", LUA_MODIFIER_MOTION_NONE)

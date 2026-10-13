@@ -307,6 +307,24 @@ function Barghest_TurnToward(vFrom, vTo, fMaxRad)
     return Vector(math.cos(fA + fD), math.sin(fA + fD), 0)
 end
 
+-- Можно ли тут стоять: проходимо и не занято (деревья, блокеры).
+function Barghest_DashFree(vPos)
+    return GridNav:IsTraversable(vPos) and not GridNav:IsBlocked(vPos)
+end
+
+--[[ Где кончается препятствие, начатое в vFrom, если идти по vDir не дальше
+     nDepth. Шаг 32 — полклетки сетки, тоньше стен не бывает. Выхода нет —
+     возвращает саму vFrom (она занята, Barghest_DashFree скажет «нет»). ]]
+function Barghest_DashExit(vFrom, vDir, nDepth)
+    for fD = 32, nDepth, 32 do
+        local vPos = vFrom + vDir * fD
+        if Barghest_DashFree(vPos) then
+            return vPos
+        end
+    end
+    return vFrom
+end
+
 --[[ Зарядить продолжение R. Вызывается из Q/W/E.
      ⚠️ Пока R не изучена, заряжать нечего — окно берётся из её значений. ]]
 function Barghest_ArmContinuation(hCaster, nBranch)

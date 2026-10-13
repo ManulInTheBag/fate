@@ -1,0 +1,317 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	vespa_gae_bolg_voice = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_gae_bolg_voice_1.vsnd",
+			"sounds/vespa/vespa_gae_bolg_voice_2.vsnd",
+			"sounds/vespa/vespa_gae_bolg_voice_3.vsnd",
+			"sounds/vespa/vespa_gae_bolg_voice_4.vsnd",
+		]
+		volume = "6.051847"
+		pitch = "1.000000"
+	}
+
+	vespa_gae_bolg_jump_voice = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_gae_bolg_jump_voice_1.vsnd",
+			"sounds/vespa/vespa_gae_bolg_jump_voice_2.vsnd",
+			"sounds/vespa/vespa_gae_bolg_jump_voice_3.vsnd",
+		]
+		volume = "2.682707"
+		pitch = "1.000000"
+	}
+
+	vespa_combo_voice_1 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_combo_voice_1.vsnd",
+		]
+		volume = "7.728532"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_combo_voice_2 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_combo_voice_2.vsnd",
+		]
+		volume = "6.729590"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_combo_voice_3 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_combo_voice_3.vsnd",
+		]
+		volume = "10.284843"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_combo_voice_4 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_combo_voice_4.vsnd",
+		]
+		volume = "5.643206"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_dash_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_dash_1_1.vsnd",
+			"sounds/vespa/vespa_dash_1_2.vsnd",
+			"sounds/vespa/vespa_dash_1_3.vsnd",
+		]
+		volume = "7.970041"
+		pitch = "1.000000"
+	}
+
+	vespa_dash_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_dash_2_1.vsnd",
+			"sounds/vespa/vespa_dash_2_2.vsnd",
+			"sounds/vespa/vespa_dash_2_3.vsnd",
+		]
+		volume = "7.837360"
+		pitch = "1.000000"
+	}
+
+	vespa_flurry_1 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_flurry_1.vsnd",
+		]
+		volume = "5.642269"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_flurry_2 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_flurry_2.vsnd",
+		]
+		volume = "6.417348"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_flurry_3 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_flurry_3.vsnd",
+		]
+		volume = "5.121888"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_flurry_4 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_flurry_4.vsnd",
+		]
+		volume = "5.002668"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_frost_cast_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_frost_cast_1.vsnd",
+		]
+		volume = "7.365192"
+		pitch = "1.000000"
+	}
+
+	vespa_frost_cast_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_frost_cast_2.vsnd",
+		]
+		volume = "8.356280"
+		pitch = "1.000000"
+	}
+
+	vespa_protection_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_protection_1.vsnd",
+		]
+		volume = "6.932915"
+		pitch = "1.000000"
+	}
+
+	vespa_protection_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_protection_2.vsnd",
+		]
+		volume = "7.930360"
+		pitch = "1.000000"
+	}
+
+	vespa_battlecont = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_battlecont.vsnd",
+		]
+		volume = "9.228029"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vespa_pierce_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_pierce_1_1.vsnd",
+			"sounds/vespa/vespa_pierce_1_2.vsnd",
+		]
+		volume = "9.171415"
+		pitch = "1.000000"
+	}
+
+	vespa_pierce_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_pierce_2.vsnd",
+		]
+		volume = "5.850489"
+		pitch = "1.000000"
+	}
+
+	vespa_flurry_hit = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_flurry_hit.vsnd",
+		]
+		volume = "5.906542"
+		pitch = "1.000000"
+	}
+
+	vespa_disengage = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_disengage.vsnd",
+		]
+		volume = "20.000000"
+		pitch = "1.000000"
+	}
+
+	vespa_rune_of_flame = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_rune_of_flame.vsnd",
+		]
+		volume = "7.434916"
+		pitch = "1.000000"
+	}
+
+	vespa_retrieve = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_retrieve_1.vsnd",
+			"sounds/vespa/vespa_retrieve_2.vsnd",
+		]
+		volume = "1.553204"
+		pitch = "1.000000"
+	}
+
+	vespa_jump_crash = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_jump_crash.vsnd",
+		]
+		volume = "7.927057"
+		pitch = "1.000000"
+	}
+
+	vespa_combo_channel = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_combo_channel.vsnd",
+		]
+		volume = "10.635563"
+		pitch = "1.000000"
+	}
+
+	vespa_combo_hit_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vespa/vespa_combo_hit_1.vsnd",
+		]
+		volume = "10.656741"
+		pitch = "1.000000"
+	}
+
+	vespa_combo_hit_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = ""
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+}

@@ -18,7 +18,7 @@
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"3"
 		"AbilityManaCost"				"100"
-		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityCastRange"				"1000"	// = range; играет GetCastRange (+ бонус E), точку за радиусом подтягивает BillyCastRangeOrderFilter
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
@@ -41,7 +41,8 @@
 		}
 		"AbilityValues"
 		{
-			"damage"					"150 188 225 263 300"
+			"shot_damage"				"250 313 375 438 500"	// по линии выстрела (юзер 12.10.2026: было общее 150–300)
+			"ricochet_damage"			"150 188 225 263 300"	// каждый рикошет
 			"turn_pct"				"300"		// после выстрела разворот быстрее на столько % (модификатор быстрого разворота)
 			"turn_duration"			"1.5"
 			"range"						"1000"
@@ -81,7 +82,7 @@
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"13 12 11 10 9"
 		"AbilityManaCost"				"200"
-		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityCastRange"				"1000"	// = range; играет GetCastRange (+ бонус E), точку за радиусом подтягивает BillyCastRangeOrderFilter
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"	// анимация Q (юзер 07.10.2026)
 
@@ -116,7 +117,7 @@
 			// рекаст W, пока пуля летит: разрыв на дробь конусом из точки пули
 			"pellets"					"6"
 			"cone_angle"				"45"		// весь конус, крайние дробинки на ±половину
-			"pellet_range"				"400"
+			"pellet_range"				"600"	// юзер 12.10.2026: 400→600
 			"pellet_damage"				"150 188 225 263 300"	// за дробинку, гаснет на первом враге
 			"max_hits"				"3"		// попаданий одного каста (пуля + дробь) по одной цели, не больше
 			"turn_pct"				"300"		// после выстрела разворот быстрее на столько % (модификатор быстрого разворота)
@@ -151,7 +152,7 @@
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"15 14 13 12 11"
 		"AbilityManaCost"				"200"
-		"AbilityCastRange"				"10000"	// направление прыжка: к точке не подходит
+		"AbilityCastRange"				"600"	// = distance; играет GetCastRange, точку за радиусом подтягивает BillyCastRangeOrderFilter
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 
@@ -211,6 +212,9 @@
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
 			"particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"	// чутьё цели Young Outlaw Leader
+			"particle"	"particles/billy/billy_wanted_mark.vpcf"	// и сходящееся кольцо на цели (копия метки JTR)
+			"particle"	"particles/billy/billy_wanted_line.vpcf"	// и линия от Билли к цели
+			"particle"	"particles/billy/billy_wanted_line_core.vpcf"
 			// автоатака и доп. выстрелы — пуля Билли (Billy_AttackBulletFx), снаряд невидимый
 			"particle"	"particles/billy/billy_bullet_1.vpcf"
 			"particle"	"particles/billy/billy_trail.vpcf"
@@ -231,9 +235,9 @@
 			"run_speed"					"500"	// анимация бега только выше этой скорости, иначе ходьба
 			// атрибут Young Outlaw Leader (награда за голову, billy_wanted.lua)
 			"wanted_pick_time"			"15"	// выбор цели: весь пре-раунд + столько секунд боя
-			"wanted_sense_radius"		"2000"
+			"wanted_sense_radius"		"3000"	// юзер 12.10.2026: 2000→2500→3000
 			"wanted_sense_interval"		"5"
-			"wanted_sense_show"			"2"		// знак Track над целью + линия от Билли от пассивного чутья (только если цель не видна; юзер 09.10.2026: 1→2)
+			"wanted_sense_show"			"2"		// кольцо (метка JTR) + знак Track + линия от Билли от пассивного чутья (только если цель не видна; юзер 09.10.2026: 1→2)
 			"wanted_sense_show_resonator"	"3"		// то же по Presence Resonator (юзер 09.10.2026: 2→3)
 			"wanted_gold_billy"		"1500"	// Билли за голову цели
 			"wanted_gold"				"500"	// остальным участникам убийства
@@ -288,7 +292,7 @@
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"40"
 		"AbilityManaCost"				"800"
-		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityCastRange"				"2000"	// = radius (длина конуса); играет GetCastRange, точку за радиусом подтягивает BillyCastRangeOrderFilter
 		"AbilityChannelTime"			"2"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
@@ -365,7 +369,7 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"600"
-		"AbilityCastRange"				"10000"	// за радиусом стреляет в направлении, к точке не идёт
+		"AbilityCastRange"				"2500"	// = range; играет GetCastRange, точку за радиусом подтягивает BillyCastRangeOrderFilter
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"	// вынимает револьвер (замах Highnoon)
 
@@ -440,9 +444,9 @@
 		"AbilityValues"		// только тултип — играет billy_bullets_to_spare (billy_wanted.lua)
 		{
 			"wanted_pick_time"			"15"	// выбор цели: весь пре-раунд + столько секунд боя
-			"wanted_sense_radius"		"2000"
+			"wanted_sense_radius"		"3000"	// юзер 12.10.2026: 2000→2500→3000
 			"wanted_sense_interval"		"5"
-			"wanted_sense_show"			"2"		// знак Track над целью + линия от Билли от пассивного чутья (только если цель не видна; юзер 09.10.2026: 1→2)
+			"wanted_sense_show"			"2"		// кольцо (метка JTR) + знак Track + линия от Билли от пассивного чутья (только если цель не видна; юзер 09.10.2026: 1→2)
 			"wanted_sense_show_resonator"	"3"		// то же по Presence Resonator (юзер 09.10.2026: 2→3)
 			"wanted_gold_billy"		"1500"	// Билли за голову цели
 			"wanted_gold"				"500"	// остальным участникам убийства

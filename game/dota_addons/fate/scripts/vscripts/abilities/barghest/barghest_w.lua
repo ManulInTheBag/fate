@@ -22,6 +22,7 @@ barghest_w = class({})
 
 LinkLuaModifier("modifier_barghest_w_stance", "abilities/barghest/barghest_w", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_cc_immune", "abilities/barghest/barghest_w", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_barghest_w_guard", "abilities/barghest/barghest_w", LUA_MODIFIER_MOTION_NONE)
 function barghest_w:GetAOERadius()
     return Barghest_Radius(self:GetCaster(), self:GetSpecialValueFor("slam_radius"))
 end
@@ -48,6 +49,8 @@ function barghest_w:OnSpellStart()
     Barghest_Voice(hCaster, BARGHEST_VO.W, 3.0)	-- «Клянусь этим мечом…»
 
     self.bSlammed = false
+    self.fCastTime = GameRules:GetGameTime()    -- от него считается окно быстрой отмены в R
+    self.tPending = nil                         -- недорешённая отмена от прошлой стойки
     StartAnimation(hCaster, {duration = self:GetChannelTime(),
         activity = ACT_DOTA_CHANNEL_ABILITY_1, rate = 1.0})
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_w_stance",
@@ -64,20 +67,102 @@ function barghest_w:OnChannelFinish(bInterrupted)
     local hCaster = self:GetCaster()
     local hStance = hCaster:FindModifierByName("modifier_barghest_w_stance")
     local fAbsorbed = (hStance ~= nil) and (hStance.fAbsorbed or 0) or 0
+    local nBarrier  = (hStance ~= nil and not hStance.bBroken) and hStance:GetStackCount() or 0
 
     hCaster:RemoveModifierByName("modifier_barghest_w_stance")
     EndAnimation(hCaster)
 
-    -- Не было урона — нет удара. Был — тем сильнее, чем больше по ней прилетело.
-    if fAbsorbed > 0 then
-        self:Slam(hCaster, fAbsorbed)
-    else
-         hCaster:RemoveModifierByName("modifier_barghest_cc_immune")
-    end
     -- Продолжение — за сам выход из стойки: WR по концепту способ разорвать
     -- дистанцию, и завязывать его на «успели ли ударить» значило бы
     -- «прижали — и не выйдешь».
     Barghest_ArmContinuation(hCaster, BARGHEST_CONT_W)
+
+    local bEarly = bInterrupted and self.fCastTime ~= nil
+        and GameRules:GetGameTime() - self.fCastTime <= self:GetSpecialValueFor("quick_cancel_window")
+    if not bEarly then
+        self:EndStance(hCaster, fAbsorbed)
+        return
+    end
+
+    -- Быстрая отмена в R: удара нет, мана назад, остаток барьера ещё висит.
+    local bIntoR = self:IsCancelledIntoR(hCaster)
+    print(string.format("[barghest_w] early cancel %.2fs, into R = %s, barrier %d",
+        GameRules:GetGameTime() - self.fCastTime, tostring(bIntoR), nBarrier))
+    if bIntoR then
+        self:QuickCancel(hCaster, nBarrier)
+        return
+    end
+
+    --[[ Стойку оборвали рано, но не R: мувом, стопом, чем угодно. По слову
+         юзера это тоже быстрая отмена, если R нажат следом — ждём его
+         quick_cancel_wait секунд: R в OnAbilityPhaseStart сам зовёт
+         ClaimQuickCancel. Не дождались — обычный конец стойки (удар, если по
+         ней прилетело).
+         Иммунитет к контролю на время ожидания НЕ держим, если удара не будет:
+         иначе мув после W давал бы бесплатную секунду иммунитета. ]]
+    if fAbsorbed <= 0 then
+        hCaster:RemoveModifierByName("modifier_barghest_cc_immune")
+    end
+    local tPending = {nBarrier = nBarrier, fAbsorbed = fAbsorbed}
+    self.tPending = tPending
+    local hAbility = self
+    Timers:CreateTimer(self:GetSpecialValueFor("quick_cancel_wait"), function()
+        if not Barghest_Alive(hAbility) or hAbility.tPending ~= tPending then return end
+        hAbility.tPending = nil
+        print("[barghest_w] no R phase in time -> normal end")
+        if Barghest_Alive(hCaster) then
+            hAbility:EndStance(hCaster, tPending.fAbsorbed)
+        end
+    end)
+end
+
+--[[ R вошёл в замах: если стойка только что оборвана рано и ждёт решения —
+     это и была отмена в R. ]]
+function barghest_w:ClaimQuickCancel()
+    local tPending = self.tPending
+    if tPending == nil then return end
+    self.tPending = nil
+    print("[barghest_w] claimed by R phase")
+    local hCaster = self:GetCaster()
+    if Barghest_Alive(hCaster) then
+        self:QuickCancel(hCaster, tPending.nBarrier)
+    end
+end
+
+-- Не было урона — нет удара. Был — тем сильнее, чем больше по ней прилетело.
+function barghest_w:EndStance(hCaster, fAbsorbed)
+    if fAbsorbed > 0 then
+        self:Slam(hCaster, fAbsorbed)
+    else
+        hCaster:RemoveModifierByName("modifier_barghest_cc_immune")
+    end
+end
+
+--[[ Стойку оборвало именно R, и он уже в замахе (или только что из него).
+     Обычно это не так: R — каст в точку, она сперва доворачивается к курсору,
+     и канал рвётся раньше замаха. Такой случай ловит ожидание tPending и
+     ClaimQuickCancel из замаха R. ]]
+function barghest_w:IsCancelledIntoR(hCaster)
+    local hR = hCaster:FindAbilityByName("barghest_r")
+    if not Barghest_Alive(hR) then return false end
+    if hR:IsInAbilityPhase() then return true end
+    return hR.fLastPhase ~= nil and GameRules:GetGameTime() - hR.fLastPhase <= 0.1
+end
+
+--[[ W сразу отменили в R (за quick_cancel_window после каста): удара нет,
+     часть маны возвращается, а недобитый барьер ещё quick_cancel_barrier
+     секунд висит на ней отдельным модификатором — уже без стойки и без
+     иммунитета к контролю. ]]
+function barghest_w:QuickCancel(hCaster, nBarrier)
+    hCaster:RemoveModifierByName("modifier_barghest_cc_immune")
+    hCaster:GiveMana(self:GetSpecialValueFor("quick_cancel_mana"))
+    if nBarrier > 0 and hCaster:IsAlive() then
+        local hGuard = hCaster:AddNewModifier(hCaster, self, "modifier_barghest_w_guard",
+            {duration = self:GetSpecialValueFor("quick_cancel_barrier")})
+        if Barghest_Alive(hGuard) then
+            hGuard:SetStackCount(nBarrier)
+        end
+    end
 end
 
 --[[ Удар об землю. fAbsorbed — сколько урона по ней прошло за стойку: он и
@@ -317,4 +402,66 @@ end
 
 function modifier_barghest_cc_immune:IsHidden()
 	return false
+end
+
+---------------------------------------------------------------------------------------------------
+-- Остаток барьера после быстрой отмены W в R. Только поглощение: без стойки,
+-- без подпитки, без иммунитета к контролю и без удара. Стаки = сколько осталось.
+---------------------------------------------------------------------------------------------------
+modifier_barghest_w_guard = class({})
+
+function modifier_barghest_w_guard:IsHidden()      return false end
+function modifier_barghest_w_guard:IsDebuff()      return false end
+function modifier_barghest_w_guard:IsPurgable()    return true end
+function modifier_barghest_w_guard:RemoveOnDeath() return true end
+
+function modifier_barghest_w_guard:GetTexture()
+    return "custom/barghest/barghest_w"
+end
+
+function modifier_barghest_w_guard:OnCreated()
+    if not IsServer() then return end
+    self.hParent = self:GetParent()
+    if self.nFx == nil then
+        self.nFx = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.BARRIER, self.hParent),
+            PATTACH_CUSTOMORIGIN_FOLLOW, self.hParent)
+        self:AddParticle(self.nFx, true, false, -1, false, false)
+    end
+end
+
+function modifier_barghest_w_guard:DeclareFunctions()
+    return {
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
+    }
+end
+
+--[[ Съедает урон, пока есть стаки; что сверх — проходит в том же ударе
+     (возвращаем блок только на остаток барьера, отдельного ApplyDamage нет).
+     ⚠️ Destroy — только следующим тиком: прямо отсюда он роняет сервер. ]]
+function modifier_barghest_w_guard:GetModifierIncomingDamageConstant(keys)
+    if not IsServer() then
+        return self:GetStackCount()
+    end
+    if keys.damage <= 0 or self.bBroken then return 0 end
+
+    local fIncoming = keys.original_damage or keys.damage
+    local nBlock = math.min(self:GetStackCount(), fIncoming)
+    if keys.attacker ~= self.hParent then
+        local hFury = self.hParent:FindModifierByName("modifier_barghest_d")
+        if hFury ~= nil and hFury.AddDamage ~= nil then
+            hFury:AddDamage(nBlock)
+        end
+    end
+
+    if nBlock < self:GetStackCount() then
+        self:SetStackCount(self:GetStackCount() - nBlock)
+    else
+        self.bBroken = true
+        self:SetStackCount(0)
+        local hSelf = self
+        Timers:CreateTimer(0, function()
+            if Barghest_Alive(hSelf) then hSelf:Destroy() end
+        end)
+    end
+    return -nBlock
 end

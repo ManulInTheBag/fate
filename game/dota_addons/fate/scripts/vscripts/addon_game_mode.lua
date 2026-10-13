@@ -738,6 +738,11 @@ function Precache( context )
     PrecacheResource("model", "models/diarmuid/diar_skin_no_sword.vmdl", context)
     PrecacheResource("model", "models/zlodemon/shiki_ryougi_skin/ryougi_skin_2.vmdl", context)
     PrecacheResource("model", "models/lu_bu/jia_qiu.vmdl", context)
+    -- Cu Chulainn skin 1: Vespa (model, thrown harpoon, yellow particle copies)
+    PrecacheResource("model", "models/cu_chulain/vespa.vmdl", context)
+    PrecacheResource("model", "models/cu_chulain/vespa_harpoon.vmdl", context)
+    PrecacheResource("particle_folder", "particles/custom/vespa", context)
+    PrecacheResource("soundfile", "soundevents/hero_vespa.vsndevts", context)
     PrecacheResource("model", "models/lu_bu/jia_qiu_staff.vmdl", context)
     
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
@@ -5109,6 +5114,12 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
             if not BillyTripleShotOrderFilter(hUnit, hAbility, iOrder) then
                 return false
             end
+        end
+
+        -- Билли: точку каста дальше радиуса подтягиваем на край — стреляет в направлении,
+        -- а не идёт к точке (радиус настоящий, чтобы круг дальности был виден на кнопке)
+        if type(BillyCastRangeOrderFilter) == "function" then
+            BillyCastRangeOrderFilter(hUnit, hAbility, iOrder, hFilterTable)
         end
 
         -- Chain Hunt: в зарядке и в разбеге Barghest пропускаем только движение

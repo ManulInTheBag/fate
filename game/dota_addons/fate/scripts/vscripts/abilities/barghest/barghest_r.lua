@@ -52,6 +52,11 @@ function barghest_r:GetArmedBranch()
     if hCaster == nil or type(hCaster.GetModifierStackCount) ~= "function" then
         return 0
     end
+    -- Посреди стойки W продолжение ещё не заряжено (его вешает выход из
+    -- стойки), но R уже можно жать — каст оборвёт стойку и даст таран.
+    if hCaster:HasModifier("modifier_barghest_w_stance") then
+        return BARGHEST_CONT_W
+    end
     return hCaster:GetModifierStackCount("modifier_barghest_continuation", hCaster) or 0
 end
 
@@ -73,7 +78,13 @@ function barghest_r:GetContinuationBranch()
     local hCaster = self:GetCaster()
     if hCaster == nil or type(hCaster.FindModifierByName) ~= "function" then return nil end
     local hMod = hCaster:FindModifierByName("modifier_barghest_continuation")
-    if hMod == nil then return nil end
+    if hMod == nil then
+        -- R прямо из стойки W: см. GetArmedBranch.
+        if hCaster:HasModifier("modifier_barghest_w_stance") then
+            return BARGHEST_CONT_W
+        end
+        return nil
+    end
     return hMod:GetStackCount()
 end
 
@@ -120,6 +131,15 @@ end
      переключал клип при смене заряженной ветки. ]]
 function barghest_r:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
+    -- Для barghest_w — стойку оборвал именно R. Если стойка уже кончилась и
+    -- ждёт решения (R доворачивался к курсору), забираем отмену себе.
+    if IsServer() then
+        self.fLastPhase = GameRules:GetGameTime()
+        local hW = caster:FindAbilityByName("barghest_w")
+        if Barghest_Alive(hW) and hW.ClaimQuickCancel ~= nil then
+            hW:ClaimQuickCancel()
+        end
+    end
     EndAnimation(caster)
 	StartAnimation(caster, {duration = self:GetCastPoint(),
         activity = BARGHEST_R_ACT[self:GetArmedBranch()] or ACT_DOTA_CAST_ABILITY_6,

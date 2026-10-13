@@ -186,7 +186,9 @@ function barghest_e:LaunchDash()
     -- Расчётное время полёта плюс dash_anim_tail: это ПОТОЛОК, обычно рывок
     -- кончается раньше сам (доехал, упёрся, влетел во врага). Запас нужен,
     -- потому что доворот удлиняет путь по сравнению с прямой линией.
-    local fLife = nDistance / self:GetSpecialValueFor("speed")
+    -- wall_pass_depth сверху: рывок, кончившийся внутри стенки, дотягивает до выхода.
+    local fLife = (nDistance + self:GetSpecialValueFor("wall_pass_depth"))
+                  / self:GetSpecialValueFor("speed")
                   + self:GetSpecialValueFor("dash_anim_tail")
 
     hCaster:EmitSound(BARGHEST_SND.E_DASH)
@@ -377,6 +379,8 @@ function modifier_barghest_e_dash:OnCreated(tTable)
     self.hHit       = nil       -- в кого впечатались; он же оборвал рывок
     self.nRetries   = 0
     self.fTurnRate  = math.rad(self.hAbility:GetSpecialValueFor("turn_rate"))
+    self.nWallPass  = self.hAbility:GetSpecialValueFor("wall_pass_depth")
+    self.fWallLeft  = nil       -- не nil = сейчас идём сквозь препятствие, столько ещё можно
 
     self.hParent:SetForwardVector(self.vDir)
     if not self:ApplyHorizontalMotionController() then
@@ -440,12 +444,35 @@ function modifier_barghest_e_dash:UpdateHorizontalMotion(hUnit, fTime)
     -- дуге расстояние до точки старта почти не растёт, и рывок стал бы
     -- бесконечным.
     self.fTravelled = self.fTravelled + fStep
-    if not GridNav:IsTraversable(vNext) or GridNav:IsBlocked(vNext)
-       or self.fTravelled > self.nDistance then
-        self:Destroy()
-        return
+
+    --[[ Препятствия. Раньше рывок обрывался о любую непроходимую клетку —
+         о порожек, тонкую стенку, дерево. Теперь в препятствие входим, только
+         если за ним в пределах wall_pass_depth есть свободное место, и идём
+         насквозь; толще — это здание, о него и останавливаемся.
+         Дальность внутри препятствия не обрывает рывок: застрять в стене нельзя,
+         доходим до выхода (но не дальше wall_pass_depth — страховка от
+         доворота внутри). ]]
+    if Barghest_DashFree(vNext) then
+        self.fWallLeft = nil
+        if self.fTravelled > self.nDistance then
+            self:Destroy()
+            return
+        end
+    else
+        if self.fWallLeft == nil then
+            if not Barghest_DashFree(Barghest_DashExit(vNext, self.vDir, self.nWallPass)) then
+                self:Destroy()
+                return
+            end
+            self.fWallLeft = self.nWallPass
+        end
+        self.fWallLeft = self.fWallLeft - fStep
+        if self.fWallLeft < 0 then
+            self:Destroy()
+            return
+        end
     end
-    hUnit:SetAbsOrigin(vNext)
+    hUnit:SetAbsOrigin(GetGroundPosition(vNext, hUnit))
 
     --[[ Столкновение. Врага НЕ везём: кого задели — того и сковали на месте, а
          рывок на этом кончается. Поэтому ищем только первого и сразу выходим.

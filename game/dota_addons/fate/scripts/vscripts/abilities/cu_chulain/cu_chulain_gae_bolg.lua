@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 cu_chulain_gae_bolg = class({})
 
 function cu_chulain_gae_bolg:CastFilterResultTarget(hTarget)
@@ -25,7 +26,7 @@ end
 
 function cu_chulain_gae_bolg:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	local GBCastFx = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local GBCastFx = ParticleManager:CreateParticle(SkinParticle(caster, "particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"), PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(GBCastFx, 1, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(GBCastFx, 2, caster:GetAbsOrigin())
 
@@ -34,13 +35,13 @@ function cu_chulain_gae_bolg:OnAbilityPhaseStart()
 	end)
 
 	--caster:EmitSound("Lancer.GaeBolg")
-	caster:EmitSound("cu_chulain_gae_bolg_voice")
+	caster:EmitSound(SkinSound(caster, "cu_chulain_gae_bolg_voice"))
 	return true
 end
 
 function cu_chulain_gae_bolg:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
-	caster:StopSound("cu_chulain_gae_bolg_voice")
+	caster:StopSound(SkinSound(caster, "cu_chulain_gae_bolg_voice"))
 end
 
 function cu_chulain_gae_bolg:OnSpellStart()
@@ -68,11 +69,11 @@ function cu_chulain_gae_bolg:OnSpellStart()
 		FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )
 	end
 
-	local flashIndex = ParticleManager:CreateParticle( "particles/custom/diarmuid/gae_dearg_slash.vpcf", PATTACH_CUSTOMORIGIN, caster )
+	local flashIndex = ParticleManager:CreateParticle( SkinParticle(caster, "particles/custom/diarmuid/gae_dearg_slash.vpcf"), PATTACH_CUSTOMORIGIN, caster )
     ParticleManager:SetParticleControl( flashIndex, 2, original_pos )
     ParticleManager:SetParticleControl( flashIndex, 3, caster:GetAbsOrigin() )
 
-	local particle = ParticleManager:CreateParticle("particles/cu_chulain/gae_bolg_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local particle = ParticleManager:CreateParticle(SkinParticle(caster, "particles/cu_chulain/gae_bolg_pierce.vpcf"), PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin() + Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
     ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+ Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
 	ParticleManager:SetParticleControlTransformForward(particle, 5, target:GetAbsOrigin()+ Vector(0,0,130) + caster:GetForwardVector() * - 50,caster:GetForwardVector())
@@ -89,7 +90,7 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	--target:AddNewModifier(caster, target, "modifier_stunned", {Duration =0.5})
 
 	if target:GetHealth() < hbThreshold and not (target:IsMagicImmune() or target:HasModifier("modifier_avalon")) then
-		local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, target)
+		local hb = ParticleManager:CreateParticle(SkinParticle(caster, "particles/custom/lancer/lancer_heart_break_txt.vpcf"), PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControl( hb, 0, target:GetAbsOrigin())
 		target:Execute(ability, caster, { bExecution = true })
 		print("execute")
@@ -110,11 +111,11 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	-- ParticleManager:SetParticleControlEnt(dagon_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
 	-- local particle_effect_intensity = 600
 	-- ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity))
-	target:EmitSound("cu_pierce_new")
-	target:EmitSound("cu_pierce_new_2")
+	target:EmitSound(SkinSound(caster, "cu_pierce_new"))
+	target:EmitSound(SkinSound(caster, "cu_pierce_new_2"))
 
 	-- Blood splat
-	local splat = ParticleManager:CreateParticle("particles/generic_gameplay/screen_blood_splatter.vpcf", PATTACH_EYES_FOLLOW, target)
+	local splat = ParticleManager:CreateParticle(SkinParticle(caster, "particles/generic_gameplay/screen_blood_splatter.vpcf"), PATTACH_EYES_FOLLOW, target)
 
 	Timers:CreateTimer( 3.0, function()
 		--ParticleManager:DestroyParticle( dagon_particle, false )
@@ -123,7 +124,7 @@ function cu_chulain_gae_bolg:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(splat)
 	end)
 
-	local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, target)
+	local culling_kill_particle = ParticleManager:CreateParticle(SkinParticle(caster, "particles/custom/lancer/lancer_culling_blade_kill.vpcf"), PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 2, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)

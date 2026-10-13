@@ -557,12 +557,24 @@ function modifier_rasputin_combo_haul:OnCreated(kv)
 
     self.hangCurseRate = 0
 
+    -- вис добивает проклятье не до 3-го уровня, а до порога, с которого зона
+    -- дотянет до него ровно за curse_release_window: у выпавшего из сферы
+    -- есть это окно на блинк, пока не сработал димлок
+    local perLevel = self:Value("curse_stacks_per_level")
+    local gainTime = self:Value("curse_gain_time")
+    local fieldRate = gainTime > 0 and (perLevel / gainTime) or 0
+
+    -- +0.001: чтобы сумма тиков зоны с плавающей точкой не недобрала 30
+    -- и уровень 3 не съехал на лишний тик
+    self.hangCurseTarget = math.max(0,
+        self:Value("curse_max_level") * perLevel
+        - fieldRate * self:Value("curse_release_window")
+        + 0.001
+    )
+
     if self.hang > 0 then
 
-        self.hangCurseRate =
-        self:Value("curse_max_level")
-        * self:Value("curse_stacks_per_level")
-        / self.hang
+        self.hangCurseRate = self.hangCurseTarget / self.hang
 
     end
 
@@ -748,10 +760,22 @@ function modifier_rasputin_combo_haul:OnIntervalThink()
         return
     end
 
+    local curse = self.parent:FindModifierByName("modifier_rasputin_curse")
+    local have = curse and curse.raw or 0
+
     if elapsed < self.rise
     or elapsed > self.rise + self.hang
     then
-        RasputinCurse(caster, ability, self.parent, 0)
+        local topUp = 0
+
+        -- первый тик после виса: доливаем до порога, если в окно виса
+        -- попало на тик меньше
+        if elapsed > self.rise + self.hang and not self.hangToppedUp then
+            self.hangToppedUp = true
+            topUp = math.max(0, self.hangCurseTarget - have)
+        end
+
+        RasputinCurse(caster, ability, self.parent, topUp)
         return
     end
 
@@ -759,7 +783,10 @@ function modifier_rasputin_combo_haul:OnIntervalThink()
         caster,
         ability,
         self.parent,
-        self.hangCurseRate * self.damageTick
+        math.min(
+            self.hangCurseRate * self.damageTick,
+            math.max(0, self.hangCurseTarget - have)
+        )
     )
 
     RasputinHitFx(self.parent, nil, caster)

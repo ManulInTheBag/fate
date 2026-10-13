@@ -237,7 +237,8 @@
 	function RefreshWantedHint() {
 		var data = CustomNetTables.GetTableValue('sync', 'billy_wanted');
 		var h = data && data.hunters ? data.hunters[String(Game.GetLocalPlayerID())] : null;
-		var left = h && h.target == -1 && HintEnabled() ? h.pick_end - Game.GetGameTime() : -1;
+		// окно выбора открывается каждый раунд, и с прошлой целью тоже - тогда подсказка про смену
+		var left = h && HintEnabled() ? h.pick_end - Game.GetGameTime() : -1;
 		if (left <= 0) {
 			if (wantedHint) {
 				wantedHint.DeleteAsync(0);
@@ -254,7 +255,8 @@
 			wantedHint.timer = $.CreatePanel('Label', wantedHint, '');
 			wantedHint.timer.AddClass('BillyWantedHintText');
 		}
-		wantedHint.timer.text = $.Localize('#Billy_Wanted_Hint_Text').replace('{s}', String(Math.ceil(left)));
+		var key = h.target == -1 ? '#Billy_Wanted_Hint_Text' : '#Billy_Wanted_Hint_Text_Change';
+		wantedHint.timer.text = $.Localize(key).replace('{s}', String(Math.ceil(left)));
 	}
 
 

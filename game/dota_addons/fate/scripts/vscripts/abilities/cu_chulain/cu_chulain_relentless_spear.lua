@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 cu_chulain_relentless_spear = class({})
 
 LinkLuaModifier("modifier_relentless_spear", "abilities/cu_chulain/modifiers/modifier_relentless_spear", LUA_MODIFIER_MOTION_NONE)
@@ -168,10 +169,10 @@ function cu_chulain_relentless_spear:TigerStrike1()
 	local caster = self:GetCaster()
 	local target  = self:GetCursorPosition()
 	if self:CheckSequence() == 2 then
-		caster:EmitSound("cu_dash_w_2")
+		caster:EmitSound(SkinSound(caster, "cu_dash_w_2"))
 		self:CheckCombo()
 	else
-		caster:EmitSound("cu_dash_w_1")
+		caster:EmitSound(SkinSound(caster, "cu_dash_w_1"))
 		self.isRefreshed = 0
 	end
 	local dist = (caster:GetAbsOrigin() - target):Length2D()
@@ -202,12 +203,12 @@ function cu_chulain_relentless_spear:TigerStrike1()
 		 dir2.z = 0
 		 caster:SetForwardVector(-dir2)
 		 caster:FaceTowards( targets[1]:GetAbsOrigin())
-		 local particle = ParticleManager:CreateParticle("particles/cu_chulain/gae_bolg_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		 local particle = ParticleManager:CreateParticle(SkinParticle(caster, "particles/cu_chulain/gae_bolg_pierce.vpcf"), PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin() + Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
 		ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+ Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
 		ParticleManager:SetParticleControlTransformForward(particle, 5, caster:GetAbsOrigin()+ Vector(0,0,130) + caster:GetForwardVector() *  50,caster:GetForwardVector())
 		ParticleManager:ReleaseParticleIndex(particle)
-		local blow_fx =     ParticleManager:CreateParticle("particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf", PATTACH_CUSTOMORIGIN, self.target)
+		local blow_fx =     ParticleManager:CreateParticle(SkinParticle(caster, "particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf"), PATTACH_CUSTOMORIGIN, self.target)
 		ParticleManager:SetParticleControl(blow_fx, 0, targets[1]:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(blow_fx)
 		Timers:CreateTimer(0.1, function()
@@ -219,8 +220,8 @@ function cu_chulain_relentless_spear:TigerStrike1()
 				else
 					giveUnitDataDrivenModifier(caster, targets[1], "locked", self:GetSpecialValueFor("root_dur"))
 				end
-				targets[1]:EmitSound("cu_pierce_new")
-				targets[1]:EmitSound("cu_pierce_new_2")
+				targets[1]:EmitSound(SkinSound(caster, "cu_pierce_new"))
+				targets[1]:EmitSound(SkinSound(caster, "cu_pierce_new_2"))
 			end
 
 
@@ -247,7 +248,7 @@ function cu_chulain_relentless_spear:TigerStrike3()
 	if IsSpellBlocked(self.target, caster) then
 		ExecuteOrderFromTable(self.stopOrder_self)  return
 		 end
-	caster:EmitSound("cu_skill_" .. math.random(1,4))
+	caster:EmitSound(SkinSound(caster, "cu_skill_" .. math.random(1,4)))
 
 	self.target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.15})
 	caster:AddNewModifier(caster, self, "modifier_relentless_spear", { Duration = self:GetSpecialValueFor("duration") + 0.1,

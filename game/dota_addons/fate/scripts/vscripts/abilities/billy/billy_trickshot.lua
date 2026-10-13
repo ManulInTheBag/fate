@@ -11,6 +11,11 @@
 require("abilities/billy/billy_shared")
 
 billy_trickshot = billy_trickshot or class({})
+
+-- дальность каста = дальность выстрела, см. BILLY_CAST_RANGE в billy_shared
+function billy_trickshot:GetCastRange(location, target)
+    return Billy_CastRange(self)
+end
 LinkLuaModifier("modifier_billy_combo_switch", "abilities/billy/billy_trickshot", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_ricochet_anchor", "abilities/billy/billy_trickshot", LUA_MODIFIER_MOTION_NONE)
 
@@ -27,7 +32,9 @@ function billy_trickshot:CheckCombo()
     local num = 29.1
     if caster:GetStrength() >= num and caster:GetAgility() >= num and caster:GetIntellect() >= num then
         local combo = caster:FindAbilityByName("billy_combo")
-        if combo and combo:IsCooldownReady() then
+        -- Highnoon (R) на КД — окна нет: комбо встаёт на её место и уводит её на КД
+        local r = caster:FindAbilityByName("billy_highnoon")
+        if combo and combo:IsCooldownReady() and r and r:IsCooldownReady() then
             return true
         end
     end
@@ -49,6 +56,8 @@ function billy_trickshot:OnSpellStart()
     -- после Skedaddle (E) дальность больше на дальность рывка
     local range = self:GetSpecialValueFor("range") + Billy_RangeBonus(caster)
     local dist = math.min(dir:Length2D(), range)
+    -- точку за радиусом BillyCastRangeOrderFilter подтянул чуть ближе края — это «на всю дальность»
+    if dist >= range - BILLY_CAST_RANGE_SLACK - 1 then dist = range end
     if dist < 1 then
         dir = caster:GetForwardVector()
         dist = range
@@ -65,7 +74,9 @@ function billy_trickshot:OnSpellStart()
     self.castCounter = (self.castCounter or 0) + 1
     local id = self.castCounter
     -- d: выстрел под D — у всей цепочки пуля/трейл BILLY_FX.d и оранжевые всплески
-    self.casts[id] = { lineHit = {}, ricoHit = {}, ricochetsLeft = ricochets, damage = self:GetSpecialValueFor("damage"),
+    self.casts[id] = { lineHit = {}, ricoHit = {}, ricochetsLeft = ricochets,
+        shotDamage = self:GetSpecialValueFor("shot_damage"),
+        ricochetDamage = self:GetSpecialValueFor("ricochet_damage"),
         d = empowered }
     -- страховка: если цепочка оборвалась без колбэка (цель исчезла), запись не висит вечно
     Timers:CreateTimer(10, function()
@@ -108,7 +119,8 @@ function billy_trickshot:HitTarget(cast, target, stage, from)
         cast.ricoHit[target:entindex()] = true
     end
     Billy_FxImpact(target, "s", from or caster:GetAbsOrigin(), cast.d)
-    local damage = cast.damage
+    -- линия выстрела и рикошеты — разные числа (юзер 12.10.2026)
+    local damage = stage == 0 and cast.shotDamage or cast.ricochetDamage
     Billy_Damage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, self)
     if Billy_HasAttr(caster, 5) and IsNotNull(target) and target:IsAlive() then
         DoDamage(caster, target, caster:GetAgility() * self:GetSpecialValueFor("np_agi_damage"),

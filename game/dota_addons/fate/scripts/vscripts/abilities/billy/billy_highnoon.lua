@@ -23,6 +23,11 @@ require("abilities/billy/billy_shared")
 require("libraries/effect_bars")
 
 billy_highnoon = billy_highnoon or class({})
+
+-- дальность каста = дальность выстрела, см. BILLY_CAST_RANGE в billy_shared
+function billy_highnoon:GetCastRange(location, target)
+    return Billy_CastRange(self)
+end
 LinkLuaModifier("modifier_billy_highnoon_channel", "abilities/billy/billy_highnoon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_highnoon_slow",    "abilities/billy/billy_highnoon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_highnoon_d_slow",  "abilities/billy/billy_highnoon", LUA_MODIFIER_MOTION_NONE)
@@ -227,8 +232,11 @@ function billy_highnoon:MarkTick()
         end
     end
     for _, u in ipairs(units) do
-        -- заряжается только о видимых команде Билли (не в инвизе, не в тумане)
-        if self:InCone(u, origin, angle) and caster:CanEntityBeSeenByMyTeam(u) then
+        -- заряжается только о видимых команде Билли. Тумана внутри конуса нет (SeedVision —
+        -- вьюверы без препятствий), но обзор движок применяет с задержкой: в тумане первые
+        -- тики CanEntityBeSeenByMyTeam ещё false, и цель недобирала 2 метки (90 %, жалоба
+        -- юзера 12.10.2026). Поэтому отсекаем только невидимок, которых команда не видит.
+        if self:InCone(u, origin, angle) and (caster:CanEntityBeSeenByMyTeam(u) or not u:IsInvisible()) then
             local idx = u:entindex()
             local mark = self.marks[idx]
             if not mark then

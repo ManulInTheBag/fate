@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 LinkLuaModifier("modifier_battle_cont_active", "abilities/cu_chulain/modifiers/modifier_battle_cont_active", LUA_MODIFIER_MOTION_NONE)
 
 modifier_cu_battle_continuation = class({})
@@ -23,7 +24,7 @@ function modifier_cu_battle_continuation:GetMinHealth()
 
         if self:GetParent():GetHealth() <= 2 then
         	HardCleanse(self:GetParent())
-			self:GetParent():EmitSound("Cu_Battlecont")
+			self:GetParent():EmitSound(SkinSound(self:GetParent(), "Cu_Battlecont"))
             self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_battle_cont_active", {duration = (self:GetAbility():GetSpecialValueFor("duration")), killer = self.killer})
 
             self:GetAbility():StartCooldown(self:GetAbility():GetSpecialValueFor("cooldown"))

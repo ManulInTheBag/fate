@@ -1,0 +1,1669 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "clothes.vmat"
+								to = "models/cu_chulain/vespa/vespa_body.vmat"
+							},
+							{
+								from = "shirt.vmat"
+								to = "models/cu_chulain/vespa/vespa_shirt.vmat"
+							},
+							{
+								from = "coat.vmat"
+								to = "models/cu_chulain/vespa/vespa_coat.vmat"
+							},
+							{
+								from = "hair.vmat"
+								to = "models/cu_chulain/vespa/vespa_hair.vmat"
+							},
+							{
+								from = "hair 2.vmat"
+								to = "models/cu_chulain/vespa/vespa_hair.vmat"
+							},
+							{
+								from = "hair yellow.vmat"
+								to = "models/cu_chulain/vespa/vespa_hair_yellow.vmat"
+							},
+							{
+								from = "head.vmat"
+								to = "models/cu_chulain/vespa/vespa_glasses.vmat"
+							},
+							{
+								from = "head 2.vmat"
+								to = "models/cu_chulain/vespa/vespa_head.vmat"
+							},
+							{
+								from = "id badge.vmat"
+								to = "models/cu_chulain/vespa/vespa_badge.vmat"
+							},
+							{
+								from = "vespa.vmat"
+								to = "models/cu_chulain/vespa/vespa_weapons.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "chest"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon"
+						parent_bone = "weapon"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "Armature"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_spear_start"
+						parent_bone = "weapon"
+						relative_origin = [ 51.38, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_spear_end"
+						parent_bone = "weapon"
+						relative_origin = [ -134.78, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_right_eye"
+						parent_bone = "eye_R"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_left_eye"
+						parent_bone = "eye_L"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "weapon"
+						relative_origin = [ -134.78, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_katana_end"
+						parent_bone = "katana"
+						relative_origin = [ -135.33, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_katana_start"
+						parent_bone = "katana"
+						relative_origin = [ 19.33, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "hips"
+								parent_bone = "hips"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.767485, -4.615936, -8.239247 ]
+								hitbox_maxs = [ 5.767545, 11.878393, 10.241637 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "spine"
+								parent_bone = "spine"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.941357, 1.769289, -7.558896 ]
+								hitbox_maxs = [ 10.941418, 10.682063, 12.112613 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "chest"
+								parent_bone = "chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -29.637493, -1.590505, -14.737902 ]
+								hitbox_maxs = [ 28.564749, 36.50679, 11.432843 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "head"
+								parent_bone = "head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.656976, -5.11231, -15.81304 ]
+								hitbox_maxs = [ 12.666645, 21.810844, 12.792754 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "shoulder_L"
+								parent_bone = "shoulder_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.109501, -5.230522, -7.833955 ]
+								hitbox_maxs = [ 11.156069, 14.348885, 7.194193 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "upper_arm_L"
+								parent_bone = "upper_arm_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.261642, -0.144559, -6.430021 ]
+								hitbox_maxs = [ 5.721769, 24.802008, 6.159007 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "lower_arm_L"
+								parent_bone = "lower_arm_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.804153, 0.952038, -4.684454 ]
+								hitbox_maxs = [ 4.306244, 25.772688, 3.623519 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "hand_L"
+								parent_bone = "hand_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.782972, 0.311827, -2.227383 ]
+								hitbox_maxs = [ 1.469762, 10.222248, 2.088964 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "shoulder_R"
+								parent_bone = "shoulder_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.156071, -5.230634, -7.834036 ]
+								hitbox_maxs = [ 9.109512, 14.348797, 7.979929 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "upper_arm_R"
+								parent_bone = "upper_arm_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.721767, -0.144658, -6.430036 ]
+								hitbox_maxs = [ 7.26165, 24.801968, 6.158987 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "lower_arm_R"
+								parent_bone = "lower_arm_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.306256, 0.951969, -4.684452 ]
+								hitbox_maxs = [ 3.804145, 25.772629, 3.623535 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "hand_R"
+								parent_bone = "hand_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.469775, 0.311796, -2.227405 ]
+								hitbox_maxs = [ 1.782951, 10.222198, 2.089068 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "upper_leg_L"
+								parent_bone = "upper_leg_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.763419, -6.368993, -10.422476 ]
+								hitbox_maxs = [ 7.93531, 47.189274, 11.770189 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "lower_leg_L"
+								parent_bone = "lower_leg_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.046441, -0.703831, -9.136486 ]
+								hitbox_maxs = [ 7.589494, 62.97926, 11.463225 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "foot_L"
+								parent_bone = "foot_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.616109, -7.280618, -8.722998 ]
+								hitbox_maxs = [ 6.896575, 23.52834, 4.713301 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "upper_leg_R"
+								parent_bone = "upper_leg_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.312312, -6.36899, -15.058322 ]
+								hitbox_maxs = [ 8.473406, 47.189278, 11.770188 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "lower_leg_R"
+								parent_bone = "lower_leg_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.589425, -0.703826, -9.136484 ]
+								hitbox_maxs = [ 6.046508, 62.979263, 11.463225 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "foot_R"
+								parent_bone = "foot_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.896481, -7.280621, -8.723019 ]
+								hitbox_maxs = [ 4.616197, 23.528336, 4.713285 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "lancer2"
+						filename = "models/cu_chulain/vespa/vespa.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "lancer_no_gb"
+						filename = "models/cu_chulain/vespa/vespa.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Mesh_harpoon",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "lancer2"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "lancer2_walk"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 0
+										frames_from_end = 0
+									},
+									{
+										_class = "ActivityModifier"
+										activity_name = "run_slow"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 270
+								end_frame = 343
+								framerate = 32.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_idle"
+								children = 
+								[
+									{
+										_class = "ActivityModifier"
+										activity_name = "in_fight"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 10
+								end_frame = 52
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_attack_poke"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 53
+								end_frame = 89
+								framerate = 17.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_attack_thrash"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 90
+								end_frame = 126
+								framerate = 17.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_cast"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1210
+								end_frame = 1242
+								framerate = 75.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_gae_bolg_cast"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 2
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 24
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_right_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_right_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_left_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_left_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 17
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1413
+								end_frame = 1438
+								framerate = 20.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_gae_bolg_poke"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1344
+								end_frame = 1356
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 12
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 50
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1553
+								end_frame = 1613
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_death"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 459
+								end_frame = 550
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_idle_true"
+								children = 
+								[
+									{
+										_class = "ActivityModifier"
+										activity_name = "not_in_fight"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 681
+								end_frame = 741
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_walk1"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 0
+										frames_from_end = 0
+									},
+									{
+										_class = "ActivityModifier"
+										activity_name = "run_fast"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 243
+								end_frame = 269
+								framerate = 20.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_all_test"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 0
+								end_frame = 1000
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_slash_attack"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ICE_VORTEX"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.0
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 128
+								end_frame = 152
+								framerate = 45.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_micro_jump_back_with_pierce"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 164
+								end_frame = 209
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_deflect_start"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1210
+								end_frame = 1225
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_deflect"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 226
+								end_frame = 242
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_rush_attack"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 344
+								end_frame = 355
+								framerate = 25.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_prepare_for_pierce"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 2
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 39
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_right_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_right_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_left_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_left_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 39
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.0
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1358
+								end_frame = 1378
+								framerate = 33.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 1378
+										frame_count = 20
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_back"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.0
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 384
+								end_frame = 420
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_pierce"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 2
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 36
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_right_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_right_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_left_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_left_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 36
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1421
+								end_frame = 1458
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_end"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 615
+								end_frame = 635
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer_combo_pose"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ALACRITY"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1551
+								end_frame = 1551
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 1551
+										frame_count = 8
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_end1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1643
+								end_frame = 1680
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_capture"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAPTURE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 681
+								end_frame = 741
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_pierce1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_AMBUSH"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1430
+								end_frame = 1430
+								framerate = 1.0
+								reverse = false
+								additional_anim_files = [  ]
+								anim_hold_list = 
+								[
+									{
+										frame = 1430
+										frame_count = 1
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_micro_jump_back"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_SUN_STRIKE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 164
+								end_frame = 190
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_pierce"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 2
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_katana_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_katana_start"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 18
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_right_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_right_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_left_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_left_eye"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 17
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_GHOST_SHIP"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 190
+								end_frame = 209
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_combo"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 12
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 35
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/custom/vespa/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ICE_WALL"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1553
+								end_frame = 1613
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_back1"
+								children = 
+								[
+									{
+										_class = "ExtractMotion"
+										extract_tx = true
+										extract_ty = true
+										extract_tz = true
+										extract_rz = false
+										linear = false
+										quadratic = false
+										extract_initial_offset = false
+										root_bone_name = ""
+										motion_type = "Uniform"
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_REFRACTION"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.0
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/vespa/vespa.fbx"
+								import_bone_scales = false
+								start_frame = 1384
+								end_frame = 1420
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "cu"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "with_gb"
+								meshes = 
+								[
+									"lancer2",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "no_gb"
+								meshes = 
+								[
+									"lancer_no_gb",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

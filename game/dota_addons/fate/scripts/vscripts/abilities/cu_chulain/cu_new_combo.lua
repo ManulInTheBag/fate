@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 cu_new_combo = class({})
 
 LinkLuaModifier("modifier_self_disarm", "abilities/cu_chulain/modifiers/modifier_self_disarm", LUA_MODIFIER_MOTION_NONE)
@@ -47,11 +48,11 @@ function cu_new_combo:OnSpellStart()
 	local soundQueue = math.random(1,4)
 
 	if soundQueue ~= 4 then
-		hCaster:EmitSound("Cu_Combo_" .. soundQueue)
-		hTarget:EmitSound("Cu_Combo_" .. soundQueue)
+		hCaster:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
+		hTarget:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
 	else
-		hCaster:EmitSound("Lancer.Heartbreak")
-		hTarget:EmitSound("Lancer.Heartbreak")
+		hCaster:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
+		hTarget:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
 	end
 
 	LoopOverPlayers(function(player, playerID, playerHero)
@@ -100,7 +101,7 @@ function cu_new_combo:OnSpellStart()
 			--EndAnimation(hCaster)
 			StartAnimation(hCaster, {duration=1.1, activity=ACT_DOTA_CAST_ICE_WALL , rate=1.3})
 			Timers:CreateTimer(0.25, function() 
-				hCaster:EmitSound("cu_new_combo_1")
+				hCaster:EmitSound(SkinSound(hCaster, "cu_new_combo_1"))
 			end)
 
 		end)
@@ -112,7 +113,7 @@ function cu_new_combo:OnSpellStart()
 		local ascendCount = 0
 		local descendCount = 0	
 
-		local jump_fx = ParticleManager:CreateParticle("particles/cu_chulain/combo_gb_targetted_jumo.vpcf", PATTACH_ABSORIGIN, hCaster )
+		local jump_fx = ParticleManager:CreateParticle(SkinParticle(self:GetCaster(), "particles/cu_chulain/combo_gb_targetted_jumo.vpcf"), PATTACH_ABSORIGIN, hCaster )
 		ParticleManager:SetParticleControl( jump_fx, 0, hCaster:GetAbsOrigin())
 		ParticleManager:SetParticleControl( jump_fx, 1, hCaster:GetAbsOrigin())
 		ParticleManager:SetParticleControl( jump_fx, 3, hCaster:GetAbsOrigin())
@@ -172,7 +173,7 @@ function cu_new_combo:OnSpellStart()
 		        Source = hCaster,
 		        Ability = self,
 		        level = 0,
-		        EffectName = "particles/cu_chulain/combo_gb_targetted.vpcf",
+		        EffectName = SkinParticle(self:GetCaster(), "particles/cu_chulain/combo_gb_targetted.vpcf"),
 		        iMoveSpeed = 5000,
 				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
 		        vSourceLoc = hCaster:GetAbsOrigin(),
@@ -219,8 +220,9 @@ function cu_new_combo:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     		end) 
 
 	--hCaster:RemoveModifierByName("jump_pause")
-	hTarget:EmitSound("cu_new_combo_2")
-	hTarget:EmitSound("cu_new_combo_3")
+	-- on the spot, not on the target: the hit often kills it, and a removed unit (dummy/creep) cuts its sounds mid-play
+	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), SkinSound(hCaster, "cu_new_combo_2"), hCaster)
+	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), SkinSound(hCaster, "cu_new_combo_3"), hCaster)
 	--FindClearSpaceForUnit(hCaster, hCaster:GetAbsOrigin(), true)
 	hCaster:SetForwardVector(self.ForwardVector)
 	hCaster:FaceTowards(hTarget:GetAbsOrigin())
@@ -245,9 +247,9 @@ function cu_new_combo:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	        v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
 	        --v:AddNewModifier(v, nil, "modifier_knockback", modifierKnockback )
 	    end
-	local fire = ParticleManager:CreateParticle("particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf", PATTACH_ABSORIGIN, projectile)
-	local crack = ParticleManager:CreateParticle("particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf", PATTACH_ABSORIGIN, projectile)
-	local explodeFx1 = ParticleManager:CreateParticle("particles/cu_chulain/combo_gb_targetted_explosion.vpcf", PATTACH_ABSORIGIN, hTarget )
+	local fire = ParticleManager:CreateParticle(SkinParticle(hCaster, "particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf"), PATTACH_ABSORIGIN, projectile)
+	local crack = ParticleManager:CreateParticle(SkinParticle(hCaster, "particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf"), PATTACH_ABSORIGIN, projectile)
+	local explodeFx1 = ParticleManager:CreateParticle(SkinParticle(hCaster, "particles/cu_chulain/combo_gb_targetted_explosion.vpcf"), PATTACH_ABSORIGIN, hTarget )
 		ParticleManager:SetParticleControl( fire, 0, hTarget:GetAbsOrigin())
 		ParticleManager:SetParticleControl( crack, 0, hTarget:GetAbsOrigin())
 		ParticleManager:SetParticleControl( explodeFx1, 0, hTarget:GetAbsOrigin())
@@ -281,7 +283,7 @@ function cu_new_combo:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 			Source = hCaster.gbDummy,
 			Ability =hCaster:FindAbilityByName("cu_chulain_gae_bolg_jump"),
 			level = 0,
-			EffectName = "particles/custom/lancer/soaring/spear.vpcf",
+			EffectName = SkinParticle(self:GetCaster(), "particles/custom/lancer/soaring/spear.vpcf"),
 			iMoveSpeed = 3000,
 			vSourceLoc = hCaster.gbDummy:GetAbsOrigin(),
 			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
@@ -396,7 +398,7 @@ end
  
  
 function modifier_cu_chulain_combo:GetStatusEffectName()
-    return "particles/cu_chulain/cu_combo_status.vpcf"
+    return SkinParticle(self:GetParent(), "particles/cu_chulain/cu_combo_status.vpcf")
 end
 
  

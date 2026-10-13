@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 cu_chulain_gae_bolg_combo = class({})
 
 LinkLuaModifier("modifier_self_disarm", "abilities/cu_chulain/modifiers/modifier_self_disarm", LUA_MODIFIER_MOTION_NONE)
@@ -40,11 +41,11 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 	local soundQueue = math.random(1,4)
 
 	if soundQueue ~= 4 then
-		hCaster:EmitSound("Cu_Combo_" .. soundQueue)
-		hTarget:EmitSound("Cu_Combo_" .. soundQueue)
+		hCaster:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
+		hTarget:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
 	else
-		hCaster:EmitSound("Lancer.Heartbreak")
-		hTarget:EmitSound("Lancer.Heartbreak")
+		hCaster:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
+		hTarget:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
 	end
 
 	LoopOverPlayers(function(player, playerID, playerHero)
@@ -77,7 +78,7 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 		        Source = hCaster,
 		        Ability = self,
 		        level = 0,
-		        EffectName = "particles/custom/archer/archer_hrunting_orb.vpcf",
+		        EffectName = SkinParticle(hCaster, "particles/custom/archer/archer_hrunting_orb.vpcf"),
 		        iMoveSpeed = 3000,
 		        vSourceLoc = hCaster:GetAbsOrigin(),
 		        bDodgeable = false,
@@ -135,7 +136,7 @@ function cu_chulain_gae_bolg_combo:OnProjectileHit_ExtraData(hTarget, vLocation,
 	--hTarget:RemoveModifierByName("modifier_share_damage")
 	hTarget:RemoveModifierByName("modifier_master_intervention")
 	--ApplyStrongDispel(hTarget)
-	local particle = ParticleManager:CreateParticle("particles/cu_chulain/gae_bolg_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local particle = ParticleManager:CreateParticle(SkinParticle(hCaster, "particles/cu_chulain/gae_bolg_pierce.vpcf"), PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlTransformForward(particle, 0, hCaster:GetAbsOrigin() + Vector(0,0,130)+hCaster:GetRightVector() * - 20,hCaster:GetForwardVector())
     ParticleManager:SetParticleControlTransformForward(particle, 1, hCaster:GetAbsOrigin()+ Vector(0,0,130)+hCaster:GetRightVector() * - 20,hCaster:GetForwardVector())
 	ParticleManager:SetParticleControlTransformForward(particle, 5, hCaster:GetAbsOrigin()+ Vector(0,0,130) + hCaster:GetForwardVector() * - 50,hCaster:GetForwardVector())
@@ -146,10 +147,10 @@ function cu_chulain_gae_bolg_combo:OnProjectileHit_ExtraData(hTarget, vLocation,
 	end)
 
 	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
-	hTarget:EmitSound("cu_pierce_new")
-	hTarget:EmitSound("cu_pierce_new_2")
-	hTarget:EmitSound("Hero_Lion.Impale")
-	local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
+	hTarget:EmitSound(SkinSound(hCaster, "cu_pierce_new"))
+	hTarget:EmitSound(SkinSound(hCaster, "cu_pierce_new_2"))
+	hTarget:EmitSound(SkinSound(hCaster, "Hero_Lion.Impale"))
+	local culling_kill_particle = ParticleManager:CreateParticle(SkinParticle(hCaster, "particles/custom/lancer/lancer_culling_blade_kill.vpcf"), PATTACH_CUSTOMORIGIN, hTarget)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 2, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
@@ -162,7 +163,7 @@ function cu_chulain_gae_bolg_combo:OnProjectileHit_ExtraData(hTarget, vLocation,
 	end)
 
 	if hTarget:GetHealthPercent() < heartbreak and not (hTarget:IsMagicImmune() or hTarget:HasModifier("modifier_avalon")) then
-		local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
+		local hb = ParticleManager:CreateParticle(SkinParticle(hCaster, "particles/custom/lancer/lancer_heart_break_txt.vpcf"), PATTACH_CUSTOMORIGIN, hTarget)
 		ParticleManager:SetParticleControl( hb, 0, hTarget:GetAbsOrigin())
 
 		Timers:CreateTimer( 3.0, function()			

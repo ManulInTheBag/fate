@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 modifier_protection_from_arrows_active = class({})
 
 if IsServer() then
@@ -7,7 +8,7 @@ if IsServer() then
 		-- modifier for projectile dodging and already has a sound of its own)
 		self.silent = args and args.silent == 1
 		if not self.silent then
-			self:GetParent():EmitSound("cu_chulain_protection_start")
+			self:GetParent():EmitSound(SkinSound(self:GetParent(), "cu_chulain_protection_start"))
 		end
 	end
 
@@ -19,14 +20,14 @@ if IsServer() then
 
 	function modifier_protection_from_arrows_active:OnDestroy()
 		if self.silent then return end
-		self:GetParent():EmitSound("cu_chulain_protection_end")
+		self:GetParent():EmitSound(SkinSound(self:GetParent(), "cu_chulain_protection_end"))
 	
 	end
 end
 
 
 function modifier_protection_from_arrows_active:GetEffectName()
-	return "particles/items4_fx/cyclonic_barrier.vpcf"
+	return SkinParticle(self:GetParent(), "particles/items4_fx/cyclonic_barrier.vpcf")
 end
 
 function modifier_protection_from_arrows_active:GetEffectAttachType()

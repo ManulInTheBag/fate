@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 cu_chulain_rune_of_disengage = class({})
 LinkLuaModifier("modifier_cu_disengage_ms", "abilities/cu_chulain/cu_chulain_rune_of_disengage", LUA_MODIFIER_MOTION_NONE)
 function cu_chulain_rune_of_disengage:GetManaCost(iLevel)
@@ -43,11 +44,11 @@ function cu_chulain_rune_of_disengage:OnSpellStart()
 	local newLoc = caster:GetAbsOrigin() - backward
 	local diff = newLoc - caster:GetAbsOrigin()
 
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
+	local particle = ParticleManager:CreateParticle(SkinParticle(caster, "particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"), PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 
 	HardCleanse(caster)
-	caster:EmitSound("Hero_PhantomLancer.Doppelwalk")
+	caster:EmitSound(SkinSound(caster, "Hero_PhantomLancer.Doppelwalk"))
 	local i = 1
 	while GridNav:IsBlocked(newLoc) or not GridNav:IsTraversable(newLoc) or i == 100 do
 		i = i+1

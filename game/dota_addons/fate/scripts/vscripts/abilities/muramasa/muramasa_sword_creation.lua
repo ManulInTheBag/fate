@@ -254,9 +254,9 @@ end
 
 function modifier_muramasa_sword_creation:GetModifierAttackSpeedBaseOverride()
     if(self:GetCaster():HasModifier("modifier_muramasa_forge") or self:GetCaster():HasModifier("modifier_muramasa_sword_trial_buff")) then 
-        return 2
+        return 1
     else    
-        return 2
+        return 1
     end
 end
 

@@ -173,6 +173,44 @@ function Billy_RangeBonus(caster)
     return caster:GetModifierStackCount("modifier_billy_skedaddle_buff", caster) or 0
 end
 
+-- Дальность каста = настоящая дальность выстрела (юзер 12.10.2026: при наведении на кнопку
+-- движок рисует круг GetCastRange). Раньше было 10000, чтобы за радиусом Билли не шёл к
+-- точке, — теперь это делает BillyCastRangeOrderFilter: точку каста дальше радиуса
+-- подтягивает на край радиуса по тому же направлению. Ключи — дальность в KV способности;
+-- range_bonus — плюс дальность после Skedaddle (E). Считается и на клиенте (стаки баффа E
+-- видны и там): значения сервера и клиента обязаны совпадать.
+BILLY_CAST_RANGE = {
+    billy_trickshot   = { key = "range", range_bonus = true },
+    billy_triple_shot = { key = "range", range_bonus = true },
+    billy_skedaddle   = { key = "distance" },
+    billy_highnoon    = { key = "radius" },        -- ульта — длина конуса меток (юзер 12.10.2026: 3000 залпа — не то)
+    billy_combo       = { key = "range" },
+}
+BILLY_CAST_RANGE_SLACK = 10     -- подтянутая точка встаёт на столько ближе края — наверняка в радиусе
+
+function Billy_CastRange(ability)
+    local spec = BILLY_CAST_RANGE[ability:GetAbilityName()]
+    if not spec then return 0 end
+    local range = ability:GetSpecialValueFor(spec.key)
+    if spec.range_bonus then range = range + Billy_RangeBonus(ability:GetCaster()) end
+    return range
+end
+
+-- Из FateGameMode:ExecuteOrderFilter (может поправить позицию в таблице приказа).
+function BillyCastRangeOrderFilter(unit, ability, order, filter)
+    if order ~= DOTA_UNIT_ORDER_CAST_POSITION then return end
+    if not IsNotNull(ability) or type(ability.GetAbilityName) ~= "function"
+        or not BILLY_CAST_RANGE[ability:GetAbilityName()] then return end
+    local origin = unit:GetAbsOrigin()
+    local pos = Vector(filter.position_x, filter.position_y, filter.position_z)
+    local dir = pos - origin
+    dir.z = 0
+    local range = ability:GetCastRange(pos, nil) + unit:GetCastRangeBonus() - BILLY_CAST_RANGE_SLACK
+    if range <= 0 or dir:Length2D() <= range then return end
+    local p = GetGroundPosition(origin + dir:Normalized() * range, nil)
+    filter.position_x, filter.position_y, filter.position_z = p.x, p.y, p.z
+end
+
 -- Включена ли D и хватает ли пуль: если да — списывает n и возвращает true
 -- (способность срабатывает с усилением). Иначе ничего не тратит.
 function Billy_TrySpend(caster, n)

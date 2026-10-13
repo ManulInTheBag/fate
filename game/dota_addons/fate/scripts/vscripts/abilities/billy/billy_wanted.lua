@@ -3,16 +3,19 @@
      портрету врага в топ-баре назначает цель. Это видят все: у цели в топ-баре висит
      плакат WANTED (shared_scoreboard_updater.js читает "sync"/"billy_wanted").
      Пока Билли ближе wanted_sense_radius к цели, раз в wanted_sense_interval он
-     «чует» её — прицел над ней сквозь туман, виден только ему (как метки пассивки
-     JTR, jtr_bloody_thirst); мгновенно — по Presence Resonator Мастера. Ассасинов
-     (GetServantClass) пассивно не чует — только по резонатору (юзер 08.10.2026).
+     «чует» её на wanted_sense_show секунд, только сам и сквозь туман: золотое сходящееся
+     кольцо (копия метки пассивки JTR, jtr_bloody_thirst), знак Track над головой и
+     толстая линия от Билли (юзер 12.10.2026: эффекты явнее, но НЕ каждый кадр — пульс
+     остаётся); мгновенно — по Presence Resonator Мастера. Ассасины — как все (юзер
+     12.10.2026; раньше их чуял только резонатор).
      Убийство цели при участии Билли (добил или ассист): Билли получает
      wanted_gold_billy, остальные участники — wanted_gold; Билли и союзники в wanted_reward_radius от него — барьер
      wanted_barrier (modifier_barrier_new) и +wanted_ms% скорости на
      wanted_reward_duration. Атрибут куплен уже после пре-раунда — цель сразу
      случайная. FFA (раундов нет): цель случайная при покупке атрибута и заново
-     после каждого возрождения Билли (modifier_billy_wanted_sense:OnRespawn). Цель снята — в СЛЕДУЮЩЕМ раунде можно выбрать новую;
-     пока не снята, остаётся и в следующих раундах.
+     после каждого возрождения Билли (modifier_billy_wanted_sense:OnRespawn). Выбор
+     открывается КАЖДЫЙ раунд (юзер 12.10.2026): не снятая цель переходит в новый раунд,
+     но в окне выбора её можно сменить кликом по другому врагу; не кликнул — остаётся.
 
      Числа — в KV billy_bullets_to_spare (D, всегда на герое), у атрибута копия
      для тултипа. Хуки: addon_game_mode.lua (InitializeRound → Billy_OnPreRound,
@@ -32,11 +35,15 @@ BILLY_WANTED = BILLY_WANTED or { hunters = {}, window_end = -1 }
 -- юзер 08.10.2026: прицел R не подходит). Копия дерева лежит в аддоне (слот Хассана),
 -- дети целы; CP0 — точка над головой, гаснет штатным endcap-затуханием.
 BILLY_WANTED_PING_FX = "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
--- линия от Билли к метке: ширина ленты и цвет (аддитивный — тусклее = прозрачнее)
-BILLY_WANTED_LINE = {
-    width = 10,
-    color = Vector(150, 115, 50),   -- приглушённое золото плаката WANTED
-}
+-- сходящееся кольцо на цели — копия jtr_red_mark в золоте (particles/billy/billy_wanted_mark,
+-- PositionLock: двигаем CP0 каждый кадр); высота как у JTR
+BILLY_WANTED_MARK_FX = "particles/billy/billy_wanted_mark.vpcf"
+BILLY_WANTED_MARK_HEIGHT = 150
+-- линия от Билли к метке (юзер 12.10.2026: «НАМНОГО более видимой»): тёмная подложка +
+-- яркая кромка поверх, как края конусов R/комбо (build_billy_standoff.py, build_wanted_line);
+-- CP1 -> CP2 по земле, CP5 — цвет кромки
+BILLY_WANTED_LINE_FX = "particles/billy/billy_wanted_line.vpcf"
+BILLY_WANTED_LINE_COLOR = Vector(255, 205, 90)   -- яркое золото плаката WANTED
 BILLY_WANTED_SND_PICK  = "billy_d_on"           -- взвод курка: цель назначена
 BILLY_WANTED_SND_CLAIM = "billy_highnoon_fire"   -- выстрел: голова получена
 
@@ -76,11 +83,10 @@ function Billy_WantedSync()
     CustomNetTables:SetTableValue("sync", "billy_wanted", out)
 end
 
--- Открыть выбор, если цели нет или прошлая уже снята. Живую цель не трогаем.
+-- Открыть выбор. Снятую цель сбрасываем; живая остаётся, пока Билли не кликнет другую.
 local function OpenPick(hero)
     local e = Entry(hero:GetPlayerOwnerID())
-    if e.target ~= -1 and not e.claimed then return end
-    e.target, e.claimed = -1, false
+    if e.claimed then e.target, e.claimed = -1, false end
     e.pick_end = BILLY_WANTED.window_end
 end
 
@@ -99,12 +105,12 @@ function Billy_OnPreRound(round)
     Billy_WantedSync()
 end
 
--- Конец раунда (FinishRound): невыбранное окно закрываем — раунд мог кончиться раньше
+-- Конец раунда (FinishRound): открытое окно закрываем — раунд мог кончиться раньше
 -- wanted_pick_time, и выбор в пост-раунде переехал бы в следующий раунд.
 function Billy_OnRoundEnd()
     local changed = false
     for _, e in pairs(BILLY_WANTED.hunters) do
-        if e.target == -1 and e.pick_end ~= -1 then
+        if e.pick_end ~= -1 then
             e.pick_end, changed = -1, true
         end
     end
@@ -183,9 +189,9 @@ function Billy_WantedPick(args)
     local hero = pid and PlayerResource:GetSelectedHeroEntity(pid)
     if not IsHunter(hero) then return end
     local e = Entry(pid)
-    if e.target ~= -1 and not e.claimed then return end          -- цель уже назначена
     if GameRules:GetGameTime() > e.pick_end then return end        -- окно закрыто
     local tpid = tonumber(args.target)
+    if tpid == e.target and not e.claimed then return end          -- та же цель
     local target = ValidTarget(hero, tpid)
     if not target then return end
     SetTarget(hero, e, tpid, target, false)
@@ -206,53 +212,52 @@ local function ActiveTarget(hero)
     return IsNotNull(target) and target or nil
 end
 
--- «Чутьё»: короткая вспышка знака Track над целью сквозь туман, только игроку Билли.
+-- «Чутьё»: вспышка над целью сквозь туман на wanted_sense_show секунд, только игроку Билли.
 -- Цель дальше wanted_sense_radius, мертва или и так видна команде Билли — ничего
 -- (юзер 08.10.2026: метка нужна, только когда цель вне обзора). Зовётся раз в wanted_sense_interval
 -- (modifier_billy_wanted_sense) и мгновенно из Presence Resonator (resonator = true).
--- Ассасина пассивное чутьё не видит — только резонатор.
+-- Метки стоят там, где цель была
+-- в момент пинга; начало линии едет за Билли.
 function Billy_WantedPing(hero, resonator)
     if not IsServer() or not IsHunter(hero) or not hero:IsAlive() then return end
     local target = ActiveTarget(hero)
     if not target or not target:IsAlive() then return end
-    if not resonator and GetServantClass(target) == "Assassin" then return end
-    local radius = Val(hero, "wanted_sense_radius", 2000)
+    local radius = Val(hero, "wanted_sense_radius", 3000)
     if (target:GetAbsOrigin() - hero:GetAbsOrigin()):Length2D() > radius then return end
     if hero:CanEntityBeSeenByMyTeam(target) then return end
     local player = hero:GetPlayerOwner()
     if not player then return end
 
-    local fx = ParticleManager:CreateParticleForPlayer(BILLY_WANTED_PING_FX, PATTACH_WORLDORIGIN, nil, player)
-    ParticleManager:SetParticleShouldCheckFoW(fx, false)
-    -- над головой, как у настоящего Track (там PATTACH_OVERHEAD_FOLLOW, а цель в тумане
-    -- клиенту не видна — ставим точкой мира на высоту хелсбара)
+    local spot = target:GetAbsOrigin()
+    local function make(name, pos)
+        local fx = ParticleManager:CreateParticleForPlayer(name, PATTACH_WORLDORIGIN, nil, player)
+        ParticleManager:SetParticleShouldCheckFoW(fx, false)
+        if pos then ParticleManager:SetParticleControl(fx, 0, pos) end
+        return fx
+    end
+    -- сходящееся золотое кольцо (метка JTR) на высоте груди
+    local mark = make(BILLY_WANTED_MARK_FX, spot + Vector(0, 0, BILLY_WANTED_MARK_HEIGHT))
+    -- знак Track над головой, как у настоящего Track (там PATTACH_OVERHEAD_FOLLOW, а цель в
+    -- тумане клиенту не видна — ставим точкой мира на высоту хелсбара)
     local height = target.GetBaseHealthBarOffset and target:GetBaseHealthBarOffset() or 0
     if not height or height <= 0 then height = 200 end
-    local spot = target:GetAbsOrigin()
-    ParticleManager:SetParticleControl(fx, 0, spot + Vector(0, 0, height))
-
-    -- линия от Билли к месту метки (юзер 09.10.2026: «куда в тумане смотреть») — та же
-    -- лента-клин, что у R, узкой полосой; тусклый цвет = полупрозрачная (рендер аддитивный).
-    -- Начало едет за Билли, конец — точка, где цель была в момент пинга.
-    local L = BILLY_WANTED_LINE
-    local line = ParticleManager:CreateParticleForPlayer(BILLY_FX.cone, PATTACH_WORLDORIGIN, nil, player)
-    ParticleManager:SetParticleShouldCheckFoW(line, false)
+    local sign = make(BILLY_WANTED_PING_FX, spot + Vector(0, 0, height))
+    -- линия от Билли к месту метки
+    local line = make(BILLY_WANTED_LINE_FX)
     ParticleManager:SetParticleControl(line, 2, spot)
-    ParticleManager:SetParticleControl(line, 3, Vector(L.width, L.width, 0))
-    ParticleManager:SetParticleControl(line, 4, L.color)
-    ParticleManager:SetParticleControl(line, 6, Vector(1, 0, 0))
+    ParticleManager:SetParticleControl(line, 5, BILLY_WANTED_LINE_COLOR)
 
-    -- новый пинг (резонатор поверх пассивного) гасит прежний — линии не складываются в яркость
-    local ping = { fx = fx, line = line }
+    -- новый пинг (резонатор поверх пассивного) гасит прежний — линии не складываются
+    local ping = { }
     if hero.billyWantedPing then hero.billyWantedPing.done() end
     ping.done = function()
         if ping.over then return end
         ping.over = true
         if hero.billyWantedPing == ping then hero.billyWantedPing = nil end
-        ParticleManager:DestroyParticle(fx, false)
-        ParticleManager:ReleaseParticleIndex(fx)
-        ParticleManager:DestroyParticle(line, false)
-        ParticleManager:ReleaseParticleIndex(line)
+        for _, fx in ipairs({ mark, sign, line }) do
+            ParticleManager:DestroyParticle(fx, false)
+            ParticleManager:ReleaseParticleIndex(fx)
+        end
     end
     hero.billyWantedPing = ping
 
@@ -261,7 +266,9 @@ function Billy_WantedPing(hero, resonator)
     local expire = GameRules:GetGameTime() + show
     Timers:CreateTimer(0, function()
         if ping.over then return end
-        if not IsNotNull(hero) or GameRules:GetGameTime() >= expire then
+        -- метки только пока цель в тумане (юзер 12.10.2026): вышла на обзор — гасим сразу
+        if not IsNotNull(hero) or not hero:IsAlive() or GameRules:GetGameTime() >= expire
+            or not IsNotNull(target) or not target:IsAlive() or hero:CanEntityBeSeenByMyTeam(target) then
             ping.done()
             return
         end

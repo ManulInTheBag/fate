@@ -524,20 +524,24 @@
 			"wave_start_delay"						"1.5"
 
 			// --- being hauled into it ------------------------------------
-			"lift_rise_time"						"1.5"
-			"lift_hang_time"						"1.0"
+			"lift_rise_time"						"1.0"
+			"lift_hang_time"						"0.5"
 			"lift_fall_time"						"0.4"
 			// How far from directly under the grail they are scattered on the
 			// way down, so a group does not come down in one pile.
 			"lift_scatter"							"150"
 			"lift_scatter_min"						"50"
-			"hang_damage"							"50"
+			"hang_damage"							"100"
 			"hang_damage_tick"						"0.1"
 
 			// modifier_rasputin_combo_haul:OnCreated.
 			"curse_stacks_per_level"				"10"
 			"curse_max_level"						"3"
 			"curse_gain_time"						"1.5"
+			// сколько секунд после выхода из сферы цель не на 3-м уровне (окно на блинк);
+			// в сфере стаки идут медленнее, чем 3 уровня за вис: только до порога,
+			// с которого зона (curse_gain_time) дотянет до уровня 3 за это время
+			"curse_release_window"					"0.5"
 			"curse_decay_time"						"1.5"
 			"curse_max_stacks"						"40"
 			"curse_slow_per_stack"					"2"		// % movement speed per Curse stack

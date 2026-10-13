@@ -59,6 +59,12 @@ TOP_R       = 4.0      # полуширина линии по верху сте�
 # линия на тёмной подложке читается на любом фоне. billy_standoff_edge = подложка + кромка.
 SHADOW_R     = 30.0
 SHADOW_ALPHA = 0.6
+# Линия от Билли к цели награды (атрибут 1, billy_wanted.lua) — та же схема подложка+кромка,
+# но толще и ярче (юзер 12.10.2026: «линию НАМНОГО более видимой»); цвет кромки из Lua (CP5).
+WANTED_SHADOW_R     = 44.0
+WANTED_SHADOW_ALPHA = 0.75
+WANTED_LINE_R       = 16.0
+WANTED_LINE_GLOW    = 5.0
 PATH_N      = 32       # точек ленты вдоль края (2500+ длины)
 
 HEADER = ('<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} '
@@ -247,16 +253,17 @@ def build_line(name, radius, offset, alpha, flat, zbuffer, overbright):
 
 # Тёмная подложка под кромку (CP1 -> CP2, как у линии) с яркой кромкой ребёнком — ребёнок
 # рисуется поверх родителя. Чёрный цвет, обычное смешивание, без z-буфера.
-def build_edge():
-    inits = (path_init(PATH_N) + init_float(SHADOW_R, 3) + init_float(SHADOW_ALPHA, 7)
+def build_edge(name='billy_standoff_edge', child='billy_standoff_line',
+               shadow_r=SHADOW_R, shadow_alpha=SHADOW_ALPHA):
+    inits = (path_init(PATH_N) + init_float(shadow_r, 3) + init_float(shadow_alpha, 7)
              + init_float(1.0, 1)
              + '\t\t{\n\t\t\t_class = "C_INIT_RandomColor"\n'
                '\t\t\tm_ColorMin = [ 0, 0, 0 ]\n\t\t\tm_ColorMax = [ 0, 0, 0 ]\n\t\t},\n')
     ops = path_ops(PATH_N, 4.0) + endcap_fade()
     rend = ropes('materials/particle/beam_hotwhite.vtex', 800.0, 0.0, flat=True, zbuffer=False,
                  blend='ALPHA')
-    write('billy_standoff_edge', system(PATH_N, inits, ops, rend, children=(
-        ('billy_standoff_line', 0.0),
+    write(name, system(PATH_N, inits, ops, rend, children=(
+        (child, 0.0),
     )))
 
 
@@ -304,6 +311,14 @@ def main():
     # (цвет из Lua), стенка своя только ради красных искр
     build_wall('billy_highnoon_wall', 'billy_highnoon_wall_sparks')
     build_sparks('billy_highnoon_wall_sparks', RED_SPARKS)
+    build_wanted_line()
+
+
+# Линия награды: billy_wanted_line (подложка, CP1 -> CP2) + кромка billy_wanted_line_core (CP5 цвет).
+def build_wanted_line():
+    build_line('billy_wanted_line_core', WANTED_LINE_R, 6.0, 1.0, flat=True, zbuffer=False,
+               overbright=WANTED_LINE_GLOW)
+    build_edge('billy_wanted_line', 'billy_wanted_line_core', WANTED_SHADOW_R, WANTED_SHADOW_ALPHA)
 
 
 if __name__ == '__main__':

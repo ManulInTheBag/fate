@@ -34,6 +34,11 @@
 require("abilities/billy/billy_shared")
 
 billy_triple_shot = billy_triple_shot or class({})
+
+-- дальность каста = дальность выстрела, см. BILLY_CAST_RANGE в billy_shared
+function billy_triple_shot:GetCastRange(location, target)
+    return Billy_CastRange(self)
+end
 LinkLuaModifier("modifier_billy_triple_shot_bullet", "abilities/billy/billy_triple_shot", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_triple_shot_recast", "abilities/billy/billy_triple_shot", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_billy_triple_shot_slow",   "abilities/billy/billy_triple_shot", LUA_MODIFIER_MOTION_NONE)
