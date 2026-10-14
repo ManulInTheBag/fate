@@ -9,25 +9,52 @@ caster_5th_silence = class({})
 -- отдельный класс ловушек, повторять его незачем.
 local OnSilenceStart
 
-OnSilenceStart = function(keys)
-	local caster = keys.caster
-	local targetPoint = keys.ability:GetCursorPosition()
-	local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, keys.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-    for k,v in pairs(targets) do
-		v:AddNewModifier(caster, nil, "modifier_silence", {duration=keys.Duration})
-		v:AddNewModifier(caster, nil, "modifier_disarmed", {duration=keys.Duration})
-	end
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf", PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(particle, 0 , targetPoint)
-	ParticleManager:SetParticleControl(particle, 1 , Vector(300,0,0))
-	ParticleManager:SetParticleControl(particle, 3 , Vector(300,0,0))
-
-	caster:EmitSound("Medea_Skill_" .. math.random(4,6))
-
-	Timers:CreateTimer(2.0, function()
-		ParticleManager:DestroyParticle(particle, false)
-		return nil
-	end)
+OnSilenceStart = function(keys)
+
+	local caster = keys.caster
+
+	local targetPoint = keys.ability:GetCursorPosition()
+
+	local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, keys.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+
+    for k,v in pairs(targets) do
+
+		v:AddNewModifier(caster, nil, "modifier_silence", {duration=keys.Duration})
+
+		v:AddNewModifier(caster, nil, "modifier_disarmed", {duration=keys.Duration})
+
+	end
+
+	local particle
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		particle = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf", PATTACH_WORLDORIGIN, caster) --TODO заменить на символ эггмана как партикль
+	else
+		particle = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf", PATTACH_WORLDORIGIN, caster)
+	end
+
+	ParticleManager:SetParticleControl(particle, 0 , targetPoint)
+
+	ParticleManager:SetParticleControl(particle, 1 , Vector(300,0,0))
+
+	ParticleManager:SetParticleControl(particle, 3 , Vector(300,0,0))
+
+
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("eggman_skill_" .. math.random(4,6))
+	else
+		caster:EmitSound("Medea_Skill_" .. math.random(4,6))
+	end
+
+
+
+	Timers:CreateTimer(2.0, function()
+
+		ParticleManager:DestroyParticle(particle, false)
+
+		return nil
+
+	end)
+
 end
 
 

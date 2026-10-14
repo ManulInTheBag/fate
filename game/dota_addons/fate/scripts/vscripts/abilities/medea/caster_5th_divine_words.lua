@@ -22,19 +22,32 @@ OnDWStart = function(keys)
 	local damage = keys.Damage
 	if caster.IsHGImproved then damage = damage + caster:GetIntellect() * HG_INT_MULTIPLIER end
 
-	caster:EmitSound("Medea_Skill_" .. math.random(1,3))
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("eggman_skill_" .. math.random(1,3))
+	else
+		caster:EmitSound("Medea_Skill_" .. math.random(1,3))
+	end
 
 	local bonus_beams = math.floor(caster:GetIntellect() / 40)
 	print(bonus_beams)
 
     Timers:CreateTimer(0.3, function()
     	if rainCount == (3 + bonus_beams) then return end
-    	caster:EmitSound("Hero_Luna.LucentBeam.Target")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+    		caster:EmitSound("Hero_Luna.LucentBeam.Target") --TODO SFX звук взрывов из классики
+		else
+			caster:EmitSound("Hero_Luna.LucentBeam.Target")
+		end
     	local vecLocation = targetPoint + RandomVector(50)
 		local dummy = CreateUnitByName("dummy_unit", vecLocation, false, nil, nil, caster:GetTeamNumber())
 		dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummy:SetAbsOrigin(vecLocation)
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_ABSORIGIN, dummy)
+		local particle
+		if caster:HasModifier("modifier_hero_selection_skin") then
+    		particle = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_ABSORIGIN, dummy) --TODO Партикль на красный лазер
+		else
+			particle = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_ABSORIGIN, dummy)
+		end
 		ParticleManager:SetParticleControl(particle, 0, vecLocation)
 		ParticleManager:SetParticleControl(particle, 1, vecLocation)
 		ParticleManager:SetParticleControl(particle, 5, vecLocation)

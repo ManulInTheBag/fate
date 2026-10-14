@@ -13,72 +13,142 @@ LinkLuaModifier("modifier_l_rule_breaker", "abilities/lancelot/lancelot_rule_bre
 -- отдельный класс ловушек, повторять его незачем.
 local OnRBStart, OnRBSealStolen, ArsenalReturnMana
 
-OnRBStart = function(keys)
-	ArsenalReturnMana(keys.caster)
-	local caster = keys.caster
-	local target = keys.target
-	local ply = caster:GetPlayerOwner()
-	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
-	ApplyStrongDispel(target)
-	if caster:GetName() == "npc_dota_hero_crystal_maiden" then
-		caster:EmitSound("Medea_Rule_Breaker_" .. math.random(1,2))		
-		target:AddNewModifier(caster, keys.ability, "modifier_c_rule_breaker", {}) 
-		if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 200 then
-			local afterBlinkPos = AbilityBlink(caster, caster:GetAbsOrigin() -(caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized()*250,
-			 math.min((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()-250, 250))
-		end
-
-		if caster.IsRBImproved then
-			keys.ability:EndCooldown()
-			keys.ability:StartCooldown(25)
-			giveUnitDataDrivenModifier(caster, target, "revoked", 5)
-			target:AddNewModifier(caster, keys.ability, "modifier_dagger_of_treachery", {}) 
-
-			if target.MasterUnit:GetMana() > 1 then
-				target.MasterUnit:SetMana(target.MasterUnit:GetMana() - 1) 
-				target.MasterUnit2:SetMana(target.MasterUnit2:GetMana() - 1) 
-				
-				caster.MasterUnit:SetMana(caster.MasterUnit:GetMana() + 1)
-				caster.MasterUnit2:SetMana(caster.MasterUnit2:GetMana() + 1)
-			end		
-		end
-		-- revoke даёт ТОЛЬКО атрибут Dagger of Treachery (так написано в его тултипе);
-		-- раньше базовая способность вешала revoked на 3с, и атрибут лишь продлевал его до 5с
-	else
-		target:AddNewModifier(caster, keys.ability, "modifier_l_rule_breaker", {}) 
-		EmitZlodemonTrueSoundEveryone("moskes_lanc_rb")
-	end
-	--EmitGlobalSound("Caster.RuleBreaker") 
-	
-	
-	--print(caster:GetName())
-	--print(keys.StunDuration)
-	keys.target:AddNewModifier(caster, target, "modifier_muted", {Duration = keys.StunDuration})
-
+OnRBStart = function(keys)
+
+	ArsenalReturnMana(keys.caster)
+
+	local caster = keys.caster
+
+	local target = keys.target
+
+	local ply = caster:GetPlayerOwner()
+
+	if IsSpellBlocked(keys.target, caster) then return end -- Linken effect checker
+
+	ApplyStrongDispel(target)
+
+	if caster:GetName() == "npc_dota_hero_crystal_maiden" then
+
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("eggman_rule_breaker_" .. math.random(1,2))
+		else
+			caster:EmitSound("Medea_Rule_Breaker_" .. math.random(1,2))
+		end
+
+		target:AddNewModifier(caster, keys.ability, "modifier_c_rule_breaker", {}) 
+
+		if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 200 then
+
+			local afterBlinkPos = AbilityBlink(caster, caster:GetAbsOrigin() -(caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized()*250,
+
+			 math.min((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()-250, 250))
+
+		end
+
+
+
+		if caster.IsRBImproved then
+
+			keys.ability:EndCooldown()
+
+			keys.ability:StartCooldown(25)
+
+			giveUnitDataDrivenModifier(caster, target, "revoked", 5)
+
+			target:AddNewModifier(caster, keys.ability, "modifier_dagger_of_treachery", {}) 
+
+
+
+			if target.MasterUnit:GetMana() > 1 then
+
+				target.MasterUnit:SetMana(target.MasterUnit:GetMana() - 1) 
+
+				target.MasterUnit2:SetMana(target.MasterUnit2:GetMana() - 1) 
+
+				
+
+				caster.MasterUnit:SetMana(caster.MasterUnit:GetMana() + 1)
+
+				caster.MasterUnit2:SetMana(caster.MasterUnit2:GetMana() + 1)
+
+			end		
+
+		end
+
+		-- revoke даёт ТОЛЬКО атрибут Dagger of Treachery (так написано в его тултипе);
+
+		-- раньше базовая способность вешала revoked на 3с, и атрибут лишь продлевал его до 5с
+
+	else
+
+		target:AddNewModifier(caster, keys.ability, "modifier_l_rule_breaker", {}) 
+
+		EmitZlodemonTrueSoundEveryone("moskes_lanc_rb")
+
+	end
+
+	--EmitGlobalSound("Caster.RuleBreaker") 
+
+	
+
+	
+
+	--print(caster:GetName())
+
+	--print(keys.StunDuration)
+
+	keys.target:AddNewModifier(caster, target, "modifier_muted", {Duration = keys.StunDuration})
+
+
+
 end
 
-OnRBSealStolen = function(keys)
-	local victim = keys.unit
-	local caster = keys.caster
-
-	victim:EmitSound("Hero_Silencer.LastWord.Cast")
-	caster:EmitSound("Medea_Steal_" .. math.random(1,2))
-
-	if victim.MasterUnit:GetHealth() > 1 then
-		victim.MasterUnit:SetHealth(victim.MasterUnit:GetHealth() - 1) 
-		--victim.MasterUnit2:SetHealth(victim.MasterUnit2:GetHealth() - 1) 
-		
-		if caster.MasterUnit:GetHealth() < caster.MasterUnit:GetMaxHealth() then
-			caster.MasterUnit:SetHealth(caster.MasterUnit:GetHealth() + 1)
-			--caster.MasterUnit2:SetHealth(caster.MasterUnit2:GetHealth() + 1)
-		end
-	end
+OnRBSealStolen = function(keys)
+
+	local victim = keys.unit
+
+	local caster = keys.caster
+
+
+
+	victim:EmitSound("Hero_Silencer.LastWord.Cast")
+
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("eggman_steal_" .. math.random(1,2))
+	else
+		caster:EmitSound("Medea_Steal_" .. math.random(1,2))
+	end
+
+
+
+	if victim.MasterUnit:GetHealth() > 1 then
+
+		victim.MasterUnit:SetHealth(victim.MasterUnit:GetHealth() - 1) 
+
+		--victim.MasterUnit2:SetHealth(victim.MasterUnit2:GetHealth() - 1) 
+
+		
+
+		if caster.MasterUnit:GetHealth() < caster.MasterUnit:GetMaxHealth() then
+
+			caster.MasterUnit:SetHealth(caster.MasterUnit:GetHealth() + 1)
+
+			--caster.MasterUnit2:SetHealth(caster.MasterUnit2:GetHealth() + 1)
+
+		end
+
+	end
+
 end
 
-ArsenalReturnMana = function(caster)
-    if caster:GetName() == "npc_dota_hero_sven" and caster.ArsenalLevel == 2 then
-        caster:GiveMana(caster:FindAbilityByName("lancelot_knight_of_honor_arsenal"):GetSpecialValueFor("mana_return"))
-    end
+ArsenalReturnMana = function(caster)
+
+    if caster:GetName() == "npc_dota_hero_sven" and caster.ArsenalLevel == 2 then
+
+        caster:GiveMana(caster:FindAbilityByName("lancelot_knight_of_honor_arsenal"):GetSpecialValueFor("mana_return"))
+
+    end
+
 end
 
 

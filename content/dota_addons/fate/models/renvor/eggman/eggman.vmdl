@@ -664,11 +664,6 @@
 									value = 0
 								}
 							},
-							{
-								_class = "ActivityModifier"
-								activity_name = "healthy"
-								activity_weight = 1
-							},
 						]
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
@@ -805,7 +800,7 @@
 							},
 							{
 								_class = "ActivityModifier"
-								activity_name = "healthy_fast"
+								activity_name = "fast"
 								activity_weight = 1
 							},
 						]
@@ -861,7 +856,12 @@
 							},
 							{
 								_class = "ActivityModifier"
-								activity_name = "injured_fast"
+								activity_name = "fast"
+								activity_weight = 1
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "injured"
 								activity_weight = 1
 							},
 						]
@@ -995,7 +995,7 @@
 							},
 							{
 								_class = "ActivityModifier"
-								activity_name = "healthy_slow"
+								activity_name = "slow"
 								activity_weight = 1
 							},
 						]
@@ -1051,7 +1051,12 @@
 							},
 							{
 								_class = "ActivityModifier"
-								activity_name = "injured_slow"
+								activity_name = "slow"
+								activity_weight = 1
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "injured"
 								activity_weight = 1
 							},
 						]
@@ -1193,15 +1198,6 @@
 					},
 					{
 						_class = "Attachment"
-						name = "attach_attack"
-						parent_bone = "Wrist_R"
-						relative_origin = [ -14.739059, -82.808304, -12.173759 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
 						name = "attach_origin"
 						parent_bone = "ParentNode"
 						relative_origin = [ 1.841625, -14.000757, -13.62475 ]
@@ -1211,10 +1207,19 @@
 					},
 					{
 						_class = "Attachment"
+						name = "attach_attack"
+						parent_bone = "Wrist_R"
+						relative_origin = [ 18.208069, -44.441177, 61.090424 ]
+						relative_angles = [ 0.0, 0.0, 0.013476816 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
 						name = "attach_attack1"
 						parent_bone = "Wrist_R"
-						relative_origin = [ -14.739059, -82.808304, -12.173759 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
+						relative_origin = [ 18.208069, -44.441177, 61.090424 ]
+						relative_angles = [ 0.0, 0.0, 0.013476816 ]
 						weight = 1.0
 						ignore_rotation = false
 					},
@@ -1222,8 +1227,8 @@
 						_class = "Attachment"
 						name = "attach_attack2"
 						parent_bone = "Wrist_R"
-						relative_origin = [ -14.739059, -82.808304, -12.173759 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
+						relative_origin = [ 18.208069, -44.441177, 61.090424 ]
+						relative_angles = [ 0.0, 0.0, 0.013476816 ]
 						weight = 1.0
 						ignore_rotation = false
 					},

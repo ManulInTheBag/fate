@@ -41,6 +41,10 @@ function medea_blink:OnSpellStart()
 			target = caster:GetAbsOrigin() + (((target - caster:GetAbsOrigin()):Normalized()) * dist)
 		end
 
+        if caster:HasModifier("modifier_hero_selection_skin") then
+            caster:EmitSound("eggman_blink")
+        end
+        
 		local afterBlinkPos = AbilityBlink(caster, target, self:GetAOERadius())
 
 

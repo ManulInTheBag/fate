@@ -125,7 +125,11 @@ function medea_hecatic_graea:OnSpellStart()
 		return 0.1
     end
     )
-	Timers:CreateTimer(1.0, function() EmitGlobalSound("Caster.Hecatic") EmitGlobalSound("Caster.Hecatic_Spread") caster:EmitSound("Misc.Crash") return end)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		Timers:CreateTimer(1.0, function() EmitGlobalSound("eggman_hecatic_graea") EmitGlobalSound("Caster.Hecatic_Spread") caster:EmitSound("Misc.Crash") return end)
+	else
+		Timers:CreateTimer(1.0, function() EmitGlobalSound("Caster.Hecatic") EmitGlobalSound("Caster.Hecatic_Spread") caster:EmitSound("Misc.Crash") return end)
+	end
 end
 
 function medea_hecatic_graea:DropRay(caster, damage, radius, ability, targetPoint, particle)

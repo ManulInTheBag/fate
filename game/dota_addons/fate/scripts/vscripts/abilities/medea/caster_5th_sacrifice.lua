@@ -26,8 +26,11 @@ OnSacrificeStart = function(keys)
 	ParticleManager:SetParticleControl( caster.SacFx, 1, Vector(keys.Radius,0,0))
     ParticleManager:SetParticleShouldCheckFoW(caster.SacFx, false)
 
-
-	caster:EmitSound("Medea_Skill_" .. math.random(7,8))
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		caster:EmitSound("eggman_skill_" .. math.random(7,8))
+	else
+		caster:EmitSound("Medea_Skill_" .. math.random(7,8))
+	end
 
 end
 
@@ -107,13 +110,19 @@ end
 
 function modifier_big_bad_voodoo_channeling:OnIntervalThink()
 	if not IsServer() then return end
-	self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_channeling", { duration = 0.9 })
+	self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_channeling", { duration = 0.9 }) --TODO возможно стоит тут сделать анимацию, хз
 end
 
 modifier_channeling = class({})
 
 function modifier_channeling:IsHidden() return true end
-function modifier_channeling:GetOverrideAnimation() return ACT_DOTA_ATTACK end
+function modifier_channeling:GetOverrideAnimation() 
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		return ACT_DOTA_CHANNEL_ABILITY_12 --TODO нихуя не работает, надо понять, в чем дело...
+	else
+		return ACT_DOTA_ATTACK
+	end
+end
 
 modifier_big_bad_voodoo_damage_bonus = class({})
 
