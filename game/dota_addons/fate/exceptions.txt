@@ -1,0 +1,68 @@
+---------------
+File: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\fate\particles\custom\gilgamesh\enuma_elish\trail_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unknown KVType for variable 'datatype': 26 (0x1A)
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1011
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 958
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBuffer(Int32 version, BinaryReader reader) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 652
+   at ValveResourceFormat.Blocks.ResourceEditInfo2.Read(BinaryReader reader) in /_/ValveResourceFormat/Resource/Blocks/ResourceEditInfo2.cs:line 58
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 265
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\fate\particles\custom\gilgamesh\enuma_elish\trail_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unknown KVType for variable 'datatype': 26 (0x1A)
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1011
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 958
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBuffer(Int32 version, BinaryReader reader) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 652
+   at ValveResourceFormat.Blocks.ResourceEditInfo2.Read(BinaryReader reader) in /_/ValveResourceFormat/Resource/Blocks/ResourceEditInfo2.cs:line 58
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 265
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\fate\particles\custom\gilgamesh\enuma_elish\trail_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unknown KVType for variable 'datatype': 26 (0x1A)
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1011
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 958
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBuffer(Int32 version, BinaryReader reader) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 652
+   at ValveResourceFormat.Blocks.ResourceEditInfo2.Read(BinaryReader reader) in /_/ValveResourceFormat/Resource/Blocks/ResourceEditInfo2.cs:line 58
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 265
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\fate\particles\custom\gilgamesh\enuma_elish\trail_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unknown KVType for variable 'datatype': 26 (0x1A)
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1011
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 958
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 755
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadValue(Context context, KV3BinaryNodeType datatype) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1005
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, KV3BinaryNodeType datatype, KVFlag flagInfo) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 760
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBuffer(Int32 version, BinaryReader reader) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 652
+   at ValveResourceFormat.Blocks.ResourceEditInfo2.Read(BinaryReader reader) in /_/ValveResourceFormat/Resource/Blocks/ResourceEditInfo2.cs:line 58
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 265
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+

@@ -170,7 +170,7 @@ Convars:SetInt("sv_forcepreload", 1)
 model_lookup = {}
 model_lookup["npc_dota_hero_legion_commander"] = "models/saber/saber.vmdl"
 model_lookup["npc_dota_hero_phantom_lancer"] = "models/lancer/lancer2.vmdl"
-model_lookup["npc_dota_hero_spectre"] = "models/saber_alter/sbr_alter.vmdl"
+model_lookup["npc_dota_hero_spectre"] = "models/zlodemon/salter_new/salter_new.vmdl"
 model_lookup["npc_dota_hero_ember_spirit"] = "models/archer/archertest.vmdl"
 model_lookup["npc_dota_hero_templar_assassin"] = "models/rider/rider.vmdl"
 model_lookup["npc_dota_hero_doom_bringer"] = "models/berserker/berserker.vmdl"
@@ -710,6 +710,7 @@ function Precache( context )
     PrecacheResource("model", "models/gilgamesh/gilgamesh_police.vmdl", context)
     PrecacheResource("model", "models/zlodemon/alter_jaba/jeanne_alter.vmdl", context)
     PrecacheResource("model", "models/hijikata/hijikata_0_14_idle_haori.vmdl", context)
+    --PrecacheResource("model", "models/hijikata/leiheng/leiheng.vmdl", context)  -- Hijikata skin_1 (Lei Heng), временно выключен
     PrecacheResource("model", "models/muramasa/muramasa_no_sword.vmdl", context)
     PrecacheResource("model", "models/sanya/sanya_buc.vmdl", context)
     PrecacheResource("model", "models/sanya/sanya_telega.vmdl", context)

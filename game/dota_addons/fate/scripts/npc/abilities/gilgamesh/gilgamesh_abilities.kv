@@ -19,6 +19,11 @@
 		"AbilityValues"
         {
             "gold_gain" "15 30"
+            "bonus_gold_step" "1000"
+            "bonus_gold_max" "10000"
+            "bonus_move_speed" "3"
+            "bonus_mana_regen" "2"
+            "bonus_health_regen" "2"
         }
 		
 	}		
@@ -151,7 +156,7 @@
         {
             "damage" "20 25 30 35 40"
             "radius" "100"
-            "duration" "5"
+            "duration" "8"
             "range" "1000"
         }
 		
@@ -179,7 +184,12 @@
 			{
 			"particle"		"particles/custom/gilgamesh/gilgamesh_enuma_elish_charge_wave.vpcf"
 			"particle"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf"
-			"particle"		"particles/custom/gilgamesh/enuma_elish/projectile.vpcf"			
+			"particle"		"particles/custom/gilgamesh/enuma_elish/wave_head.vpcf"
+			"particle"		"particles/custom/gilgamesh/enuma_elish/trail_glow.vpcf"
+			"particle"		"particles/custom/gilgamesh/enuma_elish/trail_tornado.vpcf"
+			"particle"		"particles/custom/gilgamesh/enuma_elish/head_tornado.vpcf"
+			"particle"		"particles/custom/gilgamesh/enuma_elish/head_ring.vpcf"
+			"particle"		"particles/custom/gilgamesh/enuma_elish/head_trail_circle.vpcf"
 			"particle"		"particles/custom/gilgamesh/enuma_elish/charging_sparkles.vpcf"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_weaver.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
@@ -187,7 +197,7 @@
 			
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1700"
+		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.2"
 		"AbilityChannelTime"      		"4.05"
 
@@ -207,8 +217,10 @@
             "activation" "1.5"
             "radius" "250"
             "end_radius" "250"
-            "range" "1700"
-            "speed" "1000"
+            "range" "2000"
+            "speed" "600"
+            "tick_interval" "0.1"
+            "damage_duration" "1.0"
             "damage" "1000 1250 1500 1750 2000"
             "endcast_pause" "1.0"
             "endradius_charge_start" "10"

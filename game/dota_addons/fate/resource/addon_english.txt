@@ -1957,7 +1957,7 @@
 		"DOTA_Tooltip_modifier_wind_protection_passive_Description"                       ""
 
 		"DOTA_Tooltip_modifier_golden_rule"                                               "Golden Rule"
-		"DOTA_Tooltip_modifier_golden_rule_Description"                                   ""
+		"DOTA_Tooltip_modifier_golden_rule_Description"                                   "Gaining movement speed, health and mana regeneration from held gold."
 
 		"DOTA_Tooltip_enuma_elish_pause"                                                  "Enuma Elish Pause"
 		"DOTA_Tooltip_enuma_elish_pause_Description"                                      ""
@@ -2989,7 +2989,7 @@
 		"DOTA_Tooltip_ability_saber_alter_vortigern_stun_duration"	"Base stun duration:"
 
 		"DOTA_Tooltip_Ability_arturia_alter_mana_discharge"	"Mana Discharge"
-		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_Description"	"Cast Point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s    |    <font color='#EE5C29'>Unrefreshable</font>\n\nCan only be cast while <font color='#58ACFA'>Derange</font> is active. Arturia lets her mana run completely rampant: the buffs of <font color='#58ACFA'>Derange</font> are greatly amplified and additionally grant <font color='#A72E28'>armor</font> and <font color='#58ACFA'>magic resistance</font>, The overload leaves her <font color='#FF3399'>unable to cast abilities</font>, and her mana burns away rapidly, faster and faster over time.\n\nAll mana burned this way accumulates inside her. When the mana runs out, it violently explodes, dealing <font color='#58ACFA'>magic damage</font> equal to the accumulated mana plus a base amount, and <font color='#FF3399'>stunning</font> nearby enemies. Damage from accumulated mana is capped at 50%% of Arturia's maximum mana.\n\nThe buffs linger for 2.5 seconds after the explosion.\n\n<font color='#F1C40F'>Unlockable by attribute Unstable Mana.</font>"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_Description"	"Cast Point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s    |    <font color='#EE5C29'>Unrefreshable</font>\n\nCan only be cast while <font color='#58ACFA'>Derange</font> is active. Arturia lets her mana run completely rampant: the buffs of <font color='#58ACFA'>Derange</font> are greatly amplified and additionally grant <font color='#A72E28'>armor</font> and <font color='#58ACFA'>magic resistance</font>, The overload leaves her <font color='#FF3399'>unable to cast abilities</font>, and her mana burns away rapidly, faster and faster over time. Instead, <font color='#58ACFA'>Mana Burst</font> erupts on its own every %auto_burst_interval% seconds.\n\nAll mana burned this way accumulates inside her. When the mana runs out, it violently explodes, dealing <font color='#58ACFA'>magic damage</font> equal to the accumulated mana plus a base amount, and <font color='#FF3399'>stunning</font> nearby enemies. Damage from accumulated mana is capped at 50%% of Arturia's maximum mana.\n\nThe buffs linger for 2.5 seconds after the explosion.\n\n<font color='#F1C40F'>Unlockable by attribute Unstable Mana.</font>"
 		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_Lore"	""
 		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_as"										"Bonus attack speed:"
 		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_ms"										"%Bonus movement speed:"
@@ -4959,10 +4959,13 @@
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Lore" "When the portal to the primordial treasury opens, Those who were able to gaze into its glory soon find themselves amongst the countless weapons, waiting for their master's execution call."
 
 		"DOTA_Tooltip_Ability_gilgamesh_golden_rule"				"Golden Rule"
-		"DOTA_Tooltip_ability_gilgamesh_golden_rule_Description"	"<font color='#FFFAFA'>PASSIVE</font>\n\nGilgamesh's existence naturally compels fortune: he gains gold every second while alive.\n\n<font color='#F1C40F'>Upgradable by attribute Improve Golden Rule.</font>"
+		"DOTA_Tooltip_ability_gilgamesh_golden_rule_Description"	"<font color='#FFFAFA'>PASSIVE</font>\n\nGilgamesh's existence naturally compels fortune: he gains gold every second while alive.\nWith attribute <font color='#58ACFA'>Improve Golden Rule</font>, for every <font color='#FFFAFA'>%bonus_gold_step%</font> gold he holds, up to <font color='#FFFAFA'>%bonus_gold_max%</font>, he gains <font color='#FFFAFA'>%bonus_move_speed%</font> movement speed, <font color='#FFFAFA'>%bonus_health_regen%</font> health regeneration and <font color='#FFFAFA'>%bonus_mana_regen%</font> mana regeneration.\n\n<font color='#F1C40F'>Upgradable by attribute Improve Golden Rule.</font>"
 		"DOTA_Tooltip_ability_gilgamesh_golden_rule_Lore"			"Wealth means hardly a thing for the owner of all treasures around the world."
 		"DOTA_Tooltip_ability_gilgamesh_golden_rule_gold_gain"		"Gold per second:"
-
+		"DOTA_Tooltip_ability_gilgamesh_golden_rule_bonus_move_speed"	"Move speed per 1000 gold:"
+		"DOTA_Tooltip_ability_gilgamesh_golden_rule_bonus_health_regen"	"Health regen per 1000 gold:"
+		"DOTA_Tooltip_ability_gilgamesh_golden_rule_bonus_mana_regen"	"Mana regen per 1000 gold:"
+		"DOTA_Tooltip_ability_gilgamesh_golden_rule_bonus_gold_max"	"Gold counted up to:"
 		"DOTA_Tooltip_Ability_gilgamesh_enkidu"					"Enkidu"
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_Description"		"Cast Point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s    |    <font color='#EE5C29'>Unrefreshable</font>\n\nA stream of chains binds the target, <font color='#FF3399'>stunning</font> it.\n\n<font color='#F1C40F'>Upgradable by attribute Chains of Heaven:</font>\nThe bind lasts longer, and one second after it lands weapons rain onto the target, dealing <font color='#58ACFA'>magic damage</font>, half of which is dealt to enemies around the target."
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_Lore"			"Of King of Heroes' limitless arsenal, Chains of Heaven is his most trusted weapon."
@@ -4971,7 +4974,7 @@
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_att_sword_count"	"Attribute weapon count:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_enuma_elish"	"Enuma Elish"
-		"DOTA_Tooltip_ability_gilgamesh_enuma_elish_Description"	"Cast Point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font>\n\nGilgamesh channels Ea, then releases a cone of destruction that deals <font color='#58ACFA'>magic damage</font> to every enemy in its path. Use <font color='#58ACFA'>Release Enuma Elish</font> to fire it before the channel ends.\nThe longer he channels, the wider and the more damaging the beam becomes.\n\n<font color='#F1C40F'>Upgradable by attribute Sword of Creation.</font>"
+		"DOTA_Tooltip_ability_gilgamesh_enuma_elish_Description"	"Cast Point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s    |    <font color='#29EE32'>Refreshable</font>\n\nGilgamesh channels Ea, then releases a widening wave of destruction that rolls forward, leaving a burning trail behind it. Enemies on the trail take <font color='#58ACFA'>magic damage</font> over %damage_duration% second while they stay on it; leaving the trail stops the damage. The trail fades when the wave reaches the end of its path. Use <font color='#58ACFA'>Release Enuma Elish</font> to fire it before the channel ends.\nThe longer he channels, the wider and the more damaging the beam becomes.\n\n<font color='#F1C40F'>Upgradable by attribute Sword of Creation.</font>"
 		"DOTA_Tooltip_ability_gilgamesh_enuma_elish_Lore"	"The force of creation distorts space into a crack of abyss, where only nothingness exists."
 		"DOTA_Tooltip_ability_gilgamesh_enuma_elish_activation"	"Minimum channel:"
 		"DOTA_Tooltip_ability_gilgamesh_enuma_elish_range"	"Range:"
@@ -4997,7 +5000,7 @@
 		"DOTA_Tooltip_Ability_gilgamesh_max_enuma_elish_Note0"			"Gilgamesh is <font color='#FF3399'>stunned</font> and cannot use command seals for 5 seconds."
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule"				"Attribute: Improve Golden Rule"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_improve_golden_rule_Description"	"Doubles the gold per second granted by <font color='#58ACFA'>Golden Rule</font>.\nGilgamesh also collects more gold from every hero he kills."
+		"DOTA_Tooltip_ability_gilgamesh_attribute_improve_golden_rule_Description"	"Doubles the gold per second granted by <font color='#58ACFA'>Golden Rule</font>.\nGilgamesh also collects more gold from every hero he kills.\n<font color='#58ACFA'>Golden Rule</font> also grants movement speed, health and mana regeneration for the gold he holds."
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule_bounty_bonus"	"%Bonus gold bounty:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer"					"Attribute: Power of Sumer"
@@ -5334,8 +5337,7 @@
 		"DOTA_Tooltip_ability_lancelot_vortigern_stun_duration"	"BASE STUN DURATION:"
 
 		"DOTA_Tooltip_Ability_lancelot_gae_bolg"					"The Spear of Impaling Barbed Death"
-		"DOTA_Tooltip_ability_lancelot_gae_bolg_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.6</font>\nLancelot pierces the enemy with <font color='#58ACFA'>Gae Bolg</font>, dealing <font color='#58ACFA'>damage</font>.\nIf this blow would reduce the target's health below threshold, target is <font color='#D1A951'>executed</font>."
-		"DOTA_Tooltip_ability_lancelot_gae_bolg_heartbreak_threshold"		"Execution Threshold: "
+		"DOTA_Tooltip_ability_lancelot_gae_bolg_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.6</font>\nLancelot pierces the enemy with <font color='#58ACFA'>Gae Bolg</font>, dealing <font color='#58ACFA'>damage</font>.\n\n<font color='#F1C40F'>Upgradable by attribute Improve Knight of Honor.</font>"
 		"DOTA_Tooltip_ability_lancelot_gae_bolg_Note0"				"Heart Break is considered a forced kill, and bypasses most of revival abilities such as Red Saber(Extra)'s Invictus Spiritus and Ruler's La Pucelle."
 
 		"DOTA_Tooltip_Ability_lancelot_rule_breaker"	"Rule Breaker"
@@ -5468,7 +5470,7 @@
 
 
         "DOTA_Tooltip_Ability_lancelot_attribute_knight_of_owner"					"Attribute: Improve Knight of Honor"
-        "DOTA_Tooltip_ability_lancelot_attribute_knight_of_owner_Description"		"Upgrades <font color='#58ACFA'>Knight of Honor</font>, applying effects: \n<font color='#58ACFA'>Vortigern</font>: <font color='#FF3399'>stun</font> duration increased by <font color='#FFFAFA'>0.2</font>\n<font color='#58ACFA'>Gae Bolg</font>:Damage type changed to <font color='#D1A951'>pure</font>.\n<font color='#58ACFA'>Rosa Ichtys</font>:Damage is increased by <font color='#FFFAFA'>200</font>.\n<font color='#58ACFA'>Nine Lives</font>:Now <font color='#FF3399'>microstuns</font> on each hit.\n<font color='#58ACFA'>Tsubame Gaeshi</font>: Now performs <font color='#A72E28'>basic attack</font> on last hit."
+        "DOTA_Tooltip_ability_lancelot_attribute_knight_of_owner_Description"		"Upgrades <font color='#58ACFA'>Knight of Honor</font>, applying effects: \n<font color='#58ACFA'>Vortigern</font>: <font color='#FF3399'>stun</font> duration increased by <font color='#FFFAFA'>0.2</font>\n<font color='#58ACFA'>Gae Bolg</font>: <font color='#D1A951'>executes</font> the target if its health is below <font color='#FFFAFA'>40%%</font> of max health.\n<font color='#58ACFA'>Rosa Ichtys</font>:Damage is increased by <font color='#FFFAFA'>200</font>.\n<font color='#58ACFA'>Nine Lives</font>:Now <font color='#FF3399'>microstuns</font> on each hit.\n<font color='#58ACFA'>Tsubame Gaeshi</font>: Now performs <font color='#A72E28'>basic attack</font> on last hit."
         //"DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
      
 
@@ -6356,7 +6358,7 @@
 		"DOTA_Tooltip_Ability_khsn_blink_turn_rate"	"%Turn rate slow:"
 
 		"DOTA_Tooltip_Ability_khsn_mde"		"Evening Bell"
-		"DOTA_Tooltip_Ability_khsn_mde_Description"	"<font color='#FFFAFA'>Passive</font>\nOn attack deals <font color='#58ACFA'>%damage_percent%% </font> of target's maximum health as magical damage.\nDealing damage applies <font color='#FF0033'>Death's Door</font> debuff to enemies for %death_door_duration% seconds.\n<font color='#FF0033'>Death's Door</font>: stores %dd_dmg_percent%%  of the damage King Hassan deals to this unit under the effect of the debuff, up to %azrael_max_storage%.\n<font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\n King Hassan gains %ms_bonus%%  additional movement speed, %bonus_armor% armor and starts draining life force from nearby enemies, dealing <font color='#58ACFA'>%dps%</font> magical damage per second and healing himself for %heal% per second for each enemy affected.\nEnables <font color='#ff9900'>Azrael</font>.\n<font color='#ff9900'>Azrael</font> - <font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%azrael_cast_point%</font>\nAfter a 1.37 second delay, deals <font color='#58ACFA'>%azrael_damage%</font> + damage stored by the <font color='#FF0033'>Death's Door</font> on this enemy as <font color='#58ACFA'>magical</font> damage.\nIf enemy's health drops below %azrael_health_threshold%% , it will be executed.\nEnds Evening Bell if target was not killed."
+		"DOTA_Tooltip_Ability_khsn_mde_Description"	"<font color='#FFFAFA'>Passive</font>\nOn attack deals <font color='#58ACFA'>%damage_percent%% </font> of target's maximum health as magical damage.\nDealing damage applies <font color='#FF0033'>Death's Door</font> debuff to enemies for %death_door_duration% seconds.\n<font color='#FF0033'>Death's Door</font>: stores %dd_dmg_percent%%  of the damage King Hassan deals to this unit under the effect of the debuff, up to %azrael_max_storage%.\n<font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\n King Hassan gains %slow_resistance%%  slow resistance, %bonus_armor% armor and starts draining life force from nearby enemies, dealing <font color='#58ACFA'>%dps%</font> magical damage per second and healing himself for %heal% per second for each enemy affected.\nEnables <font color='#ff9900'>Azrael</font>.\n<font color='#ff9900'>Azrael</font> - <font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%azrael_cast_point%</font>\nAfter a 1.37 second delay, deals <font color='#58ACFA'>%azrael_damage%</font> + damage stored by the <font color='#FF0033'>Death's Door</font> on this enemy as <font color='#58ACFA'>magical</font> damage.\nIf enemy's health drops below %azrael_health_threshold%% , it will be executed.\nEnds Evening Bell if target was not killed."
 		"DOTA_Tooltip_Ability_khsn_mde_duration"	"Active duration:"
 
 		"DOTA_Tooltip_Ability_khsn_mde_end"		"Your Life is Near the End"
@@ -7516,7 +7518,7 @@
 		"DOTA_Tooltip_modifier_altera_rift_int_buff_Description"	"Additional magical resistance and movespeed."
 
 		"DOTA_Tooltip_Ability_altera_whip"       "Energy Whip"
-		"DOTA_Tooltip_Ability_altera_whip_Description"       "Altera utilizes whip-like properties of Photon Ray to perform a swing with %range% range in front of her. This ability can be used up to 2 times in a row before going on cooldown.\n<font color='#FF0000'>Strength</font> stance: deals %str_damage% damage and <font color='#FFFAFA'>heals</font> Altera for %str_heal% per each enemy hero hit.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage% damage and <font color='#FF3399'>locks</font> enemies for %agi_lock_duration% seconds.\n<font color='#1E90FF'>Intellect</font> stance: deals %int_damage% damage and <font color='#ACFF05'>heals </font> allies hit for half of the value.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: reduces cooldown to %attribute_cooldown% seconds.\nUpgrades with <font color='#58ACFA'>Energy Discharge</font> attribute: gains %stat_per_stack% main attribute per enemy hero hit for %attribute_stat_duration% and <font color='#9400D3'>slows</font> targets by %attribute_slow%%  for %attribute_slow_duration% seconds."
+		"DOTA_Tooltip_Ability_altera_whip_Description"       "Altera utilizes whip-like properties of Photon Ray to perform a swing with %range% range in front of her, dealing %damage% magical damage. This ability can be used up to 2 times in a row before going on cooldown.\n<font color='#FF0000'>Strength</font> stance: <font color='#FFFAFA'>heals</font> Altera for %str_heal% per each enemy hero hit.\n<font color='#00FF00'>Agility</font> stance: <font color='#FF3399'>locks</font> enemies for %agi_lock_duration% seconds.\n<font color='#1E90FF'>Intellect</font> stance: <font color='#ACFF05'>heals </font> allies hit for half of the damage value.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: reduces cooldown to %attribute_cooldown% seconds.\nUpgrades with <font color='#58ACFA'>Energy Discharge</font> attribute: gains %stat_per_stack% main attribute per enemy hero hit for %attribute_stat_duration% and <font color='#9400D3'>slows</font> targets by %attribute_slow%%  for %attribute_slow_duration% seconds."
 
 		"DOTA_Tooltip_Ability_altera_dash"       "Photon Rush"
 		"DOTA_Tooltip_Ability_altera_dash_Description"       "Altera prepares for %channel_time% seconds and dashes forward for %distance% range, dealing %damage% magical damage to all enemies on her way.\n<font color='#FF0000'>Strength</font> stance: launches enemies in the air for %str_airborne_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: dashes instantly with bonus %agi_bonus_distance% distance.\n<font color='#1E90FF'>Intellect</font> stance: applies %barrier_base% <font color='#ff9900'>barrier </font>for %barrier_duration% seconds on allies hit.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: deals bonus %atr_damage_mult% damage per current stance primary attribute point."
@@ -10233,9 +10235,10 @@
 		"DOTA_Tooltip_modifier_muramasa_no_sword_Description"				"Craft a new one."
 
         "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
-        "DOTA_Tooltip_ability_muramasa_dance_Description"				"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius and <font color='#FF3399'>stuns</font> enemies for 0.1 second."      
+        "DOTA_Tooltip_ability_muramasa_dance_Description"				"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\nThese attacks deal reduced <font color='#A72E28'>physical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius and <font color='#FF3399'>stuns</font> enemies for 0.1 second."
         "DOTA_Tooltip_ability_muramasa_dance_duration"					"Recast duration:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
+        "DOTA_Tooltip_ability_muramasa_dance_atk_dmg_pct"				"%Attack damage:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp_duration"			"Debuff duration:"
         "DOTA_Tooltip_ability_muramasa_dance_base_dmg"					"Base dmg:"
@@ -10668,6 +10671,7 @@
 		//  Hijikata (Berserker)
         //====================================
         "npc_dota_hero_spirit_breaker"						"Hijikata Toshizo"
+        "hijikata_1"										"Lei Heng"
 
         "DOTA_Tooltip_ability_hijikata_dash"							"Madman shot"
         "DOTA_Tooltip_ability_hijikata_dash_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun in the targeted direction, dealing <font color='#A72E28'>physical</font> damage on hit.\nIf Hijikata succesfully landed his shot, he is able to recast this ability, into <font color='#A72E28'>Battle drive</font>.\n<font color='#A72E28'>Battle drive</font>: Hijikata dashes to the target that was hit by the <font color='#A72E28'>Madman shot</font>, upon reaching the target, he deals <font color='#A72E28'>physical</font> damage to the target.\nHijikata will heal up to 10% of lost health on hit\nHijikata is unable to cast <font color='#A72E28'>Battle drive</font> if target is too far away from him.\n<font color='#A72E28'>Battle drive</font> is canceled if target blinks.\nTarget is visible to Hijikata while <font color='#A72E28'>Battle drive</font> recast is available."

@@ -18,6 +18,12 @@ OnDexStart = function(keys)
 
 	local caster = keys.caster
 
+	-- Номер каста: таймеры этого каста не возвращают меч и не гасят анимацию, если уже начался следующий
+	-- (стан сняли диспелом + нет перезарядки), иначе они рвали бы второй Экскалибур посреди каста.
+	caster.salter_excal_cast = (caster.salter_excal_cast or 0) + 1
+	local cast_id = caster.salter_excal_cast
+	local function is_latest() return IsNotNull(caster) and caster.salter_excal_cast == cast_id end
+
 	local ability = keys.ability 
 
 	--caster:AddNewModifier(caster, ability, "modifier_merlin_self_pause", {Duration = 3}) 
@@ -38,6 +44,15 @@ OnDexStart = function(keys)
 
 		caster:SetBodygroup(0, 1)
 
+		-- Возврат меча безусловно и в тот же момент (2.92 с). Возврат в цикле снарядов ниже не доживал до
+		-- 10-го снаряда, если героиню убивали между 2.0 и ~2.72 с (цикл выходит по not IsAlive), и после
+		-- воскрешения она бегала с мечом на кости Экскалибура (Bone037), то есть без меча в руке.
+		Timers:CreateTimer(2.92, function()
+			if is_latest() then
+				caster:SetBodygroup(0, 0)
+			end
+		end)
+
 	end
 
 	EmitGlobalSound("Saber.Caliburn")
@@ -46,7 +61,15 @@ OnDexStart = function(keys)
 
 	caster:AddNewModifier(caster, ability, "dark_excalibur_VFX_controller", {})
 
-	StartAnimation(caster, {duration = 3, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.35})
+	-- Жестом, а не StartAnimation: override из модификатора живёт только на клиенте, сервер при этом крутит idle,
+	-- и клиент перезапускал Экскалибур посреди каста (на выстреле). Жест — отдельный слой с сервера, его смена
+	-- базовой последовательности не трогает. Гасим через 3 с, как было у StartAnimation.
+	caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_4, 1.35)
+	Timers:CreateTimer(3, function()
+		if is_latest() then
+			caster:FadeGesture(ACT_DOTA_CAST_ABILITY_4)
+		end
+	end)
 
 	local dex = 
 
@@ -128,7 +151,7 @@ OnDexStart = function(keys)
 
 						Timers:CreateTimer(0.2, function() 
 
-							caster:SetBodygroup(0, 0)
+							if is_latest() then caster:SetBodygroup(0, 0) end
 
 						end)
 
@@ -195,7 +218,7 @@ OnDexStart = function(keys)
 
 		else
 
-			caster:SetBodygroup(0, 0)
+			if is_latest() then caster:SetBodygroup(0, 0) end
 
 
 
