@@ -4,6 +4,9 @@
 -- configured hero wearing that skin, otherwise the original. Safe on the client too: there the skin
 -- number comes from the hidden modifier's stack count (skinNumber is server-only).
 -- Required by every ability/modifier file that uses it (modifier callbacks also run on the client).
+-- Skin SOUNDS are not emitted directly: SkinEmitSound & co (for SKIN_OVERRIDES.sounds) and
+-- SkinSoundPair* / SkinSoundSplit (for skin branches written in the ability code) let each
+-- player choose whose skin sounds to hear (Effects tab), see the block below SkinSound.
 
 -- this file is loaded in the client VM too (ability/modifier files require it): register the skin
 -- modifier there, the server-side link in hero_replacer.lua never reaches the client
@@ -135,4 +138,279 @@ end
 function SkinSound(unit, event)
 	local cfg = skinConfig(unit)
 	return (cfg and cfg.sounds and cfg.sounds[event]) or event
+end
+
+
+-- ---------------------------------------------------------------------------
+-- Who hears a skin's sounds. Each player picks it in the Effects tab
+-- (effect_bars.js -> player_skin_sounds -> fate_settings.lua -> SkinSoundSetPrefs):
+-- own = my hero's skin, allies, enemies. Spectators are on no hero's team, so the
+-- enemies switch is theirs. No entry = hears every skin (the default).
+--
+-- Skin sound code goes through SkinSoundSplit(caster, skinFn, baseFn): skinFn makes
+-- the calls the skin branch made before, baseFn the calls the hero makes without
+-- the skin (nil = silent), each through the emitter S it gets:
+--   S.EmitSound(unit, ev)  S.EmitSoundOn(ev, unit)  S.EmitGlobalSound(ev)
+--   S.EmitSoundOnLocationWithCaster(pos, ev, caster)
+-- so a unit sound stays on the unit, a point sound at the point and a global one
+-- global, in either branch. While nobody listening opted out, skinFn gets the plain
+-- emitter and the engine sees exactly the old calls. Otherwise each branch is played
+-- to its own listeners one by one (and if nobody is left on the skin side, the base
+-- branch gets the plain emitter again).
+-- ---------------------------------------------------------------------------
+SKIN_SOUND_PREFS = SKIN_SOUND_PREFS or {}   -- playerID -> { own, allies, enemies } (0/1); only players who turned something off
+
+function SkinSoundSetPrefs(playerID, own, allies, enemies)
+	local p = { own = own == 0 and 0 or 1, allies = allies == 0 and 0 or 1, enemies = enemies == 0 and 0 or 1 }
+	if p.own == 1 and p.allies == 1 and p.enemies == 1 then
+		SKIN_SOUND_PREFS[playerID] = nil
+	else
+		SKIN_SOUND_PREFS[playerID] = p
+	end
+end
+
+-- Does <playerID> hear the skin sounds of <caster> (the hero wearing the skin)?
+-- Also for code that already sends a sound to each player itself (LoopOverPlayers + emit_horn_sound).
+function SkinSoundHeard(caster, playerID)
+	local p = SKIN_SOUND_PREFS[playerID]
+	if not p then return true end
+	if not caster or (caster.IsNull and caster:IsNull()) or not caster.GetTeamNumber then return true end
+	if caster.GetPlayerOwnerID and caster:GetPlayerOwnerID() == playerID then
+		return p.own == 1
+	end
+	if PlayerResource:GetTeam(playerID) == caster:GetTeamNumber() then
+		return p.allies == 1
+	end
+	return p.enemies == 1
+end
+
+SKIN_SOUND_PLAIN = {
+	EmitSound = function(unit, event) unit:EmitSound(event) end,
+	EmitSoundOn = function(event, unit) EmitSoundOn(event, unit) end,
+	EmitGlobalSound = function(event) EmitGlobalSound(event) end,
+	EmitSoundOnLocationWithCaster = function(pos, event, caster) EmitSoundOnLocationWithCaster(pos, event, caster) end,
+}
+
+-- A global sound for one player. The server has no call for it that sounds like
+-- EmitGlobalSound: EmitAnnouncerSoundForPlayer and EmitSoundOnClient play the same event
+-- ~30 dB quieter (measured in game 20.10.2026). So the client plays it itself, as the
+-- addon's horn sounds do (sounds.js: emit_presence_sound -> Game.EmitSound): measured as
+-- loud and as long, and StopGlobalSound cuts it the same way.
+local function emitGlobalForPlayer(event, playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	if player then
+		CustomGameEventManager:Send_ServerToPlayer(player, "emit_presence_sound", { sound = event })
+	end
+end
+
+-- The per-player calls ignore the fog of war (measured in game 20.10.2026: a unit in the
+-- fog is heard through EmitSoundOnEntityForPlayer, not through EmitSound), so it is checked
+-- here by the broadcast's rules, also measured: a unit sound is heard while the unit is
+-- seen; a point sound (EmitSoundOnLocationWithCaster) while the point OR the caster is seen.
+-- Own team and players without a hero (spectators) hear everything.
+SKIN_SOUND_FOG_CHECK = true
+
+-- Debug, console command fate_skin_sounds (cheats only). The per-player calls are used
+-- only while the listeners disagree, which a lone client never makes happen: FORCE_SPLIT
+-- sends every skin sound through them anyway (the client gets its side one by one), LOG
+-- prints where each skin sound went.
+SKIN_SOUND_FORCE_SPLIT = SKIN_SOUND_FORCE_SPLIT or false
+SKIN_SOUND_LOG = SKIN_SOUND_LOG or false
+
+local function debugLog(text)
+	if SKIN_SOUND_LOG then print("[SkinSound] " .. text) end
+end
+
+local function unitLabel(unit)
+	if not unit or (unit.IsNull and unit:IsNull()) then return "nil" end
+	return unit.GetUnitName and unit:GetUnitName() or tostring(unit)
+end
+
+local function listenerHero(playerID, team)
+	if not SKIN_SOUND_FOG_CHECK or PlayerResource:GetTeam(playerID) == team then return nil end
+	local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+	if not hero or hero:IsNull() or not hero.CanEntityBeSeenByMyTeam then return nil end
+	return hero
+end
+
+local function unitHeardBy(playerID, unit)
+	if not unit or (unit.IsNull and unit:IsNull()) or not unit.GetTeamNumber then return true end
+	local hero = listenerHero(playerID, unit:GetTeamNumber())
+	return not hero or hero:CanEntityBeSeenByMyTeam(unit)
+end
+
+local function pointHeardBy(playerID, pos, caster)
+	if caster and ((caster.IsNull and caster:IsNull()) or not caster.GetTeamNumber) then caster = nil end
+	local hero = listenerHero(playerID, caster and caster:GetTeamNumber())
+	if not hero then return true end
+	return IsLocationVisible(PlayerResource:GetTeam(playerID), pos)
+		or (caster ~= nil and hero:CanEntityBeSeenByMyTeam(caster))
+end
+
+local function playersEmitter(playerIDs)
+	local function onUnit(event, unit)
+		for _, pid in ipairs(playerIDs) do
+			if unitHeardBy(pid, unit) then
+				EmitSoundOnEntityForPlayer(event, unit, pid)
+				debugLog("P" .. pid .. " unit " .. event .. " @" .. unitLabel(unit))
+			else
+				debugLog("P" .. pid .. " fog, skipped unit " .. event .. " @" .. unitLabel(unit))
+			end
+		end
+	end
+	return {
+		EmitSound = function(unit, event) onUnit(event, unit) end,
+		EmitSoundOn = onUnit,
+		EmitGlobalSound = function(event)
+			for _, pid in ipairs(playerIDs) do
+				emitGlobalForPlayer(event, pid)
+				debugLog("P" .. pid .. " global " .. event)
+			end
+		end,
+		EmitSoundOnLocationWithCaster = function(pos, event, caster)
+			for _, pid in ipairs(playerIDs) do
+				if pointHeardBy(pid, pos, caster) then
+					EmitSoundOnLocationForPlayer(event, pos, pid)
+					debugLog("P" .. pid .. " point " .. event)
+				else
+					debugLog("P" .. pid .. " fog, skipped point " .. event)
+				end
+			end
+		end,
+	}
+end
+
+-- nil = everybody hears the skin (play it the old way); else the two lists of player IDs
+local function splitListeners(caster)
+	if not IsServer() or (next(SKIN_SOUND_PREFS) == nil and not SKIN_SOUND_FORCE_SPLIT) then return nil end
+	local skin, base = {}, {}
+	for pid = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+		if PlayerResource:GetPlayer(pid) then
+			if SkinSoundHeard(caster, pid) then
+				skin[#skin + 1] = pid
+			else
+				base[#base + 1] = pid
+			end
+		end
+	end
+	if #base == 0 and not SKIN_SOUND_FORCE_SPLIT then return nil end
+	return skin, base
+end
+
+function SkinSoundSplit(caster, skinFn, baseFn)
+	local skin, base = splitListeners(caster)
+	if not skin then
+		debugLog("plain skin, " .. unitLabel(caster))
+		if skinFn then skinFn(SKIN_SOUND_PLAIN) end
+	elseif #skin == 0 and not SKIN_SOUND_FORCE_SPLIT then
+		debugLog("plain base, " .. unitLabel(caster))
+		if baseFn then baseFn(SKIN_SOUND_PLAIN) end
+	else
+		debugLog("split skin={" .. table.concat(skin, ",") .. "} base={" .. table.concat(base, ",") .. "}, " .. unitLabel(caster))
+		if skinFn then skinFn(playersEmitter(skin)) end
+		if baseFn then baseFn(playersEmitter(base)) end
+	end
+end
+
+-- The same for one event on each side (nil = nothing on that side). Equal events
+-- (no skin, or the skin keeps this sound) are just the plain call.
+function SkinSoundPair(unit, caster, skinEvent, baseEvent)
+	if skinEvent == baseEvent then
+		if skinEvent then unit:EmitSound(skinEvent) end
+		return
+	end
+	SkinSoundSplit(caster,
+		skinEvent and function(S) S.EmitSound(unit, skinEvent) end,
+		baseEvent and function(S) S.EmitSound(unit, baseEvent) end)
+end
+
+function SkinSoundPairGlobal(caster, skinEvent, baseEvent)
+	if skinEvent == baseEvent then
+		if skinEvent then EmitGlobalSound(skinEvent) end
+		return
+	end
+	SkinSoundSplit(caster,
+		skinEvent and function(S) S.EmitGlobalSound(skinEvent) end,
+		baseEvent and function(S) S.EmitGlobalSound(baseEvent) end)
+end
+
+function SkinSoundPairAt(pos, caster, skinEvent, baseEvent)
+	if skinEvent == baseEvent then
+		if skinEvent then EmitSoundOnLocationWithCaster(pos, skinEvent, caster) end
+		return
+	end
+	SkinSoundSplit(caster,
+		skinEvent and function(S) S.EmitSoundOnLocationWithCaster(pos, skinEvent, caster) end,
+		baseEvent and function(S) S.EmitSoundOnLocationWithCaster(pos, baseEvent, caster) end)
+end
+
+-- Stop for a pair: listeners who opted out got the base event.
+function SkinSoundPairStop(unit, skinEvent, baseEvent)
+	if skinEvent then unit:StopSound(skinEvent) end
+	if baseEvent and baseEvent ~= skinEvent then unit:StopSound(baseEvent) end
+end
+
+-- SKIN_OVERRIDES.sounds (SkinSound) versions: <event> is the base hero's event.
+function SkinEmitSound(unit, caster, event)
+	local skinEvent = SkinSound(caster, event)
+	if skinEvent == event then
+		unit:EmitSound(event)
+	else
+		SkinSoundPair(unit, caster, skinEvent, event)
+	end
+end
+
+function SkinEmitGlobalSound(caster, event)
+	local skinEvent = SkinSound(caster, event)
+	if skinEvent == event then
+		EmitGlobalSound(event)
+	else
+		SkinSoundPairGlobal(caster, skinEvent, event)
+	end
+end
+
+function SkinEmitSoundOnLocationWithCaster(pos, event, caster)
+	local skinEvent = SkinSound(caster, event)
+	if skinEvent == event then
+		EmitSoundOnLocationWithCaster(pos, event, caster)
+	else
+		SkinSoundPairAt(pos, caster, skinEvent, event)
+	end
+end
+
+-- Stops whichever of the two the listeners got.
+function SkinStopSound(unit, caster, event)
+	local skinEvent = SkinSound(caster, event)
+	unit:StopSound(skinEvent)
+	if skinEvent ~= event then
+		unit:StopSound(event)
+	end
+end
+
+
+-- fate_skin_sounds split 0|1 | log 0|1 | me <own> <allies> <enemies> | status
+-- "me" sets the switches of whoever typed it, as the Effects tab does.
+function SkinSoundDebugCommand(sub, a, b, c)
+	if sub == "split" then
+		SKIN_SOUND_FORCE_SPLIT = a == "1"
+	elseif sub == "log" then
+		SKIN_SOUND_LOG = a == "1"
+	elseif sub == "me" then
+		-- the host's console has no command client with a PlayerID: then it is player 0
+		local player = Convars:GetCommandClient()
+		local pid = player and player.GetPlayerID and player:GetPlayerID() or 0
+		SkinSoundSetPrefs(pid, tonumber(a), tonumber(b), tonumber(c))
+	end
+	local prefs = {}
+	for pid, p in pairs(SKIN_SOUND_PREFS) do
+		prefs[#prefs + 1] = pid .. "=" .. p.own .. p.allies .. p.enemies
+	end
+	print("[SkinSound] split=" .. tostring(SKIN_SOUND_FORCE_SPLIT) .. " log=" .. tostring(SKIN_SOUND_LOG)
+		.. " prefs(own,allies,enemies): " .. (#prefs > 0 and table.concat(prefs, " ") or "none"))
+end
+
+if IsServer() and Convars and not SKIN_SOUND_CMD_REGISTERED then
+	SKIN_SOUND_CMD_REGISTERED = true
+	Convars:RegisterCommand("fate_skin_sounds", function(_, ...) SkinSoundDebugCommand(...) end,
+		"skin sounds debug: split 0|1, log 0|1, me <own> <allies> <enemies>, status", FCVAR_CHEAT)
 end

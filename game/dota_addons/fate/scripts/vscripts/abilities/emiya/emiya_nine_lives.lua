@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_nine_lives = class({})
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_emiya_nine_lives", "abilities/emiya/emiya_nine_lives", LUA_MODIFIER_MOTION_NONE)
@@ -63,7 +64,7 @@ function emiya_nine_lives:OnSpellStart()
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_ubw_r")
+        SkinSoundPair(caster, caster, "emiya_skin_ubw_r", "Archer.NineLives")
     else
 		caster:EmitSound("Archer.NineLives")
     end

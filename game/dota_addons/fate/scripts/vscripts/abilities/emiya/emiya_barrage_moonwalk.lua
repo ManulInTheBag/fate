@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_barrage_moonwalk = class({})
 
 LinkLuaModifier("modifier_moonwalk_root_cooldown", "abilities/emiya/modifiers/modifier_moonwalk_root_cooldown", LUA_MODIFIER_MOTION_NONE)
@@ -33,7 +34,7 @@ function emiya_barrage_moonwalk:OnSpellStart()
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.2)
 	if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_ubw_q")
+        SkinSoundPair(caster, caster, "emiya_skin_ubw_q", "Archer.NineFinish")
     else
 		caster:EmitSound("Archer.NineFinish")
     end

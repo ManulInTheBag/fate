@@ -50,10 +50,21 @@
 			<Panel id="EffList" class="EffectsList" />
 		</Panel>
 
-		<!-- Настройки героев: по карточке на Слугу со своими опциями HUD.
-		     Применяются, только когда играешь этим Слугой. -->
+		<!-- Звуки скинов: чьи скины звучат по-своему (голос и эффекты), остальные -
+		     как Слуга без скина. Решает сервер (libraries/skin_fx.lua), выбор он
+		     получает сразу, без Save (effect_bars.js SendSkinSounds).
+		     Ниже - настройки героев: по карточке на Слугу со своими опциями HUD,
+		     применяются, только когда играешь этим Слугой. -->
 		<Panel id="EffectsHeroes" class="EffectsColumn" hittest="false">
-			<Label class="EffectsHeader" text="#FA_Effects_Heroes" hittest="false" />
+			<Label class="EffectsHeader" text="#FA_Effects_SkinSounds" hittest="false" />
+			<Label class="EffectsHint EffectsHeroesHint" text="#FA_Effects_SkinSounds_Hint" hittest="false" />
+			<Panel class="EffectsHeroCard" hittest="false">
+				<ToggleButton id="EffSkin_own" class="EffectsOption" text="#FA_Effects_SkinSounds_own" onactivate="OnEffSkinSounds('own')" />
+				<ToggleButton id="EffSkin_allies" class="EffectsOption" text="#FA_Effects_SkinSounds_allies" onactivate="OnEffSkinSounds('allies')" />
+				<ToggleButton id="EffSkin_enemies" class="EffectsOption" text="#FA_Effects_SkinSounds_enemies" onactivate="OnEffSkinSounds('enemies')" />
+			</Panel>
+
+			<Label class="EffectsHeader EffectsHeaderGap" text="#FA_Effects_Heroes" hittest="false" />
 			<Label class="EffectsHint EffectsHeroesHint" text="#FA_Effects_Heroes_Hint" hittest="false" />
 
 			<Panel class="EffectsHeroCard" hittest="false">

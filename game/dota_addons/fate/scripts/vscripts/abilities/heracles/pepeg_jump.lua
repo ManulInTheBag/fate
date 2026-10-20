@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_pepeg_jump", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_pepeg_jump_bers", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_pepe_slow", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_NONE)
@@ -19,7 +20,7 @@ function pepeg_jump:OnSpellStart()
 	   caster:AddNewModifier(caster, self, "modifier_pepeg_jump_bers", {Berserked = true})
        if caster:HasModifier("modifier_hero_selection_skin") then
             if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-                EmitSoundOn("matthias_bers_e", caster)
+                SkinSoundPair(caster, caster, "matthias_bers_e", nil)
             end
         end
        LoopOverPlayers(function(player, playerID, playerHero)
@@ -38,7 +39,7 @@ function pepeg_jump:OnSpellStart()
             targets[2]:AddNewModifier(caster, self, "modifier_pepeg_jump", {Berserked = false})
              if caster:HasModifier("modifier_hero_selection_skin") then
                 if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-                    EmitSoundOn("matthias_e", caster)
+                    SkinSoundPair(caster, caster, "matthias_e", nil)
                 end
             end
             LoopOverPlayers(function(player, playerID, playerHero)

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 diarmuid_gae_dearg =  class({})
 
 LinkLuaModifier("modifier_gae_dearg", "abilities/diarmuid/modifiers/modifier_gae_dearg", LUA_MODIFIER_MOTION_NONE)
@@ -62,7 +63,7 @@ function diarmuid_gae_dearg:OnAbilityPhaseStart()
 	    
    		end)
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("lucio_dearg_voice")
+			SkinSoundPair(caster, caster, "lucio_dearg_voice", "Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
 		else
 		   caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
 		end
@@ -158,14 +159,14 @@ function diarmuid_gae_dearg:OnSpellStart()
 	      
    		end)
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("lucio_dearg_voice_2")
+			SkinSoundPair(caster, caster, "lucio_dearg_voice_2", "Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
 		else
 		   	caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
 		end
 
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		target:EmitSound("lucio_dearg")
+		SkinSoundPair(target, caster, "lucio_dearg", "Hero_Lion.Impale")
 	else
 		target:EmitSound("Hero_Lion.Impale")
 	end	   

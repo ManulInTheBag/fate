@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 vlad_combo = class({})
 LinkLuaModifier("modifier_lord_of_execution_cd", "abilities/vlad/modifier_lord_of_execution_cd", LUA_MODIFIER_MOTION_NONE)
 
@@ -44,7 +45,7 @@ function vlad_combo:OnSpellStart()
 	self.PI3 = {}
 	giveUnitDataDrivenModifier(caster, caster, "silenced", penalty)
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		EmitGlobalSound("verg_combo")
+		SkinSoundPairGlobal(caster, "verg_combo", "Vlad.Combo")
 	else
 		EmitGlobalSound("Vlad.Combo")
 	end

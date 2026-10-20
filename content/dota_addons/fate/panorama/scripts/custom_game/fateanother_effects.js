@@ -1,7 +1,8 @@
 'use strict';
 
 // Вкладка Effects окна настроек (fateanother_options.js): чьи эффекты видны
-// над хелсбарами, «мои всегда», какие эффекты выключены, и настройки героев
+// над хелсбарами, «мои всегда», какие эффекты выключены, чьи скины звучат
+// по-своему (skin_own / skin_allies / skin_enemies) и настройки героев
 // (сейчас только Билли: подсказка награды, счётчик пуль, анимация перезарядки).
 //
 // Своего состояния у вкладки нет. Профиль, список эффектов и функции правки
@@ -29,6 +30,9 @@ function Copy(settings) {
 		billy_hint: settings.billy_hint,
 		billy_drum: settings.billy_drum,
 		billy_reload: settings.billy_reload,
+		skin_own: settings.skin_own,
+		skin_allies: settings.skin_allies,
+		skin_enemies: settings.skin_enemies,
 	};
 }
 
@@ -82,6 +86,13 @@ function OnEffBillyDrum(mode) {
 function OnEffBillyReloadToggle() {
 	var on = $('#EffBillyReload').checked;
 	Change(function (s) { s.billy_reload = on ? 1 : 0; });
+}
+
+
+// Звуки скинов: who = own | allies | enemies (поля skin_<who> профиля).
+function OnEffSkinSounds(who) {
+	var on = $('#EffSkin_' + who).checked;
+	Change(function (s) { s['skin_' + who] = on ? 1 : 0; });
 }
 
 
@@ -233,6 +244,9 @@ function Sync() {
 		drumRadio.checked = true;
 	}
 	$('#EffOwn').checked = s.own !== 0;
+	$('#EffSkin_own').checked = s.skin_own !== 0;
+	$('#EffSkin_allies').checked = s.skin_allies !== 0;
+	$('#EffSkin_enemies').checked = s.skin_enemies !== 0;
 
 	var radio = $('#EffScope_' + s.scope);
 	if (radio) {

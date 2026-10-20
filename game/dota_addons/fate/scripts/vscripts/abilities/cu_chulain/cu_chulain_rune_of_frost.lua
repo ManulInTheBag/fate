@@ -5,13 +5,13 @@ function cu_chulain_rune_of_frost:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_ICE_VORTEX, rate=2.0})
 	self.sound = "cu_rune_of_frost_cast_"..math.random(1,2)
-	caster:EmitSound(SkinSound(caster, self.sound)) 
+	SkinEmitSound(caster, caster, self.sound) 
 end
 
 function cu_chulain_rune_of_frost:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
     EndAnimation(caster)
-	caster:StopSound(SkinSound(caster, self.sound)) 
+	SkinStopSound(caster, caster, self.sound) 
 end
 function cu_chulain_rune_of_frost:GetManaCost(iLevel)
 	if self:GetCaster():HasModifier("modifier_celtic_rune_attribute") then
@@ -43,7 +43,7 @@ function cu_chulain_rune_of_frost:OnSpellStart()
 	ParticleManager:SetParticleControl( blastFx, 1, speed * vector)
 	ParticleManager:SetParticleControl( blastFx, 2,Vector(self:GetSpecialValueFor("radius"),self:GetSpecialValueFor("radius"),self:GetSpecialValueFor("radius")))
 	ParticleManager:ReleaseParticleIndex(blastFx)
-	caster:EmitSound(SkinSound(caster, "cu_rune_of_frost"))   -- used to play only on a 50% roll
+	SkinEmitSound(caster, caster, "cu_rune_of_frost")   -- used to play only on a 50% roll
 
 	local qdProjectile = 
 	{

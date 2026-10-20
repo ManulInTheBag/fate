@@ -126,9 +126,27 @@ function FateSettings:OnLoad(args)
 end
 
 
+-- Чьи звуки скинов игрок слышит (вкладка Effects, блок «Звуки скинов»): клиент
+-- шлёт три флага при каждом применении профиля, в т.ч. до Save и у зрителей.
+-- Хранит и применяет libraries/skin_fx.lua (SkinSoundSetPrefs / SkinSoundHeard).
+function FateSettings:OnSkinSounds(args)
+    local playerID = args.PlayerID
+    -- PlayerID кладёт движок (отправитель); у зрителя он тоже есть, поэтому только диапазон
+    if type(playerID) ~= "number" or playerID < 0 or playerID >= DOTA_MAX_TEAM_PLAYERS then return end
+    if not SkinSoundSetPrefs then require("libraries/skin_fx") end
+    SkinSoundSetPrefs(playerID, tonumber(args.own), tonumber(args.allies), tonumber(args.enemies))
+end
+
+
 function FateSettings:Init()
     if self.initialized then return end
     self.initialized = true
+
+    -- сразу, а не по первому событию: заодно регистрирует отладочную команду fate_skin_sounds
+    require("libraries/skin_fx")
+    CustomGameEventManager:RegisterListener("player_skin_sounds", function(_, args)
+        FateSettings:OnSkinSounds(args)
+    end)
 
     CustomGameEventManager:RegisterListener("player_save_settings", function(_, args)
         FateSettings:OnSave(args)

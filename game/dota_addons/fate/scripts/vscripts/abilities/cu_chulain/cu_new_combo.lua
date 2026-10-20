@@ -48,11 +48,11 @@ function cu_new_combo:OnSpellStart()
 	local soundQueue = math.random(1,4)
 
 	if soundQueue ~= 4 then
-		hCaster:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
-		hTarget:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
+		SkinEmitSound(hCaster, hCaster, "Cu_Combo_" .. soundQueue)
+		SkinEmitSound(hTarget, hCaster, "Cu_Combo_" .. soundQueue)
 	else
-		hCaster:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
-		hTarget:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
+		SkinEmitSound(hCaster, hCaster, "Lancer.Heartbreak")
+		SkinEmitSound(hTarget, hCaster, "Lancer.Heartbreak")
 	end
 
 	LoopOverPlayers(function(player, playerID, playerHero)
@@ -101,7 +101,7 @@ function cu_new_combo:OnSpellStart()
 			--EndAnimation(hCaster)
 			StartAnimation(hCaster, {duration=1.1, activity=ACT_DOTA_CAST_ICE_WALL , rate=1.3})
 			Timers:CreateTimer(0.25, function() 
-				hCaster:EmitSound(SkinSound(hCaster, "cu_new_combo_1"))
+				SkinEmitSound(hCaster, hCaster, "cu_new_combo_1")
 			end)
 
 		end)
@@ -221,8 +221,8 @@ function cu_new_combo:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 
 	--hCaster:RemoveModifierByName("jump_pause")
 	-- on the spot, not on the target: the hit often kills it, and a removed unit (dummy/creep) cuts its sounds mid-play
-	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), SkinSound(hCaster, "cu_new_combo_2"), hCaster)
-	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), SkinSound(hCaster, "cu_new_combo_3"), hCaster)
+	SkinEmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "cu_new_combo_2", hCaster)
+	SkinEmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "cu_new_combo_3", hCaster)
 	--FindClearSpaceForUnit(hCaster, hCaster:GetAbsOrigin(), true)
 	hCaster:SetForwardVector(self.ForwardVector)
 	hCaster:FaceTowards(hTarget:GetAbsOrigin())

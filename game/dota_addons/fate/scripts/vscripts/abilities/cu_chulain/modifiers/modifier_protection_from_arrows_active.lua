@@ -8,7 +8,7 @@ if IsServer() then
 		-- modifier for projectile dodging and already has a sound of its own)
 		self.silent = args and args.silent == 1
 		if not self.silent then
-			self:GetParent():EmitSound(SkinSound(self:GetParent(), "cu_chulain_protection_start"))
+			SkinEmitSound(self:GetParent(), self:GetParent(), "cu_chulain_protection_start")
 		end
 	end
 
@@ -20,7 +20,7 @@ if IsServer() then
 
 	function modifier_protection_from_arrows_active:OnDestroy()
 		if self.silent then return end
-		self:GetParent():EmitSound(SkinSound(self:GetParent(), "cu_chulain_protection_end"))
+		SkinEmitSound(self:GetParent(), self:GetParent(), "cu_chulain_protection_end")
 	
 	end
 end

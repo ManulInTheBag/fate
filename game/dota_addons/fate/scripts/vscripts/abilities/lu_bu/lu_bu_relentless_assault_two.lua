@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 
 --------------------------------------------------------------------------------
 lu_bu_relentless_assault_two = class({})
@@ -28,7 +29,7 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 		end
 	end
 	if jiaQiuSkin then
-		caster:EmitSound("jia_qiu_crit")
+		SkinSoundPair(caster, caster, "jia_qiu_crit", "lu_bu_relentless_assault_one")
 	else
 		caster:EmitSound("lu_bu_relentless_assault_one")
 	end
@@ -203,7 +204,7 @@ function lu_bu_relentless_assault_two:PlayEffects2( target, origin, direction )
 	end)
 
 	-- Create Sound
-	EmitSoundOn( sound_cast, target )
+	SkinSoundPair( target, self:GetCaster(), sound_cast, "relentless_assault_two" )
 end
 
 

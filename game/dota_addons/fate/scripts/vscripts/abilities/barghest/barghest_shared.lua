@@ -7,6 +7,9 @@
      поэтому здесь ничего клиентонебезопасного на уровне файла.
 ]]
 
+-- звуки скина Guts: кто их слышит, решает SkinSoundPair (настройка «Звуки скинов»)
+require("libraries/skin_fx")
+
 --[[ Модификатор «заряжено продолжение» живёт ЗДЕСЬ, а не в barghest_r: вешают
      его Q/W/E, а читает R. ]]
 LinkLuaModifier("modifier_barghest_continuation", "abilities/barghest/barghest_shared",
@@ -192,16 +195,28 @@ function Barghest_Voice(hCaster, sEvent, fLength)
     if not IsServer() then return end
     if not Barghest_Alive(hCaster) then return end
     if sEvent == nil then return end
+    local sBase = sEvent
     sEvent = Barghest_VoiceEvent(hCaster, sEvent)
     fLength = math.max(fLength or 2.0, BARGHEST_VO_GUTS_LEN[sEvent] or 0)
 
     -- Играющую реплику обрываем: обрезанная фраза читается лучше, чем две разом.
+    Barghest_StopVoice(hCaster)
+    hCaster.sBarghestVoiceEvent = sEvent
+    hCaster.sBarghestVoiceBase = sBase
+    hCaster.fBarghestGruntUntil = GameRules:GetGameTime() + (fLength or 2.0)
+    -- у Guts: голос скина тем, кто его слышит, остальным - голос Barghest
+    SkinSoundPair(hCaster, hCaster, sEvent, sBase)
+end
+
+--[[ Глушит играющий голос. Тем, кто отключил звуки скинов, у Guts играл голос
+     Barghest (sBarghestVoiceBase), поэтому глушим оба. ]]
+function Barghest_StopVoice(hCaster)
     if hCaster.sBarghestVoiceEvent ~= nil then
         hCaster:StopSound(hCaster.sBarghestVoiceEvent)
     end
-    hCaster.sBarghestVoiceEvent = sEvent
-    hCaster.fBarghestGruntUntil = GameRules:GetGameTime() + (fLength or 2.0)
-    hCaster:EmitSound(sEvent)
+    if hCaster.sBarghestVoiceBase ~= nil and hCaster.sBarghestVoiceBase ~= hCaster.sBarghestVoiceEvent then
+        hCaster:StopSound(hCaster.sBarghestVoiceBase)
+    end
 end
 
 --[[ Боевой выкрик. Пока звучит предыдущий ГОЛОС (выкрик или реплика) — молчит. ]]
@@ -217,9 +232,11 @@ function Barghest_Grunt(hCaster, sEvent, nPool)
         return
     end
     hCaster.fBarghestGruntUntil = fNow + (BARGHEST_GRUNT_LEN[nPool] or 1.0)
+    local sBase = sEvent
     sEvent = Barghest_VoiceEvent(hCaster, sEvent)
     hCaster.sBarghestVoiceEvent = sEvent
-    hCaster:EmitSound(sEvent)
+    hCaster.sBarghestVoiceBase = sBase
+    SkinSoundPair(hCaster, hCaster, sEvent, sBase)
 end
 
 --[[ Живой ли хэндл. Своя копия — по той же причине, что и у

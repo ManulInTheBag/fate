@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_barrage_rain = class({})
 
 function emiya_barrage_rain:GetManaCost(iLevel)
@@ -111,7 +112,7 @@ function emiya_barrage_rain:OnSpellStart()
 		end
 	end)
 	if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_ubw_f")
+        SkinSoundPair(caster, caster, "emiya_skin_ubw_f", math.random(1,2) == 1 and "Archer.Bladeoff" or "Archer.Yuke")
     else
 		if math.random(1,2) == 1 then
 			caster:EmitSound("Archer.Bladeoff")

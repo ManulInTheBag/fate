@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 lu_bu_relentless_assault_one = class({})
 LinkLuaModifier( "modifier_lu_bu_relentless_assault_one", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_one", LUA_MODIFIER_MOTION_NONE )
 
@@ -40,8 +41,8 @@ function lu_bu_relentless_assault_one:OnSpellStart()
 		end
 	end
 	if jiaQiuSkin then
-		caster:EmitSound("jia_qiu_assault_sfx")
-		caster:EmitSound("Hero_Mars.Spear.Cast")
+		SkinSoundPair(caster, caster, "jia_qiu_assault_sfx", "relentless_assault_one")
+		SkinSoundPair(caster, caster, "Hero_Mars.Spear.Cast", "lu_bu_relentless_assault")
 	else
 		caster:EmitSound("relentless_assault_one")
 		caster:EmitSound("lu_bu_relentless_assault")
@@ -78,7 +79,7 @@ function lu_bu_relentless_assault_one:OnSpellStart()
 		local blastFx = ParticleManager:CreateParticle(smallFxName, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl( blastFx, 0, cast_point)
 		if smallFxName == "particles/custom/jia_qiu/lu_bu_small_impact.vpcf" then
-			caster:EmitSound("jia_qiu_hit_light")
+			SkinSoundPair(caster, caster, "jia_qiu_hit_light", nil)
 		end
 		
 		ScreenShake(caster:GetOrigin(), 5, 0.5, 2, 20000, 0, true)
@@ -121,5 +122,5 @@ function lu_bu_relentless_assault_one:PlayEffects()
 	end)
 
 	-- play sounds
-	EmitSoundOn( sound_cast, self:GetCaster() )
+	SkinSoundPair( self:GetCaster(), self:GetCaster(), sound_cast, "Hero_Ursa.Earthshock" )
 end

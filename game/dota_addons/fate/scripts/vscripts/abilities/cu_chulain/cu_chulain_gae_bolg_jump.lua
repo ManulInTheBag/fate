@@ -58,7 +58,7 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 	local ascendCount = 0
 	local descendCount = 0	
 
-	EmitGlobalSound(SkinSound(caster, "lancer_gae_bolg_2"))
+	SkinEmitGlobalSound(caster, "lancer_gae_bolg_2")
 	self.oldfw = caster:GetForwardVector()
 	local newfw = -(caster:GetAbsOrigin() - targetPoint):Normalized()
 	--newfw.z =
@@ -171,7 +171,7 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 		ParticleManager:SetParticleControl( crack, 0, projectile:GetAbsOrigin())
 		ParticleManager:SetParticleControl( explodeFx1, 0, projectile:GetAbsOrigin())
 		ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 2000, 0, true)
-		caster:EmitSound(SkinSound(caster, "Misc.Crash"))
+		SkinEmitSound(caster, caster, "Misc.Crash")
 	    Timers:CreateTimer( 3.0, function()
 			ParticleManager:DestroyParticle( crack, false )
 			ParticleManager:DestroyParticle( fire, false )
@@ -212,7 +212,7 @@ function cu_chulain_gae_bolg_jump:OnProjectileHit_ExtraData(hTarget, vLocation, 
 	hTarget:RemoveModifierByName("modifier_self_disarm")
 	caster.gbDummy:RemoveSelf()
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START, rate=2})
-	caster:EmitSound(SkinSound(caster, "cu_chulain_gae_bolg_retrieve"))
+	SkinEmitSound(caster, caster, "cu_chulain_gae_bolg_retrieve")
 	Timers:CreateTimer(0.033,function()
 		ProjectileManager:DestroyLinearProjectile(caster.gbProjectile)
    end)

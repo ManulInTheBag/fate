@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_diarmuid_parry", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_diarmuid_parry_particle", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_diarmuid_parry_marker", "abilities/diarmuid/diarmuid_parry", LUA_MODIFIER_MOTION_NONE)
@@ -21,7 +22,7 @@ function diarmuid_parry:OnSpellStart()
 
 	caster:EmitSound("diar_parry_activate")
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		caster:EmitSound("lucio_parry_voice")
+		SkinSoundPair(caster, caster, "lucio_parry_voice", "diar_parry_voice")
 	else
 		caster:EmitSound("diar_parry_voice")
 	end
@@ -51,9 +52,9 @@ function diarmuid_parry:Counter()
 
 	local aoe_radius = self:GetSpecialValueFor("first_hit_radius")
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		caster:EmitSound("lucio_counter_prock")
-		caster:EmitSound("lucio_combo_attack_1")
-		caster:EmitSound("lucio_combo_attack_2")
+		SkinSoundPair(caster, caster, "lucio_counter_prock", "diar_parry_prock")
+		SkinSoundPair(caster, caster, "lucio_combo_attack_1", nil)
+		SkinSoundPair(caster, caster, "lucio_combo_attack_2", nil)
 	else
 		caster:EmitSound("diar_parry_prock")
 	end	   

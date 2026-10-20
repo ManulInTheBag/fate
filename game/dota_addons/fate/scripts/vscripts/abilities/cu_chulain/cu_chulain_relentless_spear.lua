@@ -169,10 +169,10 @@ function cu_chulain_relentless_spear:TigerStrike1()
 	local caster = self:GetCaster()
 	local target  = self:GetCursorPosition()
 	if self:CheckSequence() == 2 then
-		caster:EmitSound(SkinSound(caster, "cu_dash_w_2"))
+		SkinEmitSound(caster, caster, "cu_dash_w_2")
 		self:CheckCombo()
 	else
-		caster:EmitSound(SkinSound(caster, "cu_dash_w_1"))
+		SkinEmitSound(caster, caster, "cu_dash_w_1")
 		self.isRefreshed = 0
 	end
 	local dist = (caster:GetAbsOrigin() - target):Length2D()
@@ -220,8 +220,8 @@ function cu_chulain_relentless_spear:TigerStrike1()
 				else
 					giveUnitDataDrivenModifier(caster, targets[1], "locked", self:GetSpecialValueFor("root_dur"))
 				end
-				targets[1]:EmitSound(SkinSound(caster, "cu_pierce_new"))
-				targets[1]:EmitSound(SkinSound(caster, "cu_pierce_new_2"))
+				SkinEmitSound(targets[1], caster, "cu_pierce_new")
+				SkinEmitSound(targets[1], caster, "cu_pierce_new_2")
 			end
 
 
@@ -248,7 +248,7 @@ function cu_chulain_relentless_spear:TigerStrike3()
 	if IsSpellBlocked(self.target, caster) then
 		ExecuteOrderFromTable(self.stopOrder_self)  return
 		 end
-	caster:EmitSound(SkinSound(caster, "cu_skill_" .. math.random(1,4)))
+	SkinEmitSound(caster, caster, "cu_skill_" .. math.random(1,4))
 
 	self.target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.15})
 	caster:AddNewModifier(caster, self, "modifier_relentless_spear", { Duration = self:GetSpecialValueFor("duration") + 0.1,

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_caladbolg = emiya_caladbolg or class({})
 
 
@@ -74,7 +75,7 @@ function emiya_caladbolg:ReleaseArrow(frames)
 	local range = (self:GetSpecialValueFor("range") + (caster.IsEagleEyeAcquired and 1000 or 0))  * (0.5 + frames/(self.maxtime*60))
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_e_range")
+        SkinSoundPair(caster, caster, "emiya_skin_e_range", "Emiya_Caladbolg_" .. math.random(1,2))
     else
 		caster:EmitSound("Emiya_Caladbolg_" .. math.random(1,2))
     end

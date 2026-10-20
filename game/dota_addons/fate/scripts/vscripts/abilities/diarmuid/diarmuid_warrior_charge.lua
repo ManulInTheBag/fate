@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 diarmuid_warrior_charge = class({})
 
 LinkLuaModifier("modifier_warrior_charge_attspd", "abilities/diarmuid/diarmuid_warrior_charge", LUA_MODIFIER_MOTION_NONE)
@@ -131,7 +132,7 @@ function diarmuid_warrior_charge:OnSpellStart()
 	-- end
 	--particle
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		caster:EmitSound("lucio_q")
+		SkinSoundPair(caster, caster, "lucio_q", "Hero_Huskar.Life_Break")
 	else
 		caster:EmitSound("Hero_Huskar.Life_Break")
 	end	   

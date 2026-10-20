@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_ryougi_glass_moon_2", "abilities/ryougi/ryougi_glass_moon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_glass_moon_recast", "abilities/ryougi/ryougi_glass_moon", LUA_MODIFIER_MOTION_NONE)
 
@@ -50,7 +51,7 @@ function ryougi_glass_moon:Cast1(target)
 	end
 	if caster:HasModifier("modifier_hero_selection_skin") then
         if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-          caster:EmitSound("tingtang_dash")
+          SkinSoundPair(caster, caster, "tingtang_dash", "ryougi_moon_1")
         else
          caster:EmitSound("ryougi_moon_1")
         end
@@ -83,7 +84,7 @@ function ryougi_glass_moon:Cast2(target)
 	local counter = 0
  	if caster:HasModifier("modifier_hero_selection_skin") then
         if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-          EmitSoundOn("tingtang_dash_2", caster)
+          SkinSoundPair(caster, caster, "tingtang_dash_2", "ryougi_knife_"..math.random(1,4))
         else
          EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
         end

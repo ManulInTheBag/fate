@@ -105,6 +105,39 @@ python $S/zone_debug.py on abilities/barghest/barghest_shared.lua barghest --ski
 Визуал способности заранее выносить в отдельный метод (`barghest_r:FxUppercut`),
 чтобы тест вызывал тот же код, что и сама способность.
 
+## 4a. Звук: измерить, а не услышать
+
+Слышать игру Claude не может, поэтому звук меряется пиковым метром аудиосессии
+`dota2.exe` (WASAPI, не зависит от устройства вывода и SteelSeries Sonar):
+```
+csc.exe -nologo -platform:x64 -out:SessMeter.exe $S/SessMeter.cs   (C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe, собирать в scratchpad)
+SessMeter.exe <pid dota2> list                 # сессии процесса, громкость, mute
+SessMeter.exe <pid dota2> <секунды> out.csv    # время,пик каждые 10 мс
+```
+PID — из `dota_windows.ps1`. Пик в дБ = 20·log10; фон эмбиента карты ≈ −37 дБ, голос ≈ −9…−16,
+залп ≈ 0. Звуки проигрывать по таймеру из отладочного файла (`Timers` + `print` метки) и
+сравнивать отрезки: громкость, длина, где оборвался стоп. Замер 20.10.2026 так и нашёл
+`EmitAnnouncerSoundForPlayer` на −33 дБ.
+- ⚠️ `snd_mute_losefocus` = true: без фокуса окна игра молчит. Для замера с открытой
+  VConsole временно `snd_mute_losefocus 0`, после — вернуть `1`.
+- ⚠️ `snd_sos_soundevent_filter <строка>` — НЕ фильтр вывода, а фильтр ВОСПРОИЗВЕДЕНИЯ:
+  играет только событие с этой подстрокой в имени («0» тоже фильтрует). Сброс — `snd_sos_soundevent_filter ""`.
+- `snd_sos_show_soundevent_start 1` в этой сборке ничего не печатает. `cl_snd_new_visualize 1`
+  подписывает в мире только позиционные звуки (не голос/глобальные).
+- Loopback-запись системного звука бесполезна при Sonar (виртуальные устройства отдают нули).
+- `snd_sos_stop_all_soundevents` гасит и эмбиент карты — до рестарта карты фон не вернётся.
+- Чужой герой одним клиентом: `CreateUnitByName("<npc_dota_hero_…>", pos, true, nil, nil, team)`
+  — без владельца (`GetPlayerOwnerID` = −1), на любой команде; скин — `AddNewModifier(u, nil,
+  "modifier_hero_selection_skin", {skinNumber = N})`. Туман вблизи (чтобы звук не глох от
+  расстояния) — урезать обзор своего героя `SetDayTimeVisionRange/SetNightTimeVisionRange(150)`
+  и потом вернуть. Если такой герой убьёт тебя, будет ошибка `addon_game_mode.lua … ServStat`: у убийцы нет игрока, это артефакт теста.
+- Слушателей 3D-звука два — камера и свой герой (замер 20.10.2026): звук у своего героя
+  слышен и при отъехавшей камере. Камеру двигать `PlayerResource:SetCameraTarget(0, unit)`
+  (`nil` — отпустить). Звук врага в тумане не играет вовсе — для замеров давать обзор `AddFOWViewer`.
+  Звуки через панораму (`emit_horn_sound`/`emit_presence_sound`) от камеры не зависят.
+- Правило тумана движка (замер 20.10.2026): `EmitSound` на юните слышно, пока юнит виден;
+  `EmitSoundOnLocationWithCaster` — пока видна точка ИЛИ кастер; `…ForPlayer`-версии туман не учитывают.
+
 ## 5. Particle Editor
 
 Asset Browser (`-Focus assets`): вкладка **All Assets**, тип **Particle System** → Only,

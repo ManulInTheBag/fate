@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_recast_dash = class({})
 LinkLuaModifier("modifier_karna_self_pause","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_karna_self_pause_2","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
@@ -15,8 +16,8 @@ function karna_recast_dash:OnSpellStart()
 	caster:FindAbilityByName("karna_spin_2"):StartCooldown(1)
 	if caster:HasModifier("modifier_hero_selection_skin") then
 			local soundQueue = math.random (1,3)
- 			caster:EmitSound("aemis_human_qw" .. soundQueue)
-			caster:EmitSound("aemis_human_q2")
+ 			SkinSoundPair(caster, caster, "aemis_human_qw" .. soundQueue, "karna_new_karna_too_slow")
+			SkinSoundPair(caster, caster, "aemis_human_q2", nil)
 	else
 		caster:EmitSound("karna_new_karna_too_slow")
 	end
@@ -48,7 +49,7 @@ function karna_recast_dash:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_karna_self_pause_2", {Duration = 0.5}) 
 	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		caster:EmitSound("aemis_human_q2")
+		SkinSoundPair(caster, caster, "aemis_human_q2", "Hero_PhantomLancer.Doppelwalk")
 	else
 		caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 
 	end

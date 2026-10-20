@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 modifier_heracles_nine_lives = class({})
 
@@ -21,10 +22,10 @@ function modifier_heracles_nine_lives:OnCreated(args)
 
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-				self:GetParent():EmitSound("barbatos_nine_lives")
+				SkinSoundPair(self:GetParent(), caster, "barbatos_nine_lives", (math.random(1,100) > 10 and ("Heracles_NineLives_" .. math.random(1,3)) or "Heracles_Combo_Easter_1"))
 			
 			elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-				self:GetParent():EmitSound("matthias_r")
+				SkinSoundPair(self:GetParent(), caster, "matthias_r", (math.random(1,100) > 10 and ("Heracles_NineLives_" .. math.random(1,3)) or "Heracles_Combo_Easter_1"))
 			else
 				if math.random(1,100) > 10 then
 					self:GetParent():EmitSound("Heracles_NineLives_" .. math.random(1,3))
@@ -64,7 +65,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 		--print("hit " .. self.HitNumber)
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-				caster:EmitSound("nine_hit_matthias") 		
+				SkinSoundPair(caster, caster, "nine_hit_matthias", "Hero_EarthSpirit.StoneRemnant.Impact") 		
 			else
 				caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 		
 			end
@@ -90,7 +91,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 		--print("final hit")
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-				caster:EmitSound("matthias_ninelasthitsfx") 	
+				SkinSoundPair(caster, caster, "matthias_ninelasthitsfx", "Hero_EarthSpirit.BoulderSmash.Target") 	
 			else
 				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
 			end

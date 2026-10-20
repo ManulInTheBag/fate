@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_slashes = class({})
 
 function karna_slashes:GetAOERadius()
@@ -52,7 +53,7 @@ function karna_slashes:OnSpellStart()
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		caster:EmitSound("karna_new_fire_2")
-		caster:EmitSound("aemis_human_w")
+		SkinSoundPair(caster, caster, "aemis_human_w", "karna_new_karna_hit_3")
 	else
 		caster:EmitSound("karna_new_fire_2")
 		caster:EmitSound("karna_new_karna_hit_3")
@@ -114,6 +115,7 @@ function karna_slashes:OnSpellStart()
 	Timers:CreateTimer(0.35, function()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		caster:EmitSound("karna_new_fire_2")
+		SkinSoundPair(caster, caster, nil, "karna_new_karna_hit_3")
 	else
 		caster:EmitSound("karna_new_fire_2")
 		caster:EmitSound("karna_new_karna_hit_3")

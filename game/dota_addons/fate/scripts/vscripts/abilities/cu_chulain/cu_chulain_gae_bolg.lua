@@ -35,13 +35,13 @@ function cu_chulain_gae_bolg:OnAbilityPhaseStart()
 	end)
 
 	--caster:EmitSound("Lancer.GaeBolg")
-	caster:EmitSound(SkinSound(caster, "cu_chulain_gae_bolg_voice"))
+	SkinEmitSound(caster, caster, "cu_chulain_gae_bolg_voice")
 	return true
 end
 
 function cu_chulain_gae_bolg:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
-	caster:StopSound(SkinSound(caster, "cu_chulain_gae_bolg_voice"))
+	SkinStopSound(caster, caster, "cu_chulain_gae_bolg_voice")
 end
 
 function cu_chulain_gae_bolg:OnSpellStart()
@@ -111,8 +111,8 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	-- ParticleManager:SetParticleControlEnt(dagon_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
 	-- local particle_effect_intensity = 600
 	-- ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity))
-	target:EmitSound(SkinSound(caster, "cu_pierce_new"))
-	target:EmitSound(SkinSound(caster, "cu_pierce_new_2"))
+	SkinEmitSound(target, caster, "cu_pierce_new")
+	SkinEmitSound(target, caster, "cu_pierce_new_2")
 
 	-- Blood splat
 	local splat = ParticleManager:CreateParticle(SkinParticle(caster, "particles/generic_gameplay/screen_blood_splatter.vpcf"), PATTACH_EYES_FOLLOW, target)

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 -- berserker_5th_god_hand — портировано из datadriven панелью (dd2lua).
 -- Источник: scripts/npc/abilities/heracles/heracles_abilities.kv
 -- Проверить: TODO-пометки ниже, прекеш и места применения модификаторов.
@@ -39,7 +40,7 @@ OnGodHandDeath = function(keys)
 			--Timers:CreateTimer(30.0, function() caster.bIsGHReady = true end)
 			if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-					EmitGlobalSound("matthias_res") 
+					SkinSoundPairGlobal(caster, "matthias_res", "Berserker.Roar") 
 				else
 					EmitGlobalSound("Berserker.Roar") 
 				end

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 nobu_combo = class({})
 
 LinkLuaModifier("modifier_nobu_combo_self","abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
@@ -34,7 +35,7 @@ function nobu_combo:OnSpellStart()
     self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/nobu_combo_smoke_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
      hCaster.target_enemy:AddNewModifier(hCaster, self, "modifier_nobu_combo_mark", {duration = self:GetSpecialValueFor("run_duration")} )
      if hCaster:HasModifier("modifier_hero_selection_skin") then
-        EmitGlobalSound("gregori_combo_cast") 
+        SkinSoundPairGlobal(hCaster, "gregori_combo_cast", "nobu_combo_cast") 
     else
         EmitGlobalSound("nobu_combo_cast") 
     end
@@ -75,7 +76,7 @@ function nobu_combo:AttackEnemy()
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         hCaster:EmitSound("merlin_staff")
         if hCaster:HasModifier("modifier_hero_selection_skin") then
-            EmitGlobalSound("gregori_combo_hit") 
+            SkinSoundPairGlobal(hCaster, "gregori_combo_hit", nil) 
         end
         self.target = target:GetAbsOrigin()
         for i=1,25 do 
@@ -101,7 +102,7 @@ function nobu_combo:AttackEnemy()
                     Range = 1000,
                 })
                     if hCaster:HasModifier("modifier_hero_selection_skin") then
-                        self.dummies[i]:EmitSound("lament_"..math.random(1,2))
+                        SkinSoundPair(self.dummies[i], hCaster, "lament_"..math.random(1,2), "nobu_shoot_multiple_"..math.random(1,2))
                     else
                         self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
                     end
@@ -116,6 +117,7 @@ function nobu_combo:AttackEnemy()
      Timers:CreateTimer(3,  function()
         StopGlobalSound("nobu_combo_cast") 
         if hCaster:HasModifier("modifier_hero_selection_skin") then
+            SkinSoundPairGlobal(hCaster, nil, "nobu_combo_end")
         else
             EmitGlobalSound("nobu_combo_end") 
         end

@@ -30,7 +30,7 @@ if IsServer() then
 			DoDamage(caster, self.target, damage, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 			caster:PerformAttack(self.target, true, true, true, true, false, true, true)
 			self.target:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = 0.15})
-			self.target:EmitSound(SkinSound(self:GetCaster(), "Hero_PhantomLancer.Attack"))
+			SkinEmitSound(self.target, self:GetCaster(), "Hero_PhantomLancer.Attack")
 			if self.slashFx then
 				local pos = self.target:GetAbsOrigin() + Vector(0, 0, 50)
 				local fx = ParticleManager:CreateParticle(self.slashFx, PATTACH_WORLDORIGIN, nil)

@@ -120,6 +120,12 @@
 		"FA_Effects_BillyDrum_number"			"仅数字"
 		"FA_Effects_BillyDrum_none"				"隐藏"
 		"FA_Effects_BillyReload"					"装填时播放弹巢旋转动画"
+		// вкладка Effects: звуки скинов (libraries/skin_fx.lua, SkinSoundHeard)
+		"FA_Effects_SkinSounds"					"皮肤音效"
+		"FA_Effects_SkinSounds_Hint"			"英雄皮肤的语音和音效。关闭后，该从者的声音与没有皮肤时相同。观战时，“敌人的皮肤”开关作用于所有人。"
+		"FA_Effects_SkinSounds_own"				"我的从者的皮肤"
+		"FA_Effects_SkinSounds_allies"			"队友的皮肤"
+		"FA_Effects_SkinSounds_enemies"			"敌人的皮肤"
 
 		// вкладка Effects (fateanother_effects.xml) и подписи эффектов (effect_bars.js)
 		"FA_Effects_Title"						"效果图标"

@@ -41,11 +41,11 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 	local soundQueue = math.random(1,4)
 
 	if soundQueue ~= 4 then
-		hCaster:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
-		hTarget:EmitSound(SkinSound(hCaster, "Cu_Combo_" .. soundQueue))
+		SkinEmitSound(hCaster, hCaster, "Cu_Combo_" .. soundQueue)
+		SkinEmitSound(hTarget, hCaster, "Cu_Combo_" .. soundQueue)
 	else
-		hCaster:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
-		hTarget:EmitSound(SkinSound(hCaster, "Lancer.Heartbreak"))
+		SkinEmitSound(hCaster, hCaster, "Lancer.Heartbreak")
+		SkinEmitSound(hTarget, hCaster, "Lancer.Heartbreak")
 	end
 
 	LoopOverPlayers(function(player, playerID, playerHero)
@@ -147,9 +147,9 @@ function cu_chulain_gae_bolg_combo:OnProjectileHit_ExtraData(hTarget, vLocation,
 	end)
 
 	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
-	hTarget:EmitSound(SkinSound(hCaster, "cu_pierce_new"))
-	hTarget:EmitSound(SkinSound(hCaster, "cu_pierce_new_2"))
-	hTarget:EmitSound(SkinSound(hCaster, "Hero_Lion.Impale"))
+	SkinEmitSound(hTarget, hCaster, "cu_pierce_new")
+	SkinEmitSound(hTarget, hCaster, "cu_pierce_new_2")
+	SkinEmitSound(hTarget, hCaster, "Hero_Lion.Impale")
 	local culling_kill_particle = ParticleManager:CreateParticle(SkinParticle(hCaster, "particles/custom/lancer/lancer_culling_blade_kill.vpcf"), PATTACH_CUSTOMORIGIN, hTarget)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)

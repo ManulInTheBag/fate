@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 modifier_heart_of_harmony = class({})
 modifier_heart_of_harmony_invis = class({})
 
@@ -98,9 +99,9 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
                
                 if caster:HasModifier("modifier_hero_selection_skin") then
                     if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-                        target:EmitSound("kim_counter_success_1")
+                        SkinSoundPair(target, caster, "kim_counter_success_1", "Sasaki_Counter_Success_" .. math.random(1,2))
                     else
-                        target:EmitSound("patrick_counter_success_1")
+                        SkinSoundPair(target, caster, "patrick_counter_success_1", "Sasaki_Counter_Success_" .. math.random(1,2))
                     end
                 else
                     target:EmitSound("Sasaki_Counter_Success_" .. math.random(1,2))
@@ -142,7 +143,7 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
             end)
             
             if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-                caster:EmitSound("kim_sfx_slash_" .. math.random(1,3))
+                SkinSoundSplit(caster, function(S) S.EmitSound(caster, "kim_sfx_slash_" .. math.random(1,3)) end, function(S) S.EmitGlobalSound("FA.Quickdraw") end)
             else
                 EmitGlobalSound("FA.Quickdraw")
             end

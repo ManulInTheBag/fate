@@ -158,6 +158,12 @@
 		"FA_Effects_BillyDrum_number"			"Number only"
 		"FA_Effects_BillyDrum_none"				"Hide"
 		"FA_Effects_BillyReload"					"Animate the cylinder on reload"
+		// вкладка Effects: звуки скинов (libraries/skin_fx.lua, SkinSoundHeard)
+		"FA_Effects_SkinSounds"					"Skin sounds"
+		"FA_Effects_SkinSounds_Hint"			"Voice and sounds of hero skins. Turned off - you hear that Servant as without the skin. Spectators: the enemies switch covers everyone."
+		"FA_Effects_SkinSounds_own"				"My Servant's skin"
+		"FA_Effects_SkinSounds_allies"			"Allies' skins"
+		"FA_Effects_SkinSounds_enemies"			"Enemies' skins"
 
 		// вкладка Effects (fateanother_effects.xml) и подписи эффектов (effect_bars.js)
 		"FA_Effects_Title"						"Effect icons"

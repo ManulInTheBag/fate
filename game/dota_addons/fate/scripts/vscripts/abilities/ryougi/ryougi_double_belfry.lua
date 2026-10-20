@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_ryougi_double_belfry_tracker", "abilities/ryougi/ryougi_double_belfry", LUA_MODIFIER_MOTION_NONE)
 
 ryougi_double_belfry = class({})
@@ -150,8 +151,8 @@ function ryougi_double_belfry:Belfry1()
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitSoundOn("tingtang_slash", caster)
-			EmitSoundOn("tingtang_e_voice_1", caster)
+			SkinSoundPair(caster, caster, "tingtang_slash", "jtr_slash")
+			SkinSoundPair(caster, caster, "tingtang_e_voice_1", "ryougi_one")
 		else
 			EmitSoundOn("jtr_slash", caster)
 			EmitSoundOn("ryougi_one", caster)
@@ -211,8 +212,8 @@ function ryougi_double_belfry:Belfry2()
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitSoundOn("tingtang_slash_2", caster)
-			EmitSoundOn("tingtang_e_voice_2", caster)
+			SkinSoundPair(caster, caster, "tingtang_slash_2", "jtr_slash")
+			SkinSoundPair(caster, caster, "tingtang_e_voice_2", "ryougi_two")
 		else
 			EmitSoundOn("jtr_slash", caster)
 			EmitSoundOn("ryougi_two", caster)
@@ -271,8 +272,8 @@ function ryougi_double_belfry:Belfry3()
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitSoundOn("tingtang_slash_3", caster)
-			EmitSoundOn("tingtang_e_voice_3", caster)
+			SkinSoundPair(caster, caster, "tingtang_slash_3", "jtr_slash")
+			SkinSoundPair(caster, caster, "tingtang_e_voice_3", "ryougi_three")
 		else
 			EmitSoundOn("jtr_slash", caster)
 			EmitSoundOn("ryougi_three", caster)

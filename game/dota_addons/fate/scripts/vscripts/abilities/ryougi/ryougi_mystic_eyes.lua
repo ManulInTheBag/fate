@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_ryougi_mystic_eyes_active", "abilities/ryougi/ryougi_mystic_eyes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_mystic_eyes_vision", "abilities/ryougi/ryougi_mystic_eyes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_combo_window", "abilities/ryougi/ryougi_mystic_eyes", LUA_MODIFIER_MOTION_NONE)
@@ -11,7 +12,7 @@ function ryougi_mystic_eyes:OnSpellStart()
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-				caster:EmitSound("tingtang_eyes_active")
+				SkinSoundPair(caster, caster, "tingtang_eyes_active", "ryougi_eyes")
 			else
 				caster:EmitSound("ryougi_eyes")
 			end

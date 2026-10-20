@@ -48,7 +48,7 @@ function cu_chulain_rune_of_disengage:OnSpellStart()
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 
 	HardCleanse(caster)
-	caster:EmitSound(SkinSound(caster, "Hero_PhantomLancer.Doppelwalk"))
+	SkinEmitSound(caster, caster, "Hero_PhantomLancer.Doppelwalk")
 	local i = 1
 	while GridNav:IsBlocked(newLoc) or not GridNav:IsTraversable(newLoc) or i == 100 do
 		i = i+1

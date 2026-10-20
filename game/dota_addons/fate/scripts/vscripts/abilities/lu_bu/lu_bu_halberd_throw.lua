@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 -----------------------------
 --    Armistice    --
 -----------------------------
@@ -69,7 +70,7 @@ function lu_bu_halberd_throw:OnSpellStart()
 
 	-- play effects
 	if projectile_name == "particles/custom/lu_bu/jia_qiu_spear.vpcf" then
-		caster:EmitSound("jia_qiu_halberd_throw")
+		SkinSoundPair(caster, caster, "jia_qiu_halberd_throw", "lu_bu_spear_throw")
 	else
 		caster:EmitSound("lu_bu_spear_throw")
 	end
@@ -108,7 +109,7 @@ function lu_bu_halberd_throw:OnProjectileHit_ExtraData(target, vLocation, tData)
 			spearImpactSound = "jia_qiu_throw_hit"
 		end
 	end
-	target:EmitSound(spearImpactSound)
+	SkinSoundPair(target, caster, spearImpactSound, "lu_bu_spear_throw_impact")
 	
 	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
 	

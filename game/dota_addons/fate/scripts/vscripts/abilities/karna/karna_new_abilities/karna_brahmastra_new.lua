@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_brahmastra_new = class({})
 
 LinkLuaModifier("modifier_brahmastra_stun", "abilities/karna/modifiers/modifier_brahmastra_stun", LUA_MODIFIER_MOTION_NONE)
@@ -129,7 +130,7 @@ function karna_brahmastra_new:OnSpellStart()
 		end
 	end)
 	if caster:HasModifier("modifier_hero_selection_skin") then 
-		caster:EmitSound("aemis_mecha_w" .. math.random(1,2))
+		SkinSoundPair(caster, caster, "aemis_mecha_w" .. math.random(1,2), "karna_brahmastra_" .. math.random(1,4))
 	else
 		caster:EmitSound("karna_brahmastra_" .. math.random(1,4))
 	end 

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_spears_barrage = class({})
 
 function karna_spears_barrage:OnUpgrade()
@@ -19,7 +20,7 @@ function karna_spears_barrage:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_hero_selection_skin") then 
 		local soundQueue = math.random (1,2)
-		caster:EmitSound("aemis_mecha_r".. soundQueue)
+		SkinSoundPair(caster, caster, "aemis_mecha_r".. soundQueue, "karna_new_karna_spears_voice")
 	else
 		caster:EmitSound("karna_new_karna_spears_voice")
 	end

@@ -60,6 +60,36 @@ end
 (звук клинка, дотовские `Hero_*.*`) — SFX играет одинаково у всех скинов, если
 специально не решили иначе.
 
+## ЛОВУШКА 1б: звук скина нельзя играть напрямую (настройка «Звуки скинов»)
+
+С 19.10.2026 каждый игрок выбирает во вкладке Effects, чьи звуки скинов слышит
+(свой / союзников / противников); выключившим звучит Слуга без скина. Решает
+`libraries/skin_fx.lua`, поэтому в скин-ветке вместо `EmitSound` / `EmitGlobalSound` /
+`EmitSoundOnLocationWithCaster` — помощник с ДВУМЯ событиями: что играет скин и что
+в этом месте играл бы Слуга без скина (`nil` = тишина):
+```lua
+require("libraries/skin_fx")   -- первой строкой файла (и для клиентской VM)
+
+if <скин N> then
+    SkinSoundPair(caster, caster, "skin_voice", "base_voice")        -- на юните
+    SkinSoundPairGlobal(caster, "skin_ult", "base_ult")              -- глобально
+    SkinSoundPairAt(pos, caster, "skin_sfx", "base_sfx")             -- в точке
+    SkinSoundPair(caster, caster, "skin_extra", nil)                 -- только у скина
+else
+    caster:EmitSound("base_voice")                                   -- без изменений
+end
+```
+- У скина и базы разный тип звука (у скина на юните, у базы глобально) или
+  разные тайминги — `SkinSoundSplit(caster, function(S) ... end, function(S) ... end)`,
+  внутри те же вызовы через `S.EmitSound(unit, ev)` / `S.EmitGlobalSound(ev)` / ...
+- База звучит, а скин молчит (`if not skin then EmitSound(base) end`) — добавить
+  `else SkinSoundPair(caster, caster, nil, "base") end`.
+- `StopSound` звука, у которого есть пара, — `SkinSoundPairStop(unit, skinEv, baseEv)`.
+- Звук в `LoopOverPlayers` + `emit_horn_sound` — выбирать по `SkinSoundHeard(caster, playerID)`.
+- Таблица `SKIN_OVERRIDES.sounds` (так сделан Vespa) — `SkinEmitSound(unit, caster, baseEvent)`.
+Звук, сыгранный мимо помощников, настройка не видит. Подробно и что не покрыто —
+память `skin-voice-settings`.
+
 ## ЛОВУШКА 2: SetModel ломает скин
 
 Скин — это *свойство* `GetModifierModelChange`, а не жёсткая установка модели.

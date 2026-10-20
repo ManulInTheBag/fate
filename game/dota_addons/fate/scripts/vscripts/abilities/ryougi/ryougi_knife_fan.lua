@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 ryougi_knife_fan = class({})
 
 --[[function ryougi_knife_fan:OnUpgrade()
@@ -19,7 +20,7 @@ function ryougi_knife_fan:OnSpellStart()
     local calc_angle = caster:GetLocalAngles()
   if caster:HasModifier("modifier_hero_selection_skin") then
         if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-          EmitSoundOn("tingtang_knifes_throw_"..math.random(1,3), caster)
+          SkinSoundPair(caster, caster, "tingtang_knifes_throw_"..math.random(1,3), "ryougi_knife_"..math.random(1,4))
         else
          EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
         end

@@ -263,6 +263,10 @@ var root = $('#EffectBarsRoot');
 //                (только число) | none; billy_reload - анимация перезарядки барабана.
 //   Настройки Билли - блок «Настройки героев» во вкладке; сам счётчик виден только
 //   игроку, который играет Билли.
+//   skin_own / skin_allies / skin_enemies - слышать звуки скинов (голос и эффекты)
+//                своего героя / союзников / противников; 0 - звучит Слуга без скина.
+//                Решает сервер (libraries/skin_fx.lua), поэтому выбор уходит ему
+//                событием player_skin_sounds при каждом применении (SendSkinSounds).
 //
 // Состояние живёт в CustomUIConfig().fateEffects: его читают этот файл и
 // вкладка, и оно переживает перезагрузку панелей. Загрузку ведёт этот файл -
@@ -285,7 +289,7 @@ var DEFAULT_OFF = ['king_hassan'];
 
 function DefaultSettings() {
 	return { v: 1, scope: 'on_me', own: 1, off: DEFAULT_OFF.slice(), icons: 1, survival: 1, billy_hint: 1,
-		billy_drum: 'drum', billy_reload: 1 };
+		billy_drum: 'drum', billy_reload: 1, skin_own: 1, skin_allies: 1, skin_enemies: 1 };
 }
 
 
@@ -312,6 +316,9 @@ function SanitizeSettings(raw) {
 		s.billy_drum = raw.billy_drum;
 	}
 	s.billy_reload = Flag(raw.billy_reload);
+	s.skin_own = Flag(raw.skin_own);
+	s.skin_allies = Flag(raw.skin_allies);
+	s.skin_enemies = Flag(raw.skin_enemies);
 	// свой список выключенных заменяет умолчания целиком, даже пустой
 	if (raw.off && typeof raw.off.length === 'number') {
 		s.off = [];
@@ -374,6 +381,27 @@ function Notify(store) {
 }
 
 
+// Звуки скинов играет сервер, ему и знать выбор - сразу, без Save (зритель
+// сохранять не может, а выбирать может). Шлём только перемену; после
+// перезагрузки HUD (новый матч, реконнект) переменная пуста - уйдёт снова.
+var skinSoundsSent = null;
+
+function SendSkinSounds(settings) {
+	var data = { own: settings.skin_own, allies: settings.skin_allies, enemies: settings.skin_enemies };
+	var key = data.own + ',' + data.allies + ',' + data.enemies;
+	if (key === skinSoundsSent) {
+		return;
+	}
+	if (Players.GetLocalPlayer() < 0) {
+		// игрок ещё не назначен: сервер отбросил бы событие без PlayerID
+		$.Schedule(1, function () { SendSkinSounds(Store().settings); });
+		return;
+	}
+	skinSoundsSent = key;
+	GameEvents.SendCustomGameEventToServer('player_skin_sounds', data);
+}
+
+
 function ApplySettings(store, settings) {
 	store.settings = settings;
 	store.offMap = {};
@@ -381,6 +409,7 @@ function ApplySettings(store, settings) {
 		store.offMap[settings.off[i]] = true;
 	}
 	lastRefresh = -1;   // перечитать значки в ближайший кадр
+	SendSkinSounds(settings);
 	Notify(store);
 }
 

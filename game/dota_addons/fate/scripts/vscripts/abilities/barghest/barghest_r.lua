@@ -414,8 +414,9 @@ function barghest_r:DoHoundWave(vDir)
          См. GUTS_CANNON в shared. ]]
     local bGuts = Barghest_IsGutsSkin(hCaster)
     if bGuts then
-        hCaster:EmitSound(GUTS_CANNON.SND)
-        hCaster:EmitSound(GUTS_CANNON.SND2)
+        -- кто отключил звуки скинов, слышит волну Barghest
+        SkinSoundPair(hCaster, hCaster, GUTS_CANNON.SND, BARGHEST_SND.R_WAVE)
+        SkinSoundPair(hCaster, hCaster, GUTS_CANNON.SND2, nil)
         self:FxCannonMuzzle(vOrigin, vDir, nDist)
     else
         hCaster:EmitSound(BARGHEST_SND.R_WAVE)
@@ -518,7 +519,8 @@ function barghest_r:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
                 -- даёт Barghest время подойти — ради этого ветку и берут.
                 enemy:AddNewModifier(hCaster, self, "modifier_muted",
                     {duration = fStun})
-                enemy:EmitSound(Barghest_IsGutsSkin(hCaster) and GUTS_CANNON.SND_HIT or BARGHEST_SND.R_HOUND)
+                SkinSoundPair(enemy, hCaster,
+                    Barghest_IsGutsSkin(hCaster) and GUTS_CANNON.SND_HIT or BARGHEST_SND.R_HOUND, BARGHEST_SND.R_HOUND)
             end
         end
     end
