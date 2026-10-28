@@ -156,14 +156,22 @@ function medea_hecatic_graea_combo:OnSpellStart()
   	  	ParticleManager:SetParticleControl(particle, 0, GetGroundPosition(caster:GetAbsOrigin(), caster)) 
 	    ParticleManager:SetParticleControl(particle, 1, Vector(barrageRadius_big * 2.5, 1, 1))
 	    ParticleManager:SetParticleControl(particle, 2, Vector(barrageRadius_big * 75, 1, 1))
-	    EmitGlobalSound("Medea_Combo_1")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			EmitGlobalSound("eggman_hecatic_combo_end")
+		else
+			EmitGlobalSound("Medea_Combo_1")
+		end
 	    caster:EmitSound("Hero_ObsidianDestroyer.SanityEclipse.Cast")
 		return
     end
     )
 
 	Timers:CreateTimer(1.0, function() 
-		EmitGlobalSound("Caster.Hecatic")
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			EmitGlobalSound("eggman_hecatic_graea")
+		else
+			EmitGlobalSound("Caster.Hecatic")
+		end
 		EmitGlobalSound("Caster.Hecatic_Spread") 
 		caster:EmitSound("Misc.Crash") 
 	return end)

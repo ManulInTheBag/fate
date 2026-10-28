@@ -1,0 +1,50 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Translucent ----
+	F_ALPHA_STIPPLE 1
+	F_ALPHA_TEST 1
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 1.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/renvor/eggman_chain.png"
+
+	//---- Translucent ----
+	g_flAlphaTestReference "0.010"
+	TextureTranslucency "materials/renvor/eggman_chain.png"
+
+	UnusedVariables
+	{
+		"g_flScrollUvSpeed" "1"
+		"g_vScrollUvDirection" "[0.000 1.000]"
+		"TextureScrollSpeed" ""
+		"g_flOverbrightFactor" "1"
+		"g_flAlphaAnglePower" "1"
+		"g_vColorTint2" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureTintMask" ""
+		"g_flBumpStrength" "1"
+		"TextureNormal" ""
+		"g_flOpacityScale" "1"
+		"TextureSelfIllumMask" ""
+		"g_flSpecularBloom" "0"
+		"g_flSpecularIntensity" "1"
+		"TextureBloom" ""
+		"TextureReflectance" ""
+	}
+
+
+	VariableState
+	{
+		"Color"
+		{
+		}
+		"Translucent"
+		{
+		}
+	}
+}

@@ -596,7 +596,8 @@ function Precache( context )
 	PrecacheResource("particle", "particles/zlodemon/patrick_spawn.vpcf", context)
 	PrecacheResource("particle", "particles/zlodemon/kim/kim_eye_glow.vpcf", context)
 	PrecacheResource("particle", "particles/zlodemon/kim/kim_dark_ambient.vpcf", context)
-	PrecacheResource("particle", "particles/zlojamon.vpcf", context)
+	PrecacheResource("particle", "particles/renvor/eggman/eggman_laser_combined.vpcf", context)
+    PrecacheResource("particle", "particles/renvor/eggman/eggman_silence_combined.vpcf", context)
     print("Starting precache")
     --PrecacheUnitByNameSync("npc_precache_everything", context)
 
@@ -722,6 +723,7 @@ function Precache( context )
     PrecacheResource("model", "models/zlodemon/shiki_ryougi_skin/ryougi_skin_2.vmdl", context)
     PrecacheResource("model", "models/lu_bu/jia_qiu.vmdl", context)
     PrecacheResource("model", "models/lu_bu/jia_qiu_staff.vmdl", context)
+    PrecacheResource("model", "models/renvor/eggman/eggman.vmdl", context)
     
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
@@ -812,6 +814,10 @@ function Precache( context )
     PrecacheItemByNameSync("item_all_seeing_orb", context)
     PrecacheItemByNameSync("item_shard_of_anti_magic", context)
     PrecacheItemByNameSync("item_shard_of_replenishment", context)
+    PrecacheItemByNameSync("item_summon_buzz_bomber", context)
+    PrecacheItemByNameSync("item_summon_orbinaut", context)
+    PrecacheItemByNameSync("item_summon_eggmobile", context)
+    PrecacheItemByNameSync("item_eggman_mount", context)
 
     -- Master, Stash, and System stuffs
     PrecacheResource("model", "models/shirou/shirou.vmdl", context)
@@ -4613,7 +4619,7 @@ function OnHeroClicked(Index, keys)
         for k,v in pairs(units) do
             local unitname = v:GetUnitName()
             if hero:IsAlive() and v:IsAlive() then
-                if unitname == "caster_5th_ancient_dragon" or unitname == "gille_gigantic_horror" then
+                if unitname == "caster_5th_ancient_dragon" or unitname == 'eggman_eggmobile' or unitname == "gille_gigantic_horror" then
                     local playerData = {
                         transport = v:entindex()
                     }

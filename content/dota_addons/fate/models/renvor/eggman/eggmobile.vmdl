@@ -1,0 +1,412 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "status"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "eggmobile"
+								meshes = 
+								[
+									"eggmobile",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "eggmobile_drive"
+								meshes = 
+								[
+									"eggmobile_drive",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = ""
+								to = "models/renvor/eggman/eggman_texture/eggman_beard.vmat"
+							},
+							{
+								from = "body.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_face.vmat"
+							},
+							{
+								from = "glasses.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_glass.vmat"
+							},
+							{
+								from = "gloves.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_hand.vmat"
+							},
+							{
+								from = "head brow.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_face.vmat"
+							},
+							{
+								from = "head.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_face.vmat"
+							},
+							{
+								from = "outfit.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_body.vmat"
+							},
+							{
+								from = "stache.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_beard.vmat"
+							},
+							{
+								from = "headlight glass.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_glass.vmat"
+							},
+							{
+								from = "main headlight.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+							{
+								from = "main seat.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+							{
+								from = "main.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+							{
+								from = "windshield glass.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_glass.vmat"
+							},
+							{
+								from = "main controls.vmat"
+								to = "models/renvor/eggman/eggmobile_texture/eggmobile_body.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_attack"
+						parent_bone = "eggmobile"
+						relative_origin = [ 0.0, 20.0, 120.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon"
+						parent_bone = "eggmobile"
+						relative_origin = [ 0.0, 20.0, 120.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "ParentNode"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "eggmobile"
+						relative_origin = [ 0.0, 20.0, 120.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "eggmobile"
+								parent_bone = "eggmobile"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -149.93481, -93.481094, -148.5694 ]
+								hitbox_maxs = [ 149.93481, 153.97537, 146.71135 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "eggmobile"
+						filename = "models/renvor/eggman/eggman.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object_0",
+								"EGGGUN00",
+								"eggman_classic",
+								"rule_breaker",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "eggmobile_drive"
+						filename = "models/renvor/eggman/eggman.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object_0",
+								"EGGGUN00",
+								"rule_breaker",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "eggmobile_attack"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggmobile animations/eggmobile_attack.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 24.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggmobile_death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = false
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggmobile animations/eggmobile_death.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggmobile_idle"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggmobile animations/eggmobile_idle.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 12.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggmobile_spawn"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_SPAWN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggmobile animations/eggmobile_spawn.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 24.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "eggmobile_run"
+						children = 
+						[
+							{
+								_class = "AnimBoneOffset"
+								bone = "eggmobile"
+								translation = [ 0.0, 0.0, -10.0 ]
+								rotation = [ 0.0, 0.0, 15.0 ]
+							},
+							{
+								_class = "AnimBoneOffset"
+								bone = "UpperBody"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation = [ 0.0, 0.0, 15.0 ]
+							},
+							{
+								_class = "AnimBoneOffset"
+								bone = "LowerBody"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation = [ 0.0, 0.0, 15.0 ]
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Eggmobile animations/eggmobile_idle.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = 24.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_Translate"
+						translation = [ 0.0, 0.0, 200.0 ]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

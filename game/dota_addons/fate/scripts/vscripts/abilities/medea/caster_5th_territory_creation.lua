@@ -190,9 +190,9 @@ OnTerritoryCreated = function(keys)
 
 	local warriorItem, archerItem, dragItem
 	if caster:HasModifier("modifier_hero_selection_skin") then
-    	warriorItem = CreateItem("item_summon_skeleton_warrior" , nil, nil) --TODO заменить на эггмобиль
-		archerItem = CreateItem("item_summon_skeleton_archer" , nil, nil) --TODO заменить на орбинаута
-		dragItem = CreateItem("item_summon_ancient_dragon"  , nil, nil) --TODO заменить на базз_бомбера
+    	warriorItem = CreateItem("item_summon_buzz_bomber" , nil, nil)
+		archerItem = CreateItem("item_summon_orbinaut" , nil, nil)
+		dragItem = CreateItem("item_summon_eggmobile"  , nil, nil)
 	else
 		warriorItem = CreateItem("item_summon_skeleton_warrior" , nil, nil)
 		archerItem = CreateItem("item_summon_skeleton_archer" , nil, nil)
@@ -301,7 +301,7 @@ OnTerritoryDeath = function(keys)
 
 		print("Found unit " .. v:GetUnitName())
 
-		if v:GetUnitName() == "caster_5th_skeleton_warrior" or v:GetUnitName() == "caster_5th_skeleton_archer" or v:GetUnitName() == "caster_5th_ancient_dragon" then
+		if v:GetUnitName() == "caster_5th_skeleton_warrior" or v:GetUnitName() == "caster_5th_skeleton_archer" or v:GetUnitName() == "caster_5th_ancient_dragon" or v:GetUnitName() == "eggman_eggmobile" or v:GetUnitName() == "eggman_buzz_bomber" or v:GetUnitName() == "eggman_orbinaut" then
 
 			v:Kill(nil, caster)
 

@@ -27,7 +27,7 @@ OnSilenceStart = function(keys)
 
 	local particle
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		particle = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf", PATTACH_WORLDORIGIN, caster) --TODO заменить на символ эггмана как партикль
+		particle = ParticleManager:CreateParticle("particles/renvor/eggman/eggman_silence_combined.vpcf", PATTACH_WORLDORIGIN, caster)
 	else
 		particle = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf", PATTACH_WORLDORIGIN, caster)
 	end
@@ -75,5 +75,9 @@ function caster_5th_silence:OnSpellStart()
 		Radius = self:GetSpecialValueFor("radius"),
 		Duration = self:GetSpecialValueFor("duration")
 	})
-	EmitSoundOn("Hero_DeathProphet.Silence", caster)
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		EmitSoundOn("sfx_buzz", caster)
+	else
+		EmitSoundOn("Hero_DeathProphet.Silence", caster)
+	end
 end

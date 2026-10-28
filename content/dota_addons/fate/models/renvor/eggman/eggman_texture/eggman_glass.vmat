@@ -32,7 +32,9 @@ Layer0
 
 	//---- Color ----
 	g_flDiffuseModulationAmount "1.000"
+	g_flIlluminationScale "1.000"
 	g_flTexCoordRotation "0.000"
+	g_flWorldIlluminationScale "1.000"
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
 	TextureColor "models/renvor/eggman/eggman_texture/chr_classic_eggman_glass_dif_hd.png"

@@ -34,7 +34,7 @@ OnDWStart = function(keys)
     Timers:CreateTimer(0.3, function()
     	if rainCount == (3 + bonus_beams) then return end
 		if caster:HasModifier("modifier_hero_selection_skin") then
-    		caster:EmitSound("Hero_Luna.LucentBeam.Target") --TODO SFX звук взрывов из классики
+    		caster:EmitSound("sfx_explosion")
 		else
 			caster:EmitSound("Hero_Luna.LucentBeam.Target")
 		end
@@ -44,14 +44,17 @@ OnDWStart = function(keys)
 		dummy:SetAbsOrigin(vecLocation)
 		local particle
 		if caster:HasModifier("modifier_hero_selection_skin") then
-    		particle = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_ABSORIGIN, dummy) --TODO Партикль на красный лазер
+    		particle = ParticleManager:CreateParticle("particles/renvor/eggman/eggman_laser_combined.vpcf", PATTACH_ABSORIGIN, dummy)
+			ParticleManager:SetParticleControl(particle, 0, vecLocation)
+			ParticleManager:SetParticleControl(particle, 1, vecLocation)
+			ParticleManager:SetParticleControl(particle, 6, vecLocation)
 		else
 			particle = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_ABSORIGIN, dummy)
+			ParticleManager:SetParticleControl(particle, 0, vecLocation)
+			ParticleManager:SetParticleControl(particle, 1, vecLocation)
+			ParticleManager:SetParticleControl(particle, 5, vecLocation)
+			ParticleManager:SetParticleControl(particle, 6, vecLocation)
 		end
-		ParticleManager:SetParticleControl(particle, 0, vecLocation)
-		ParticleManager:SetParticleControl(particle, 1, vecLocation)
-		ParticleManager:SetParticleControl(particle, 5, vecLocation)
-		ParticleManager:SetParticleControl(particle, 6, vecLocation)
 		Timers:CreateTimer(2.0, function()
 			dummy:RemoveSelf()
 		end)

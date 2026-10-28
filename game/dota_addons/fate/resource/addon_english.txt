@@ -377,6 +377,9 @@
 		"caster_5th_skeleton_warrior"                                                     "Mr Skeletor"
 		"caster_5th_skeleton_archer"                                                      "Mrs Skeletor"
 		"caster_5th_ancient_dragon"                                                       "Dragon-kun"
+		"eggman_eggmobile"																  "Eggmobile"
+		"eggman_orbinaut"																  "Orbinaut"
+		"eggman_buzz_bomber"															  "Buzz_bomber"
 		"lancer_trap"                                                                     "Trap"
 		//"master_1"                                                                        "Master 1"
 		//"master_2"                                                                        "Master 2"
@@ -4982,12 +4985,40 @@
 		"DOTA_Tooltip_ability_item_summon_ancient_dragon_bonus_mana_multiplier"		"MANA RATIO PER INT:"
 		"DOTA_Tooltip_ability_item_summon_ancient_dragon_bonus_ms_multiplier"		"MOVESPEED RATIO PER INT:"
 
+		"DOTA_Tooltip_ability_item_summon_buzz_bomber"	"Summon Buzz Bomber"
+		"DOTA_Tooltip_ability_item_summon_buzz_bomber_Description"	"Summons a Buzz Bomber to do Eggman's bidding. Buzz Bomber gains bonus health, magic resistance, and movement speed based on Caster's INT. \n\nThis skill level increases every time Caster gains 3 levels."
+		"DOTA_Tooltip_ability_item_summon_buzz_bomber_health"		"BASE HEALTH:"		
+		"DOTA_Tooltip_ability_item_summon_buzz_bomber_damage"		"BASE DAMAGE:"		
+		"DOTA_Tooltip_ability_item_summon_buzz_bomber_bonus_armor_multiplier"		"ARMOR RATIO PER INT:"		
+		"DOTA_Tooltip_ability_item_summon_buzz_bomber_bonus_health_multiplier"		"HEALTH RATIO PER INT:"	
+		"DOTA_Tooltip_ability_item_summon_buzz_bomber_bonus_ms_multiplier"		"MOVESPEED RATIO PER INT:"
+
+		"DOTA_Tooltip_ability_item_summon_orbinaut"	"Summon Orbinaut"
+		"DOTA_Tooltip_ability_item_summon_orbinaut_Description"	"Summons a Orbinaut to do Eggman's bidding. Orbinaut gains bonus attack damage, health, and movement speed based on Caster's INT. \n\nThis skill level increases every time Caster gains 3 levels."	
+		"DOTA_Tooltip_ability_item_summon_orbinaut_health"			"BASE HEALTH:"
+		"DOTA_Tooltip_ability_item_summon_orbinaut_damage"			"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_item_summon_orbinaut_bonus_damage_multiplier"		"DAMAGE RATIO PER INT:"	
+		"DOTA_Tooltip_ability_item_summon_orbinaut_bonus_health_multiplier"		"HEALTH RATIO PER INT:"	
+		"DOTA_Tooltip_ability_item_summon_orbinaut_bonus_ms_multiplier"		"MOVESPEED RATIO PER INT:"	
+
+		"DOTA_Tooltip_ability_item_summon_eggmobile"	"Summon Eggmobile"
+		"DOTA_Tooltip_ability_item_summon_eggmobile_Description"	"Summons Eggmobile to show everyone Eggman's genius. Eggmobile gains bonus health and movement speed based on Caster's INT. \n\nThis skill level increases every time Caster gains 3 levels."
+		"DOTA_Tooltip_ability_item_summon_eggmobile_health"	"BASE HEALTH:"	
+		"DOTA_Tooltip_ability_item_summon_eggmobile_damage"	"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_item_summon_eggmobile_bonus_health_multiplier"	"HEALTH RATIO PER INT:"
+		"DOTA_Tooltip_ability_item_summon_eggmobile_bonus_mana_multiplier"		"MANA RATIO PER INT:"
+		"DOTA_Tooltip_ability_item_summon_eggmobile_bonus_ms_multiplier"		"MOVESPEED RATIO PER INT:"		
+
 
 		"DOTA_Tooltip_ability_item_all_seeing_orb"	"All-Seeing Orb"
 		"DOTA_Tooltip_ability_item_all_seeing_orb_Description"	"Caster gazes into the mythical artifact, gaining vision of a small area anywhere on the map for 9 seconds. This ability can only be cast when Caster is within 500 range of Territory.\nCan't be casted while another Clairvoyance in your team is active."	
 
 		"DOTA_Tooltip_ability_item_caster_5th_mount" "Mount"
 		"DOTA_Tooltip_ability_item_caster_5th_mount_Description"	"Caster rides on the Ancient Dragon's back, allowing the use of Arcane Wrath.\n\nCaster must be within 400 range."
+
+		"DOTA_Tooltip_ability_item_eggman_mount" "Mount"
+		"DOTA_Tooltip_ability_item_eggman_mount_Description"	"Eggman rides Eggmobile, allowing the use of Arcane Wrath.\n\nCaster must be within 400 range."
+		//=======================================
 		//=======================================
 
 		"DOTA_Tooltip_Ability_caster_5th_argos"	"Argos"

@@ -19,7 +19,7 @@
 							},
 							{
 								from = "body.vmat"
-								to = "models/renvor/eggman/eggman_texture/eggman_face.vmat"
+								to = "models/renvor/eggman/eggman_texture/eggman_teeth.vmat"
 							},
 							{
 								from = "glasses.vmat"
@@ -905,7 +905,7 @@
 							},
 						]
 						is_default_idle_anim = false
-						activity_name = "ACT_DOTA_SPAWN_STATUE"
+						activity_name = "ACT_DOTA_SPAWN"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2

@@ -1,0 +1,370 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "antenna.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_yellow.vmat"
+							},
+							{
+								from = "blaster.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_silver.vmat"
+							},
+							{
+								from = "body.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_black.vmat"
+							},
+							{
+								from = "eyes lids.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_wing.vmat"
+							},
+							{
+								from = "eyes.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_eye.vmat"
+							},
+							{
+								from = "head.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_mouth.vmat"
+							},
+							{
+								from = "jets.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_silver.vmat"
+							},
+							{
+								from = "metal detail.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_silver.vmat"
+							},
+							{
+								from = "teeth.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_teeth.vmat"
+							},
+							{
+								from = "thorax.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_stripes.vmat"
+							},
+							{
+								from = "wings.vmat"
+								to = "models/renvor/eggman/buzz_bomber_texture/buzz_wing.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_attack"
+						parent_bone = "Thorax"
+						relative_origin = [ 0.024034753, -45.722115, 0.08923721 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "ParentNode"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon"
+						parent_bone = "Thorax"
+						relative_origin = [ 0.024034753, -45.722115, 0.08923721 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "Thorax"
+						relative_origin = [ 0.024034753, -45.722115, 0.08923721 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Center"
+								parent_bone = "Center"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -45.669933, -14.462139, -12.111469 ]
+								hitbox_maxs = [ 42.84162, 12.030579, 12.1115 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Head"
+								parent_bone = "Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -34.628628, -13.382935, -14.483294 ]
+								hitbox_maxs = [ 36.218204, 35.244385, 14.771166 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Thorax"
+								parent_bone = "Thorax"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -38.422062, -55.278767, -16.718481 ]
+								hitbox_maxs = [ 36.93129, 2.1674461, 16.718508 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_Wing"
+								parent_bone = "Left_Wing"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.383276, -9.562195, -60.981827 ]
+								hitbox_maxs = [ 0.5419955, 22.148247, 1.4206619 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_Wing"
+								parent_bone = "Right_Wing"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.6516212, -9.562202, -60.98184 ]
+								hitbox_maxs = [ 27.70875, 26.365623, 1.4206543 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "buzz_bomber"
+						filename = "models/renvor/eggman/buzz_bomber.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "buzz_bomber_attack"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Buzz_bomber_animations/buzz_bomber_attack.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "buzz_bomber_death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Buzz_bomber_animations/buzz_bomber_death.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "buzz_bomber_idle"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Buzz_bomber_animations/buzz_bomber_idle.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = 22
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "buzz_bomber_run"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Buzz_bomber_animations/buzz_bomber_run.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = 22
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "buzz_bomber_spawn"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_SPAWN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/renvor/eggman/Buzz_bomber_animations/buzz_bomber_spawn.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

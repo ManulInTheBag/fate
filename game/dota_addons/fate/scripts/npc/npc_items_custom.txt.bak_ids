@@ -2575,5 +2575,167 @@
 	    "precache"
 	    {
 	    }
-	}	
+	}
+
+	"item_summon_buzz_bomber" 
+	{
+		"BaseClass"             "item_lua"
+		"ScriptFile"            "items/item_summon_eggman_minions"
+		"AbilityTextureName"    "custom/summon_skeleton_warrior"
+		"Model"                 "models/props_gameplay/tpscroll01.vmdl" 
+		"Effect"                "particles/generic_gameplay/dropped_item.vpcf"
+		"ItemQuality"           "consumable"
+
+		"ItemCost"              "99999"
+		"ItemKillable"          "0" 
+		"ItemSellable"          "0"
+		"ItemPurchasable"       "0"
+		"ItemDroppable"         "0"
+		"ItemShareability"      "ITEM_FULLY_SHAREABLE_STACKING"
+
+		"SideShop"              "1" 
+		"SecretShop"            "0"
+
+		"ItemStackable"         "0"
+		"ItemPermanent"         "1"
+		"ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityCooldown"       "5"
+		"AbilityChannelTime"    "5"
+
+		"precache"
+		{
+			"model"             "models/renvor/eggman/buzz_bomber.vmdl"
+		}
+
+		"AbilityValues"
+		{
+			"health"                    "999"
+			"damage"                    "20 25 30 35 40 45 50 55"
+			"bonus_armor_multiplier"    "0.15"
+			"bonus_health_multiplier"   "5"
+			"bonus_ms_multiplier"       "1"
+		}
+	}
+
+	"item_summon_orbinaut" 
+	{
+		"BaseClass"             "item_lua"
+		"ScriptFile"            "items/item_summon_eggman_minions"
+		"AbilityTextureName"    "custom/summon_skeleton_archer"
+		"Model"                 "models/props_gameplay/tpscroll01.vmdl" 
+		"Effect"                "particles/generic_gameplay/dropped_item.vpcf"
+		"ItemQuality"           "consumable"
+
+		"ItemCost"              "99999"
+		"ItemKillable"          "0" 
+		"ItemSellable"          "0"
+		"ItemPurchasable"       "0"
+		"ItemDroppable"         "0"
+		"ItemShareability"      "ITEM_FULLY_SHAREABLE_STACKING"
+
+		"SideShop"              "1" 
+		"SecretShop"            "0"
+
+		"ItemStackable"         "0"
+		"ItemPermanent"         "1"
+		"ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityCooldown"       "5"
+		"AbilityChannelTime"    "5"
+
+		"precache"
+		{
+			"model"             "models/renvor/eggman/orbinaut.vmdl"
+			"particle"          "particles/units/heroes/hero_clinkz/clinkz_base_attack.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"health"                    "700"
+			"damage"                    "15 23 31 39 47 55 63 71"
+			"bonus_damage_multiplier"   "0.6"
+			"bonus_health_multiplier"   "4.0"
+			"bonus_ms_multiplier"       "0.8"
+		}
+	}
+
+	"item_summon_eggmobile" 
+	{
+		"BaseClass"             "item_lua"
+		"ScriptFile"            "items/item_summon_eggmobile"
+		"AbilityTextureName"    "custom/summon_ancient_dragon" // TODO Eggman
+		"Model"                 "models/props_gameplay/tpscroll01.vmdl" 
+		"Effect"                "particles/generic_gameplay/dropped_item.vpcf"
+		"ItemQuality"           "consumable"
+
+		"ItemCost"              "99999"
+		"ItemKillable"          "0" 
+		"ItemSellable"          "0"
+		"ItemPurchasable"       "0"
+		"ItemDroppable"         "0"
+		"ItemShareability"      "ITEM_FULLY_SHAREABLE_STACKING"
+
+		"SideShop"              "1" 
+		"SecretShop"            "0"
+
+		"ItemStackable"         "0"
+		"ItemPermanent"         "1"
+		"ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityManaCost"       "500"
+
+		"precache"
+		{
+			"model"             "models/renvor/eggman/eggmobile.vmdl"
+			"particle"          "particles/neutral_fx/black_dragon_attack.vpcf"    
+			"soundfile"         "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts" // Для звука ElderDragonForm
+		}
+
+		"AbilityValues"
+		{
+			"health"                    "1000 1100 1200 1300 1400 1500 1600 1700"
+			"damage"                    "75 100 125 150 175 200 225 250"
+			"bonus_health_multiplier"   "7.0"
+			"bonus_mana_multiplier"     "2.0"
+			"bonus_ms_multiplier"       "0.8"
+		}
+	}
+
+	"item_eggman_mount" 
+	{
+		"BaseClass"             "item_lua"
+		"ScriptFile"            "items/item_eggman_mount"
+		"AbilityTextureName"    "custom/caster_5th_mount" // TODO Eggman
+		"Model"                 "models/props_gameplay/tpscroll01.vmdl" 
+		"Effect"                "particles/generic_gameplay/dropped_item.vpcf"
+		"ItemQuality"           "consumable"
+
+		"ItemCost"              "99999"
+		"ItemKillable"          "0" 
+		"ItemSellable"          "0"
+		"ItemPurchasable"       "0"
+		"ItemDroppable"         "0"
+		"ItemShareability"      "ITEM_FULLY_SHAREABLE_STACKING"
+
+		"SideShop"              "1" 
+		"SecretShop"            "0"
+
+		"ItemStackable"         "0"
+		"ItemPermanent"         "1"
+		"ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCastPoint"      "0.0"
+		"AbilityCooldown"       "2"
+
+		"AbilityValues"
+		{
+			"movespeed"     "200"
+			"attackspeed"   "50"
+		}
+	}
 }
