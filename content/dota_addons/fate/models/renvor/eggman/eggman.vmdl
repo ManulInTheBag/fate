@@ -244,7 +244,7 @@
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
-						fade_out_time = 0.2
+						fade_out_time = 0.0
 						looping = false
 						delta = false
 						worldSpace = false
@@ -284,7 +284,7 @@
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = false
+						looping = true
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -452,7 +452,7 @@
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
-						framerate = 30.0
+						framerate = 20.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -574,6 +574,39 @@
 									value = 0
 								}
 							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 12
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/renvor/eggman/eggman_rings_drop.vpcf"
+									detach_from_owner = false
+									always_run = false
+									aggregate = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "attach_rings"
+									attachment_type = "point"
+									attachment_point_cp1 = "attach_origin"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/renvor/eggman/eggman_rings_drop.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
 						]
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
@@ -623,6 +656,72 @@
 								{
 									bodygroup = "weapons"
 									value = 0
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 7
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/renvor/eggman/eggman_rings_drop.vpcf"
+									detach_from_owner = false
+									always_run = false
+									aggregate = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "attach_rings"
+									attachment_type = "point"
+									attachment_point_cp1 = "attach_origin"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 8
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/renvor/eggman/eggman_rings_drop.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 109
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/renvor/eggman/eggman_rings_drop.vpcf"
+									detach_from_owner = false
+									always_run = false
+									aggregate = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "attach_rings1"
+									attachment_type = "point"
+									attachment_point_cp1 = "attach_origin"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 110
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/renvor/eggman/eggman_rings_drop.vpcf"
+									stop_instantly = true
+									play_endcap = false
 								}
 							},
 						]
@@ -1115,7 +1214,7 @@
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
-						fade_out_time = 0.2
+						fade_out_time = 0.0
 						looping = false
 						delta = false
 						worldSpace = false
@@ -1128,7 +1227,7 @@
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
-						framerate = 30.0
+						framerate = 15.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -1231,6 +1330,24 @@
 						relative_angles = [ 0.0, 0.0, 0.013476816 ]
 						weight = 1.0
 						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_rings"
+						parent_bone = "ParentNode"
+						relative_origin = [ 0.0, 10.0, -100.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = true
+					},
+					{
+						_class = "Attachment"
+						name = "attach_rings1"
+						parent_bone = "ParentNode"
+						relative_origin = [ 0.0, 10.0, 100.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = true
 					},
 				]
 			},

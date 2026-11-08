@@ -3222,6 +3222,39 @@
 			}
 		}
 	}
+	
+	"models/renvor/eggman/eggman.vmdl"
+	{
+		"PortraitLightPosition"		"101.03 -37.93 196.33"
+		"PortraitLightAngles"		"22.78 139.18 0.00"
+		"PortraitLightFOV"		"40"
+		"PortraitLightDistance"		"160"
+		"PortraitLightColor"		"254 238 204"
+		"PortraitShadowColor"		"89 97 151"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"48 111 144"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitSpecularColor"		"0.97 0.07 0.09"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_whiteExterior.vmat"
+		"PortraitBackgroundColor1"		".7 .9 1"
+		"PortraitBackgroundColor2"		".7 .9 1"
+		"PortraitBackgroundColor3"		".7 .9 1"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"1.400000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-119.430 135.430 -64.400"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"154.88 -23.83 200.12"
+				"PortraitAngles"		"15.61 170.09 00.00"
+				"PortraitFOV"		"37"
+			}
+		}
+	}
 
 	"models/zc/gille.vmdl"
 	{
@@ -11802,6 +11835,99 @@
 				"PortraitPosition"		"160.84 -98.09 76.25"
 				"PortraitAngles"		"355.98 147.74 0.00"
 				"PortraitFOV"		"12"
+			}
+		}
+	}
+	"models/renvor/eggman/orbinaut.vmdl"
+	{
+		"PortraitLightPosition"		"-34.65 5.26 145.16"
+		"PortraitLightAngles"		"68.74 325.78 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"99"
+		"PortraitLightColor"		"254 249 243"
+		"PortraitShadowColor"		"38 56 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"97 131 131"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_forest.vmat"
+		"PortraitBackgroundColor1"		"1 .7 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 .6 .3"
+		"PortraitBackgroundColor4"		"1 .7 .2"
+		"PortraitLightScale"		"2.900000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-12.190 24.310 -11.930"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"160.84 -98.09 56.25"
+				"PortraitAngles"		"355.98 147.74 0.00"
+				"PortraitFOV"		"20"
+			}
+		}
+	}
+	"models/renvor/eggman/buzz_bomber.vmdl"
+	{
+		"PortraitLightPosition"		"-34.65 5.26 145.16"
+		"PortraitLightAngles"		"68.74 325.78 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"99"
+		"PortraitLightColor"		"254 249 243"
+		"PortraitShadowColor"		"38 56 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"97 131 131"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_forest.vmat"
+		"PortraitBackgroundColor1"		"1 .7 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 .6 .3"
+		"PortraitBackgroundColor4"		"1 .7 .2"
+		"PortraitLightScale"		"2.900000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-12.190 24.310 -11.930"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"160.84 -98.09 76.25"
+				"PortraitAngles"		"355.98 147.74 0.00"
+				"PortraitFOV"		"20"
+			}
+		}
+	}
+	"models/renvor/eggman/eggmobile.vmdl"
+	{
+		"PortraitLightPosition"		"-34.65 5.26 145.16"
+		"PortraitLightAngles"		"68.74 325.78 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"99"
+		"PortraitLightColor"		"254 249 243"
+		"PortraitShadowColor"		"38 56 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"97 131 131"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_forest.vmat"
+		"PortraitBackgroundColor1"		"1 .7 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 .6 .3"
+		"PortraitBackgroundColor4"		"1 .7 .2"
+		"PortraitLightScale"		"2.900000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-12.190 24.310 -11.930"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"180.84 -98.09 356.25"
+				"PortraitAngles"		"355.98 147.74 0.00"
+				"PortraitFOV"		"70"
 			}
 		}
 	}

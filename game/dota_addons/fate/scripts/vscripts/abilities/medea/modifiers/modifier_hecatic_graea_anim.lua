@@ -6,7 +6,10 @@ end
 function modifier_hecatic_graea_anim:RemoveOnDeath()
 	return true 
 end
-function modifier_hecatic_graea_anim:OnCreated()
+function modifier_hecatic_graea_anim:OnCreated(kv)
+	if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+		self:SetStackCount(1000)
+	end
 	-- SetBodygroup существует только в серверной VM: на клиенте это был
 	-- «attempt to call method (a nil value)», т.е. метода нет, а не кастера
 	if not IsServer() then return end
@@ -25,7 +28,11 @@ function modifier_hecatic_graea_anim:DeclareFunctions()
 end
 
 function modifier_hecatic_graea_anim:GetOverrideAnimation()
-	return ACT_DOTA_CAST_ABILITY_4
+	if self:GetStackCount() == 1000 then
+		return ACT_DOTA_CAST_ABILITY_6
+	else
+		return ACT_DOTA_CAST_ABILITY_4
+	end
 end
 
 function modifier_hecatic_graea_anim:GetOverrideAnimationRate()

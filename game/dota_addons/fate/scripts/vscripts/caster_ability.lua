@@ -292,6 +292,7 @@ end
 ]]
 function OnArcaneWrathCast(keys)
 	local caster = keys.caster 
+	local ability = keys.ability
 	local pid = caster:GetPlayerOwnerID()
 	local hero = PlayerResource:GetSelectedHeroEntity(pid)
 	if not hero.IsMounted then
@@ -300,8 +301,15 @@ function OnArcaneWrathCast(keys)
 		return
 	end
 
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_casterribbons_arcana1.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl( pfx, 0, Vector(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, caster:GetAbsOrigin().z+300))
+	local pfx
+		if ability:GetName()  == "caster_5th_eggmobile_arcane_wrath"  then
+			pfx = ParticleManager:CreateParticle("particles/renvor/eggman/eggman_charge_chaos.vpcf", PATTACH_ABSORIGIN, caster)
+			ParticleManager:SetParticleControl( pfx, 0, Vector(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, caster:GetAbsOrigin().z+550))
+			ParticleManager:SetParticleControl( pfx, 1, Vector(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, caster:GetAbsOrigin().z+550))
+		else
+			pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_casterribbons_arcana1.vpcf", PATTACH_ABSORIGIN, caster)
+			ParticleManager:SetParticleControl( pfx, 0, Vector(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, caster:GetAbsOrigin().z+300))
+		end
 	caster:EmitSound("Hero_Ancient_Apparition.ColdFeetCast")
 	Timers:CreateTimer(1.0, function()
 		ParticleManager:DestroyParticle(pfx, false)

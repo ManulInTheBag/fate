@@ -45,15 +45,6 @@
 				[
 					{
 						_class = "Attachment"
-						name = "attach_attack"
-						parent_bone = "Spikes_2_end"
-						relative_origin = [ 0.0, 0.0, 0.0 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
 						name = "attach_weapon"
 						parent_bone = "Spikes_2_end"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
@@ -73,8 +64,17 @@
 					{
 						_class = "Attachment"
 						name = "attach_attack1"
-						parent_bone = "Spikes_2_end"
-						relative_origin = [ 0.0, 0.0, 0.0 ]
+						parent_bone = "Center"
+						relative_origin = [ 0.0, 30.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack"
+						parent_bone = "Center"
+						relative_origin = [ 0.0, 30.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -97,8 +97,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -36.446373, -39.682312, -30.546476 ]
-								hitbox_maxs = [ 39.56806, 37.817123, 34.05259 ]
+								hitbox_mins = [ -71.81249, -60.193893, -62.821053 ]
+								hitbox_maxs = [ 73.48573, 53.740654, 62.408203 ]
 							},
 							{
 								_class = "Hitbox"

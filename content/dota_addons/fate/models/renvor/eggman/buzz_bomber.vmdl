@@ -131,8 +131,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -34.628628, -13.382935, -14.483294 ]
-								hitbox_maxs = [ 36.218204, 35.244385, 14.771166 ]
+								hitbox_mins = [ -42.622494, -29.4086, -59.188347 ]
+								hitbox_maxs = [ 55.85293, 63.889046, 49.69583 ]
 							},
 							{
 								_class = "Hitbox"
@@ -141,8 +141,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -38.422062, -55.278767, -16.718481 ]
-								hitbox_maxs = [ 36.93129, 2.1674461, 16.718508 ]
+								hitbox_mins = [ -66.52166, -66.23553, -63.800385 ]
+								hitbox_maxs = [ 53.896374, 51.98662, 65.54557 ]
 							},
 							{
 								_class = "Hitbox"
@@ -225,7 +225,7 @@
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
-						framerate = -1.0
+						framerate = 60.0
 						reverse = false
 						additional_anim_files = [  ]
 					},

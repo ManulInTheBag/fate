@@ -36,7 +36,7 @@ function item_eggman_mount:OnSpellStart()
             return                                
         end
         
-        local arcaneWrath = mount:FindAbilityByName("caster_5th_dragon_arcane_wrath")
+        local arcaneWrath = mount:FindAbilityByName("caster_5th_eggmobile_arcane_wrath")
         local fateEmpty2 = mount:FindAbilityByName("fate_empty2")
         
         if arcaneWrath then
@@ -62,7 +62,7 @@ function item_eggman_mount:OnSpellStart()
         if dist < 400 and not hero:HasModifier("modifier_stunned") and not hero:HasModifier("stunned") then
             hero.IsMounted = true
         
-            local arcaneWrath = mount:FindAbilityByName("caster_5th_dragon_arcane_wrath")
+            local arcaneWrath = mount:FindAbilityByName("caster_5th_eggmobile_arcane_wrath")
             local fateEmpty2 = mount:FindAbilityByName("fate_empty2")
             
             if arcaneWrath then
@@ -109,17 +109,9 @@ function modifier_mount:OnDestroy()
     local hero = mount:GetOwner()
     
     if hero and hero:IsHero() and hero.IsMounted then
-        local arcaneWrath = mount:FindAbilityByName("caster_5th_dragon_arcane_wrath")
+        local arcaneWrath = mount:FindAbilityByName("caster_5th_eggmobile_arcane_wrath")
         local fateEmpty = mount:FindAbilityByName("fate_empty2")
 
-        if arcaneWrath then
-            arcaneWrath:SetHidden(false)
-        end
-        if fateEmpty then
-            fateEmpty:SetHidden(true)
-        end
-
-        -- При высадке
         if arcaneWrath then
             arcaneWrath:SetHidden(true)
         end
@@ -135,6 +127,7 @@ function modifier_mount:OnDestroy()
         SendMountStatus(hero)
     end
 end
+
 
 modifier_mount_caster = class({})
 
@@ -160,11 +153,20 @@ end
 function modifier_mount_caster:OnCreated(kv)
     if not IsServer() then return end
     self:StartIntervalThink(0.03)
+    
+    local hero = self:GetParent()
+    if hero and not hero:IsNull() then
+        hero:AddNoDraw()
+    end
 end
 
 function modifier_mount_caster:OnDestroy()
     local hero = self:GetParent()
     local mount = self:GetCaster()
+    
+    if hero and not hero:IsNull() and hero:IsHero() then
+        hero:RemoveNoDraw()
+    end
     
     if hero and not hero:IsNull() and hero:IsHero() and 
        mount and not mount:IsNull() and mount:IsAlive() then
@@ -180,15 +182,6 @@ function modifier_mount_caster:OnIntervalThink()
     
     if hero and not hero:IsNull() and hero:IsHero() and 
        mount and not mount:IsNull() and mount:IsAlive() then
-        
-        local undergroundPos = mount:GetAbsOrigin() + Vector(0, 0, -5000)
-        
-        local success, err = pcall(function()
-            hero:SetAbsOrigin(undergroundPos)
-        end)
-        
-        if not success then
-            FindClearSpaceForUnit(hero, undergroundPos, true)
-        end
+        hero:SetAbsOrigin(mount:GetAbsOrigin() + Vector(0, 0, 300))
     end
 end

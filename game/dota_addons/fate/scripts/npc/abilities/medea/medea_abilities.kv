@@ -477,6 +477,88 @@
 		}
 	}
 
+	//================================================
+	// Eggmobile Arcane Wrath
+	//================================================
+	"caster_5th_eggmobile_arcane_wrath"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"8"
+		"RequiredLevel"					"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate" 		"0.22"
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
+			"particle"		"particles/renvor/eggman/eggman_charge_chaos.vpcf"
+		}
+		"IsCastableWhileHidden"			"1"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1350"
+		"AbilityCastPoint"				"2.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300"
+		
+		"AbilityValues"
+        {
+            "delay" "2.0"
+            "damage" "400 500 600 700 800 900 1000 1100"
+            "radius" "450"
+            "stun_duration" "1.75"
+        }
+		
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"caster_ability"
+				"Function"		"OnArcaneWrathCast"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"caster_ability"
+			 	"Function"		"OnArcaneWrathStart"
+			 	"Target"		"POINT"
+			 	"Radius"		"%radius"
+			 	"StunDuration"	"%stun_duration"
+			 	"Damage"		"%damage"
+			}
+			"FireEffect"
+			{
+				"TargetPoint"			"POINT"
+				"EffectName"			"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+				"EffectAttachType"		"world_origin"
+				"ControlPoints"
+				{
+					"01"				"%radius 2 %radius*3"
+				}
+			}
+		}
+		
+		"Modifiers"
+		{
+		}
+	}
+
 
 	//=======================================
 	// Caster : Argos

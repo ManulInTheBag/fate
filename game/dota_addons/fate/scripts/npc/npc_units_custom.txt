@@ -1475,7 +1475,7 @@
 		"AttackAnimationPoint"		"0.3"								// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"								// Range within a target can be acquired.
 		"AttackRange"				"500"								// Range within a target can be attacked.
-		"ProjectileModel"			"particles/units/heroes/hero_clinkz/clinkz_base_attack.vpcf"				// Particle system model for projectile.
+		"ProjectileModel"			"particles/renvor/eggman/orbinaut_base_attack.vpcf"				// Particle system model for projectile.
 		"ProjectileSpeed"			"1000"	
 
 		// Status
@@ -1507,7 +1507,7 @@
 		"Ability4"					"fate_empty1"			// Ability 4
 		"Ability5"					"fate_empty2"
 		"Ability6"					"fate_empty4"
-		"Ability7"					"caster_5th_dragon_arcane_wrath"			// Ability 4
+		"Ability7"					"caster_5th_eggmobile_arcane_wrath"			// Ability 4
 
 		"ArmorPhysical"				"-5"			// Physical protection.
 

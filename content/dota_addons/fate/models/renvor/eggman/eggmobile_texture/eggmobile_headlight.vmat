@@ -1,0 +1,43 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "models/renvor/eggman/eggmobile_texture/eggmobile_body.png"
+
+	UnusedVariables
+	{
+		"g_flOpacityScale" "1"
+		"TextureSelfIllumMask" ""
+		"g_flSpecularBloom" "0"
+		"g_flSpecularIntensity" "1"
+		"TextureBloom" ""
+		"TextureReflectance" ""
+		"g_flAlphaTestReference" "0.7"
+		"TextureTranslucency" ""
+		"TextureNormalAlpha" "[0.000000 0.000000 0.000000 0.000000]"
+		"g_flWindFlexibility" "0.3"
+		"g_flWindHighFrequencyEffects" "1"
+		"g_flWindLinearity" "0"
+		"g_flWindLowFrequencyEffects" "1"
+		"g_flWindSpeedMultiplier" "1"
+		"TextureWindMaskHigh" ""
+		"TextureWindMaskLow" ""
+		"TextureWindRandomNoise" ""
+		"g_flBumpStrength" "1"
+		"TextureNormal" "models/renvor/eggman/eggmobile_texture/eggmobile_normal.png"
+	}
+
+
+	VariableState
+	{
+		"Color"
+		{
+		}
+	}
+}

@@ -96,7 +96,7 @@ function item_summon_eggmobile:OnSpellStart()
     local ability1 = mount:FindAbilityByName("caster_5th_dragon_frostbite")
     if ability1 then ability1:SetLevel(skillLevel) end
     
-    local ability2 = mount:FindAbilityByName("caster_5th_dragon_arcane_wrath")
+    local ability2 = mount:FindAbilityByName("caster_5th_eggmobile_arcane_wrath")
     if ability2 then ability2:SetLevel(skillLevel) end
 
     mount:AddNewModifier(mount, self, "modifier_kill", { duration = 60.0 })
@@ -106,7 +106,7 @@ function item_summon_eggmobile:OnSpellStart()
         transport = mount:entindex()
     })
 
-    hero:EmitSound("Hero_DragonKnight.ElderDragonForm")
+    hero:EmitSound("sfx_eggmobile_startup")
     
     self:StartCooldown(5)
 end

@@ -110,18 +110,38 @@ end
 
 function modifier_big_bad_voodoo_channeling:OnIntervalThink()
 	if not IsServer() then return end
-	self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_channeling", { duration = 0.9 }) --TODO возможно стоит тут сделать анимацию, хз
+	self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_channeling", { duration = 0.9 })
 end
 
 modifier_channeling = class({})
 
-function modifier_channeling:IsHidden() return true end
-function modifier_channeling:GetOverrideAnimation() 
-	if caster:HasModifier("modifier_hero_selection_skin") then
-		return ACT_DOTA_CHANNEL_ABILITY_12 --TODO нихуя не работает, надо понять, в чем дело...
-	else
-		return ACT_DOTA_ATTACK
+function modifier_channeling:IsHidden() 
+    return true 
+end
+
+function modifier_channeling:DeclareFunctions()
+    return {
+        MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+        MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE
+    }
+end
+
+function modifier_channeling:OnCreated(kv)
+	if self:GetCaster():HasModifier("modifier_hero_selection_skin") then
+		self:SetStackCount(1000)
 	end
+end
+
+function modifier_channeling:GetOverrideAnimation() 
+    if self:GetStackCount() == 1000 then
+        return ACT_DOTA_CHANNEL_ABILITY_12
+    else
+        return ACT_DOTA_ATTACK 
+    end
+end
+
+function modifier_channeling:GetOverrideAnimationRate()
+    return 1.0
 end
 
 modifier_big_bad_voodoo_damage_bonus = class({})
