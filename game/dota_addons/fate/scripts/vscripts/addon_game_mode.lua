@@ -1492,6 +1492,7 @@ require('fate_http')
 require('fate_mmr')
 -- настройки игрока (фильтры значков эффектов) на том же сервере, что и бинды
 require('fate_settings')
+require('abilities/medea/medea_skin_voice')
 
 -- Пер-игрок гейт на запросы к серверу биндов: не больше FATE_BINDS_REQ_MAX за
 -- FATE_BINDS_REQ_WINDOW секунд. Клиентский лок обходится хакнутым клиентом —
@@ -5136,6 +5137,11 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
             if not BarghestChargeOrderFilter(hUnit, hAbility, iOrder) then
                 return false
             end
+        end
+
+        -- Медея: реплики хода и атаки (движок выбирает их на клиенте, метку скина там не видно)
+        if type(MedeaVoiceOrderFilter) == "function" then
+            MedeaVoiceOrderFilter(hUnit, iOrder, iPlayerID)
         end
 
         if IsNotNull(AnimeVectorTargeting) then

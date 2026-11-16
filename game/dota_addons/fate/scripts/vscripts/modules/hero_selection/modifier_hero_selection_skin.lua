@@ -33,6 +33,11 @@ function modifier_hero_selection_skin:OnCreated(hTable)
     	-- клиент не приходит (там skinNumber = nil). Модификатор скрытый —
     	-- стаков в UI не видно. Нужно клиентским эффектам скинов (Barghest/Guts).
     	self:SetStackCount(self.skinNumber or 0)
+        -- Медея: реплики движка (смерть, убийство, уровень...) берут набор crystalmaiden_cm_wolf_*,
+        -- его в game_sounds_vo_crystalmaiden.vsndevts занимает скин 1. Ход и атака — medea_skin_voice.lua
+        if self.hParent:GetUnitName() == "npc_dota_hero_crystal_maiden" and self.skinNumber == 1 then
+            self.hParent:SetContext("customresponse", "cm_wolf", 0)
+        end
     	-- клиенту номер скина отдаём ещё и сетевой таблицей: клиентская VM
     	-- не всегда знает этот модификатор ("unknown modifier type"), тогда и стаков не видно
     	CustomNetTables:SetTableValue("sync", "hero_skin_" .. self.hParent:entindex(), { skin = self.skinNumber or 0 })
