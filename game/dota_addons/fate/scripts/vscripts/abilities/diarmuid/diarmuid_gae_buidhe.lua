@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 diarmuid_gae_buidhe =  class({})
 
 LinkLuaModifier("modifier_gae_buidhe", "abilities/diarmuid/modifiers/modifier_gae_buidhe", LUA_MODIFIER_MOTION_NONE)
@@ -68,7 +69,7 @@ function diarmuid_gae_buidhe:OnAbilityPhaseStart()
 	         
    		end)
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("lucio_buidhe_voice_1")
+			SkinSoundPair(caster, caster, "lucio_buidhe_voice_1", "Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_1")
 		else
 		   	 caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_1")
 		end
@@ -148,17 +149,17 @@ function diarmuid_gae_buidhe:OnSpellStart()
 	       
    		end)
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("lucio_buidhe_voice_2")
+			SkinSoundPair(caster, caster, "lucio_buidhe_voice_2", "Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_2")
 		else
 		   	 caster:EmitSound("Diarmuid_GaeBuidhe_Alt" .. self.SoundQueue .. "_2")
 		end
 
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		target:EmitSound("lucio_buidhe")
+		SkinSoundPair(target, caster, "lucio_buidhe", "Hero_Lion.Impale")
 		Timers:CreateTimer(0.1, function() 
-			target:EmitSound("lucio_combo_attack_1")
-			target:EmitSound("lucio_combo_attack_2")
+			SkinSoundPair(target, caster, "lucio_combo_attack_1", nil)
+			SkinSoundPair(target, caster, "lucio_combo_attack_2", nil)
 		end)
 	
 	else

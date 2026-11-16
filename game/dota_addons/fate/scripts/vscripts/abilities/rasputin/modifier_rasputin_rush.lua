@@ -4,6 +4,11 @@ require('abilities/rasputin/rasputin_knife_dash')
 modifier_rasputin_rush = class({})
 
 
+-- Насколько цель может сместиться за кадр, пока рывок её ещё догоняет.
+-- Обычный бег даёт заметно меньше, блинк и рывки — заметно больше.
+local TARGET_ESCAPE_LIMIT = 300
+
+
 function modifier_rasputin_rush:IsHidden()
     return false
 end
@@ -139,6 +144,38 @@ function modifier_rasputin_rush:UpdateHorizontalMotion(me, dt)
     end
 
 
+    -- цель перестала быть валидной для способности (невидимость к цели, смена команды,
+    -- неуязвимость) — рывок обрывается, как Battle drive у Hijikata
+    if IsNotNull(self.ability) then
+
+        local filter = UnitFilter(
+            self.target,
+            self.ability:GetAbilityTargetTeam(),
+            self.ability:GetAbilityTargetType(),
+            self.ability:GetAbilityTargetFlags(),
+            self.parent:GetTeamNumber()
+        )
+
+        if filter ~= UF_SUCCESS then
+            self:Destroy()
+            return
+        end
+
+    end
+
+
+    -- блинк и любой другой рывок цели прекращают погоню: сверяем позицию цели
+    -- с прошлым кадром, скачок больше порога = обрыв (так же сделано у Hijikata)
+    local target_origin = self.target:GetAbsOrigin()
+
+    if (self.targetpos - target_origin):Length2D() > TARGET_ESCAPE_LIMIT then
+        self:Destroy()
+        return
+    end
+
+    self.targetpos = target_origin
+
+
     -- стан прекращает рывок
     if self.parent:IsStunned() then
         self:Destroy()
@@ -165,9 +202,24 @@ function modifier_rasputin_rush:UpdateHorizontalMotion(me, dt)
     current_position):Length2D()
 
 
+    -- Захват взводится ЗАРАНЕЕ, на подлёте: как только условия усиленного Q2
+    -- сошлись, цель станится и сблинковать уже не может. Раньше стан приходил
+    -- только вместе с modifier_rasputin_knife_grab, то есть после конца полёта,
+    -- и в этот зазор враг успевал уйти - а его всё равно утаскивало назад.
+    if IsNotNull(self.ability)
+    and distance < self.ability:GetSpecialValueFor("grab_commit_range")
+    then
+        self:TryCommitGrab()
+    end
+
+
     if distance < 200 and not self.damage_dealth then
 
-        if self:ShouldGrab() then
+        self:TryCommitGrab()
+
+        if self.grabCommitted or self.grabRefused then
+            -- отказ тоже идёт через StartGrab: он спишет кулдаун захвата и
+            -- снимет метку ровно так же, как было раньше
             self:StartGrab()
         else
             self:BOOM()
@@ -297,6 +349,47 @@ function modifier_rasputin_rush:ShouldGrab()
 end
 
 
+-- Взвести захват: один раз проверяем блок спеллов и сразу станим цель, чтобы
+-- она не ушла в оставшиеся кадры полёта. Ответ запоминается - IsSpellBlocked
+-- СЪЕДАЕТ блок (снимает модификатор), второй раз его звать нельзя.
+function modifier_rasputin_rush:TryCommitGrab()
+
+    if self.grabCommitted then return true end
+
+    if self.grabRefused then return false end
+
+    if not self:ShouldGrab() then return false end
+
+
+    if IsSpellBlocked(self.target, self.parent) then
+        self.grabRefused = true
+        return false
+    end
+
+
+    self.grabCommitted = true
+
+
+    local stun = self.ability:GetSpecialValueFor("grab_commit_stun")
+
+    if stun > 0 then
+
+        self.target:AddNewModifier(
+            self.parent,
+            self.ability,
+            "modifier_stunned",
+            {
+                duration = stun
+            }
+        )
+
+    end
+
+    return true
+
+end
+
+
 function modifier_rasputin_rush:StartGrab()
 
     self.damage_dealth = true
@@ -312,7 +405,8 @@ function modifier_rasputin_rush:StartGrab()
     RasputinReleaseKnifeMark(target, self.ability)
 
 
-    if IsSpellBlocked(target) then
+    -- блок спеллов проверен при взведении, здесь только результат
+    if self.grabRefused then
         self:Destroy()
         return
     end
@@ -358,6 +452,9 @@ function modifier_rasputin_rush:StartGrab()
     self:Destroy()
 
 
+    local escapeLimit = ability:GetSpecialValueFor("grab_escape_limit")
+
+
     Timers:CreateTimer(FrameTime(), function()
 
         if not IsNotNull(caster) or not IsNotNull(target) then return end
@@ -365,6 +462,18 @@ function modifier_rasputin_rush:StartGrab()
         if not IsNotNull(ability) then return end
 
         if not caster:IsAlive() or not target:IsAlive() then return end
+
+
+        -- Цель всё-таки телепортировалась в последний момент: тащить её назад
+        -- неоткуда и незачем - точка приземления считалась от старой позиции.
+        -- Удар при этом засчитывается: прилетает по ней там, где она теперь.
+        if escapeLimit > 0
+        and (target:GetAbsOrigin() - victimOrigin):Length2D() > escapeLimit
+        then
+            RasputinGrabSlam(caster, target, ability)
+            return
+        end
+
 
         grabKeys.is_victim = 0
         grabKeys.dest_x = heroLanding.x
@@ -459,17 +568,8 @@ function modifier_rasputin_rush:BOOM()
             if not caster:IsAlive() or not target:IsAlive() then return end
 
 
-            local health_pct =
-            target:GetHealthPercent()
-
-
-            local missing =
-            (100-health_pct)/100
-
-
             local final_damage =
-            self.damage *
-            (1+missing)
+            self.damage
 
 
             RasputinHitFx(target, nil, caster)

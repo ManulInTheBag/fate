@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 -----------------------------
 --    Sky Piercer     --
 -----------------------------
@@ -72,9 +73,15 @@ function lu_bu_sky_piercer:OnSpellStart()
 		end
 	end
 	if jiaQiuUlt then
-		EmitGlobalSound("jia_qiu_ult_voice")
-		Timers:CreateTimer(0.5, function()
-			EmitGlobalSound("jia_qiu_ult")
+		-- кто выключил звуки скинов, слышит каст Лю Бу (оба звука сразу, как у него)
+		SkinSoundSplit(caster, function(S)
+			S.EmitGlobalSound("jia_qiu_ult_voice")
+			Timers:CreateTimer(0.5, function()
+				S.EmitGlobalSound("jia_qiu_ult")
+			end)
+		end, function(S)
+			S.EmitGlobalSound("lu_bu_sky_piercer_cast")
+			S.EmitGlobalSound("lu_bu_sky_piercer")
 		end)
 	else
 		EmitGlobalSound("lu_bu_sky_piercer_cast")

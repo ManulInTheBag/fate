@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_buff_melee = class({})
 
 LinkLuaModifier("modifier_karna_buff_melee", "abilities/karna/karna_new_abilities/karna_buff_melee", LUA_MODIFIER_MOTION_NONE)
@@ -44,7 +45,7 @@ function karna_buff_melee:OnSpellStart()
 	local caster = self:GetCaster()
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			local soundQueue = math.random (1,2)
-			caster:EmitSound("aemis_human_e" .. soundQueue)
+			SkinSoundPair(caster, caster, "aemis_human_e" .. soundQueue, "karna_new_karna_buff_voice")
 			caster:EmitSound("karna_new_fire_1")
 		else
 			caster:EmitSound("karna_new_fire_1")

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 sasaki_quickdraw = class({})
 
 LinkLuaModifier("modifier_quickdraw_cd_block", "abilities/sasaki/modifiers/modifier_quickdraw_cd_block", LUA_MODIFIER_MOTION_NONE)
@@ -38,9 +39,9 @@ function sasaki_quickdraw:OnSpellStart()
 		
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-				caster:EmitSound("kim_quickdraw_1")
+				SkinSoundPair(caster, caster, "kim_quickdraw_1", "Sasaki_Quickdraw_" .. math.random(1,2))
 			else
-				caster:EmitSound("patrick_quickdraw_" .. math.random(1,2))
+				SkinSoundPair(caster, caster, "patrick_quickdraw_" .. math.random(1,2), "Sasaki_Quickdraw_" .. math.random(1,2))
 			end
 		else
 			caster:EmitSound("Sasaki_Quickdraw_" .. math.random(1,2))
@@ -64,7 +65,7 @@ function sasaki_quickdraw:OnSpellStart()
 	local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 0.7)
 	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-		caster:EmitSound("kim_sfx_quickdraw")
+		SkinSoundPair(caster, caster, "kim_sfx_quickdraw", "Hero_PhantomLancer.Doppelwalk")
 	else
 		caster:EmitSound("Hero_PhantomLancer.Doppelwalk")
 	end

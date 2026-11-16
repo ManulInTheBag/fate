@@ -1,5 +1,6 @@
 saito_formlessness_new = saito_formlessness_new or class({})
 LinkLuaModifier("saito_formlessness_new_stacks", "abilities/saito/vergil_saito/saito_formlessness_new", LUA_MODIFIER_MOTION_NONE)
+require("libraries/effect_bars")
 
 local EmitZlodemonTrueSound = function(sSoundName)
     --ALO PIDORASI VI SVOIM EBANIM ZLODEMON_TRUE SLOMALI EBANOGO SAITO
@@ -284,34 +285,32 @@ function saito_formlessness_new_stacks:GetEffectAttachType()
 end
 function saito_formlessness_new_stacks:IsDebuff() return true end
 function saito_formlessness_new_stacks:RemoveOnDeath() return true end
+-- Счётчик стаков рисует ряд эффектов над хелсбаром (libraries/effect_bars.lua +
+-- panorama effect_bars.js), партикля над головой больше нет.
 function saito_formlessness_new_stacks:OnCreated(args)
     if not IsServer() then return end
  	self:SetStackCount(1)
-	self.parent = self:GetParent()
-	self.counterfx =   ParticleManager:CreateParticle( "particles/saito/qwe_counter_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
-	ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
-	ParticleManager:SetParticleControl( self.counterfx , 2, Vector(1,0,0) )
- 
+	EffectBars:Track(self)
 end
+
+-- Потолок = max_slashes у R: его же читает полоска. Модификатор вешают Q/W/E,
+-- поэтому GetAbility() тут не R - берём R с кастера.
+function saito_formlessness_new_stacks:GetMaxStacks()
+	local hCaster = self:GetCaster()
+	local hFormless = IsNotNull(hCaster) and hCaster:FindAbilityByName("saito_formlessness_new")
+	if IsNotNull(hFormless) then
+		local nMax = hFormless:GetSpecialValueFor("max_slashes")
+		if nMax and nMax > 0 then return nMax end
+	end
+	return 10
+end
+
 function saito_formlessness_new_stacks:OnRefresh(args)
     if not IsServer() then return end
-	self.parent = self:GetParent()
-	--[[ParticleManager:DestroyParticle(self.counterfx , true)
-	ParticleManager:ReleaseParticleIndex(self.counterfx )
-	self.counterfx =   ParticleManager:CreateParticle( "particles/saito/qwe_counter_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
-	ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )]]
-	ParticleManager:SetParticleControl( self.counterfx , 2, Vector(self:GetStackCount() + 1,0,0) )
-	if self:GetStackCount() > 9 then
-		self:SetStackCount(10)
-	else
-		self:SetStackCount(self:GetStackCount() + 1)
-	end
+	self:SetStackCount(math.min(self:GetStackCount() + 1, self:GetMaxStacks()))
 end
 
 function saito_formlessness_new_stacks:OnDestroy()
-	-- OnCreated/OnRefresh уже под IsServer: на клиенте counterfx не создавался
 	if not IsServer() then return end
-	ParticleManager:DestroyParticle(self.counterfx , true)
-	ParticleManager:ReleaseParticleIndex(self.counterfx )
-
+	EffectBars:Untrack(self)
 end

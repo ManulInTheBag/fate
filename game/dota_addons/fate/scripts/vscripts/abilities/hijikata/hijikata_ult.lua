@@ -1,5 +1,7 @@
 hijikata_ult = class({})
 
+require("libraries/effect_bars")
+
 LinkLuaModifier("modifier_hijikata_ult_slow_powerful", "abilities/hijikata/hijikata_ult", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_ult_slow", "abilities/hijikata/hijikata_ult", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
@@ -243,6 +245,30 @@ function modifier_hijikata_ult_stacks:OnCreated()
 
 	self:AddParticle(self.particle_unbreak, false, true, -1, true, false)
 
+	-- Стаки показывает полоска над своим героем (panorama effect_bars.js).
+	-- Потолок зависит от атрибута BC, который живёт на герое - его считает сервер.
+	if IsServer() then
+		EffectBars:Track(self)
+		self:PublishCap()
+	end
+end
+
+-- Стаки = накопленный урон в процентах от порога health_pct_to_max_damage
+-- (100 = полный порог); BC поднимает предел урона на 25% макс. HP - потолок
+-- стаков растёт так же, как в OnTakeDamage ниже.
+function modifier_hijikata_ult_stacks:PublishCap()
+	local hAbility = self:GetAbility()
+	if not IsNotNull(hAbility) then return end
+	local pct = hAbility:GetSpecialValueFor("health_pct_to_max_damage") * 0.01
+	if not (pct > 0) then return end
+	local cap = (pct + (self:GetParent().IsHijikataBcAcquired and 0.25 or 0)) / pct
+	EffectBars:SetExtra(self:GetParent(), "hijikata_cap", math.floor(cap * 100 + 0.5))
+end
+
+function modifier_hijikata_ult_stacks:OnDestroy()
+	if IsServer() then
+		EffectBars:Untrack(self)
+	end
 end
 
 if IsServer() then 
@@ -257,6 +283,7 @@ if IsServer() then
 		local attacker = args.attacker
 		local maxHealth = 1000 + (caster:GetLevel()-1) *25
 
+		self:PublishCap()
 		self.DamageTaken = (self.DamageTaken or 0) + args.damage
 		if self.DamageTaken > (maxHealth * (self:GetAbility():GetSpecialValueFor("health_pct_to_max_damage")*0.01 + (caster.IsHijikataBcAcquired and 0.25 or 0) )) then
 			self.DamageTaken = (maxHealth * (self:GetAbility():GetSpecialValueFor("health_pct_to_max_damage")*0.01 + (caster.IsHijikataBcAcquired and 0.25 or 0)))

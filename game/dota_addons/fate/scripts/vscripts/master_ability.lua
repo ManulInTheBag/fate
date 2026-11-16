@@ -34,6 +34,12 @@ function ResetAbilities(hero)
 	if hero:GetName() == "npc_dota_hero_pangolier" and RasputinOnSealRefresh then
 		RasputinOnSealRefresh(hero)
 	end
+
+	-- Билли: КД W ставится на разрыве пули, а не на выстреле — сброс, пришедший, пока
+	-- пуля летит, запоминается на ней
+	if hero:GetName() == "npc_dota_hero_muerta" and BillyOnSealRefresh then
+		BillyOnSealRefresh(hero)
+	end
 end
 
 function ResetItems(hero)

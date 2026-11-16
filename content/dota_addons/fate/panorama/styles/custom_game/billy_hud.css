@@ -1,0 +1,324 @@
+.BillyHudRoot
+{
+	width: 100%;
+	height: 100%;
+	overflow: noclip;
+}
+
+
+/* Барабан пуль. Все круги - картинки build_billy_drum.py (images/custom_game/billy):
+   CSS-круги панорама на 32px рисует без сглаживания. Размеры дублируются в
+   billy_hud.js (BOX, DRUM, CHAMBER_BOX) и в генераторе. */
+.BillyBullets
+{
+	position: 0px 0px 0px;
+	width: 48px;
+	height: 48px;
+	overflow: noclip;
+	flow-children: none;
+}
+
+.BillyBullets.Hidden
+{
+	visibility: collapse;
+}
+
+/* ореол вокруг барабана: не крутится, «дышит» прозрачностью; виден только с включённой D */
+.BillyBulletsGlow
+{
+	width: 48px;
+	height: 48px;
+	opacity: 0;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+/* тело барабана: без рамки (рамка сдвигает отсчёт координат гнёзд), крутится из скрипта */
+.BillyDrum
+{
+	width: 32px;
+	height: 32px;
+	horizontal-align: center;
+	vertical-align: center;
+	overflow: noclip;
+	flow-children: none;
+	background-image: url("s2r://panorama/images/custom_game/billy/drum_steel_png.vtex");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	transform: rotateZ( 0deg );
+	transition-property: transform;
+	transition-duration: 0.16s;
+	transition-timing-function: ease-out;
+}
+
+/* гнездо: картинка 16px, сам круг 8px в центре; по умолчанию пустое */
+.BillyChamber
+{
+	width: 16px;
+	height: 16px;
+	background-image: url("s2r://panorama/images/custom_game/billy/chamber_empty_png.vtex");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+/* заряженное гнездо - торец латунной гильзы с капсюлем */
+.BillyChamber.Loaded
+{
+	background-image: url("s2r://panorama/images/custom_game/billy/chamber_loaded_png.vtex");
+}
+
+/* метка по размеру текста и по центру: у Label на всю высоту текст прижат к верху */
+.BillyBulletsLabel
+{
+	horizontal-align: center;
+	vertical-align: center;
+	text-align: center;
+	font-size: 12px;
+	font-weight: black;
+	color: #ffffffff;
+	text-shadow: 0px 0px 2px 3.0 #000000ff;
+}
+
+
+/* D включена, пули есть: барабан оранжевый, ореол «дышит» */
+.BillyBullets.Armed .BillyDrum
+{
+	background-image: url("s2r://panorama/images/custom_game/billy/drum_orange_png.vtex");
+}
+
+.BillyBullets.Armed .BillyBulletsGlow
+{
+	background-image: url("s2r://panorama/images/custom_game/billy/drum_glow_orange_png.vtex");
+	animation-name: BillyArmedBreath;
+	animation-duration: 0.9s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'BillyArmedBreath'
+{
+	0% { opacity: 0.35; }
+	100% { opacity: 0.85; }
+}
+
+.BillyBullets.Armed .BillyBulletsLabel
+{
+	color: #fff0d0ff;
+}
+
+
+/* D выключена: пули в запасе, барабан стальной, гильзы тусклые */
+.BillyBullets.Off .BillyChamber.Loaded
+{
+	background-image: url("s2r://panorama/images/custom_game/billy/chamber_loaded_dim_png.vtex");
+}
+
+.BillyBullets.Off .BillyBulletsLabel
+{
+	color: #c8c8c8ff;
+}
+
+
+/* D включена, но пуль нет: барабан и пустые гнёзда горят красным, ореол мигает - нужна перезарядка (F) */
+.BillyBullets.Empty .BillyDrum
+{
+	background-image: url("s2r://panorama/images/custom_game/billy/drum_red_png.vtex");
+}
+
+.BillyBullets.Empty .BillyChamber
+{
+	background-image: url("s2r://panorama/images/custom_game/billy/chamber_empty_red_png.vtex");
+}
+
+.BillyBullets.Empty .BillyBulletsGlow
+{
+	background-image: url("s2r://panorama/images/custom_game/billy/drum_glow_red_png.vtex");
+	animation-name: BillyEmptyBlink;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'BillyEmptyBlink'
+{
+	0% { opacity: 1.0; }
+	100% { opacity: 0.2; }
+}
+
+.BillyBullets.Empty .BillyBulletsLabel
+{
+	color: #ffb0a4ff;
+}
+
+
+/* перезарядка: патрон встал в гнездо - число коротко толкается */
+.BillyBullets.Insert .BillyBulletsLabel
+{
+	animation-name: BillyInsert;
+	animation-duration: 0.12s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'BillyInsert'
+{
+	0% { transform: scale3d( 1.25, 1.25, 1.0 ); }
+	100% { transform: scale3d( 1.0, 1.0, 1.0 ); }
+}
+
+
+/* выстрел: число коротко вспыхивает */
+.BillyBullets.Spent .BillyBulletsLabel
+{
+	animation-name: BillySpent;
+	animation-duration: 0.2s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'BillySpent'
+{
+	0% { transform: scale3d( 1.5, 1.5, 1.0 ); color: #ffffffff; }
+	100% { transform: scale3d( 1.0, 1.0, 1.0 ); }
+}
+
+/* Режим «только число» (настройка billy_drum = number): без барабана и ореола -
+   чёрный кружок 24px под числом, как выглядел счётчик до барабана (юзер 09.10.2026).
+   Цвета состояний - те же, что были у кружка. */
+.BillyNumberDisc
+{
+	visibility: collapse;
+	width: 24px;
+	height: 24px;
+	horizontal-align: center;
+	vertical-align: center;
+	border-radius: 50%;
+	border: 2px solid #8a8a8aee;
+	background-color: #050505ee;
+	overflow: noclip;
+}
+
+.BillyBullets.NumberOnly .BillyNumberDisc
+{
+	visibility: visible;
+}
+
+.BillyBullets.NumberOnly .BillyDrum,
+.BillyBullets.NumberOnly .BillyBulletsGlow
+{
+	visibility: collapse;
+}
+
+/* мягкое свечение вокруг кружка - только когда патроны заряжены */
+.BillyNumberGlow
+{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	opacity: 0;
+	box-shadow: #ffb03cff 0px 0px 6px 2px;
+}
+
+.BillyBullets.NumberOnly .BillyBulletsLabel
+{
+	font-size: 15px;
+	font-weight: bold;
+	text-shadow: 0px 0px 2px 2.0 #000000ff;
+}
+
+/* D включена, пули есть: латунь, свечение «дышит» */
+.BillyBullets.NumberOnly.Armed .BillyNumberDisc
+{
+	border-color: #ffc054ff;
+	background-color: #3a1a06ee;
+}
+
+.BillyBullets.NumberOnly.Armed .BillyNumberGlow
+{
+	opacity: 1;
+	animation-name: BillyNumberBreath;
+	animation-duration: 0.9s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'BillyNumberBreath'
+{
+	0% { opacity: 0.45; }
+	100% { opacity: 1.0; }
+}
+
+.BillyBullets.NumberOnly.Armed .BillyBulletsLabel
+{
+	color: #ffe2a8ff;
+}
+
+/* D выключена: число серое */
+.BillyBullets.NumberOnly.Off .BillyBulletsLabel
+{
+	color: #a8a8a8ff;
+}
+
+/* D включена, но пуль нет: красный кружок мигает - нужна перезарядка (F) */
+.BillyBullets.NumberOnly.Empty .BillyNumberDisc
+{
+	border-color: #ff3020ff;
+	background-color: #2a0505ee;
+	animation-name: BillyNumberEmptyBlink;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'BillyNumberEmptyBlink'
+{
+	0% { border-color: #ff3020ff; }
+	100% { border-color: #5a1010ff; }
+}
+
+.BillyBullets.NumberOnly.Empty .BillyBulletsLabel
+{
+	color: #ff6a5aff;
+}
+
+
+/* Young Outlaw Leader: баннер выбора цели награды (под топ-баром, по центру) */
+.BillyWantedHint
+{
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 110px;
+	padding: 6px 18px 7px 18px;
+	flow-children: down;
+	background-color: #e8d3a8f0;
+	border: 2px solid #5a3a1c;
+	border-radius: 3px;
+	box-shadow: #000000aa 0px 2px 8px 0px;
+	animation-name: BillyWantedHintIn;
+	animation-duration: 0.35s;
+	animation-timing-function: ease-out;
+}
+
+.BillyWantedHintTitle
+{
+	horizontal-align: center;
+	font-size: 20px;
+	font-weight: black;
+	letter-spacing: 3px;
+	color: #3a2211;
+}
+
+.BillyWantedHintText
+{
+	horizontal-align: center;
+	font-size: 14px;
+	color: #3a2211;
+}
+
+@keyframes 'BillyWantedHintIn'
+{
+	0%   { opacity: 0; transform: translateY( -12px ); }
+	100% { opacity: 1; transform: translateY( 0px ); }
+}

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_ryougi_knife_target", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_knife_swap", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_knife_throw_slow", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
@@ -28,7 +29,7 @@ function ryougi_knife_throw:OnSpellStart()
 	
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitGlobalSound("tingtang_knife_throw")
+			SkinSoundPairGlobal(caster, "tingtang_knife_throw", "ryougi_mieta")
 		else
 			EmitGlobalSound("ryougi_mieta")
 		end
@@ -88,7 +89,7 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	EmitSoundOn("ryougi_hit", hTarget)
 	if hCaster:HasModifier("modifier_hero_selection_skin") then
 		if hCaster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitSoundOn("tingtang_slash", hTarget)
+			SkinSoundPair(hTarget, hCaster, "tingtang_slash", nil)
 		end
 	end
   	--hTarget:EmitSound("Atalanta.RImpact")

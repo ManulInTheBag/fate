@@ -54,7 +54,14 @@ function modifier_hijikata_haori:OnCreated(hTable)
     self.hAbility = self:GetAbility()
 
     if IsServer() then
-        self.sModelName = "models/hijikata/hijikata_0_14_idle_haori.vmdl"
+        -- the haori model is base Hijikata only: with a skin (priority LOW) this NORMAL-priority
+        -- model change would swap e.g. Lei Heng back to Hijikata, so a skinned hero keeps his model
+        local hSkin = self.hParent:FindModifierByName("modifier_hero_selection_skin")
+        if hSkin and (hSkin.skinNumber or 0) ~= 0 then
+            self.sModelName = nil
+        else
+            self.sModelName = "models/hijikata/hijikata_0_14_idle_haori.vmdl"
+        end
     end
 end
 function modifier_hijikata_haori:OnRefresh(hTable)

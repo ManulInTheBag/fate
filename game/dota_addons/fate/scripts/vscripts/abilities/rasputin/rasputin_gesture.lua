@@ -286,6 +286,186 @@ function RasputinCastToken(ability)
 end
 
 
+-- Крипы-герои: крупные призывы, которые в аддоне играют роль полноценной цели,
+-- а не мяса. Распутин получает с них стаки счётчика, и нож (Q) в них втыкается,
+-- вместо того чтобы пролетать насквозь, как через обычного крипа.
+-- Единственное место, где этот список задан - дописывать новые призывы сюда.
+RASPUTIN_HERO_CREEPS = {
+    ["caster_5th_ancient_dragon"]      = true,   -- дракон Медеи
+    ["caster_5th_territory"]           = true,   -- башня Медеи
+    ["caster_5th_territory_improved"]  = true,   -- она же, улучшенная
+    ["gille_gigantic_horror"]          = true,   -- кракен Жиля
+    ["ozy_piramid"]                    = true,   -- пирамида Озимандиаса
+}
+
+
+-- Цель, «достойная» стака: герой (включая иллюзии и призванных героев вроде
+-- солдат Искандера) либо крип-герой из списка выше. Обычные крипы - нет.
+function RasputinIsStackTarget(unit)
+
+    if not IsNotNull(unit) then return false end
+
+    if unit:IsHero() then return true end
+
+    return RASPUTIN_HERO_CREEPS[unit:GetUnitName()] == true
+
+end
+
+
+-- Удар об землю после захвата Q2: урон цели и всем вокруг неё, метки финишера,
+-- стак, звук. Вынесено из modifier_rasputin_knife_grab:DealSlamDamage, потому
+-- что то же самое нужно и когда цель успела телепортироваться - тогда её никуда
+-- не тащат, но по ней всё равно прилетает.
+function RasputinGrabSlam(caster, victim, ability, skipStun)
+
+    if not IsServer() then return end
+
+    if not IsNotNull(caster) then return end
+    if not IsNotNull(victim) then return end
+    if not IsNotNull(ability) then return end
+
+
+    local damage =
+    RasputinScaleDamage(caster, ability, ability:GetSpecialValueFor("damage2"))
+    * ability:GetSpecialValueFor("grab_damage_multiplier")
+
+    local impact = victim:GetAbsOrigin()
+
+
+    RasputinSlam(caster, impact, ability:GetSpecialValueFor("grab_radius"))
+
+
+    ability:DamageShields(victim)
+
+    RasputinHitFx(victim, nil, caster)
+
+    DoDamage(caster, victim, damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+
+
+    local stunAfter = ability:GetSpecialValueFor("grab_stun_after")
+
+    if stunAfter > 0 and not skipStun then
+
+        victim:AddNewModifier(
+            caster,
+            ability,
+            "modifier_stunned",
+            {
+                duration = stunAfter
+            }
+        )
+
+    end
+
+
+    local markDuration = ability:GetSpecialValueFor("grab_mark_duration")
+
+
+    local nearby = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        impact,
+        nil,
+        ability:GetSpecialValueFor("grab_radius"),
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_ALL,
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false
+    )
+
+    if markDuration > 0 then
+
+        victim:AddNewModifier(
+            caster,
+            ability,
+            "modifier_rasputin_wide_kick_target",
+            {
+                duration = markDuration
+            }
+        )
+
+    end
+
+    for _,enemy in pairs(nearby) do
+
+        if enemy ~= victim then
+
+            RasputinHitFx(enemy, nil, caster)
+
+            DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+
+            if markDuration > 0 then
+
+                enemy:AddNewModifier(
+                    caster,
+                    ability,
+                    "modifier_rasputin_wide_kick_target",
+                    {
+                        duration = markDuration
+                    }
+                )
+
+            end
+
+        end
+
+    end
+
+
+    RasputinGrantStack(caster, ability, victim)
+
+    EmitSoundOnLocationWithCaster(impact, "rasputin_knife_dash_recast_hit", caster)
+
+end
+
+
+-- Можно ли прямо сейчас нажать F по этой цели. Повторяет гейты
+-- rasputin_finisher:CastFilterResultLocation плюс движковую проверку
+-- (кулдаун, мана, уровень). По этому же ответу гаснут партикли метки:
+-- нет смысла подсвечивать цель, по которой финишер не сработает.
+function RasputinCanFinishTarget(caster, target)
+
+    if not IsNotNull(caster) or not IsNotNull(target) then return false end
+
+    if not caster:IsAlive() or not target:IsAlive() then return false end
+
+
+    local finisher = caster:FindAbilityByName("rasputin_finisher")
+
+    if not IsNotNull(finisher) then return false end
+
+    if not finisher:IsFullyCastable() then return false end
+
+
+    if RasputinIsRooted and RasputinIsRooted(caster) then return false end
+
+
+    -- собственный стан от серии ударов не в счёт: именно в нём жмётся второе F
+    if caster:IsStunned()
+    and not caster:HasModifier("modifier_rasputin_finisher_channel")
+    then
+        return false
+    end
+
+
+    local counter =
+    caster:FindModifierByName("modifier_rasputin_finisher_counter")
+
+    if not counter or counter:GetStackCount() < 1 then return false end
+
+
+    local reach = finisher:GetSpecialValueFor("cast_radius")
+
+    if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > reach then
+        return false
+    end
+
+
+    return true
+
+end
+
+
 function RasputinGrantStack(caster, ability, victim, castToken)
 
     if not IsServer() then return end
@@ -293,9 +473,8 @@ function RasputinGrantStack(caster, ability, victim, castToken)
     if not IsNotNull(caster) then return end
 
 
-    -- за попадание по крипу стак не даётся; крип-герой (иллюзии, призванные
-    -- герои вроде солдат Искандера) считается целью
-    if victim and IsNotNull(victim) and not victim:IsHero() then return end
+    -- за попадание по обычному крипу стак не даётся
+    if victim and IsNotNull(victim) and not RasputinIsStackTarget(victim) then return end
 
 
     if _G.CurrentGameState == "FATE_POST_ROUND" then return end
@@ -961,11 +1140,25 @@ end
 RASPUTIN_SHORT_DASH_SOUND = "rasputin_short_dash"
 
 
+-- Рост урона от уровня героя (damage_per_level в KV способности).
+-- У Q/W/R он даётся атрибутом Black Keys; у финишера - базовый.
+RASPUTIN_KEYS_SCALED = {
+    rasputin_knife_dash = true,
+    rasputin_low_kick   = true,
+    rasputin_wide_kick  = true,
+}
+
 function RasputinScaleDamage(caster, ability, base)
 
     if not IsNotNull(caster) then return base end
 
     if not ability or ability:IsNull() then return base end
+
+    if RASPUTIN_KEYS_SCALED[ability:GetAbilityName()]
+    and not caster.IsRasputinKeysAcquired
+    then
+        return base
+    end
 
     local per = ability:GetLevelSpecialValueFor("damage_per_level", 0)
 
@@ -1101,6 +1294,41 @@ local DASH_TRAIL_OFFSET = 20
 local DASH_EFFECT_LINGER = 0.12
 
 
+-- ⚠️ Страховка для «живых» партиклей рывков (трейл, щит, афтеримиджи).
+--
+-- Вызывающие передают предикат вида `function() return not self.destroyed end`,
+-- где self - модификатор. Когда модификатор снимают (рывок сбили дисплейсом,
+-- блинком, станом), его хэндл становится невалидным, обращение к полю кидает
+-- исключение, кадровый таймер умирает вместе с ним - и Finish() не вызывается
+-- никогда. Партикль остаётся висеть: щит на Распутине, трейл (он на
+-- PATTACH_CUSTOMORIGIN) - в последней точке, где ему успели поставить CP.
+--
+-- Поэтому предикат оборачивается: исключение = «уже не бежим», плюс жёсткий
+-- предел жизни на случай, если флаг так и не переключат.
+local FX_MAX_LIFE = 8
+
+
+local function RasputinFxGuard(IsRunning, maxLife)
+
+    local deadline = GameRules:GetGameTime() + (maxLife or FX_MAX_LIFE)
+
+    return function()
+
+        if GameRules:GetGameTime() >= deadline then return false end
+
+        if type(IsRunning) ~= "function" then return false end
+
+        local ok, running = pcall(IsRunning)
+
+        if not ok then return false end
+
+        return running == true
+
+    end
+
+end
+
+
 RASPUTIN_DASH_SHIELD_PARTICLE = "particles/rasputin/rasputin_dash_shield.vpcf"
 
 
@@ -1112,6 +1340,8 @@ function RasputinDashShield(unit, IsRunning, travel)
     if not IsServer() then return end
 
     if not IsNotNull(unit) then return end
+
+    IsRunning = RasputinFxGuard(IsRunning)
 
 
     local fx = ParticleManager:CreateParticle(
@@ -1186,6 +1416,8 @@ function RasputinDashTrail(unit, IsRunning, travel)
 
     if not IsNotNull(unit) then return end
 
+    IsRunning = RasputinFxGuard(IsRunning)
+
     local fx = ParticleManager:CreateParticle(
         RasputinFx(unit, RASPUTIN_DASH_TRAIL_PARTICLE),
         PATTACH_CUSTOMORIGIN,
@@ -1258,6 +1490,8 @@ function RasputinAfterimageTrail(unit, IsRunning, travel, path)
     if not IsServer() then return end
 
     if not IsNotNull(unit) then return end
+
+    IsRunning = RasputinFxGuard(IsRunning)
 
     RasputinAfterimage(unit, travel, path)
 

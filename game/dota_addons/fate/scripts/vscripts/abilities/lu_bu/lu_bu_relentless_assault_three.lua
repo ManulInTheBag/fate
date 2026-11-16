@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 lu_bu_relentless_assault_three = class({})
 LinkLuaModifier( "modifier_lu_bu_relentless_assault_three", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_three", LUA_MODIFIER_MOTION_NONE )
 
@@ -25,6 +26,8 @@ function lu_bu_relentless_assault_three:OnSpellStart()
 	end
 	if not jiaQiuSkin then
 		caster:EmitSound("lu_bu_relentless_assault_three")
+	else
+		SkinSoundPair(caster, caster, nil, "lu_bu_relentless_assault_three")
 	end
 
 	-- Add modifier

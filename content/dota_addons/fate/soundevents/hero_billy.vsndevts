@@ -1,0 +1,499 @@
+// Billy the Kid — голос на способностях (FGO, VA Takano Urara). Клипы в sounds/billy/vo/.
+// Эмиттеры — в abilities/billy/*.lua.
+// Trickshot (Q), шанс в коде: 「キャッチして！」 (Catch this!)
+"billy_vo_trickshot"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/s105_skill1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Triple Shot (W): 「こういうのは得意でね、そらっ！」 (That's right up my alley. Take this!)
+"billy_vo_triple_shot"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/s105_skill2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Skedaddle (E): 「ノロいなぁ──」 (Too slow!)
+"billy_vo_skedaddle"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/s105_extraattack.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Reload! (F): 「コインをはじいて……っと」 (The flip of a coin.)
+"billy_vo_reload"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/s105_skill3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Highnoon (R), старт: 「──決闘、受けてみる？」 / 「さぁ、早撃ち勝負だ」
+"billy_vo_highnoon_start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/s105_selectnp.vsnd"
+                            "value1"        "sounds/billy/vo/billy_np_duel.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Highnoon (R), залп: 「ファイア！！」
+"billy_vo_highnoon_fire"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/billy_np_fire.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Комбо Thunderer, замах (глобально): 「喰らいな！」
+"billy_vo_combo_start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/billy_np_kuraina.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Комбо Thunderer, выстрел (глобально): 「ファイア！！」
+"billy_vo_combo_fire"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/vo/billy_np_fire.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// ---- SFX револьвера (CC0, Freesound; сборка — build.py в scratchpad сессии 7c1f3bbe/billy_sfx) ----
+// Bullets to Spare (D) вкл: взвод курка
+"billy_d_on"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/sfx/billy_d_on.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Bullets to Spare (D) выкл: спуск курка
+"billy_d_off"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/sfx/billy_d_off.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Reload! (F): выброс гильз, патроны по каморам, прокрутка барабана
+"billy_reload"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/sfx/billy_reload.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Highnoon (R), старт ченнела: прокрутка барабана + взвод
+"billy_highnoon_start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/sfx/billy_highnoon_start.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.800000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Highnoon (R), залп: три выстрела «веером курка» + эхо
+"billy_highnoon_fire"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/sfx/billy_highnoon_fire.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.800000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Комбо Thunderer, замах 0.6 с: короткая прокрутка + взвод
+"billy_combo_cock"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/sfx/billy_combo_cock.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.200000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+// Комбо Thunderer, выстрел: очередь из трёх пуль через 0.1 с + раскат грома
+"billy_combo_fire"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/billy/sfx/billy_combo_fire.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.300000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}

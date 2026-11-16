@@ -7,6 +7,9 @@
      поэтому здесь ничего клиентонебезопасного на уровне файла.
 ]]
 
+-- звуки скина Guts: кто их слышит, решает SkinSoundPair (настройка «Звуки скинов»)
+require("libraries/skin_fx")
+
 --[[ Модификатор «заряжено продолжение» живёт ЗДЕСЬ, а не в barghest_r: вешают
      его Q/W/E, а читает R. ]]
 LinkLuaModifier("modifier_barghest_continuation", "abilities/barghest/barghest_shared",
@@ -62,6 +65,11 @@ BARGHEST_FX = {
     HOUND      = "particles/barghest/barghest_hound_wake.vpcf",
     CHAINS     = "particles/barghest/barghest_e_chains.vpcf",
     LIFESTEAL  = "particles/barghest/barghest_lifesteal.vpcf",
+    -- Укус (barghest_e_bite): удар когтями/зубами с брызгами и кровь на жертве.
+    -- Ванильные партиклы Лайфстилера (Open Wounds) — ближайшее к укусу, что
+    -- есть в игре; своих под это нет.
+    BITE_HIT   = "particles/units/heroes/hero_life_stealer/life_stealer_open_wounds_impact.vpcf",
+    BITE_BLOOD = "particles/units/heroes/hero_life_stealer/life_stealer_open_wounds.vpcf",
     SHIELD_SLASH = "particles/barghest/barghest_slash_3.vpcf",
     -- Линии скорости заряженного рывка E (раньше путь был вписан прямо в barghest_e).
     DASH_SPEED = "particles/barghest/barghest_rush_e_speed.vpcf",
@@ -127,10 +135,46 @@ BARGHEST_VO = {
     LAUGH      = "barghest_vo_laugh",
 }
 
+--[[ Голос скина skin_1 «Guts»: Berserk and the Band of the Hawk (Koei Tecmo,
+     VA Iwanaga Hiroaki). Клипы вырезаны из записей игры с YouTube, голос
+     отделён от музыки и ударов Demucs; лежат в sounds/barghest/guts/, события —
+     в том же hero_barghest.vsndevts. Подмена — в Barghest_VoiceEvent, поэтому
+     способности по-прежнему зовут BARGHEST_VO.* и про скин не знают.
+     Нет ключа в таблице — играет голос Barghest. ]]
+BARGHEST_VO_GUTS = {
+    [BARGHEST_VO.Q]        = "guts_vo_q",
+    [BARGHEST_VO.R]        = "guts_vo_r",
+    [BARGHEST_VO.W]        = "guts_vo_w",
+    [BARGHEST_VO.E]        = "guts_vo_e",
+    [BARGHEST_VO.D]        = "guts_vo_d",
+    [BARGHEST_VO.NP_START] = "guts_vo_np_start",
+    [BARGHEST_VO.NP_SHOUT] = "guts_vo_np_shout",
+    [BARGHEST_VO.LAUGH]    = "guts_vo_laugh",
+}
+
+-- Длина самого длинного клипа события Guts: реплика скина может быть длиннее
+-- той, под которую способность занимает голос (fLength у Barghest_Voice).
+BARGHEST_VO_GUTS_LEN = {
+    guts_vo_w        = 1.75,
+    guts_vo_e        = 1.25,
+    guts_vo_d        = 2.5,
+    guts_vo_np_start = 2.5,
+    guts_vo_np_shout = 1.5,
+    guts_vo_laugh    = 1.45,
+}
+
+function Barghest_VoiceEvent(hCaster, sEvent)
+    if sEvent ~= nil and Barghest_IsGutsSkin(hCaster) then
+        return BARGHEST_VO_GUTS[sEvent] or sEvent
+    end
+    return sEvent
+end
+
 --[[ Самый длинный клип в пуле выкриков (см. hero_barghest.vsndevts). Ровно на
      столько выкрик и «занимает голос»: Q и R жмут ЧЕРЕДУЯ (ротация qrqrqr), и
      без этого второй выкрик ложился бы поверх первого — каша из двух голосов.
-     ⚠️ Держать не меньше длины самого длинного клипа своего события. ]]
+     ⚠️ Держать не меньше длины самого длинного клипа своего события —
+     и у Barghest, и у Guts (guts_vo_q/guts_vo_r режутся под те же пределы). ]]
 BARGHEST_GRUNT_LEN = {
     [1] = 0.7,      -- пул Q: короткие «Хм!»/«Ха!», самый длинный 0.65 c
     [2] = 1.05,     -- пул R: выкрики потяжелее, самый длинный 1.01 c
@@ -151,14 +195,28 @@ function Barghest_Voice(hCaster, sEvent, fLength)
     if not IsServer() then return end
     if not Barghest_Alive(hCaster) then return end
     if sEvent == nil then return end
+    local sBase = sEvent
+    sEvent = Barghest_VoiceEvent(hCaster, sEvent)
+    fLength = math.max(fLength or 2.0, BARGHEST_VO_GUTS_LEN[sEvent] or 0)
 
     -- Играющую реплику обрываем: обрезанная фраза читается лучше, чем две разом.
+    Barghest_StopVoice(hCaster)
+    hCaster.sBarghestVoiceEvent = sEvent
+    hCaster.sBarghestVoiceBase = sBase
+    hCaster.fBarghestGruntUntil = GameRules:GetGameTime() + (fLength or 2.0)
+    -- у Guts: голос скина тем, кто его слышит, остальным - голос Barghest
+    SkinSoundPair(hCaster, hCaster, sEvent, sBase)
+end
+
+--[[ Глушит играющий голос. Тем, кто отключил звуки скинов, у Guts играл голос
+     Barghest (sBarghestVoiceBase), поэтому глушим оба. ]]
+function Barghest_StopVoice(hCaster)
     if hCaster.sBarghestVoiceEvent ~= nil then
         hCaster:StopSound(hCaster.sBarghestVoiceEvent)
     end
-    hCaster.sBarghestVoiceEvent = sEvent
-    hCaster.fBarghestGruntUntil = GameRules:GetGameTime() + (fLength or 2.0)
-    hCaster:EmitSound(sEvent)
+    if hCaster.sBarghestVoiceBase ~= nil and hCaster.sBarghestVoiceBase ~= hCaster.sBarghestVoiceEvent then
+        hCaster:StopSound(hCaster.sBarghestVoiceBase)
+    end
 end
 
 --[[ Боевой выкрик. Пока звучит предыдущий ГОЛОС (выкрик или реплика) — молчит. ]]
@@ -174,8 +232,11 @@ function Barghest_Grunt(hCaster, sEvent, nPool)
         return
     end
     hCaster.fBarghestGruntUntil = fNow + (BARGHEST_GRUNT_LEN[nPool] or 1.0)
+    local sBase = sEvent
+    sEvent = Barghest_VoiceEvent(hCaster, sEvent)
     hCaster.sBarghestVoiceEvent = sEvent
-    hCaster:EmitSound(sEvent)
+    hCaster.sBarghestVoiceBase = sBase
+    SkinSoundPair(hCaster, hCaster, sEvent, sBase)
 end
 
 --[[ Живой ли хэндл. Своя копия — по той же причине, что и у
@@ -237,6 +298,19 @@ function Barghest_Radius(hCaster, nRadius)
     return nRadius * Barghest_GiantMult(hCaster)
 end
 
+--[[ Под жёстким контролем ли юнит: стан, превращение, сон, страх, таунт —
+     всё, что отнимает управление целиком. Рут сюда НЕ входит: у зарядки E
+     свой рут, и отличить его от вражеского по состоянию нельзя.
+     ⚠️ Части методов может не быть в текущей версии API — зовём под гардом. ]]
+function Barghest_IsControlled(hUnit)
+    if not Barghest_Alive(hUnit) then return false end
+    for _, sFn in ipairs({"IsStunned", "IsHexed", "IsNightmared", "IsFeared", "IsTaunted"}) do
+        local fn = hUnit[sFn]
+        if type(fn) == "function" and fn(hUnit) then return true end
+    end
+    return false
+end
+
 --[[ Довернуть вектор к цели не больше чем на fMaxRad. Нужен дешам: мгновенный
      разворот на 180° выглядит как телепорт направления. ]]
 function Barghest_TurnToward(vFrom, vTo, fMaxRad)
@@ -248,6 +322,24 @@ function Barghest_TurnToward(vFrom, vTo, fMaxRad)
     if fD >  fMaxRad then fD =  fMaxRad end
     if fD < -fMaxRad then fD = -fMaxRad end
     return Vector(math.cos(fA + fD), math.sin(fA + fD), 0)
+end
+
+-- Можно ли тут стоять: проходимо и не занято (деревья, блокеры).
+function Barghest_DashFree(vPos)
+    return GridNav:IsTraversable(vPos) and not GridNav:IsBlocked(vPos)
+end
+
+--[[ Где кончается препятствие, начатое в vFrom, если идти по vDir не дальше
+     nDepth. Шаг 32 — полклетки сетки, тоньше стен не бывает. Выхода нет —
+     возвращает саму vFrom (она занята, Barghest_DashFree скажет «нет»). ]]
+function Barghest_DashExit(vFrom, vDir, nDepth)
+    for fD = 32, nDepth, 32 do
+        local vPos = vFrom + vDir * fD
+        if Barghest_DashFree(vPos) then
+            return vPos
+        end
+    end
+    return vFrom
 end
 
 --[[ Зарядить продолжение R. Вызывается из Q/W/E.
@@ -279,6 +371,55 @@ function Barghest_ArmOnHit(hCaster, bHit, nBranch)
     if bHit or (Barghest_Alive(hCaster) and hCaster.BarghestAttr3Acquired) then
         Barghest_ArmContinuation(hCaster, nBranch)
     end
+end
+
+--[[ Рекаст рывка — укус (barghest_e_bite).
+
+     Кнопка E на время СТАНА от рывка подменяется укусом ровно тем же приёмом,
+     что и «отпустить» в зарядке: SwapAbilities. Живёт это здесь, а не в самой
+     способности укуса, потому что зовут отсюда двое — barghest_e (арм в момент,
+     когда стан лёг) и modifier_barghest_e_stun (разарм, когда стан кончился).
+     ⚠️ Именно СТАН, а не цепи: цепи держат рутом дольше, а окно укуса обязано
+     совпадать с хард-контролем.
+
+     ⚠️ Окно открывается ТОЛЬКО с четвёртым атрибутом (Fang Unbound): без него
+     скрытая кнопка так и остаётся скрытой.
+     ⚠️ Уровень укусу ставим по уровню E — свой он не качает (приём
+     hijikata_dash_recast), иначе читались бы значения первого уровня. ]]
+BARGHEST_BITE_ABILITY = "barghest_e_bite"
+
+function Barghest_BiteArm(hCaster, hTarget, hE)
+    if not IsServer() then return end
+    if not Barghest_Alive(hCaster) or not Barghest_Alive(hTarget) then return end
+    if not hCaster.BarghestAttr4Acquired then return end
+
+    local hBite = hCaster:FindAbilityByName(BARGHEST_BITE_ABILITY)
+    if not Barghest_Alive(hBite) then return end
+
+    if Barghest_Alive(hE) and hE:GetLevel() > 0 then
+        hBite:SetLevel(hE:GetLevel())
+    elseif hBite:GetLevel() < 1 then
+        hBite:SetLevel(1)
+    end
+
+    hCaster.hBarghestBiteTarget = hTarget
+    if hBite:IsHidden() then
+        hCaster:SwapAbilities("barghest_e", BARGHEST_BITE_ABILITY, false, true)
+    end
+end
+
+--[[ Убрать кнопку укуса. hTarget необязателен: с ним разарм срабатывает, только
+     если окно принадлежит ИМЕННО этой цели — иначе слетевшие цепи старой жертвы
+     закрыли бы окно, открытое новым рывком. ]]
+function Barghest_BiteDisarm(hCaster, hTarget)
+    if not IsServer() then return end
+    if not Barghest_Alive(hCaster) then return end
+    if hTarget ~= nil and hCaster.hBarghestBiteTarget ~= hTarget then return end
+
+    hCaster.hBarghestBiteTarget = nil
+    local hBite = hCaster:FindAbilityByName(BARGHEST_BITE_ABILITY)
+    if not Barghest_Alive(hBite) or hBite:IsHidden() then return end
+    hCaster:SwapAbilities("barghest_e", BARGHEST_BITE_ABILITY, true, false)
 end
 
 --[[ Враги в секторе перед точкой: аркой бьют и Q, и Q1R. ]]
@@ -324,6 +465,54 @@ function Barghest_FindInArc(hCaster, hAbility, vOrigin, vDir, nRadius, nAngle)
     return tHit
 end
 
+--[[ Враги в прямоугольной полосе вдоль vDir: вертикальные резы (выпад Q2 и
+     удар снизу Q2R) читаются как линия, и бить они должны по линии, а не
+     сектором. Полоса начинается ЗА спиной на nBack (заступ назад: цель,
+     которая стоит вплотную или чуть сбоку-сзади, не проскакивает между
+     героиней и началом реза) и тянется вперёд на nLength; nWidth — ПОЛОВИНА
+     ширины. Как и у дуги, считается край хитбокса цели, а не её центр. ]]
+function Barghest_FindInLine(hCaster, hAbility, vOrigin, vDir, nLength, nWidth, nBack)
+    local tHit = {}
+    nBack = nBack or 0
+    local vFwd = Vector(vDir.x, vDir.y, 0):Normalized()
+    local tUnits = FindUnitsInRadius(hCaster:GetTeamNumber(), vOrigin, nil,
+        math.max(nLength, nBack) + nWidth + BARGHEST_ARC_PAD,
+        hAbility:GetAbilityTargetTeam(), hAbility:GetAbilityTargetType(),
+        hAbility:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
+    for _, hUnit in pairs(tUnits) do
+        if Barghest_Alive(hUnit) then
+            local vTo = hUnit:GetAbsOrigin() - vOrigin
+            vTo.z = 0
+            local fPad = 0
+            if type(hUnit.GetPaddedCollisionRadius) == "function" then
+                fPad = hUnit:GetPaddedCollisionRadius()
+            end
+            local fAlong = vTo:Dot(vFwd)
+            local fSide  = math.abs(vTo.x * vFwd.y - vTo.y * vFwd.x)
+            if fAlong >= -nBack - fPad and fAlong <= nLength + fPad
+            and fSide <= nWidth + fPad then
+                table.insert(tHit, hUnit)
+            end
+        end
+    end
+    return tHit
+end
+
+--[[ Объединить списки целей без повторов (по entindex): DamageUnits бьёт
+     каждого, кого ей передали, а один юнит легко попадает в две зоны. ]]
+function Barghest_MergeUnits(...)
+    local tOut, tSeen = {}, {}
+    for _, tList in ipairs({...}) do
+        for _, hUnit in pairs(tList) do
+            if IsNotNull(hUnit) and not tSeen[hUnit:entindex()] then
+                tSeen[hUnit:entindex()] = true
+                table.insert(tOut, hUnit)
+            end
+        end
+    end
+    return tOut
+end
+
 --[[ Убрать партикль через fDelay. Эффекты дуг живут своим временем и от
      ReleaseParticleIndex сразу не исчезают — так же убирают их kuro и
      arcueid. ⚠️ Без отложенного Destroy партиклы этих скиллов текут. ]]
@@ -334,16 +523,27 @@ local function ReleaseLater(nFx, fDelay)
     end)
 end
 
---[[ ⚠️ РАЗМЕР КЛИНКОВЫХ ПАРТИКЛЕЙ ИЗ LUA НЕ МЕНЯЕТСЯ. Каждый barghest_slash_*
-     содержит оператор `C_OP_SetControlPointPositions` с `m_nCP1 = 5` и
-     `m_vecCP1Pos = [450, 0, 150]`: партикль КАЖДЫЙ КАДР сам пишет себе CP5, а
-     кольцо берёт из него радиус (`C_INIT_RingWave.m_flInitialRadius = CP5.x *
-     0.7`). Всё, что положат в CP5 снаружи, затирается на следующем кадре —
-     поэтому `SetParticleControl(nFx, 5, ...)` здесь бесполезен (он и стоял в
-     Barghest_FxArc с самого начала, ничего не масштабируя), как и CP10, из
-     которого никто не читает угол.
-     Единственный рабочий способ — заранее собранная копия с домноженными
-     числами: BARGHEST_FX_GIANT + Barghest_FxName ниже. ]]
+--[[ ⚠️ РАЗМЕР КЛИНКОВЫХ ПАРТИКЛЕЙ ЗАДАЁТ LUA ЧЕРЕЗ CP5 (с 24.09.2026).
+     Кольцо каждого barghest_slash_* берёт радиус из CP5
+     (`C_INIT_RingWave.m_flInitialRadius = CP5.x * 0.7`). Раньше оператор
+     `C_OP_SetControlPointPositions` в самих партиклях КАЖДЫЙ КАДР писал в CP5
+     литерал [450, 0, 150] и затирал всё, что приходило из Lua, — поэтому
+     разрезы были одного размера при любых радиусах. Теперь у этого оператора
+     `m_nCP1 = 7` (CP7 и так обнуляется его же CP3), CP5 свободна, и её ставит
+     Barghest_FxSize по настоящему радиусу попадания. Угол дуги (CP10) партикли
+     по-прежнему НЕ читают: он зашит длительностью и частотой эмиттера.
+     Копии BARGHEST_FX_GIANT остались: в них увеличены спрайты и толщина, а
+     радиус приходит из Lua уже домноженным через Barghest_Radius. ]]
+
+--[[ Радиус кольца клинкового партикля = nRadius (см. комментарий выше).
+     CP5.z партикли тоже читают: это начальная скорость частиц кольца и их
+     подъём над землёй (в старом литерале было 150). z = 0 оставлен
+     намеренно: в игре (24.09.2026) кольцо так ложится ровно на зону
+     попадания, а с подъёмом верхняя половина визуально вылезала за неё. ]]
+local BARGHEST_FX_RING_MULT = 0.7
+function Barghest_FxSize(nFx, nRadius)
+    ParticleManager:SetParticleControl(nFx, 5, Vector(nRadius / BARGHEST_FX_RING_MULT, 0, 0))
+end
 
 --[[ Плоские вспышки (`barghest_small_explosion`, `barghest_slam`,
      `barghest_ground_slam`) не читают control point ВООБЩЕ: размер зашит
@@ -375,17 +575,111 @@ BARGHEST_FX_GIANT = {
      прежнего размера. ]]
 function Barghest_FxName(sName, hCaster)
     if Barghest_GiantMult(hCaster) > 1 then
-        return BARGHEST_FX_GIANT[sName] or sName
+        sName = BARGHEST_FX_GIANT[sName] or sName
+    end
+    return Barghest_SkinFx(sName, hCaster)
+end
+
+-- Подмена ТОЛЬКО по скину, без гигантской: для мест, где размер нарочно не
+-- раздувается (подготовка комбо, горение на жертве).
+function Barghest_SkinFx(sName, hCaster)
+    if Barghest_IsGutsSkin(hCaster) then
+        return BARGHEST_FX_GUTS[sName] or sName
     end
     return sName
 end
 
---[[ Размашистая дуга вокруг героя. Контрольные точки — как в arcueid_ready:
-     CP5 задаёт размер, CP10.z — на сколько градусов метёт. ]]
+--[[ Скин skin_1 «Guts» (models/zlodemon/guts): у него чёрный Драконобой,
+     поэтому ВСЕ разрезы — чёрные. Копии лежат в particles/barghest/guts/ под
+     теми же именами: цвета рендеров почти чёрные, m_flAddSelfAmount 0 и
+     m_flOverbrightFactor 1 (иначе тёмный цвет светится/выгорает). Таблица
+     покрывает и гигантские копии — подмена идёт ПОСЛЕ подмены на гиганта.
+     Номер скина живёт только на сервере (поле модификатора), а партиклы
+     Баргеста и создаются на сервере. ]]
+BARGHEST_FX_GUTS = {}
+for _, sBase in ipairs({ "barghest_slash_1", "barghest_slash_2", "barghest_slash_3", "barghest_slash_4",
+                         "barghest_slash_vertical", "barghest_slash_vertical_up", "barghest_slash_vertical_up_thin" }) do
+    for _, sSuffix in ipairs({ "", "_giant" }) do
+        BARGHEST_FX_GUTS["particles/barghest/" .. sBase .. sSuffix .. ".vpcf"] =
+            "particles/barghest/guts/" .. sBase .. sSuffix .. ".vpcf"
+    end
+end
+-- Зарядка E (чёрная, см. ниже) и горение (тёмно-красное, а не оранжевое).
+-- Горение перекрашено скриптом: в аддитивных слоях цвет = (0.62·v, 0.05·v,
+-- 0.04·v) от яркости оригинала, MOD2X-слой огня Doom — (150,40,30), почти
+-- чёрный дым не тронут. Дети ванильного Doom декомпилированы из pak01 и лежат
+-- копиями там же.
+BARGHEST_FX_GUTS[BARGHEST_FX.CHARGE] = "particles/barghest/guts/barghest_e_charge.vpcf"
+BARGHEST_FX_GUTS["particles/barghest/barghest_e_charge_giant.vpcf"] = "particles/barghest/guts/barghest_e_charge_giant.vpcf"
+BARGHEST_FX.BURN = "particles/muramasa/muramasa_rush_burn.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.BURN] = "particles/barghest/guts/barghest_burn.vpcf"
+-- Взрыв веток R (Q3R и др.) — тёмно-красный: огненные слои (0.62v,0.05v,0.04v),
+-- серые пыль/камни/трещины не тронуты.
+BARGHEST_FX_GUTS[BARGHEST_FX.BURST]    = "particles/barghest/guts/barghest_small_explosion.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.FIRE_HIT] = "particles/barghest/guts/barghest_slam.vpcf"
+BARGHEST_FX_GUTS["particles/barghest/barghest_small_explosion_giant.vpcf"] = "particles/barghest/guts/barghest_small_explosion_giant.vpcf"
+BARGHEST_FX_GUTS["particles/barghest/barghest_slam_giant.vpcf"]            = "particles/barghest/guts/barghest_slam_giant.vpcf"
+-- ЧЁРНЫЕ: цепи E, аура стаков R (frenzy) и зарядка E (раньше была красной —
+-- «красная не оч»). Аддитив чёрным не бывает: слои переведены в ALPHA, свет
+-- выкинут, у текстур со сплошной альфой прозрачность из R (MIX_RALPHA) + 2 прохода.
+BARGHEST_FX_GUTS[BARGHEST_FX.CHAINS] = "particles/barghest/guts/barghest_e_chains.vpcf"
+BARGHEST_FX.FRENZY = "particles/hijikata/barghest_passive.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.FRENZY] = "particles/barghest/guts/barghest_passive.vpcf"
+-- Бег (разбег E, рывок укуса, таран WR) — огненный след стал чёрным тем же
+-- fxconvert 'black'; копируются и дети (ea/ea0/ea1/eb/footprints).
+for _, sName in ipairs({ "barghest_rush_e", "barghest_rush_e_speed",
+                         "barghest_rush_e_giant", "barghest_rush_e_speed_giant" }) do
+    BARGHEST_FX_GUTS["particles/barghest/" .. sName .. ".vpcf"] = "particles/barghest/guts/" .. sName .. ".vpcf"
+end
+-- Стойка W: щит и барьер — чёрные (fxconvert 'black').
+BARGHEST_FX.BARRIER = "particles/barghest/barghest_barrier.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.STANCE]  = "particles/barghest/guts/barghest_w_shield.vpcf"
+BARGHEST_FX_GUTS[BARGHEST_FX.BARRIER] = "particles/barghest/guts/barghest_barrier.vpcf"
+-- Атрибут 1: вместо чёрного пса бежит призрак (models/custom_game/units/guts_ghost).
+-- Копия barghest_hound_wake: модель заменена, оверрайды материала волка сняты
+-- (у призрака свой), второй рендер-градиент выключен, модель поднята на 40.
+-- Последовательность 1 у обоих — бег (у призрака: attack, run, slow1, slow2).
+BARGHEST_FX_GUTS[BARGHEST_FX.HOUND] = "particles/barghest/guts/guts_ghost_wake.vpcf"
+
+--[[ Ветка ER у Guts — выстрел из пушки поверх той же волны: чёрные линии по
+     земле и шлейф пса остаются (PROJ — копия barghest_black_dog_proj с
+     выключенными рендерами модели пса), пулю рисует сам снаряд (снаряд и
+     вспышка — ульта Hijikata, оригиналы не тронуты), звуки пушки — свои
+     события на тех же файлах, чтобы не зависеть от того, кто ещё в матче.
+     Механика та же: тот же линейный снаряд, скорость, ширина, урон. ]]
+GUTS_CANNON = {
+    PROJ    = "particles/barghest/guts/guts_cannon_proj.vpcf",
+    BULLET  = "particles/hijikata/hijikata_bullet_combo.vpcf",
+    MUZZLE  = "particles/units/hijikata/ult/hijikata_ult_combo.vpcf",
+    SND     = "guts_sfx_cannon",
+    SND2    = "guts_sfx_cannon_shot",
+    SND_HIT = "guts_sfx_cannon_hit",
+}
+
+-- Работает и на клиенте: там skinNumber нет (таблица OnCreated не приходит),
+-- но hero_replacer дублирует номер скина в стаки модификатора.
+-- В клиентской VM у юнита нет FindModifierByName (см. barghest_r), зато есть
+-- GetModifierStackCount — через него и читаем. Модификатор скина вешается
+-- самим героем на себя, поэтому кастер = hCaster.
+function Barghest_IsGutsSkin(hCaster)
+    if not hCaster then return false end
+    if type(hCaster.FindModifierByName) == "function" then
+        local hSkin = hCaster:FindModifierByName("modifier_hero_selection_skin")
+        if hSkin == nil then return false end
+        return (hSkin.skinNumber or hSkin:GetStackCount()) == 1
+    end
+    if type(hCaster.GetModifierStackCount) == "function" then
+        return hCaster:GetModifierStackCount("modifier_hero_selection_skin", hCaster) == 1
+    end
+    return false
+end
+
+--[[ Размашистая дуга вокруг героя. CP5 задаёт радиус (Barghest_FxSize);
+     CP10.z (угол) партикль не читает — оставлен на случай, если научим. ]]
 function Barghest_FxArc(sName, hCaster, nRadius, nAngle)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, hCaster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(nFx, 5, Vector(nRadius + 150, 0, 70))
+    Barghest_FxSize(nFx, nRadius)
     ParticleManager:SetParticleControl(nFx, 10, Vector(0, 0, nAngle))
     ReleaseLater(nFx, 1.0)
     return nFx
@@ -398,6 +692,7 @@ function Barghest_FxCut(hCaster, nRadius, vPos)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUT, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ReleaseLater(nFx, 1.0)
     return nFx
 end
@@ -406,6 +701,7 @@ function Barghest_FxCutThin(hCaster, nRadius, vPos)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUTThin, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ReleaseLater(nFx, 1.0)
     return nFx
 end
@@ -414,6 +710,7 @@ function Barghest_FxCutUp(hCaster, nRadius, vPos)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(BARGHEST_FX.CUT2, hCaster), PATTACH_ABSORIGIN_FOLLOW, hCaster)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ReleaseLater(nFx, 1.0)
     return nFx
 end
@@ -423,6 +720,7 @@ function Barghest_FxRing(sName, vPos, nRadius, hCaster)
     local nFx = ParticleManager:CreateParticle(Barghest_FxName(sName, hCaster), PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(nFx, 0, vPos)
     ParticleManager:SetParticleControl(nFx, 1, Vector(nRadius, nRadius, nRadius))
+    Barghest_FxSize(nFx, nRadius)
     ParticleManager:ReleaseParticleIndex(nFx)
     return nFx
 end
@@ -470,10 +768,10 @@ end
      где пёс должен исчезнуть.
      ⚠️ Партикль сам не умирает — снимаем руками чуть раньше прибытия, иначе он
      зависнет в конце пробега (ровно эта грабля была у волны ER). ]]
-function Barghest_FxHound(vFrom, vDir, nDistance, nSpeed)
+function Barghest_FxHound(vFrom, vDir, nDistance, nSpeed, hCaster)
     if not IsServer() then return end
     local vOrigin = vFrom
-    local nFx = ParticleManager:CreateParticle(BARGHEST_FX.HOUND, PATTACH_WORLDORIGIN, nil)
+    local nFx = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.HOUND, hCaster), PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(nFx, 0, vOrigin)
     ParticleManager:SetParticleControl(nFx, 1, vDir * nSpeed)
     ParticleManager:SetParticleControl(nFx, 6, vOrigin + vDir * nDistance)

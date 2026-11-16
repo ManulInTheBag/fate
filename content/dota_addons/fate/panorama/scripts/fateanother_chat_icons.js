@@ -28,6 +28,10 @@ function GetHudRoot() {
 	return p;
 }
 
+function EscapeRegExp(text) {
+	return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function FindLineOwner(lineText) {
 	var playerIds = Game.GetAllPlayerIDs();
 	// Самое раннее вхождение «ник:» — иначе сообщение, содержащее чужой
@@ -37,7 +41,10 @@ function FindLineOwner(lineText) {
 	for (var i = 0; i < playerIds.length; i++) {
 		var name = Players.GetPlayerName(playerIds[i]);
 		if (!name) continue;
-		var idx = lineText.indexOf(name + ':');
+		// Между ником и двоеточием дота вставляет тег гильдии: «Ник [TAG]: текст».
+		var re = new RegExp(EscapeRegExp(name) + '(?:\\s*\\[[^\\]]*\\])?\\s*:');
+		var m = re.exec(lineText);
+		var idx = m ? m.index : -1;
 		if (idx !== -1 && (bestIdx === -1 || idx < bestIdx)) {
 			best = playerIds[i];
 			bestIdx = idx;

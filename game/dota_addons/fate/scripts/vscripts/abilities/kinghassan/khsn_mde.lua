@@ -176,7 +176,7 @@ function modifier_khsn_mde_active:IsHidden() return false end
 function modifier_khsn_mde_active:IsDebuff() return false end
 function modifier_khsn_mde_active:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING,
 		--MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		--MODIFIER_PROPERTY_OVERRIDE_ANIMATION
@@ -191,8 +191,8 @@ function modifier_khsn_mde_active:GetModifierPhysicalArmorBonus()
 	return  self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
-function modifier_khsn_mde_active:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetAbility():GetSpecialValueFor("ms_bonus")
+function modifier_khsn_mde_active:GetModifierSlowResistance_Stacking()
+	return self:GetAbility():GetSpecialValueFor("slow_resistance")
 end
 
 --[[function modifier_khsn_mde_active:GetAbsoluteNoDamagePhysical()

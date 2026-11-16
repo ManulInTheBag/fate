@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_spin_2 = class({})
 
  
@@ -140,7 +141,7 @@ function karna_spin_2:OnSpellStart()
 		if not caster:IsAlive() then return end
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			caster:EmitSound("karna_new_fire_2")
-			caster:EmitSound("aemis_human_q")
+			SkinSoundPair(caster, caster, "aemis_human_q", "karna_new_karna_hit_2")
 		else
 			caster:EmitSound("karna_new_fire_2")
 			caster:EmitSound("karna_new_karna_hit_2")

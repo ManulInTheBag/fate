@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_big_swords = emiya_big_swords or class({})
 
 function emiya_big_swords:CastFilterResultTarget(hTarget)
@@ -29,7 +30,7 @@ function emiya_big_swords:OnSpellStart()
 	local tProjectile3 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_3.vpcf", rw * -50,self.fw,range,speed,3)
 	local tProjectile4 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_4.vpcf", rw * -150,self.fw,range,speed,4)
 	if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_ubw_w")
+        SkinSoundPair(caster, caster, "emiya_skin_ubw_w", nil)
     end
 
 	caster:EmitSound("emiya_big_swords_spawn")

@@ -64,12 +64,23 @@ function modifier_derange_discharge:OnCreated()
 	self.mana = self:GetParent():GetMaxMana()
 	self.mana_discharge = 0
 	if IsServer() then
+		self.next_burst = GameRules:GetGameTime() + self.ability:GetSpecialValueFor("auto_burst_interval")
 		self:StartIntervalThink(0.25)
 	end
 end
 
 
 function modifier_derange_discharge:OnIntervalThink()
+
+	-- Discharge silences her, so Mana Burst fires on its own: no mana cost, no cooldown
+	if GameRules:GetGameTime() >= self.next_burst then
+		self.next_burst = self.next_burst + self.ability:GetSpecialValueFor("auto_burst_interval")
+		local burst = self.parent:FindAbilityByName("saber_alter_mana_burst")
+		if burst and burst:GetLevel() > 0 and self.parent:IsAlive() then
+			burst:OnAbilityPhaseStart()
+			burst:OnSpellStart()
+		end
+	end
 
 	if self.parent:GetMana() < self:GetAbility().mana_drain then
 		self.mana_discharge = self.mana_discharge + self.parent:GetMana()

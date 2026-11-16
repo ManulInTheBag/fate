@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 lu_bu_god_force = class({})
 
 LinkLuaModifier("modifier_lu_bu_god_force", "abilities/lu_bu/modifiers/modifier_lu_bu_god_force", LUA_MODIFIER_MOTION_NONE)
@@ -21,6 +22,8 @@ function lu_bu_god_force:OnAbilityPhaseStart()
 	end
 	if not jiaQiuSkin then
 		caster:EmitSound("lu_bu_relentless_assault_three")
+	else
+		SkinSoundPair(caster, caster, nil, "lu_bu_relentless_assault_three")
 	end
 
 	return true
@@ -47,7 +50,7 @@ function lu_bu_god_force:OnSpellStart()
 		end
 	end
 	if jiaQiuSkin then
-		caster:EmitSound("jia_qiu_god_force_voice")
+		SkinSoundPair(caster, caster, "jia_qiu_god_force_voice", nil)
 	end
 
 	self:StartGodForce()
@@ -59,6 +62,8 @@ function lu_bu_god_force:OnSpellStart()
 			self:PlayEffects2( caught, origin:Normalized() )
 			if not jiaQiuSkin then
 				caster:EmitSound("lu_bu_god_force_small_hit")
+			else
+				SkinSoundPair(caster, caster, nil, "lu_bu_god_force_small_hit")
 			end
 		end
 	end)
@@ -72,6 +77,8 @@ function lu_bu_god_force:OnSpellStart()
 			self:PlayEffects3( caught, origin:Normalized() )
 			if not jiaQiuSkin then
 				caster:EmitSound("lu_bu_god_force_small_hit")
+			else
+				SkinSoundPair(caster, caster, nil, "lu_bu_god_force_small_hit")
 			end
 		end
 	end)
@@ -85,6 +92,8 @@ function lu_bu_god_force:OnSpellStart()
 			self:PlayEffects2( caught, origin:Normalized() )
 			if not jiaQiuSkin then
 				caster:EmitSound("lu_bu_god_force_small_hit")
+			else
+				SkinSoundPair(caster, caster, nil, "lu_bu_god_force_small_hit")
 			end
 		end
 	end)
@@ -99,6 +108,8 @@ function lu_bu_god_force:OnSpellStart()
 			self:PlayEffects3( caught, origin:Normalized() )
 			if not jiaQiuSkin then
 				caster:EmitSound("lu_bu_god_force_small_hit")
+			else
+				SkinSoundPair(caster, caster, nil, "lu_bu_god_force_small_hit")
 			end
 		end
 	end)
@@ -112,6 +123,8 @@ function lu_bu_god_force:OnSpellStart()
 			self:PlayEffects2( caught, origin:Normalized() )
 			if not jiaQiuSkin then
 				caster:EmitSound("lu_bu_god_force_small_hit")
+			else
+				SkinSoundPair(caster, caster, nil, "lu_bu_god_force_small_hit")
 			end
 		end
 	end)
@@ -148,7 +161,7 @@ function lu_bu_god_force:OnSpellStart()
 			end)
 			
 			if blastFxName == "particles/custom/jia_qiu/jia_qiu_armistice_impact.vpcf" then
-				caster:EmitSound("jia_qiu_armistice")
+				SkinSoundPair(caster, caster, "jia_qiu_armistice", "lu_bu_armistice_impact")
 			else
 				caster:EmitSound("lu_bu_armistice_impact")
 			end
@@ -209,7 +222,7 @@ function lu_bu_god_force:PlayEffects2( caught, direction, lastHit )
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
 			particle_cast = "particles/custom/jia_qiu/assault_two_ult.vpcf"
 			if lastHit then
-				caster:EmitSound("jia_qiu_assault_sfx")
+				SkinSoundPair(caster, caster, "jia_qiu_assault_sfx", nil)
 			else
 				sound_cast = "jia_qiu_strike"
 			end
@@ -230,7 +243,7 @@ function lu_bu_god_force:PlayEffects2( caught, direction, lastHit )
 	end)
 
 	-- Create Sound
-	EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), sound_cast, self:GetCaster() )
+	SkinSoundPairAt( self:GetCaster():GetOrigin(), self:GetCaster(), sound_cast, "Hero_Mars.Shield.Cast" )
 end
 
 function lu_bu_god_force:PlayEffects3( caught, direction )
@@ -259,7 +272,7 @@ function lu_bu_god_force:PlayEffects3( caught, direction )
 	end)
 
 	-- Create Sound
-	EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), sound_cast, self:GetCaster() )
+	SkinSoundPairAt( self:GetCaster():GetOrigin(), self:GetCaster(), sound_cast, "Hero_Mars.Shield.Cast" )
 end
 
 function lu_bu_god_force:OnUpgrade()

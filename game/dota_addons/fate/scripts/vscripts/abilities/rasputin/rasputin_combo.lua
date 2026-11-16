@@ -8,7 +8,6 @@ LinkLuaModifier("modifier_rasputin_combo_field", "abilities/rasputin/rasputin_co
 LinkLuaModifier("modifier_rasputin_combo_haul", "abilities/rasputin/rasputin_combo", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_rasputin_combo_cd", "abilities/rasputin/rasputin_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_curse", "abilities/rasputin/modifier_rasputin_curse", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_rasputin_curse_revoke", "abilities/rasputin/modifier_rasputin_curse", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rasputin_reborn", "abilities/rasputin/rasputin_bk", LUA_MODIFIER_MOTION_NONE)
 
 
@@ -27,6 +26,9 @@ end
 local HAUL_CLAIM_GRACE = 0.6
 
 local FALL_TRAIL_LINGER = 0.1
+
+-- Выкрик имени NP идёт после стартовой реплики (она ~2.1 с), чтобы не наложиться.
+local COMBO_VO_SHOUT_DELAY = 2.4
 
 
 modifier_rasputin_combo_cd = class({})
@@ -119,6 +121,22 @@ function rasputin_combo:OnSpellStart()
     self.grail = grail
 
     caster:EmitSound("rasputin_finisher_end")
+
+
+    -- Голос комбо слышат все, как у комбо остальных Слуг. Реплику серии F
+    -- обрываем, иначе при старте комбо вторым нажатием F они наложатся.
+    caster:StopSound("rasputin_vo_finisher")
+    EmitGlobalSound("rasputin_vo_combo_start")
+
+    Timers:CreateTimer(COMBO_VO_SHOUT_DELAY, function()
+
+        if not IsNotNull(caster) or not caster:IsAlive() then return end
+
+        if not caster:HasModifier("modifier_rasputin_combo_field") then return end
+
+        EmitGlobalSound("rasputin_vo_combo_shout")
+
+    end)
 
 
     if caster.IsRasputinBkCursesAcquired then
@@ -237,10 +255,13 @@ function modifier_rasputin_combo_field:OnCreated(kv)
 
     self.ambientToken = parent.rasputinComboAmbient
 
+    -- Эффекты поля - без владельца (WORLDORIGIN, nil): эффект с владельцем-героем
+    -- клиент не получает, пока сам герой ему не виден, и ShouldCheckFoW(false)
+    -- тут не спасает - враг из тумана не видел комбо.
     self.fx = ParticleManager:CreateParticle(
         "particles/kirei/kirei_dragon/kirei_dragon_ring_base.vpcf",
-        PATTACH_CUSTOMORIGIN,
-        self:GetParent()
+        PATTACH_WORLDORIGIN,
+        nil
     )
 
 
@@ -262,8 +283,8 @@ function modifier_rasputin_combo_field:OnCreated(kv)
 
     self.groundFx = ParticleManager:CreateParticle(
         "particles/rasputin/rasputin_combo_territory.vpcf",
-        PATTACH_CUSTOMORIGIN,
-        self:GetParent()
+        PATTACH_WORLDORIGIN,
+        nil
     )
 
     ParticleManager:SetParticleShouldCheckFoW(self.groundFx, false)
@@ -315,8 +336,8 @@ function modifier_rasputin_combo_field:PlayWave()
 
     local fx = ParticleManager:CreateParticle(
         "particles/rasputin/rasputin_combo_test.vpcf",
-        PATTACH_CUSTOMORIGIN,
-        parent
+        PATTACH_WORLDORIGIN,
+        nil
     )
 
 
@@ -349,7 +370,7 @@ function modifier_rasputin_combo_field:OnIntervalThink()
         nil,
         ability:GetLevelSpecialValueFor("aura_radius", 0),
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -536,12 +557,24 @@ function modifier_rasputin_combo_haul:OnCreated(kv)
 
     self.hangCurseRate = 0
 
+    -- вис добивает проклятье не до 3-го уровня, а до порога, с которого зона
+    -- дотянет до него ровно за curse_release_window: у выпавшего из сферы
+    -- есть это окно на блинк, пока не сработал димлок
+    local perLevel = self:Value("curse_stacks_per_level")
+    local gainTime = self:Value("curse_gain_time")
+    local fieldRate = gainTime > 0 and (perLevel / gainTime) or 0
+
+    -- +0.001: чтобы сумма тиков зоны с плавающей точкой не недобрала 30
+    -- и уровень 3 не съехал на лишний тик
+    self.hangCurseTarget = math.max(0,
+        self:Value("curse_max_level") * perLevel
+        - fieldRate * self:Value("curse_release_window")
+        + 0.001
+    )
+
     if self.hang > 0 then
 
-        self.hangCurseRate =
-        self:Value("curse_max_level")
-        * self:Value("curse_stacks_per_level")
-        / self.hang
+        self.hangCurseRate = self.hangCurseTarget / self.hang
 
     end
 
@@ -716,6 +749,9 @@ function modifier_rasputin_combo_haul:OnIntervalThink()
 
     if not IsNotNull(self.parent) or not self.parent:IsAlive() then return end
 
+    -- унесло в другое измерение - урон и проклятье в висе больше не идут
+    if self.done or self:LeftRealm(self.parent) then return end
+
     local elapsed = self:Elapsed()
 
 
@@ -724,10 +760,22 @@ function modifier_rasputin_combo_haul:OnIntervalThink()
         return
     end
 
+    local curse = self.parent:FindModifierByName("modifier_rasputin_curse")
+    local have = curse and curse.raw or 0
+
     if elapsed < self.rise
     or elapsed > self.rise + self.hang
     then
-        RasputinCurse(caster, ability, self.parent, 0)
+        local topUp = 0
+
+        -- первый тик после виса: доливаем до порога, если в окно виса
+        -- попало на тик меньше
+        if elapsed > self.rise + self.hang and not self.hangToppedUp then
+            self.hangToppedUp = true
+            topUp = math.max(0, self.hangCurseTarget - have)
+        end
+
+        RasputinCurse(caster, ability, self.parent, topUp)
         return
     end
 
@@ -735,7 +783,10 @@ function modifier_rasputin_combo_haul:OnIntervalThink()
         caster,
         ability,
         self.parent,
-        self.hangCurseRate * self.damageTick
+        math.min(
+            self.hangCurseRate * self.damageTick,
+            math.max(0, self.hangCurseTarget - have)
+        )
     )
 
     RasputinHitFx(self.parent, nil, caster)
@@ -788,7 +839,28 @@ function modifier_rasputin_combo_haul:Sample()
 end
 
 
+-- Цель перенесло в другое измерение (кончился или начался UBW, AotK и т.п.):
+-- подъём её больше не трогает. Позиции считаются от абсолютных координат
+-- Грааля, и без этой проверки конец UBW возвращал цель обратно в арену, а
+-- после последнего прохода EndUBW она там и оставалась.
+function modifier_rasputin_combo_haul:LeftRealm(unit)
+
+    if self.realmLost then return true end
+
+    if IsInSameRealm(unit:GetAbsOrigin(), self.dest) then return false end
+
+    self.realmLost = true
+
+    self:Finish()
+
+    return true
+
+end
+
+
 function modifier_rasputin_combo_haul:UpdateHorizontalMotion(unit, dt)
+
+    if self.done or self:LeftRealm(unit) then return end
 
     local _, drawn, dropping = self:Sample()
 
@@ -850,6 +922,8 @@ end
 
 
 function modifier_rasputin_combo_haul:UpdateVerticalMotion(unit, dt)
+
+    if self.done or self:LeftRealm(unit) then return end
 
     local height = self:Sample()
 

@@ -84,7 +84,11 @@ function modifier_rasputin_territory:ScheduleCleanses()
 
     local generation = self.generation
 
+    self.wavesLeft = 0
+
     if not self.waves or self.waves < 1 then return end
+
+    self.wavesLeft = self.waves
 
 
     local ability = self:GetAbility()
@@ -112,11 +116,38 @@ function modifier_rasputin_territory:ScheduleCleanses()
 
             if self.generation ~= generation then return end
 
+            self.wavesLeft = math.max((self.wavesLeft or 0) - 1, 0)
+
             self:Cleanse()
 
         end)
 
     end
+
+end
+
+
+-- Территория снимается досрочно (поверх легла новая): волны очистки, до
+-- которых она не дожила, схлопываются в одну и срабатывают сейчас
+function modifier_rasputin_territory:FinishEarly()
+
+    if not IsServer() then return end
+
+    -- ⚠️ Партикль кольца живёт не эндкапом, а собственным временем жизни:
+    -- в CP1.y ему кладётся duration территории, и уже вылетевшие частицы
+    -- дотягивают его до конца, даже если систему остановить. Поэтому при
+    -- досрочной замене его надо гасить мгновенно, иначе старое кольцо висит
+    -- поверх нового ещё столько, сколько оставалось от прошлой территории.
+    self.replacedEarly = true
+
+    -- отменяет уже поставленные таймеры волн
+    self.generation = (self.generation or 0) + 1
+
+    if (self.wavesLeft or 0) < 1 then return end
+
+    self.wavesLeft = 0
+
+    self:Cleanse()
 
 end
 
@@ -134,7 +165,7 @@ function modifier_rasputin_territory:FindAllies()
         nil,
         self.radius,
         DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -221,9 +252,14 @@ function modifier_rasputin_territory:OnDestroy()
     if not IsServer() then return end
 
     if self.fx then
-        ParticleManager:DestroyParticle(self.fx, false)
+
+        -- дожила до своего конца - гасим мягко, кольцо догорает само;
+        -- заменили досрочно - срезаем сразу, иначе останется висеть
+        ParticleManager:DestroyParticle(self.fx, self.replacedEarly == true)
         ParticleManager:ReleaseParticleIndex(self.fx)
+
         self.fx = nil
+
     end
 
 end

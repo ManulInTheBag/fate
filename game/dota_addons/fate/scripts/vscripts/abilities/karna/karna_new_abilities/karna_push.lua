@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 
 karna_push = class({})
 
@@ -61,7 +62,7 @@ function karna_push:OnSpellStart()
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			local soundQueue = math.random (1,2)
 			caster:EmitSound("karna_new_fire_2")
-			caster:EmitSound("aemis_mecha_q" .. soundQueue)
+			SkinSoundPair(caster, caster, "aemis_mecha_q" .. soundQueue, "karna_new_karna_hit_2")
 		else
 			caster:EmitSound("karna_new_fire_2")
 			caster:EmitSound("karna_new_karna_hit_2")

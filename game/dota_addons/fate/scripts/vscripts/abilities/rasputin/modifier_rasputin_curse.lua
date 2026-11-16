@@ -26,15 +26,9 @@ local CURSE_ANTIHEAL_REFRESH = 1.0
 local CURSE_ANTIHEAL_EVERY = 0.5
 
 
-modifier_rasputin_curse_revoke = class({})
-
-function modifier_rasputin_curse_revoke:IsHidden() return true end
-function modifier_rasputin_curse_revoke:IsPurgable() return false end
-function modifier_rasputin_curse_revoke:IsDebuff() return true end
-function modifier_rasputin_curse_revoke:RemoveOnDeath() return false end
-function modifier_rasputin_curse_revoke:GetAttributes()
-    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
+-- 3-й уровень: димлок стандартным "locked" (см. util.lua locks/IsLocked),
+-- подливается каждый тик, как в клетке Озимандиаса
+local CURSE_LOCK_REFRESH = 0.15
 
 
 function modifier_rasputin_curse:IsHidden() return false end
@@ -191,28 +185,24 @@ function modifier_rasputin_curse:ShowLevels()
     end
 
 
-    if IsNotNull(parent) then
+    self:HoldLock()
 
-        if level >= self:Value("curse_max_level") then
+end
 
-            if not parent:HasModifier("modifier_rasputin_curse_revoke") then
 
-                parent:AddNewModifier(
-                    self:GetCaster(),
-                    self:GetAbility(),
-                    "modifier_rasputin_curse_revoke",
-                    {}
-                )
+-- Уровень 3: пока держится, цель под dimensional lock
+function modifier_rasputin_curse:HoldLock()
 
-            end
+    if not IsServer() then return end
 
-        else
+    if self:Level() < self:Value("curse_max_level") then return end
 
-            parent:RemoveModifierByName("modifier_rasputin_curse_revoke")
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
 
-        end
+    if not IsNotNull(parent) or not IsNotNull(caster) then return end
 
-    end
+    giveUnitDataDrivenModifier(caster, parent, "locked", CURSE_LOCK_REFRESH)
 
 end
 
@@ -312,6 +302,8 @@ function modifier_rasputin_curse:OnIntervalThink()
 
     self:HoldManaRegen()
 
+    self:HoldLock()
+
 
     if self.fedAt
     and GameRules:GetGameTime() - self.fedAt < CURSE_DECAY_GRACE
@@ -345,6 +337,9 @@ function modifier_rasputin_curse:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
         MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+        MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+        MODIFIER_EVENT_ON_ABILITY_START,
     }
 
 end
@@ -396,6 +391,52 @@ function modifier_rasputin_curse:GetModifierTotalPercentageManaRegen()
 end
 
 
+-- каждый стак режет скорость
+function modifier_rasputin_curse:GetModifierMoveSpeedBonus_Percentage()
+    return -self:GetStackCount() * self:Value("curse_slow_per_stack")
+end
+
+
+-- уровень 2: меньше исходящего урона
+function modifier_rasputin_curse:GetModifierDamageOutgoing_Percentage()
+
+    if self:Level() < 2 then return 0 end
+
+    return -self:Value("curse_damage_reduction_pct")
+
+end
+
+
+-- уровень 3: любой каст (кроме предметов) приземляет цель рутом на миг -
+-- рывки, не уважающие димлок, обрываются, как в клетке Озимандиаса
+function modifier_rasputin_curse:OnAbilityStart(keys)
+
+    if not IsServer() then return end
+
+    local parent = self:GetParent()
+
+    if keys.unit ~= parent then return end
+
+    if not IsNotNull(keys.ability) or keys.ability:IsItem() then return end
+
+    if self:Level() < self:Value("curse_max_level") then return end
+
+    local rootFor = self:Value("curse_root_duration")
+
+    if rootFor <= 0 then return end
+
+    parent:AddNewModifier(
+        self:GetCaster(),
+        self:GetAbility(),
+        "modifier_rooted",
+        {
+            duration = rootFor
+        }
+    )
+
+end
+
+
 function modifier_rasputin_curse:OnDestroy()
 
     if not IsServer() then return end
@@ -406,8 +447,7 @@ function modifier_rasputin_curse:OnDestroy()
 
     if not IsNotNull(parent) then return end
 
-    parent:RemoveModifierByName("modifier_rasputin_curse_revoke")
-
+    -- "locked" не снимаем: он общий, истечёт сам через 0.15 с
 
     local caster = self:GetCaster()
 

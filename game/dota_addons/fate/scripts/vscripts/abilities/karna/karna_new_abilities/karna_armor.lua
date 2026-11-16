@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_armor = class({})
 
 LinkLuaModifier("modifier_karna_armor", "abilities/karna/karna_new_abilities/karna_armor", LUA_MODIFIER_MOTION_NONE)
@@ -51,7 +52,7 @@ function karna_armor:OnSpellStart()
 	if modifier.ArmorActive == true then
 		if caster:HasModifier ("modifier_hero_selection_skin") then
 			local soundQueue = math.random (1,2)
-			caster:EmitSound("aemis_human_f" .. soundQueue)
+			SkinSoundPair(caster, caster, "aemis_human_f" .. soundQueue, "karna_new_karna_remove_armor_voice")
 			caster:EmitSound("karna_new_fire_explosion")
 			
 		else
@@ -131,7 +132,7 @@ function karna_armor:OnSpellStart()
 	if modifier.ArmorActive == false then
 		if caster:HasModifier ("modifier_hero_selection_skin") then 
 			local soundQueue = math.random (1,2)
-			caster:EmitSound("aemis_mecha_f" .. soundQueue)
+			SkinSoundPair(caster, caster, "aemis_mecha_f" .. soundQueue, "karna_new_karna_return_armor_voice")
 			
 		else
 			caster:EmitSound("karna_new_karna_return_armor_voice")

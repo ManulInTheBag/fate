@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 heracles_courage = class({})
 
 LinkLuaModifier("modifier_courage_self_buff", "abilities/heracles/modifiers/modifier_courage_self_buff", LUA_MODIFIER_MOTION_NONE)
@@ -59,10 +60,14 @@ function heracles_courage:OnSpellStart()
 	
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			caster:EmitSound("barbatos_attack1")
+			SkinSoundPair(caster, caster, "barbatos_attack1", "Hero_Axe.Berserkers_Call")
+			SkinSoundPair(caster, caster, nil, "Heracles_Roar_" .. math.random(1,6))
 		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-			caster:EmitSound("matthias_w")
+			SkinSoundPair(caster, caster, "matthias_w", "Hero_Axe.Berserkers_Call")
+			SkinSoundPair(caster, caster, nil, "Heracles_Roar_" .. math.random(1,6))
 		else
+			-- этот скин без звука Axe; кто выключил звуки скинов, слышит его как у Геракла
+			SkinSoundPair(caster, caster, nil, "Hero_Axe.Berserkers_Call")
 			caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
 		end
 	else
@@ -82,7 +87,7 @@ function heracles_courage:OnSpellStart()
     end 
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "matthias_w_sfx", caster)
+			SkinSoundPairAt(caster:GetAbsOrigin(), caster, "matthias_w_sfx", "heracles_w_slam_sfx")
 		else
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_w_slam_sfx", caster)
 		end

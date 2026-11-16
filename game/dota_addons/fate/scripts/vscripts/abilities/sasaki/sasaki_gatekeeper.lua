@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 sasaki_gatekeeper = class({})
 
 LinkLuaModifier("modifier_gatekeeper", "abilities/sasaki/modifiers/modifier_gatekeeper", LUA_MODIFIER_MOTION_NONE)
@@ -10,7 +11,7 @@ function sasaki_gatekeeper:OnSpellStart()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-		caster:EmitSound("kim_sfx_gatekeeper")
+		SkinSoundPair(caster, caster, "kim_sfx_gatekeeper", "Hero_TemplarAssassin.Refraction")
 	else
 		caster:EmitSound("Hero_TemplarAssassin.Refraction")
 	end

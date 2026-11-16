@@ -1,0 +1,612 @@
+.EffectBarsRoot
+{
+	width: 100%;
+	height: 100%;
+	overflow: noclip;
+}
+
+
+/* Панель юнита: фиксированной ширины, ряд внутри центрируется - так скрипту
+   не нужно знать, сколько в ряду значков. Размеры дублируются в effect_bars.js
+   (UNIT_WIDTH, UNIT_HEIGHT, CHIP_SIZE). */
+.EffectUnit
+{
+	position: 0px 0px 0px;
+	width: 300px;
+	height: 44px;
+	overflow: noclip;
+}
+
+.EffectUnit.Hidden,
+.EffectBurst.Hidden
+{
+	visibility: collapse;
+}
+
+/* Значки выключены в настройках (icons в профиле, вкладка Effects). */
+.IconsOff .EffectUnit,
+.IconsOff .EffectBurst
+{
+	visibility: collapse;
+}
+
+/* Значок выживания выключен отдельным тумблером (survival в профиле). */
+.SurvivalOff .SurvivalIcon
+{
+	visibility: collapse;
+}
+
+.EffectRow
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+	flow-children: right;
+	overflow: noclip;
+}
+
+
+/* Значок эффекта: медальон, кольцо оставшегося времени по краю и число
+   стаков ровно по центру. */
+.EffectChip
+{
+	width: 40px;
+	height: 40px;
+	margin-left: 2px;
+	margin-right: 2px;
+	overflow: noclip;
+}
+
+/* Значок ушёл или поверх него идёт взрыв: место в ряду держится пустым,
+   чтобы соседи не съезжали, пока взрыв не доиграет. */
+.EffectChip.Gone .EffectMedalWrap,
+.EffectChip.Gone .EffectRingTrack,
+.EffectChip.Gone .EffectRing,
+.EffectChip.Gone .EffectCount
+{
+	visibility: collapse;
+}
+
+.EffectMedal
+{
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.Shuwen .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/shuwen_png.vtex"); }
+
+/* Инь-ян Ли всё время медленно крутится, как у старого счётчика
+   (li_shuwen_stacksb). Скорость = один оборот за animation-duration. */
+.Shuwen .EffectMedal
+{
+	animation-name: EffectSpin;
+	animation-duration: 10s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes 'EffectSpin'
+{
+	0% { transform: rotateZ( 0deg ); }
+	25% { transform: rotateZ( 90deg ); }
+	50% { transform: rotateZ( 180deg ); }
+	75% { transform: rotateZ( 270deg ); }
+	100% { transform: rotateZ( 360deg ); }
+}
+.Saito .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/saito_png.vtex"); }
+.Muramasa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/muramasa_png.vtex"); }
+.Robin .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/robin_png.vtex"); }
+.Scathach .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/scathach_png.vtex"); }
+.AtalantaAlter .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/atalanta_alter_png.vtex"); }
+.Atalanta .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/atalanta_png.vtex"); }
+.Vlad .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/vlad_png.vtex"); }
+.Medusa .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/medusa_png.vtex"); }
+.Hassan .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/hassan_png.vtex"); }
+.KingHassan .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/king_hassan_png.vtex"); }
+.Billy .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/billy_png.vtex"); }
+.BillyHeadshot .EffectMedal { background-image: url("s2r://panorama/images/custom_game/effect_bars/billy_headshot_png.vtex"); }
+
+
+/* Кольцо времени: тёмная подложка во весь круг и цветная дуга поверх неё.
+   Дугу обрезает clip: radial(...) из скрипта - как кулдаун у иконок. */
+.EffectRingTrack,
+.EffectRing
+{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 3px solid #000000a0;
+}
+
+.EffectRing
+{
+	border: 3px solid #ffffffff;
+}
+
+.EffectChip.Permanent .EffectRingTrack,
+.EffectChip.Permanent .EffectRing
+{
+	visibility: collapse;
+}
+
+.Shuwen .EffectRing { border-color: #ffc400ff; }
+.Shuwen.Tier1 .EffectRing { border-color: #ff8a1cff; }
+.Shuwen.Tier2 .EffectRing { border-color: #ff4a1aff; }
+.Shuwen.Max .EffectRing { border-color: #f00000ff; }
+.Saito .EffectRing { border-color: #6fb4ffff; }
+.Muramasa .EffectRing { border-color: #ff9a2aff; }
+.Robin .EffectRing { border-color: #5ee04aff; }
+.Scathach .EffectRing { border-color: #ff2a46ff; }
+.AtalantaAlter .EffectRing { border-color: #a64dffff; }
+.Atalanta .EffectRing { border-color: #2ee6beff; }
+.Vlad .EffectRing { border-color: #d0101cff; }
+.Medusa .EffectRing { border-color: #ff5ab4ff; }
+.Hassan .EffectRing { border-color: #c4e632ff; }
+.KingHassan .EffectRing { border-color: #a58cffff; }
+/* Билли: кольцо = зарядка Highnoon, на 100 % золотое */
+.Billy .EffectRing { border-color: #ff3a26ff; }
+.Billy.Max .EffectRing { border-color: #ffe08aff; }
+/* Хедшот Билли: латунь, пока копится; на полных (следующий выстрел критует) - красный */
+.BillyHeadshot .EffectRing { border-color: #e0a040ff; }
+.BillyHeadshot.Max .EffectRing { border-color: #ff2a1aff; }
+/* Death Door: как череп над целью - зелёный «Азраэль добьёт», красный «казнь» */
+.KingHassan.Lethal .EffectRing { border-color: #3cf05aff; }
+.KingHassan.Execute .EffectRing { border-color: #f01e1eff; }
+
+/* последние секунды - дуга мигает */
+.EffectChip.Expiring .EffectRing
+{
+	animation-name: EffectExpiring;
+	animation-duration: 0.3s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'EffectExpiring'
+{
+	0% { opacity: 1.0; }
+	100% { opacity: 0.25; }
+}
+
+
+/* Label по размеру текста и сам выровнен по центру значка: так цифра стоит
+   ровно посередине и при одной, и при двух цифрах. */
+.EffectCount
+{
+	horizontal-align: center;
+	vertical-align: center;
+	text-align: center;
+	font-size: 18px;
+	font-weight: black;
+	color: #ffffffff;
+	text-shadow: 0px 0px 3px 3.0 #000000ff;
+}
+
+/* цвета цифр - как у партиклей-счётчиков, которые этот ряд заменил */
+.Shuwen .EffectCount { color: #ffff00ff; }
+.Shuwen.Tier1 .EffectCount { color: #ffb733ff; }
+.Shuwen.Tier2 .EffectCount { color: #ff7a3aff; }
+.Shuwen.Max .EffectCount { color: #ff4a3aff; }
+.Saito .EffectCount { color: #9ed6ffff; }
+.Muramasa .EffectCount { color: #fab300ff; }
+.Robin .EffectCount { color: #b8ff8cff; }
+.Scathach .EffectCount { color: #ff8a9aff; }
+.AtalantaAlter .EffectCount { color: #d7a6ffff; }
+.Atalanta .EffectCount { color: #a6fff0ff; }
+.Vlad .EffectCount { color: #ff6b6bff; }
+.Medusa .EffectCount { color: #ffb0dcff; }
+.Hassan .EffectCount { color: #e4ff8aff; }
+.KingHassan .EffectCount { color: #e2d9ffff; }
+.Billy .EffectCount { color: #ffd2c8ff; }
+.Billy.Max .EffectCount { color: #ffe08aff; }
+.BillyHeadshot .EffectCount { color: #ffe6c2ff; }
+.BillyHeadshot.Max .EffectCount { color: #ff5a40ff; }
+
+/* хедшот заряжен: пульс чаще и с красным отливом, чтобы читался в драке
+   (.EffectChip впереди - перебить общий .EffectChip.Max ниже по файлу) */
+.EffectChip.BillyHeadshot.Max .EffectMedalWrap
+{
+	animation-name: BillyHeadshotReady;
+	animation-duration: 0.35s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'BillyHeadshotReady'
+{
+	0% { brightness: 1.0; wash-color: #ff000000; }
+	100% { brightness: 1.9; wash-color: #ff200070; }
+}
+.KingHassan.Lethal .EffectCount { color: #8dff9cff; }
+.KingHassan.Execute .EffectCount { color: #ff7a6aff; }
+
+.KingHassan.Lethal .EffectMedalWrap,
+.KingHassan.Execute .EffectMedalWrap
+{
+	animation-name: EffectMaxPulse;
+	animation-duration: 0.45s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+/* эффект висит, но урон не идёт (яд Хассана без скрытого яда или с 0 стаков) */
+.EffectChip.Idle .EffectMedalWrap
+{
+	opacity: 0.4;
+	saturation: 0.15;
+}
+
+.EffectChip.Idle .EffectRing,
+.EffectChip.Idle .EffectCount
+{
+	opacity: 0.45;
+}
+
+/* три цифры (стаки без потолка) */
+.EffectCount.Wide { font-size: 14px; }
+
+/* «выпрыгивание» цифры на новом стаке: партикль тоже рождал цифру крупной */
+.EffectCount.Pop
+{
+	animation-name: EffectCountPop;
+	animation-duration: 0.25s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'EffectCountPop'
+{
+	0%
+	{
+		transform: scale3d( 1.6, 1.6, 1.0 );
+	}
+
+	100%
+	{
+		transform: scale3d( 1.0, 1.0, 1.0 );
+	}
+}
+
+
+/* потолок: медальон пульсирует (на обёртке - у Ли сам медальон крутится) */
+.EffectMedalWrap
+{
+	width: 100%;
+	height: 100%;
+}
+
+.EffectChip.Max .EffectMedalWrap
+{
+	animation-name: EffectMaxPulse;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'EffectMaxPulse'
+{
+	0% { brightness: 1.0; }
+	100% { brightness: 1.8; }
+}
+
+
+/* --- Взрыв стаков Ли на NSS (бывший партикль li_shuwen_stacks_jopa) ---
+   Медальон стартует втрое больше и за 1.8 с сжимается до своего размера,
+   крутится (25 град/с, стоп к 1.1 с) и краснеет до (240, 0, 0). На 1.8 с -
+   вспышка иероглифа: ×4 -> ×2 за 0.3 с, живёт 0.5 с.
+   Панель размером со значок, центр - где был значок Ли. Внешний слой
+   масштабирует, внутренний крутит и красит: два свойства с разными
+   таймингами в одной анимации не сойдутся.
+   Слои сразу в максимальном размере и только СЖИМАЮТСЯ: panorama рисует
+   картинку под размер панели, и scale > 1 растягивал бы 40px в пиксели. */
+.EffectBurst
+{
+	position: 0px 0px 0px;
+	width: 40px;
+	height: 40px;
+	overflow: noclip;
+}
+
+/* 120px = значок x3, по центру значка */
+.BurstScale
+{
+	position: -40px -40px 0px;
+	width: 120px;
+	height: 120px;
+	opacity: 0;
+	animation-name: BurstShrink;
+	animation-duration: 1.8s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'BurstShrink'
+{
+	/* смещение 0.8 у партикля: основное сжатие - в начале */
+	/* x3 -> x1.8 -> x1.25 -> x1 от значка, в долях 120px */
+	0% { transform: scale3d( 1.0, 1.0, 1.0 ); opacity: 1; }
+	30% { transform: scale3d( 0.6, 0.6, 1.0 ); opacity: 1; }
+	60% { transform: scale3d( 0.4167, 0.4167, 1.0 ); opacity: 1; }
+	99% { transform: scale3d( 0.3333, 0.3333, 1.0 ); opacity: 1; }
+	100% { transform: scale3d( 0.3333, 0.3333, 1.0 ); opacity: 0; }
+}
+
+.BurstSpin
+{
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("s2r://panorama/images/custom_game/effect_bars/shuwen_png.vtex");
+	animation-name: BurstSpin;
+	animation-duration: 1.8s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'BurstSpin'
+{
+	/* быстрый старт и торможение до полной остановки к 1.1 с (61%), как
+	   Spin в li_shuwen_stacks_jopa; цвет идёт весь срок */
+	0% { transform: rotateZ( 0deg ); wash-color: #f0000000; }
+	15% { transform: rotateZ( 95deg ); wash-color: #f0000026; }
+	30% { transform: rotateZ( 160deg ); wash-color: #f000004c; }
+	45% { transform: rotateZ( 195deg ); wash-color: #f0000073; }
+	61% { transform: rotateZ( 210deg ); wash-color: #f000009c; }
+	100% { transform: rotateZ( 210deg ); wash-color: #f00000ff; }
+}
+
+/* li_death.png - оригинал materials/lishuen/death.png 500x500: иероглиф там
+   не по центру, а в рамке x 148..385, y 12..252 (центр 53.2% / 26.4%).
+   Панель 336px - иероглиф в ней ~160px, это x4 от значка (начало вспышки);
+   сдвиг ставит его центр в центр значка (20, 20), и сжатие идёт вокруг него. */
+.BurstGlyph
+{
+	position: -159px -69px 0px;
+	width: 336px;
+	height: 336px;
+	transform-origin: 53.2% 26.4%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("s2r://panorama/images/custom_game/effect_bars/li_death_png.vtex");
+	opacity: 0;
+	animation-name: BurstGlyph;
+	animation-delay: 1.8s;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'BurstGlyph'
+{
+	/* x4 -> x2 от значка за 0.3 с */
+	0% { transform: scale3d( 1.0, 1.0, 1.0 ); opacity: 1; }
+	60% { transform: scale3d( 0.5, 0.5, 1.0 ); opacity: 1; }
+	99% { transform: scale3d( 0.5, 0.5, 1.0 ); opacity: 1; }
+	100% { transform: scale3d( 0.5, 0.5, 1.0 ); opacity: 0; }
+}
+
+
+/* --- Полоски над своим героем (OWN_BARS в effect_bars.js) ---
+   Геометрия и вид - как у полоски стаков Распутина (rasputin_hud.css). */
+.EffectOwnBar
+{
+	position: 0px 0px 0px;
+	width: 131px;
+	height: 15px;
+	border: 1px solid #cfd6dbdd;
+	background-color: #10131699;
+	overflow: noclip;
+}
+
+.EffectOwnBar.Hidden
+{
+	visibility: collapse;
+}
+
+.EffectOwnFill
+{
+	position: 0px 0px 0px;
+	width: 0%;
+	height: 100%;
+	transition: width 0.1s linear 0s;
+}
+
+.EffectOwnTicks
+{
+	position: 0px 0px 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.EffectOwnTick
+{
+	position: 0px 0px 0px;
+	width: 1px;
+	height: 100%;
+	background-color: #00000099;
+}
+
+/* порог внутри потолка (100% у Хиджикаты с атрибутом BC) */
+.EffectOwnTick.Mark
+{
+	width: 2px;
+	background-color: #ffffffee;
+}
+
+.EffectOwnLabel
+{
+	horizontal-align: center;
+	vertical-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ffffffff;
+	text-shadow: 0px 0px 2px 2.0 #000000ff;
+}
+
+.EffectOwnBar.Empty .EffectOwnLabel
+{
+	opacity: 0.6;
+}
+
+/* Хиджиката: голубой хаори Синсэнгуми */
+.Hijikata .EffectOwnFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #9fdcffff ), to( #2f86e0ff ) ); }
+
+/* Нобунага: пламя Короля демонов */
+.Nobunaga .EffectOwnFill { background-color: gradient( linear, 0% 0%, 0% 100%, from( #ffb347ff ), to( #d6300aff ) ); }
+
+/* потолок: рамка светится, заливка пульсирует - как MaxReady у Распутина */
+.EffectOwnBar.Max
+{
+	border: 1px solid #ffd8b0ff;
+	box-shadow: #ff9a3399 0px 0px 7px 0px;
+}
+
+.Hijikata.Max
+{
+	border: 1px solid #d6f0ffff;
+	box-shadow: #4fa8ff99 0px 0px 7px 0px;
+}
+
+.EffectOwnBar.Max .EffectOwnFill
+{
+	animation-name: EffectMaxPulse;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+
+/* --- Значок «переживёт смертельный удар» справа от хелсбара героя ---
+   Battle Continuation и похожие пассивки (libraries/survival_icons.lua).
+   Готов - золотой щит; перезарядка - серый, тёмный сектор и секунды;
+   сработал - красный, толстое светлое кольцо оставшегося времени на тёмной
+   дорожке и секунды; израсходован без
+   отсчёта (God Hand до нового раунда) - погашен целиком. Размер дублируется
+   в effect_bars.js (SURVIVAL_SIZE). */
+.SurvivalIcon
+{
+	position: 0px 0px 0px;
+	width: 34px;
+	height: 34px;
+	overflow: noclip;
+}
+
+.SurvivalIcon.Hidden
+{
+	visibility: collapse;
+}
+
+.SurvivalMedal
+{
+	width: 100%;
+	height: 100%;
+	background-image: url("s2r://panorama/images/custom_game/effect_bars/survival_png.vtex");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	transition-property: saturation, brightness, wash-color;
+	transition-duration: 0.2s;
+}
+
+.SurvivalIcon.Cooldown .SurvivalMedal,
+.SurvivalIcon.Spent .SurvivalMedal
+{
+	saturation: 0;
+	brightness: 0.6;
+}
+
+.SurvivalIcon.Active .SurvivalMedal
+{
+	wash-color: #ff2a1a70;
+	animation-name: SurvivalPulse;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes 'SurvivalPulse'
+{
+	0% { brightness: 0.9; }
+	100% { brightness: 1.4; }
+}
+
+/* снова готов - короткая вспышка */
+.SurvivalIcon.Refreshed .SurvivalMedal
+{
+	animation-name: SurvivalRefreshed;
+	animation-duration: 0.4s;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'SurvivalRefreshed'
+{
+	0% { brightness: 2.5; }
+	100% { brightness: 1.0; }
+}
+
+/* сектор перезарядки во весь тёмный диск, внутри золотого ободка */
+.SurvivalShade
+{
+	horizontal-align: center;
+	vertical-align: center;
+	width: 82%;
+	height: 82%;
+	border-radius: 50%;
+	background-color: #000000b0;
+	visibility: collapse;
+}
+
+.SurvivalIcon.Cooldown .SurvivalShade,
+.SurvivalIcon.Spent .SurvivalShade
+{
+	visibility: visible;
+}
+
+/* кольцо времени: тёмная дорожка во весь круг и поверх неё светлая дуга -
+   на красном медальоне и на любом фоне карты читается одинаково */
+.SurvivalRingTrack,
+.SurvivalRing
+{
+	horizontal-align: center;
+	vertical-align: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	visibility: collapse;
+}
+
+.SurvivalRingTrack
+{
+	border: 5px solid #000000c8;
+}
+
+.SurvivalRing
+{
+	border: 4px solid #fff4c2ff;
+	box-shadow: #ffd04a99 0px 0px 4px 0px;
+}
+
+.SurvivalIcon.Active .SurvivalRingTrack,
+.SurvivalIcon.Active .SurvivalRing
+{
+	visibility: visible;
+}
+
+.SurvivalCount
+{
+	horizontal-align: center;
+	vertical-align: center;
+	text-align: center;
+	font-size: 16px;
+	font-weight: black;
+	color: #ffffffff;
+	text-shadow: 0px 0px 3px 4.0 #000000ff;
+}
+
+.SurvivalCount.Wide { font-size: 13px; }

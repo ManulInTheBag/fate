@@ -1,5 +1,7 @@
 modifier_bleed = class({})
 
+require("libraries/effect_bars")
+
 function modifier_bleed:DeclareFunctions()
   local funcs = {
   MODIFIER_EVENT_ON_RESPAWN
@@ -7,51 +9,13 @@ function modifier_bleed:DeclareFunctions()
   return funcs
 end
 
+-- Счётчик стаков рисует ряд эффектов над хелсбаром (libraries/effect_bars.lua +
+-- panorama effect_bars.js); раньше это был попап vlad_cl_popup только для Влада
+-- с таймером перерисовки при выходе цели из тумана.
 if IsServer() then
   function modifier_bleed:OnCreated()
-    self.redraw = false
     self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("interval"))
-    local parent = self:GetParent()
-    local caster = self:GetCaster()
-
-    --  this stuff is to fix a counter to be redrawing without deleting previous(dirty copying) when enemy bleeding leaves and then enters the vision of vlad
-    Timers:CreateTimer(function()
-      if not self:IsNull() then
-        if not caster:CanEntityBeSeenByMyTeam(parent) then
-          self.redraw = true
-        elseif caster:CanEntityBeSeenByMyTeam(parent) and self.redraw then
-          self:OnStackCountChanged()
-          self.redraw = false
-        end
-        return 0.05
-      else
-        return nil
-      end
-    end)
-  end
-
-
-  function modifier_bleed:OnStackCountChanged(iStackCount)
-    local parent = self:GetParent()
-    local caster = self:GetCaster()
-    local counter = self:GetStackCount()
-    local digit = 0
-    if counter > 99 then
-      digit = 3
-    elseif counter > 9 then
-      digit = 2
-    else
-      digit = 1
-    end
-
-    self.PI0 = FxDestroyer(self.PI0, true)
-
-    self.PI0 = ParticleManager:CreateParticleForPlayer( "particles/custom/vlad/vlad_cl_popup.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent, caster:GetPlayerOwner() )
-    ParticleManager:SetParticleControlEnt( self.PI0, 0, parent,  PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), false )
-    ParticleManager:SetParticleControl( self.PI0, 1, Vector( 0, counter, 0 ) ) -- 0,counter,0
-    ParticleManager:SetParticleControl( self.PI0, 2, Vector( 30, digit, 0 ) ) --duration, count of digits to draw, 0
-    ParticleManager:SetParticleControl( self.PI0, 3, Vector( 252, 75, 75 ) ) --color
-    ParticleManager:SetParticleControl( self.PI0, 4, Vector( 23,0,0) ) --size/radius, 0 ,0
+    EffectBars:Track(self)
   end
 
   function modifier_bleed:OnIntervalThink()
@@ -62,7 +26,7 @@ if IsServer() then
 
   function modifier_bleed:OnDestroy()
     self:StartIntervalThink(-1)
-    self.PI0 = FxDestroyer(self.PI0, true)
+    EffectBars:Untrack(self)
   end
   function modifier_bleed:OnRespawn()
     self:Destroy()

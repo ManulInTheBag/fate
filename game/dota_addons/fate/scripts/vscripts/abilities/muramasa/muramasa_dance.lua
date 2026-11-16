@@ -2,6 +2,7 @@ muramasa_dance = class({})
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_dance_controller","abilities/muramasa/muramasa_dance", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_dance_debuff","abilities/muramasa/muramasa_dance_upgraded", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_muramasa_dance_attack_scale","abilities/muramasa/muramasa_dance", LUA_MODIFIER_MOTION_NONE)
 --[[
 function muramasa_dance:OnUpgrade()
    local caster = self:GetCaster() 
@@ -184,7 +185,7 @@ function muramasa_dance:MoveForward(point)
               FIND_ANY_ORDER,
               false)
   for _,enemy in pairs(enemies) do
-       caster:PerformAttack( enemy, true, true, true, true, false, false, false )
+       self:DanceStrike(enemy)
        DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
        enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.1})
        if caster:HasModifier("modifier_muramasa_forge") then 
@@ -220,7 +221,7 @@ function muramasa_dance:DanceAttack()
  --  local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
   -- local origin_diff_norm = origin_diff:Normalized()
    --if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-     caster:PerformAttack( enemy, true, true, true, true, false, false, false )
+     self:DanceStrike(enemy)
      DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
      local point = caster:GetAbsOrigin() + caster:GetForwardVector() * 150
      local knockback1 = { should_stun = false,
@@ -243,7 +244,34 @@ function muramasa_dance:DanceAttack()
 
 end
 
- 
+-- Q attack deals only atk_dmg_pct% of its physical damage
+function muramasa_dance:DanceStrike(enemy)
+   local caster = self:GetCaster()
+   local scale = caster:AddNewModifier(caster, self, "modifier_muramasa_dance_attack_scale", {})
+   caster:PerformAttack( enemy, true, true, true, true, false, false, false )
+   if IsNotNull(scale) then
+      scale:Destroy()
+   end
+end
+
+
+
+modifier_muramasa_dance_attack_scale = class({})
+
+function modifier_muramasa_dance_attack_scale:IsHidden() return true end
+function modifier_muramasa_dance_attack_scale:IsPurgable() return false end
+function modifier_muramasa_dance_attack_scale:RemoveOnDeath() return true end
+function modifier_muramasa_dance_attack_scale:DeclareFunctions()
+   return { MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE }
+end
+function modifier_muramasa_dance_attack_scale:GetModifierTotalDamageOutgoing_Percentage(keys)
+   if not IsServer() or not IsNotNull(self:GetAbility()) then return 0 end
+   -- only the attack itself; magic on-hit from sword creation is a spell-category DoDamage
+   if keys.damage_category == (DOTA_DAMAGE_CATEGORY_ATTACK or 1) and keys.inflictor == nil then
+      return self:GetAbility():GetSpecialValueFor("atk_dmg_pct") - 100
+   end
+   return 0
+end
 
 
 

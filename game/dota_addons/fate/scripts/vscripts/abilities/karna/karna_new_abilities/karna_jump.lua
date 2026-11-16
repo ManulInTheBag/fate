@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_karna_dash", "abilities/karna/karna_new_abilities/karna_jump", LUA_MODIFIER_MOTION_BOTH)
 karna_jump = class({})
 
@@ -69,7 +70,7 @@ function karna_jump:OnSpellStart()
 	local vector_to_mid_position = (mid_position_in_air - origin):Normalized()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		local soundQueue = math.random (1,2)
-		EmitSoundOn("aemis_human_r".. soundQueue, caster)
+		SkinSoundPair(caster, caster, "aemis_human_r".. soundQueue, nil)
 		EmitSoundOn("karna_new_dash_2", caster)
 	else
 		EmitSoundOn("karna_new_dash_2", caster)

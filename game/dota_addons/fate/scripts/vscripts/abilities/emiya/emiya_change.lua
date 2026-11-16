@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_change = emiya_change or class({})
 
 function emiya_change:OnUpgrade()
@@ -28,7 +29,7 @@ function emiya_change:OnSpellStart()
 	StartAnimation(self.hCaster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
 	giveUnitDataDrivenModifier(self.hCaster, self.hCaster, "pause_sealenabled", 0.3)
 	if self.hCaster:HasModifier("modifier_hero_selection_skin") then
-        self.hCaster:EmitSound("emiya_skin_w_range")
+        SkinSoundPair(self.hCaster, self.hCaster, "emiya_skin_w_range", nil)
     end
 	Timers:CreateTimer(0.257,function()
 		EmitSoundOnLocationWithCaster(self.arrowsPoint , "many_arrows_emiya", self.hCaster)

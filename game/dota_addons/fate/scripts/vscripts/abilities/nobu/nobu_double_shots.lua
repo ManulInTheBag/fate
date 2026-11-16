@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 nobu_double_shots = class({})
 LinkLuaModifier("modifier_nobu_turnlock", "abilities/nobu/nobu_double_shots", LUA_MODIFIER_MOTION_NONE)
 
@@ -101,7 +102,7 @@ function nobu_double_shots:OnSpellStart()
     facing.z = 0
     if counter%20 == 10 then
         if hCaster:HasModifier("modifier_hero_selection_skin") then
-            hCaster:EmitSound("lament_2")
+            SkinSoundPair(hCaster, hCaster, "lament_2", "nobu_shoot_1")
         else
             hCaster:EmitSound("nobu_shoot_1")
         end
@@ -116,7 +117,7 @@ function nobu_double_shots:OnSpellStart()
         })
     else
         if hCaster:HasModifier("modifier_hero_selection_skin") then
-            hCaster:EmitSound("lament_1")
+            SkinSoundPair(hCaster, hCaster, "lament_1", "nobu_shoot_2")
         else
             hCaster:EmitSound("nobu_shoot_2")
         end
@@ -198,7 +199,7 @@ function nobu_double_shots:OnProjectileHit(target, location )
     local damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     if hCaster:HasModifier("modifier_hero_selection_skin") then
-        target:EmitSound("lament_3")
+        SkinSoundPair(target, hCaster, "lament_3", "nobu_shot_impact_"..math.random(1,2))
     else
        target:EmitSound("nobu_shot_impact_"..math.random(1,2))
     end

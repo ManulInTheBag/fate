@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 sasaki_heart_of_harmony = class({})
 modifier_heart_of_harmony_disarm = class({})
 
@@ -11,7 +12,7 @@ function sasaki_heart_of_harmony:OnSpellStart()
 	local stun_mana = self:GetSpecialValueFor("stun_threshold")
 
 	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-		caster:EmitSound("kim_sfx_heart_cast")
+		SkinSoundPair(caster, caster, "kim_sfx_heart_cast", "Hero_Abaddon.AphoticShield.Cast")
 	else
 		caster:EmitSound("Hero_Abaddon.AphoticShield.Cast")
 	end

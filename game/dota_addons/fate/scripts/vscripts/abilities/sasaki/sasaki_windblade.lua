@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 sasaki_windblade = class({})
 
 LinkLuaModifier("modifier_exhausted", "abilities/sasaki/modifiers/modifier_exhausted", LUA_MODIFIER_MOTION_NONE)
@@ -12,7 +13,7 @@ function sasaki_windblade:OnSpellStart()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-		caster:EmitSound("kim_sfx_windblade")
+		SkinSoundSplit(caster, function(S) S.EmitSound(caster, "kim_sfx_windblade") end, function(S) S.EmitGlobalSound("FA.Windblade") end)
 	else
 		EmitGlobalSound("FA.Windblade")
 	end
@@ -33,9 +34,9 @@ function sasaki_windblade:OnSpellStart()
 		
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-				caster:EmitSound("kim_windblade_1")
+				SkinSoundPair(caster, caster, "kim_windblade_1", "Sasaki_Windblade_1")
 			else
-				caster:EmitSound("patrick_windblade_1")
+				SkinSoundPair(caster, caster, "patrick_windblade_1", "Sasaki_Windblade_1")
 			end
 		else
 			caster:EmitSound("Sasaki_Windblade_1")

@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 sasaki_tsubame_gaeshi = class({})
 
 LinkLuaModifier("modifier_exhausted", "abilities/sasaki/modifiers/modifier_exhausted", LUA_MODIFIER_MOTION_NONE)
@@ -47,7 +48,7 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 	--kim names the strike on the windup; the combo skips this phase entirely, so it stays silent there
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitGlobalSound("kim_tg")
+			SkinSoundPairGlobal(caster, "kim_tg", nil)
 		end
 	end
 	--EmitGlobalSound("FA.TGReady")
@@ -60,7 +61,9 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
 			if caster:HasModifier("modifier_hero_selection_skin") then
-				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim stays silent on the windup
+				if not SkinSoundHeard(caster, playerID) then
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
+				elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim stays silent on the windup
 					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_hiken"})
 				end
 			else
@@ -116,7 +119,9 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 	
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim already named the strike on the windup
-			EmitGlobalSound("patrick_tg")
+			SkinSoundPairGlobal(caster, "patrick_tg", "FA.TG")
+		else
+			SkinSoundPairGlobal(caster, nil, "FA.TG")
 		end
 	else
 		EmitGlobalSound("FA.TG")
@@ -129,7 +134,9 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
 			if caster:HasModifier("modifier_hero_selection_skin") then
-				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim already named the strike on the windup
+				if not SkinSoundHeard(caster, playerID) then
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TG"})
+				elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber ~= 2 then --kim already named the strike on the windup
 					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_tg"})
 				end
 			else
@@ -140,7 +147,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 
 	end)
 	if caster:HasModifier("modifier_hero_selection_skin") and caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-		EmitGlobalSound("kim_sfx_chop")
+		SkinSoundPairGlobal(caster, "kim_sfx_chop", "FA.CHOP")
 	else
 		EmitGlobalSound("FA.CHOP")
 	end
@@ -161,7 +168,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 
 			if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-					EmitGlobalSound("kim_owarida")
+					SkinSoundPairGlobal(caster, "kim_owarida", nil)
 				end
 			end
 
@@ -232,7 +239,7 @@ function sasaki_tsubame_gaeshi:PerformSlash(caster, target, damage, soundQueue, 
 	elseif soundQueue == 2 then
 		target:RemoveModifierByName("modifier_master_intervention")
 		if isKim then
-			target:EmitSound("kim_sfx_slash_" .. math.random(1,3))
+			SkinSoundPair(target, caster, "kim_sfx_slash_" .. math.random(1,3), "Tsubame_Slash_" .. math.random(1,3))
 		else
 			target:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 		end

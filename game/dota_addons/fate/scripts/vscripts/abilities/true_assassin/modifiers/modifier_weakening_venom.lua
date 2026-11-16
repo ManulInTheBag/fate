@@ -1,5 +1,19 @@
 modifier_weakening_venom = class({})
 
+require("libraries/effect_bars")
+
+-- Стаки идут в урон яда кинжалов (modifier_dirk_poison) - значок яда Хассана
+-- в ряду эффектов (panorama effect_bars.js) их учитывает.
+function modifier_weakening_venom:OnCreated()
+    if not IsServer() then return end
+    EffectBars:Track(self)
+end
+
+function modifier_weakening_venom:OnDestroy()
+    if not IsServer() then return end
+    EffectBars:Untrack(self)
+end
+
 --[[function modifier_weakening_venom:OnCreated(args)
     
 end]]

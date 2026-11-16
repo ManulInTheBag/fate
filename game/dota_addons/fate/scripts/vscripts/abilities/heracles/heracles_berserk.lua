@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 heracles_berserk = class({})
 
 LinkLuaModifier("modifier_heracles_berserk", "abilities/heracles/modifiers/modifier_heracles_berserk", LUA_MODIFIER_MOTION_NONE)
@@ -16,10 +17,10 @@ function heracles_berserk:OnSpellStart()
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitGlobalSound("barbatos_berserk")
+			SkinSoundPairGlobal(caster, "barbatos_berserk", "Berserker.Roar")
 		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-			EmitGlobalSound("matthias_bers")
-			EmitSoundOn("matthias_bers_sfx", caster)
+			SkinSoundPairGlobal(caster, "matthias_bers", "Berserker.Roar")
+			SkinSoundPair(caster, caster, "matthias_bers_sfx", nil)
 		else
 			EmitGlobalSound("Berserker.Roar")
 		end

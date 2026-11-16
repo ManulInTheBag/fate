@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 nobu_3000 = class({})
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 
@@ -26,7 +27,7 @@ function nobu_3000:OnSpellStart()
     self.target.z = 0
 
     if self.caster:HasModifier("modifier_hero_selection_skin") then
-        self.caster:EmitSound("gregori_ult_cast")
+        SkinSoundPair(self.caster, self.caster, "gregori_ult_cast", "nobu_ulti_cast")
     else
         self.caster:EmitSound("nobu_ulti_cast")
     end
@@ -143,8 +144,8 @@ function nobu_3000:OnChannelFinish(bInterrupted)
     local aoe = 50
     local position = self:GetCursorPosition()
     if self.caster:HasModifier("modifier_hero_selection_skin") then
-        self.caster:StopSound("gregori_ult_cast")
-        EmitGlobalSound("gregori_ult_end") 
+        SkinSoundPairStop(self.caster, "gregori_ult_cast", "nobu_ulti_cast")
+        SkinSoundPairGlobal(self.caster, "gregori_ult_end", "nobu_ulti_end") 
     else
         self.caster:StopSound("nobu_ulti_cast")
         EmitGlobalSound("nobu_ulti_end") 
@@ -174,14 +175,14 @@ function nobu_3000:OnChannelFinish(bInterrupted)
                 facing.z = 0
                 if(self.caster.is3000Acquired) then
                     if self.caster:HasModifier("modifier_hero_selection_skin") then
-                        self.dummies[i]:EmitSound("lament_4")
+                        SkinSoundPair(self.dummies[i], self.caster, "lament_4", "nobu_shoot_laser")
                     else
                         self.dummies[i]:EmitSound("nobu_shoot_laser")
                     end
                     
                 else
                     if self.caster:HasModifier("modifier_hero_selection_skin") then
-                        self.dummies[i]:EmitSound("lament_"..math.random(1,2))
+                        SkinSoundPair(self.dummies[i], self.caster, "lament_"..math.random(1,2), "nobu_shoot_multiple_"..math.random(1,2))
                     else
                         self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
                     end
@@ -365,7 +366,7 @@ function nobu_3000:OnProjectileHit_ExtraData(target, location, data)
     else
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
         if hCaster:HasModifier("modifier_hero_selection_skin") then
-            target:EmitSound("lament_3")
+            SkinSoundPair(target, hCaster, "lament_3", "nobu_shot_impact_"..math.random(1,2))
         else
             target:EmitSound("nobu_shot_impact_"..math.random(1,2))
         end

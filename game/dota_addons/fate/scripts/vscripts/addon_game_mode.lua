@@ -40,17 +40,21 @@ require("data/kv_data")
 require("data/globals")
 require("libraries/keyvalues")
 require('libraries/cameramodule')
+require('libraries/survival_icons')
 
 require('blink')
 --require('unit_voice')
 require('wrappers')
 -- fate_mmr требуется НИЖЕ (рядом с FateServerDisabled) — см. комментарий там
 
-_G.IsPickPhase = true
-_G.IsPreRound = true
-_G.RoundStartTime = 0
+-- Фаза раунда переживает script_reload: иначе перезагрузка посреди раунда
+-- ставит FATE_PRE_GAME, и до следующего раунда не работает всё, что ждёт
+-- FATE_ROUND_ONGOING (God Hand Геракла перестаёт воскрешать)
+if _G.IsPickPhase == nil then _G.IsPickPhase = true end
+if _G.IsPreRound == nil then _G.IsPreRound = true end
+_G.RoundStartTime = _G.RoundStartTime or 0
 _G.nCountdown = 0
-_G.CurrentGameState = "FATE_PRE_GAME"
+_G.CurrentGameState = _G.CurrentGameState or "FATE_PRE_GAME"
 _G.GameMap = ""
 _G.LaPucelleActivated = false
 _G.FIRST_BLOOD_TRIGGERED = false
@@ -166,7 +170,7 @@ Convars:SetInt("sv_forcepreload", 1)
 model_lookup = {}
 model_lookup["npc_dota_hero_legion_commander"] = "models/saber/saber.vmdl"
 model_lookup["npc_dota_hero_phantom_lancer"] = "models/lancer/lancer2.vmdl"
-model_lookup["npc_dota_hero_spectre"] = "models/saber_alter/sbr_alter.vmdl"
+model_lookup["npc_dota_hero_spectre"] = "models/zlodemon/salter_new/salter_new.vmdl"
 model_lookup["npc_dota_hero_ember_spirit"] = "models/archer/archertest.vmdl"
 model_lookup["npc_dota_hero_templar_assassin"] = "models/rider/rider.vmdl"
 model_lookup["npc_dota_hero_doom_bringer"] = "models/berserker/berserker.vmdl"
@@ -264,6 +268,10 @@ function Precache( context )
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts", context)
 	PrecacheResource("particle_folder", "particles/rasputin", context)
 	PrecacheResource("particle_folder", "particles/kirei/kirei_dragon", context)
+	-- [billy] модель и голос (партиклы прекешатся из KV способностей)
+	PrecacheResource("model", "models/billy_kid/billy.vmdl", context)
+	PrecacheResource("soundfile", "soundevents/hero_billy.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_muerta.vsndevts", context)
 	-- [barghest] партиклы базекита (пути собраны в abilities/barghest/barghest_shared.lua)
 	PrecacheResource("particle", "particles/arcueid/arcueid_slash.vpcf", context)
 	PrecacheResource("particle", "particles/arcueid/arcueid_slash_red.vpcf", context)
@@ -458,6 +466,11 @@ function Precache( context )
 	PrecacheResource("particle", "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf", context)
 	PrecacheResource("particle", "particles/custom/tamamo/gust_heaven_arc_lightning.vpcf", context)
 	PrecacheResource("particle", "particles/generic_gameplay/generic_purge.vpcf", context)
+	--[[ Звёздочки стана. Не прекешить = стан молча без картинки. Ванильный
+	     modifier_stunned и наши Lua-станы (GetEffectName) рисуют ОДИН этот
+	     партикль, а грузился он раньше только «за компанию» с чужими
+	     способностями — когда в матче есть Слуга, чей KV его прекешит. ]]
+	PrecacheResource("particle", "particles/generic_gameplay/generic_stunned.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf", context)
 	PrecacheResource("particle", "particles/items2_fx/rod_of_atos_debuff_glow.vpcf", context)
@@ -689,11 +702,17 @@ function Precache( context )
     PrecacheResource("model", "models/zlodemon/shiki_ryougi_skin/ryougi_skin.vmdl", context)
     PrecacheResource("model", "models/zlodemon/gojo.vmdl", context)
     PrecacheResource("model", "models/zlodemon/heracles_arbuz.vmdl", context)
+    PrecacheResource("model", "models/zlodemon/guts/guts.vmdl", context)  -- Barghest skin_1 (Guts)
+    PrecacheResource("particle_folder", "particles/barghest/guts", context)  -- его чёрные разрезы (BARGHEST_FX_GUTS)
+    PrecacheResource("model", "models/custom_game/units/guts_ghost/guts_ghost.vmdl", context)  -- Guts: призраки атрибута 1
+    PrecacheResource("particle", "particles/hijikata/hijikata_bullet_combo.vpcf", context)      -- Guts: выстрел ER (GUTS_CANNON)
+    PrecacheResource("particle", "particles/units/hijikata/ult/hijikata_ult_combo.vpcf", context)
     PrecacheResource("model", "models/heroes/saito_1/saito_1_mdoc.vmdl", context)
     PrecacheResource("model", "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred_unanim_face.vmdl", context)
     PrecacheResource("model", "models/gilgamesh/gilgamesh_police.vmdl", context)
     PrecacheResource("model", "models/zlodemon/alter_jaba/jeanne_alter.vmdl", context)
     PrecacheResource("model", "models/hijikata/hijikata_0_14_idle_haori.vmdl", context)
+    --PrecacheResource("model", "models/hijikata/leiheng/leiheng.vmdl", context)  -- Hijikata skin_1 (Lei Heng), временно выключен
     PrecacheResource("model", "models/muramasa/muramasa_no_sword.vmdl", context)
     PrecacheResource("model", "models/sanya/sanya_buc.vmdl", context)
     PrecacheResource("model", "models/sanya/sanya_telega.vmdl", context)
@@ -722,6 +741,11 @@ function Precache( context )
     PrecacheResource("model", "models/diarmuid/diar_skin_no_sword.vmdl", context)
     PrecacheResource("model", "models/zlodemon/shiki_ryougi_skin/ryougi_skin_2.vmdl", context)
     PrecacheResource("model", "models/lu_bu/jia_qiu.vmdl", context)
+    -- Cu Chulainn skin 1: Vespa (model, thrown harpoon, yellow particle copies)
+    PrecacheResource("model", "models/cu_chulain/vespa.vmdl", context)
+    PrecacheResource("model", "models/cu_chulain/vespa_harpoon.vmdl", context)
+    PrecacheResource("particle_folder", "particles/custom/vespa", context)
+    PrecacheResource("soundfile", "soundevents/hero_vespa.vsndevts", context)
     PrecacheResource("model", "models/lu_bu/jia_qiu_staff.vmdl", context)
     PrecacheResource("model", "models/renvor/eggman/eggman.vmdl", context)
     
@@ -877,6 +901,10 @@ function Precache( context )
     PrecacheResource("particle",  "particles/fbt_incident_12.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_13.vpcf", context)
     PrecacheResource("particle",  "particles/fbt_incident_14.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_15.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_16.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_17.vpcf", context)
+    PrecacheResource("particle",  "particles/fbt_incident_17_small.vpcf", context)
     
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
@@ -1277,7 +1305,8 @@ end
 -- "#N" chat command and the emote wheel route through TriggerEmote, so the rate
 -- limit and the spam punishment apply no matter how the emote was requested.
 -- ============================================================================
-local EMOTE_MAX          = 14   -- fbt_incident_1..14 (9..14 added 2026-07-21)
+local EMOTE_MAX          = 17   -- fbt_incident_1..17 (9..14 added 2026-07-21, 15-17 added 2026-10-01)
+local EMOTE_SKELETON     = 17   -- dancing skeleton: Medea's skeletons dance along
 local EMOTE_COOLDOWN     = 2    -- seconds between emotes
 local EMOTE_RATE_MAX     = 3    -- at most this many sent emotes...
 local EMOTE_RATE_WINDOW  = 10   -- ...within this window; extras are silently dropped
@@ -1374,10 +1403,26 @@ function FateGameMode:TriggerEmote(plyID, num)
     end
 
     -- Accepted: spawn the particle and release it shortly after so it doesn't leak.
-    local fx = ParticleManager:CreateParticle(
-        string.format("particles/fbt_incident_%d.vpcf", num), PATTACH_ABSORIGIN_FOLLOW, hero)
-    ParticleManager:SetParticleControl(fx, 0, hero:GetAbsOrigin())
-    Timers:CreateTimer(3.0, function() ParticleManager:ReleaseParticleIndex(fx) end)
+    local function SpawnEmote(unit, particle)
+        local fx = ParticleManager:CreateParticle(
+            particle or string.format("particles/fbt_incident_%d.vpcf", num), PATTACH_ABSORIGIN_FOLLOW, unit)
+        ParticleManager:SetParticleControl(fx, 0, unit:GetAbsOrigin())
+        Timers:CreateTimer(3.0, function() ParticleManager:ReleaseParticleIndex(fx) end)
+    end
+    SpawnEmote(hero)
+
+    -- Прикол: танцующий скелет (#17) у Медеи пляшет ещё и над каждым её скелетом.
+    if num == EMOTE_SKELETON then
+        local units = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE,
+            DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+        for _, unit in pairs(units) do
+            local name = unit:GetUnitName()
+            if (name == "caster_5th_skeleton_warrior" or name == "caster_5th_skeleton_archer")
+                and unit:IsAlive() and unit:GetOwner() == hero then
+                SpawnEmote(unit, "particles/fbt_incident_17_small.vpcf")  -- уменьшенная и пониже
+            end
+        end
+    end
 
     state.last = now
     table.insert(state.sent, now)
@@ -1396,7 +1441,8 @@ end
 -- Bind profiles: save/load to external server (Cloudflare Worker + D1).
 -- The panorama binds panel sends an opaque JSON string (args.data); the server
 -- keys it by SteamAccountID (engine-provided, trusted) and stores it verbatim.
--- HTTP runs on the game server via CreateHTTPRequestScriptVM, like statcollection.
+-- HTTP идёт через FateCreateHTTPRequest (fate_http.lua): нативный запрос, а в
+-- локальном лобби, где движок его больше не даёт, — реле через клиента.
 --
 -- FATE_BINDS_HOST / FATE_API_KEY вынесены в fate_secrets.lua (в .gitignore).
 -- ВАЖНО: этот файл всё равно уходит в клиентский VPK — вынос НЕ защищает от
@@ -1404,7 +1450,7 @@ end
 -- pcall: если fate_secrets.lua отсутствует (свежий клон), игра не падает.
 -- ============================================================================
 pcall(require, "fate_secrets")
-FATE_BINDS_HOST = FATE_BINDS_HOST or "http://localhost:8787"
+FATE_BINDS_HOST = "https://fate-binds-server.glebucha1112.workers.dev"-- or "http://localhost:8787"
 FATE_API_KEY = FATE_API_KEY or ""
 
 -- Версия сборки: хеш СОДЕРЖИМОГО геймплейных файлов, генерируется панелью
@@ -1430,8 +1476,8 @@ function FateServerDisabled()
     -- через script_reload/фейл-файл или временно в fate_secrets.lua), чтобы
     -- осознанно разрешить отправку из tools/чит-лобби во время тестов.
     if FATE_ALLOW_TOOLS_SEND then return false end
-    if IsInToolsMode and IsInToolsMode() then return true end
-    if GameRules and GameRules:IsCheatMode() then return true end
+    if IsInToolsMode and IsInToolsMode() then return false end
+    if GameRules and GameRules:IsCheatMode() then return false end
     return false
 end
 
@@ -1440,7 +1486,12 @@ end
 -- что объявлено в этом файле НИЖЕ точки require. Загруженный отсюда, он видит и
 -- FATE_BINDS_HOST/FATE_API_KEY, и FateServerDisabled. (На всякий случай в самом
 -- fate_mmr.lua эти имена всё равно читаются через _G в момент вызова.)
+-- HTTP-обёртка с реле через клиента (локальные лобби без CreateHTTPRequestScriptVM,
+-- см. fate_http.lua). Должна быть загружена ДО fate_mmr — тот зовёт FateCreateHTTPRequest.
+require('fate_http')
 require('fate_mmr')
+-- настройки игрока (фильтры значков эффектов) на том же сервере, что и бинды
+require('fate_settings')
 
 -- Пер-игрок гейт на запросы к серверу биндов: не больше FATE_BINDS_REQ_MAX за
 -- FATE_BINDS_REQ_WINDOW секунд. Клиентский лок обходится хакнутым клиентом —
@@ -1472,7 +1523,7 @@ function OnPlayerSaveBinds(iSource, args)
     if not FateBindsAllowRequest(playerID) then return end
 
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    local req = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/binds")
+    local req = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/binds")
     req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
     req:SetHTTPRequestGetOrPostParameter("steamid", steamid)
     req:SetHTTPRequestGetOrPostParameter("profile", profile)
@@ -1492,7 +1543,7 @@ function OnPlayerLoadBinds(iSource, args)
     if not FateBindsAllowRequest(playerID) then return end
 
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    local req = CreateHTTPRequestScriptVM("GET", FATE_BINDS_HOST .. "/binds?steamid=" .. steamid)
+    local req = FateCreateHTTPRequest("GET", FATE_BINDS_HOST .. "/binds?steamid=" .. steamid)
     req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
     req:Send(function(res)
         local ply = PlayerResource:GetPlayer(playerID)
@@ -1614,6 +1665,14 @@ function FateGameMode:OnPlayerChat(keys)
 
     if text == "-coords" then
         print(hero:GetAbsOrigin())
+    end
+
+    -- Диагностика HTTP-реле (fate_http.lua): сколько ушло нативно/через клиента,
+    -- кто из клиентов готов, что висит. Ответ в чат всем и в консоль сервера.
+    if text == "-http" then
+        local summary = FateHttp:Summary()
+        print("[FateHttp] " .. summary)
+        GameRules:SendCustomMessage("[HTTP] " .. summary, 0, 0)
     end
 
 
@@ -3067,6 +3126,9 @@ function FateGameMode:OnHeroInGame(hero)
         print((hero:GetPlayerID()) .." is a bot!")
         self.vPlayerList[hero:GetPlayerID()] = hero:GetPlayerID()
     end
+    -- значок Battle Continuation у хелсбара (libraries/survival_icons.lua)
+    SurvivalIcons:Start()
+
     if hero:GetName() == "npc_dota_hero_wisp" then
         local dummyPause = hero:GetAbilityByIndex(0)
         dummyPause:SetLevel(1)
@@ -4423,6 +4485,10 @@ function FateGameMode:OnEntityKilled( keys )
             -- Display gold message
             local assistString = "plus <font color='#FFFF66'>" .. #assistTable * 400 .. "</font> gold split between contributors!"
             --GameRules:SendCustomMessage("<font color='#FF5050'>" .. killerEntity.name .. "</font> has slain <font color='#FF5050'>" .. killedUnit.name .. "</font> for <font color='#FFFF66'>" .. bounty .. "</font> gold, " .. assistString, 0, 0)
+            -- Billy the Kid, Young Outlaw Leader: награда за голову цели (глобал есть, только если Билли в игре)
+            if Billy_OnHeroKilled then
+                xpcall(function() Billy_OnHeroKilled(killedUnit, killerEntity, assistTable) end, FateSafeTraceback)
+            end
             -- Convert to entindex before sending kill event to panorama
             for i=1, #assistTable do
                 assistTable[i] = assistTable[i]:entindex()
@@ -4835,6 +4901,10 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("player_send_emote", OnPlayerSendEmote )
     CustomGameEventManager:RegisterListener("player_save_binds", OnPlayerSaveBinds )
     CustomGameEventManager:RegisterListener("player_load_binds", OnPlayerLoadBinds )
+    -- настройки игрока: player_save_settings / player_load_settings (fate_settings.lua)
+    FateSettings:Init()
+    -- Реле HTTP через клиента: ready/response/failure (fate_http.lua)
+    FateHttp:Init()
     -- Кнопка «Шафл по MMR» на экране выбора команд (проверка хоста — внутри)
     CustomGameEventManager:RegisterListener("mmr_shuffle_request", OnMMRShuffleRequest )
     -- Экран выбора команд просит рейтинги сам (он мог создаться позже рассылки)
@@ -5038,6 +5108,28 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
             end
         end
 
+        -- Билли: первые 0.3 с стойки комбо и ченнела ульты приказы съедаются — случайный
+        -- клик сразу после каста их не отменяет (раньше фильтра W: рекаст тоже ждёт)
+        if type(BillyGraceOrderFilter) == "function" then
+            if not BillyGraceOrderFilter(hUnit, iOrder) then
+                return false
+            end
+        end
+
+        -- Shatter Shot Билли: пока пуля W летит, любой каст W — разрыв (рекаст решает
+        -- сервер, а не то, каким поведение W успело дойти до клиента через пинг)
+        if type(BillyTripleShotOrderFilter) == "function" then
+            if not BillyTripleShotOrderFilter(hUnit, hAbility, iOrder) then
+                return false
+            end
+        end
+
+        -- Билли: точку каста дальше радиуса подтягиваем на край — стреляет в направлении,
+        -- а не идёт к точке (радиус настоящий, чтобы круг дальности был виден на кнопке)
+        if type(BillyCastRangeOrderFilter) == "function" then
+            BillyCastRangeOrderFilter(hUnit, hAbility, iOrder, hFilterTable)
+        end
+
         -- Chain Hunt: в зарядке и в разбеге Barghest пропускаем только движение
         -- и её собственные кнопки (блинк посреди разбега ломал рывок).
         if type(BarghestChargeOrderFilter) == "function" then
@@ -5177,6 +5269,8 @@ function FateGameMode:InitializeRound()
     FateCrumb("C: InitializeRound " .. tostring(self.nCurrentRound) .. " entered")
     if ControlZones then ControlZones:OnPreRound(self.nCurrentRound, self.nRadiantScore, self.nDireScore, self) end
     FateCrumb("D: zones hook done")
+    -- Billy the Kid, Young Outlaw Leader: окно выбора цели (глобал есть, только если Билли в игре)
+    if Billy_OnPreRound then xpcall(function() Billy_OnPreRound(self.nCurrentRound) end, FateSafeTraceback) end
 
     --SendChatToPanorama("IR1")
     CreateUITimer("Pre-Round", PRE_ROUND_DURATION, "pregame_timer")
@@ -5487,12 +5581,16 @@ end
 3 : Radiant(by default)
 4 : Dire(by default)]]
 function FateGameMode:FinishRound(IsTimeOut, winner)
+    -- Матч уже решён и ждёт выгрузки (см. EndMatch): новый раунд не начинаем.
+    if self.bMatchEnding then return end
     print("[FATE] Winner decided")
     --UTIL_RemoveImmediate( roundQuest ) -- Stop round timer
     print(self.nRadiantScore)
     _G.CurrentGameState = "FATE_POST_ROUND"
 
     if ControlZones then ControlZones:OnRoundEnd() end
+    -- Billy the Kid, Young Outlaw Leader: закрыть невыбранное окно выбора цели
+    if Billy_OnRoundEnd then xpcall(Billy_OnRoundEnd, FateSafeTraceback) end
 
     CreateUITimer(("Round " .. self.nCurrentRound), 0, "round_timer" .. self.nCurrentRound)
     CreateUITimer("Pre-Round", 0, "pregame_timer")
@@ -5793,9 +5891,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             hero.ServStat:printconsole()
         end)
         GameRules:SendCustomMessage("Red Faction Victory!",0,0)
-        my_http_post(DOTA_TEAM_GOODGUYS)
-        GameRules:SetSafeToLeave( true )
-        GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
+        self:EndMatch(DOTA_TEAM_GOODGUYS)
         return
     elseif self.nDireScore == VICTORY_CONDITION then
         self:LoopOverPlayers(function(player, playerID, playerHero)
@@ -5808,12 +5904,13 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             hero.ServStat:printconsole()
         end)
         GameRules:SendCustomMessage("Black Faction Victory!",0,0)
-        my_http_post(DOTA_TEAM_BADGUYS)
-        GameRules:SetSafeToLeave( true )
-        GameRules:SetGameWinner( DOTA_TEAM_BADGUYS )
+        self:EndMatch(DOTA_TEAM_BADGUYS)
         return
     end
     --SendChatToPanorama("FR8")
+
+    -- матч продолжается: снимок статистики на случай, если игра умрёт
+    FateSendSnapshot(self.nCurrentRound - 1, self.nRadiantScore, self.nDireScore)
 
     Timers:CreateTimer('roundend', {
         endTime = 7,
@@ -6008,39 +6105,153 @@ function FateGameMode:MakeDraw()
     self:FinishRound(false,2)
 end
 
+-- Сколько секунд после победы ждём подтверждения выгрузки, прежде чем
+-- показать экран победы. Меньше round_pause (7 с), чтобы герои не ожили.
+FATE_END_UPLOAD_WAIT = 5
+
+-- Конец матча: сначала выгрузка, экран победы — после её подтверждения.
+-- ⚠️ Зачем: пока матч идёт (до SetGameWinner), реле работает целиком — ответы
+-- клиентов доходят, повторы и таймеры живы. После SetGameWinner доходит
+-- только то, что роздано клиентам сразу (матчи 110–113, 27.09.2026), а люди
+-- выходят с экрана победы за доли секунды — и уносят с собой запросы.
+function FateGameMode:EndMatch(winnerTeam)
+    if self.bMatchEnding then return end
+    self.bMatchEnding = true
+    local finished = false
+    local started = GameRules:GetGameTime()
+    local function finish(reason)
+        if finished then return end
+        finished = true
+        print(string.format("[FateStats] экран победы через %.1f с: %s",
+              GameRules:GetGameTime() - started, reason))
+        GameRules:SetSafeToLeave( true )
+        GameRules:SetGameWinner( winnerTeam )
+    end
+    local waiting = my_http_post(winnerTeam, function() finish("выгрузка подтверждена") end)
+    if not waiting or not (Timers and Timers.CreateTimer) then
+        finish("ждать нечего")
+        return
+    end
+    Timers:CreateTimer(FATE_END_UPLOAD_WAIT, function()
+        finish("таймаут")
+    end)
+end
+
+-- id матча — один на всю игру: им подписаны и снимки по раундам, и финал.
+-- У GameRules в этой сборке нет GetMatchID (метод = nil) -> синтезируем
+-- уникальный id из системного времени; иначе tools-режим падает.
+function FateMatchId()
+    if FATE_MATCH_ID then return FATE_MATCH_ID end
+    local matchId = nil
+    if GameRules.GetMatchID ~= nil then
+        matchId = tostring(GameRules:GetMatchID())
+    end
+    if matchId == nil or matchId == "" or matchId == "0" then
+        matchId = string.gsub(tostring(GetSystemDate()) .. "-" .. tostring(GetSystemTime()) .. "-" .. tostring(RandomInt(1000, 9999)), "[^%w]", "")
+    end
+    FATE_MATCH_ID = matchId
+    return matchId
+end
+
+-- Строки всех игроков для /matches/batch и /matches/snapshot.
+-- Порядок полей = BATCH_ROW_FIELDS в воркере (src/index.js).
+function FateBuildMatchRows()
+    local function num(v) return tostring(math.floor(tonumber(v) or 0)) end
+    local rows = {}
+    LoopOverPlayers(function(player, playerID, playerHero)
+        local hero = playerHero
+        if not hero or not hero.ServStat then return end
+        -- Пропускаем ботов (fake clients): SteamAccountID=0, все схлопнулись бы
+        -- в одну строку steamid=0 и засоряли бы статистику.
+        if PlayerResource:IsFakeClient(playerID) then return end
+        local s = hero.ServStat
+        local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+        if steamid == "0" then return end
+        rows[#rows + 1] = table.concat({
+            steamid,
+            (string.gsub(tostring(s.heroName), "[^%w_]", "")),
+            num(hero:GetTeam()),
+            num(s.kill), num(s.death), num(s.assist),
+            num(s.damageDealtBR), num(s.damageDealt),
+            num(s.damageTakenBR), num(s.damageTaken),
+            num(s.shard1), num(s.shard2), num(s.shard3), num(s.shard4),
+            num(s.qseal), num(s.wseal), num(s.eseal), num(s.rseal),
+            num(s.ward),
+        }, ",")
+    end)
+    return rows
+end
+
+-- Снимок статистики в конце раунда (кроме последнего — там финал).
+-- Зачем: если игра умрёт (хост вышел или упал), финал не уйдёт никогда, а
+-- снимок уже в базе — теряется максимум последний раунд. Пока матч идёт,
+-- реле работает целиком (ответы, повторы), поэтому хватает одной копии.
+-- Сайт снимки не видит: они лежат в match_snapshots; в matches их поднимает
+-- воркер, только если финал не дошёл, а начисление MMR дошло.
+function FateSendSnapshot(round, radiantScore, direScore)
+    if FateServerDisabled() or FATE_MATCH_UPLOADED then return end
+    local ok, err = pcall(function()
+        local rows = FateBuildMatchRows()
+        if #rows == 0 then return end
+        local req = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches/snapshot")
+        req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
+        req:SetHTTPRequestGetOrPostParameter("match_id", FateMatchId())
+        req:SetHTTPRequestGetOrPostParameter("round", tostring(round or 0))
+        req:SetHTTPRequestGetOrPostParameter("duration", tostring(math.ceil(GameRules:GetGameTime())))
+        req:SetHTTPRequestGetOrPostParameter("radiant_score", tostring(radiantScore or 0))
+        req:SetHTTPRequestGetOrPostParameter("dire_score", tostring(direScore or 0))
+        req:SetHTTPRequestGetOrPostParameter("version", tostring(FATE_VERSION or "dev"))
+        req:SetHTTPRequestGetOrPostParameter("rows", table.concat(rows, ";"))
+        req:Send(function(res)
+            print("[FateStats] снимок раунда " .. tostring(round) .. " -> " .. tostring(res.StatusCode))
+        end)
+    end)
+    if not ok then print("[FateStats] снимок не ушёл: " .. tostring(err)) end
+end
+
 -- Выгрузка статистики матча на сервер (Cloudflare Worker + D1). Вызывается один
--- раз при окончании матча (в FinishRound, до SetGameWinner). Данные уже собраны
+-- раз при окончании матча (из EndMatch, до SetGameWinner). Данные уже собраны
 -- в hero.ServStat во время игры. json на сервере Lua нет, поэтому шлём
--- form-параметрами: 1 запрос на мету матча + по 1 на каждого игрока (upsert).
-function my_http_post(winnerTeam)
+-- form-параметрами (upsert).
+-- onDone зовётся один раз, когда и выгрузка, и начисление MMR получили ответ
+-- (любой). Возвращает true, если onDone стоит ждать.
+function my_http_post(winnerTeam, onDone)
     -- Из tools/чит-лобби статистику не выгружаем (тесты/читы не должны попадать в прод-БД).
     if FateServerDisabled() then
         print("[FateStats] tools/cheat lobby -> upload skipped")
-        return
+        return false
     end
     -- Выгрузка ровно одна на матч: кроме победы по очкам её может вызвать
     -- сторож недоигранного матча (см. fate_mmr.lua), и оба пути не должны
     -- сложиться в двойную статистику.
     if FATE_MATCH_UPLOADED then
         print("[FateStats] матч уже выгружен -> повтор пропущен")
-        return
+        return false
     end
     FATE_MATCH_UPLOADED = true
+    -- Счётчик ответов, которых ждём. Начинается с 1 — «жетон» самой функции,
+    -- снимается в конце: иначе ответ, пришедший синхронно (реле без клиентов
+    -- отвечает сразу), закончил бы ожидание раньше, чем ушёл второй запрос.
+    local waiting = 1
+    local function doneOne()
+        waiting = waiting - 1
+        if waiting == 0 and onDone then onDone() end
+    end
     -- Всё в pcall: выгрузка статы НЕ должна ронять завершение матча (my_http_post
     -- зовётся до SetGameWinner). Любая ошибка внутри -> просто лог, игра идёт дальше.
     local ok, err = pcall(function()
-        -- У GameRules в этой сборке нет GetMatchID (метод = nil) -> синтезируем
-        -- уникальный id из системного времени; иначе tools-режим падает.
-        local matchId = nil
-        if GameRules.GetMatchID ~= nil then
-            matchId = tostring(GameRules:GetMatchID())
-        end
-        if matchId == nil or matchId == "" or matchId == "0" then
-            matchId = string.gsub(tostring(GetSystemDate()) .. "-" .. tostring(GetSystemTime()) .. "-" .. tostring(RandomInt(1000, 9999)), "[^%w]", "")
-        end
+        local matchId = FateMatchId()
         local duration = math.ceil(GameRules:GetGameTime())
 
-        local mreq = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/matches")
+        -- Мета и строки всех игроков — ОДНИМ запросом (/matches/batch), и через
+        -- реле он уходит сразу тремя копиями через разных клиентов. Раньше было
+        -- 16 запросов (мета + по одному на игрока), и в матчах 110–113
+        -- (27.09.2026) до базы доходили только те, что клиенты получили сразу:
+        -- 4–5 строк из 14 пропадали. Копии безопасны — на воркере всё upsert.
+        local rows = FateBuildMatchRows()
+
+        local mreq = FateCreateHTTPRequest("POST", FATE_BINDS_HOST .. "/matches/batch")
+        FateHttpSetCopies(mreq, 3)
         mreq:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
         mreq:SetHTTPRequestGetOrPostParameter("match_id", matchId)
         mreq:SetHTTPRequestGetOrPostParameter("winner_team", tostring(winnerTeam or 0))
@@ -6052,63 +6263,32 @@ function my_http_post(winnerTeam)
         -- Версия сборки: без неё винрейты смешивают балансы «до» и «после»
         -- правки (при 1-3 коммитах в день это каждая вторая игра).
         mreq:SetHTTPRequestGetOrPostParameter("version", tostring(FATE_VERSION or "dev"))
+        mreq:SetHTTPRequestGetOrPostParameter("rows", table.concat(rows, ";"))
+        waiting = waiting + 1
         mreq:Send(function(res)
-            print("[FateStats] match meta (" .. matchId .. ") -> " .. tostring(res.StatusCode))
+            print("[FateStats] match batch (" .. matchId .. ", " .. #rows .. " players) -> "
+                  .. tostring(res.StatusCode) .. " " .. tostring(res.Body))
             -- Подстраховка: если запрос на начисление ушёл раньше, чем мета
             -- легла в базу, шлём его ещё раз — теперь мета точно там. Повтор
             -- идемпотентен («already applied»).
             local ok2, err2 = pcall(function() FateMMR:RetryApply() end)
             if not ok2 then print("[FateMMR] повтор начисления не запустился: " .. tostring(err2)) end
+            doneOne()
         end)
 
         -- Рейтинг: СИНХРОННО, в том же кадре. Откладывать нечем — таймеры в
         -- POST_GAME не тикают (см. fate_mmr.lua), а полагаться только на колбэк
         -- HTTP не хочется: это единственная ниточка, и она не проверена в бою.
-        local okm, errm = pcall(function() FateMMR:ApplyMatch(matchId, winnerTeam) end)
-        if not okm then print("[FateMMR] начисление не запустилось: " .. tostring(errm)) end
-
-        LoopOverPlayers(function(player, playerID, playerHero)
-            local hero = playerHero
-            if not hero or not hero.ServStat then return end
-            -- Пропускаем ботов (fake clients): SteamAccountID=0, все схлопнулись бы
-            -- в одну строку steamid=0 и засоряли бы статистику.
-            if PlayerResource:IsFakeClient(playerID) then return end
-            local s = hero.ServStat
-            local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-            if steamid == "0" then return end
-
-            local req = CreateHTTPRequestScriptVM("POST", FATE_BINDS_HOST .. "/matches/player")
-            req:SetHTTPRequestHeaderValue("X-Fate-Key", FATE_API_KEY)
-            req:SetHTTPRequestGetOrPostParameter("match_id", matchId)
-            req:SetHTTPRequestGetOrPostParameter("steamid", steamid)
-            req:SetHTTPRequestGetOrPostParameter("hero", tostring(s.heroName))
-            req:SetHTTPRequestGetOrPostParameter("team", tostring(hero:GetTeam()))
-            req:SetHTTPRequestGetOrPostParameter("kills", tostring(s.kill))
-            req:SetHTTPRequestGetOrPostParameter("deaths", tostring(s.death))
-            req:SetHTTPRequestGetOrPostParameter("assists", tostring(s.assist))
-            req:SetHTTPRequestGetOrPostParameter("dmg_dealt_pre", tostring(math.floor(s.damageDealtBR)))
-            req:SetHTTPRequestGetOrPostParameter("dmg_dealt_post", tostring(math.floor(s.damageDealt)))
-            req:SetHTTPRequestGetOrPostParameter("dmg_taken_pre", tostring(math.floor(s.damageTakenBR)))
-            req:SetHTTPRequestGetOrPostParameter("dmg_taken_post", tostring(math.floor(s.damageTaken)))
-            req:SetHTTPRequestGetOrPostParameter("grail_avarice", tostring(s.shard1))
-            req:SetHTTPRequestGetOrPostParameter("grail_antimagic", tostring(s.shard2))
-            req:SetHTTPRequestGetOrPostParameter("grail_replenishment", tostring(s.shard3))
-            req:SetHTTPRequestGetOrPostParameter("grail_prosperity", tostring(s.shard4))
-            req:SetHTTPRequestGetOrPostParameter("seals_q", tostring(s.qseal))
-            req:SetHTTPRequestGetOrPostParameter("seals_w", tostring(s.wseal))
-            req:SetHTTPRequestGetOrPostParameter("seals_e", tostring(s.eseal))
-            req:SetHTTPRequestGetOrPostParameter("seals_r", tostring(s.rseal))
-            req:SetHTTPRequestGetOrPostParameter("wards", tostring(s.ward))
-            req:Send(function(res)
-                print("[FateStats] player " .. steamid .. " -> " .. tostring(res.StatusCode))
-            end)
-        end)
-
-        -- (Начисление рейтинга ушло выше — в колбэк POST /matches.)
+        waiting = waiting + 1
+        local okm, sent = pcall(function() return FateMMR:ApplyMatch(matchId, winnerTeam, doneOne) end)
+        if not okm then print("[FateMMR] начисление не запустилось: " .. tostring(sent)) end
+        if not (okm and sent) then doneOne() end   -- начисления нет — его и не ждём
     end)
     if not ok then
         print("[FateStats] upload error: " .. tostring(err))
     end
+    doneOne()   -- жетон функции
+    return true
 end
 
 

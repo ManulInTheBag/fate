@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_spin = class({})
 LinkLuaModifier("modifier_karna_self_pause","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_karna_self_pause_2","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
@@ -201,7 +202,7 @@ function karna_spin:OnSpellStart()
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 		if not caster:IsAlive() then return end
 			if caster:HasModifier("modifier_hero_selection_skin") then 
-				caster:EmitSound("aemis_human_q")
+				SkinSoundPair(caster, caster, "aemis_human_q", "karna_new_karna_hit_1")
 			else
 				caster:EmitSound("karna_new_karna_hit_1")
 			end

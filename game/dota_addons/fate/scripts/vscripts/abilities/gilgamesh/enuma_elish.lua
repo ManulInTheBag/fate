@@ -1,7 +1,6 @@
 gilgamesh_enuma_elish = class({})
 gilgamesh_enuma_elish_activate = class({})
 
-LinkLuaModifier("modifier_enuma_elish_bandaid", "abilities/gilg/modifiers/modifier_enuma_elish_bandaid", LUA_MODIFIER_MOTION_NONE)
  
 
 if not IsServer() then
@@ -36,36 +35,143 @@ function gilgamesh_enuma_elish:VFX2_Sparkles(caster)
   self.PI2 = FxCreator("particles/custom/gilgamesh/enuma_elish/charging_sparkles.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster,0,nil)
 end
 
-function gilgamesh_enuma_elish:VFX3_Projectile(caster)
-  local casterLocation = caster:GetAbsOrigin()
+-- Волна вместо снаряда. Зона урона — вся линия от точки каста до фронта волны
+-- (конус от radius до end_radius), цели в ней ищутся всё время полёта. Каждый
+-- tick_interval все враги внутри получают долю урона, полный урон набирается за
+-- damage_duration. Вышел из линии — урон прекращается. Дойдя до конца, волна
+-- сразу гаснет: цели у края, задетые позже чем за damage_duration до конца, урон недобирают.
+function gilgamesh_enuma_elish:ReleaseWave(caster)
+  local origin = caster:GetAbsOrigin()
   local frontward = caster:GetForwardVector()
+  local team = caster:GetTeamNumber()
   local targetPoint = self:GetCursorPosition()
 
-  local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+  local speed = self:GetBeamSpeed()
+  local start_radius = self:GetBeamRadius()
+  local end_radius = self:GetBeamEndRadius()
+  local distance = self:GetBeamRange() - end_radius -- как в LaunchBeam: дальний край волны = range
+  local damage_total = self:GetBeamDamage()
+  local tick = self:GetSpecialValueFor("tick_interval")
+  local damage_duration = self:GetSpecialValueFor("damage_duration")
+  local per_tick = damage_total * tick / damage_duration
+  local travel_time = distance / speed
+  local total_time = travel_time
+
+  local dummy = CreateUnitByName("dummy_unit", origin, false, nil, nil, team)
   dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
   dummy:SetForwardVector(frontward)
 
-  local beam = self.tBeam
-  local radius = self.tBeam.fStartRadius
-  local fxIndex = ParticleManager:CreateParticle("particles/custom/gilgamesh/enuma_elish/projectile.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy)
-  ParticleManager:SetParticleControl(fxIndex, 3, targetPoint)
+  -- голова волны: wave_head (копия projectile.vpcf без кругов) + круги отдельными частицами,
+  -- чтобы в конце полёта убрать круги сразу, а остальное дать дотаять
+  local function HeadFx(name)
+    local fx = ParticleManager:CreateParticle("particles/custom/gilgamesh/enuma_elish/"..name..".vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy)
+    ParticleManager:SetParticleControl(fx, 2, Vector(start_radius,0,0))
+    ParticleManager:SetParticleControl(fx, 3, targetPoint)
+    return fx
+  end
+  local fxIndex = HeadFx("wave_head")
+  local headCircles = { HeadFx("head_tornado"), HeadFx("head_ring"), HeadFx("head_trail_circle") }
 
-  Timers:CreateTimer( function()
-    if IsValidEntity(dummy) and not dummy:IsNull() then
-      local newLoc = GetGroundPosition(dummy:GetAbsOrigin() + beam.ExtraData.Speed * 0.03 * frontward, dummy)
-      dummy:SetAbsOrigin( newLoc )
-      radius = radius + (beam.fEndRadius - beam.fStartRadius) * beam.ExtraData.Speed * 0.03 / beam.fDistance
-      -- radius = keys.StartRadius + (enuma.fEndRadius - keys.StartRadius) * (newLoc - casterLocation):Length2D() / enuma.fDistance
-      ParticleManager:SetParticleControl(fxIndex, 2, Vector(radius,0,0))
-      -- DebugDrawCircle(newLoc, Vector(255,0,0), 0.5, radius, true, 0.15)
-      return 0.03
-    else
+  -- внутри ли точка линии: от точки каста до центра волны конус, впереди — круг волны
+  local function IsInWave(pos, front, radius)
+    local offset = pos - origin
+    offset.z = 0
+    local along = offset:Dot(frontward)
+    if along >= 0 and along <= front then
+      local width = start_radius + (end_radius - start_radius) * along / distance
+      if (offset - frontward * along):Length2D() <= width then return true end
+    end
+    return (pos - (origin + frontward * front)):Length2D() <= radius or offset:Length2D() <= start_radius
+  end
+
+  -- след волны: вихрь волны вдоль пройденной линии, радиус = ширина зоны урона в этом месте
+  local trail = {}
+  local circles = {} -- оранжевые круги (воронки следа и круги головы)
+  for _, fx in ipairs(headCircles) do table.insert(circles, fx) end
+  local next_mark = 0
+  -- свечение и вихрь тают сами, оранжевые круги убираем сразу: при мягком удалении они висят
+  local function DestroyTrail()
+    for _, fx in ipairs(trail) do
+      ParticleManager:DestroyParticle(fx, false)
+      ParticleManager:ReleaseParticleIndex(fx)
+    end
+    for _, fx in ipairs(circles) do
+      ParticleManager:DestroyParticle(fx, true)
+      ParticleManager:ReleaseParticleIndex(fx)
+    end
+    trail = {}
+    circles = {}
+  end
+  local function MarkTrail(front)
+    while next_mark <= front do
+      local width = start_radius + (end_radius - start_radius) * next_mark / distance
+      local fx = ParticleManager:CreateParticle("particles/custom/gilgamesh/enuma_elish/trail_glow.vpcf", PATTACH_WORLDORIGIN, nil)
+      ParticleManager:SetParticleControl(fx, 0, GetGroundPosition(origin + frontward * next_mark, nil))
+      ParticleManager:SetParticleControl(fx, 1, Vector(255,0,0))
+      ParticleManager:SetParticleControl(fx, 2, Vector(width,0,0))
+      table.insert(trail, fx)
+      local circle = ParticleManager:CreateParticle("particles/custom/gilgamesh/enuma_elish/trail_tornado.vpcf", PATTACH_WORLDORIGIN, nil)
+      ParticleManager:SetParticleControl(circle, 0, GetGroundPosition(origin + frontward * next_mark, nil))
+      ParticleManager:SetParticleControl(circle, 2, Vector(width,0,0))
+      table.insert(circles, circle)
+      next_mark = next_mark + width * 0.75
+    end
+  end
+
+  local dealt = {}
+  local elapsed = 0
+  local next_tick = 0
+
+  -- визуал двигается шагом 0.03, урон — каждые tick_interval по всей пройденной линии
+  Timers:CreateTimer(function()
+    if not IsNotNull(dummy) then
+      table.insert(trail, fxIndex) -- голова волны гаснет вместе со следом
+      DestroyTrail()
       return nil
     end
-  end)
-  Timers:CreateTimer(beam.fDistance / beam.ExtraData.Speed + 0.35, function() 
-    FxDestroyer(fxIndex,false)
-    dummy:RemoveSelf()
+
+    elapsed = math.min(elapsed + 0.03, total_time)
+    local progress = math.min(elapsed / travel_time, 1)
+    local front = distance * progress
+    local radius = start_radius + (end_radius - start_radius) * progress
+    dummy:SetAbsOrigin(GetGroundPosition(origin + frontward * front, dummy))
+    ParticleManager:SetParticleControl(fxIndex, 2, Vector(radius,0,0))
+    for _, fx in ipairs(headCircles) do
+      ParticleManager:SetParticleControl(fx, 2, Vector(radius,0,0))
+    end
+    MarkTrail(front)
+
+    if elapsed >= next_tick and IsNotNull(caster) and IsNotNull(self) then
+      next_tick = next_tick + tick
+      local search_center = origin + frontward * (front + radius) / 2
+      local search_radius = (front + radius) / 2 + math.max(start_radius, radius)
+      local enemies = FindUnitsInRadius(team, search_center, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+      for _, enemy in pairs(enemies) do
+        local id = enemy:entindex()
+        local already = dealt[id] or 0
+        local damage = math.min(per_tick, damage_total - already)
+        if damage > 0.5 and enemy:IsAlive() and IsInWave(enemy:GetAbsOrigin(), front, radius) then
+          if already == 0 then
+            local impactFx = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+            ParticleManager:ReleaseParticleIndex(impactFx)
+          end
+          dealt[id] = already + damage
+          if enemy:GetUnitName() == "gille_gigantic_horror" then damage = damage * 1.3 end
+          DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        end
+      end
+    end
+
+    if elapsed >= total_time then
+      table.insert(trail, fxIndex) -- голова волны гаснет вместе со следом
+      DestroyTrail()
+      -- dummy держим, пока голова не дотает: без него её частицы теряют контрольную точку и застывают
+      Timers:CreateTimer(2.0, function()
+        if IsNotNull(dummy) then dummy:RemoveSelf() end
+      end)
+      return nil
+    end
+    return 0.03
   end)
 end
 
@@ -129,8 +235,8 @@ function gilgamesh_enuma_elish:AfterChannelFin_Success()
   EmitGlobalSound("gilgamesh_enuma_elish") 
 
   Timers:CreateTimer(0.5,function()
-    self.tBeam = self:LaunchBeam("")    
-    self:VFX3_Projectile(caster)
+    if not IsNotNull(caster) then return end
+    self:ReleaseWave(caster)
   end)
   Timers:CreateTimer(0.8,function()
     self:DestroyAllVFX()
@@ -146,23 +252,6 @@ function gilgamesh_enuma_elish:AfterChannelFin_Fail()
   EndAnimation(caster)
   caster:StopSound("Hero_Dark_Seer.Wall_of_Replica_lp")
   self:DestroyAllVFX()
-end
-
-function gilgamesh_enuma_elish:OnProjectileHit_ExtraData(hTarget,vLocation,table)
-  --print("Someone got hit")
-  --print(hTarget)
-
-  if hTarget ~= nil then
-    if hTarget:HasModifier("modifier_enuma_elish_bandaid") then return end
-    local caster = self:GetCaster()
-    local damage = table.damage
-    if hTarget:GetUnitName() == "gille_gigantic_horror" then damage = damage * 1.3 end
-    DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-
-    hTarget:AddNewModifier(caster, self, "modifier_enuma_elish_bandaid", {Duration = 1.0 })
-
-    local PIOnTarget = FxCreator("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget,0,nil)
-  end
 end
 
 function gilgamesh_enuma_elish:GetBeamSpeed()

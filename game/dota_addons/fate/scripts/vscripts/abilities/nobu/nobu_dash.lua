@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 nobu_dash = class({})
 LinkLuaModifier("modifier_nobu_turnrate", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_dash_dmg", "abilities/nobu/nobu_dash", LUA_MODIFIER_MOTION_NONE)
@@ -178,7 +179,7 @@ function nobu_dash:Shot(keys, position)
         dummy:SetForwardVector((  target - position ):Normalized())
         local velocity = dummy:GetForwardVector()
 		if IsNotNull(caster) and caster:HasModifier("modifier_hero_selection_skin") then
-            dummy:EmitSound("lament_1")
+            SkinSoundPair(dummy, caster, "lament_1", "nobu_shoot_1")
         else
             dummy:EmitSound("nobu_shoot_1")
         end
@@ -231,7 +232,7 @@ function nobu_dash:OnProjectileHit(target, location )
         DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     end
 		if hCaster:HasModifier("modifier_hero_selection_skin") then
-            target:EmitSound("lament_3")
+            SkinSoundPair(target, hCaster, "lament_3", "nobu_shot_impact_"..math.random(1,2))
         else
             target:EmitSound("nobu_shot_impact_"..math.random(1,2))
         end

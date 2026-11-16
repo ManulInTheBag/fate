@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 modifier_gatekeeper = class({})
 
 function modifier_gatekeeper:OnCreated(keys)
@@ -130,9 +131,9 @@ function modifier_gatekeeper:RemoveParticlesAndDummy()
 			
 			if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-					caster:EmitSound("kim_gatekeeper_1")
+					SkinSoundPair(caster, caster, "kim_gatekeeper_1", "Sasaki_Gatekeeper_1")
 				else
-					caster:EmitSound("patrick_gatekeeper_1")
+					SkinSoundPair(caster, caster, "patrick_gatekeeper_1", "Sasaki_Gatekeeper_1")
 				end
 			else
 				caster:EmitSound("Sasaki_Gatekeeper_1")

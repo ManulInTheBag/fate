@@ -1,3 +1,4 @@
+require("libraries/skin_fx")
 modifier_rune_of_combat = class({})
 
 LinkLuaModifier("modifier_rune_of_combat_hit", "abilities/cu_chulain/modifiers/modifier_rune_of_combat_hit", LUA_MODIFIER_MOTION_NONE)
@@ -45,9 +46,9 @@ if IsServer() then
 		-- кольцо реальной досягаемости удара на бегу (та же дистанция, что проверяет IsValidVictim),
 		-- чтобы на глаз понимать, добьёт он цель на ходу или нет
 		local parent = self:GetParent()
-		self.ringFx = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+		self.ringFx = ParticleManager:CreateParticle(SkinParticle(self:GetParent(), "particles/zlodemon/zlodemon_basic_circle.vpcf"), PATTACH_ABSORIGIN_FOLLOW, parent)
 		ParticleManager:SetParticleControl(self.ringFx, 0, parent:GetAbsOrigin())
-		ParticleManager:SetParticleControl(self.ringFx, 1, Vector(1, 0.1, 0.1))
+		ParticleManager:SetParticleControl(self.ringFx, 1, SkinValue(parent, "rune_of_combat_ring_color", Vector(1, 0.1, 0.1)))
 		ParticleManager:SetParticleControl(self.ringFx, 2,
 			Vector(parent:Script_GetAttackRange() + ATTACK_RANGE_BUFFER, self:GetDuration(), 0))
 
@@ -299,5 +300,5 @@ function modifier_rune_of_combat:GetAttributes()
 end
 
 function modifier_rune_of_combat:GetStatusEffectName()
-	return "particles/status_fx/status_effect_beserkers_call.vpcf"
+	return SkinParticle(self:GetParent(), "particles/status_fx/status_effect_beserkers_call.vpcf")
 end

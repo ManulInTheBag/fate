@@ -549,7 +549,7 @@
 /* ---- Emote wheel layout editor overlay. ---- */
 .EmoteConfigPanel
 {
-	width: 520px;
+	width: 680px;  /* 9 palette cells per row: 17 emotes = 9 + 8 */
 	height: fit-children;
 	padding: 20px;
 	background-color: #16171af5;

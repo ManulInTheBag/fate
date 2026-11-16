@@ -4,6 +4,10 @@ require('abilities/rasputin/rasputin_bk')
 RASPUTIN_FINISH_TRAIL_PARTICLE =
 "particles/rasputin/rasputin_fall_trail_finisher.vpcf"
 
+-- Реплика на серии звучит только с этого числа зарядов: на коротких сериях
+-- голос был бы спамом.
+RASPUTIN_FINISHER_VO_STACKS = 5
+
 rasputin_finisher = class({})
 
 
@@ -64,7 +68,7 @@ LUA_MODIFIER_MOTION_NONE
 )
 
 
-local function FindWideKickTargets(caster)
+local function FindWideKickTargets(caster, radius)
 
     local targets = {}
 
@@ -73,10 +77,9 @@ local function FindWideKickTargets(caster)
         caster:GetTeamNumber(),
         caster:GetAbsOrigin(),
         nil,
-        9999,
+        radius or 9999,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO +
-        DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -103,9 +106,9 @@ local function FindWideKickTargets(caster)
 end
 
 
-local function FindWideKickGroup(caster, point, groupRadius, clicked)
+local function FindWideKickGroup(caster, point, groupRadius, clicked, castRadius)
 
-    local marked = FindWideKickTargets(caster)
+    local marked = FindWideKickTargets(caster, castRadius)
 
     if #marked == 0 then
         return {}
@@ -151,12 +154,13 @@ local function FindWideKickGroup(caster, point, groupRadius, clicked)
 
     local origin = primary:GetAbsOrigin()
 
-    local group = {}
+    -- основная цель всегда первая: по ней меряется разлёт группы
+    local group = { primary }
 
     for _,enemy in pairs(marked) do
 
-        if enemy == primary
-        or (enemy:GetAbsOrigin() - origin):Length2D() <= groupRadius
+        if enemy ~= primary
+        and (enemy:GetAbsOrigin() - origin):Length2D() <= groupRadius
         then
             table.insert(group, enemy)
         end
@@ -168,18 +172,13 @@ local function FindWideKickGroup(caster, point, groupRadius, clicked)
 end
 
 
-function rasputin_finisher:ComboReady()
+-- Общий гейт комбо: сам скилл на герое, статы добиты, комбо не на кулдауне.
+-- Отдельно от ComboReady, потому что Alt+F взводит комбо в первом же касте,
+-- когда comboArmedAt ещё не выставлен и второго нажатия не будет.
+function rasputin_finisher:ComboAvailable()
 
     local caster = self:GetCaster()
 
-
-    if not caster:HasModifier("modifier_rasputin_finisher_channel") then
-        return false
-    end
-
-    if not self.comboArmedAt then return false end
-
-    if GameRules:GetGameTime() < self.comboArmedAt then return false end
 
     if not caster:FindAbilityByName("rasputin_combo") then
         print("[RASPUTIN combo] rasputin_combo is not on the hero")
@@ -215,13 +214,42 @@ function rasputin_finisher:ComboReady()
 end
 
 
-function rasputin_finisher:TryCombo()
+function rasputin_finisher:ComboReady()
 
-    if not self:ComboReady() then return false end
+    local caster = self:GetCaster()
+
+
+    if not caster:HasModifier("modifier_rasputin_finisher_channel") then
+        return false
+    end
+
+    if not self.comboArmedAt then return false end
+
+    if GameRules:GetGameTime() < self.comboArmedAt then return false end
+
+    return self:ComboAvailable()
+
+end
+
+
+-- Взвести комбо: оно стартует в modifier_rasputin_finisher_channel:OnDestroy
+-- через StartArmedCombo.
+--
+-- ⚠️ Кулдаун здесь НЕ трогается. Раньше он уходил в момент взведения, и любое
+-- взведение, не дошедшее до старта (Распутин умер в серии, серию прервали),
+-- сжигало комбо на 160 секунд впустую - снаружи это выглядело как «комбо не
+-- работает вообще». Теперь кулдаун списывается там же, где комбо реально
+-- стартует, в StartArmedCombo.
+function rasputin_finisher:ArmCombo()
 
     local caster = self:GetCaster()
 
     local combo = caster:FindAbilityByName("rasputin_combo")
+
+    if not combo then
+        print("[RASPUTIN combo] ArmCombo: rasputin_combo не найден на герое")
+        return false
+    end
 
 
     combo.targets = self.targets
@@ -231,13 +259,40 @@ function rasputin_finisher:TryCombo()
 
     self.comboArmed = true
 
+    print("[RASPUTIN combo] взведено, стартует по окончании серии")
+
+    return true
+
+end
+
+
+-- Списать кулдаун комбо. Зовётся из StartArmedCombo, когда комбо уже точно
+-- уходит в работу.
+function rasputin_finisher:SpendComboCooldown(combo)
+
+    if not IsNotNull(combo) then return end
+
+    local caster = self:GetCaster()
 
     local cooldown = combo:GetCooldown(combo:GetLevel())
 
     combo:StartCooldown(cooldown)
 
 
-    if cooldown and cooldown > 0 then
+    -- копия комбо на втором мастере показывает кулдаун игроку
+    if IsNotNull(caster) and IsNotNull(caster.MasterUnit2) then
+
+        local masterCombo = caster.MasterUnit2:FindAbilityByName(combo:GetAbilityName())
+
+        if masterCombo then
+            masterCombo:EndCooldown()
+            masterCombo:StartCooldown(cooldown)
+        end
+
+    end
+
+
+    if cooldown and cooldown > 0 and IsNotNull(caster) then
 
         caster:AddNewModifier(
             caster,
@@ -250,7 +305,27 @@ function rasputin_finisher:TryCombo()
 
     end
 
-    return true
+end
+
+
+-- Взведённое комбо не состоялось (Распутин погиб в серии): снимаем взвод,
+-- чтобы следующее нажатие F не упёрлось в «Combo is already armed».
+function rasputin_finisher:CancelArmedCombo()
+
+    if not self.comboArmed then return end
+
+    self.comboArmed = nil
+
+    print("[RASPUTIN combo] взвод снят, комбо не состоялось")
+
+end
+
+
+function rasputin_finisher:TryCombo()
+
+    if not self:ComboReady() then return false end
+
+    return self:ArmCombo()
 
 end
 
@@ -265,7 +340,16 @@ function rasputin_finisher:StartArmedCombo()
 
     local combo = caster:FindAbilityByName("rasputin_combo")
 
-    if not combo then return end
+    if not combo then
+        print("[RASPUTIN combo] StartArmedCombo: rasputin_combo не найден")
+        return
+    end
+
+
+    -- комбо точно уходит в работу - вот теперь и платим кулдауном
+    self:SpendComboCooldown(combo)
+
+    print("[RASPUTIN combo] старт")
 
 
     local delay = combo:GetLevelSpecialValueFor("combo_start_delay", 0)
@@ -340,6 +424,21 @@ function rasputin_finisher:CastFilterResultLocation(location)
         return UF_SUCCESS
     end
 
+    -- комбо уже взведено этим же кастом через Alt+F - второе нажатие лишнее
+    if self.comboArmed
+    and caster:HasModifier("modifier_rasputin_finisher_channel")
+    then
+        self.customCastError = "Combo is already armed"
+        return UF_FAIL_CUSTOM
+    end
+
+    -- второе нажатие во время серии, но комбо не взведено (мало стаков)
+    if caster:HasModifier("modifier_rasputin_finisher_channel") then
+        self.customCastError =
+        "Combo needs " .. self:GetSpecialValueFor("combo_stacks_required") .. " charges"
+        return UF_FAIL_CUSTOM
+    end
+
 
     local counter =
     caster:FindModifierByName(
@@ -359,8 +458,13 @@ function rasputin_finisher:CastFilterResultLocation(location)
     end
 
 
-    if #FindWideKickTargets(caster) == 0 then
-        self.customCastError = "No enemies"
+    -- цель дальше cast_radius финишером не достаётся
+    if #FindWideKickTargets(
+        caster,
+        self:GetSpecialValueFor("cast_radius")
+    ) == 0
+    then
+        self.customCastError = "No enemies in range"
         return UF_FAIL_CUSTOM
     end
 
@@ -422,12 +526,23 @@ function rasputin_finisher:CreateTerritory(stacks)
     + t * (self:GetSpecialValueFor("territory_radius_max")
          - self:GetSpecialValueFor("territory_radius_min"))
 
-    local regen =
-    self:GetSpecialValueFor("territory_regen_min")
-    + t * (self:GetSpecialValueFor("territory_regen_max")
-         - self:GetSpecialValueFor("territory_regen_min"))
-
     local duration = self:GetSpecialValueFor("territory_duration")
+
+    -- суммарное восстановление за всю территорию на максимальных стаках
+    -- растёт от уровня героя; меньше стаков - пропорционально меньше
+    local total =
+    self:GetSpecialValueFor("territory_heal_total")
+    + self:GetSpecialValueFor("territory_heal_per_level") * math.max(caster:GetLevel() - 1, 0)
+
+    local minPct = self:GetSpecialValueFor("territory_heal_min_pct") / 100
+
+    total = total * (minPct + t * (1 - minPct))
+
+    local regen = 0
+
+    if duration > 0 then
+        regen = total / duration
+    end
 
     local perWave = self:GetSpecialValueFor("territory_stacks_per_wave")
 
@@ -442,6 +557,17 @@ function rasputin_finisher:CreateTerritory(stacks)
 
     if perWave > 0 then
         maxWaves = math.max(math.floor(cap / perWave), 1)
+    end
+
+
+    -- новая территория не продлевает старую, а заменяет её целиком:
+    -- старая гаснет (недоигранная волна очистки срабатывает сразу),
+    -- новая создаётся с нуля со своими радиусом/регеном/волнами/партиклем
+    local old = caster:FindModifierByName("modifier_rasputin_territory")
+
+    if old then
+        old:FinishEarly()
+        old:Destroy()
     end
 
 
@@ -535,7 +661,8 @@ function rasputin_finisher:OnSpellStart()
         caster,
         self:GetCursorPosition(),
         self:GetSpecialValueFor("group_radius"),
-        self:GetCursorTarget()
+        self:GetCursorTarget(),
+        self:GetSpecialValueFor("cast_radius")
     )
 
     if #targets == 0 then
@@ -696,8 +823,16 @@ function rasputin_finisher:OnSpellStart()
     )
 
 
-    self.comboArmedAt =
-    GameRules:GetGameTime() + self:GetSpecialValueFor("combo_press_gap")
+    -- второе нажатие F открывает комбо только с достаточного счётчика
+    self.comboArmedAt = nil
+
+    local comboStacksReady =
+    stacks >= self:GetSpecialValueFor("combo_stacks_required")
+
+    if comboStacksReady then
+        self.comboArmedAt =
+        GameRules:GetGameTime() + self:GetSpecialValueFor("combo_press_gap")
+    end
 
 
     local seenFor =
@@ -734,6 +869,36 @@ function rasputin_finisher:OnSpellStart()
     self.targets = targets
 
 
+    -- Alt+F: комбо взводится сразу этим же кастом и стартует по окончании серии,
+    -- второе нажатие F не нужно. Стаков не хватило или комбо недоступно -
+    -- каст просто отрабатывает как обычный финишер, без ошибки.
+    -- «Альтернативное использование» = автокаст, как у emiya_change: игрок
+    -- переключает его на иконке F, и тогда комбо взводится этим же кастом и
+    -- стартует по окончании серии, без второго нажатия F.
+    local altCast = self:GetAutoCastState()
+
+    print(string.format(
+        "[RASPUTIN combo] каст F: стаков %d из %d, альт-использование=%s",
+        stacks,
+        self:GetSpecialValueFor("combo_stacks_required"),
+        tostring(altCast)
+    ))
+
+    if comboStacksReady
+    and altCast
+    and self:ComboAvailable()
+    then
+        self:ArmCombo()
+    end
+
+
+    -- Голос серии. Если этим же кастом взведено комбо - молчим, у комбо своя
+    -- реплика (а если комбо взведут вторым нажатием, оно само оборвёт эту).
+    if stacks >= RASPUTIN_FINISHER_VO_STACKS and not self.comboArmed then
+        caster:EmitSound("rasputin_vo_finisher")
+    end
+
+
     if counter then
 
         counter:SetStackCount(0)
@@ -743,10 +908,60 @@ function rasputin_finisher:OnSpellStart()
 end
 
 
+-- Цель, которую унесло дальше drop_radius от основной, выпадает из серии:
+-- Распутин к ней больше не прыгает и не наносит ей урон, включая добивающий.
+function rasputin_finisher:PruneFarTargets()
+
+    local targets = self.targets
+
+    if not targets or #targets < 2 then return end
+
+
+    local anchor
+
+    for _,enemy in pairs(targets) do
+
+        if IsNotNull(enemy) and enemy:IsAlive() then
+            anchor = enemy
+            break
+        end
+
+    end
+
+    if not anchor then return end
+
+
+    local origin = anchor:GetAbsOrigin()
+
+    local limit = self:GetSpecialValueFor("drop_radius")
+
+
+    local kept = {}
+
+    for _,enemy in pairs(targets) do
+
+        if IsNotNull(enemy)
+        and (
+            enemy == anchor
+            or (enemy:GetAbsOrigin() - origin):Length2D() <= limit
+        )
+        then
+            table.insert(kept, enemy)
+        end
+
+    end
+
+    self.targets = kept
+
+end
+
+
 function rasputin_finisher:DealFinishDamage()
 
 
     local caster = self:GetCaster()
+
+    self:PruneFarTargets()
 
 
     if caster and not caster:IsNull() then
@@ -760,12 +975,28 @@ function rasputin_finisher:DealFinishDamage()
     end
 
 
-    local isMaxStacks =
-    (self.stacksUsed or 0) >= 10
+    caster:EmitSound("rasputin_finisher_end")
 
-    if isMaxStacks then
-        caster:EmitSound("rasputin_finisher_end")
-    end
+
+    -- Добивающий удар считается от номинальной суммы серии: сколько зарядов
+    -- потрачено, столько ударов и берём по значению из KV (реально нанесённый
+    -- урон не в счёт), и умножаем на finish_damage_percent.
+    local hits = self.stacksUsed or 0
+
+    local perHit =
+    RasputinScaleDamage(
+        caster,
+        self,
+        self:GetSpecialValueFor("tick_damage")
+    )
+    * (self.tickScale or 1)
+
+
+    local finishDamage =
+    hits
+    * perHit
+    * self:GetSpecialValueFor("finish_damage_percent")
+    / 100
 
     local pushDirection =
     self.pushDirection
@@ -785,19 +1016,7 @@ function rasputin_finisher:DealFinishDamage()
             )
 
 
-            local damage =
-            self:GetSpecialValueFor("finish_damage")
-
-            if isMaxStacks then
-
-                local missing =
-                enemy:GetMaxHealth() - enemy:GetHealth()
-
-                damage =
-                damage
-                + missing * self:GetSpecialValueFor("missing_hp_percent")
-
-            end
+            local damage = finishDamage
 
             DoDamage(
                 caster,
@@ -812,21 +1031,7 @@ function rasputin_finisher:DealFinishDamage()
             self:HealFromDamage(damage)
 
 
-            if not isMaxStacks then
-
-                enemy:AddNewModifier(
-                    caster,
-                    self,
-                    "modifier_stunned",
-                    {
-                        duration = self:GetSpecialValueFor("finish_stun")
-                    }
-                )
-
-            end
-
-
-            if isMaxStacks then
+            do
 
                 local finishDuration =
                 self:GetSpecialValueFor("finish_push_duration")

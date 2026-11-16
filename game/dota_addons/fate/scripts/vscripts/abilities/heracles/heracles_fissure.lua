@@ -1,12 +1,13 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 heracles_fissure = class({})
 
 function heracles_fissure:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "barbatos_attack2", caster)
+			SkinSoundPairAt(caster:GetAbsOrigin(), caster, "barbatos_attack2", "heracles_q_new_2")
 		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "matthias_q", caster)
+			SkinSoundPairAt(caster:GetAbsOrigin(), caster, "matthias_q", "heracles_q_new_2")
 		else
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_q_new_2", caster)
 		end
@@ -37,7 +38,9 @@ function heracles_fissure:OnSpellStart()
 	)
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "matthias_q_sfx", caster)
+			SkinSoundSplit(caster,
+				function(S) S.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "matthias_q_sfx", caster) end,
+				function(S) S.EmitSoundOnLocationWithCaster(pointEnd, "heracles_q_new_1", caster) end)
 		else
 			EmitSoundOnLocationWithCaster(pointEnd, "heracles_q_new_1", caster)
 		end

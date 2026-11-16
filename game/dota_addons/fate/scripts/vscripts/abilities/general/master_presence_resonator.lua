@@ -68,6 +68,9 @@ OnPRStart = function(keys)
 	    hero:AddNewModifier(target, nil, "modifier_vision_provider", { Duration = 2 })
     end
 
+    -- Billy the Kid, Young Outlaw Leader: мгновенное «чутьё» цели награды
+    if Billy_WantedPing then Billy_WantedPing(hero, true) end
+
     GameRules:SendCustomMessage("<font color='#58ACFA'>" .. FindName(hero:GetName()) .."</font>" ..  "<font color='#ff9900'>'s Master just used Presence Resonator!", 0, 0)
 
     if hero:GetName() == "npc_dota_hero_mirana" and hero.bIsIDAcquired then

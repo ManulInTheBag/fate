@@ -1,9 +1,15 @@
+require("libraries/skin_fx")
 modifier_protection_from_arrows_active = class({})
 
 if IsServer() then
 	function modifier_protection_from_arrows_active:OnCreated(args)
 		self:StartIntervalThink(0.033)
-		self:GetParent():EmitSound("cu_chulain_protection_start")
+		-- silent = 1: without start/end sounds (Rasputin's Dash applies this same
+		-- modifier for projectile dodging and already has a sound of its own)
+		self.silent = args and args.silent == 1
+		if not self.silent then
+			SkinEmitSound(self:GetParent(), self:GetParent(), "cu_chulain_protection_start")
+		end
 	end
 
 	function modifier_protection_from_arrows_active:OnIntervalThink()
@@ -13,14 +19,15 @@ if IsServer() then
 	end
 
 	function modifier_protection_from_arrows_active:OnDestroy()
-		self:GetParent():EmitSound("cu_chulain_protection_end")
+		if self.silent then return end
+		SkinEmitSound(self:GetParent(), self:GetParent(), "cu_chulain_protection_end")
 	
 	end
 end
 
 
 function modifier_protection_from_arrows_active:GetEffectName()
-	return "particles/items4_fx/cyclonic_barrier.vpcf"
+	return SkinParticle(self:GetParent(), "particles/items4_fx/cyclonic_barrier.vpcf")
 end
 
 function modifier_protection_from_arrows_active:GetEffectAttachType()

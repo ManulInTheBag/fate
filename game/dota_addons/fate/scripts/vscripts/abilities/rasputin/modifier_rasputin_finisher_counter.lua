@@ -305,6 +305,9 @@ function modifier_rasputin_finisher_counter:RefundCooldowns()
             and not ability:IsNull()
             and not string.find(ability:GetAbilityName(), "_attribute")
             and not ATTRIBUTE_ABILITIES[ability:GetAbilityName()]
+
+            -- кулдаун комбо стаками не сокращается
+            and ability:GetAbilityName() ~= "rasputin_combo"
         then
 
 

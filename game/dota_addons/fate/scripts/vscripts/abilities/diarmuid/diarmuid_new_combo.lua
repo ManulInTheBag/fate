@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 diarmuid_new_combo = class({})
 
 LinkLuaModifier("modifier_diar_model_swap", "abilities/diarmuid/diarmuid_new_combo", LUA_MODIFIER_MOTION_NONE)
@@ -20,7 +21,7 @@ function diarmuid_new_combo:OnAbilityPhaseStart()
 	    
    		end)
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("lucio_combo_1_voice")
+			SkinSoundPair(caster, caster, "lucio_combo_1_voice", "Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
 		else
 			caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
 		end	   
@@ -50,7 +51,7 @@ function diarmuid_new_combo:ActivateCombo(target)
 	       
    		end)
 	if caster:HasModifier("modifier_hero_selection_skin") then
-		caster:EmitSound("lucio_combo_2_voice")
+		SkinSoundPair(caster, caster, "lucio_combo_2_voice", nil)
 	end
 	caster:AddNewModifier(caster, self, "modifier_diar_combo_sequence_controller", {duration = self:GetSpecialValueFor("duration"), htarget = target:entindex()})
 	caster.combo_casted = true
@@ -343,10 +344,10 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 			self.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 25})
 		end
 		if self.hCaster:HasModifier("modifier_hero_selection_skin") then
-			self.target:EmitSound("lucio_combo_attack_3")
-			self.hCaster:EmitSound("lucio_combo_3_voice")
+			SkinSoundPair(self.target, self.hCaster, "lucio_combo_attack_3", "diar_new_combo_attack_3")
+			SkinSoundPair(self.hCaster, self.hCaster, "lucio_combo_3_voice", nil)
 			Timers:CreateTimer(0.3, function()
-				self.hCaster:EmitSound("lucio_combo_voice_4")
+				SkinSoundPair(self.hCaster, self.hCaster, "lucio_combo_voice_4", nil)
 			
 			end)
 		else
@@ -368,7 +369,7 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 		self.soundProckCount = self.soundProckCount +1
 		local particleName  = "particles/zlodemon/diar_combo/gae_dearg_target.vpcf"
 		if self.hCaster:HasModifier("modifier_hero_selection_skin") then
-			self.target:EmitSound("lucio_combo_attack_"..math.random(1,2))
+			SkinSoundPair(self.target, self.hCaster, "lucio_combo_attack_"..math.random(1,2), "diar_new_combo_attack_"..math.random(1,2))
 		else
 			self.target:EmitSound("diar_new_combo_attack_"..math.random(1,2))
 		end

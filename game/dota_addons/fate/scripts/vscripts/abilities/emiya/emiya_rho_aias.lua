@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_rho_aias = class({})
 
 LinkLuaModifier("modifier_rho_aias_emiya", "abilities/emiya/emiya_rho_aias", LUA_MODIFIER_MOTION_NONE)
@@ -17,7 +18,7 @@ function emiya_rho_aias:OnSpellStart()
 
 
 	if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_rho_aias")
+        SkinSoundPair(caster, caster, "emiya_skin_rho_aias", math.random(1,2) == 1 and "Archer.RhoAias" or "Emiya_Rho_Aias_Alt")
     else
 		local soundQueue = math.random(1,2)
 

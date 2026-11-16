@@ -14,13 +14,13 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
-		"LevelsBetweenUpgrades"		"1"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"		"2"
 		"MaxLevel"					"5"
 		// Кулдаун МЕЖДУ ударами связки. Полный (`full_cooldown`) ставится кодом
 		// после третьего удара — иначе связка недостижима.
-		"AbilityCooldown"			"0.8"
-		"AbilityManaCost"			"40"
+		"AbilityCooldown"			"0.5"
+		"AbilityManaCost"			"150"
 		// AbilityCastRange НЕ объявлен намеренно: с OVERSHOOT курсор задаёт
 		// только направление и точку приземления, дальность ничего не режет
 		// (так же сделан aoko_facebreaker)
@@ -43,9 +43,10 @@
 		}
 		"AbilityValues"
 		{
-			"damage"			"80 105 130 155 180"
-			"radius"			"350"
-			"arc_angle"			"120"
+			"damage"			"200 250 300 350 400"
+			// 24.09.2026: зоны расширены (было 350 / 120°) — попадать было неудобно
+			"radius"			"450"
+			"arc_angle"			"150"
 			"cast_point"			"0.15"		// стадии 1-2; читает GetCastPoint
 			"lunge_distance"			"450"		// потолок; фактическая — до курсора
 			"lunge_speed"			"1400"
@@ -57,11 +58,18 @@
 			// целиком, а деш обрывается раньше сам (дошёл / упёрся / встретил врага).
 			"lunge_duration"			"0.5"
 			"lunge_slam_delay"			"0.1"		// от остановки до удара мечом в землю
+			"lunge_stun"			"0.6"		// стан всем, кого задел удар выпада
 			// Ширина коридора, по которому выпад бьёт ВСЕХ, мимо кого пролетел.
 			// Без него цель, стоящая в первых lunge_no_stop_distance единицах,
 			// оставалась позади и в круг приземления уже не попадала.
-			"lunge_path_width"			"200"
-			"spin_radius"			"310"
+			"lunge_path_width"			"275"		// было 200
+			// Удар выпада об землю: круг вокруг себя (свой ключ, НЕ общий radius дуги)
+			// плюс полоса вертикального реза вперёд с заступом назад.
+			"lunge_slam_radius"			"375"		// было 350 (общий radius)
+			"lunge_line_length"			"600"
+			"lunge_line_width"			"175"		// ПОЛОВИНА ширины полосы
+			"lunge_line_back"			"100"		// заступ назад
+			"spin_radius"			"400"		// было 310
 			// Клип вертушки (ACT_3, round_slash1) — 29 кадров на 30 fps ≈ 0.97 c.
 			// Каст-пойнт обязан его покрывать, иначе прокрут обрубается движком
 			// (IGNORE_BACKSWING) — это и было «слишком быстро».
@@ -79,7 +87,7 @@
 			"hound_search"			"600"
 			// Урон укуса — процент от СИЛЫ героя, а не доля от урона удара:
 			// у танка со STR-скейлом послеобраз должен расти вместе с ним.
-			"hound_str_pct"			"60"		// % от силы героя
+			"hound_str_pct"			"75"		// % от силы героя
 			"chain_window"			"3.0"
 			"full_cooldown"			"7 6.5 6 5.5 5"
 		}
@@ -96,10 +104,10 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"1"
 		"MaxLevel"					"5"
-		"AbilityCooldown"			"18 17 16 15 14"
+		"AbilityCooldown"			"15 14 13 12 11"
 		"AbilityManaCost"			"200"
 		"AbilityCastRange"			"0"
 		"AbilityCastPoint"			"0"
@@ -116,22 +124,32 @@
 		"AbilityValues"
 		{
 			"duration"			"2.0"
-			"barrier_base"			"150 250 350 450 550"
-			"barrier_per_source"			"40 55 70 85 100"
+			"barrier_base"			"400"
+			"barrier_per_source"			"55 69 83 96 110"
 			// Потолок ровно вдвое от базы: подпиткой барьер можно самое большее
 			// удвоить. ⚠️ Он и есть главный ограничитель — скорострельные
 			// источники (пулемёт Ланселота: 10 попаданий в секунду) упираются в
 			// него меньше чем за секунду, и без потолка стойку было бы не пробить.
-			"barrier_cap"			"300 500 700 900 1100"
+			// Потолок на СУММУ подпитки за одну стойку, не на текущий барьер.
+			"barrier_gain_cap"			"550 690 825 960 1100"
 			"barrier_min_damage"			"25"		// удар слабее барьер не кормит
 			"barrier_gain_cd"			"0.03"		// общий кулдаун подпитки — один кадр
-			"slam_damage"			"100 160 220 280 340"
+			"slam_damage"			"200 250 300 350 400"
 			"slam_from_absorbed"			"50"		// % поглощённого уходит в удар
-			"slam_bonus_cap"			"200 300 400 500 600"
+			"slam_bonus_cap"			"300 375 450 525 600"
 			"slam_radius"			"350"
 			"slam_delay"			"0.15"		// замах: урон приходит не мгновенно
 			"slam_arc_angle"			"180"		// сектор эффекта удара: полукруг перед собой
 			"slam_anim_tail"			"0.5"		// сколько клип удара живёт ПОСЛЕ slam_delay
+			// Быстрая отмена в R: W сразу (за quick_cancel_window после каста) оборвали
+			// кастом R — удара нет, мана возвращается, остаток барьера висит ещё
+			// quick_cancel_barrier секунд (modifier_barghest_w_guard).
+			"quick_cancel_window"			"1.0"
+			"quick_cancel_mana"			"100"
+			"quick_cancel_barrier"			"2.0"
+			// Сколько после раннего обрыва стойки (мувом, стопом, чем угодно) ещё можно
+			// нажать R и получить быструю отмену. Не нажали — обычный конец стойки.
+			"quick_cancel_wait"			"1.0"
 		}
 	}
 
@@ -150,14 +168,15 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
-		"LevelsBetweenUpgrades"		"2"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"LevelsBetweenUpgrades"		"1"
 		"MaxLevel"					"5"
-		"AbilityCooldown"			"22 21 20 19 18"
-		"AbilityManaCost"			"400"
+		"AbilityCooldown"			"16 15 14 13 12"
+		"AbilityManaCost"			"200"
 		"AbilityCastRange"			"1100"
 		"AbilityCastPoint"			"0.1"
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_2"
+		"LinkedAbilities"			"barghest_e_bite"
 		"precache"
 		{
 			"particle"			"particles/barghest/barghest_rush_e.vpcf"
@@ -171,16 +190,22 @@
 		{
 			"charge_time"			"2.0"
 			"min_distance"			"350"
-			"max_distance"			"1700"
-			"speed"			"1700"
+			"max_distance"			"2000"
+			"speed"			"2000"
 			"grab_radius"			"120"		// на таком расстоянии рывок врезается во врага
+			// Препятствие тоньше этого рывок проходит насквозь (стенки, порожки,
+			// деревья, мелкие объекты); толще — здание, о него останавливается.
+			"wall_pass_depth"			"250"
 			"turn_rate"			"260"		// градусов в секунду: доворот ПО ХОДУ рывка
 			"chain_duration"			"1.0 1.25 1.5 1.75 2.0"
 			"chain_min_pct"			"50"		// % длительности даже при нулевом заряде
-			"chain_damage"			"40 60 80 100 120"
-			// Обе строки читаются только с четвёртым атрибутом (Fang Unbound).
+			"chain_damage"			"100 125 150 175 200"
+			// ⚠️ СТАН отдельно от цепей и ВСЕГДА один и тот же — на всех уровнях
+			// и при любом заряде (modifier_barghest_e_stun). Длительность цепей
+			// (рут + горение) считается зарядом и на стан не влияет.
+			"stun_duration"			"0.75"
+			// Читается только с четвёртым атрибутом (Fang Unbound).
 			"e_str_pct"			"50"		// % от силы героя к урону рывка
-			"chain_stun_min"			"0.75"		// пол длительности цепей, с
 			"chain_interval"			"0.5"
 			// Подмена кнопки на «отпустить» — не в тот же кадр, иначе нажатие,
 			// которым начали зарядку, тут же её и оборвёт.
@@ -206,6 +231,121 @@
 	}
 
 	//=====================================
+	// Bite of the Black Dog — рекаст E (подменяет E, пока цель в цепях)
+	//=====================================
+	"barghest_e_bite"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_e_bite"
+		// ⚠️ Иконка ВРЕМЕННАЯ: копия barghest_f, своего арта пока нет.
+		"AbilityTextureName"		"custom/barghest/barghest_e_bite"
+		// Скрытая и ненаращиваемая: её открывает атрибут Fang Unbound, а
+		// показывает подмена кнопки E на время цепей. ROOT_DISABLES — из-за
+		// рывка к цели.
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		// Уровень тянется за E (Barghest_BiteArm), сам не качается.
+		"LevelsBetweenUpgrades"		"2"
+		"MaxLevel"					"5"
+		"AbilityCooldown"			"20"
+		"AbilityManaCost"			"100"
+		"AbilityCastPoint"			"0"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+		"precache"
+		{
+			"particle"			"particles/barghest/barghest_rush_e.vpcf"
+			"particle"			"particles/barghest/barghest_barrier.vpcf"
+			"particle"			"particles/barghest/barghest_lifesteal.vpcf"
+			"particle"			"particles/units/heroes/hero_life_stealer/life_stealer_open_wounds_impact.vpcf"
+			"particle"			"particles/units/heroes/hero_life_stealer/life_stealer_open_wounds.vpcf"
+			"particle"			"particles/zlodemon/immunity_sphere_buff.vpcf"
+		}
+		"AbilityValues"
+		{
+			"bite_damage"			"400"
+			"bite_anim_len"			"0.87"		// длина клипа укуса (ACT_DOTA_CAST_GHOST_SHIP, кадры 805-830 @30fps)
+			"bite_anim_rate"			"1.0"		// скорость проигрывания; 1.0 = как в модели
+			"bite_hit_delay"			"0.45"		// зубы смыкаются ~на 13 кадре клипа (13/30 с): тогда урон, кража, брызги
+			"bite_blood_duration"			"3.0"		// сколько с жертвы капает кровь
+			"bite_str_pct"			"60"		// % от силы сверх базового урона
+			"heal_pct"			"80"		// % нанесённого урона возвращается здоровьем
+			"steal_duration"			"10"		// сколько держится краденый эффект
+			"dash_speed"			"1800"
+			"dash_max_distance"			"900"		// дальше цели рывок не тянется
+			"bite_radius"			"150"		// на таком расстоянии рывок кончается укусом
+			"dash_anim_tail"			"0.15"		// запас времени модификатора рывка сверх расчётного
+			// Saber: барьер только против магического урона
+			"saber_barrier"			"600"
+			// Archer: обзор и истинное зрение
+			"archer_vision"			"500"
+			"archer_true_sight"			"500"
+			// Lancer: съедает одно заклинание, восстанавливается через
+			"lancer_recharge"			"3"
+			// Rider: проход сквозь юнитов, скорость и иммунитет к замедлению
+			"rider_ms_pct"			"30"
+			// Assassin: через сколько секунд покоя невидимость возвращается
+			"assassin_fade"			"1.0"
+			"assassin_reveal_damage"			"300"		// урон не больше этого невидимость не сбивает (по слову юзера — всегда 300)
+			// Caster: регенерация
+			"caster_mana_regen"			"100"
+			"caster_hp_regen"			"50"
+			// Berserker: больше даёт и больше получает
+			"berserker_outgoing_pct"			"20"
+			"berserker_incoming_pct"			"15"
+			"berserker_str"			"25"
+			// EXTRA: понемногу всего
+			"extra_stats"			"15"
+			"extra_armor"			"5"
+			"extra_mr"			"10"
+			"extra_ms_pct"			"8"
+			"extra_attack_damage"			"30"
+			"extra_hp_regen"			"12"
+			"extra_mana_regen"			"12"
+			"extra_vision"			"250"
+		}
+	}
+
+	//=====================================
+	// Hound's Fury (D)
+	//=====================================
+	"barghest_d"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/barghest/barghest_d"
+		// ⚠️ Иконка ВРЕМЕННАЯ: арт F в красном, своего ещё нет.
+		"AbilityTextureName"		"custom/barghest/barghest_d"
+		// Мгновенный самобаф: без каст-пойнта и анимации, чтобы жалось посреди связки.
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"LevelsBetweenUpgrades"		"25"
+		"MaxLevel"					"1"
+		"AbilityCooldown"			"45"
+		"AbilityManaCost"			"0"
+		"AbilityCastPoint"			"0"
+		"precache"
+		{
+			"particle"			"particles/econ/items/lifestealer/ls_ti9_immortal/status_effect_ls_ti9_open_wounds.vpcf"
+			"particle"			"particles/barghest/barghest_small_explosion.vpcf"
+		}
+		"AbilityValues"
+		{
+			"duration"			"10"
+			"bonus_str"			"30"
+			"bonus_ms_pct"			"20"		// % скорости передвижения
+			// Счётчик урона: сработка, когда за время бафа СУММАРНО получено
+			// threshold_pct % макс. HP. Каждый следующий порог ниже на threshold_step,
+			// но не ниже threshold_min (50 -> 40 -> 30 -> 20 -> 20...). Остаток сверх
+			// порога переносится дальше. Считает modifier_barghest_d.
+			"threshold_pct"			"50"
+			"threshold_step"			"10"
+			"threshold_min"			"20"
+			"cd_reduce"			"5"		// на сколько секунд режутся кулдауны Q/W/E/R за сработку
+			"mana_restore"			"100"		// сколько маны заливает каждая сработка
+		}
+	}
+
+	//=====================================
 	// Blood of the Beast
 	//=====================================
 	"barghest_f"
@@ -213,13 +353,14 @@
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"abilities/barghest/barghest_f"
 		"AbilityTextureName"		"custom/barghest/barghest_f"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// NOT_LEARNABLE обязателен: без него при MaxLevel 2 пассивку можно было
+		// вкачать очками. Уровень 2 открывает ТОЛЬКО атрибут barghest_attribute_2
+		// (так же сделано у cu_alter_roar).
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"1"
-		// Уровень 2 не качается обычным путём — его открывает атрибут
-		// barghest_attribute_2 (так же сделано у cu_alter_roar).
 		"MaxLevel"					"2"
 		"AbilityCooldown"			"0"
 		"AbilityManaCost"			"0"
@@ -236,9 +377,17 @@
 		"AbilityValues"
 		{
 			// Второе значение — уровень 2, его выдаёт barghest_attribute_2.
-			"bonus_mr"			"8 14"
-			"lifesteal_pct"			"12 18"
-			"lifesteal_per_frenzy"			"2 3"
+			// МР и броня растут с числом вражеских Слуг в enemy_radius:
+			// bonus + per_enemy * N, N не больше max_enemies (5 врагов, ур.1:
+			// 20% МР / 3.5 брони; ур.2: 27% / 5.75). Считает modifier_barghest_f.
+			"bonus_mr"			"0"
+			"mr_per_enemy"			"3 4"
+			"bonus_armor"			"0"
+			"armor_per_enemy"			"1 1.5"
+			"enemy_radius"			"1000"
+			"max_enemies"			"5"
+			"lifesteal_pct"			"15 25"
+			"lifesteal_per_frenzy"			"3 4"
 		}
 	}
 
@@ -255,11 +404,11 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"		"2"
 		"MaxLevel"					"5"
-		"AbilityCooldown"			"1"
-		"AbilityManaCost"			"75"
+		"AbilityCooldown"			"0.5"
+		"AbilityManaCost"			"140"
 		"AbilityCastPoint"			"0.2"
 		// перекрывается GetCastAnimation: у каждой ветки своя
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
@@ -276,21 +425,29 @@
 		"AbilityValues"
 		{
 			"window"			"2"
-			"damage"			"120 170 220 270 320"
+			"damage"			"200 250 300 350 400"
 			// Прибавка ко ВСЕМ веткам R за третий атрибут (Galatine's Ember).
 			// Без атрибута не читается вовсе — см. barghest_r:GetBranchDamage.
-			"str_pct"			"50"		// % от силы героя
-			"radius"			"300"
-			"arc_angle"			"120"
+			"str_pct"			"75"		// % от силы героя
+			// Огненная дуга Q1R — шире и дальше обычной дуги Q (было 300 / 120°)
+			"radius"			"500"
+			"arc_angle"			"160"
 			// Удар снизу бьёт ближе и уже общей зоны ветки, но не «пиксель в
 			// пиксель под эффект»: с 210 (0.7 от radius) и сектором 120 попасть
 			// в бою было почти нереально.
-			"uppercut_radius"			"260"
-			"uppercut_arc_angle"			"160"
+			"uppercut_radius"			"400"		// было 260
+			// Полный круг: зона R2 обязана НАКРЫВАТЬ зону Q2 (круг lunge_slam_radius
+			// + полоса lunge_line_*), иначе попал Q2 — а R2 по тому же врагу мажет.
+			// При правке Q2 держать uppercut_* не меньше lunge_*.
+			"uppercut_arc_angle"			"360"		// было 160
+			// Рез снизу вертикальный — бьёт ещё и полосой вперёд с заступом назад
+			"uppercut_line_length"			"650"
+			"uppercut_line_width"			"200"		// ПОЛОВИНА ширины полосы
+			"uppercut_line_back"			"125"		// заступ назад
 			"uppercut_duration"			"0.6"
 			"uppercut_height"			"600"		// на сколько подбрасывает
 			"uppercut_push"			"40"		// почти без сдвига: вверх, а не от себя
-			"slam_radius"			"350"
+			"slam_radius"			"475"		// было 350
 			// ⚠️ Каст-пойнт считает GetCastPoint в lua, а не AbilityCastPoint:
 			// у волны замах длиннее. AbilityCastPoint в KV = `cast_point`, он же
 			// уходит в тултип через %AbilityCastPoint% — держать их равными.
@@ -308,17 +465,23 @@
 			"wave_width"			"200"			// он же радиус проджектайла волны
 			"wave_speed"			"3000"
 			"wave_hit_radius"			"200"		// радиус разлёта урона в точке попадания
-			"wave_ministun"			"0.3"
+			"wave_ministun"			"1"
 			"cd_refund"			"1.0"
 			"frenzy_duration"			"6.0"
-			"frenzy_as"			"8"
+			"frenzy_str"			"5"			// сила за стак разгона
+			"frenzy_str_attr"			"10"		// то же с атрибутом barghest_attribute_1
+			"frenzy_ms"			"10"		// скорость за стак разгона, плоская (не %)
+			"frenzy_ms_attr"			"20"		// то же с атрибутом barghest_attribute_1
+			"frenzy_mana_regen"			"2"		// реген маны за стак
+			"frenzy_mana_regen_attr"			"4"		// то же с атрибутом barghest_attribute_1
+														// (копия в атрибуте — ТОЛЬКО для тултипа, держать равными)
 			"frenzy_max"			"5"
 			// Дот горения — включается атрибутом barghest_attribute_3
 			// (флаг BarghestAttr3Acquired на герое). ⚠️ Значения в самом
 			// атрибуте — ТОЛЬКО для тултипа, держать равными.
-			"burn_damage"			"20"		// урон в секунду ЗА СТАК
-			"burn_duration"			"4"
-			"burn_max_stacks"			"5"
+			"burn_damage"			"40"		// урон в секунду ЗА СТАК
+			"burn_duration"			"5"
+			"burn_max_stacks"			"15"
 			"burn_interval"			"0.5"		// как часто тикает
 		}
 	}
@@ -333,7 +496,7 @@
 		"AbilityTextureName"		"custom/barghest/barghest_combo"
 		// OVERSHOOT — курсор задаёт только направление рубящего удара, дальность
 		// каста героя за собой не тащит (так же сделаны Q и R).
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
@@ -380,7 +543,7 @@
 			"cleave_tail"			"0.6"		// сколько клип удара живёт после урона
 			"cleave_radius"			"700"		// ⚠️ уже посчитан под гиганта: radius_mult к нему НЕ применяется
 			"cleave_angle"			"200"		// «широкий» — сектор шире полукруга
-			"cleave_damage"			"600"
+			"cleave_damage"			"1500"
 			"cleave_str_pct"			"100"		// % от силы (уже умноженной на str_mult)
 			"cleave_stun"			"1.2"
 			// Состояние гиганта. Отсчёт идёт ПОСЛЕ удара: модификатор живёт
@@ -394,8 +557,8 @@
 			// Полоска HP считается от модели: у гиганта её надо поднять руками,
 			// иначе висит на уровне пояса. = HealthBarOffset героя (220) * model_scale.
 			"healthbar_offset"			"352"
-			"bonus_armor"			"15"
-			"bonus_mr"			"30"
+			"bonus_armor"			"3"
+			"bonus_mr"			"15"
 			"str_mult"			"2.5"		// сила умножается на столько, снимком в момент роста
 			"bonus_ms_pct"			"25"		// % скорости передвижения: туша большая, шаг длиннее
 			// Во столько раз растёт дальность ВСЕХ её рывков: выпад Q, рывок E,
@@ -426,18 +589,21 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_chain_1"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_1"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"10"
 
 		"AbilityValues"		// только для тултипа; TODO: перенести в barghest_q при реализации
 		{
-			"hound_str_pct"				"60"		// % от силы героя
+			"hound_str_pct"				"75"		// % от силы героя
 			"hound_delay"				"0.35"		// через сколько бьёт послеобраз
+			"frenzy_str"				"10"		// сила за стак разгона R (рабочее число — frenzy_str_attr в barghest_r)
+			"frenzy_ms"				"20"		// копия frenzy_ms_attr из barghest_r (только тултип)
+			"frenzy_mana_regen"			"4"		// копия frenzy_mana_regen_attr из barghest_r (только тултип)
 		}
 	}
 
@@ -447,19 +613,20 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_f"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_2"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"8"
 
 		"AbilityValues"		// только для тултипа; рабочие числа — в barghest_f
 		{
-			"bonus_mr"					"14"
-			"lifesteal_pct"				"18"
-			"lifesteal_per_frenzy"		"3"
+			"mr_per_enemy"				"4"
+			"armor_per_enemy"			"1.5"
+			"lifesteal_pct"				"25"
+			"lifesteal_per_frenzy"		"4"
 		}
 	}
 
@@ -469,38 +636,37 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_chain_1"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_4"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"14"
+		"AbilityManaCost"				"10"
 
 		"AbilityValues"		// только для тултипа, рабочие числа лежат в barghest_e
 		{
 			"e_str_pct"					"50"		// % от силы героя к урону рывка
-			"chain_stun_min"			"0.75"		// пол длительности цепей, с
 		}
 	}
 	"barghest_attribute_3"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/barghest/barghest_attributes"
-		"AbilityTextureName"			"custom/barghest/barghest_cont_3"
+		"AbilityTextureName"			"custom/barghest/barghest_attribute_3"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"14"
+		"AbilityManaCost"				"16"
 
 		"AbilityValues"		// только для тултипа; TODO: перенести в barghest_r при реализации
 		{
-			"str_pct"					"50"		// % от силы ко всем веткам R (копия из barghest_r)
-			"burn_damage"				"20"		// урон в секунду за стак
-			"burn_duration"				"4"
-			"burn_max_stacks"			"5"
+			"str_pct"					"75"		// % от силы ко всем веткам R (копия из barghest_r)
+			"burn_damage"				"40"		// урон в секунду за стак
+			"burn_duration"				"5"
+			"burn_max_stacks"			"15"
 		}
 	}
 

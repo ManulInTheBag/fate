@@ -1,10 +1,17 @@
 modifier_dirk_poison = class({})
 
+require("libraries/effect_bars")
+
 LinkLuaModifier("modifier_weakening_venom", "abilities/true_assassin/modifiers/modifier_weakening_venom", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dirk_poison_slow", "abilities/true_assassin/modifiers/modifier_dirk_poison_slow", LUA_MODIFIER_MOTION_NONE)
 
+-- Урон яда наносит этот скрытый модификатор, а стаки лежат в
+-- modifier_dirk_poison_slow (+ modifier_weakening_venom). Значок яда в ряду
+-- эффектов (panorama effect_bars.js) складывает их и тускнеет, когда этого
+-- модификатора нет или стаков 0 - тогда урон не идёт.
 function modifier_dirk_poison:OnCreated(table)
 	if IsServer() then
+		EffectBars:Track(self)
 		self.PoisonDamage = table.PoisonDamage * 0.5
 		self.PoisonSlow	= table.PoisonSlow
 
@@ -19,6 +26,12 @@ end
 
 function modifier_dirk_poison:OnRefresh(table)
 	self:OnCreated(table)
+end
+
+function modifier_dirk_poison:OnDestroy()
+	if IsServer() then
+		EffectBars:Untrack(self)
+	end
 end
 
 function modifier_dirk_poison:OnIntervalThink()

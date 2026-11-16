@@ -2,7 +2,7 @@ require("abilities/barghest/barghest_shared")
 
 barghest_combo = class({})
 
---[[ Комбо — Black Dog Galatine (D)
+--[[ Комбо — Black Dog Galatine (слот Ability12; кнопка — из "Combo" в hero.kv)
 
      Barghest после короткой подготовки вырастает в `model_scale` раз и рубит дугой
      перед собой, а дальше `giant_duration` секунд держит это состояние:
@@ -25,7 +25,7 @@ barghest_combo = class({})
 
 LinkLuaModifier("modifier_barghest_combo_lock",  "abilities/barghest/barghest_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barghest_combo_giant", "abilities/barghest/barghest_combo", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_barghest_combo_cd", "abilities/barghest/barghest_combo", LUA_MODIFIER_MOTION_NONE)
 --[[ Значения читаем с ЯВНЫМ индексом уровня, а не через GetSpecialValueFor.
      Комбо живёт на MaxLevel 1, и если его уровень по какой-то причине остался
      нулевым (не прошёл LevelAllAbility, пересоздали способность, отобрал
@@ -61,7 +61,12 @@ function barghest_combo:OnSpellStart()
     if not IsServer() then return end
     local hCaster = self:GetCaster()
     if hCaster:HasModifier("modifier_barghest_combo_lock") then return end
-
+    local masterCombo = hCaster.MasterUnit2 and hCaster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+	if masterCombo then
+		masterCombo:EndCooldown()
+		masterCombo:StartCooldown(self:GetCooldown(self:GetLevel()))
+	end
+	hCaster:AddNewModifier(hCaster, self, "modifier_barghest_combo_cd", { duration = self:GetCooldown(self:GetLevel()) })
     -- Курсор задаёт только направление удара: способность OVERSHOOT, пешком
     -- за курсором она не идёт (так же сделаны Q и R).
     local vDir = self:GetCursorPosition() - hCaster:GetAbsOrigin()
@@ -83,6 +88,7 @@ function barghest_combo:OnSpellStart()
          большая. Мгновенный «щелчок» размера читался как баг. ]]
     hCaster:AddNewModifier(hCaster, self, "modifier_barghest_combo_giant",
         {duration = fPrep + fHit + self:Value("giant_duration")})
+    -- Конус обзора (barghest_vision_cone.lua) отсюда переехал на D (barghest_d).
 
     -- Реплика идёт через общий голосовой канал: раньше фраза, крик роста и
     -- крик удара звучали втроём внахлёст.
@@ -92,7 +98,7 @@ function barghest_combo:OnSpellStart()
         activity = ACT_DOTA_CHANNEL_ABILITY_1, rate = 1.0})
 
     -- Подготовка: свечение растёт на самой Barghest, снимаем его в момент роста.
-    local nPrepFx = ParticleManager:CreateParticle(BARGHEST_FX.CHARGE,
+    local nPrepFx = ParticleManager:CreateParticle(Barghest_SkinFx(BARGHEST_FX.CHARGE, hCaster),
         PATTACH_ABSORIGIN_FOLLOW, hCaster)
 
     local hAbility = self
@@ -266,10 +272,12 @@ function modifier_barghest_combo_giant:OnCreated()
     --[[ ⚠️ Геттера обзора в API может не оказаться — тогда берём базу из KV
          (`base_vision`, держать равным VisionDaytimeRange в hero.kv).
          Без этого прибавка обзора молча не работала бы. ]]
-    self.fDay    = (type(hParent.GetDayTimeVisionRange) == "function")
-                   and hParent:GetDayTimeVisionRange() or hAbility:Value("base_vision")
-    self.fNight  = (type(hParent.GetNightTimeVisionRange) == "function")
-                   and hParent:GetNightTimeVisionRange() or hAbility:Value("base_vision")
+    --[[ ⚠️ Именно БАЗОВЫЙ обзор, а не GetDayTimeVisionRange: тот отдаёт текущий,
+         и под конусом D (FIXED-обзор 200) гигант раздувал 200 вместо 1000. ]]
+    self.fDay    = (type(hParent.GetBaseDayTimeVisionRange) == "function")
+                   and hParent:GetBaseDayTimeVisionRange() or hAbility:Value("base_vision")
+    self.fNight  = (type(hParent.GetBaseNightTimeVisionRange) == "function")
+                   and hParent:GetBaseNightTimeVisionRange() or hAbility:Value("base_vision")
 
     self.fMult   = hAbility:Value("model_scale")
     self.fGrow   = hAbility:Value("grow_time")
@@ -308,6 +316,7 @@ function modifier_barghest_combo_giant:Apply(fT)
             + (self.fBarFull - self.fBarBase) * fT))
     end
     -- Обзор растёт линейно вместе с размером: смотрит она с высоты.
+    
     if self.fDay ~= nil then
         hParent:SetDayTimeVisionRange(self.fDay + self.fVision * fT)
     end
@@ -315,6 +324,8 @@ function modifier_barghest_combo_giant:Apply(fT)
         hParent:SetNightTimeVisionRange(self.fNight + self.fVision * fT)
     end
 end
+
+local COMBO_FLY_INTERVAL = 0.5   -- как часто обновляем fly vision гиганта
 
 function modifier_barghest_combo_giant:OnIntervalThink()
     if not IsServer() then return end
@@ -330,6 +341,23 @@ function modifier_barghest_combo_giant:OnIntervalThink()
         fT = math.max(0, fLeft / self.fShrink)
     end
     self:Apply(fT)
+
+    --[[ Fly vision, пока она гигант: смотрит поверх деревьев и обрывов.
+         MODIFIER_STATE_FLYING обзор сквозь препятствия больше не даёт (апдейт
+         Доты 18.07.2026), работает только AddFOWViewer с obstructed = false —
+         тот же катящийся вьювер, что в modifier_fate_flying_vision.
+         ⚠️ Под конусом D круг не ставим — обзор остаётся конусом, но конус
+         сам смотрит сквозь препятствия, пока она гигант (barghest_vision_cone),
+         а его радиус растёт вместе с её обзором. ]]
+    if fNow >= (self.fNextFly or 0) then
+        self.fNextFly = fNow + COMBO_FLY_INTERVAL
+        local hParent = self:GetParent()
+        if not hParent:HasModifier("modifier_barghest_vision_cone") then
+            local fBase = GameRules:IsDaytime() and self.fDay or self.fNight
+            AddFOWViewer(hParent:GetTeamNumber(), hParent:GetAbsOrigin(),
+                fBase + self.fVision * fT, COMBO_FLY_INTERVAL + 0.1, false)
+        end
+    end
 end
 
 function modifier_barghest_combo_giant:OnDestroy()
@@ -340,11 +368,24 @@ function modifier_barghest_combo_giant:OnDestroy()
     -- сдувания, и без этого она воскресла бы полугигантом.
     FateSetModelScaleMult(hParent, "barghest_giant", nil)
     if self.fHull  ~= nil then hParent:SetHullRadius(self.fHull) end
-    if self.fDay   ~= nil then hParent:SetDayTimeVisionRange(self.fDay) end
-    if self.fNight ~= nil then hParent:SetNightTimeVisionRange(self.fNight) end
+    if self.fDay   ~= nil then hParent:SetDayTimeVisionRange(self:GetAbility():Value("base_vision")) end
+    if self.fNight ~= nil then hParent:SetNightTimeVisionRange(self:GetAbility():Value("base_vision")) end
     if type(hParent.SetHealthBarOffsetOverride) == "function" then
         hParent:SetHealthBarOffsetOverride(-1)
     end
     -- Ужавшись, она может оказаться внутри чужого хитбокса — расталкиваем.
     FindClearSpaceForUnit(hParent, hParent:GetAbsOrigin(), true)
+end
+
+modifier_barghest_combo_cd = modifier_barghest_combo_cd or class({})
+
+function modifier_barghest_combo_cd:IsHidden()      return false end
+function modifier_barghest_combo_cd:IsDebuff()      return true end
+function modifier_barghest_combo_cd:IsPurgable()    return false end
+function modifier_barghest_combo_cd:RemoveOnDeath() return false end
+
+
+
+function modifier_barghest_combo_cd:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

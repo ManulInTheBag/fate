@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_madmans_roar_slow_moderate", "abilities/heracles/pepeg_roar", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_madmans_roar_slow_strong", "abilities/heracles/pepeg_roar", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_madmans_roar_cooldown", "abilities/heracles/pepeg_roar", LUA_MODIFIER_MOTION_NONE)
@@ -72,11 +73,11 @@ function berserker_5th_madmans_roar:OnSpellStart()
 	local soundQueue = math.random(1,100)
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitGlobalSound("barbatos_roar")
-			EmitSoundOn("barbatos_bgm", caster)
+			SkinSoundPairGlobal(caster, "barbatos_roar", "berserker_roar_02")
+			SkinSoundPair(caster, caster, "barbatos_bgm", nil)
 		elseif caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 3 then
-			EmitGlobalSound("matthias_roar")
-			EmitSoundOn("matthias_theme", caster)
+			SkinSoundPairGlobal(caster, "matthias_roar", "berserker_roar_02")
+			SkinSoundPair(caster, caster, "matthias_theme", nil)
 		else
 			EmitGlobalSound("berserker_roar_02")
 		end

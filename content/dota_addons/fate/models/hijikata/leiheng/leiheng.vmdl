@@ -1,0 +1,1258 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "lh_face.vmat"
+								to = "models/hijikata/leiheng/lh_face.vmat"
+							},
+							{
+								from = "lh_neck.vmat"
+								to = "models/hijikata/leiheng/lh_neck.vmat"
+							},
+							{
+								from = "lh_hair.vmat"
+								to = "models/hijikata/leiheng/lh_hair.vmat"
+							},
+							{
+								from = "lh_coat.vmat"
+								to = "models/hijikata/leiheng/lh_coat.vmat"
+							},
+							{
+								from = "lh_atlas.vmat"
+								to = "models/hijikata/leiheng/lh_atlas.vmat"
+							},
+							{
+								from = "lh_suit.vmat"
+								to = "models/hijikata/leiheng/lh_suit.vmat"
+							},
+							{
+								from = "lh_gunblade.vmat"
+								to = "models/hijikata/leiheng/lh_gunblade.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "leiheng"
+						children = 
+						[
+							{
+								_class = "RenderMeshMarkup"
+								material_search_path = ""
+								use_expensive_tangents = false
+								high_high_precision_texcoords = true
+								calc_per_vertex_curvature = false
+								prefer_high_density_tris_in_uv_density_calc = false
+								skin_parented_transforms = false
+								use_uv2_for_charts = false
+								render_mode = "default"
+								blend_weights_per_vertex = "4"
+								suppress_joint_weight_count_warnings = false
+								close_outline_at_hard_edges = false
+							},
+						]
+						filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "idle"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								disabled = true
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = true
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 19
+								frames_from_end = 80
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 19
+						end_frame = 80
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "np"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 100
+						end_frame = 390
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "np_run"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "combo"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 1
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_run_test.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "attach_run"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 23
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_run_test.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 400
+								frames_from_end = 423
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 400
+						end_frame = 423
+						framerate = 44.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "shot_and_dash"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 465
+						end_frame = 483
+						framerate = 24.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "shoot"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 430
+						end_frame = 461
+						framerate = 80.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "double_attack"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 19
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 490
+						end_frame = 514
+						framerate = 40.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "madness_cast"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 530
+						end_frame = 590
+						framerate = 60.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_dash"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 600
+						end_frame = 610
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "idle_rare"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 650
+						end_frame = 730
+						framerate = 35.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "die"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 740
+						end_frame = 805
+						framerate = 48.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "die_powerful"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 810
+						end_frame = 870
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "move"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								disabled = true
+								extract_tx = true
+								extract_ty = false
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 960
+								frames_from_end = 1000
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 960
+						end_frame = 1000
+						framerate = 48.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_1"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 490
+						end_frame = 504
+						framerate = 23.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_2"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 506
+						end_frame = 524
+						framerate = 10.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "dash_end"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang_3.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang1"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 614
+						end_frame = 638
+						framerate = 60.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "dash_pose"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang_3.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang1"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_AMBUSH"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 614
+						end_frame = 614
+						framerate = 1.0
+						reverse = false
+						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 614
+								frame_count = 120
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "np_shot"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 19
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_ult_charge.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "gun_attach_end"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "gun_attach_end"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 37
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_ult_charge.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 19
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/rofl_mang_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "mang"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "mang"
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 318
+						end_frame = 390
+						framerate = 45.0
+						reverse = false
+						additional_anim_files = [  ]
+						anim_hold_list = 
+						[
+							{
+								frame = 343
+								frame_count = 10
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "duel_cast"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 100
+						end_frame = 130
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "np_attacks_1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_SUN_STRIKE_ORB"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 231
+						end_frame = 265
+						framerate = 48.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "np_attacks_2"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 265
+						end_frame = 290
+						framerate = 60.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_3"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_COLD_SNAP_ORB"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/hijikata/leiheng/leiheng.fbx"
+						import_bone_scales = false
+						start_frame = 506
+						end_frame = 518
+						framerate = 10.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Hips"
+						relative_origin = [ 0.000000, 0.000000, 0.000000 ]
+						relative_angles = [ 0.000000, 0.000000, 0.000000 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_sword_base"
+						parent_bone = "Sword"
+						relative_origin = [ 0.000874, 29.499998, 0.633937 ]
+						relative_angles = [ 0.000000, 0.000000, 0.000000 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_sword_end"
+						parent_bone = "Sword"
+						relative_origin = [ -0.000896, 116.103569, -1.212732 ]
+						relative_angles = [ 0.000000, 0.000000, 0.000000 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "gun_attach"
+						parent_bone = "Musket_bone_fuse"
+						relative_origin = [ -1.526359, -4.407303, -0.177979 ]
+						relative_angles = [ 20.682028, 90.252876, 3.465859 ]
+						weight = 1.0
+						ignore_rotation = true
+					},
+					{
+						_class = "Attachment"
+						name = "left_eye"
+						parent_bone = "Eye_L"
+						relative_origin = [ 0.000000, 0.000000, 0.000000 ]
+						relative_angles = [ 0.000000, 0.000000, 0.000000 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "right_eye"
+						parent_bone = "Eye_R"
+						relative_origin = [ 0.000000, 0.000000, 0.000000 ]
+						relative_angles = [ 0.000000, 0.000000, 0.000000 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_run"
+						parent_bone = "Hips"
+						relative_origin = [ 0.000000, 0.000000, 0.000000 ]
+						relative_angles = [ 80.817686, 90.000058, -179.999947 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "gun_attach_end"
+						parent_bone = "Musket_bone_fuse"
+						relative_origin = [ -1.940012, 84.807175, -31.228439 ]
+						relative_angles = [ 0.000000, 0.000000, -22.000000 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang"
+						parent_bone = "Musket_bone_fuse"
+						relative_origin = [ -1.272663, 51.543091, -17.448891 ]
+						relative_angles = [ 0.000000, 0.000000, -21.999994 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mang1"
+						parent_bone = "Sword"
+						relative_origin = [ 0.000132, 76.265923, 1.274188 ]
+						relative_angles = [ -2.179696, 9.371499, 13.375040 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Hips"
+								parent_bone = "Hips"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.413020, -9.552588, -11.636959 ]
+								hitbox_maxs = [ 17.413019, 17.533077, 11.780624 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Spine"
+								parent_bone = "Spine"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.096498, 3.514786, -8.281538 ]
+								hitbox_maxs = [ 14.096478, 13.543595, 11.280972 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Chest"
+								parent_bone = "Chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.654513, -4.180062, -9.848942 ]
+								hitbox_maxs = [ 15.654524, 27.029261, 11.904506 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Neck"
+								parent_bone = "Neck"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.537987, 0.142651, -7.172195 ]
+								hitbox_maxs = [ 6.537978, 8.596013, 7.700005 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Head"
+								parent_bone = "Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.697788, -3.374194, -10.423828 ]
+								hitbox_maxs = [ 12.439550, 23.032331, 13.255157 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_shoulder"
+								parent_bone = "Left_shoulder"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.215265, 1.073823, -8.261862 ]
+								hitbox_maxs = [ 8.377352, 16.505027, 5.673571 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_arm"
+								parent_bone = "Left_arm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.094767, -0.281347, -7.355158 ]
+								hitbox_maxs = [ 6.784193, 26.786244, 4.086926 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_elbow"
+								parent_bone = "Left_elbow"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.857101, -0.446884, -6.585459 ]
+								hitbox_maxs = [ 7.273030, 30.164903, 4.213521 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_wrist"
+								parent_bone = "Left_wrist"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.848076, -0.854364, -2.432807 ]
+								hitbox_maxs = [ 4.340211, 8.728598, 3.783093 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_leg"
+								parent_bone = "Left_leg"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.347682, 5.586685, -8.824295 ]
+								hitbox_maxs = [ 8.494511, 43.205023, 11.025358 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_knee"
+								parent_bone = "Left_knee"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.169355, 2.855913, -9.492466 ]
+								hitbox_maxs = [ 6.658302, 50.282902, 8.384369 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Left_ankle"
+								parent_bone = "Left_ankle"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.563024, -3.753797, -5.912651 ]
+								hitbox_maxs = [ 5.216919, 13.112940, 8.034099 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_shoulder"
+								parent_bone = "Right_shoulder"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.377336, 1.073829, -8.261807 ]
+								hitbox_maxs = [ 10.215285, 16.505027, 5.673610 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_arm"
+								parent_bone = "Right_arm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.784204, -0.296480, -7.355133 ]
+								hitbox_maxs = [ 8.094756, 26.786253, 5.084880 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_elbow"
+								parent_bone = "Right_elbow"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.273080, -0.446904, -6.585456 ]
+								hitbox_maxs = [ 6.857054, 30.164894, 4.213464 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_wrist"
+								parent_bone = "Right_wrist"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.274283, -0.777683, -2.711014 ]
+								hitbox_maxs = [ 4.916560, 8.783663, 3.380210 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_leg"
+								parent_bone = "Right_leg"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.494475, 5.586706, -8.824285 ]
+								hitbox_maxs = [ 8.335757, 43.205032, 11.025368 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_knee"
+								parent_bone = "Right_knee"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.658299, 2.855925, -9.492436 ]
+								hitbox_maxs = [ 7.169336, 50.282913, 8.384379 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Right_ankle"
+								parent_bone = "Right_ankle"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.216939, -3.753794, -5.912581 ]
+								hitbox_maxs = [ 5.563010, 13.112922, 8.034161 ]
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

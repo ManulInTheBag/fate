@@ -317,14 +317,14 @@ end
 
 function altera_whip:WhipImpactTeammate(ally)
 	local caster = self:GetCaster()
-	ally:Heal(self:GetSpecialValueFor("int_damage") * 0.5,caster)
+	ally:Heal(self:GetSpecialValueFor("damage") * 0.5,caster)
 
 
 end
 function altera_whip:WhipImpact(enemy, form)
 	local caster = self:GetCaster()
 
-	local damage = self:GetSpecialValueFor(form.."_damage")
+	local damage = self:GetSpecialValueFor("damage")
 	DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	if caster.EndlessAcquired then
 		local slow_duration = self:GetSpecialValueFor("attribute_slow_duration")

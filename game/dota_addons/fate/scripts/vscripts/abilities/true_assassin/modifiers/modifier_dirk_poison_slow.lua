@@ -1,7 +1,22 @@
 modifier_dirk_poison_slow = class({})
 
+require("libraries/effect_bars")
+
 LinkLuaModifier("modifier_weakening_venom", "abilities/true_assassin/modifiers/modifier_weakening_venom", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dirk_poison_slow", "abilities/true_assassin/modifiers/modifier_dirk_poison_slow", LUA_MODIFIER_MOTION_NONE)
+
+-- Стаки яда кинжалов (по ним считается урон modifier_dirk_poison) показывает
+-- ряд эффектов над хелсбаром (libraries/effect_bars.lua + panorama
+-- effect_bars.js); потолка нет.
+function modifier_dirk_poison_slow:OnCreated()
+	if not IsServer() then return end
+	EffectBars:Track(self)
+end
+
+function modifier_dirk_poison_slow:OnDestroy()
+	if not IsServer() then return end
+	EffectBars:Untrack(self)
+end
 
 function modifier_dirk_poison_slow:DeclareFunctions()
 	local funcs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}

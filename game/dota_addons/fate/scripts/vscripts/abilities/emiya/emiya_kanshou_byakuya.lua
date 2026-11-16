@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_kanshou_byakuya  = emiya_kanshou_byakuya or class({})
 
  ---------------------------------------------------------------------------------------------------------------------
@@ -122,7 +123,7 @@ function emiya_kanshou_byakuya:OnSpellStart()
     local sound = math.random(1,10)
     if caster:HasModifier("modifier_hero_selection_skin") then
         if sound < 5 then
-            caster:EmitSound("emiya_skin_q_melee")
+            SkinSoundPair(caster, caster, "emiya_skin_q_melee", "emiya_kanshou_byakuya_" .. math.random(1,2))
         end
     else
  

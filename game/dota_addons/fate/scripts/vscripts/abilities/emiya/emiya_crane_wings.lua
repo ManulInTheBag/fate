@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_crane_wings  = emiya_crane_wings or class({})
 LinkLuaModifier("emiya_overedge_modifier", "abilities/emiya/emiya_crane_wings", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_emiya_dash_crane", "abilities/emiya/emiya_crane_wings", LUA_MODIFIER_MOTION_NONE)
@@ -150,7 +151,7 @@ function emiya_crane_wings:OnSpellStart()
     end)
     Timers:CreateTimer(0.3, function() 
         if caster:HasModifier("modifier_hero_selection_skin") then
-            caster:EmitSound("emiya_skin_e_melee")
+            SkinSoundPair(caster, caster, "emiya_skin_e_melee", "Emiya_Crane" .. math.random(1,2))
         else
             local soundQueue = math.random(1,2)
     

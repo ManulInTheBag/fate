@@ -6,6 +6,8 @@
 		<include src="s2r://panorama/scripts/arena_util.vjs_c" />
 		<include src="s2r://panorama/scripts/options.vjs_c" />
 		<include src="s2r://panorama/scripts/custom_ui_manifest.vjs_c" />
+		<!-- HTTP-реле через клиента для локальных лобби (см. fate_http.lua) -->
+		<include src="s2r://panorama/scripts/custom_game/fate_http_relay.vjs_c" />
 
 	</scripts>
 	
@@ -20,6 +22,8 @@
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/pepega.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/nanaya.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/rasputin_hud.vxml_c" />
+		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/effect_bars.vxml_c" />
+		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/billy_hud.vxml_c" />
 		<!--                                                                                                             -->
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_buff_bar.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_combatevent.vxml_c" />

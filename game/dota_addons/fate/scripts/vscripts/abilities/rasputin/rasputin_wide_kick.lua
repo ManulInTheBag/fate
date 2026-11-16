@@ -314,7 +314,7 @@ function rasputin_wide_kick:OnSpellStart()
             radius,
             coneAngle,
             DOTA_UNIT_TARGET_TEAM_ENEMY,
-            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            DOTA_UNIT_TARGET_ALL,
             DOTA_UNIT_TARGET_FLAG_NONE,
             self:GetSpecialValueFor("close_radius")
         )
@@ -666,24 +666,49 @@ function modifier_rasputin_wide_kick_knockback:ApplyWallStun(unit)
 
     self:GrantStackOnce()
 
+    -- урон об стену растёт от уровня героя так же, как основной удар
     DoDamage(
         self.caster,
         unit,
-        ability:GetSpecialValueFor("wallstun_damage"),
+        RasputinScaleDamage(self.caster, ability, ability:GetSpecialValueFor("wallstun_damage")),
         DAMAGE_TYPE_PHYSICAL,
         0,
         ability,
         false
     )
 
+    local stun = ability:GetSpecialValueFor("wallstun_duration")
+
+
     unit:AddNewModifier(
         self.caster,
         ability,
         "modifier_stunned",
         {
-            duration = ability:GetSpecialValueFor("wallstun_duration")
+            duration = stun
         }
     )
+
+
+    -- Метка висит ровно столько, сколько враг под контролем. Удар об стену
+    -- обрывает полёт и задаёт свой стан, поэтому метка ПЕРЕЗАДАЁТСЯ под него:
+    -- и когда полётной метки не хватало до конца валлстана, и когда в стену
+    -- влетели сразу после пинка и её остаток оказался бы длиннее стана.
+    -- Снятую диспелом метку не воскрешаем - только перезадаём живую.
+    local mark = unit:FindModifierByName("modifier_rasputin_wide_kick_target")
+
+    if mark then
+
+        unit:AddNewModifier(
+            self.caster,
+            ability,
+            "modifier_rasputin_wide_kick_target",
+            {
+                duration = stun
+            }
+        )
+
+    end
 
 end
 
@@ -707,7 +732,7 @@ function modifier_rasputin_wide_kick_knockback:CheckBystanders(unit)
         nil,
         ability:GetSpecialValueFor("chain_radius"),
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_ALL,
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -728,18 +753,9 @@ function modifier_rasputin_wide_kick_knockback:CheckBystanders(unit)
 
             RasputinGrantStack(self.caster, self.ability, enemy, "rasputin_wide_kick:" .. tostring(self.castId))
 
-            local bonusPercent =
-            ability:GetSpecialValueFor("chain_max_hp_damage_percent")
-
-
+            -- подхваченный получает столько же, сколько прилетает от удара о стену
             local damage =
-            RasputinScaleDamage(
-                self.caster,
-                ability,
-                ability:GetSpecialValueFor("damage")
-            )
-            +
-            enemy:GetMaxHealth() * (bonusPercent / 100)
+            RasputinScaleDamage(self.caster, ability, ability:GetSpecialValueFor("wallstun_damage"))
 
             ApplyDamage({
                 victim = enemy,

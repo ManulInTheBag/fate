@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_diar_dash_w", "abilities/diarmuid/diarmuid_dash", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_rampant_warrior", "abilities/diarmuid/modifiers/modifier_rampant_warrior", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rampant_warrior_cooldown", "abilities/diarmuid/modifiers/modifier_rampant_warrior_cooldown", LUA_MODIFIER_MOTION_NONE)
@@ -58,7 +59,7 @@ function diarmuid_dash:OnSpellStart()
 			end
 		end)
         if caster:HasModifier("modifier_hero_selection_skin") then
-            caster:EmitSound("lucio_dash_voice")
+            SkinSoundPair(caster, caster, "lucio_dash_voice", "diar_w_dash")
         else
             caster:EmitSound("diar_w_dash")
         end	   
@@ -175,7 +176,7 @@ function modifier_diar_dash_w:OnIntervalThink()
                     self.HittedTargets[enemy:entindex()] = true
 
                     if self.parent:HasModifier("modifier_hero_selection_skin") then
-                        enemy:EmitSound("lucio_dash")
+                        SkinSoundPair(enemy, self.parent, "lucio_dash", "Hero_PhantomLancer.Attack")
                     else
                         enemy:EmitSound("Hero_PhantomLancer.Attack")
                     end	   

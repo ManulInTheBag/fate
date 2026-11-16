@@ -274,7 +274,7 @@ if IsServer() then
 		end
 		if not gil:IsAlive() then return end 
 		if gobCounter > 2 then gobCounter = 2 end
-		local heightOffset = self:GetAbility().gobCounter * 100
+		local heightOffset = (self:GetAbility().gobCounter or 0) * 100
 		self:ShootSword(heightOffset)
 		if gobCounter > 0 then
 			self:ShootSwordWithRadiusSkip(300,heightOffset)

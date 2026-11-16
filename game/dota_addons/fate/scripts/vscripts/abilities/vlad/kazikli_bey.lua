@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 vlad_kazikli_bey = class({})
 --LinkLuaModifier("modifier_kazikli_bey", "abilities/vlad/modifier_kazikli_bey", LUA_MODIFIER_MOTION_NONE)
 --remember to merge util lua ApplyAirborne and new ApplyAirborneOnly
@@ -150,7 +151,7 @@ function vlad_kazikli_bey:OnSpellStart()
 			--else
 			if hitcounter == 6 then
 				if caster:HasModifier("modifier_hero_selection_skin") then
-					EmitGlobalSound("verg_ult")
+					SkinSoundPairGlobal(caster, "verg_ult", "Vlad.KB")
 				else
 					EmitGlobalSound("Vlad.KB")
 				end

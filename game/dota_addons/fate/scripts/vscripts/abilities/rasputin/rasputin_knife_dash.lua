@@ -37,8 +37,10 @@ end
 function rasputin_knife_dash:CastFilterResultLocation(location)
     local caster = self:GetCaster()
 
-    if RasputinIsRooted(caster) then
-        self.customCastError = "Cannot use while rooted"
+    -- В руте нож бросить можно (Q1 идёт с места, без отскока назад),
+    -- а рвануть к цели (Q2) - нет.
+    if RasputinIsRooted(caster) and self:CheckSequence() == 1 then
+        self.customCastError = "Cannot dash while rooted"
         return UF_FAIL_CUSTOM
     end
 
@@ -181,12 +183,15 @@ function rasputin_knife_dash:KnifeThrow()
 	)
 
 
-	RasputinRetreat(
-		caster,
-		direction,
-		self:GetSpecialValueFor("backstep_distance"),
-		self:GetSpecialValueFor("backstep_duration")
-	)
+	-- в руте бросок идёт с места: отскок назад - тоже перемещение
+	if not RasputinIsRooted(caster) then
+		RasputinRetreat(
+			caster,
+			direction,
+			self:GetSpecialValueFor("backstep_distance"),
+			self:GetSpecialValueFor("backstep_duration")
+		)
+	end
 
 
 	local windup = self:GetSpecialValueFor("throw_delay")
@@ -251,15 +256,17 @@ function rasputin_knife_dash:KnifeThrow()
 
 			Source = caster,
 
-			bDeleteOnHit = true,
+			-- судьбу снаряда решает OnProjectileHitHandle: нож должен проходить
+			-- сквозь обычных крипов, поэтому движку удалять его на первом
+			-- касании нельзя
+			bDeleteOnHit = false,
 
 
 			iUnitTargetTeam =
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 
 			iUnitTargetType =
-			DOTA_UNIT_TARGET_HERO +
-			DOTA_UNIT_TARGET_BASIC
+			DOTA_UNIT_TARGET_ALL
 		}
 
 		self.projectile =
@@ -279,11 +286,29 @@ end
 local SHIELD_MODIFIERS = {
 	"modifier_barrier_new",
 	"modifier_leonidas_enomotia_shield",
+	"modifier_aoko_shield",
+	"modifier_aoko_facebreaker_shield",
+	"modifier_aoko_blue_shield",
+	"modifier_aoko_blue_shield_decaying",
+	"modifier_arcueid_what_barrier",
+	"modifier_barghest_w_stance",
+	"modifier_rune_of_protection",
+	"modifier_diarmuid_parry",
+	"modifier_rho_aias_emiya",
+	"modifier_jeanne_mrex",
+	"modifier_jeanne_mrex_allies",
+	"modifier_karna_armor",
+	"modifier_king_hassan_block",
+	"modifier_lancelot_parry",
+	"modifier_argos_shield",
+	"modifier_nero_spectaculi_shield",
+	"modifier_cursed_lance",
+	
 }
 
 
 -- нож считается летящим от начала броска и до попадания или конца дистанции;
--- расчётное время полёта - страховка на случай, если OnProjectileHit не придёт
+-- расчётное время полёта - страховка на случай, если OnProjectileHitHandle не придёт
 function rasputin_knife_dash:IsKnifeInFlight()
 
 	if not self.knifeInFlight then return false end
@@ -342,7 +367,23 @@ function rasputin_knife_dash:DamageShields(hTarget)
 					taken = cap - total
 				end
 
-				shield:SetStackCount(math.max(left - taken, 0))
+				local newLeft = math.max(left - taken, 0)
+
+				shield:SetStackCount(newLeft)
+
+				-- most shields mirror the remainder in fBarrierBlock and rebuild the
+				-- stack count from it on refresh (Jeanne, King Hassan, Karna) -
+				-- without the sync a refresh would restore what was just cut.
+				-- Cursed Lance is left alone on purpose: there fBarrierBlock is
+				-- "damage absorbed" and feeds Vlad's explosion.
+				if shield.fBarrierBlock ~= nil and name ~= "modifier_cursed_lance" then
+					shield.fBarrierBlock = newLeft
+				end
+
+				-- Argos shows its remainder through the caster's counter particle
+				if name == "modifier_argos_shield" and IsNotNull(shield:GetCaster()) then
+					shield:GetCaster().argosShieldAmount = newLeft
+				end
 
 				total = total + taken
 
@@ -352,6 +393,38 @@ function rasputin_knife_dash:DamageShields(hTarget)
 
 	end
 
+
+end
+
+
+-- Страховка от зависшей метки. Обычно её снимает modifier_rasputin_knife_dash_tracker
+-- в OnDestroy, но если трекер не родился или умер не своей смертью (конец раунда,
+-- Распутин погиб в тот же тик), партикль оставался на цели до её следующей смерти.
+-- Поэтому у метки есть собственный предел жизни, ни от чего больше не зависящий.
+function RasputinWatchKnifeMark(unit, ability, fx)
+
+	if not IsServer() then return end
+
+	if not IsNotNull(unit) or not fx then return end
+
+
+	local life = 1
+
+	if IsNotNull(ability) then
+		life = ability:GetSpecialValueFor("recast_duration") + 0.5
+	end
+
+
+	Timers:CreateTimer(life, function()
+
+		if not IsNotNull(unit) then return end
+
+		-- метку уже сняли или перевесили новым ножом - эта не наша
+		if unit.rasputin_knife_mark_fx ~= fx then return end
+
+		RasputinReleaseKnifeMark(unit, ability)
+
+	end)
 
 end
 
@@ -389,13 +462,38 @@ function RasputinReleaseKnifeMark(unit, ability)
 end
 
 
-function rasputin_knife_dash:OnProjectileHit(hTarget, vLocation)
+-- Снаряд живёт с bDeleteOnHit = false, поэтому судьбу броска решает эта функция:
+-- false - нож летит дальше, true (+ DestroyLinearProjectile) - гаснет.
+function rasputin_knife_dash:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandle)
 	local hCaster = self:GetCaster()
+
+	if hTarget ~= nil then
+
+		-- обычный крип ножу не помеха: снаряд проходит сквозь него, без урона и
+		-- метки, и летит дальше за героем. Крипы-герои (кракен, дракон, башня,
+		-- пирамида) - цель.
+		if not RasputinIsStackTarget(hTarget) then
+			return false
+		end
+
+		-- Protection from Arrows: нож так же проходит насквозь и летит дальше
+		if hTarget:HasModifier("modifier_protection_from_arrows_active") then
+			return false
+		end
+
+	end
 
 	-- прилетел в цель или выдохся по дистанции - в любом случае бросок закончен
 	self.knifeInFlight = nil
+
  	 if(hTarget ~= nil) then
-	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
+
+	-- цель найдена - гасим снаряд руками: bDeleteOnHit выключен, и для линейных
+	-- снарядов одного return true движку недостаточно
+	if iProjectileHandle then
+		ProjectileManager:DestroyLinearProjectile(iProjectileHandle)
+	end
+
 	hCaster:EmitSound("rasputin_knife_dash_hit")
 
 
@@ -440,6 +538,12 @@ function rasputin_knife_dash:OnProjectileHit(hTarget, vLocation)
 		RasputinFx(hCaster, "particles/rasputin/rasputin_knife_mark.vpcf"),
 		PATTACH_OVERHEAD_FOLLOW,
 		hTarget
+	)
+
+	RasputinWatchKnifeMark(
+		hTarget,
+		self,
+		hTarget.rasputin_knife_mark_fx
 	)
 
 	-- если Q2 уже взведён предыдущим ножом, второй нож переносит метку на новую цель,

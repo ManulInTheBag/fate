@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_unlimited_bladeworks = class({})
 modifier_ubw_chronosphere = class({})
 
@@ -55,7 +56,7 @@ function emiya_unlimited_bladeworks:GrantUBWChantBuff()
              else
             -- apply legion horn vsnd on their client
             if caster:HasModifier("modifier_hero_selection_skin") then
-                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_".. self:GetUBWCastCount()})
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = (SkinSoundHeard(caster, playerID) and "emiya_skin_ubw_chant_" or "emiya_ubw") .. self:GetUBWCastCount()})
             else
                 CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw".. self:GetUBWCastCount()})
             end
@@ -65,7 +66,7 @@ function emiya_unlimited_bladeworks:GrantUBWChantBuff()
         end
     end) 
     if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_ubw_chant_".. self:GetUBWCastCount())
+        SkinSoundPair(caster, caster, "emiya_skin_ubw_chant_".. self:GetUBWCastCount(), "emiya_ubw".. self:GetUBWCastCount())
     else
         caster:EmitSound("emiya_ubw".. self:GetUBWCastCount())
     end
@@ -161,7 +162,7 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
                 CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
                 else
                     if caster:HasModifier("modifier_hero_selection_skin") then
-                        CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_7"})
+                        CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = SkinSoundHeard(caster, playerID) and "emiya_skin_ubw_chant_7" or "emiya_ubw7"})
                     else
                         CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw7"})
                     end

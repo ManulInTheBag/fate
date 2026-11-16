@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 -----------------------------
 --    Armistice    --
 -----------------------------
@@ -56,7 +57,7 @@ function lu_bu_armistice:OnSpellStart()
 		end
 	end
 	if jiaQiuSkin then
-		caster:EmitSound("jia_qiu_armistice")
+		SkinSoundPair(caster, caster, "jia_qiu_armistice", "lu_bu_generic_1")
 	else
 		caster:EmitSound("lu_bu_generic_1")
 	end

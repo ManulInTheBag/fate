@@ -1,0 +1,19 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/billy_hud.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/billy_hud.vjs_c" />
+	</scripts>
+
+	<!--
+		Счётчик пуль Билли справа от его хелсбара (как заряды E у Распутина,
+		rasputin_hud). Панель строится в скрипте; контейнер на весь экран и
+		не ловит ввод. У корня id быть не может - компилятор не даёт.
+	-->
+	<Panel class="BillyHudRoot" hittest="false" hittestchildren="false">
+		<Panel id="BillyHudRoot" class="BillyHudRoot" hittest="false" hittestchildren="false">
+		</Panel>
+	</Panel>
+</root>

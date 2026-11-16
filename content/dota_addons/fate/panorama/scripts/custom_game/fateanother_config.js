@@ -140,6 +140,9 @@ function OnConfigZoneMsgToggle(){
     panel.SetHasClass("ZoneMsgHidden", !toggle.checked);
 }
 
+// Тумблеры значков эффектов и значка выживания живут во вкладке Effects
+// (fateanother_effects.js) и сохраняются на сервере вместе с фильтрами.
+
 function OnConfig9Toggle()
 {
     g_GameConfig.bIsConfig9On = !g_GameConfig.bIsConfig9On;

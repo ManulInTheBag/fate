@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Generate empty-model stubs for stock wearable vmdl_c of fate's override base heroes.
 
-Usage: python gen_stubs.py [--write]   (default = dry run)
+Usage: python gen_wearable_stubs.py --write   (default = dry run)
 """
 import os, re, struct, sys, shutil, zlib
 from collections import defaultdict
@@ -21,7 +21,7 @@ HERO_DIRS = {
         'phantom_lancer','phoenix','puck','queenofpain','razor','rikimaru','shadowshaman',
         'wraith_king','skywrath_mage','sniper','spectre','spirit_breaker','sven','lanaya',
         'terrorblade','tidehunter','tiny','tiny_01','tiny_02','tiny_03','tiny_04',
-        'treant_protector','troll_warlord','ursa','vengeful','venomancer','windrunner',
+        'treant_protector','troll_warlord','ursa','vengeful','venomancer','windrunner', 'dragon_knight', 'pangolier', 'dragon_knight_persona', 'muerta'
     ],
     'items': [
         'abaddon','axe','beastmaster','blood_seeker','bounty_hunter','centaur','chen','clinkz',
@@ -32,7 +32,7 @@ HERO_DIRS = {
         'queenofpain','razor','rikimaru','shadowshaman','skeleton_king','wraith_king',
         'skywrath_mage','sniper','spectre','spirit_breaker','sven','lanaya','templar_assassin',
         'terrorblade','tidehunter','tiny','tiny_01','tiny_02','tiny_03','tiny_04','treant',
-        'troll_warlord','ursa','vengeful','vengefulspirit','venomancer','windrunner',
+        'troll_warlord','ursa','vengeful','vengefulspirit','venomancer','windrunner', 'dragon_knight', 'pangolier', 'dragon_knight_persona', 'muerta'
     ],
 }
 
@@ -41,7 +41,27 @@ HERO_DIRS = {
 # clipped through Scathach). The only refs are unused copies of stock particles.
 FORCE_STUB = {
     'models/heroes/monkey_king/monkey_king_base_weapon.vmdl',
+    'models/heroes/dragon_knight_persona/dk_persona_shoulder_pauldrons.vmdl',
+    'models/heroes/dragon_knight/dragon_knight.vmdl',
+    'models/heroes/dragon_knight/helmet.vmdl',
+    'models/heroes/dragon_knight/shoulders.vmdl',
+    'models/heroes/dragon_knight/skirt.vmdl',
+    'models/heroes/dragon_knight/bracers.vmdl',
+    'models/heroes/dragon_knight/shield.vmdl',
+    'models/heroes/dragon_knight/weapon.vmdl',
+    'models/heroes/dragon_knight/dragon_knight.vmdl',
 }
+
+# Never stubbed: not wearables, but models used by stock particles the addon plays
+# (Billy fires muerta_base_attack / deadshot particles) or debut/minigame scenery.
+KEEP_PREFIXES = (
+    'models/heroes/muerta/debut/',
+    'models/heroes/muerta/muerta_base.vmdl',
+    'models/heroes/muerta/muerta_projectile_model_fx.vmdl',
+    'models/heroes/muerta/muerta_flower_fx_',
+    'models/heroes/muerta/muerta_minigame_',
+    'models/heroes/muerta/muerta_summon_model.vmdl',
+)
 
 def read_cstr(buf, off):
     end = buf.index(b'\x00', off)
@@ -121,6 +141,9 @@ def main():
             skipped_exist += 1
             continue
         if pl[:-2] in refs and pl[:-2] not in FORCE_STUB:  # .vmdl_c -> .vmdl
+            skipped_ref.append(pl)
+            continue
+        if pl.startswith(KEEP_PREFIXES):
             skipped_ref.append(pl)
             continue
         todo.append(pl)

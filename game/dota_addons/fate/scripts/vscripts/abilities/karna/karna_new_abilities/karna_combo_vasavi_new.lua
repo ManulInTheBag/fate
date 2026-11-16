@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 karna_combo_vasavi_new = class({})
 
 LinkLuaModifier("modifier_vasavi_hit", "abilities/karna/modifiers/modifier_vasavi_hit", LUA_MODIFIER_MOTION_NONE)
@@ -158,7 +159,7 @@ function karna_combo_vasavi_new:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 		--ParticleManager:DestroyParticle(self.WeaponSpark, true)
 		--ParticleManager:ReleaseParticleIndex(self.WeaponSpark)
 		if hCaster:HasModifier("modifier_hero_selection_skin") then
-			EmitGlobalSound("mecha_combo_explosion")
+			SkinSoundPairGlobal(hCaster, "mecha_combo_explosion", "karna_vasavi_explosion")
 		else
 			EmitGlobalSound("karna_vasavi_explosion")
 		end

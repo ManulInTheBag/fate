@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 nobu_shot = class({})
 
 LinkLuaModifier("modifier_nobu_slow","abilities/nobu/nobu_shot", LUA_MODIFIER_MOTION_NONE)
@@ -44,7 +45,7 @@ function nobu_shot:OnSpellStart()
         local position = self:GetCursorPosition()
         local facing = ForwardVForPointGround(hCaster,position)
         if hCaster:HasModifier("modifier_hero_selection_skin") then
-            hCaster:EmitSound("lament_1")
+            SkinSoundPair(hCaster, hCaster, "lament_1", "nobu_shoot_1")
         else
             hCaster:EmitSound("nobu_shoot_1")
         end
@@ -110,7 +111,7 @@ function nobu_shot:OnProjectileHit(target, location )
     end
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     if hCaster:HasModifier("modifier_hero_selection_skin") then
-        target:EmitSound("lament_3")
+        SkinSoundPair(target, hCaster, "lament_3", "nobu_shot_impact_"..math.random(1,2))
     else
        target:EmitSound("nobu_shot_impact_"..math.random(1,2))
     end
@@ -205,7 +206,7 @@ function nobu_shot:EShot(keys, position)
         dummy:SetForwardVector((    self.target_enemy:GetAbsOrigin() - position ):Normalized())
         local velocity = dummy:GetForwardVector()
         if self.caster:HasModifier("modifier_hero_selection_skin") then
-            dummy:EmitSound("lament_1")
+            SkinSoundPair(dummy, self.caster, "lament_1", "nobu_shoot_1")
         else
             dummy:EmitSound("nobu_shoot_1")
         end

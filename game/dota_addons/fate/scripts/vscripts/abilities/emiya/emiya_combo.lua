@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_combo = class({})
 LinkLuaModifier("modifier_ubw_chronosphere", "abilities/emiya/emiya_unlimited_bladeworks", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arrow_rain_cooldown", "abilities/emiya/modifiers/modifier_arrow_rain_cooldown", LUA_MODIFIER_MOTION_NONE)
@@ -29,7 +30,7 @@ function emiya_combo:OnSpellStart()
 			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
 			else
 				if caster:HasModifier("modifier_hero_selection_skin") then
-					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_7"})
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = SkinSoundHeard(caster, playerID) and "emiya_skin_ubw_chant_7" or "emiya_ubw7"})
 				else
                     CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw7"})
                 end
@@ -78,13 +79,13 @@ function emiya_combo:OnSpellStart()
 	Timers:CreateTimer(2.0, function()
 		if not IsNotNull(caster) or not caster:IsAlive() then return end
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			caster:EmitSound("emiya_skin_ubw_combo")
+			SkinSoundPair(caster, caster, "emiya_skin_ubw_combo", "Archer.Combo")
 		else
 			caster:EmitSound("Archer.Combo") 
 		end
 	
 		if caster:HasModifier("modifier_hero_selection_skin") then
-			EmitSoundOnLocationWithCaster(ubwCenter, "emiya_skin_shirou_ubw", caster)
+			SkinSoundPairAt(ubwCenter, caster, "emiya_skin_shirou_ubw", "emiya_combo_music")
 		else
 			EmitSoundOnLocationWithCaster(ubwCenter, "emiya_combo_music", caster)
 		end

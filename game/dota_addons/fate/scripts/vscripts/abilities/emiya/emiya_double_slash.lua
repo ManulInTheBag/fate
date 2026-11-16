@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_double_slash  = emiya_double_slash or class({})
 
 LinkLuaModifier("modifier_emiya_self_control","abilities/emiya/emiya_double_slash", LUA_MODIFIER_MOTION_NONE)
@@ -59,7 +60,7 @@ function emiya_double_slash:OnSpellStart()
     end
 
     if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_w_melee")
+        SkinSoundPair(caster, caster, "emiya_skin_w_melee", nil)
     end
 
     FindClearSpaceForUnit(caster, vCasterPos + vCastDirection * vDistance, true)

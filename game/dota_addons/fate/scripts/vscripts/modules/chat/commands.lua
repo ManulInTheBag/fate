@@ -237,6 +237,173 @@ return {
 			Console:SetVisible(PlayerResource:GetPlayer(playerId))
 		end
 	},
+	-- Проверка ряда эффектов над хелсбаром (libraries/effect_bars.lua): вешает
+	-- стаки Ли, Сайто, Мурамасы, яд Робина, проклятия Скатах и Аталанты Альтер,
+	-- стрелы Аталанты на всех юнитов в 1200 вокруг героя.
+	--   -effbars [li] [saito] [mura] [robin] [scathach] [alter] [atalanta] [vlad] [medusa] [hassan]
+	--       стаки (по умолчанию 25 4 3 12 6 37 23 14 5 3, 0 = не вешать);
+	--       проклятие Альтер, кровь Влада и Медузы - только от этих героев:
+	--       их модификаторы берут данные из своих способностей. Яд Хассана:
+	--       скрытый яд (урон) на 6 с, стаки на 12 с - значок первые 6 с
+	--       яркий, потом тусклый (стаки есть, урон не идёт)
+	--   -effbars me [...]             то же, но и на себя
+	--   -effbars boom                 взрыв Ли, как от удара NSS (и без стаков)
+	--   -effbars off                  снять всё
+	-- Кастер - свой герой, поэтому потолки без его способностей берутся запасные
+	-- (50 / 10 / 5 / 30 / 10, у Аталант потолка нет), а атрибутов Ли и Робина нет - ступени цвета Ли не
+	-- включатся, потолок яда 30.
+	["effbars"] = {
+		level = CUSTOMCHAT_COMMAND_LEVEL_CHEAT_DEVELOPER,
+		f = function(args, hero)
+			if not IsNotNull(hero) then return end
+
+			-- модификаторы связываются в файлах способностей: без этих героев в
+			-- матче они не связаны (повторная связка безвредна)
+			require("libraries/effect_bars")
+			LinkLuaModifier("modifier_nss_shock_stackable", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("saito_formlessness_new_stacks", "abilities/saito/vergil_saito/saito_formlessness_new", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_muramasa_sword_drop_enemy_buff", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_robin_poison_stack", "abilities/robin/modifiers/modifier_robin_poison_stack", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_atalanta_curse", "abilities/alter_atalanta/atalanta_curse", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_celestial_arrow_stacking_debuff", "abilities/atalanta/celestial_arrow", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_bleed", "abilities/vlad/modifier_bleed", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_medusa_bleed", "abilities/medusa/medusa_nail_hook", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_dirk_poison_slow", "abilities/true_assassin/modifiers/modifier_dirk_poison_slow", LUA_MODIFIER_MOTION_NONE)
+			LinkLuaModifier("modifier_dirk_poison", "abilities/true_assassin/modifiers/modifier_dirk_poison", LUA_MODIFIER_MOTION_NONE)
+
+			local LI = "modifier_nss_shock_stackable"
+			local SAITO = "saito_formlessness_new_stacks"
+			local MURA = "modifier_muramasa_sword_drop_enemy_buff"
+			local ROBIN = "modifier_robin_poison_stack"
+			local SCATHACH = "modifier_stachach_gae_bolg_curse"
+			local ALTER = "modifier_atalanta_curse"
+			local ATALANTA = "modifier_celestial_arrow_stacking_debuff"
+			local VLAD = "modifier_bleed"
+			local MEDUSA = "modifier_medusa_bleed"
+			local HASSAN = "modifier_dirk_poison_slow"
+			local HASSAN_DOT = "modifier_dirk_poison"
+
+			-- foe: кастер - ближайший другой юнит, а не свой герой (проверка
+			-- фильтров «чьи эффекты показывать» во вкладке Effects)
+			local foe = args[1] == "foe"
+			if foe then table.remove(args, 1) end
+			local withSelf = args[1] == "me"
+			if withSelf then table.remove(args, 1) end
+
+			local targets = {}
+			for _, unit in pairs(FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, 1200,
+					DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+					FIND_CLOSEST, false)) do
+				if unit ~= hero then
+					table.insert(targets, unit)
+				end
+			end
+			if withSelf then
+				table.insert(targets, hero)
+			end
+
+			if args[1] == "off" then
+				for _, unit in pairs(targets) do
+					unit:RemoveModifierByName(LI)
+					unit:RemoveModifierByName(SAITO)
+					unit:RemoveModifierByName(MURA)
+					unit:RemoveModifierByName(ROBIN)
+					unit:RemoveModifierByName(SCATHACH)
+					unit:RemoveModifierByName(ALTER)
+					unit:RemoveModifierByName(ATALANTA)
+					unit:RemoveModifierByName(VLAD)
+					unit:RemoveModifierByName(MEDUSA)
+					unit:RemoveModifierByName(HASSAN)
+					unit:RemoveModifierByName(HASSAN_DOT)
+				end
+				return
+			end
+
+			-- как удар NSS: взрыв и на целях без стаков
+			if args[1] == "boom" then
+				for _, unit in pairs(targets) do
+					unit:RemoveModifierByName(LI)
+					EffectBars:Burst(unit, "shuwen", hero)
+				end
+				return
+			end
+
+			local owner = hero
+			if foe and targets[1] then
+				owner = targets[1]
+			end
+
+			local li = tonumber(args[1]) or 25
+			local saito = tonumber(args[2]) or 4
+			local mura = tonumber(args[3]) or 3
+			local robin = tonumber(args[4]) or 12
+			local scathach = tonumber(args[5]) or 6
+			local alter = tonumber(args[6]) or 37
+			local atalanta = tonumber(args[7]) or 23
+			local vlad = tonumber(args[8]) or 14
+			local medusa = tonumber(args[9]) or 5
+			local hassan = tonumber(args[10]) or 3
+			local rending = hero:FindAbilityByName("vlad_passive_rending")
+			local chains = hero.MasterUnit2 and hero.MasterUnit2:FindAbilityByName("medusa_chain_attribute")
+
+			for _, unit in pairs(targets) do
+				if li > 0 then
+					unit:AddNewModifier(owner, nil, LI, { duration = 15, stacks = li })
+				end
+				if saito > 0 then
+					local mod = unit:AddNewModifier(owner, nil, SAITO, { duration = 8 })
+					if mod then mod:SetStackCount(saito) end
+				end
+				if mura > 0 then
+					local mod = unit:AddNewModifier(owner, nil, MURA, { duration = 20 })
+					if mod then mod:SetStackCount(mura) end
+				end
+				if robin > 0 then
+					local mod = unit:AddNewModifier(owner, nil, ROBIN, { duration = 15 })
+					if mod then mod:SetStackCount(robin) end
+				end
+				if scathach > 0 then
+					local mod = unit:AddNewModifier(owner, nil, SCATHACH, { duration = 10 })
+					if mod then mod:SetStackCount(math.min(scathach, 10)) end
+				end
+				-- проклятие Альтер берёт урон от GetAbility() в OnDestroy и в
+				-- GetModifierIncomingDamage_Percentage, без способности упадёт -
+				-- вешаем, только если она у героя есть
+				local curse = hero:FindAbilityByName("atalanta_curse")
+				if alter > 0 and curse then
+					local mod = unit:AddNewModifier(owner, curse, ALTER, { duration = 10 })
+					if mod then mod:SetStackCount(alter) end
+				end
+				if atalanta > 0 then
+					local mod = unit:AddNewModifier(owner, nil, ATALANTA, { duration = 7 })
+					if mod then mod:SetStackCount(atalanta) end
+				end
+				if vlad > 0 and rending then
+					local mod = unit:AddNewModifier(owner, rending, VLAD, { duration = 10 })
+					if mod then mod:SetStackCount(vlad) end
+				end
+				if medusa > 0 and chains then
+					local mod = unit:AddNewModifier(owner, chains, MEDUSA, { duration = 7 })
+					if mod then mod:SetStackCount(medusa) end
+				end
+				if hassan > 0 then
+					-- урон 0: проверяем только отображение
+					unit:AddNewModifier(owner, nil, HASSAN_DOT, { duration = 6, PoisonDamage = 0, PoisonSlow = 0 })
+					unit:RemoveModifierByName(HASSAN)
+					local mod = unit:AddNewModifier(owner, nil, HASSAN, { duration = 12 })
+					if mod then mod:SetStackCount(hassan) end
+				end
+			end
+
+			GameRules:SendCustomMessage(string.format("[effbars] %d юнитов: Ли %d, Сайто %d, Мурамаса %d, Робин %d, Скатах %d, Альтер %d%s, Аталанта %d, Влад %d%s, Медуза %d%s, Хассан %d",
+				#targets, li, saito, mura, robin, scathach,
+				alter, hero:FindAbilityByName("atalanta_curse") and "" or " (нужна Альтер)", atalanta,
+				vlad, rending and "" or " (нужен Влад)", medusa, chains and "" or " (нужна Медуза с атрибутом цепей)",
+				hassan), 0, 0)
+		end
+	},
 	-- Диагностика слотов способностей: сколько их у Слуги, что реально лежит в каждом слоте
 	-- и доехали ли пустые таланты special_bonus_fate_none_* (без них клиент падает по ALT).
 	["slots"] = {

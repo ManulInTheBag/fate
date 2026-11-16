@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_ryougi_collapse_cd", "abilities/ryougi/ryougi_collapse", LUA_MODIFIER_MOTION_NONE)
 
 ryougi_collapse = class({})
@@ -47,7 +48,7 @@ function ryougi_collapse:OnSpellStart()
     local combo_enemy = nil
 	if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-				EmitGlobalSound("tingtang_combo_cast")
+				SkinSoundPairGlobal(caster, "tingtang_combo_cast", "ryougi_combo_start")
 			else
 				EmitGlobalSound("ryougi_combo_start")
 			end
@@ -73,7 +74,7 @@ function ryougi_collapse:OnSpellStart()
 
     if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-					EmitSoundOn("tingtang_slash_combo", caster)
+					SkinSoundPair(caster, caster, "tingtang_slash_combo", "jtr_slash")
 				else
 					EmitSoundOn("jtr_slash", caster)
 				end
@@ -97,7 +98,7 @@ function ryougi_collapse:OnSpellStart()
 	
 	if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-					EmitSoundOn("tingtang_slash_3", caster)
+					SkinSoundPair(caster, caster, "tingtang_slash_3", "jtr_slash")
 				else
 					EmitSoundOn("jtr_slash", caster)
 				end
@@ -170,7 +171,7 @@ function ryougi_collapse:OnSpellStart()
 
 			if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-					EmitSoundOn("tingtang_slash_2", caster)
+					SkinSoundPair(caster, caster, "tingtang_slash_2", "jtr_slash")
 				else
 					EmitSoundOn("jtr_slash", caster)
 				end
@@ -198,7 +199,7 @@ function ryougi_collapse:OnSpellStart()
 	Timers:CreateTimer(0.5, function()
 		if caster:HasModifier("modifier_hero_selection_skin") then
 			if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-				EmitGlobalSound("tingtang_combo_voice")
+				SkinSoundPairGlobal(caster, "tingtang_combo_voice", "ryougi_combo")
 			else
 				EmitGlobalSound("ryougi_combo")
 			end
@@ -229,7 +230,7 @@ function ryougi_collapse:OnSpellStart()
 		    end)
 			if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-					EmitSoundOn("tingtang_slash_3", caster)
+					SkinSoundPair(caster, caster, "tingtang_slash_3", "jtr_slash")
 				else
 					EmitSoundOn("jtr_slash", caster)
 				end
@@ -257,10 +258,10 @@ function ryougi_collapse:OnSpellStart()
 			if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
 
-					EmitSoundOn("tingtang_combo_voice", caster)
-					EmitSoundOn("tingtang_combo_last", combo_enemy)
+					SkinSoundPair(caster, caster, "tingtang_combo_voice", nil)
+					SkinSoundPair(combo_enemy, caster, "tingtang_combo_last", nil)
 					Timers:CreateTimer(0.2, function()
-						EmitSoundOn("tingtang_combo_slashes", combo_enemy)
+						SkinSoundPair(combo_enemy, caster, "tingtang_combo_slashes", nil)
 
 					end)
 				end
@@ -290,7 +291,7 @@ function ryougi_collapse:OnSpellStart()
 					
 					if caster:HasModifier("modifier_hero_selection_skin") then
 						if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-							
+							SkinSoundPair(combo_enemy, caster, nil, "ryougi_hit")
 						else
 							EmitSoundOn("ryougi_hit", combo_enemy)
 						end

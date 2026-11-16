@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 modifier_lu_bu_relentless_assault_three = class({})
 LinkLuaModifier( "modifier_lu_bu_relentless_assault_three_root", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_three_root", LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------
@@ -93,6 +94,8 @@ function modifier_lu_bu_relentless_assault_three:OnIntervalThink()
 	end
 	if not jiaQiuSkin then
 		caster:EmitSound("relentless_assault_three")
+	else
+		SkinSoundPair(caster, caster, nil, "relentless_assault_three")
 	end
 	
 	local enemies = FindUnitsInRadius(
@@ -144,7 +147,7 @@ function modifier_lu_bu_relentless_assault_three:PlayEffects()
 	local sound_cast = "relentless_assault_three"
 	if jiaQiuSpin then
 		sound_cast = "jia_qiu_spin"
-		EmitSoundOn( "Hero_Juggernaut.BladeFuryStart", self:GetParent() )
+		SkinSoundPair( self:GetParent(), self:GetParent(), "Hero_Juggernaut.BladeFuryStart", nil )
 	end
 
 	-- buff particle
@@ -158,7 +161,7 @@ function modifier_lu_bu_relentless_assault_three:PlayEffects()
 	)
 
 	-- Emit sound
-	EmitSoundOn( sound_cast, self:GetParent() )
+	SkinSoundPair( self:GetParent(), self:GetParent(), sound_cast, "relentless_assault_three" )
 end
 
 function modifier_lu_bu_relentless_assault_three:PlayEffects2( target )

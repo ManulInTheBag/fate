@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 LinkLuaModifier("modifier_lu_bu_rage", "abilities/lu_bu/lu_bu_rage", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lu_bu_rage_passive", "abilities/lu_bu/lu_bu_rage", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lu_bu_rage_slow", "abilities/lu_bu/lu_bu_rage", LUA_MODIFIER_MOTION_NONE)
@@ -24,10 +25,10 @@ function lu_bu_rage:OnSpellStart()
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 1 then
 			rageSound = "jia_qiu_rage"
-			caster:EmitSound("jia_qiu_rage_sfx")
+			SkinSoundPair(caster, caster, "jia_qiu_rage_sfx", nil)
 		end
 	end
-	caster:EmitSound(rageSound)
+	SkinSoundPair(caster, caster, rageSound, "lu_bu_rage")
 	local duration = self:GetSpecialValueFor("active_duration")
 	caster:AddNewModifier(caster,self,"modifier_lu_bu_rage",{duration = 1})
 	caster:AddNewModifier(caster,self,"modifier_lu_bu_rage_passive",{duration = self:GetSpecialValueFor("passive_duration")})

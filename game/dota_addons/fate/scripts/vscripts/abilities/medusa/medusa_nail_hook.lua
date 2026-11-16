@@ -5,6 +5,8 @@ LinkLuaModifier("modifier_medusa_hook_particle_control","abilities/medusa/medusa
 LinkLuaModifier("modifier_medusa_new_combo_window", "abilities/medusa/medusa_nail_hook", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_medusa_bleed","abilities/medusa/medusa_nail_hook", LUA_MODIFIER_MOTION_NONE)
 
+require("libraries/effect_bars")
+
 function medusa_nail_hook:GetCastRange()
 	return self:GetSpecialValueFor("range")
 end
@@ -407,8 +409,11 @@ function modifier_medusa_bleed:IsDebuff()
 	return true 
 end
 
+-- Стаки показывает ряд эффектов над хелсбаром (libraries/effect_bars.lua +
+-- panorama effect_bars.js); потолка нет.
 function modifier_medusa_bleed:OnCreated()
 	if IsServer() then
+		EffectBars:Track(self)
 		self.parent = self:GetParent()
 		self.caster = self:GetCaster()
 		self.ability = self:GetAbility()
@@ -421,6 +426,12 @@ end
 function modifier_medusa_bleed:OnRefresh()
 	if IsServer() then
 		self:SetStackCount(self:GetStackCount() + 1)
+	end
+end
+
+function modifier_medusa_bleed:OnDestroy()
+	if IsServer() then
+		EffectBars:Untrack(self)
 	end
 end
 

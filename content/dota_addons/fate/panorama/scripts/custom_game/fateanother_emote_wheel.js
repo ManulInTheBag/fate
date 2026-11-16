@@ -1,4 +1,4 @@
-// Emote wheel: a radial picker for the fbt_incident_1..14 emotes (the ones you
+// Emote wheel: a radial picker for the fbt_incident_1..17 emotes (the ones you
 // normally trigger by typing "#N" in chat). The hotkey panel binds a key whose
 // +command opens the wheel and whose -command releases it, so this is a
 // hold-to-open / release-to-send control like Dota's message wheel.
@@ -11,12 +11,12 @@
 
 (function () {
     var SEG_COUNT = 8;          // wheel has 8 slots...
-    var TOTAL_EMOTES = 14;      // ...chosen from fbt_incident_1..14
+    var TOTAL_EMOTES = 17;      // ...chosen from fbt_incident_1..17
     var RADIUS = 130;           // segment placement radius, container CSS px
     var DEADZONE_RATIO = 0.16;  // fraction of container size = "cancel" (center)
     var COOLDOWN = 2;           // client-optimistic cooldown, seconds (matches server)
 
-    // The wheel loadout maps each of the 8 slots to an emote number (1..14). It
+    // The wheel loadout maps each of the 8 slots to an emote number (1..17). It
     // is shared with the hotkey config panel via CustomUIConfig, so editing it
     // there takes effect here the next time the wheel is opened. Default = 1..8.
     function DefaultLoadout() { return [1, 2, 3, 4, 5, 6, 7, 8]; }

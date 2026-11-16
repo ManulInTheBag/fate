@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 ryougi_knife_recast = class({})
 
 function ryougi_knife_recast:OnUpgrade()
@@ -45,7 +46,7 @@ function ryougi_knife_recast:StartCombo(combo_enemy)
 	local target = Vector(0, 0, 0)
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitGlobalSound("tingtang_r_recast")
+			SkinSoundPairGlobal(caster, "tingtang_r_recast", "ryougi_nibio")
 		else
 			EmitGlobalSound("ryougi_nibio")
 		end
@@ -97,7 +98,7 @@ function ryougi_knife_recast:StartCombo(combo_enemy)
 	EmitSoundOn("ryougi_hit", combo_enemy)
 	if caster:HasModifier("modifier_hero_selection_skin") then
 		if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-			EmitSoundOn("tingtang_slash_3", combo_enemy)
+			SkinSoundPair(combo_enemy, caster, "tingtang_slash_3", nil)
 		end
 	end
 
@@ -135,7 +136,7 @@ function ryougi_knife_recast:StartCombo(combo_enemy)
 			ParticleManager:SetParticleControl( fxIndex, 1, combo_enemy:GetAbsOrigin()-random_vector)
 			if caster:HasModifier("modifier_hero_selection_skin") then
 				if caster:FindModifierByName("modifier_hero_selection_skin").skinNumber == 2 then
-					EmitSoundOn("tingtang_slash", caster)
+					SkinSoundPair(caster, caster, "tingtang_slash", "jtr_slash")
 				else
 					EmitSoundOn("jtr_slash", caster)
 				end

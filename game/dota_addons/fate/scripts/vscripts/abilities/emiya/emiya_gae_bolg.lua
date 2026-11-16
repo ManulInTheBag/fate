@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 emiya_gae_bolg = class({})
 
 function emiya_gae_bolg:CastFilterResultLocation(vLocation)
@@ -29,7 +30,7 @@ function emiya_gae_bolg:OnAbilityPhaseStart()
 	StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ALACRITY, rate=1})
 	
 	if caster:HasModifier("modifier_hero_selection_skin") then
-        caster:EmitSound("emiya_skin_ubw_e")
+        SkinSoundPair(caster, caster, "emiya_skin_ubw_e", "emiya_gae_bolg")
     else
 		caster:EmitSound("emiya_gae_bolg")
     end

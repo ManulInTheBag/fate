@@ -1,3 +1,4 @@
+require("libraries/skin_fx")   -- SkinSoundPair*: who hears the skin sounds (Effects tab, skin sounds)
 lu_bu_relentless_assault_four = class({})
 LinkLuaModifier( "modifier_lu_bu_relentless_assault_four_silence", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_four_silence", LUA_MODIFIER_MOTION_NONE )
 
@@ -17,9 +18,9 @@ function lu_bu_relentless_assault_four:OnSpellStart()
 		end
 	end
 	if jiaQiuSkin then
-		caster:EmitSound("jia_qiu_finisher")
-		caster:EmitSound("Hero_Centaur.HoofStomp")
-		caster:EmitSound("jia_qiu_slam")
+		SkinSoundPair(caster, caster, "jia_qiu_finisher", "lu_bu_relentless_assault_three")
+		SkinSoundPair(caster, caster, "Hero_Centaur.HoofStomp", nil)
+		SkinSoundPair(caster, caster, "jia_qiu_slam", nil)
 	else
 		caster:EmitSound("lu_bu_relentless_assault_three")
 	end
